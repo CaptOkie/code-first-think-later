@@ -26,3 +26,12 @@
 *.exe
 *.out
 *.app
+
+# Texmaker
+*.aux
+*.lof
+*.log
+*.lot
+*.pdf
+*.synctex.gz
+*.toc
