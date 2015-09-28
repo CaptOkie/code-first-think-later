@@ -1,5 +1,6 @@
 CaptOkie:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
+1 Hour: Clean up main.tex to allow for easier editting. A lot of the formatting and such is simplified.
 
 TheBakedPotato:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
