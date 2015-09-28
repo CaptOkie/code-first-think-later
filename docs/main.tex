@@ -1,37 +1,20 @@
-\RequirePackage{fix-cm}
-\documentclass[english]{article}
-\usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
-\usepackage{geometry}
-\geometry{verbose,tmargin=1.5cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[margin=1in,headheight=1.5em]{geometry}
+\usepackage{enumerate}
 \usepackage{fancyhdr}
-\pagestyle{fancy}
-\usepackage{color}
-\usepackage{float}
-
-\makeatletter
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
-\usepackage{enumitem}		% customizable list environments
-\newlength{\lyxlabelwidth}      % auxiliary length 
-\newcommand{\code}[1]{\texttt{#1}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-\usepackage{changepage}
 \usepackage{lastpage}
-\usepackage{lmodern}
-\fancyhf{}               % Clear fancy header/footer
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{COMP 3004}   % My name in Left footer
-\fancyfoot[R]{\thepage/\pageref{LastPage}}  % Page number in Right footer
-\fancyfoot[C]{Requirements Analysis Document [D1]}
-\makeatletter
-\let\ps@plain\ps@fancy   % Plain page style = fancy page style
-\makeatother
 
-\makeatother
-
-\usepackage{babel}
 \begin{document}
+
+\renewcommand\headrule{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lfoot{COMP 3004}
+\rfoot{\thepage/\pageref{LastPage}}
+\cfoot{Requirements Analysis Document}
+
 \newcommand{\personone}{Person 1}
 \newcommand{\persontwo}{Person 2}
 \newcommand{\personthree}{Person 3}
@@ -39,109 +22,70 @@
 
 \begin{center}
 CARLETON UNIVERSITY
-\par\end{center}
+\end{center}
 
-\vspace{4cm}
-
-
-\begin{center}
-\textbf{{\fontsize{50pt}{50pt}\selectfont cuPID}}
-\par\end{center}
-
-\textcolor{black}{\rule[0.5ex]{0.95\columnwidth}{0.5pt}}
+\vfill
 
 \begin{center}
-{\LARGE{}Requirements Analysis Document}
-\par\end{center}{\LARGE \par}
+{\Huge cuPID}
+\vspace{0.5em}\rule{\textwidth}{0.5pt}
+Requirements Analysis Document
+\end{center}
 
-\vspace{5cm}
-
-
-\begin{center}
-\textbf{\Large{}Team {[}Code First, Think Later{]}}
-\par\end{center}{\Large \par}
+\vspace{1em}
 
 \begin{center}
-{\large{}\personone{}}
-\par\end{center}{\large \par}
+\textbf{Team [Code First, Think Later]}\\
+\personone{}\\
+\persontwo{}\\
+\personthree{}
+\end{center}
+
+\vfill
 
 \begin{center}
-{\large{}\persontwo{}}
-\par\end{center}{\large \par}
+Submitted to:\\
+Dr. Christine Laurendeau\\
+COMP 3004: Object Oriented Software Engineering\\
+School of Computer Science\\
+Carleton University
+\end{center}
+
+\vspace{1em}
 
 \begin{center}
-{\large{}\personthree{}}
-\par\end{center}{\large \par}
-
-{\large{}\vspace{2cm}
-}{\large \par}
-
-\begin{center}
-{\large{}Submitted to:}
-\par\end{center}{\large \par}
-
-\begin{center}
-{\large{}Dr. Christine Laurendeau}
-\par\end{center}{\large \par}
-
-\begin{center}
-{\large{}COMP 3004 Object Oriented Software Engineering}
-\par\end{center}{\large \par}
-
-\begin{center}
-{\large{}School of Computer Science}
-\par\end{center}{\large \par}
-
-\begin{center}
-{\large{}Carleton University}
-\par\end{center}{\large \par}
-
-\vspace{2cm}
-
-
-\begin{center}
-{\large{}October-14-2015}
-\par\end{center}{\large \par}
+\today
+\end{center}
 
 \newpage{}
-
-\begin{adjustwidth*}{+1.0cm}{+1.0cm}
 
 \tableofcontents{}
 
 \renewcommand{\listfigurename}{Figures}
-
 \listoffigures
 
-
 \renewcommand{\listtablename}{Tables}
-
 \listoftables
 
-
-\end{adjustwidth*}
-
 \newpage{}
-
-\begin{adjustwidth*}{+1.0cm}{+1.0cm}
-
 
 \section{Introduction}
 
 \begin{center}
 -- project --
-\par\end{center}
+\end{center}
 
 \begin{center}
-{\Huge{}{[}cuPID{]}}
-\par\end{center}{\Huge \par}
+{\Huge [cuPID]}
+\end{center}
 
-\rule[0.5ex]{0.83\columnwidth}{0.5pt}
-
+\begin{center}
+\rule{0.85\textwidth}{0.5pt}
+\end{center}
 
 \subsection{Purpose of System}
 
-{\large{}Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Vivamus ultricies felis non purus aliquam, a eleifend ligula egestas.
 Mauris nec risus dictum velit vestibulum volutpat. Donec vestibulum
 quis risus vitae mattis. Quisque ac fermentum lacus. Class aptent
@@ -154,9 +98,9 @@ massa ut diam mattis mollis. Vivamus ultrices ultricies nunc, a tristique
 magna venenatis vel. Cras auctor nibh id nisl convallis, in interdum
 nisl luctus. Fusce varius, mauris eget dapibus scelerisque, odio sapien
 pretium ipsum, quis mattis ipsum lacus vel lectus. Nulla ut ornare
-nisl, eget molestie odio. Curabitur convallis tempor nibh.}{\large \par}
+nisl, eget molestie odio. Curabitur convallis tempor nibh.
 
-{\large{}Aliquam erat volutpat. Phasellus vehicula interdum leo, a
+Aliquam erat volutpat. Phasellus vehicula interdum leo, a
 vestibulum libero sagittis ac. Phasellus sed magna efficitur, sollicitudin
 arcu vitae, imperdiet felis. Integer urna lorem, gravida at placerat
 a, ultricies ut lorem. Duis interdum dolor lacus. In hac habitasse
@@ -165,16 +109,16 @@ sapien lobortis. Aenean condimentum neque ut augue consequat, sit
 amet mattis odio hendrerit. Vestibulum ante ipsum primis in faucibus
 orci luctus et ultrices posuere cubilia Curae; Donec venenatis fringilla
 libero id vehicula. Suspendisse consectetur et tellus blandit porttitor.
-Praesent eget enim at odio accumsan eleifend vel sed libero.}{\large \par}
+Praesent eget enim at odio accumsan eleifend vel sed libero.
 
-{\large{}Curabitur pharetra quam eget urna malesuada euismod vitae
+Curabitur pharetra quam eget urna malesuada euismod vitae
 id massa. Nulla pretium leo sem, in lobortis enim euismod quis. Nullam
 vitae sollicitudin neque, id cursus libero. Proin lacinia gravida
 posuere. Curabitur a tellus faucibus, vestibulum dolor sit amet, cursus
-nunc. Donec vel dapibus nisi. Vestibulum porta eros ullamcorper, ullamcorper
-nunc id, ullamcorper lectus.}{\large \par}
+nunc. Donec vel dapibus nisi. Vestibulum porta eros ullamcorper,
+ullamcorper nunc id, ullamcorper lectus.
 
-{\large{}Etiam nulla eros, pharetra a eleifend blandit, aliquam vitae
+Etiam nulla eros, pharetra a eleifend blandit, aliquam vitae
 tellus. Vivamus vel urna ultrices, viverra nunc in, malesuada nisi.
 Pellentesque a condimentum libero. Nullam pulvinar orci egestas egestas
 rhoncus. Proin malesuada dui eros, ac venenatis mauris pellentesque
@@ -185,12 +129,12 @@ a euismod ex. In pulvinar ut turpis et mollis. Phasellus rutrum tempor
 eros in vestibulum. Aenean vitae finibus quam. Etiam volutpat neque
 vitae gravida interdum. Sed sed ante vel justo lacinia commodo sed
 sed elit. Suspendisse mauris nibh, finibus vitae nunc ut, blandit
-blandit lectus. In hac habitasse platea dictumst.}{\large \par}
+blandit lectus. In hac habitasse platea dictumst.
 
 
 \subsection{Overview of Document}
 
-{\large{}Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Vivamus ultricies felis non purus aliquam, a eleifend ligula egestas.
 Mauris nec risus dictum velit vestibulum volutpat. Donec vestibulum
 quis risus vitae mattis. Quisque ac fermentum lacus. Class aptent
@@ -203,9 +147,9 @@ massa ut diam mattis mollis. Vivamus ultrices ultricies nunc, a tristique
 magna venenatis vel. Cras auctor nibh id nisl convallis, in interdum
 nisl luctus. Fusce varius, mauris eget dapibus scelerisque, odio sapien
 pretium ipsum, quis mattis ipsum lacus vel lectus. Nulla ut ornare
-nisl, eget molestie odio. Curabitur convallis tempor nibh.}{\large \par}
+nisl, eget molestie odio. Curabitur convallis tempor nibh.
 
-{\large{}Aliquam erat volutpat. Phasellus vehicula interdum leo, a
+Aliquam erat volutpat. Phasellus vehicula interdum leo, a
 vestibulum libero sagittis ac. Phasellus sed magna efficitur, sollicitudin
 arcu vitae, imperdiet felis. Integer urna lorem, gravida at placerat
 a, ultricies ut lorem. Duis interdum dolor lacus. In hac habitasse
@@ -214,38 +158,30 @@ sapien lobortis. Aenean condimentum neque ut augue consequat, sit
 amet mattis odio hendrerit. Vestibulum ante ipsum primis in faucibus
 orci luctus et ultrices posuere cubilia Curae; Donec venenatis fringilla
 libero id vehicula. Suspendisse consectetur et tellus blandit porttitor.
-Praesent eget enim at odio accumsan eleifend vel sed libero.}{\large \par}
+Praesent eget enim at odio accumsan eleifend vel sed libero.
 
-{\large{}Integer ornare diam turpis, at tincidunt eros interdum id.
+Integer ornare diam turpis, at tincidunt eros interdum id.
 Ut dignissim eros felis, volutpat blandit nulla vestibulum ut. Donec
 nec magna mattis, ultricies lacus non, venenatis nisl. Etiam sit amet
 enim sed ex bibendum dapibus. Maecenas ut dignissim metus. Pellentesque
 fermentum quam id malesuada ultrices. Quisque egestas turpis nec diam
-convallis molestie.}{\large \par}
+convallis molestie.
 
-\vspace{0.5cm}
-
+\vspace{1em}
 
 \noindent Best regards,
 
-\vspace{0.5cm}
+\vspace{1em}
 
-
-\textbf{Team \code{\textbf{{[}Code First, Think Later{]}}}}
-
-\end{adjustwidth*}
+\textbf{Team [Code First, Think Later]}
 
 \newpage{}
 
-\begin{adjustwidth*}{+0.6cm}{+0.6cm}
-
-
 \section{Proposed System}
-
 
 \subsection{Overview}
 
-{\large{}Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Vivamus ultricies felis non purus aliquam, a eleifend ligula egestas.
 Mauris nec risus dictum velit vestibulum volutpat. Donec vestibulum
 quis risus vitae mattis. Quisque ac fermentum lacus. Class aptent
@@ -258,9 +194,9 @@ massa ut diam mattis mollis. Vivamus ultrices ultricies nunc, a tristique
 magna venenatis vel. Cras auctor nibh id nisl convallis, in interdum
 nisl luctus. Fusce varius, mauris eget dapibus scelerisque, odio sapien
 pretium ipsum, quis mattis ipsum lacus vel lectus. Nulla ut ornare
-nisl, eget molestie odio. Curabitur convallis tempor nibh.}{\large \par}
+nisl, eget molestie odio. Curabitur convallis tempor nibh.
 
-{\large{}Aliquam erat volutpat. Phasellus vehicula interdum leo, a
+Aliquam erat volutpat. Phasellus vehicula interdum leo, a
 vestibulum libero sagittis ac. Phasellus sed magna efficitur, sollicitudin
 arcu vitae, imperdiet felis. Integer urna lorem, gravida at placerat
 a, ultricies ut lorem. Duis interdum dolor lacus. In hac habitasse
@@ -269,16 +205,16 @@ sapien lobortis. Aenean condimentum neque ut augue consequat, sit
 amet mattis odio hendrerit. Vestibulum ante ipsum primis in faucibus
 orci luctus et ultrices posuere cubilia Curae; Donec venenatis fringilla
 libero id vehicula. Suspendisse consectetur et tellus blandit porttitor.
-Praesent eget enim at odio accumsan eleifend vel sed libero.}{\large \par}
+Praesent eget enim at odio accumsan eleifend vel sed libero.
 
-{\large{}Curabitur pharetra quam eget urna malesuada euismod vitae
+Curabitur pharetra quam eget urna malesuada euismod vitae
 id massa. Nulla pretium leo sem, in lobortis enim euismod quis. Nullam
 vitae sollicitudin neque, id cursus libero. Proin lacinia gravida
 posuere. Curabitur a tellus faucibus, vestibulum dolor sit amet, cursus
-nunc. Donec vel dapibus nisi. Vestibulum porta eros ullamcorper, ullamcorper
-nunc id, ullamcorper lectus.}{\large \par}
+nunc. Donec vel dapibus nisi. Vestibulum porta eros ullamcorper,
+ullamcorper nunc id, ullamcorper lectus.
 
-{\large{}Etiam nulla eros, pharetra a eleifend blandit, aliquam vitae
+Etiam nulla eros, pharetra a eleifend blandit, aliquam vitae
 tellus. Vivamus vel urna ultrices, viverra nunc in, malesuada nisi.
 Pellentesque a condimentum libero. Nullam pulvinar orci egestas egestas
 rhoncus. Proin malesuada dui eros, ac venenatis mauris pellentesque
@@ -289,39 +225,44 @@ a euismod ex. In pulvinar ut turpis et mollis. Phasellus rutrum tempor
 eros in vestibulum. Aenean vitae finibus quam. Etiam volutpat neque
 vitae gravida interdum. Sed sed ante vel justo lacinia commodo sed
 sed elit. Suspendisse mauris nibh, finibus vitae nunc ut, blandit
-blandit lectus. In hac habitasse platea dictumst.}{\large \par}
-
+blandit lectus. In hac habitasse platea dictumst.
 
 \subsection{Functional Requirements}
-\begin{description}
-\item[F-01] {\large{}Students can view a list of existing projects.}{\large \par}
-\item[F-02] {\large{}Students can add themselves to any number of projects.}{\large \par}
-\item[F-03] {\large{}Students can remove themselves from a project.}{\large \par}
-\item[F-04] {\large{}Students can edit their project partner profile.}{\large \par}
-\item[F-04-01] {\large{}}{\large \par}
-\item[F-05] {\large{}Students can view their project partner profile.}{\large \par}
-\item[F-06] {\large{}Administrators can create projects.}{\large}
-\item[F-07] {\large{}Administrators can edit projects.}{\large}
-\item[F-08] {\large{}Administrators can modify PPID configuration values.}{\large \par}
-\item[F-08-01] {\large{}Adjust team size.}{\large \par}
-\item[F-09] {\large{}Administrators can launch the PPID algorithm for a specific program}{\large \par}
-\item[F-10] {\large{}Administrators can add students to a project.}{\large \par}
-\item[F-11] {\large{}Administrators can remove students from a project.}{\large \par}
-\end{description}
+
+\begin{enumerate}[\bf F-1]
+\item Students can view a list of existing projects.
+\item Students can add themselves to any number of projects.
+\item Students can remove themselves from a project.
+\item Students can edit their project partner profile.
+\begin{enumerate}[-1]
+\item 
+\end{enumerate}
+\item Students can view their project partner profile.
+\item Administrators can create projects.
+\item Administrators can edit projects.
+\item Administrators can modify PPID configuration values.
+\begin{enumerate}[-1]
+\item Adjust team size.
+\end{enumerate}
+\item Administrators can launch the PPID algorithm for a specific program.
+\item Administrators can add students to a project.
+\item Administrators can remove students from a project.
+\end{enumerate}
 
 \subsection{Non-Functional Requirements}
-\begin{description}
-\item[NF-01] {\large{}\textit{Usability:} Keyboard short cuts}{\large \par}
-\item[NF-02] {\large{}\textit{Implementation:} Written in C++}{\large \par}
-\item[NF-03] {\large{}\textit{Implementation:} Runs on Linux}{\large \par}
-\item[NF-04] {\large{}\textit{Performance:} }{\large \par}
-\item[NF-05] {\large{}\textit{Reliability:}}{\large \par}
-\item[NF-06] {\large{}\textit{Supportability:}}{\large \par}
-\item[NF-07] {\large{}\textit{Legal:}}{\large \par}
-\item[NF-08] {\large{}\textit{Interface:}}{\large \par}
-\item[NF-09] {\large{}\textit{Operations:}}{\large \par}
-\item[NF-010] {\large{}\textit{Packaging:}}{\large \par}
-\end{description}
+
+\begin{enumerate}[\bf NF-1]
+\item \textit{Usability:} Keyboard short cuts
+\item \textit{Implementation:} Written in C++
+\item \textit{Implementation:} Runs on Linux
+\item \textit{Performance:}
+\item \textit{Reliability:}
+\item \textit{Supportability:}
+\item \textit{Legal:}
+\item \textit{Interface:}
+\item \textit{Operations:}
+\item \textit{Packaging:}
+\end{enumerate}
 
 \subsection{System Models}
 
@@ -345,8 +286,6 @@ blandit lectus. In hac habitasse platea dictumst.}{\large \par}
 
 
 \begin{figure}[H]
-
-
 \protect\caption{Sample 2}
 
 
@@ -354,8 +293,6 @@ blandit lectus. In hac habitasse platea dictumst.}{\large \par}
 
 
 \begin{table}[H]
-
-
 \protect\caption{Sample 1}
 
 
@@ -363,13 +300,9 @@ blandit lectus. In hac habitasse platea dictumst.}{\large \par}
 
 
 \begin{table}[H]
-
-
 \protect\caption{Sample 2}
 
 
 \end{table}
 
-
-\end{adjustwidth*}
 \end{document}
