@@ -7,3 +7,4 @@ TheBakedPotato:
 
 ViLLiELdR:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
+4.5 Hours: set up main.tex. Includes research on how to use some packages and formatting of tables, titles, footers, etc. Also includes the FR and NFR sections, and the templates for use cases.
