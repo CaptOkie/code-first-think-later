@@ -2,3 +2,4 @@ COMP2401
 COMP2404
 Has taken HCI
 Role preference (ie, leader, not leader)
+Procrastinator or not
