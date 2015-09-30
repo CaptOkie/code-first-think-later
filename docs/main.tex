@@ -4,6 +4,8 @@
 \usepackage{enumerate}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{float}
+\usepackage{tabularx}
 
 \begin{document}
 
@@ -229,25 +231,28 @@ blandit lectus. In hac habitasse platea dictumst.
 
 \subsection{Functional Requirements}
 
-\begin{enumerate}[\bf F-1]
-\item Students can view a list of existing projects.
-\item Students can add themselves to any number of projects.
-\item Students can remove themselves from a project.
-\item Students can edit their project partner profile.
-\begin{enumerate}[-1]
-\item 
-\end{enumerate}
-\item Students can view their project partner profile.
-\item Administrators can create projects.
-\item Administrators can edit projects.
-\item Administrators can modify PPID configuration values.
-\begin{enumerate}[-1]
-\item Adjust team size.
-\end{enumerate}
-\item Administrators can launch the PPID algorithm for a specific program.
-\item Administrators can add students to a project.
-\item Administrators can remove students from a project.
-\end{enumerate}
+\begin{table}[H]
+\caption{Functional Requirements}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{l|X}
+\hline
+F-01 & Students can view a list of existing projects. \\ \hline
+F-02 & Students can add themselves to any number of projects. \\ \hline
+F-03 & Students can remove themselves from a project. \\ \hline
+F-04 & Students must be able to edit their Project Partner Profile. \\ \hline
+F-04-01 & \\ \hline
+F-05 & Students must be able to view their Project Partner Profile. \\ \hline
+F-06 & Administrators must be able to create projects. \\ \hline
+F-07 & Administrators must be able to edit projects. \\ \hline
+F-08 & Administrators must be able to modify PPID configuration values: \\ \hline
+F-08-01 & Team size. \\ \hline
+F-08-02 & \\ \hline
+F-08-03 & Just some filler text here that is long enough to make it take up the full page! blah. \\ \hline
+F-09 & Administrators must be able to launch the PPID algorithm for a specific project. \\ \hline
+F-10 & Administrators must be able to add students to a project. \\ \hline
+F-11 & Administrators must be able to remove students from a project. \\ \hline
+\end{tabularx}
+\end{table}
 
 \subsection{Non-Functional Requirements}
 
