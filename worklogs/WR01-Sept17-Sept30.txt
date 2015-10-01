@@ -3,9 +3,11 @@ CaptOkie:
 1 Hour: Clean up main.tex to allow for easier editting. A lot of the formatting and such is simplified.
 2 Hours: Convert generated main2.tex functional requirements table into easy to edit/simplified version.
 2 Hours: Finished converting over tables in main2.tex to main.tex
+0.5 Hours: worked on NFR and qualifications.
 
 TheBakedPotato:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
+3 Hours: worked on NFR and qualifications.
 
 ViLLiELdR:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
