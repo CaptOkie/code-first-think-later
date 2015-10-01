@@ -22,3 +22,33 @@ do you need to be told what to do?
 do you take initiative?
 are you good at breaking things?
 availablity times?
+
+## Skills
+Grade COMP2401
+Grade COMP2404
+Has taken HCI
+are you good at breaking things?
+
+## Leadership
+Role preference
+Level of organization
+are you comfortable making big decisions?
+do you need to be in control
+in your social group, do you like always being up to date with everything that's going on?
+do you need to be told what to do?
+do you take initiative?
+
+## Personality
+Procrastinator or not
+quiet vs talkative
+when working, do you prefer: 1) starting and finishing things one at a time 2) starting multiple things and working on them all simultaneously
+level of punctuality
+do you prefer setting multiple small deadlines or just have the big one?
+before making a phone call... (i.e. rehearse a lot)
+imagine you're at a party where you don't really know people. What are you doing?
+
+## Availability
+morning person vs night owl
+availablity times?
+Average response time
+Prefer mode of communication
