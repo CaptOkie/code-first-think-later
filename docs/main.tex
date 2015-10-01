@@ -5,7 +5,7 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{float}
-\usepackage{tabularx}
+\usepackage{tabu}
 
 \begin{document}
 
@@ -234,40 +234,45 @@ blandit lectus. In hac habitasse platea dictumst.
 \begin{table}[H]
 \caption{Functional Requirements}
 \renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{l|X}
-\hline
-F-01 & Students can view a list of existing projects. \\ \hline
-F-02 & Students can add themselves to any number of projects. \\ \hline
-F-03 & Students can remove themselves from a project. \\ \hline
-F-04 & Students must be able to edit their Project Partner Profile. \\ \hline
-F-04-01 & \\ \hline
-F-05 & Students must be able to view their Project Partner Profile. \\ \hline
-F-06 & Administrators must be able to create projects. \\ \hline
-F-07 & Administrators must be able to edit projects. \\ \hline
-F-08 & Administrators must be able to modify PPID configuration values: \\ \hline
-F-08-01 & Team size. \\ \hline
-F-08-02 & \\ \hline
-F-08-03 & Just some filler text here that is long enough to make it take up the full page! blah. \\ \hline
-F-09 & Administrators must be able to launch the PPID algorithm for a specific project. \\ \hline
-F-10 & Administrators must be able to add students to a project. \\ \hline
-F-11 & Administrators must be able to remove students from a project. \\ \hline
-\end{tabularx}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {l|X}
+F-01 & Students can view a list of existing projects. \\
+F-02 & Students can add themselves to any number of projects. \\
+F-03 & Students can remove themselves from a project. \\
+F-04 & Students must be able to edit their Project Partner Profile. \\
+F-04-01 & \\
+F-05 & Students must be able to view their Project Partner Profile. \\
+F-06 & Administrators must be able to create projects. \\
+F-07 & Administrators must be able to edit projects. \\
+F-08 & Administrators must be able to modify PPID configuration values: \\
+F-08-01 & Team size. \\
+F-08-02 & \\
+F-08-03 & Just some filler text here that is long enough to make it take up the full page! blah, blah, blah, blah. \\
+F-09 & Administrators must be able to launch the PPID algorithm for a specific project. \\
+F-10 & Administrators must be able to add students to a project. \\
+F-11 & Administrators must be able to remove students from a project. \\
+\end{tabu}
 \end{table}
 
 \subsection{Non-Functional Requirements}
 
-\begin{enumerate}[\bf NF-1]
-\item \textit{Usability:} Keyboard short cuts
-\item \textit{Implementation:} Written in C++
-\item \textit{Implementation:} Runs on Linux
-\item \textit{Performance:}
-\item \textit{Reliability:}
-\item \textit{Supportability:}
-\item \textit{Legal:}
-\item \textit{Interface:}
-\item \textit{Operations:}
-\item \textit{Packaging:}
-\end{enumerate}
+\begin{table}[H]
+\caption{Non-Functional Requirements}
+\renewcommand{\arraystretch}{1.5}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {l|l|X}
+NF-01 & Usability & Keyboard short cuts. \\
+NF-02 & Implementation & Written in C++. \\
+NF-03 & Implementation & Runs on Linux. \\
+NF-04 & Performance & \\
+NF-05 & Reliability & \\
+NF-06 & Supportability & \\
+NF-07 & Legal & \\
+NF-08 & Interface & \\
+NF-09 & Operations & \\
+NF-10 & Packaging & \\
+\end{tabu}
+\end{table}
 
 \subsection{System Models}
 
