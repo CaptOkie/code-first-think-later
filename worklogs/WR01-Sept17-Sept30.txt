@@ -2,6 +2,7 @@ CaptOkie:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
 1 Hour: Clean up main.tex to allow for easier editting. A lot of the formatting and such is simplified.
 2 Hours: Convert generated main2.tex functional requirements table into easy to edit/simplified version.
+2 Hours: Finished converting over tables in main2.tex to main.tex
 
 TheBakedPotato:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
@@ -10,3 +11,4 @@ ViLLiELdR:
 2 Hours: Group meeting Sept24. Initial breakdown of FR and NFR.
 4.5 Hours: set up main.tex. Includes research on how to use some packages and formatting of tables, titles, footers, etc. Also includes the FR and NFR sections, and the templates for use cases.
 1 Hour: Work out possible parts to the PPID algorithm.
+2 Hours: Worked on Use-Case Diagrams
