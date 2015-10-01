@@ -1,11 +1,13 @@
 \documentclass[12pt,letterpaper]{article}
 
+\usepackage[T1]{fontenc}
 \usepackage[margin=1in,headheight=1.5em]{geometry}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{float}
 \usepackage{tabu}
+\usepackage{booktabs}
 
 \begin{document}
 
@@ -235,7 +237,7 @@ blandit lectus. In hac habitasse platea dictumst.
 \caption{Functional Requirements}
 \renewcommand{\arraystretch}{1.5}
 \everyrow{\hline}
-\begin{tabu} to \textwidth {>{\bf}l|X}
+\begin{tabu} to \textwidth {>{\bf}l X}
 F-01 & Students can view a list of existing projects. \\
 F-02 & Students can add themselves to any number of projects. \\
 F-03 & Students can remove themselves from a project. \\
@@ -260,7 +262,7 @@ F-11 & Administrators must be able to remove students from a project. \\
 \caption{Non-Functional Requirements}
 \renewcommand{\arraystretch}{1.5}
 \everyrow{\hline}
-\begin{tabu} to \textwidth {>{\bf}l|>{\it}l|X}
+\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
 NF-01 & Usability & Keyboard short cuts. \\
 NF-02 & Implementation & Written in C++. \\
 NF-03 & Implementation & Runs on Linux. \\
@@ -279,6 +281,40 @@ NF-10 & Packaging & \\
 
 \subsubsection{Use Case Model}
 
+\begin{table}[H]
+\caption{High-Level Use Case Descriptions}
+\renewcommand{\arraystretch}{1.5}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+UC-01 & CaseOne & description blah blah \\
+UC-02 & CaseTwo & blah \\
+\end{tabu}
+\end{table}
+
+\begin{table}[H]
+\caption{Detailed Use Case Descriptions}
+\renewcommand{\arraystretch}{1.5}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+UC-03 & CaseThree & blah blah \\
+UC-04 & CaseFour & blah \\
+\end{tabu}
+\end{table}
+
+{\renewcommand{\arraystretch}{1.5}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {>{\it}l X}
+\toprule
+Use Case Identifier & blah blah \\
+Name & blah \\
+Participating Actors & blah \\
+Flow of Events & blah \\
+Entry Conditions & blah \\
+Exit Conditions & blah \\
+Quality Requirements & blah \\
+Traceability & blah \\
+\toprule
+\end{tabu}}
 
 \subsubsection{Object Model}
 
@@ -297,19 +333,5 @@ NF-10 & Packaging & \\
 
 
 \end{figure}
-
-
-\begin{table}[H]
-\protect\caption{Sample 1}
-
-
-\end{table}
-
-
-\begin{table}[H]
-\protect\caption{Sample 2}
-
-
-\end{table}
 
 \end{document}
