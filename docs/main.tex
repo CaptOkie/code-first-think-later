@@ -24,6 +24,8 @@
 \newcommand{\personone}{Kevin Hua}
 \newcommand{\persontwo}{Henri Knoetze}
 \newcommand{\personthree}{Juhandr\'e Knoetze}
+\newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
+
 \thispagestyle{empty}
 
 \begin{center}
@@ -134,22 +136,22 @@ the frequent torment associated with ill-matched teams.
 \caption{Functional Requirements}
 \renewcommand{\arraystretch}{1.5}
 \everyrow{\hline}
-\begin{tabu} to \textwidth {>{\bf}l X[0.1]X[3]}
-F-01 & \multicolumn2{l}{Students can add themselves to any number of projects.} \\
-F-02 & \multicolumn2{l}{Students can remove themselves from a project.} \\
-F-03 & \multicolumn2{l}{Students must be able to edit their Project Partner Profile.} \\
-\hspace{1.7 pc}F-03-01 & & Their own values. \\
-\hspace{1.7 pc}F-03-02 & & What they are looking for. \\
-F-04 & \multicolumn2{l}{Students must be able to view their Project Partner Profile.} \\
-F-05 & \multicolumn2{l}{Administrators must be able to create projects.} \\
-F-06 & \multicolumn2{l}{Administrators must be able to edit projects.} \\
-\hspace{1.7 pc}F-06-01 & & Set team size. \\
-\hspace{1.7 pc}F-06-02 & & Add students. \\
-\hspace{1.7 pc}F-06-03 & & Remove students. \\
-\hspace{1.7 pc}F-06-04 & & Project name. \\
-F-07 & \multicolumn2{l}{Administrators must be able to launch the PPID algorithm for a specific project.} \\
-F-08 & \multicolumn2{l}{Administrators can view summary results.} \\
-F-09 & \multicolumn2{l}{Administrators can view detailed results.}\\
+\begin{tabu} to \textwidth {>{\bf}lX}
+F-01 & Students can add themselves to any number of projects. \\
+F-02 & Students can remove themselves from a project. \\
+F-03 & Students must be able to edit their Project Partner Profile. \\
+\ccindent{}F-03-01 & \ccindent{}Their own values. \\
+\ccindent{}F-03-02 & \ccindent{}What they are looking for. \\
+F-04 & Students must be able to view their Project Partner Profile. \\
+F-05 & Administrators must be able to create projects. \\
+F-06 & Administrators must be able to edit projects. \\
+\ccindent{}F-06-01 & \ccindent{}Set team size. \\
+\ccindent{}F-06-02 & \ccindent{}Add students. \\
+\ccindent{}F-06-03 & \ccindent{}Remove students. \\
+\ccindent{}F-06-04 & \ccindent{}Project name. \\
+F-07 & Administrators must be able to launch the PPID algorithm for a specific project. \\
+F-08 & Administrators can view summary results. \\
+F-09 & Administrators can view detailed results. \\
 \end{tabu}
 \end{table}
 
