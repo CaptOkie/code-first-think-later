@@ -2,7 +2,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[margin=1in,headheight=1.5em]{geometry}
-\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{float}
@@ -38,40 +38,40 @@
 \thispagestyle{empty}
 
 \begin{center}
-CARLETON UNIVERSITY
+	CARLETON UNIVERSITY
 \end{center}
 
 \vfill
 
 \begin{center}
-{\fontsize{55pt}{55pt}\selectfont cuPID}
-\vspace{0.5em}\rule{\textwidth}{0.5pt}
-Requirements Analysis Document
+	{\fontsize{55pt}{55pt}\selectfont cuPID}
+	\vspace{0.5em}\rule{\textwidth}{0.5pt}
+	Requirements Analysis Document
 \end{center}
 
 \vspace{5em}
 
 \begin{center}
-\textbf{Team [\teamname{}]}\\
-\personone{}\\
-\persontwo{}\\
-\personthree{}
+	\textbf{Team [\teamname{}]}\\
+	\personone{}\\
+	\persontwo{}\\
+	\personthree{}
 \end{center}
 
 \vfill
 
 \begin{center}
-Submitted to:\\
-Dr. Christine Laurendeau\\
-COMP 3004: Object Oriented Software Engineering\\
-School of Computer Science\\
-Carleton University
+	Submitted to:\\
+	Dr. Christine Laurendeau\\
+	COMP 3004: Object Oriented Software Engineering\\
+	School of Computer Science\\
+	Carleton University
 \end{center}
 
 \vspace{2em}
 
 \begin{center}
-\today
+	\today
 \end{center}
 
 \newpage{}
@@ -89,15 +89,15 @@ Carleton University
 \section{Introduction}
 
 \begin{center}
--- project --
+    -- project --
 \end{center}
 
 \begin{center}
-{\Huge [cuPID]}
+	\Huge [cuPID]
 \end{center}
 
 \begin{center}
-\rule{0.85\textwidth}{0.5pt}
+    \rule{0.85\textwidth}{0.5pt}
 \end{center}
 
 \subsection{Purpose of System}
@@ -160,45 +160,45 @@ the flows for the various possible states of the system.
 \subsection{Functional Requirements}
 
 \begin{table}[H]
-\caption{Functional Requirements}
-\begin{tabu} to \textwidth {>{\bf}lX}
-F-01 & Students can add themselves to any number of projects. \\
-F-02 & Students can remove themselves from a project. \\
-F-03 & Students must be able to edit their Project Partner Profile. \\
-\ccindent{}F-03-01 & \ccindent{}Their own values. \\
-\ccindent{}F-03-02 & \ccindent{}What they are looking for. \\
-F-04 & Students must be able to view their Project Partner Profile. \\
-F-05 & Administrators must be able to create projects. \\
-F-06 & Administrators must be able to edit projects. \\
-\ccindent{}F-06-01 & \ccindent{}Set team size. \\
-\ccindent{}F-06-02 & \ccindent{}Add students. \\
-\ccindent{}F-06-03 & \ccindent{}Remove students. \\
-\ccindent{}F-06-04 & \ccindent{}Project name. \\
-F-07 & Administrators must be able to launch the PPID algorithm for a specific project. \\
-F-08 & Administrators can view summary results. \\
-F-09 & Administrators can view detailed results. \\
-\end{tabu}
+	\caption{Functional Requirements}
+	\begin{tabu} to \textwidth {>{\bf}lX}
+		F-01 & Students can add themselves to any number of projects. \\
+		F-02 & Students can remove themselves from a project. \\
+		F-03 & Students must be able to edit their Project Partner Profile. \\
+		\ccindent{}F-03-01 & \ccindent{}Their own values. \\
+		\ccindent{}F-03-02 & \ccindent{}What they are looking for. \\
+		F-04 & Students must be able to view their Project Partner Profile. \\
+		F-05 & Administrators must be able to create projects. \\
+		F-06 & Administrators must be able to edit projects. \\
+		\ccindent{}F-06-01 & \ccindent{}Set team size. \\
+		\ccindent{}F-06-02 & \ccindent{}Add students. \\
+		\ccindent{}F-06-03 & \ccindent{}Remove students. \\
+		\ccindent{}F-06-04 & \ccindent{}Project name. \\
+		F-07 & Administrators must be able to launch the PPID algorithm for a specific project. \\
+		F-08 & Administrators can view summary results. \\
+		F-09 & Administrators can view detailed results. \\
+	\end{tabu}
 \end{table}
 
 \subsection{Non-Functional Requirements}
 
 \begin{table}[H]
-\caption{Non-Functional Requirements}
-\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
-NF-01 & Usability & Keyboard short cuts. \\
-NF-02 & Usability & All error messages should be descriptive and suggest appropriate solutions.\\
-NF-03 & Implementation & Written in C++. \\
-NF-04 & Implementation & must use the Qt framework for creating a graphical user interface \\
-NF-05 & Implementation & Runs on Linux. \\
-NF-06 & Performance & the algorithm will take no longer than 5 seconds to complete \\
-NF-07 & Reliability & saved data will remain uncorrupted at least 95\% of the time \\
-NF-08 & Reliability & Saved information will be backed up. \\
-NF-09 & Supportability & the system should be extensible to a client/server architecture \\
-NF-10 & Legal & users will agree to a Terms of Service agreement \\
-NF-11 & Interface & \\
-NF-12 & Operations & a forum for users to report bugs \\
-NF-13 & Packaging & will be available to download as a standalone executable \\
-\end{tabu}
+	\caption{Non-Functional Requirements}
+	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+		NF-01 & Usability & Keyboard short cuts. \\
+		NF-02 & Usability & All error messages should be descriptive and suggest appropriate solutions.\\
+		NF-03 & Implementation & Written in C++. \\
+		NF-04 & Implementation & must use the Qt framework for creating a graphical user interface \\
+		NF-05 & Implementation & Runs on Linux. \\
+		NF-06 & Performance & the algorithm will take no longer than 5 seconds to complete \\
+		NF-07 & Reliability & saved data will remain uncorrupted at least 95\% of the time \\
+		NF-08 & Reliability & Saved information will be backed up. \\
+		NF-09 & Supportability & the system should be extensible to a client/server architecture \\
+		NF-10 & Legal & users will agree to a Terms of Service agreement \\
+		NF-11 & Interface & \\
+		NF-12 & Operations & a forum for users to report bugs \\
+		NF-13 & Packaging & will be available to download as a standalone executable \\
+	\end{tabu}
 \end{table}
 
 \subsection{System Models}
@@ -212,11 +212,11 @@ NF-13 & Packaging & will be available to download as a standalone executable \\
 \end{figure}
 
 \begin{table}[H]
-\caption{High-Level Use Case Descriptions}
-\begin{tabu} to \textwidth {>{}l >{\bf}l X}
-UC-01 & ManageProjectParticipation & description blah blah \\
-UC-02 & ManageProjects & blah \\
-\end{tabu}
+	\caption{High-Level Use Case Descriptions}
+	\begin{tabu} to \textwidth {>{}l >{\bf}l X}
+		UC-01 & ManageProjectParticipation & description blah blah \\
+		UC-02 & ManageProjects & blah \\
+	\end{tabu}
 \end{table}
 
 \begin{figure}[H]
@@ -232,340 +232,729 @@ UC-02 & ManageProjects & blah \\
 \end{figure}
 
 \begin{table}[H]
-\caption{Detailed Use Case Descriptions}
-\begin{tabu} to \textwidth {>{}l >{\bf}l X}
-UC-03 & ViewPPIDDetails & stuff\\
-UC-04 & CreateNewProject & The Administrator creates a new instance of a project.\\
-UC-05 & LaunchPPID & The Administrator applies the PPID Algorithm to a specified project.\\
-UC-06 & ViewPPIDSummary & stuff\\
-UC-07 & EditProject & The Administrator modifies the parameters of a specified project.\\
-UC-08 & AddStudent & The Administrator adds a Student to the current project.\\
-UC-09 & RemoveStudent & The Administrator removes a Student from the current project.\\
-UC-10 & FileError & stuff\\
-UC-11 & FileOpenError & stuff\\
-UC-12 & FileInputError & stuff\\
-UC-13 & FileOutputError & stuff\\
-UC-14 & FileFormatError & stuff\\
-UC-15 & InvalidInputError & stuff\\
-UC-16 & NoStudentSelectedError & stuff\\
-UC-17 & InsufficientStudentsError & stuff\\
-UC-18 & JoinProject & stuff\\
-UC-19 & EditProfile & stuff\\
-UC-20 & LeaveProject & stuff\\
-\end{tabu}
+	\caption{Detailed Use Case Descriptions}
+	\begin{tabu} to \textwidth {>{}l >{\bf}l X}
+		UC-03 & ViewPPIDDetails & stuff\\
+		UC-04 & CreateNewProject & The Administrator creates a new instance of a project.\\
+		UC-05 & LaunchPPID & The Administrator applies the PPID Algorithm to a specified project.\\
+		UC-06 & ViewPPIDSummary & stuff\\
+		UC-07 & EditProject & The Administrator modifies the parameters of a specified project.\\
+		UC-08 & AddStudent & The Administrator adds a Student to the current project.\\
+		UC-09 & RemoveStudent & The Administrator removes a Student from the current project.\\
+		UC-10 & FileError & stuff\\
+		UC-11 & FileOpenError & stuff\\
+		UC-12 & FileInputError & stuff\\
+		UC-13 & FileOutputError & stuff\\
+		UC-14 & FileFormatError & stuff\\
+		UC-15 & InvalidInputError & stuff\\
+		UC-16 & NoStudentSelectedError & stuff\\
+		UC-17 & InsufficientStudentsError & stuff\\
+		UC-18 & JoinProject & stuff\\
+		UC-19 & EditProfile & stuff\\
+		UC-20 & LeaveProject & stuff\\
+	\end{tabu}
 \end{table}
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-01 \\
-
 		Name & {\bf ManageProjectParticipation} \\
-
 		Participating Actors & Initiated by Student \\
 
-		Flow of Events &
-		\begin{enumerate}
-			\item
-				Stuff
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
 		\end{enumerate} \\
 
-		Entry Conditions & \textbullet \hspace{2 mm}blah \\
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
 
-		Exit Conditions & \textbullet \hspace{2 mm}blah \\
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
 
-		Quality Requirements & \textbullet \hspace{2 mm}blah \\
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
 
-		Traceability & \textbullet \hspace{2 mm}blah \\
+		Traceability & \\
 
 		\toprule
 	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-02 \\
-Name & {\bf ManageProjects} \\
-Participating Actors & Initiated by Administrato \\
-Flow of Events & 1. The Administrator starts up the Administration process.
-2.\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}blah \\
-\toprule
-\end{tabu}
+    \begin{tabu} to \textwidth {>{\it}l X}
+        \toprule
+		Use Case Identifier & UC-02 \\
+		Name & {\bf ManageProjects} \\
+        Participating Actors & Initiated by Administrato \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & \\
+        \toprule
+    \end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-03 \\
-Name & {\bf ViewPPIDDetails} \\
-Participating Actors & Initiated by Administrato \\
-Flow of Events & stuff \\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}F-09 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-03 \\
+		Name & {\bf ViewPPIDDetails} \\
+		Participating Actors & Initiated by Administrato \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-09 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-04 \\
-Name & {\bf CreateNewProject} \\
-Participating Actors & Initiated by Administrato \\
-Flow of Events & stuff \\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}F-05 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-04 \\
+		Name & {\bf CreateNewProject} \\
+		Participating Actors & Initiated by Administrato \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-05 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-05 \\
-Name & {\bf LaunchPPID} \\
-Participating Actors & Initiated by Administrato \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}F-07 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-05 \\
+		Name & {\bf LaunchPPID} \\
+		Participating Actors & Initiated by Administrato \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-07 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-06 \\
-Name & {\bf ViewPPIDSummary} \\
-Participating Actors & Initiated by Administrato \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}F-08 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-06 \\
+		Name & {\bf ViewPPIDSummary} \\
+		Participating Actors & Initiated by Administrato \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-08 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-07 \\
-Name & {\bf EditProject} \\
-Participating Actors & Initiated by Administrato \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}F-06 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-07 \\
+		Name & {\bf EditProject} \\
+		Participating Actors & Initiated by Administrato \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-06 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-08 \\
-Name & {\bf AddStudent} \\
-Participating Actors & Initiated by Administrato \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}F-06-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-08 \\
+		Name & {\bf AddStudent} \\
+		Participating Actors & Initiated by Administrato \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-06-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-09 \\
-Name & {\bf RemoveStudent} \\
-Participating Actors & Initiated by Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}F-06-03 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-09 \\
+		Name & {\bf RemoveStudent} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-06-03 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-10 \\
-Name & {\bf FileError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-10 \\
+		Name & {\bf FileError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-11 \\
-Name & {\bf FileOpenError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-11 \\
+		Name & {\bf FileOpenError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-12 \\
-Name & {\bf FileInputError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-12 \\
+		Name & {\bf FileInputError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-13 \\
-Name & {\bf FileOutputError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-13 \\
+		Name & {\bf FileOutputError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-14 \\
-Name & {\bf FileFormatError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-14 \\
+		Name & {\bf FileFormatError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-15 \\
-Name & {\bf InvalidFormatError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-15 \\
+		Name & {\bf InvalidFormatError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-16 \\
-Name & {\bf NoStudentSelectedError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-16 \\
+		Name & {\bf NoStudentSelectedError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-17 \\
-Name & {\bf InsufficientStudentsError} \\
-Participating Actors & Administrator \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-17 \\
+		Name & {\bf InsufficientStudentsError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-18 \\
-Name & {\bf JoinProject} \\
-Participating Actors & Initiated by Student \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-18 \\
+		Name & {\bf JoinProject} \\
+		Participating Actors & Initiated by Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-19 \\
-Name & {\bf EditProfile} \\
-Participating Actors & Initiated by Student \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-19 \\
+		Name & {\bf EditProfile} \\
+		Participating Actors & Initiated by Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\it}l X}
-\toprule
-Use Case Identifier & UC-20 \\
-Name & {\bf LeaveProject} \\
-Participating Actors & Initiated by Student \\
-Flow of Events & stuff\\
-Entry Conditions & \textbullet \hspace{2 mm}blah \\
-Exit Conditions & \textbullet \hspace{2 mm}blah \\
-Quality Requirements & \textbullet \hspace{2 mm}blah \\
-Traceability & \textbullet \hspace{2 mm}NF-02 \\
-\toprule
-\end{tabu}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & UC-20 \\
+		Name & {\bf LeaveProject} \\
+		Participating Actors & Initiated by Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \subsubsection{Object Model}
