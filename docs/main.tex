@@ -182,7 +182,7 @@ NF-13 & Packaging & will be available to download as a standalone executable \\
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/high-level-use-case-diagram.png}
+	\includegraphics[scale=0.4]{imgs/high-level-use-case.png}
 	\caption{High-level Use Case Diagram}
 \end{figure}
 
@@ -198,14 +198,8 @@ UC-02 & ManageProjects & blah \\
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.23]{imgs/detailed-administrator-use-case-diagram.png}
+	\includegraphics[scale=0.23]{imgs/Administrator-Use-Case.png}
 	\caption{Detailed Administrator Use Case Diagram}
-\end{figure}
-
-\begin{figure}[H]
-	\centering{}
-	\includegraphics[scale=0.25]{imgs/detailed-student-use-case-diagram.png}
-	\caption{Detailed Student Use Case Diagram}
 \end{figure}
 
 \begin{table}[H]
@@ -228,6 +222,9 @@ UC-14 & FileFormatError & stuff\\
 UC-15 & InvalidInputError & stuff\\
 UC-16 & NoStudentSelectedError & stuff\\
 UC-17 & InsufficientStudentsError & stuff\\
+UC-18 & JoinProject & stuff\\
+UC-19 & EditProfile & stuff\\
+UC-20 & LeaveProject & stuff\\
 \end{tabu}
 \end{table}
 
@@ -238,7 +235,7 @@ UC-17 & InsufficientStudentsError & stuff\\
 \toprule
 Use Case Identifier & UC-01 \\
 Name & {\bf ManageProjectParticipation} \\
-Participating Actors & Student \\
+Participating Actors & Initiated by Student \\
 Flow of Events & blah \\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -255,7 +252,7 @@ Traceability & \textbullet \hspace{2 mm}blah \\
 \toprule
 Use Case Identifier & UC-02 \\
 Name & {\bf ManageProjects} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrato \\
 Flow of Events & 1. The Administrator starts up the Administration process.
 2.\\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
@@ -273,7 +270,7 @@ Traceability & \textbullet \hspace{2 mm}blah \\
 \toprule
 Use Case Identifier & UC-03 \\
 Name & {\bf ViewPPIDDetails} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrato \\
 Flow of Events & stuff \\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -290,7 +287,7 @@ Traceability & \textbullet \hspace{2 mm}F-09 \\
 \toprule
 Use Case Identifier & UC-04 \\
 Name & {\bf CreateNewProject} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrato \\
 Flow of Events & stuff \\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -307,7 +304,7 @@ Traceability & \textbullet \hspace{2 mm}F-05 \\
 \toprule
 Use Case Identifier & UC-05 \\
 Name & {\bf LaunchPPID} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrato \\
 Flow of Events & stuff\\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -324,7 +321,7 @@ Traceability & \textbullet \hspace{2 mm}F-07 \\
 \toprule
 Use Case Identifier & UC-06 \\
 Name & {\bf ViewPPIDSummary} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrato \\
 Flow of Events & stuff\\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -341,7 +338,7 @@ Traceability & \textbullet \hspace{2 mm}F-08 \\
 \toprule
 Use Case Identifier & UC-07 \\
 Name & {\bf EditProject} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrato \\
 Flow of Events & stuff\\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -358,7 +355,7 @@ Traceability & \textbullet \hspace{2 mm}F-06 \\
 \toprule
 Use Case Identifier & UC-08 \\
 Name & {\bf AddStudent} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrato \\
 Flow of Events & stuff\\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -375,7 +372,7 @@ Traceability & \textbullet \hspace{2 mm}F-06-02 \\
 \toprule
 Use Case Identifier & UC-09 \\
 Name & {\bf RemoveStudent} \\
-Participating Actors & Administrator \\
+Participating Actors & Initiated by Administrator \\
 Flow of Events & stuff\\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
@@ -512,6 +509,57 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 Use Case Identifier & UC-17 \\
 Name & {\bf InsufficientStudentsError} \\
 Participating Actors & Administrator \\
+Flow of Events & stuff\\
+Entry Conditions & \textbullet \hspace{2 mm}blah \\
+Exit Conditions & \textbullet \hspace{2 mm}blah \\
+Quality Requirements & \textbullet \hspace{2 mm}blah \\
+Traceability & \textbullet \hspace{2 mm}NF-02 \\
+\toprule
+\end{tabu}
+\end{center}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {>{\it}l X}
+\toprule
+Use Case Identifier & UC-18 \\
+Name & {\bf JoinProject} \\
+Participating Actors & Initiated by Student \\
+Flow of Events & stuff\\
+Entry Conditions & \textbullet \hspace{2 mm}blah \\
+Exit Conditions & \textbullet \hspace{2 mm}blah \\
+Quality Requirements & \textbullet \hspace{2 mm}blah \\
+Traceability & \textbullet \hspace{2 mm}NF-02 \\
+\toprule
+\end{tabu}
+\end{center}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {>{\it}l X}
+\toprule
+Use Case Identifier & UC-19 \\
+Name & {\bf EditProfile} \\
+Participating Actors & Initiated by Student \\
+Flow of Events & stuff\\
+Entry Conditions & \textbullet \hspace{2 mm}blah \\
+Exit Conditions & \textbullet \hspace{2 mm}blah \\
+Quality Requirements & \textbullet \hspace{2 mm}blah \\
+Traceability & \textbullet \hspace{2 mm}NF-02 \\
+\toprule
+\end{tabu}
+\end{center}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\everyrow{\hline}
+\begin{tabu} to \textwidth {>{\it}l X}
+\toprule
+Use Case Identifier & UC-20 \\
+Name & {\bf LeaveProject} \\
+Participating Actors & Initiated by Student \\
 Flow of Events & stuff\\
 Entry Conditions & \textbullet \hspace{2 mm}blah \\
 Exit Conditions & \textbullet \hspace{2 mm}blah \\
