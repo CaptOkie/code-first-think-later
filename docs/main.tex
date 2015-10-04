@@ -241,17 +241,20 @@ the flows for the various possible states of the system.
 		UC-07 & EditProject & The Administrator modifies the parameters of a specified project.\\
 		UC-08 & AddStudent & The Administrator adds a Student to the current project.\\
 		UC-09 & RemoveStudent & The Administrator removes a Student from the current project.\\
-		UC-10 & FileError & stuff\\
-		UC-11 & FileOpenError & stuff\\
-		UC-12 & FileInputError & stuff\\
-		UC-13 & FileOutputError & stuff\\
-		UC-14 & FileFormatError & stuff\\
-		UC-15 & InvalidInputError & stuff\\
-		UC-16 & NoStudentSelectedError & stuff\\
-		UC-17 & InsufficientStudentsError & stuff\\
-		UC-18 & JoinProject & stuff\\
-		UC-19 & EditProfile & stuff\\
-		UC-20 & LeaveProject & stuff\\
+		UC-10 & FileError & There was an error in processing the file (generalizes FileOpenError, FileInputError,
+		FileOutputError, FileFormatError). The system reports the specific error to user and aborts the operation.\\
+		UC-11 & FileOpenError & The system reports that the selected file could not be opened.\\
+		UC-12 & FileInputError & The system reports that the selected file could not be read.\\
+		UC-13 & FileOutputError & The system reports that the selected file could not be written to.\\
+		UC-14 & FileFormatError & The system reports that the selected file is corrupted.\\
+		UC-15 & InvalidInputError & The system reports that the given value is invalid.\\
+		UC-16 & NoStudentSelectedError & The system reports that a student was not selected to carry 
+		out the selected operation on.\\
+		UC-17 & InsufficientStudentsError & The system reports that there are not enough 
+		students registered in project to run the PPID algorithm.\\
+		UC-18 & JoinProject & The student adds themselves to an existing project.\\
+		UC-19 & EditProfile & The student modifies the parameters of their profile.\\
+		UC-20 & LeaveProject & The student removes themselves from an existing project.\\
 	\end{tabu}
 \end{table}
 
