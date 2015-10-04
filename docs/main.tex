@@ -21,10 +21,18 @@
 \rfoot{\thepage/\pageref{LastPage}}
 \cfoot{Requirements Analysis Document}
 
+% CUSTOM COMMANDS
 \newcommand{\personone}{Kevin Hua}
-\newcommand{\persontwo}{Henri Knoetze}
+\newcommand{\persontwo}{Hendrik Knoetze}
 \newcommand{\personthree}{Juhandr\'e Knoetze}
 \newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
+% END CUSTOM COMMANDS
+
+% TABLE STYLING
+\everyrow{\hline}
+\tabulinesep=0.5em
+\setlength\extrarowheight{0.5em}
+% END TABLE STYLING
 
 \thispagestyle{empty}
 
@@ -134,8 +142,6 @@ the frequent torment associated with ill-matched teams.
 
 \begin{table}[H]
 \caption{Functional Requirements}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\bf}lX}
 F-01 & Students can add themselves to any number of projects. \\
 F-02 & Students can remove themselves from a project. \\
@@ -159,8 +165,6 @@ F-09 & Administrators can view detailed results. \\
 
 \begin{table}[H]
 \caption{Non-Functional Requirements}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
 NF-01 & Usability & Keyboard short cuts. \\
 NF-02 & Usability & All error messages should be descriptive and suggest appropriate solutions.\\
@@ -190,8 +194,6 @@ NF-13 & Packaging & will be available to download as a standalone executable \\
 
 \begin{table}[H]
 \caption{High-Level Use Case Descriptions}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{}l >{\bf}l X}
 UC-01 & ManageProjectParticipation & description blah blah \\
 UC-02 & ManageProjects & blah \\
@@ -212,8 +214,6 @@ UC-02 & ManageProjects & blah \\
 
 \begin{table}[H]
 \caption{Detailed Use Case Descriptions}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{}l >{\bf}l X}
 UC-03 & ViewPPIDDetails & stuff\\
 UC-04 & CreateNewProject & The Administrator creates a new instance of a project.\\
@@ -237,29 +237,33 @@ UC-20 & LeaveProject & stuff\\
 \end{table}
 
 \begin{center}
-	\renewcommand{\arraystretch}{1.5}
-	\everyrow{\hline}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-01 \\
+
 		Name & {\bf ManageProjectParticipation} \\
+
 		Participating Actors & Initiated by Student \\
+
 		Flow of Events &
 		\begin{enumerate}
 			\item
 				Stuff
 		\end{enumerate} \\
+
 		Entry Conditions & \textbullet \hspace{2 mm}blah \\
+
 		Exit Conditions & \textbullet \hspace{2 mm}blah \\
+
 		Quality Requirements & \textbullet \hspace{2 mm}blah \\
+
 		Traceability & \textbullet \hspace{2 mm}blah \\
+
 		\toprule
 	\end{tabu}
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-02 \\
@@ -276,8 +280,6 @@ Traceability & \textbullet \hspace{2 mm}blah \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-03 \\
@@ -293,8 +295,6 @@ Traceability & \textbullet \hspace{2 mm}F-09 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-04 \\
@@ -310,8 +310,6 @@ Traceability & \textbullet \hspace{2 mm}F-05 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-05 \\
@@ -327,8 +325,6 @@ Traceability & \textbullet \hspace{2 mm}F-07 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-06 \\
@@ -344,8 +340,6 @@ Traceability & \textbullet \hspace{2 mm}F-08 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-07 \\
@@ -361,8 +355,6 @@ Traceability & \textbullet \hspace{2 mm}F-06 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-08 \\
@@ -378,8 +370,6 @@ Traceability & \textbullet \hspace{2 mm}F-06-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-09 \\
@@ -395,8 +385,6 @@ Traceability & \textbullet \hspace{2 mm}F-06-03 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-10 \\
@@ -412,8 +400,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-11 \\
@@ -429,8 +415,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-12 \\
@@ -446,8 +430,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-13 \\
@@ -463,8 +445,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-14 \\
@@ -480,8 +460,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-15 \\
@@ -497,8 +475,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-16 \\
@@ -514,8 +490,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-17 \\
@@ -531,8 +505,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-18 \\
@@ -548,8 +520,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-19 \\
@@ -565,8 +535,6 @@ Traceability & \textbullet \hspace{2 mm}NF-02 \\
 \end{center}
 
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\everyrow{\hline}
 \begin{tabu} to \textwidth {>{\it}l X}
 \toprule
 Use Case Identifier & UC-20 \\
