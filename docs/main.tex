@@ -161,6 +161,7 @@ the flows for the various possible states of the system.
 
 \begin{table}[H]
 	\caption{Functional Requirements}
+	\vspace{1em}
 	\begin{tabu} to \textwidth {>{\bf}lX}
 		F-01 & Students can add themselves to any number of projects. \\
 		F-02 & Students can remove themselves from a project. \\
@@ -184,6 +185,7 @@ the flows for the various possible states of the system.
 
 \begin{table}[H]
 	\caption{Non-Functional Requirements}
+	\vspace{1em}
 	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
 		NF-01 & Usability & Keyboard short cuts. \\
 		NF-02 & Usability & All error messages should be descriptive and suggest appropriate solutions.\\
@@ -213,27 +215,29 @@ the flows for the various possible states of the system.
 
 \begin{table}[H]
 	\caption{High-Level Use Case Descriptions}
-	\begin{tabu} to \textwidth {>{}l >{\bf}l X}
-		UC-01 & ManageProjectParticipation & description blah blah \\
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
+		UC-01 & ParticipateInProjects & description blah blah \\
 		UC-02 & ManageProjects & blah \\
 	\end{tabu}
 \end{table}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.23]{imgs/detailed-administrator-use-case-diagram.png}
+	\includegraphics[scale=0.26]{imgs/detailed-administrator-use-case-diagram.png}
 	\caption{Detailed Administrator Use Case Diagram}
 \end{figure}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.23]{imgs/detailed-student-use-case-diagram.png}
+	\includegraphics[scale=0.3]{imgs/detailed-student-use-case-diagram.png}
 	\caption{Detailed Student Use Case Diagram}
 \end{figure}
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions}
-	\begin{tabu} to \textwidth {>{}l >{\bf}l X}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
 		UC-03 & ViewPPIDDetails & stuff\\
 		UC-04 & CreateNewProject & The Administrator creates a new instance of a project.\\
 		UC-05 & LaunchPPID & The Administrator applies the PPID Algorithm to a specified project.\\
@@ -241,17 +245,14 @@ the flows for the various possible states of the system.
 		UC-07 & EditProject & The Administrator modifies the parameters of a specified project.\\
 		UC-08 & AddStudent & The Administrator adds a Student to the current project.\\
 		UC-09 & RemoveStudent & The Administrator removes a Student from the current project.\\
-		UC-10 & FileError & There was an error in processing the file (generalizes FileOpenError, FileInputError,
-		FileOutputError, FileFormatError). The system reports the specific error to user and aborts the operation.\\
-		UC-11 & FileOpenError & The system reports that the selected file could not be opened.\\
-		UC-12 & FileInputError & The system reports that the selected file could not be read.\\
-		UC-13 & FileOutputError & The system reports that the selected file could not be written to.\\
-		UC-14 & FileFormatError & The system reports that the selected file is corrupted.\\
+		UC-10 & SaveError & There was an error during saving (generalizes WriteError, ReadError, OpenError, CloseError). The system reports the specific error to the user and aborts the operation.\\
+		UC-11 & OpenError & The system reports that the selected file could not be opened.\\
+		UC-12 & ReadError & The system reports that the selected file could not be read.\\
+		UC-13 & WriteError & The system reports that the selected file could not be written to.\\
+		UC-14 & CloseError & The system reports that the selected file could not be closed.\\
 		UC-15 & InvalidInputError & The system reports that the given value is invalid.\\
-		UC-16 & NoStudentSelectedError & The system reports that a student was not selected to carry 
-		out the selected operation on.\\
-		UC-17 & InsufficientStudentsError & The system reports that there are not enough 
-		students registered in project to run the PPID algorithm.\\
+		UC-16 & InvalidStudentError & The system reports that a student was not selected to carry out the selected operation on.\\
+		UC-17 & InsufficientStudentsError & The system reports that there are not enough students registered in project to run the PPID algorithm.\\
 		UC-18 & JoinProject & The student adds themselves to an existing project.\\
 		UC-19 & EditProfile & The student modifies the parameters of their profile.\\
 		UC-20 & LeaveProject & The student removes themselves from an existing project.\\
@@ -262,7 +263,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-01 \\
-		Name & {\bf ManageProjectParticipation} \\
+		Name & {\bf ParticipateInProjects} \\
 		Participating Actors & Initiated by Student \\
 
 		Flow of Events & 
@@ -579,7 +580,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-10 \\
-		Name & {\bf FileError} \\
+		Name & {\bf SaveError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
@@ -611,7 +612,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-11 \\
-		Name & {\bf FileOpenError} \\
+		Name & {\bf OpenError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
@@ -646,7 +647,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-12 \\
-		Name & {\bf FileInputError} \\
+		Name & {\bf ReadError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
@@ -681,7 +682,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-13 \\
-		Name & {\bf FileOutputError} \\
+		Name & {\bf WriteError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
@@ -716,7 +717,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-14 \\
-		Name & {\bf FileFormatError} \\
+		Name & {\bf CloseError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
@@ -751,7 +752,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-15 \\
-		Name & {\bf InvalidFormatError} \\
+		Name & {\bf InvalidInputError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
@@ -786,7 +787,7 @@ the flows for the various possible states of the system.
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & UC-16 \\
-		Name & {\bf NoStudentSelectedError} \\
+		Name & {\bf InvalidStudentError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
