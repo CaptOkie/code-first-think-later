@@ -190,16 +190,16 @@ the flows for the various possible states of the system.
 		NF-01 & Usability & Keyboard short cuts. \\
 		NF-02 & Usability & All error messages should be descriptive and suggest appropriate solutions.\\
 		NF-03 & Implementation & Written in C++. \\
-		NF-04 & Implementation & must use the Qt framework for creating a graphical user interface \\
+		NF-04 & Implementation & Must use the Qt framework for creating a graphical user interface \\
 		NF-05 & Implementation & Runs on Linux. \\
-		NF-06 & Performance & the algorithm will take no longer than 5 seconds to complete \\
-		NF-07 & Reliability & saved data will remain uncorrupted at least 95\% of the time \\
+		NF-06 & Performance & The algorithm will take no longer than 5 seconds to complete \\
+		NF-07 & Reliability & Saved data will remain uncorrupted at least 95\% of the time \\
 		NF-08 & Reliability & Saved information will be backed up. \\
-		NF-09 & Supportability & the system should be extensible to a client/server architecture \\
-		NF-10 & Legal & users will agree to a Terms of Service agreement \\
+		NF-09 & Supportability & The system should be extensible to a client/server architecture \\
+		NF-10 & Legal & Users will agree to a Terms of Service agreement \\
 		NF-11 & Interface & \\
-		NF-12 & Operations & a forum for users to report bugs \\
-		NF-13 & Packaging & will be available to download as a standalone executable \\
+		NF-12 & Operations & A forum for users to report bugs \\
+		NF-13 & Packaging & Will be available to download as a standalone executable \\
 	\end{tabu}
 \end{table}
 
@@ -217,8 +217,9 @@ the flows for the various possible states of the system.
 	\caption{High-Level Use Case Descriptions}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
-		UC-01 & ParticipateInProjects & description blah blah \\
-		UC-02 & ManageProjects & blah \\
+		UC-01 & ParticipateInProjects & The student accesses and can modify their own profile details (includes project participation details)\\
+		UC-02 & ManageProjects & The Administrator manages current project as well as having the option to create a new instance of a 
+		project (includes manipulating student participation and access to the PPID algorithm and its results). \\
 	\end{tabu}
 \end{table}
 
@@ -235,7 +236,7 @@ the flows for the various possible states of the system.
 \end{figure}
 
 \begin{table}[H]
-	\caption{Detailed Use Case Descriptions}
+	\caption{Detailed Use Case Descriptions - Administrators}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 		UC-03 & ViewPPIDDetails & stuff\\
@@ -245,14 +246,23 @@ the flows for the various possible states of the system.
 		UC-07 & EditProject & The Administrator modifies the parameters of a specified project.\\
 		UC-08 & AddStudent & The Administrator adds a Student to the current project.\\
 		UC-09 & RemoveStudent & The Administrator removes a Student from the current project.\\
-		UC-10 & SaveError & There was an error during saving (generalizes WriteError, ReadError, OpenError, CloseError). The system reports the specific error to the user and aborts the operation.\\
+		UC-10 & SaveError & There was an error during saving (generalizes WriteError, ReadError, OpenError, CloseError). 
+		The system reports the specific error to the user and aborts the operation.\\
 		UC-11 & OpenError & The system reports that the selected file could not be opened.\\
 		UC-12 & ReadError & The system reports that the selected file could not be read.\\
 		UC-13 & WriteError & The system reports that the selected file could not be written to.\\
 		UC-14 & CloseError & The system reports that the selected file could not be closed.\\
 		UC-15 & InvalidInputError & The system reports that the given value is invalid.\\
 		UC-16 & InvalidStudentError & The system reports that a student was not selected to carry out the selected operation on.\\
-		UC-17 & InsufficientStudentsError & The system reports that there are not enough students registered in project to run the PPID algorithm.\\
+		UC-17 & InsufficientStudentsError & The system reports that there are not enough students registered in project to
+		 run the PPID algorithm.\\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Use Case Descriptions - Students}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
 		UC-18 & JoinProject & The student adds themselves to an existing project.\\
 		UC-19 & EditProfile & The student modifies the parameters of their profile.\\
 		UC-20 & LeaveProject & The student removes themselves from an existing project.\\
@@ -290,7 +300,7 @@ the flows for the various possible states of the system.
 			\item 
         \end{itemize} \\
 
-		Traceability & \\
+		Traceability & F-01, F-02, F-03, F-04\\
 
 		\toprule
 	\end{tabu}
@@ -326,7 +336,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & \\
+		Traceability & F-05, F-06, F-07, F-08, F-09\\
         \toprule
     \end{tabu}
 \end{center}
