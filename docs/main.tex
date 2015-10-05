@@ -28,29 +28,35 @@
 \newcommand{\personthree}{Juhandr\'e Knoetze}
 \newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
 
-\newcommand{\participateinprojects}{UC-01}
-\newcommand{\manageprojects}{UC-02}
-\newcommand{\viewppiddetails}{UC-03}
-\newcommand{\createnewproject}{UC-04}
-\newcommand{\launchppid}{UC-05}
-\newcommand{\viewppidsummary}{UC-06}
-\newcommand{\editproject}{UC-07}
-\newcommand{\editprojectdetails}{UC-08}
-\newcommand{\addstudent}{UC-09}
-\newcommand{\removestudent}{UC-10}
-\newcommand{\joinproject}{UC-11}
-\newcommand{\leaveproject}{UC-12}
-\newcommand{\editprofile}{UC-13}
-\newcommand{\editpersonalvalues}{UC-14}
-\newcommand{\editdesiredvalues}{UC-15}
-\newcommand{\saveerror}{UC-16}
-\newcommand{\openerror}{UC-17}
-\newcommand{\readerror}{UC-18}
-\newcommand{\writeerror}{UC-19}
-\newcommand{\closeerror}{UC-20}
-\newcommand{\invalidinputerror}{UC-21}
-\newcommand{\invalidstudenterror}{UC-22}
-\newcommand{\insufficientstudentserror}{UC-23}
+%% USE-CASE COMMANDS
+\newcounter{usecasenum}
+\renewcommand{\theusecasenum}{UC-\ifnum\value{usecasenum}<10 0\fi\arabic{usecasenum}}
+\newcommand{\newusecase}[1]{\refstepcounter{usecasenum}\label{#1}\expandafter\newcommand\csname #1\endcsname{\ref{#1}}}
+
+\newusecase{participateinprojects}
+\newusecase{manageprojects}
+\newusecase{viewppiddetails}
+\newusecase{createnewproject}
+\newusecase{launchppid}
+\newusecase{viewppidsummary}
+\newusecase{editproject}
+\newusecase{editprojectdetails}
+\newusecase{addstudent}
+\newusecase{removestudent}
+\newusecase{joinproject}
+\newusecase{leaveproject}
+\newusecase{editprofile}
+\newusecase{editpersonalvalues}
+\newusecase{editdesiredvalues}
+\newusecase{saveerror}
+\newusecase{openerror}
+\newusecase{readerror}
+\newusecase{writeerror}
+\newusecase{closeerror}
+\newusecase{invalidinputerror}
+\newusecase{invalidstudenterror}
+\newusecase{insufficientstudentserror}
+%% END USE-CASE COMMANDS
 % END CUSTOM COMMANDS
 
 % TABLE STYLING
