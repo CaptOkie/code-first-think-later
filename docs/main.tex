@@ -187,21 +187,22 @@ the flows for the various possible states of the system.
 	\caption{Functional Requirements}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {>{\bf}lX}
-		F-01 & Students can add themselves to any number of projects. \\
-		F-02 & Students can remove themselves from a project. \\
+		F-01 & Students must be able to add themselves to any number of projects. \\
+		F-02 & Students must be able to remove themselves from a project they are currently part of. \\
 		F-03 & Students must be able to edit their Project Partner Profile. \\
-		\ccindent{}F-03-01 & \ccindent{}Their own values. \\
-		\ccindent{}F-03-02 & \ccindent{}What they are looking for. \\
+		\ccindent{}F-03-01 & \ccindent{}Students must be able to modify the values representing their own qualifications. \\
+		\ccindent{}F-03-02 & \ccindent{}Students must be able to modify the values representing what qualifications they
+		desire in potential partners (what they prioritize, for example). \\
 		F-04 & Students must be able to view their Project Partner Profile. \\
-		F-05 & Administrators must be able to create projects. \\
-		F-06 & Administrators must be able to edit projects. \\
-		\ccindent{}F-06-01 & \ccindent{}Set team size. \\
-		\ccindent{}F-06-02 & \ccindent{}Add students. \\
-		\ccindent{}F-06-03 & \ccindent{}Remove students. \\
-		\ccindent{}F-06-04 & \ccindent{}Project name. \\
+		F-05 & Administrators must be able to create new projects. \\
+		F-06 & Administrators must be able to edit existing projects. \\
+		\ccindent{}F-06-01 & \ccindent{}Administrators must be able to modify the team size parameter for individual projects. \\
+		\ccindent{}F-06-02 & \ccindent{}Administrators must be able to add a student to a selected project. \\
+		\ccindent{}F-06-03 & \ccindent{}Administrators must be able to remove a student from a selected project. \\
+		\ccindent{}F-06-04 & \ccindent{}Administrators must be able to modify the project name parameter for individual projects.\\
 		F-07 & Administrators must be able to launch the PPID algorithm for a specific project. \\
-		F-08 & Administrators can view summary results. \\
-		F-09 & Administrators can view detailed results. \\
+		F-08 & Administrators must be able to view the summary results of the last-run PPID algorithm. \\
+		F-09 & Administrators must be able to view the detailed results of the last-run PPID algorithm. \\
 	\end{tabu}
 \end{table}
 
@@ -211,19 +212,20 @@ the flows for the various possible states of the system.
 	\caption{Non-Functional Requirements}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
-		NF-01 & Usability & Keyboard short cuts. \\
-		NF-02 & Usability & All error messages should be descriptive and suggest appropriate solutions.\\
-		NF-03 & Implementation & Written in C++. \\
-		NF-04 & Implementation & Must use the Qt framework for creating a graphical user interface \\
-		NF-05 & Implementation & Runs on Linux. \\
-		NF-06 & Performance & The algorithm will take no longer than 5 seconds to complete \\
-		NF-07 & Reliability & Saved data will remain uncorrupted at least 95\% of the time \\
-		NF-08 & Reliability & Saved information will be backed up. \\
-		NF-09 & Supportability & The system should be extensible to a client/server architecture \\
-		NF-10 & Legal & Users will agree to a Terms of Service agreement \\
-		NF-11 & Interface & \\
-		NF-12 & Operations & A forum for users to report bugs \\
-		NF-13 & Packaging & Will be available to download as a standalone executable \\
+		NF-01 & Usability & Default keyboard shortcuts must be provided for all users. \\
+		NF-02 & Usability & The option to customize the key bindings for default keyboard shortcuts must be available for all users.\\
+		NF-03 & Usability & All error messages must be descriptive and suggest appropriate solutions.\\
+		NF-04 & Implementation & The software must be written in the C++ language. \\
+		NF-05 & Implementation & The software must use the Qt framework for creating the graphical user interface (G.U.I.). \\
+		NF-06 & Implementation & The software must run in Linux environment. \\
+		NF-07 & Performance & The algorithm will take no longer than 5 seconds to finish running. \\
+		NF-08 & Reliability & Saved data will remain uncorrupted at least 95\% of the time. \\
+		NF-09 & Reliability & Saved information must be backed up. \\
+		NF-10 & Supportability & The system must be extensible to a client/server architecture. \\
+		NF-11 & Legal & Users must accept a Terms of Service agreement in order to use the software.\\
+		NF-12 & Interface & \\
+		NF-13 & Operations & A forum should be provided for users to report any bugs they may encounter. \\
+		NF-14 & Packaging & The software will be available to download as a standalone executable. \\
 	\end{tabu}
 \end{table}
 
@@ -264,7 +266,8 @@ the flows for the various possible states of the system.
 	\caption{Detailed Use Case Descriptions - Administrators}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
-		\viewppiddetails{} & ViewPPIDDetails & stuff\\
+		\viewppiddetails{} & ViewPPIDDetails & The Administrator views the detailed summary of the decisions that the last-run PPID
+		algorithm made.\\
 		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a project.\\
 		\launchppid{} & LaunchPPID & The Administrator applies the PPID Algorithm to a specified project.\\
 		\viewppidsummary{} & ViewPPIDSummary & The Administrator views the results of the last-run PPID algorithm.\\
@@ -654,7 +657,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -689,7 +692,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -724,7 +727,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -759,7 +762,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -794,7 +797,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -826,7 +829,7 @@ the flows for the various possible states of the system.
 		    \item 
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -861,7 +864,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -896,7 +899,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -931,7 +934,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -966,7 +969,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -1001,7 +1004,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -1036,7 +1039,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -1071,7 +1074,7 @@ the flows for the various possible states of the system.
 		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
         \end{itemize} \\
 
-		Traceability & NF-02 \\
+		Traceability & NF-03 \\
 		\toprule
 	\end{tabu}
 \end{center}
