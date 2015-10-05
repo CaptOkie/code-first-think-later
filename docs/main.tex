@@ -41,6 +41,8 @@
 \newusecase{viewppidsummary}
 \newusecase{editproject}
 \newusecase{editprojectdetails}
+\newusecase{editteamsize}
+\newusecase{editprojectname}
 \newusecase{addstudent}
 \newusecase{removestudent}
 \newusecase{joinproject}
@@ -54,6 +56,9 @@
 \newusecase{writeerror}
 \newusecase{closeerror}
 \newusecase{invalidinputerror}
+\newusecase{illegalminerror}
+\newusecase{illegalmaxerror}
+\newusecase{projectexistserror}
 \newusecase{invalidstudenterror}
 \newusecase{insufficientstudentserror}
 %% END USE-CASE COMMANDS
@@ -288,6 +293,8 @@ the flows for the various possible states of the system.
 		\editproject{} & EditProject & The Administrator modifies an aspect of the project (includes student participation 
 		and project parameters).\\
 		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified project.\\
+		\editteamsize{} & EditTeamSize & \\
+		\editprojectname{} & EditProjectName & \\
 		\addstudent{} & AddStudent & The Administrator adds a Student to the current project.\\
 		\removestudent{} & RemoveStudent & The Administrator removes a Student from the current project.\\
 	\end{tabu}
@@ -317,6 +324,9 @@ the flows for the various possible states of the system.
 		\writeerror{} & WriteError & The system reports that the selected file could not be written to.\\
 		\closeerror{} & CloseError & The system reports that the selected file could not be closed.\\
 		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
+		\illegalminerror{} & IllegalMinError & \\
+		\illegalmaxerror{} & IllegalMaxError & \\
+		\projectexistserror{} & ProjectExistsError & \\
 		\invalidstudenterror{} & InvalidStudentError & The system reports that a student was not selected to carry out the selected 
 		operation on.\\
 		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough students registered in project to
@@ -366,7 +376,7 @@ the flows for the various possible states of the system.
         \toprule
 		Use Case Identifier & \manageprojects{} \\
 		Name & {\bf ManageProjects} \\
-        Participating Actors & Initiated by Administrato \\
+        Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
@@ -401,7 +411,7 @@ the flows for the various possible states of the system.
 		\toprule
 		Use Case Identifier & \viewppiddetails{} \\
 		Name & {\bf ViewPPIDDetails} \\
-		Participating Actors & Initiated by Administrato \\
+		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
@@ -436,7 +446,7 @@ the flows for the various possible states of the system.
 		\toprule
 		Use Case Identifier & \createnewproject{} \\
 		Name & {\bf CreateNewProject} \\
-		Participating Actors & Initiated by Administrato \\
+		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
@@ -471,7 +481,7 @@ the flows for the various possible states of the system.
 		\toprule
 		Use Case Identifier & \launchppid{} \\
 		Name & {\bf LaunchPPID} \\
-		Participating Actors & Initiated by Administrato \\
+		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
@@ -506,7 +516,7 @@ the flows for the various possible states of the system.
 		\toprule
 		Use Case Identifier & \viewppidsummary{} \\
 		Name & {\bf ViewPPIDSummary} \\
-		Participating Actors & Initiated by Administrato \\
+		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
@@ -541,7 +551,7 @@ the flows for the various possible states of the system.
 		\toprule
 		Use Case Identifier & \editproject{} \\
 		Name & {\bf EditProject} \\
-		Participating Actors & Initiated by Administrato \\
+		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
@@ -574,9 +584,114 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
+		Use Case Identifier & \editprojectdetails{} \\
+		Name & {\bf EditProjectDetails} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-05, F-06, F-06-01, F-06-04 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editteamsize{} \\
+		Name & {\bf EditTeamSize} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-06-01 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editprojectname{} \\
+		Name & {\bf EditProjectName} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-06-04 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
 		Use Case Identifier & \addstudent{} \\
 		Name & {\bf AddStudent} \\
-		Participating Actors & Initiated by Administrato \\
+		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
