@@ -27,6 +27,30 @@
 \newcommand{\persontwo}{Hendrik Knoetze}
 \newcommand{\personthree}{Juhandr\'e Knoetze}
 \newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
+
+\newcommand{\participateinprojects}{UC-01}
+\newcommand{\manageprojects}{UC-02}
+\newcommand{\viewppiddetails}{UC-03}
+\newcommand{\createnewproject}{UC-04}
+\newcommand{\launchppid}{UC-05}
+\newcommand{\viewppidsummary}{UC-06}
+\newcommand{\editproject}{UC-07}
+\newcommand{\editprojectdetails}{UC-08}
+\newcommand{\addstudent}{UC-09}
+\newcommand{\removestudent}{UC-10}
+\newcommand{\joinproject}{UC-11}
+\newcommand{\leaveproject}{UC-12}
+\newcommand{\editprofile}{UC-13}
+\newcommand{\editpersonalvalues}{UC-14}
+\newcommand{\editdesiredvalues}{UC-15}
+\newcommand{\saveerror}{UC-16}
+\newcommand{\openerror}{UC-17}
+\newcommand{\readerror}{UC-18}
+\newcommand{\writeerror}{UC-19}
+\newcommand{\closeerror}{UC-20}
+\newcommand{\invalidinputerror}{UC-21}
+\newcommand{\invalidstudenterror}{UC-22}
+\newcommand{\insufficientstudentserror}{UC-23}
 % END CUSTOM COMMANDS
 
 % TABLE STYLING
@@ -217,9 +241,10 @@ the flows for the various possible states of the system.
 	\caption{High-Level Use Case Descriptions}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
-		UC-01 & ParticipateInProjects & The student accesses and can modify their own profile details (includes project participation details)\\
-		UC-02 & ManageProjects & The Administrator manages current project as well as having the option to create a new instance of a 
-		project (includes manipulating student participation and access to the PPID algorithm and its results). \\
+		\participateinprojects{} & ParticipateInProjects & The student accesses and can modify their own profile details 
+		(includes project participation details)\\
+		\manageprojects{} & ManageProjects & The Administrator manages current project as well as having the option to 
+		create a new instance of a project (includes manipulating student participation and access to the PPID algorithm and its results). \\
 	\end{tabu}
 \end{table}
 
@@ -239,23 +264,15 @@ the flows for the various possible states of the system.
 	\caption{Detailed Use Case Descriptions - Administrators}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
-		UC-03 & ViewPPIDDetails & stuff\\
-		UC-04 & CreateNewProject & The Administrator creates a new instance of a project.\\
-		UC-05 & LaunchPPID & The Administrator applies the PPID Algorithm to a specified project.\\
-		UC-06 & ViewPPIDSummary & stuff\\
-		UC-07 & EditProject & The Administrator modifies the parameters of a specified project.\\
-		UC-08 & AddStudent & The Administrator adds a Student to the current project.\\
-		UC-09 & RemoveStudent & The Administrator removes a Student from the current project.\\
-		UC-10 & SaveError & There was an error during saving (generalizes WriteError, ReadError, OpenError, CloseError). 
-		The system reports the specific error to the user and aborts the operation.\\
-		UC-11 & OpenError & The system reports that the selected file could not be opened.\\
-		UC-12 & ReadError & The system reports that the selected file could not be read.\\
-		UC-13 & WriteError & The system reports that the selected file could not be written to.\\
-		UC-14 & CloseError & The system reports that the selected file could not be closed.\\
-		UC-15 & InvalidInputError & The system reports that the given value is invalid.\\
-		UC-16 & InvalidStudentError & The system reports that a student was not selected to carry out the selected operation on.\\
-		UC-17 & InsufficientStudentsError & The system reports that there are not enough students registered in project to
-		 run the PPID algorithm.\\
+		\viewppiddetails{} & ViewPPIDDetails & stuff\\
+		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a project.\\
+		\launchppid{} & LaunchPPID & The Administrator applies the PPID Algorithm to a specified project.\\
+		\viewppidsummary{} & ViewPPIDSummary & The Administrator views the results of the last-run PPID algorithm.\\
+		\editproject{} & EditProject & The Administrator modifies an aspect of the project (includes student participation 
+		and project parameters).\\
+		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified project.\\
+		\addstudent{} & AddStudent & The Administrator adds a Student to the current project.\\
+		\removestudent{} & RemoveStudent & The Administrator removes a Student from the current project.\\
 	\end{tabu}
 \end{table}
 
@@ -263,18 +280,37 @@ the flows for the various possible states of the system.
 	\caption{Detailed Use Case Descriptions - Students}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
-		UC-18 & JoinProject & The student adds themselves to an existing project.\\
-		UC-19 & EditProfile & The student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
-		UC-20 & LeaveProject & The student removes themselves from an existing project.\\
-		UC-21 & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer). \\
-		UC-22 & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members). \\
+		\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
+		\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
+		\editprofile{} & EditProfile & The student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
+		\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer). \\
+		\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in 
+		potential team members). \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Use Case Descriptions - Error Cases}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
+		\saveerror{} & SaveError & There was an error during saving (generalizes WriteError, ReadError, OpenError, CloseError). 
+		The system reports the specific error to the user and aborts the operation.\\
+		\openerror{} & OpenError & The system reports that the selected file could not be opened.\\
+		\readerror{} & ReadError & The system reports that the selected file could not be read.\\
+		\writeerror{} & WriteError & The system reports that the selected file could not be written to.\\
+		\closeerror{} & CloseError & The system reports that the selected file could not be closed.\\
+		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
+		\invalidstudenterror{} & InvalidStudentError & The system reports that a student was not selected to carry out the selected 
+		operation on.\\
+		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough students registered in project to
+		 run the PPID algorithm.\\
 	\end{tabu}
 \end{table}
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-01 \\
+		Use Case Identifier & \participateinprojects{} \\
 		Name & {\bf ParticipateInProjects} \\
 		Participating Actors & Initiated by Student \\
 
@@ -311,7 +347,7 @@ the flows for the various possible states of the system.
 \begin{center}
     \begin{tabu} to \textwidth {>{\it}l X}
         \toprule
-		Use Case Identifier & UC-02 \\
+		Use Case Identifier & \manageprojects{} \\
 		Name & {\bf ManageProjects} \\
         Participating Actors & Initiated by Administrato \\
 		Flow of Events & 
@@ -346,7 +382,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-03 \\
+		Use Case Identifier & \viewppiddetails{} \\
 		Name & {\bf ViewPPIDDetails} \\
 		Participating Actors & Initiated by Administrato \\
 		Flow of Events & 
@@ -381,7 +417,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-04 \\
+		Use Case Identifier & \createnewproject{} \\
 		Name & {\bf CreateNewProject} \\
 		Participating Actors & Initiated by Administrato \\
 		Flow of Events & 
@@ -416,7 +452,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-05 \\
+		Use Case Identifier & \launchppid{} \\
 		Name & {\bf LaunchPPID} \\
 		Participating Actors & Initiated by Administrato \\
 		Flow of Events & 
@@ -451,7 +487,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-06 \\
+		Use Case Identifier & \viewppidsummary{} \\
 		Name & {\bf ViewPPIDSummary} \\
 		Participating Actors & Initiated by Administrato \\
 		Flow of Events & 
@@ -486,7 +522,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-07 \\
+		Use Case Identifier & \editproject{} \\
 		Name & {\bf EditProject} \\
 		Participating Actors & Initiated by Administrato \\
 		Flow of Events & 
@@ -521,7 +557,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-08 \\
+		Use Case Identifier & \addstudent{} \\
 		Name & {\bf AddStudent} \\
 		Participating Actors & Initiated by Administrato \\
 		Flow of Events & 
@@ -556,7 +592,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-09 \\
+		Use Case Identifier & \removestudent{} \\
 		Name & {\bf RemoveStudent} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -591,284 +627,7 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-10 \\
-		Name & {\bf SaveError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item The system notifies the Administrator that an error has occured with regards to the processing of
-		    the current file.
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item A file processing operation failed.
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item The operation is aborted.
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-11 \\
-		Name & {\bf OpenError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-12 \\
-		Name & {\bf ReadError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-13 \\
-		Name & {\bf WriteError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-14 \\
-		Name & {\bf CloseError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-15 \\
-		Name & {\bf InvalidInputError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-16 \\
-		Name & {\bf InvalidStudentError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-17 \\
-		Name & {\bf InsufficientStudentsError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & UC-18 \\
+		Use Case Identifier & \joinproject{} \\
 		Name & {\bf JoinProject} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -903,7 +662,42 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-19 \\
+		Use Case Identifier & \leaveproject{} \\
+		Name & {\bf LeaveProject} \\
+		Participating Actors & Initiated by Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editprofile{} \\
 		Name & {\bf EditProfile} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -938,9 +732,321 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & UC-20 \\
-		Name & {\bf LeaveProject} \\
+		Use Case Identifier & \editpersonalvalues{} \\
+		Name & {\bf EditPersonalValues} \\
 		Participating Actors & Initiated by Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editdesiredvalues{} \\
+		Name & {\bf EditDesiredValues} \\
+		Participating Actors & Initiated by Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \saveerror{} \\
+		Name & {\bf SaveError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item The system notifies the Administrator that an error has occured with regards to the processing of
+		    the current file.
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item A file processing operation failed.
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item The operation is aborted.
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \openerror{} \\
+		Name & {\bf OpenError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \readerror{} \\
+		Name & {\bf ReadError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \writeerror{} \\
+		Name & {\bf WriteError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \closeerror{} \\
+		Name & {\bf CloseError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \invalidinputerror{} \\
+		Name & {\bf InvalidInputError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \invalidstudenterror{} \\
+		Name & {\bf InvalidStudentError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \insufficientstudentserror{} \\
+		Name & {\bf InsufficientStudentsError} \\
+		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
 		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
