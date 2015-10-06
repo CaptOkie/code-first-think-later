@@ -35,10 +35,11 @@
 
 \newusecase{participateinprojects}
 \newusecase{manageprojects}
-\newusecase{viewppiddetails}
 \newusecase{createnewproject}
 \newusecase{launchppid}
+\newusecase{viewppidresults}
 \newusecase{viewppidsummary}
+\newusecase{viewppiddetails}
 \newusecase{editproject}
 \newusecase{editprojectdetails}
 \newusecase{editteamsize}
@@ -212,9 +213,9 @@ the flows for the various possible states of the system.
 		\ccindent{}F-06-02 & \ccindent{}Administrators must be able to add a student to a selected project. \\
 		\ccindent{}F-06-03 & \ccindent{}Administrators must be able to remove a student from a selected project. \\
 		\ccindent{}F-06-04 & \ccindent{}Administrators must be able to modify the project name parameter for individual projects.\\
-		F-07 & Administrators must be able to launch the PPID algorithm for a specific project. \\
-		F-08 & Administrators must be able to view the summary results of the last-run PPID algorithm. \\
-		F-09 & Administrators must be able to view the detailed results of the last-run PPID algorithm. \\
+		F-07 & Administrators must be able to launch the PPID for a specific project. \\
+		F-08 & Administrators must be able to view the summary results of the last-run PPID. \\
+		F-09 & Administrators must be able to view the detailed results of the last-run PPID. \\
 	\end{tabu}
 \end{table}
 
@@ -230,7 +231,7 @@ the flows for the various possible states of the system.
 		NF-04 & Implementation & The software must be written in the C++ language. \\
 		NF-05 & Implementation & The software must use the Qt framework for creating the graphical user interface (G.U.I.). \\
 		NF-06 & Implementation & The software must run in Linux environment. \\
-		NF-07 & Performance & The algorithm will take no longer than 5 seconds to finish running. \\
+		NF-07 & Performance & The PPID will take no longer than 5 seconds to finish running. \\
 		NF-08 & Reliability & Saved data will remain uncorrupted at least 95\% of the time. \\
 		NF-09 & Reliability & Saved information must be backed up. \\
 		NF-10 & Supportability & The system must be extensible to a client/server architecture. \\
@@ -260,7 +261,7 @@ the flows for the various possible states of the system.
 		\participateinprojects{} & ParticipateInProjects & The student accesses and can modify their own profile details 
 		(includes project participation details)\\
 		\manageprojects{} & ManageProjects & The Administrator manages current project as well as having the option to 
-		create a new instance of a project (includes manipulating student participation and access to the PPID algorithm and its results). \\
+		create a new instance of a project (includes manipulating student participation and access to the PPID and its results). \\
 	\end{tabu}
 \end{table}
 
@@ -286,11 +287,11 @@ the flows for the various possible states of the system.
 	\caption{Detailed Use Case Descriptions - Administrators}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
-		\viewppiddetails{} & ViewPPIDDetails & The Administrator views the detailed summary of the decisions that the last-run PPID
-		algorithm made.\\
 		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a project.\\
-		\launchppid{} & LaunchPPID & The Administrator applies the PPID Algorithm to a specified project.\\
-		\viewppidsummary{} & ViewPPIDSummary & The Administrator views the results of the last-run PPID algorithm.\\
+		\launchppid{} & LaunchPPID & The Administrator runs the PPID for a specified project.\\
+		\viewppidresults{} & ViewPPIDResults & The Administrator views the results of the PPID for a project. \\
+		\viewppidsummary{} & ViewPPIDSummary & The Administrator views a summary of the groups that are created. \\
+		\viewppiddetails{} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions. \\
 		\editproject{} & EditProject & The Administrator modifies an aspect of the project (includes student participation 
 		and project parameters).\\
 		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified project.\\
@@ -330,7 +331,7 @@ the flows for the various possible states of the system.
 		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
 		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid student, be it no student or a non-existent student, was selected to carry out the operation.\\
 		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough students registered in project to
-		 run the PPID algorithm.\\
+		 run the PPID.\\
         \invalidprojecterror{} & InvalidProjectError & The system reports that an invalid project, be it no project or a non-existent project, was selected to carry out the operation.\\
 	\end{tabu}
 \end{table}
@@ -344,27 +345,23 @@ the flows for the various possible states of the system.
 
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
-		    \item[1.] The Student begins the cuPID process
+		    \item[1.] The Student begins the cuPID process.
 			\begin{enumerate}
-				\item[2.] The Student is presented with a menu from the system. Options of: joining a project, leaving a project, or editing their profile for a project
+				\item[2.] The Student is presented with a menu from the system. Options of: joining a project, leaving a project, or editing their profile for a project.
+				\item[3.] If the Student chooses to edit their profile, the system brings up a menu of profile elements that may be modified. The Student may choose to edit their personal details (include use case \textbf{EditPersonalValues}) or to edit their desired partner values (include use case \textbf{EditDesiredValues}).
+				\item[4.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
+				\item[5.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
 			\end{enumerate}
-
 		\end{enumerate} \\
 
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-			\item  
-        \end{itemize} \\
+		Entry Conditions & \\
 
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-			\item 
-        \end{itemize} \\
+		Exit Conditions & \\ % KEVIN_QUESTION Do we need an exit condition?
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em]
-			\item 
-        \end{itemize} \\
+			\item The user must be operating cuPID as a Student.
+		\end{itemize} \\
 
 		Traceability & F-01, F-02, F-03, F-04\\
 
@@ -380,66 +377,28 @@ the flows for the various possible states of the system.
         Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item[1.] The Administrator begins the cuPID process.
+			\begin{enumerate}
+				\item[2.] The Administrator is presented with a menu from the system. It has the options of: creating a new project, editing a project, launching the PPID, viewing PPID results.
+				\item[3.] If the Administrator chooses to create a new project, the system brings up a menu for creating a new project (include use case \textbf{CreateNewProject}).
+				\item[4.] If the Administrator chooses to edit a project, the system brings up a list of projects to edit (include use case \textbf{EditProject}).
+				\item[5.] If the Administrator chooses to launch the PPID, the system brings up a list of projects (include use case \textbf{LaunchPPID}).
+				\item[6.] If the Administrator chooses to view PPID results, the systems brings up a list of projects with PPID results (include use case \textbf{ViewPPIDResults}).
+			\end{enumerate}
 		\end{enumerate} \\
 
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Entry Conditions & \\
 
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Exit Conditions & \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item The user must be operating cuPID as an Administrator. 
         \end{itemize} \\
 
 		Traceability & F-05, F-06, F-07, F-08, F-09\\
         \toprule
     \end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \viewppiddetails{} \\
-		Name & {\bf ViewPPIDDetails} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
-
-		Traceability & F-09 \\
-		\toprule
-	\end{tabu}
 \end{center}
 
 \begin{center}
@@ -515,6 +474,41 @@ the flows for the various possible states of the system.
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
+		Use Case Identifier & \viewppidresults{} \\
+		Name & {\bf ViewPPIDResults} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-08, F-09 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
 		Use Case Identifier & \viewppidsummary{} \\
 		Name & {\bf ViewPPIDSummary} \\
 		Participating Actors & Initiated by Administrator \\
@@ -543,6 +537,41 @@ the flows for the various possible states of the system.
         \end{itemize} \\
 
 		Traceability & F-08 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \viewppiddetails{} \\
+		Name & {\bf ViewPPIDDetails} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & F-09 \\
 		\toprule
 	\end{tabu}
 \end{center}
