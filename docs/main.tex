@@ -305,16 +305,15 @@ the flows for the various possible states of the system.
 \end{table}
 
 \begin{table}[H]
-	\caption{Detailed Use Case Descriptions - Students}
-	\vspace{1em}
-	\begin{tabu} to \textwidth {l >{\bf}l X}
-		\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
-		\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
-		\editprofile{} & EditProfile & The student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
-		\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer). \\
-		\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in 
-		potential team members). \\
-	\end{tabu}
+\caption{Detailed Use Case Descriptions - Students}
+\vspace{1em}
+\begin{tabu} to \textwidth {l >{\bf}l X}
+	\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
+	\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
+	\editprofile{} & EditProfile & The student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
+	\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer). \\
+	\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members). \\
+\end{tabu}
 \end{table}
 
 \begin{table}[H]
@@ -378,7 +377,7 @@ the flows for the various possible states of the system.
 		Name & {\bf ManageProjects} \\
         Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
 		    \item[1.] The Administrator begins the cuPID process.
 			\begin{enumerate}
 				\item[2.] The Administrator is presented with a menu from the system. It has the options of: creating a new project, editing a project, launching the PPID, viewing PPID results.
@@ -394,7 +393,7 @@ the flows for the various possible states of the system.
 		Exit Conditions & \\
 
 		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
+		\begin{itemize}[topsep=-1em,leftmargin=*]
 		    \item The user must be operating cuPID as an Administrator. 
         \end{itemize} \\
 
@@ -410,28 +409,24 @@ the flows for the various possible states of the system.
 		Name & {\bf CreateNewProject} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item[1.] The Administrator fills in the project details (include use case \textbf{EditProjectDetails}).
+		    \begin{enumerate}
+		        \item[2.] The system saves the new project.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The Administrator has chosen to create a new project.
         \end{itemize} \\
 
 		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item A new Project has been created.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & F-05 \\
 		\toprule
@@ -445,30 +440,30 @@ the flows for the various possible states of the system.
 		Name & {\bf LaunchPPID} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item[1.] The Administrator chooses a project on which to run the PPID.
+		    \begin{enumerate}
+		        \item[2.] The system runs the PPID on the chosen project.
+		        \item[3.] The system displays the results of the PPID (include use case \textbf{ViewPPIDResults}).
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The Administrator has chosen to run the PPID.
         \end{itemize} \\
 
 		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The PPID results are saved.
         \end{itemize} \\
 
 		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The PPID will take no longer than 5 seconds to complete.
         \end{itemize} \\
 
-		Traceability & F-07 \\
+		Traceability & F-07, NF-07 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -480,28 +475,23 @@ the flows for the various possible states of the system.
 		Name & {\bf ViewPPIDResults} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item[]
+		    \begin{enumerate}
+		        \item[1.] The system displays a menu with two options: view summary PPID results (include use case \textbf{ViewPPIDSummary}) or view detailed PPID results.
+		        \item[2.] If the Administrator chooses to view the summary PPID results, the system displays the summary PPID results (include use case \textbf{ViewPPIDSummary}).
+		        \item[3.] If the Administrator chooses to view the detailed PPID results, the system displays the detailed PPID results (include use case \textbf{ViewPPIDDetails}).
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The Administrator has chosen to view the PPID results, or a new run of the PPID has just completed.
         \end{itemize} \\
 
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Exit Conditions & \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & F-08, F-09 \\
 		\toprule
@@ -515,28 +505,21 @@ the flows for the various possible states of the system.
 		Name & {\bf ViewPPIDSummary} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item[]
+		    \begin{enumerate}
+		        \item[1.] The system shows each group, including the students in each group.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The Administrator has chosen to view the summary PPID results.
         \end{itemize} \\
 
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Exit Conditions & \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & F-08 \\
 		\toprule
@@ -550,28 +533,21 @@ the flows for the various possible states of the system.
 		Name & {\bf ViewPPIDDetails} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item[]
+		    \begin{enumerate}
+		        \item[1.] The system displays the reasoning behind the groupings that were computed.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The Administrator has chosen to view the detailed PPID results.
         \end{itemize} \\
 
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Exit Conditions & \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em]
-		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & F-09 \\
 		\toprule
