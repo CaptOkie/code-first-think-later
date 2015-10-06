@@ -10,6 +10,7 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{lmodern}
+\usepackage[table]{xcolor}  
 
 \begin{document}
 
@@ -26,7 +27,6 @@
 \newcommand{\personone}{Kevin Hua}
 \newcommand{\persontwo}{Hendrik Knoetze}
 \newcommand{\personthree}{Juhandr\'e Knoetze}
-\newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
 
 %% USE-CASE COMMANDS
 \newcounter{usecasenum}
@@ -64,6 +64,12 @@
 \newusecase{insufficientstudentserror}
 \newusecase{invalidprojecterror}
 %% END USE-CASE COMMANDS
+
+%% TABLE COMMANDS
+\definecolor{thcolor}{RGB}{112,170,192}
+\newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
+\newcommand{\tableheader}{\rowfont\bf\rowcolor{thcolor}}
+%% END TABLE COMMANDS
 % END CUSTOM COMMANDS
 
 % TABLE STYLING
@@ -219,7 +225,8 @@ requirements - this will allow you to more easily trace our solution to each.
 \begin{table}[H]
 	\caption{Functional Requirements}
 	\vspace{1em}
-	\begin{tabu} to \textwidth {>{\bf}lX}
+	\begin{tabu} to \textwidth {>{\bf}l X}
+	    \tableheader{}Identifier & Description\\
 		F-01 & Students must be able to add themselves to any number of projects. \\
 		F-02 & Students must be able to remove themselves from a project they are currently part of. \\
 		F-03 & Students must be able to edit their Project Partner Profile. \\
@@ -252,6 +259,7 @@ or is required by law. Once again, each of these requirements have been assigned
 	\caption{Non-Functional Requirements}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+	    \tableheader{}Identifier & Category & Description\\
 		NF-01 & Usability & Default keyboard shortcuts must be provided for all users. \\
 		NF-02 & Usability & The option to customize the key bindings for default keyboard shortcuts must be available for all users.\\
 		NF-03 & Usability & All error messages must be descriptive and suggest appropriate solutions.\\
@@ -285,6 +293,7 @@ or is required by law. Once again, each of these requirements have been assigned
 	\caption{High-Level Use Case Descriptions}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}Identifier & Name & Description\\
 		\participateinprojects{} & ParticipateInProjects & The student accesses and can modify their own profile details 
 		(includes project participation details)\\
 		\manageprojects{} & ManageProjects & The Administrator manages current project as well as having the option to 
