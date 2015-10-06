@@ -8,6 +8,7 @@ TheBakedPotato:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
 5 Hours: Worked on UC diagrams and functional requirements.
 4 Hours: Worked on UC diagrams, formatting, and functional requirements.
+3 Hours: Added new use cases, added use case details.
 
 ViLLiELdR:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
