@@ -61,6 +61,7 @@
 \newusecase{projectexistserror}
 \newusecase{invalidstudenterror}
 \newusecase{insufficientstudentserror}
+\newusecase{invalidprojecterror}
 %% END USE-CASE COMMANDS
 % END CUSTOM COMMANDS
 
@@ -293,8 +294,8 @@ the flows for the various possible states of the system.
 		\editproject{} & EditProject & The Administrator modifies an aspect of the project (includes student participation 
 		and project parameters).\\
 		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified project.\\
-		\editteamsize{} & EditTeamSize & \\
-		\editprojectname{} & EditProjectName & \\
+		\editteamsize{} & EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID. \\
+		\editprojectname{} & EditProjectName & The Administrator sets the name of the project. \\
 		\addstudent{} & AddStudent & The Administrator adds a Student to the current project.\\
 		\removestudent{} & RemoveStudent & The Administrator removes a Student from the current project.\\
 	\end{tabu}
@@ -324,13 +325,13 @@ the flows for the various possible states of the system.
 		\writeerror{} & WriteError & The system reports that the selected file could not be written to.\\
 		\closeerror{} & CloseError & The system reports that the selected file could not be closed.\\
 		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
-		\illegalminerror{} & IllegalMinError & \\
-		\illegalmaxerror{} & IllegalMaxError & \\
-		\projectexistserror{} & ProjectExistsError & \\
-		\invalidstudenterror{} & InvalidStudentError & The system reports that a student was not selected to carry out the selected 
-		operation on.\\
+		\illegalminerror{} & IllegalMinError & The system reports that the given minimum team size is illegal.\\
+		\illegalmaxerror{} & IllegalMaxError & The system reports that the given maximum team size is illegal.\\
+		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
+		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid student, be it no student or a non-existent student, was selected to carry out the operation.\\
 		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough students registered in project to
 		 run the PPID algorithm.\\
+        \invalidprojecterror{} & InvalidProjectError & The system reports that an invalid project, be it no project or a non-existent project, was selected to carry out the operation.\\
 	\end{tabu}
 \end{table}
 
@@ -1108,6 +1109,111 @@ the flows for the various possible states of the system.
 		\toprule
 		Use Case Identifier & \invalidinputerror{} \\
 		Name & {\bf InvalidInputError} \\
+		Participating Actors & Administrator, Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-03 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \illegalminerror{} \\
+		Name & {\bf IllegalMinError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-03 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \illegalmaxerror{} \\
+		Name & {\bf IllegalMaxError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em]
+		    \item lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+		    \item other stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff lots of stuff
+        \end{itemize} \\
+
+		Traceability & NF-03 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \projectexistserror{} \\
+		Name & {\bf ProjectExistsError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em]
