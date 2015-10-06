@@ -13,5 +13,7 @@ TheBakedPotato:
 
 ViLLiELdR:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
-5 Hours: Worked on UC Diagram, Formatting, Proposed System, UC Detailed cases
-2 Hours: Cleaning file, fixing details, adding some details for UC cases
+5 Hours: Worked on UC Diagram, Formatting, Proposed System, UC Detailed cases.
+2 Hours: Cleaning file, fixing details, adding some details for UC cases.
+2 Hours: Cleaning up descriptions for a lot of the F and NF reqs.
+3 Hours: Wrote out several more sections (up to NFR inclusively).
