@@ -323,6 +323,7 @@ or is required by law. Once again, each of these requirements have been assigned
 	\caption{Detailed Use Case Descriptions - Administrators}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}Identifier & Name & Description\\
 		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a project.\\
 		\launchppid{} & LaunchPPID & The Administrator runs the PPID for a specified project.\\
 		\viewppidresults{} & ViewPPIDResults & The Administrator views the results of the PPID for a project. \\
@@ -339,21 +340,23 @@ or is required by law. Once again, each of these requirements have been assigned
 \end{table}
 
 \begin{table}[H]
-\caption{Detailed Use Case Descriptions - Students}
-\vspace{1em}
-\begin{tabu} to \textwidth {l >{\bf}l X}
-	\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
-	\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
-	\editprofile{} & EditProfile & The student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
-	\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer). \\
-	\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members). \\
-\end{tabu}
+	\caption{Detailed Use Case Descriptions - Students}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}Identifier & Name & Description\\
+		\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
+		\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
+		\editprofile{} & EditProfile & The student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
+		\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer). \\
+		\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members). \\
+	\end{tabu}
 \end{table}
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - Error Cases}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}Identifier & Name & Description\\
 		\saveerror{} & SaveError & There was an error during saving (generalizes WriteError, ReadError, OpenError, CloseError). 
 		The system reports the specific error to the user and aborts the operation.\\
 		\openerror{} & OpenError & The system reports that the selected file could not be opened.\\
