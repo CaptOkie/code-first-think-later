@@ -195,8 +195,26 @@ the flows for the various possible states of the system.
 
 \subsection{Overview}
 
+The system that we are proposing to build offers a simplistic and clean interface designed for the single purpose of generating 
+well-rounded and personality-compatible teams. To this end, we will allow two possible users: the Administrator, typically the professor,
+and the Student. We want to really make a clear distinction between these two users - all that the Student user can do is access their
+personal profile and control their participation to projects, while the Administration is in charge of all other aspects of project maintenance. 
+Solely the Administrator will be able to run and view the results of our specialized Partner Matching Algorithm. This algorithm, broadly speaking,
+will be analyzing four aspects of a person in order to generate the best possible teams:  programming or other relevant skills, leadership skills,
+personality, and available. 
+
+In this section, we will showcase a comprehensive breakdown of all the various components of our proposed system. For the sake of 
+legibility, we have decided to organize the content in such a way that we move naturally from simplest to most complex - in other words,
+each subsequent section builds off the previous. 
 
 \subsection{Functional Requirements}
+
+Functional requirements are the result of us carefully analzing the problem statement that you have submitted and extracting all the key 
+desired features. In other words, we have converted your request into a list of requirements that we will fulfill. For example, you mention that
+it is essential that this software can create projects. All the main features that you have expressed the desire to have have been matched with
+the appropriate user and included in the following table. This format has the added advantage of allowing you, our employer, to see for 
+yourself that each and every requirement is carried out to your satisfaction. Note again the unique identifier preceding each of the functional 
+requirements - this will allow you to more easily trace our solution to each. 
 
 \begin{table}[H]
 	\caption{Functional Requirements}
@@ -206,22 +224,33 @@ the flows for the various possible states of the system.
 		F-02 & Students must be able to remove themselves from a project they are currently part of. \\
 		F-03 & Students must be able to edit their Project Partner Profile. \\
 		\ccindent{}F-03-01 & \ccindent{}Students must be able to modify the values representing their own qualifications. \\
-		\ccindent{}F-03-02 & \ccindent{}Students must be able to modify the values representing what qualifications they
-		desire in potential partners (what they prioritize, for example). \\
-		F-04 & Students must be able to view their Project Partner Profile. \\
-		F-05 & Administrators must be able to create new projects. \\
-		F-06 & Administrators must be able to edit existing projects. \\
-		\ccindent{}F-06-01 & \ccindent{}Administrators must be able to modify the team size parameter for individual projects. \\
-		\ccindent{}F-06-02 & \ccindent{}Administrators must be able to add a student to a selected project. \\
-		\ccindent{}F-06-03 & \ccindent{}Administrators must be able to remove a student from a selected project. \\
-		\ccindent{}F-06-04 & \ccindent{}Administrators must be able to modify the project name parameter for individual projects.\\
-		F-07 & Administrators must be able to launch the PPID for a specific project. \\
-		F-08 & Administrators must be able to view the summary results of the last-run PPID. \\
-		F-09 & Administrators must be able to view the detailed results of the last-run PPID. \\
 	\end{tabu}
 \end{table}
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}lX}
+	\ccindent{}F-03-02 & \ccindent{}Students must be able to modify the values representing what qualifications they
+	desire in potential partners (what they prioritize, for example). \\
+	F-04 & Students must be able to view their Project Partner Profile. \\
+	F-05 & Administrators must be able to create new projects. \\
+	F-06 & Administrators must be able to edit existing projects. \\
+	\ccindent{}F-06-01 & \ccindent{}Administrators must be able to modify the team size parameter for individual projects. \\
+	\ccindent{}F-06-02 & \ccindent{}Administrators must be able to add a student to a selected project. \\
+	\ccindent{}F-06-03 & \ccindent{}Administrators must be able to remove a student from a selected project. \\
+	\ccindent{}F-06-04 & \ccindent{}Administrators must be able to modify the project name parameter for individual projects.\\
+	F-07 & Administrators must be able to launch the PPID for a specific project. \\
+	F-08 & Administrators must be able to view the summary results of the last-run PPID. \\
+	F-09 & Administrators must be able to view the detailed results of the last-run PPID. \\
+\end{tabu}
+\end{center}
 
+\vspace{1em}
 \subsection{Non-Functional Requirements}
+
+Non-functional requirements are differentiable from the functional requirements in that they are not the requested features of the project, but
+rather the various standards our proposed system must meet. For example, you expressed the desire that the system be designed specifically 
+for use with the Linux Ubuntu platform, and that all code must be written in the C++ programming language. Also included in this section are
+assorted promises to meet various standards that you have not included in your problem statement but that either we believe should be required, 
+or is required by law. Once again, each of these requirements have been assigned a unique identifier and can be used to trace our response to them.
 
 \begin{table}[H]
 	\caption{Non-Functional Requirements}
@@ -252,7 +281,7 @@ the flows for the various possible states of the system.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/high-level-use-case-diagram.png}
+	\includegraphics[scale=0.3]{imgs/high-level-use-case-diagram.png}
 	\caption{High-level Use Case Diagram}
 \end{figure}
 
