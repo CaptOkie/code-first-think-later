@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage[table]{xcolor}  
+\usepackage{transparent}
 
 \begin{document}
 
@@ -65,18 +66,18 @@
 \newusecase{invalidprojecterror}
 %% END USE-CASE COMMANDS
 
-%% TABLE COMMANDS
-\definecolor{thcolor}{RGB}{112,170,192}
-\newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
-\newcommand{\tableheader}{\rowfont\bf\rowcolor{thcolor}}
-%% END TABLE COMMANDS
-% END CUSTOM COMMANDS
-
 % TABLE STYLING
 \everyrow{\hline}
 \tabulinesep=0.5em
 \setlength\extrarowheight{0.5em}
 % END TABLE STYLING
+
+%% TABLE COMMANDS
+\definecolor{thcolor}{RGB}{193,193,193}
+\newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
+\newcommand{\tableheader}{\rowfont\bf\rowcolor{thcolor!30}}
+%% END TABLE COMMANDS
+% END CUSTOM COMMANDS
 
 \thispagestyle{empty}
 
@@ -259,7 +260,7 @@ or is required by law. Once again, each of these requirements have been assigned
 	\caption{Non-Functional Requirements}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
-	    \tableheader{}Identifier & Category & Description\\
+	    \tableheader{}ID & Category & Description\\
 		NF-01 & Usability & The option to customize the key bindings for default keyboard shortcuts must be available for all users.\\
 		NF-02 & Usability & The system will not terminate due to errors 95\% of the time.\\
 		NF-03 & Implementation & The software must be written in the C++ language. \\
@@ -369,7 +370,7 @@ or is required by law. Once again, each of these requirements have been assigned
 		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid student, be it no student or a non-existent student, was selected to carry out the operation.\\
 		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough students registered in project to
 		 run the PPID.\\
-        \invalidprojecterror{} & InvalidProjectError & The system reports that an invalid project, be it no project or a non-existent project, was selected to carry out the operation.\\
+   		\invalidprojecterror{} & InvalidProjectError & The system reports that an invalid project, be it no project or a non-existent project, was selected to carry out the operation.\\
 	\end{tabu}
 \end{table}
 
