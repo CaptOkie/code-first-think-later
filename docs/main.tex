@@ -28,6 +28,7 @@
 \newcommand{\personone}{Kevin Hua}
 \newcommand{\persontwo}{Hendrik Knoetze}
 \newcommand{\personthree}{Juhandr\'e Knoetze}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
 %% USE-CASE COMMANDS
 \newcounter{usecasenum}
@@ -295,7 +296,22 @@ of informativeness, each is required to fully understand the next.
 
 \subsubsection{Use Case Model}
 
+Use case models are pairings of diagrams that depicts the actions that a specified user can take in a tree-like format with detailed descriptions of each action. The actions 
+are divided into two three types: the high-level cases, denoted with <<initiates>>, the detailed cases, denoted with <<include>>, and the error cases, denoted with 
+<<extend>>. To augment readability, we have decided to have a separate section for the high-level cases and grouping the detailed and error cases together. One 
+concession we did make was to separate the different actions by user, or actor. 
 
+The format of this section will be separated in two parts. For the first part, we will further subdivide into two parts: the high-level use cases and the detailed use cases. 
+These two sub-sections will be identically formatted insofar as the diagrams will precede the more detailed descriptions, which are organized in a clean table format. Following
+this first part, the second part will contain the more detailed flow of events for every use case in the previous part (both high-level and detailed).
+
+\subsubsection*{High-level Use Cases}
+
+This section contains the high-level use cases - essentially, the most abstracted action each user (actor) can take. The diagram below illustrates the interaction between
+users, defined by the stick figure, and the system, defined by the rectangular box. The ovals represent the highest level actions that can be taken, with a connecting line to
+the user that can initiate them. Specifically, we have the Student user who can initiate the high-level action of ParticipateInProjects, and we have the Administrator user who can
+initiate in the action of ManageProjects. These actions are purposefully vague and general because they are the "parent action" that includes several other more specific actions.
+\vspace{1em}
 
 \begin{figure}[H]
 	\centering{}
@@ -314,6 +330,8 @@ of informativeness, each is required to fully understand the next.
 		create a new instance of a project (includes manipulating student participation and access to the PPID and its results). \\
 	\end{tabu}
 \end{table}
+
+\subsubsection*{Detailed Use Cases \& Error Use Cases}
 
 \begin{figure}[H]
 	\centering{}
@@ -381,12 +399,15 @@ of informativeness, each is required to fully understand the next.
 		\illegalminerror{} & IllegalMinError & The system reports that the given minimum team size is illegal.\\
 		\illegalmaxerror{} & IllegalMaxError & The system reports that the given maximum team size is illegal.\\
 		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
-		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid student, be it no student or a non-existent student, was selected to carry out the operation.\\
+		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid student, be it no student or a non-existent student, 
+		was selected to carry out the operation.\\
 		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough students registered in project to
 		 run the PPID.\\
    		\invalidprojecterror{} & InvalidProjectError & The system reports that an invalid project, be it no project or a non-existent project, was selected to carry out the operation.\\
 	\end{tabu}
 \end{table}
+
+\subsubsection*{Use Case Flow of Events}
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
