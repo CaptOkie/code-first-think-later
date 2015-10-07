@@ -4,12 +4,14 @@ CaptOkie:
 4 Hours: Worked on UC diagrams, formatting, and functional requirements.
 2 Hours: Added UC diagram, added automatic UC numbering, added more UCs.
 3 Hours: Added UC details.
+2 Hours: Group meeting, updated UC diagrams, and editted formatting.
 
 TheBakedPotato:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
 5 Hours: Worked on UC diagrams and functional requirements.
 4 Hours: Worked on UC diagrams, formatting, and functional requirements.
 3 Hours: Added new use cases, added use case details.
+2 Hours: Group meeting, updated UC diagrams, and editted formatting.
 
 ViLLiELdR:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
