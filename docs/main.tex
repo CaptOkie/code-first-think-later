@@ -325,12 +325,12 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
 	    & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
-		& EditProfile & The Student accesses and can modify their own profile details.\\
+		& EditProfile & The Student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
 		& ManageProjects & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
 	\end{tabu}
 \end{table}
 
-\subsubsection*{Detailed Use Cases \& Error Use Cases}
+\subsubsection*{Detailed Use Cases}
 
 \begin{figure}[H]
 	\centering{}
@@ -365,6 +365,18 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\caption{Detailed Use Case Diagram - Student}
 \end{figure}
 
+\begin{table}[H]
+	\caption{Detailed Use Case Descriptions - Student}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}ID & Name & Description\\
+		& JoinProject & The student adds themselves to an existing project.\\
+		& LeaveProject & The student removes themselves from an existing project.\\
+		& EditPersonalValues & The student modifies the personal details in his profile (what they have to offer).\\
+		& EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members).\\
+	\end{tabu}
+\end{table}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/detailed-user-input-use-case-diagram.png}
@@ -382,11 +394,12 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		UC & StorageError &  The system reports that there is an error with the stored information for cuPID. \\
-		UC & StorageReadError & The system reports that the selected file could not be read. \\
-		UC & StorageOpenError & The system reports that the selected file could not be opened. \\
-		UC & StorageWriteError & The system reports that the selected file could not be written to. \\
-		UC & StorageCloseError & The system reports that the selected file could not be closed. \\
+   		& InvalidProjectError & The system reports that an invalid Project, be it no Project or a non-existent Project, was selected to carry out an operation.\\
+		& StorageError &  The system reports that there is an error with the stored information for cuPID. \\
+		& StorageReadError & The system reports that the selected file could not be read. \\
+		& StorageOpenError & The system reports that the selected file could not be opened. \\
+		& StorageWriteError & The system reports that the selected file could not be written to. \\
+		& StorageCloseError & The system reports that the selected file could not be closed. \\
 	\end{tabu}
 \end{table}
 
