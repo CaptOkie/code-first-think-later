@@ -358,6 +358,19 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \end{figure}
 
 \begin{table}[H]
+	\caption{Detailed Use Case Descriptions - Common Errors}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}ID & Name & Description\\
+		UC & StorageError &  The system reports that there is an error with the stored information for cuPID. \\
+		UC & StorageReadError & The system reports that the selected file could not be read. \\
+		UC & StorageOpenError & The system reports that the selected file could not be opened. \\
+		UC & StorageWriteError & The system reports that the selected file could not be written to. \\
+		UC & StorageCloseError & The system reports that the selected file could not be closed. \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
 	\caption{Detailed Use Case Descriptions - Administrators}
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
@@ -898,12 +911,15 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item[]
+		    \begin{enumerate}[topsep=-1em, leftmargin=*]
+		    		\item[1.]
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The Student has selected to edit their profile
         \end{itemize} \\
 
 		Exit Conditions &
