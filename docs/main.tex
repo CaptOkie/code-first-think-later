@@ -324,10 +324,9 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		\participateinprojects{} & ParticipateInProjects & The student accesses and can modify their own profile details 
-		(includes project participation details)\\
-		\manageprojects{} & ManageProjects & The Administrator manages current project as well as having the option to 
-		create a new instance of a project (includes manipulating student participation and access to the PPID and its results). \\
+	    & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
+		& EditProfile & The Student accesses and can modify their own profile details.\\
+		& ManageProjects & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
 	\end{tabu}
 \end{table}
 
@@ -338,6 +337,27 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\includegraphics[scale=0.26]{imgs/detailed-administrator-use-case-diagram.png}
 	\caption{Detailed Administrator Use Case Diagram}
 \end{figure}
+
+\begin{table}[H]
+	\caption{High-Level Use Case Descriptions}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}ID & Name & Description\\
+		& LaunchPPID & The Administrator runs the PPID for a specified Project.\\
+		& InsufficientStudentsError & The system reports that there are not enough Students registered in the Project to run the PPID.\\
+		& ViewPPIDResults & The Administrator views the results of the PPID for a Project.\\
+		& ViewPPIDSummary & The Administrator views a summary of the Groups that are created.\\
+		& ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
+		& CreateNewProject & The Administrator creates a new instance of a Project.\\
+		& EditProjectDetails & The Administrator modifies the parameters of a specified Project.\\
+		& EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
+		& EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID.\\
+		& EditProjectName & The Administrator sets the name of the Project.\\
+		& AddStudent & The Administrator adds a Student to the current Project.\\
+		& RemoveStudent & The Administrator removes a Student from the current Project.\\
+		& InvalidStudentError & The system reports that an invalid Student, be it no Student or a non-existent Student, was selected to carry out an operation.\\
+	\end{tabu}
+\end{table}
 
 \begin{figure}[H]
 	\centering{}
