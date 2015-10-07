@@ -17,3 +17,4 @@ ViLLiELdR:
 2 Hours: Cleaning file, fixing details, adding some details for UC cases.
 2 Hours: Cleaning up descriptions for a lot of the F and NF reqs.
 3 Hours: Wrote out several more sections (up to NFR inclusively).
+3 Hours: Wrote out several more sections (up to HL UC Diagram inclusively)
