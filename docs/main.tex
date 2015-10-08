@@ -35,36 +35,57 @@
 \renewcommand{\theusecasenum}{UC-\ifnum\value{usecasenum}<10 0\fi\arabic{usecasenum}}
 \newcommand{\newusecase}[1]{\refstepcounter{usecasenum}\label{#1}\expandafter\newcommand\csname #1\endcsname{\ref{#1}}}
 
-\newusecase{participateinprojects}
+%%% HIGH-LEVEL USE CASES
+\newusecase{manageenrollment}
+\newusecase{editprofile}
 \newusecase{manageprojects}
-\newusecase{createnewproject}
+%%% END HIGH-LEVEL USE CASES
+
+%%% DETAILED USE CASES - ADMINISTRATOR
 \newusecase{launchppid}
+\newusecase{insufficientstudentserror}
 \newusecase{viewppidresults}
 \newusecase{viewppidsummary}
 \newusecase{viewppiddetails}
-\newusecase{editproject}
+\newusecase{createnewproject}
 \newusecase{editprojectdetails}
-\newusecase{editteamsize}
-\newusecase{editprojectname}
+\newusecase{editproject}
 \newusecase{addstudent}
 \newusecase{removestudent}
+\newusecase{invalidstudenterror}
+%%% END DETAILED USE CASES - ADMINISTRATOR
+
+%%% DETAILED USE CASES - STUDENT
 \newusecase{joinproject}
 \newusecase{leaveproject}
-\newusecase{editprofile}
 \newusecase{editpersonalvalues}
 \newusecase{editdesiredvalues}
+%%% END DETAILED USE CASES - STUDENT
+
+%%% DETAILED USE CASES - USER INPUT
+\newusecase{invalidinputerror}
+\newusecase{editprojectname}
+\newusecase{projectexistserror}
+\newusecase{editteamsize}
+\newusecase{illegalminerror}
+\newusecase{illegalmaxerror}
+%%% END DETAILED USE CASES - USER INPUT
+
+%%% DETAILED USE CASES - COMMON ERRORS
+\newusecase{invalidprojecterror}
+\newusecase{storageerror}
+\newusecase{storagereaderror}
+\newusecase{storageopenerror}
+\newusecase{storagewriteerror}
+\newusecase{storagecloseerror}
+%%% END DETAILED USE CASES - COMMON ERRORS
+
+\newusecase{participateinprojects}
 \newusecase{saveerror}
 \newusecase{openerror}
 \newusecase{readerror}
 \newusecase{writeerror}
 \newusecase{closeerror}
-\newusecase{invalidinputerror}
-\newusecase{illegalminerror}
-\newusecase{illegalmaxerror}
-\newusecase{projectexistserror}
-\newusecase{invalidstudenterror}
-\newusecase{insufficientstudentserror}
-\newusecase{invalidprojecterror}
 %% END USE-CASE COMMANDS
 
 % TABLE STYLING
@@ -324,9 +345,9 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-	    & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
-		& EditProfile & The Student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
-		& ManageProjects & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
+	    \manageenrollment{} & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
+		\editprofile{} & EditProfile & The Student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
+		\manageprojects{} & ManageProjects & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
 	\end{tabu}
 \end{table}
 
@@ -343,19 +364,17 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		& LaunchPPID & The Administrator runs the PPID for a specified Project.\\
-		& InsufficientStudentsError & The system reports that there are not enough Students registered in the Project to run the PPID.\\
-		& ViewPPIDResults & The Administrator views the results of the PPID for a Project.\\
-		& ViewPPIDSummary & The Administrator views a summary of the Groups that are created.\\
-		& ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
-		& CreateNewProject & The Administrator creates a new instance of a Project.\\
-		& EditProjectDetails & The Administrator modifies the parameters of a specified Project.\\
-		& EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
-		& EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID.\\
-		& EditProjectName & The Administrator sets the name of the Project.\\
-		& AddStudent & The Administrator adds a Student to the current Project.\\
-		& RemoveStudent & The Administrator removes a Student from the current Project.\\
-		& InvalidStudentError & The system reports that an invalid Student, be it no Student or a non-existent Student, was selected to carry out an operation.\\
+		\launchppid{} & LaunchPPID & The Administrator runs the PPID for a specified Project.\\
+		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough Students registered in the Project to run the PPID.\\
+		\viewppidresults{} & ViewPPIDResults & The Administrator views the results of the PPID for a Project.\\
+		\viewppidsummary{} & ViewPPIDSummary & The Administrator views a summary of the Groups that are created.\\
+		\viewppiddetails{} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
+		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a Project.\\
+		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified Project.\\
+		\editproject{} & EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
+		\addstudent{} & AddStudent & The Administrator adds a Student to the current Project.\\
+		\removestudent{} & RemoveStudent & The Administrator removes a Student from the current Project.\\
+		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid Student, be it no Student or a non-existent Student, was selected to carry out an operation.\\
 	\end{tabu}
 \end{table}
 
@@ -370,10 +389,10 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		& JoinProject & The student adds themselves to an existing project.\\
-		& LeaveProject & The student removes themselves from an existing project.\\
-		& EditPersonalValues & The student modifies the personal details in his profile (what they have to offer).\\
-		& EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members).\\
+		\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
+		\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
+		\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer).\\
+		\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members).\\
 	\end{tabu}
 \end{table}
 
@@ -388,12 +407,12 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		& InvalidInputError & The system reports that the given value is invalid.\\
-		& EditProjectName & The Administrator sets the name of the project. \\
-		& ProjectExistsError & The system reports that a project with the given name already exists.\\
-		& EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID. \\
-		& IllegalMinError & The system reports that the given minimum team size is illegal.\\
-		& IllegalMaxError & The system reports that the given maximum team size is illegal.\\
+		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
+		\editprojectname{} & EditProjectName & The Administrator sets the name of the project. \\
+		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
+		\editteamsize{} & EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID. \\
+		\illegalminerror{} & IllegalMinError & The system reports that the given minimum team size is illegal.\\
+		\illegalmaxerror{} & IllegalMaxError & The system reports that the given maximum team size is illegal.\\
 	\end{tabu}
 \end{table}
 
@@ -408,12 +427,12 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-   		& InvalidProjectError & The system reports that an invalid Project, be it no Project or a non-existent Project, was selected to carry out an operation.\\
-		& StorageError &  The system reports that there is an error with the stored information for cuPID. \\
-		& StorageReadError & The system reports that the selected file could not be read. \\
-		& StorageOpenError & The system reports that the selected file could not be opened. \\
-		& StorageWriteError & The system reports that the selected file could not be written to. \\
-		& StorageCloseError & The system reports that the selected file could not be closed. \\
+   		\invalidprojecterror{} & InvalidProjectError & The system reports that an invalid Project, be it no Project or a non-existent Project, was selected to carry out an operation.\\
+		\storageerror{} & StorageError &  The system reports that there is an error with the stored information for cuPID.\\
+		\storagereaderror{} & StorageReadError & The system reports that an error occurred while attempting to read from the Storage.\\
+		\storageopenerror{} & StorageOpenError & The system reports that an error occurred while attempting to open the Storage.\\
+		\storagewriteerror{} & StorageWriteError & The system reports that an error occurred while attempting to write to the Storage.\\
+		\storagecloseerror{} & StorageCloseError & The system reports that an error occurred while attempting to close the Storage.\\
 	\end{tabu}
 \end{table}
 
