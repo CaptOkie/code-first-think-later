@@ -441,32 +441,62 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \participateinprojects{} \\
-		Name & {\bf ParticipateInProjects} \\
+		Use Case Identifier & \editprojectdetails{} \\
+		Name & {\bf ManageEnrollment} \\
 		Participating Actors & Initiated by Student \\
-
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Student begins the cuPID process.
-			\begin{enumerate}
-				\item[2.] The Student is presented with a menu from the system. Options of: joining a project, leaving a project, or editing their profile for a project.
-				\item[3.] If the Student chooses to edit their profile, the system brings up a menu of profile elements that may be modified. The Student may choose to edit their personal details (include use case \textbf{EditPersonalValues}) or to edit their desired partner values (include use case \textbf{EditDesiredValues}).
-				\item[4.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
-				\item[5.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
-			\end{enumerate}
+		    \item 
 		\end{enumerate} \\
 
-		Entry Conditions & \\
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
 
-		Exit Conditions & \\ % KEVIN_QUESTION Do we need an exit condition?
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item The user must be operating cuPID as a Student.
-		\end{itemize} \\
+		    \item 
+        \end{itemize} \\
 
-		Traceability & F-01, F-02, F-03, F-04\\
+		Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
 
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editprofile{} \\
+		Name & {\bf EditProfile} \\
+		Participating Actors & Initiated by Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em, leftmargin=*]
+		    \item[1.] The system presents the Student with a menu of two options: Edit their own attributes (include use case EditPersonalValues) and edit their desired attributes (include use case EditDesiredValues).
+		    \item[2.] If the Student chooses to edit their own attributes, the system 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em, leftmargin=*]
+		    \item The Student has selected to edit their profile
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em, leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em, leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability &  \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -506,37 +536,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \createnewproject{} \\
-		Name & {\bf CreateNewProject} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator fills in the project details (include use case \textbf{EditProjectDetails}).
-		    \begin{enumerate}
-		        \item[2.] The system saves the new project.
-		    \end{enumerate}
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to create a new project.
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item A new Project has been created.
-        \end{itemize} \\
-
-		Quality Requirements & \\
-
-		Traceability & F-05 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
 		Use Case Identifier & \launchppid{} \\
 		Name & {\bf LaunchPPID} \\
 		Participating Actors & Initiated by Administrator \\
@@ -565,6 +564,37 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
         \end{itemize} \\
 
 		Traceability & F-07, NF-07 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \insufficientstudentserror{} \\
+		Name & {\bf InsufficientStudentsError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -658,34 +688,30 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editproject{} \\
-		Name & {\bf EditProject} \\
+		Use Case Identifier & \createnewproject{} \\
+		Name & {\bf CreateNewProject} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator selects a project to edit.
+		    \item[1.] The Administrator fills in the project details (include use case \textbf{EditProjectDetails}).
 		    \begin{enumerate}
-		        \item[2.] The system brings up a menu of details to edit (include use case \textbf{EditProjectDetails}).
-		    \end{enumerate}
-		    \item[3.] The Administrator chooses to finish editing the project.
-		    \begin{enumerate}
-		        \item[4.] The system saves the changed project details.
+		        \item[2.] The system saves the new project.
 		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to edit a project.
+		    \item The Administrator has chosen to create a new project.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The changed project details have been saved.
+		    \item A new Project has been created.
         \end{itemize} \\
 
 		Quality Requirements & \\
 
-		Traceability & F-06 \\
+		Traceability & F-05 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -717,6 +743,41 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
         \end{itemize} \\
 
 		Traceability & F-05, F-06, F-06-01, F-06-04 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editproject{} \\
+		Name & {\bf EditProject} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item[1.] The Administrator selects a project to edit.
+		    \begin{enumerate}
+		        \item[2.] The system brings up a menu of details to edit (include use case \textbf{EditProjectDetails}).
+		    \end{enumerate}
+		    \item[3.] The Administrator chooses to finish editing the project.
+		    \begin{enumerate}
+		        \item[4.] The system saves the changed project details.
+		    \end{enumerate}
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The Administrator has chosen to edit a project.
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The changed project details have been saved.
+        \end{itemize} \\
+
+		Quality Requirements & \\
+
+		Traceability & F-06 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -848,6 +909,70 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
+		Use Case Identifier & \invalidstudenterror{} \\
+		Name & {\bf InvalidStudentError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \participateinprojects{} \\
+		Name & {\bf ParticipateInProjects} \\
+		Participating Actors & Initiated by Student \\
+
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item[1.] The Student begins the cuPID process.
+			\begin{enumerate}
+				\item[2.] The Student is presented with a menu from the system. Options of: joining a project, leaving a project, or editing their profile for a project.
+				\item[3.] If the Student chooses to edit their profile, the system modified. The Student may choose to edit their personal details (include use case \textbf{EditPersonalValues}) or to edit their desired partner values (include use case \textbf{EditDesiredValues}).
+				\item[4.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
+				\item[5.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
+			\end{enumerate}
+		\end{enumerate} \\
+
+		Entry Conditions & \\
+
+		Exit Conditions & \\ % KEVIN_QUESTION Do we need an exit condition?
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item The user must be operating cuPID as a Student.
+		\end{itemize} \\
+
+		Traceability & F-01, F-02, F-03, F-04\\
+
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
 		Use Case Identifier & \joinproject{} \\
 		Name & {\bf JoinProject} \\
 		Participating Actors & Initiated by Student \\
@@ -909,40 +1034,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
         \end{itemize} \\
 
 		Traceability & F-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \editprofile{} \\
-		Name & {\bf EditProfile} \\
-		Participating Actors & Initiated by Student \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item[]
-		    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    		\item[1.]
-		    \end{enumerate}
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item The Student has selected to edit their profile
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability &  \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -1263,68 +1354,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		\toprule
 		Use Case Identifier & \projectexistserror{} \\
 		Name & {\bf ProjectExistsError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \invalidstudenterror{} \\
-		Name & {\bf InvalidStudentError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \insufficientstudentserror{} \\
-		Name & {\bf InsufficientStudentsError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
