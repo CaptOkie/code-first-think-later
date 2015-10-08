@@ -434,7 +434,7 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editprojectdetails{} \\
+		Use Case Identifier & \manageenrollment{} \\
 		Name & {\bf ManageEnrollment} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -475,26 +475,30 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item[1.] The system presents the Student with a menu of two options: Edit their own attributes (include use case EditPersonalValues) and edit their desired attributes (include use case EditDesiredValues).
-		    \item[2.] If the Student chooses to edit their own attributes, the system 
+	    		\item[1.] The Student begins the cuPID process.
+	    		\begin{enumerate}
+		    		\item[2.] The system presents the Student with a menu of two options: Edit their own values for the attributes (include use case EditPersonalValues) or edit their desired partner values for the attributes (include use case EditDesiredValues).
+			    \item[3.] If the Student chooses to edit their own values, the system presents the Student with a list of their own values to edit.
+			    \item[4.] If the Student chooses to edit their desired partner values, the system presents the Student with a list of their desired partner values to edit.
+	    		\end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item The Student has selected to edit their profile
+		    \item The Student has selected to edit their profile.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item A menu is presented to the Student.
         \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item Cupid is being used as a Student.
         \end{itemize} \\
 
-		Traceability &  \\
+		Traceability &  F-03, F-03-01, F-03-02 \\
 		\toprule
 	\end{tabu}
 \end{center}
