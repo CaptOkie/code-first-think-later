@@ -500,7 +500,7 @@ Please also note that we have decided to not include any error cases in this par
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
 	    		\item[1.] The Student begins the cuPID process.
 	    		\begin{enumerate}
-		    		\item[2.] The system presents the Student with a menu of two options: Edit their own values for the attributes (include use case EditPersonalValues) or edit their desired partner values for the attributes (include use case EditDesiredValues).
+		    		\item[2.] The system presents the Student with a menu of two options: Edit their own values for the attributes (include use case {\bf EditPersonalValues}) or edit their desired partner values for the attributes (include use case {\bf EditDesiredValues}).
 			    \item[3.] If the Student chooses to edit their own values, the system presents the Student with a list of their own values to edit.
 			    \item[4.] If the Student chooses to edit their desired partner values, the system presents the Student with a list of their desired partner values to edit.
 	    		\end{enumerate}
@@ -656,7 +656,7 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-	        \item[1.] The system shows each Group, including the students in each Group.
+	        \item[1.] The system displays a print out of each Group, including the students in each Group.
 		\end{enumerate} \\
 
 		Entry Conditions &
@@ -666,7 +666,10 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions & \\
 
-		Quality Requirements & \\
+		Quality Requirements & 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item The Groups are printed out in separate, well-defined sections on the screen. 
+		\end{itemize}\\
 
 		Traceability & F-08 \\
 		\toprule
@@ -964,12 +967,13 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The system displays a menu of personal details that can be edited. The Student can choose to change the answer
+		    of any of the Responses listed.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The Student has chosen to edit the existing, or set the initial, details for the personal values in their profile.
         \end{itemize} \\
 
 		Exit Conditions &
@@ -995,12 +999,13 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The system displays a menu of desired details that can be edited. The Student can choose to change the answer
+		    to any of the Responses listed.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The Student has chosen to edit the existing, or set the initial, details for the desired values in their profile.
         \end{itemize} \\
 
 		Exit Conditions &
