@@ -16,8 +16,9 @@ TheBakedPotato:
 4 Hours: Worked on UC diagrams, formatting, and functional requirements.
 3 Hours: Added new use cases, added use case details.
 2 Hours: Group meeting, updated UC diagrams, and editted formatting.
+2 Hours: Added use case descriptions, refactored table order in the document
 _______
-16 Hours
+18 Hours
 
 ViLLiELdR:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
