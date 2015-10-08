@@ -513,7 +513,7 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 				\item[3.] If the Administrator chooses to create a new project, the system brings up a menu for creating a new project (include use case \textbf{CreateNewProject}).
 				\item[4.] If the Administrator chooses to edit a project, the system brings up a list of projects to edit (include use case \textbf{EditProject}).
 				\item[5.] If the Administrator chooses to launch the PPID, the system brings up a list of projects (include use case \textbf{LaunchPPID}).
-				\item[6.] If the Administrator chooses to view PPID results, the systems brings up a list of projects with PPID results (include use case \textbf{ViewPPIDResults}).
+				\item[6.] If the Administrator chooses to view PPID results, the system brings up a list of projects with PPID results (include use case \textbf{ViewPPIDResults}).
 			\end{enumerate}
 		\end{enumerate} \\
 
@@ -542,7 +542,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		    \item[1.] The Administrator chooses a project on which to run the PPID.
 		    \begin{enumerate}
 		        \item[2.] The system runs the PPID on the chosen project.
-		        \item[3.] The system displays the results of the PPID (include use case \textbf{ViewPPIDResults}).
 		    \end{enumerate}
 		\end{enumerate} \\
 
@@ -554,6 +553,7 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 		    \item The PPID results are saved.
+		    \item The PPID results are displayed to the user.
         \end{itemize} \\
 
 		Quality Requirements &
@@ -574,23 +574,20 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The system informs the Administrator that there isn't enough Students in the Project to launch the PPID.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item An Administrator attempted to launch the PPID without enough students to form at least one Group.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The launch of the PPID is stopped.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -605,17 +602,14 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[]
-		    \begin{enumerate}
-		        \item[1.] The system displays a menu with two options: view summary PPID results (include use case \textbf{ViewPPIDSummary}) or view detailed PPID results.
-		        \item[2.] If the Administrator chooses to view the summary PPID results, the system displays the summary PPID results (include use case \textbf{ViewPPIDSummary}).
-		        \item[3.] If the Administrator chooses to view the detailed PPID results, the system displays the detailed PPID results (include use case \textbf{ViewPPIDDetails}).
-		    \end{enumerate}
+	        \item[1.] The system displays a menu with two options: view summary PPID results (include use case \textbf{ViewPPIDSummary}) or view detailed PPID results.
+	        \item[2.] If the Administrator chooses to view the summary PPID results, the system displays the summary PPID results (include use case \textbf{ViewPPIDSummary}).
+	        \item[3.] If the Administrator chooses to view the detailed PPID results, the system displays the detailed PPID results (include use case \textbf{ViewPPIDDetails}).
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to view the PPID results, or a new run of the PPID has just completed.
+		    \item The Administrator has chosen to view the PPID results, or the Administrator has finished launching the PPID.
         \end{itemize} \\
 
 		Exit Conditions & \\
@@ -635,15 +629,12 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[]
-		    \begin{enumerate}
-		        \item[1.] The system shows each group, including the students in each group.
-		    \end{enumerate}
+	        \item[1.] The system shows each Group, including the students in each Group.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to view the summary PPID results.
+		    \item The Administrator has chosen to view the PPID summary.
         \end{itemize} \\
 
 		Exit Conditions & \\
@@ -663,15 +654,12 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[]
-		    \begin{enumerate}
-		        \item[1.] The system displays the reasoning behind the groupings that were computed.
-		    \end{enumerate}
+	        \item[1.] The system displays the reasoning behind the computed groupings.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to view the detailed PPID results.
+		    \item The Administrator has chosen to view the PPID grouping details.
         \end{itemize} \\
 
 		Exit Conditions & \\
@@ -722,23 +710,17 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The system displays a menu of Project details that can be edited. The Administrator can choose to edit the minimum and maximum team size (include use case \textbf{EditTeamSize}), or the name of the Project (include use case \textbf{EditProjectName}).
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator has chosen to edit existing, or set the initial, Project details.
         \end{itemize} \\
 
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Exit Conditions & \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & F-05, F-06, F-06-01, F-06-04 \\
 		\toprule
