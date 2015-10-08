@@ -7,6 +7,8 @@ CaptOkie:
 2 Hours: Group meeting, updated UC diagrams, and editted formatting.
 2 Hours: Refactored use cases, added new use case tables.
 2 Hours: Added student use case table, added user input use case table, fixed use case numbers, filled out UC details.
+_______
+22 Hours
 
 TheBakedPotato:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
@@ -14,6 +16,8 @@ TheBakedPotato:
 4 Hours: Worked on UC diagrams, formatting, and functional requirements.
 3 Hours: Added new use cases, added use case details.
 2 Hours: Group meeting, updated UC diagrams, and editted formatting.
+_______
+16 Hours
 
 ViLLiELdR:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
@@ -22,3 +26,7 @@ ViLLiELdR:
 2 Hours: Cleaning up descriptions for a lot of the F and NF reqs.
 3 Hours: Wrote out several more sections (up to NFR inclusively).
 3 Hours: Wrote out several more sections (up to HL UC Diagram inclusively)
+1 Hour: Group meeting.
+1.5 Hours: Wrote out more descriptions, added Object Dictionary template
+________
+19.5 Hours
