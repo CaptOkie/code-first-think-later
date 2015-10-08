@@ -1,0 +1,8 @@
+CaptOkie:
+2 Hours: Group meeting on objects, sequence diagrams, and state machines.
+
+TheBakedPotato:
+2 Hours: Group meeting on objects, sequence diagrams, and state machines.
+
+ViLLiELdR:
+2 Hours: Group meeting on objects, sequence diagrams, and state machines.
