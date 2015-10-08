@@ -6,6 +6,7 @@ CaptOkie:
 3 Hours: Added UC details.
 2 Hours: Group meeting, updated UC diagrams, and editted formatting.
 2 Hours: Refactored use cases, added new use case tables.
+2 Hours: Added student use case table, added user input use case table, fixed use case numbers, filled out UC details.
 
 TheBakedPotato:
 2 Hours: Group meeting on qualifications, functional requirements, non-functional requirements.
