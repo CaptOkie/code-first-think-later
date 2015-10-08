@@ -1206,7 +1206,12 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item[1.] The Student attempts to join a project.
+		    \begin{enumerate}
+		    	\item[2.] The system attempts to access the selected project from storage.
+		    	\item[3.] If the selected project does not exist, then the system notifies the Student that there was an error with regards to 
+		    	finding the selected project.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
@@ -1269,17 +1274,17 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The system notifies the Administrator that an erorr has occured with regards to the reading of a file from storage.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item An attempt to read a file has failed.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The operation is aborted.
         \end{itemize} \\
 
 		Quality Requirements &
@@ -1300,17 +1305,17 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The system notifies the Administrator that an error has occured with regards to the opening of a file from storage.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item An attempt to open a file has failed.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The operation is aborted.
         \end{itemize} \\
 
 		Quality Requirements &
@@ -1331,17 +1336,17 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The system notifies the Administrator that an error has occured with regards to the writing (saving) of a file to storage.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item An attempt to write/save a file has failed.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The operation is aborted.
         \end{itemize} \\
 
 		Quality Requirements &
@@ -1362,17 +1367,17 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The system notifies the Administrator that an error has occured with regards to the closing of a file.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item An attempt to close a file has failed.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The operation is aborted.
         \end{itemize} \\
 
 		Quality Requirements &
