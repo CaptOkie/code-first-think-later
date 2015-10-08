@@ -436,62 +436,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\end{tabu}
 \end{table}
 
-\begin{table}[H]
-	\caption{Detailed Use Case Descriptions - Administrators}
-	\vspace{1em}
-	\begin{tabu} to \textwidth {l >{\bf}l X}
-	    \tableheader{}ID & Name & Description\\
-		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a project.\\
-		\launchppid{} & LaunchPPID & The Administrator runs the PPID for a specified project.\\
-		\viewppidresults{} & ViewPPIDResults & The Administrator views the results of the PPID for a project. \\
-		\viewppidsummary{} & ViewPPIDSummary & The Administrator views a summary of the groups that are created. \\
-		\viewppiddetails{} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions. \\
-		\editproject{} & EditProject & The Administrator modifies an aspect of the project (includes student participation 
-		and project parameters).\\
-		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified project.\\
-		\editteamsize{} & EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID. \\
-		\editprojectname{} & EditProjectName & The Administrator sets the name of the project. \\
-		\addstudent{} & AddStudent & The Administrator adds a Student to the current project.\\
-		\removestudent{} & RemoveStudent & The Administrator removes a Student from the current project.\\
-	\end{tabu}
-\end{table}
-
-\begin{table}[H]
-	\caption{Detailed Use Case Descriptions - Students}
-	\vspace{1em}
-	\begin{tabu} to \textwidth {l >{\bf}l X}
-	    \tableheader{}ID & Name & Description\\
-		\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
-		\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
-		\editprofile{} & EditProfile & The student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
-		\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer). \\
-		\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members). \\
-	\end{tabu}
-\end{table}
-
-\begin{table}[H]
-	\caption{Detailed Use Case Descriptions - Error Cases}
-	\vspace{1em}
-	\begin{tabu} to \textwidth {l >{\bf}l X}
-	    \tableheader{}ID & Name & Description\\
-		\saveerror{} & SaveError & There was an error during saving (generalizes WriteError, ReadError, OpenError, CloseError). 
-		The system reports the specific error to the user and aborts the operation.\\
-		\openerror{} & OpenError & The system reports that the selected file could not be opened.\\
-		\readerror{} & ReadError & The system reports that the selected file could not be read.\\
-		\writeerror{} & WriteError & The system reports that the selected file could not be written to.\\
-		\closeerror{} & CloseError & The system reports that the selected file could not be closed.\\
-		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
-		\illegalminerror{} & IllegalMinError & The system reports that the given minimum team size is illegal.\\
-		\illegalmaxerror{} & IllegalMaxError & The system reports that the given maximum team size is illegal.\\
-		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
-		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid student, be it no student or a non-existent student, 
-		was selected to carry out the operation.\\
-		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough students registered in project to
-		 run the PPID.\\
-   		\invalidprojecterror{} & InvalidProjectError & The system reports that an invalid project, be it no project or a non-existent project, was selected to carry out the operation.\\
-	\end{tabu}
-\end{table}
-
 \subsubsection*{Use Case Flow of Events}
 
 \begin{center}
