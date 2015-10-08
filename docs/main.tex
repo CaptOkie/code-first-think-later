@@ -797,22 +797,25 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The Administrator selects a student from a list of available Students.
+		    \begin{enumerate}
+		    	\item[2.] The system adds the selected Student to the list of Students in the selected project.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator has chosen to add a Student to a project.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The addition of the Student to a project has been stored permanently.
         \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item Only Students that aren't in the project already should be in the list.
         \end{itemize} \\
 
 		Traceability & F-06-02 \\
@@ -828,22 +831,25 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The Administrator selects a Student from the list of Students that have joined the project.
+		    \begin{enumerate} 
+		    	\item[2.] The system removes the Student from the list of students in the selected project.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator has chosen to remove a Student from a project.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The removal of the Student from a project has been stored permanently.
         \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item Only the Students that are part of the project should be in the list.
         \end{itemize} \\
 
 		Traceability & F-06-03 \\
