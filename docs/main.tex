@@ -439,7 +439,12 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The Student begins the cuPID process.
+		    \begin{enumerate}
+				\item[2.] The Student is presented with a menu from the system. Options of: joining a project, or leaving a project
+				\item[3.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
+				\item[4.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
+			\end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
@@ -454,10 +459,10 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The user must be operating cuPID as a Student.
         \end{itemize} \\
 
-		Traceability & \\
+		Traceability & F-01, F-02\\
 		\toprule
 	\end{tabu}
 \end{center}
