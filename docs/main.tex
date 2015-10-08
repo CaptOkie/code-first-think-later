@@ -355,7 +355,8 @@ idea of how things are situated, detailed use cases are much more informative be
 an Administrator can "ManageProjects," but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
 section. 
 
-The below figure and table cover the use cases that concern the Administrator. With a quick glance of the below diagram, we can see that ManageProjects actually covers a great many details including EditProject and CreateNewProject! Note that we denote error cases with an <<extend>> relationship.
+The below figure and table cover the use cases that concern the Administrator. With a quick glance of the below diagram, we can see that ManageProjects actually covers a 
+great many details including EditProject and CreateNewProject! Note that we denote error cases with an <<extend>> relationship.
 
 \begin{figure}[H]
 	\centering{}
@@ -363,7 +364,7 @@ The below figure and table cover the use cases that concern the Administrator. W
 	\caption{Detailed Use Case Diagram - Administrator}
 \end{figure}
 
-Once again, a picture may tell a thousand words, but, for that same reason, can often take a lot of time to fully extract necessary information. The next table contains 
+A picture may tell a thousand words, but, for that same reason, can often take a lot of time to fully extract necessary information. The next table contains 
 all the information about each particular use case, though forgoing the actual relationships. Though we may lose that tidbit of information here, we gain a valuable 
 tool that allows us to very clearly see what each use case does. 
 
@@ -1389,14 +1390,50 @@ Please also note that we have decided to not include any error cases in this par
 \begin{center}
 	\begin{tabu} to \textwidth {>{\bf}l X[2] X[3]}
 		\tableheader{}Entity Object & Attributes/Associations & Definition\\
-		objectA & 
+		User & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item A1
-			\item A2
-			\item A3
+			\item Name
+			\item ID
 		\end{itemize} & 
 		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
-		objectB & & \\
+		Student & 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item Student Number
+			\item Profile
+		\end{itemize} & 
+		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		Administrator & 
+		&
+		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		Group & 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item Members
+		\end{itemize} & 
+		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		TeamSize & 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item Min Size
+			\item Max Size
+		\end{itemize} & 
+		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		Project & 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item Name
+			\item Students
+			\item Team Size
+		\end{itemize} & 
+		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		Profile & 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item Details
+		\end{itemize} & 
+		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		Response & 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+			\item Question
+			\item Answer
+		\end{itemize} & 
+		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
 	
 	\end{tabu}
 \end{center}
