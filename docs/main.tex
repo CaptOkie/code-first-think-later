@@ -79,13 +79,6 @@
 \newusecase{storagewriteerror}
 \newusecase{storagecloseerror}
 %%% END DETAILED USE CASES - COMMON ERRORS
-
-\newusecase{participateinprojects}
-\newusecase{saveerror}
-\newusecase{openerror}
-\newusecase{readerror}
-\newusecase{writeerror}
-\newusecase{closeerror}
 %% END USE-CASE COMMANDS
 
 % TABLE STYLING
@@ -785,68 +778,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editteamsize{} \\
-		Name & {\bf EditTeamSize} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & F-06-01 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \editprojectname{} \\
-		Name & {\bf EditProjectName} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & F-06-04 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
 		Use Case Identifier & \addstudent{} \\
 		Name & {\bf AddStudent} \\
 		Participating Actors & Initiated by Administrator \\
@@ -933,39 +864,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
         \end{itemize} \\
 
 		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \participateinprojects{} \\
-		Name & {\bf ParticipateInProjects} \\
-		Participating Actors & Initiated by Student \\
-
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Student begins the cuPID process.
-			\begin{enumerate}
-				\item[2.] The Student is presented with a menu from the system. Options of: joining a project, leaving a project, or editing their profile for a project.
-				\item[3.] If the Student chooses to edit their profile, the system modified. The Student may choose to edit their personal details (include use case \textbf{EditPersonalValues}) or to edit their desired partner values (include use case \textbf{EditDesiredValues}).
-				\item[4.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
-				\item[5.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
-			\end{enumerate}
-		\end{enumerate} \\
-
-		Entry Conditions & \\
-
-		Exit Conditions & \\ % KEVIN_QUESTION Do we need an exit condition?
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item The user must be operating cuPID as a Student.
-		\end{itemize} \\
-
-		Traceability & F-01, F-02, F-03, F-04\\
-
 		\toprule
 	\end{tabu}
 \end{center}
@@ -1103,162 +1001,6 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \saveerror{} \\
-		Name & {\bf SaveError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item The system notifies the Administrator that an error has occured with regards to the processing of
-		    the current file.
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item A file processing operation failed.
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The operation is aborted.
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \openerror{} \\
-		Name & {\bf OpenError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \readerror{} \\
-		Name & {\bf ReadError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \writeerror{} \\
-		Name & {\bf WriteError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \closeerror{} \\
-		Name & {\bf CloseError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
 		Use Case Identifier & \invalidinputerror{} \\
 		Name & {\bf InvalidInputError} \\
 		Participating Actors & Administrator, Student \\
@@ -1283,6 +1025,99 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
         \end{itemize} \\
 
 		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editprojectname{} \\
+		Name & {\bf EditProjectName} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & F-06-04 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \projectexistserror{} \\
+		Name & {\bf ProjectExistsError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \editteamsize{} \\
+		Name & {\bf EditTeamSize} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & F-06-01 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -1352,8 +1187,71 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \projectexistserror{} \\
-		Name & {\bf ProjectExistsError} \\
+		Use Case Identifier & \invalidprojecterror{} \\
+		Name & {\bf InvalidProjectError} \\
+		Participating Actors & Student \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em, leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em, leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em, leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em, leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \storageerror{} \\
+		Name & {\bf StorageError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item The system notifies the Administrator that an error has occured with regards to the processing of
+		    the current file.
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item A file processing operation failed.
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The operation is aborted.
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \storagereaderror{} \\
+		Name & {\bf StorageReadError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
@@ -1383,26 +1281,88 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \invalidprojecterror{} \\
-		Name & {\bf InvalidProjectError} \\
-		Participating Actors & Student \\
+		Use Case Identifier & \storageopenerror{} \\
+		Name & {\bf StorageOpenError} \\
+		Participating Actors & Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em, leftmargin=*]
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
 		    \item 
 		\end{enumerate} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
+		\begin{itemize}[topsep=-1em,leftmargin=*]
 		    \item 
         \end{itemize} \\
 
 		Exit Conditions &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
+		\begin{itemize}[topsep=-1em,leftmargin=*]
 		    \item 
         \end{itemize} \\
 
 		Quality Requirements &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \storagewriteerror{} \\
+		Name & {\bf StorageWriteError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Traceability & NF-02 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \storagecloseerror{} \\
+		Name & {\bf StorageCloseError} \\
+		Participating Actors & Administrator \\
+		Flow of Events & 
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
+		    \item 
+		\end{enumerate} \\
+
+		Entry Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item 
+        \end{itemize} \\
+
+		Quality Requirements &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
 		    \item 
         \end{itemize} \\
 
