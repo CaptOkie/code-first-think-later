@@ -1400,45 +1400,49 @@ Please also note that we have decided to not include any error cases in this par
 			\item Name
 			\item ID
 		\end{itemize} & 
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		A {\bf{User}} that has the ability to access the cuPID system.\\
 		Student & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Student Number
 			\item Profile
 		\end{itemize} & 
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		A {\bf{Student}} is a specific type of user that can create/edit their profiles and join/leave existing projects.\\
 		Administrator & 
 		&
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		An {\bf{Administrator}} specific type of user that can create/edit projects and run/view results of the PPID\\
 		Group & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Members
 		\end{itemize} & 
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		A {\bf{Group}} is a collection of Student users that are participating in a specified project. Every project contains at 
+		least 1 group, and the Students in a group are decided when the Administrator runs the PPID algorithm.\\
 		TeamSize & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Min Size
 			\item Max Size
 		\end{itemize} & 
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		The {\bf{TeamSize}} contains the possible range of team sizes allowed such that the PPID algorithm will not make 
+		too big or too small groups.\\
 		Project & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Name
 			\item Students
 			\item Team Size
 		\end{itemize} & 
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		A {\bf{Project}} contains a collection of Students that will get sorted into Groups. These are made and edited 
+		by the {\bf{Administrator}}.\\
 		Profile & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Details
 		\end{itemize} & 
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		A {\bf{Profile}} is a set of {\bf{Responses}} maintained by each Student. These values are the necessary input 
+		for the PPID algorithm to run.\\
 		Response & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Question
 			\item Answer
 		\end{itemize} & 
-		A big definition here!! Lotsa stuff WOOOOOOOOOO\\
+		The {\bf{Response}} is a pair of Question and Answer.\\
 	
 	\end{tabu}
 \end{center}
