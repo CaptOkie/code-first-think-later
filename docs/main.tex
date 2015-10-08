@@ -353,8 +353,9 @@ it comes to laying out data. Another benefit is, like in the case of EditProfile
 This section contains the more detailed use cases - the specific cases, as it were, of the the much more general high-level use cases. Whereas the high-level cases help give a good
 idea of how things are situated, detailed use cases are much more informative because they encompass all the finer details of the proposed software. Sure, it's nice to know that
 an Administrator can "ManageProjects," but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
-section. With a quick glance of the below diagram, we can see that ManageProjects actually covers a great many details including EditProject and CreateNewProject! Note that we 
-denote error cases with an <<extend>> relationship.
+section. 
+
+The below figure and table cover the use cases that concern the Administrator. With a quick glance of the below diagram, we can see that ManageProjects actually covers a great many details including EditProject and CreateNewProject! Note that we denote error cases with an <<extend>> relationship.
 
 \begin{figure}[H]
 	\centering{}
@@ -364,7 +365,7 @@ denote error cases with an <<extend>> relationship.
 
 Once again, a picture may tell a thousand words, but, for that same reason, can often take a lot of time to fully extract necessary information. The next table contains 
 all the information about each particular use case, though forgoing the actual relationships. Though we may lose that tidbit of information here, we gain a valuable 
-tool that allows us to very clearly see what each use case does.
+tool that allows us to very clearly see what each use case does. 
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - Administrator}
@@ -385,11 +386,17 @@ tool that allows us to very clearly see what each use case does.
 	\end{tabu}
 \end{table}
 
+The following figure outlines the use cases and their relationships with each other for the Student user. Note here that the Student has far fewer possible use cases
+as compared to the Administrator - there are only two major things that Students can do: edit their profile, and manage their enrollment in projects. They have no 
+access to finer details such as project settings. 
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/detailed-student-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Student}
 \end{figure}
+
+
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - Student}
