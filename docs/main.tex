@@ -383,10 +383,24 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\caption{Detailed Use Case Diagram - User Input}
 \end{figure}
 
+\begin{table}[H]
+	\caption{Detailed Use Case Descriptions - User Input}
+	\vspace{1em}
+	\begin{tabu} to \textwidth {l >{\bf}l X}
+	    \tableheader{}ID & Name & Description\\
+		& InvalidInputError & The system reports that the given value is invalid.\\
+		& EditProjectName & The Administrator sets the name of the project. \\
+		& ProjectExistsError & The system reports that a project with the given name already exists.\\
+		& EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID. \\
+		& IllegalMinError & The system reports that the given minimum team size is illegal.\\
+		& IllegalMaxError & The system reports that the given maximum team size is illegal.\\
+	\end{tabu}
+\end{table}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/detailed-common-error-use-case-diagram.png}
-	\caption{Detailed Use Case Diagram - Common Error}
+	\caption{Detailed Use Case Diagram - Common Errors}
 \end{figure}
 
 \begin{table}[H]
