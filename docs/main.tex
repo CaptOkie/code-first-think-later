@@ -12,6 +12,7 @@
 \usepackage{lmodern}
 \usepackage[table]{xcolor}  
 \usepackage[font=bf]{caption}
+\usepackage{longtable, tabu}
 
 \begin{document}
 
@@ -378,7 +379,8 @@ tool that allows us to very clearly see what each use case does.
 		\editproject{} & EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
 		\addstudent{} & AddStudent & The Administrator adds a Student to the current Project.\\
 		\removestudent{} & RemoveStudent & The Administrator removes a Student from the current Project.\\
-		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid Student, be it no Student or a non-existent Student, was selected to carry out an operation.\\
+		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid Student, be it no Student or a non-existent Student, 
+		was selected to carry out an operation.\\
 	\end{tabu}
 \end{table}
 
@@ -1398,16 +1400,16 @@ Please also note that we have decided to not include any error cases in this par
 			\item Student Number
 			\item Profile
 		\end{itemize} & 
-		A {\bf{Student}} is a specific type of user that can create/edit their profiles and join/leave existing projects.\\
+		A {\bf{Student}} is a specific type of User that can create/edit their Profiles and join/leave existing Projects.\\
 		Administrator & 
 		&
-		An {\bf{Administrator}} specific type of user that can create/edit projects and run/view results of the PPID\\
+		An {\bf{Administrator}} specific type of User that can create/edit Projects and run/view results of the PPID\\
 		Group & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Members
 		\end{itemize} & 
-		A {\bf{Group}} is a collection of Student users that are participating in a specified project. Every project contains at 
-		least 1 group, and the Students in a group are decided when the Administrator runs the PPID algorithm.\\
+		A {\bf{Group}} is a collection of Student Users that are participating in a specified Project. Every Project contains at 
+		least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm.\\
 		TeamSize & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Min Size
@@ -1422,12 +1424,12 @@ Please also note that we have decided to not include any error cases in this par
 			\item Team Size
 		\end{itemize} & 
 		A {\bf{Project}} contains a collection of Students that will get sorted into Groups. These are made and edited 
-		by the {\bf{Administrator}}.\\
+		by the Administrator.\\
 		Profile & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Details
 		\end{itemize} & 
-		A {\bf{Profile}} is a set of {\bf{Responses}} maintained by each Student. These values are the necessary input 
+		A {\bf{Profile}} is a set of Responses maintained by each Student. These values are the necessary input 
 		for the PPID algorithm to run.\\
 		Response & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
