@@ -1,5 +1,6 @@
 CaptOkie:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
+1 Hours: Filled out UC details.
 
 TheBakedPotato:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.

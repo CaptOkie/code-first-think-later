@@ -765,24 +765,24 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator selects a project to edit.
+		    \item[1.] The Administrator selects a Project to edit.
 		    \begin{enumerate}
 		        \item[2.] The system brings up a menu of details to edit (include use case \textbf{EditProjectDetails}).
 		    \end{enumerate}
-		    \item[3.] The Administrator chooses to finish editing the project.
+		    \item[3.] The Administrator chooses to finish editing the Project.
 		    \begin{enumerate}
-		        \item[4.] The system saves the changed project details.
+		        \item[4.] The system saves the changed Project.
 		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to edit a project.
+		    \item The Administrator has chosen to edit a Project.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The changed project details have been saved.
+		    \item The changed Project has been saved.
         \end{itemize} \\
 
 		Quality Requirements & \\
@@ -800,25 +800,25 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator selects a student from a list of available Students.
+		    \item[1.] The Administrator selects a Student from a list of available Students.
 		    \begin{enumerate}
-		    	\item[2.] The system adds the selected Student to the list of Students in the selected project.
+		    	\item[2.] The system adds the selected Student to the list of Students in the selected Project.
 		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to add a Student to a project.
+		    \item The Administrator has chosen to add a Student to a Project.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The addition of the Student to a project has been stored permanently.
+		    \item The addition of the Student to a Project has been saved.
         \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item Only Students that aren't in the project already should be in the list.
+		    \item Only Students that aren't in the Project already should be in the list.
         \end{itemize} \\
 
 		Traceability & F-06-02 \\
@@ -834,25 +834,25 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator selects a Student from the list of Students that have joined the project.
+		    \item[1.] The Administrator selects a Student from the list of Students that are enrolled in the Project.
 		    \begin{enumerate} 
-		    	\item[2.] The system removes the Student from the list of students in the selected project.
+		    	\item[2.] The system removes the Student from the list of Students in the selected Project.
 		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The Administrator has chosen to remove a Student from a project.
+		    \item The Administrator has chosen to remove a Student from a Project.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The removal of the Student from a project has been stored permanently.
+		    \item The removal of the Student from the Project has been saved.
         \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item Only the Students that are part of the project should be in the list.
+		    \item Only the Students that are part of the Project should be in the list.
         \end{itemize} \\
 
 		Traceability & F-06-03 \\
@@ -868,23 +868,20 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The system informs the Administrator that the chosen student is invalid for the desired operation.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator attempted to perform an operation without selecting a Student or with a Student that doesn't exist, add a Student to a Project in which the Student is already enrolled, or remove a Student from a Project in which the Student is not enrolled.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The operation initiated by the Administrator is cancelled.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -1031,23 +1028,20 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator, Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The system informs the User that the entered input is invalid.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The User has input invalid data.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The invalid input is removed, and the input is reverted to its original value.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -1062,22 +1056,25 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The Administrator inputs a new project name.
+		    \begin{enumerate}
+		        \item[2.] The system overwrites the old value with the new value.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator has chosen to edit existing, or set the initial, project name.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The old value is replaced with the new value.
         \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The project name needs to be unique.
         \end{itemize} \\
 
 		Traceability & F-06-04 \\
