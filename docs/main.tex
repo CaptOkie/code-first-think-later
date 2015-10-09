@@ -709,7 +709,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item A new Project has been created.
+		    \item A new Project has been saved.
         \end{itemize} \\
 
 		Quality Requirements & \\
@@ -736,7 +736,11 @@ Please also note that we have decided to not include any error cases in this par
 		    \item The Administrator has chosen to edit existing, or set the initial, Project details.
         \end{itemize} \\
 
-		Exit Conditions & \\
+		Exit Conditions &
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The project details have been saved.
+        \end{itemize} \\
+
 
 		Quality Requirements & \\
 
@@ -943,7 +947,7 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf EditPersonalValues} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em, leftmargin=*]
+	    \begin{enumerate}[topsep=-1em,leftmargin=*]
 	        \item[]
 	        \begin{enumerate}
 			    \item[1.] The system displays a menu of the Student's qualifications that they can edit.
@@ -952,14 +956,14 @@ Please also note that we have decided to not include any error cases in this par
 		\end{enumerate} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
+		\begin{itemize}[topsep=-1em,leftmargin=*]
 		    \item The User is operating cuPID as a Student.
 		    \item The Student has chosen to edit the existing, or set the initial, details for the personal values in their profile.
         \end{itemize} \\
 
 		Exit Conditions &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		\begin{itemize}[topsep=-1em,leftmargin=*]
+		    \item The updated personal values have been saved.
         \end{itemize} \\
 
 		Quality Requirements & \\
@@ -992,7 +996,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The updated desired values have been saved.
         \end{itemize} \\
 
 		Quality Requirements & \\
@@ -1038,9 +1042,9 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator inputs a new unique project name.
+		    \item[1.] The Administrator inputs a unique project name.
 		    \begin{enumerate}
-		        \item[2.] The system overwrites the old value with the new value.
+		        \item[2.] The system overwrites saves the new project name.
 		    \end{enumerate}
 		\end{enumerate} \\
 
@@ -1052,7 +1056,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The old value is replaced with the new value.
+		    \item The new project name is saved.
         \end{itemize} \\
 
 		Quality Requirements & \\
@@ -1070,23 +1074,20 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The system informs the Administrator that the project name is already in use.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator has input a project name that is already in use.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The project name update is aborted, and the project name reverts to the original value.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
