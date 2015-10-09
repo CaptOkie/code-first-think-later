@@ -1,6 +1,7 @@
 CaptOkie:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
 1 Hours: Filled out UC details.
+2 Hours: Moved 'logged in' from quality requirements to entry conditions, new UC details.
 
 TheBakedPotato:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.

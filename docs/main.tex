@@ -1053,7 +1053,7 @@ Please also note that we have decided to not include any error cases in this par
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 		    \item The User is operating cuPID as an Administrator.
-		    \item The Administrator has chosen to edit existing, or set the initial, project name.
+		    \item The Administrator has chosen to edit the existing, or set the initial, project name.
         \end{itemize} \\
 
 		Exit Conditions &
@@ -1086,7 +1086,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The project name update is aborted, and the project name reverts to the original value.
+		    \item The project name update is cancelled, and the project name reverts to the original value.
         \end{itemize} \\
 
 		Quality Requirements & \\
@@ -1104,23 +1104,24 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The Administrator inputs a new value for the minimum or maximum team size.
+		    \begin{enumerate}
+		        \item[2.] The system saves the new minimum and maximum team sizes.
+		    \end{enumerate}
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The User is operating cuPID as an Administrator.
+		    \item The Administrator has chosen to edit the existing, or set the initial, team size.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The new minimum and maximum team size values are saved.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & F-06-01 \\
 		\toprule
