@@ -234,7 +234,7 @@ each subsequent section builds off the previous.
 Functional requirements are the result of us carefully analzing the problem statement that you have submitted and extracting all the key 
 desired features. In other words, we have converted your request into a list of requirements that we will fulfill. For example, you mention that
 it is essential that this software can create projects. All the main features that you have expressed the desire to have have been matched with
-the appropriate user and included in the following table. This format has the added advantage of allowing you, our employer, to see for 
+the appropriate user and included in the following table, {\bf Table 1: Functional Requirements}. This format has the added advantage of allowing you, our employer, to see for 
 yourself that each and every requirement is carried out to your satisfaction. Note again the unique identifier preceding each of the functional 
 requirements - this will allow you to more easily trace our solution to each. 
 
@@ -265,7 +265,7 @@ requirements - this will allow you to more easily trace our solution to each.
 
 Non-functional requirements are differentiable from the functional requirements in that they are not the requested features of the project, but
 rather the various standards our proposed system must meet. For example, you expressed the desire that the system be designed specifically 
-for use with the Linux Ubuntu platform, and that all code must be written in the C++ programming language. Also included in this section are
+for use with the Linux Ubuntu platform, and that all code must be written in the C++ programming language. Also included in {\bf Table 2: None-Functional Requirements} are
 assorted promises to meet various standards that you have not included in your problem statement but that either we believe should be required, 
 or is required by law. Once again, each of these requirements have been assigned a unique identifier and can be used to trace our response to them.
 
@@ -311,7 +311,7 @@ of informativeness, each is required to fully understand the next.
 Use case models are pairings of diagrams that depicts the actions that a specified user can take in a tree-like format with detailed descriptions of each action. The actions 
 are divided into two three types: the high-level cases, denoted with <<initiates>>, the detailed cases, denoted with <<include>>, and the error cases, denoted with 
 <<extend>>. To augment readability, we have decided to have a separate section for the high-level cases and grouping the detailed and error cases together. One 
-concession we did make was to separate the different actions by user, or actor. 
+concession we did make was to separate the different actions by {\it User}, or actor. 
 
 The format of this section will be separated in two parts. For the first part, we will further subdivide into two parts: the high-level use cases and the detailed use cases. 
 These two sub-sections will be identically formatted insofar as the diagrams will precede the more detailed descriptions, which are organized in a clean table format. Following
@@ -319,10 +319,9 @@ this first part, the second part will contain the more detailed flow of events f
 
 \subsubsection*{High-level Use Cases}
 
-This section contains the high-level use cases - essentially, the most abstracted action each user (actor) can take. The diagram below illustrates the interaction between
+This section contains the high-level use cases - essentially, the most abstracted action each user (actor) can take. The diagram below, {\bf Figure 1}, illustrates the interaction between
 users, defined by the stick figure, and the system, defined by the rectangular box. The ovals represent the highest level actions that can be taken, with a connecting line to
-the user that can initiate them. Specifically, we have the Student user who can initiate the high-level action of ParticipateInProjects, and we have the Administrator user who can
-initiate in the action of ManageProjects. These actions are purposefully vague and general because they are the "parent action" that includes several other more specific actions.
+the user that can initiate them. Specifically, we have the {\it Student User} who can initiate the high-level action of {\it ParticipateInProjects}, and we have the {\it Administrator User} who can initiate in the action of {\it ManageProjects}. These actions are purposefully vague and general because they are the "parent action" that includes several other more specific actions.
 \vspace{1em}
 
 \begin{figure}[H]
@@ -331,9 +330,9 @@ initiate in the action of ManageProjects. These actions are purposefully vague a
 	\caption{High-level Use Case Diagram}
 \end{figure}
 
-Pulling the use cases from the diagram, we have next a list of the use cases in table format with a short and succinct descriptions beside. The purpose of this table,
+Pulling the use cases from the diagram, we have next a list of the use cases in table format, {\bf Table 3}, with a short and succinct descriptions beside. The purpose of this table,
 on top of having the diagram, is for ease of access with regards to information. While it is very nice to see a diagram, nothing quite beats the traditional table when
-it comes to laying out data. Another benefit is, like in the case of EditProfile, it shows what detailed use cases are included in these higher-level cases.
+it comes to laying out data. Another benefit is, like in the case of {\it EditProfile}, it shows what detailed use cases are included in these higher-level cases.
 
 \begin{table}[H]
 	\caption{High-Level Use Case Descriptions}
@@ -349,11 +348,11 @@ it comes to laying out data. Another benefit is, like in the case of EditProfile
 
 This section contains the more detailed use cases - the specific cases, as it were, of the the much more general high-level use cases. Whereas the high-level cases help give a good
 idea of how things are situated, detailed use cases are much more informative because they encompass all the finer details of the proposed software. Sure, it's nice to know that
-an Administrator can "ManageProjects," but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
+an {\it Administrator} can {\it ManageProjects}, but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
 section. 
 
-The below figure and table cover the use cases that concern the Administrator. With a quick glance of the below diagram, we can see that ManageProjects actually covers a 
-great many details including EditProject and CreateNewProject! Note that we denote error cases with an <<extend>> relationship.
+The below figure and table, {\bf Figure 2} and {\bf Table 3}, cover the use cases that concern the {\it Administrator}. With a quick glance of the below diagram, we can see that {\it ManageProjects} actually covers a 
+great many details including {\it EditProject} and {\it CreateNewProject}! Note that we denote error cases with an <<extend>> relationship.
 
 \begin{figure}[H]
 	\centering{}
@@ -361,8 +360,8 @@ great many details including EditProject and CreateNewProject! Note that we deno
 	\caption{Detailed Use Case Diagram - Administrator}
 \end{figure}
 
-A picture may tell a thousand words, but, for that same reason, can often take a lot of time to fully extract necessary information. The next table contains 
-all the information about each particular use case, though forgoing the actual relationships. Though we may lose that tidbit of information here, we gain a valuable 
+A picture may tell a thousand words, but, for that same reason, can often take a lot of time to fully extract necessary information. The next table, {\bf Table 4} contains 
+all the information about each particular use case for the {\it Administrator}, though forgoing the actual relationships. Though we may lose that tidbit of information here, we gain a valuable 
 tool that allows us to very clearly see what each use case does. 
 
 \begin{table}[H]
@@ -383,8 +382,8 @@ tool that allows us to very clearly see what each use case does.
 	\end{tabu}
 \end{table}
 
-The following figure outlines the use cases and their relationships with each other for the Student user. Note here that the Student has far fewer possible use cases
-as compared to the Administrator - there are only two major things that Students can do: edit their profile, and manage their enrollment in projects. They have no 
+The following figure, {\bf Figure 3}, outlines the use cases and their relationships with each other for the {\it Student User}. Note here that the {\it Student} has far fewer possible use cases
+as compared to the {\it Administrator} - there are only two major things that {\it Students} can do: edit their profile, and manage their enrollment in projects. They have no 
 access to finer details such as project settings. 
 
 \begin{figure}[H]
@@ -393,7 +392,7 @@ access to finer details such as project settings.
 	\caption{Detailed Use Case Diagram - Student}
 \end{figure}
 
-With each diagram here in the use case section, there will be an accompanying table. The ensuing table describes each of the possible use cases that a Student user can use/encounter.
+With each diagram here in the use case section, there will be an accompanying table. The ensuing table, {\bf Table 5} describes each of the possible use cases that a {\it Student User} can use/encounter.
 Please also note that we have decided to not include any error cases in this particular diagram to maximize legibility.
 
 \begin{table}[H]
