@@ -470,15 +470,15 @@ Please also note that we have decided to not include any error cases in this par
 			\end{enumerate}
 		\end{enumerate} \\
 
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Entry Conditions & \\
+%		\begin{itemize}[topsep=-1em,leftmargin=*]
+%		    \item
+%        \end{itemize} \\
 
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Exit Conditions & \\
+%		\begin{itemize}[topsep=-1em,leftmargin=*]
+%		    \item 
+%        \end{itemize} \\
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
@@ -518,7 +518,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item Cupid is being used as a Student.
+		    \item cuPID is being used as a Student.
         \end{itemize} \\
 
 		Traceability &  F-03, F-03-01, F-03-02 \\
@@ -964,8 +964,11 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item The system displays a menu of personal details that can be edited. The Student can choose to change the answer
-		    of any of the Responses listed.
+	        \item[]
+	        \begin{enumerate}
+			    \item[1.] The system displays a menu of the Student's qualifications that they can edit.
+	        \end{enumerate}
+            \item[2.] The Student changes the values for the qualifications in the menu.
 		\end{enumerate} \\
 
 		Entry Conditions &
@@ -980,10 +983,10 @@ Please also note that we have decided to not include any error cases in this par
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The user is logged in as a Student.
         \end{itemize} \\
 
-		Traceability &  \\
+		Traceability &  F-03-01\\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -996,8 +999,11 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item The system displays a menu of desired details that can be edited. The Student can choose to change the answer
-		    to any of the Responses listed.
+	        \item[]
+	        \begin{enumerate}
+			    \item[1.] The system displays a menu of qualifications that the Student can edit. They are qualifications the Student is looking for in partners.
+	        \end{enumerate}
+            \item[2.] The Student changes the values for the qualifications in the menu.
 		\end{enumerate} \\
 
 		Entry Conditions &
@@ -1012,10 +1018,10 @@ Please also note that we have decided to not include any error cases in this par
 
 		Quality Requirements &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The user is logged in as a Student.
         \end{itemize} \\
 
-		Traceability &  \\
+		Traceability &  F-03-02\\
 		\toprule
 	\end{tabu}
 \end{center}
