@@ -82,18 +82,20 @@
 %%% END DETAILED USE CASES - COMMON ERRORS
 %% END USE-CASE COMMANDS
 
-% TABLE STYLING
-\everyrow{\hline}
-\tabulinesep=0.5em
-\setlength\extrarowheight{0.5em}
-% END TABLE STYLING
-
 %% TABLE COMMANDS
 \definecolor{thcolor}{RGB}{193,193,193}
 \newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
 \newcommand{\tableheader}{\rowfont\bf\rowcolor{thcolor!30}}
 %% END TABLE COMMANDS
 % END CUSTOM COMMANDS
+
+% TABLE STYLING
+\everyrow{\hline}
+\tabulinesep=0.5em
+
+\setlist[itemize]{leftmargin=*,noitemsep,nolistsep}
+\setlist[enumerate]{leftmargin=*,noitemsep,nolistsep}
+% END TABLE STYLING
 
 \thispagestyle{empty}
 
@@ -465,19 +467,23 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf ManageEnrollment} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Student begins the cuPID process.
+		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-				\item[2.] The Student is presented with a menu from the system. Options of: joining a project, or leaving a project
-				\item[3.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
-				\item[4.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
-			\end{enumerate}
-		\end{enumerate} \\
+			    \item[1.] The Student begins the cuPID process.
+			    \begin{enumerate}
+					\item[2.] The Student is presented with a menu from the system. Options of: joining a project, or leaving a project
+					\item[3.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
+					\item[4.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
+				\end{enumerate}
+	        \end{enumerate}
+		\end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The User is operating cuPID as a Student.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as a Student.
+	        \end{itemize}
+		\end{minipage} \\
 
 		Exit Conditions & \\
 
@@ -495,25 +501,31 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf EditProfile} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-	    		\item[1.] The Student begins the cuPID process.
-	    		\begin{enumerate}
-		    		\item[2.] The system presents the Student with a menu of two options: Edit their own values for the attributes (include use case {\bf EditPersonalValues}) or edit their desired partner values for the attributes (include use case {\bf EditDesiredValues}).
-			    \item[3.] If the Student chooses to edit their own values, the system presents the Student with a list of their own values to edit.
-			    \item[4.] If the Student chooses to edit their desired partner values, the system presents the Student with a list of their desired partner values to edit.
-	    		\end{enumerate}
-		\end{enumerate} \\
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}
+		    		\item[1.] The Student begins the cuPID process.
+		    		\begin{enumerate}
+			    		\item[2.] The system presents the Student with a menu of two options: Edit their own values for the attributes (include use case \textbf{EditPersonalValues}) or edit their desired partner values for the attributes (include use case \textbf{EditDesiredValues}).
+				    \item[3.] If the Student chooses to edit their own values, the system presents the Student with a list of their own values to edit.
+				    \item[4.] If the Student chooses to edit their desired partner values, the system presents the Student with a list of their desired partner values to edit.
+		    		\end{enumerate}
+			\end{enumerate}
+		\end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The User is operating cuPID as a Student.
-		    \item The Student has selected to edit their profile.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as a Student.
+			    \item The Student has selected to edit their profile.
+	        \end{itemize}
+		\end{minipage} \\
 
 		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item A menu is presented to the Student.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item A menu is presented to the Student.
+	        \end{itemize}
+		\end{minipage} \\
 
 		Quality Requirements & \\
 
@@ -529,21 +541,25 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf ManageProjects} \\
         Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator begins the cuPID process.
-			\begin{enumerate}
-				\item[2.] The Administrator is presented with a menu from the system. It has the options of: creating a new project, editing a project, launching the PPID, viewing PPID results.
-				\item[3.] If the Administrator chooses to create a new project, the system brings up a menu for creating a new project (include use case \textbf{CreateNewProject}).
-				\item[4.] If the Administrator chooses to edit a project, the system brings up a list of projects to edit (include use case \textbf{EditProject}).
-				\item[5.] If the Administrator chooses to launch the PPID, the system brings up a list of projects (include use case \textbf{LaunchPPID}).
-				\item[6.] If the Administrator chooses to view PPID results, the system brings up a list of projects with PPID results (include use case \textbf{ViewPPIDResults}).
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}[topsep=-1em,leftmargin=*]
+			    \item[1.] The Administrator begins the cuPID process.
+				\begin{enumerate}
+					\item[2.] The Administrator is presented with a menu from the system. It has the options of: creating a new project, editing a project, launching the PPID, viewing PPID results.
+					\item[3.] If the Administrator chooses to create a new project, the system brings up a menu for creating a new project (include use case \textbf{CreateNewProject}).
+					\item[4.] If the Administrator chooses to edit a project, the system brings up a list of projects to edit (include use case \textbf{EditProject}).
+					\item[5.] If the Administrator chooses to launch the PPID, the system brings up a list of projects (include use case \textbf{LaunchPPID}).
+					\item[6.] If the Administrator chooses to view PPID results, the system brings up a list of projects with PPID results (include use case \textbf{ViewPPIDResults}).
+				\end{enumerate}
 			\end{enumerate}
-		\end{enumerate} \\
+	    \end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The User is operating cuPID as an Administrator.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}[topsep=-1em,leftmargin=*]
+			    \item The User is operating cuPID as an Administrator.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Exit Conditions & \\
 
@@ -561,29 +577,37 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf LaunchPPID} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The Administrator chooses a project on which to run the PPID.
+		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-		        \item[2.] The system runs the PPID on the chosen project.
-		    \end{enumerate}
-		\end{enumerate} \\
+			    \item[1.] The Administrator chooses a project on which to run the PPID.
+			    \begin{enumerate}
+			        \item[2.] The system runs the PPID on the chosen project.
+			    \end{enumerate}
+			\end{enumerate}
+	    \end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The User is operating cuPID as an Administrator.
-		    \item The Administrator has chosen to run the PPID.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as an Administrator.
+			    \item The Administrator has chosen to run the PPID.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The PPID results are saved.
-		    \item The PPID results are displayed to the user.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The PPID results are saved.
+			    \item The PPID results are displayed to the user.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The PPID will take no longer than 5 seconds to complete.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The PPID will take no longer than 5 seconds to complete.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Traceability & F-07, NF-07 \\
 		\toprule
@@ -597,19 +621,25 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf InsufficientStudentsError} \\
 		Participating Actors & Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item[1.] The system informs the Administrator that there isn't enough Students in the Project to launch the PPID.
-		\end{enumerate} \\
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}
+			    \item[1.] The system informs the Administrator that there isn't enough Students in the Project to launch the PPID.
+			\end{enumerate}
+	    \end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item An Administrator attempted to launch the PPID without enough students to form at least one Group.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item An Administrator attempted to launch the PPID without enough students to form at least one Group.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The launch of the PPID is stopped.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The launch of the PPID is stopped.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Quality Requirements & \\
 
@@ -625,17 +655,21 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf ViewPPIDResults} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-	        \item[1.] The system displays a menu with two options: view summary PPID results (include use case \textbf{ViewPPIDSummary}) or view detailed PPID results.
-	        \item[2.] If the Administrator chooses to view the summary PPID results, the system displays the summary PPID results (include use case \textbf{ViewPPIDSummary}).
-	        \item[3.] If the Administrator chooses to view the detailed PPID results, the system displays the detailed PPID results (include use case \textbf{ViewPPIDDetails}).
-		\end{enumerate} \\
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}
+		        \item[1.] The system displays a menu with two options: view summary PPID results (include use case \textbf{ViewPPIDSummary}) or view detailed PPID results.
+		        \item[2.] If the Administrator chooses to view the summary PPID results, the system displays the summary PPID results (include use case \textbf{ViewPPIDSummary}).
+		        \item[3.] If the Administrator chooses to view the detailed PPID results, the system displays the detailed PPID results (include use case \textbf{ViewPPIDDetails}).
+			\end{enumerate}
+	    \end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The User is operating cuPID as an Administrator.
-		    \item The Administrator has chosen to view the PPID results, or the Administrator has finished launching the PPID.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as an Administrator.
+			    \item The Administrator has chosen to view the PPID results, or the Administrator has finished launching the PPID.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Exit Conditions & \\
 
@@ -653,15 +687,19 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf ViewPPIDSummary} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-	        \item[1.] The system displays a print out of each Group, including the students in each Group.
-		\end{enumerate} \\
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}
+		        \item[1.] The system displays a print out of each Group, including the students in each Group.
+			\end{enumerate}
+	    \end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item The User is operating cuPID as an Administrator.
-		    \item The Administrator has chosen to view the PPID summary.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as an Administrator.
+			    \item The Administrator has chosen to view the PPID summary.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Exit Conditions & \\
 
@@ -679,15 +717,19 @@ Please also note that we have decided to not include any error cases in this par
 		Name & {\bf ViewPPIDDetails} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-	        \item[1.] The system displays the reasoning behind the computed groupings.
-		\end{enumerate} \\
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}
+		        \item[1.] The system displays the reasoning behind the computed groupings.
+			\end{enumerate}
+	    \end{minipage} \\
 
 		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The User is operating cuPID as an Administrator.
-		    \item The Administrator has chosen to view the PPID grouping details.
-        \end{itemize} \\
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as an Administrator.
+			    \item The Administrator has chosen to view the PPID grouping details.
+	        \end{itemize}
+	    \end{minipage} \\
 
 		Exit Conditions & \\
 
@@ -1351,65 +1393,62 @@ Please also note that we have decided to not include any error cases in this par
 
 \subsubsection*{Entity Objects}
 
+\setlist[itemize]{noitemsep, nolistsep}
 \begin{table}[H]
 	\caption{Entity Object Data Dictionary}
-	\begin{tabu} to \textwidth {>{\bf}l X[2] X[3]}
-		\tableheader{}Entity Object & Attributes/Associations & Definition\\
+	\begin{tabu} to \textwidth {>{\bf}l X X[2.75]}
+		\tableheader{}Entity Object & Attributes/\newline Associations & Definition\\
 		User & 
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item Name
-			\item ID
+		\begin{itemize}[leftmargin=*,noitemsep,nolistsep]
+			\item name
+			\item id
 		\end{itemize} & 
-		A {\bf{User}} that has the ability to access the cuPID system.\\
+		A \textbf{User} that has the ability to access the cuPID system.\\
 		
 		Student & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item Student Number
-			\item Profile
+			\item studentNumber
+			\item profile
 		\end{itemize} & 
-		A {\bf{Student}} is a specific type of User that can create/edit their Profiles and join/leave existing Projects.\\
+		A \textbf{Student} is a specific type of User that can create/edit their Profiles and join/leave existing Projects.\\
 		
 		Administrator & 
 		&
-		An \textbf{Administrator} specific type of user that can create/edit projects and run/view results of the PPID\\
+		An \textbf{Administrator} is a specific type of user that can create/edit projects and run/view results of the PPID.\\
 
 		Group & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item Members
+			\item members
 		\end{itemize} & 
-		A {\bf{Group}} is a collection of Student Users that are participating in a specified Project. Every Project contains at 
-		least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm.\\
+		A \textbf{Group} is a collection of Student Users that are participating in a specified Project. Every Project contains at least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm.\\
 
 		TeamSize & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item Min Size
-			\item Max Size
+			\item minSize
+			\item maxSize
 		\end{itemize} & 
-		The \textbf{TeamSize} contains the possible range of team sizes allowed such that the PPID algorithm will not make 
-		too big or too small groups.\\
+		The \textbf{TeamSize} contains the possible range of team sizes allowed such that the PPID algorithm will not make too big or too small groups.\\
 
 		Project & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item Name
-			\item Students
-			\item Team Size
+			\item name
+			\item students
+			\item teamSize
 		\end{itemize} & 
-		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited 
-		by the \textbf{Administrator}.\\
+		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}.\\
 
 		Profile & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item Details
+			\item details
 		\end{itemize} & 
-		A {\bf{Profile}} is a set of Responses maintained by each Student. These values are the necessary input 
-		for the PPID algorithm to run.\\
+		A \textbf{Profile} is a set of \textbf{Responses} maintained by each Student. These values are the necessary input for the PPID algorithm to run.\\
 
 		Response & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-			\item Question
-			\item Answer
+			\item question
+			\item answer
 		\end{itemize} & 
-		The {\bf{Response}} is a pair of Question and Answer.\\
+		The \textbf{Response} is a pair of Question and Answer.\\
 	
 	\end{tabu}
 \end{table}
