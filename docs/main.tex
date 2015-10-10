@@ -273,20 +273,30 @@ or is required by law. Once again, each of these requirements have been assigned
 \begin{table}[H]
 	\caption{Non-Functional Requirements}
 	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+        % Categories left: Legal(1), Usability(2), Interface(2), Operation(1)
 	    \tableheader{}ID & Category & Description\\
-		NF-01 & Usability & The option to customize the key bindings for default keyboard shortcuts must be available for all users.\\
-		NF-02 & Usability & The system will not terminate due to errors 95\% of the time.\\
-		NF-03 & Implementation & The software must be written in the C++ language. \\
-		NF-04 & Implementation & The software must use the Qt framework for creating the graphical user interface (G.U.I.). \\
-		NF-05 & Implementation & The software must run in Linux environment. \\
+		NF-01 & Usability & The option to customize the key bindings for default keyboard short cuts must be available for all users.\\
+		NF-02 & Reliability & The system will not terminate due to errors 95\% of the time.\\
+		NF-03 & Implementation & The system must be written in the C++ language. \\
+		NF-04 & Implementation & The system must use the Qt framework for creating the graphical user interface (G.U.I.). \\
+		NF-05 & Implementation & The system must run in the Ubuntu 14.04 virtual machine. \\
 		NF-06 & Performance & The PPID will take no longer than 5 seconds to finish running. \\
 		NF-07 & Reliability & Saved data will remain uncorrupted at least 95\% of the time. \\
 		NF-08 & Reliability & Saved information must be backed up. \\
 		NF-09 & Supportability & The system must be extensible to a client/server architecture. \\
 		NF-10 & Legal & Users must accept a Terms of Service agreement in order to use the software.\\
 		NF-11 & Interface & The software must provide an API to cuLearn.\\
-		NF-12 & Operations & A forum should be provided for users to report any bugs they may encounter. \\
+		NF-12 & Operation & A forum should be provided for users to report any bugs they may encounter. \\
 		NF-13 & Packaging & The software will be available to download as a standalone executable. \\
+		NF-14 & Performance & The system will not take longer than 2 seconds to perform any save operation. \\
+		NF-15 & Performance & The system will not take longer than 2 seconds to perform any load operation. \\
+		NF-16 & Supportability & The system must be portable to Windows and Mac operating systems. \\
+		NF-17 & Packaging & The client is in charge of installing it on their own machine. \\
+		NF-18 & Packaging & Installation instructions will be included. \\
+		NF-19 & Legal & The system will be released under the GPL (GNU General Public License). \\
+		NF-20 & Legal & \\
+		NF-21 & Operation & There will be a call center available for any enquiries. \\
+        NF-22 & Supportability & Later system versions will support the saved data of at least the last two versions. \\
 	\end{tabu}
 \end{table}
 
