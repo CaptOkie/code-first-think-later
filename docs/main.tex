@@ -1231,16 +1231,15 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \storageerror{} \\
 		Name & {\bf StorageError} \\
-		Participating Actors & Administrator \\
+		Participating Actors & Administrator, Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item The system notifies the Administrator that an error has occured with regards to the processing of
-		    the current file.
+		    \item The system notifies the Administrator/Student that an error has occurred while interacting with the storage.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item A file processing operation failed.
+		    \item An operation involving the storage has failed.
         \end{itemize} \\
 
 		Exit Conditions &
@@ -1263,15 +1262,15 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \storagereaderror{} \\
 		Name & {\bf StorageReadError} \\
-		Participating Actors & Administrator \\
+		Participating Actors & Administrator, Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item The system notifies the Administrator that an erorr has occured with regards to the reading of a file from storage.
+		    \item The system notifies the Administrator/Student that an error has occurred while reading from the storage.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item An attempt to read a file has failed.
+		    \item An attempt to read from the storage has failed.
         \end{itemize} \\
 
 		Exit Conditions &
@@ -1294,15 +1293,15 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \storageopenerror{} \\
 		Name & {\bf StorageOpenError} \\
-		Participating Actors & Administrator \\
+		Participating Actors & \textbf{Inherited} from StorageError use case. \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item The system notifies the Administrator that an error has occured with regards to the opening of a file from storage.
+		    \item The system notifies the Administrator/Student that an error has occurred while opening the storage.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item An attempt to open a file has failed.
+		    \item An attempt to open the storage has failed.
         \end{itemize} \\
 
 		Exit Conditions &
@@ -1325,51 +1324,20 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \storagewriteerror{} \\
 		Name & {\bf StorageWriteError} \\
-		Participating Actors & Administrator \\
+		Participating Actors & Administrator, Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item The system notifies the Administrator that an error has occured with regards to the writing (saving) of a file to storage.
+		    \item The system notifies the Administrator/Student that an error has occurred while saving to the storage.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item An attempt to write/save a file has failed.
+		    \item An attempt to save to the storage failed.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The operation is aborted.
-        \end{itemize} \\
-
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \storagecloseerror{} \\
-		Name & {\bf StorageCloseError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item The system notifies the Administrator that an error has occured with regards to the closing of a file.
-		\end{enumerate} \\
-
-		Entry Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item An attempt to close a file has failed.
-        \end{itemize} \\
-
-		Exit Conditions &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The operation is aborted.
+		    \item The operation will be cancelled and the changes will be reverted.
         \end{itemize} \\
 
 		Quality Requirements &
@@ -1396,42 +1364,49 @@ Please also note that we have decided to not include any error cases in this par
 			\item ID
 		\end{itemize} & 
 		A {\bf{User}} that has the ability to access the cuPID system.\\
+		
 		Student & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Student Number
 			\item Profile
 		\end{itemize} & 
 		A {\bf{Student}} is a specific type of User that can create/edit their Profiles and join/leave existing Projects.\\
+		
 		Administrator & 
 		&
-		An {\bf{Administrator}} specific type of User that can create/edit Projects and run/view results of the PPID\\
+		An \textbf{Administrator} specific type of user that can create/edit projects and run/view results of the PPID\\
+
 		Group & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Members
 		\end{itemize} & 
 		A {\bf{Group}} is a collection of Student Users that are participating in a specified Project. Every Project contains at 
 		least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm.\\
+
 		TeamSize & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Min Size
 			\item Max Size
 		\end{itemize} & 
-		The {\bf{TeamSize}} contains the possible range of team sizes allowed such that the PPID algorithm will not make 
+		The \textbf{TeamSize} contains the possible range of team sizes allowed such that the PPID algorithm will not make 
 		too big or too small groups.\\
+
 		Project & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Name
 			\item Students
 			\item Team Size
 		\end{itemize} & 
-		A {\bf{Project}} contains a collection of Students that will get sorted into Groups. These are made and edited 
-		by the Administrator.\\
+		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited 
+		by the \textbf{Administrator}.\\
+
 		Profile & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Details
 		\end{itemize} & 
 		A {\bf{Profile}} is a set of Responses maintained by each Student. These values are the necessary input 
 		for the PPID algorithm to run.\\
+
 		Response & 
 		\begin{itemize}[topsep=-1em,leftmargin=*]
 			\item Question
