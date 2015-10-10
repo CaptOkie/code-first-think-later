@@ -443,7 +443,6 @@ Please also note that we have decided to not include any error cases in this par
 		\storagereaderror{} & StorageReadError & The system reports that an error occurred while attempting to read from the Storage.\\
 		\storageopenerror{} & StorageOpenError & The system reports that an error occurred while attempting to open the Storage.\\
 		\storagewriteerror{} & StorageWriteError & The system reports that an error occurred while attempting to write to the Storage.\\
-		\storagecloseerror{} & StorageCloseError & The system reports that an error occurred while attempting to close the Storage.\\
 	\end{tabu}
 \end{table}
 
@@ -1244,13 +1243,10 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The operation is aborted.
+		    \item The storage operation is cancelled.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -1262,7 +1258,7 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \storagereaderror{} \\
 		Name & {\bf StorageReadError} \\
-		Participating Actors & Administrator, Student \\
+		Participating Actors & \textbf{Inherited} from StorageError use case. \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
 		    \item The system notifies the Administrator/Student that an error has occurred while reading from the storage.
@@ -1275,13 +1271,10 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The operation is aborted.
+		    \item The read operation is cancelled.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -1306,13 +1299,10 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The operation is aborted.
+		    \item The open operation is cancelled.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -1324,7 +1314,7 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \storagewriteerror{} \\
 		Name & {\bf StorageWriteError} \\
-		Participating Actors & Administrator, Student \\
+		Participating Actors & \textbf{Inherited} from StorageError use case. \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
 		    \item The system notifies the Administrator/Student that an error has occurred while saving to the storage.
@@ -1337,13 +1327,10 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item The operation will be cancelled and the changes will be reverted.
+		    \item The save is cancelled.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
