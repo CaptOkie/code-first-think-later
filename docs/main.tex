@@ -1187,23 +1187,20 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The system informs the Administrator that the enter minimum team size is invalid.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator tries to set a minimum team size for a project that is higher than the maximum team size.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The minimum team size is not saved.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -1218,23 +1215,20 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Administrator \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item[1.] The system informs the Administrator that the enter maximum team size is invalid.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The Administrator tries to set a maximum team size for a project that is lower than the minimum team size.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
+		    \item The maximum team size is not saved.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em,leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
@@ -1249,28 +1243,20 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Student \\
 		Flow of Events & 
 	    \begin{enumerate}[topsep=-1em, leftmargin=*]
-		    \item[1.] The Student attempts to join a project.
-		    \begin{enumerate}
-		    	\item[2.] The system attempts to access the selected project from storage.
-		    	\item[3.] If the selected project does not exist, then the system notifies the Student that there was an error with regards to 
-		    	finding the selected project.
-		    \end{enumerate}
+		    \item[1.] The system informs the Student that the chosen project is invalid for the desired operation.
 		\end{enumerate} \\
 
 		Entry Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The Student tries to perform an operation on a project that does not exists.
         \end{itemize} \\
 
 		Exit Conditions &
 		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
+		    \item The operation initiated by the Student is cancelled.
         \end{itemize} \\
 
-		Quality Requirements &
-		\begin{itemize}[topsep=-1em, leftmargin=*]
-		    \item 
-        \end{itemize} \\
+		Quality Requirements & \\
 
 		Traceability & NF-02 \\
 		\toprule
