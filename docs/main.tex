@@ -854,7 +854,7 @@ Please also note that we have decided to not include any error cases in this par
 		    \begin{enumerate}
 			    \item[1.] The Administrator selects a Student from a list of available Students.
 			    \begin{enumerate}
-			    	\item[2.] The system adds the selected Student to the list of Students in the selected Project.
+			    	    \item[2.] The system adds the selected Student to the list of Students in the selected Project.
 			    \end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
@@ -961,17 +961,15 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}[topsep=-1em, leftmargin=*]
-			    \item[1.] The Student selects a project from the list of available projects.
-			    \begin{enumerate}
-			    		\item[2.] The system adds the Student to the selected project.
-			    \end{enumerate}
+		    \begin{enumerate}
+			    	\item[1.] The system adds the Student to the selected project.
+			    	\item[2.] The Student is notified that they have been added to the project.
 			\end{enumerate}
 		\end{minipage} \\
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}[topsep=-1em, leftmargin=*]
+			\begin{itemize}
 			    \item The User is operating cuPID as a Student.
 			    \item The Student has selected to join a project.
 	        \end{itemize}
@@ -979,7 +977,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}[topsep=-1em, leftmargin=*]
+			\begin{itemize}
 			    \item The addition of the Student to a project has been saved.
 	        \end{itemize}
 		\end{minipage} \\
@@ -999,7 +997,7 @@ Please also note that we have decided to not include any error cases in this par
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}[topsep=-1em, leftmargin=*]
+		    \begin{enumerate}
 			    \item[1.] The Student selects a project from a list of their joined projects.
 			    \begin{enumerate}
 			    		\item[2.] The system removes the Student from the selected project.
@@ -1009,7 +1007,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}[topsep=-1em, leftmargin=*]
+			\begin{itemize}
 			    \item The User is operating cuPID as a Student.
 			    \item The Student has chosen to remove themselves from a project.
 	        \end{itemize}
@@ -1017,7 +1015,7 @@ Please also note that we have decided to not include any error cases in this par
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}[topsep=-1em, leftmargin=*]
+			\begin{itemize}
 			    \item The removal of the Student from a project has been saved.
 	        \end{itemize}
 		\end{minipage} \\
