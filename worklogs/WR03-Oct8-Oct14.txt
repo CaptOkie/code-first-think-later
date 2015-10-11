@@ -15,3 +15,5 @@ TheBakedPotato:
 
 ViLLiELdR:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
+2 Hours: (Thurs) Fixing details, adding tables.
+1 Hour: Updated details with regards to references, reworded things
