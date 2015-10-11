@@ -4,12 +4,14 @@ CaptOkie:
 2 Hours: Moved 'logged in' from quality requirements to entry conditions, new UC details.
 1 Hours: Updated UC details and NFRs.
 5 Hours: Improved table formatting, updated UC details, created UC control & boundary object diagrams.
+2 Hours: New control and boundary object diagrams.
 
 TheBakedPotato:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
 1 Hours: Filled out UC details.
 2 Hours: Updated UC details and NFRs
 5 Hours: Updated UC details, created UC control & boundary object diagrams.
+2 Hours: New control and boundary object diagrams.
 
 ViLLiELdR:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
