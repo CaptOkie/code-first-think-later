@@ -37,7 +37,8 @@
 %%% HIGH-LEVEL USE CASES
 \newusecase{manageenrollment}
 \newusecase{editprofile}
-\newusecase{manageprojects}
+\newusecase{manageproject}
+\newusecase{createnewproject}
 %%% END HIGH-LEVEL USE CASES
 
 %%% DETAILED USE CASES - ADMINISTRATOR
@@ -46,7 +47,6 @@
 \newusecase{viewppidresults}
 \newusecase{viewppidsummary}
 \newusecase{viewppiddetails}
-\newusecase{createnewproject}
 \newusecase{editprojectdetails}
 \newusecase{editproject}
 \newusecase{addstudent}
@@ -351,7 +351,8 @@ it comes to laying out data. Another benefit is, like in the case of {\it EditPr
 	    \tableheader{}ID & Name & Description\\
 	    \manageenrollment{} & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
 		\editprofile{} & EditProfile & The Student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
-		\manageprojects{} & ManageProjects & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
+		\manageproject{} & ManageProject & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
+		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a Project.\\
 	\end{tabu}
 \end{table}
 
@@ -384,7 +385,6 @@ tool that allows us to very clearly see what each use case does.
 		\viewppidresults{} & ViewPPIDResults & The Administrator views the results of the PPID for a Project.\\
 		\viewppidsummary{} & ViewPPIDSummary & The Administrator views a summary of the Groups that are created.\\
 		\viewppiddetails{} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
-		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a Project.\\
 		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified Project.\\
 		\editproject{} & EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
 		\addstudent{} & AddStudent & The Administrator adds a Student to the current Project.\\
@@ -534,8 +534,8 @@ Please also note that we have decided to not include any error cases in this par
 \begin{center}
     \begin{tabu} to \textwidth {>{\it}l X}
         \toprule
-		Use Case Identifier & \manageprojects{} \\
-		Name & {\bf ManageProjects} \\
+		Use Case Identifier & \manageproject{} \\
+		Name & {\bf ManageProject} \\
         Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
@@ -565,6 +565,42 @@ Please also note that we have decided to not include any error cases in this par
 		Traceability & F-05, F-06, F-07, F-08, F-09\\
         \toprule
     \end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \createnewproject{} \\
+		Name & {\bf CreateNewProject} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}
+			    \item[1.] The system brings up a menu of details to edit on the new project (include use case \textbf{EditProjectDetails}).
+			    \item[2.] The system displays the new project to the Administrator.
+			\end{enumerate}
+	    \end{minipage} \\
+
+		Entry Conditions &
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as an Administrator.
+			    \item The Administrator has chosen to create a new project.
+	        \end{itemize}
+	    \end{minipage} \\
+
+		Exit Conditions & 
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The project is created.
+	        \end{itemize}
+	    \end{minipage}\\
+
+		Quality Requirements & \\
+
+		Traceability & F-05 \\
+		\toprule
+	\end{tabu}
 \end{center}
 
 \begin{center}
@@ -733,42 +769,6 @@ Please also note that we have decided to not include any error cases in this par
 		Quality Requirements & \\
 
 		Traceability & F-09 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \createnewproject{} \\
-		Name & {\bf CreateNewProject} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}
-			    \item[1.] The system brings up a menu of details to edit on the new project (include use case \textbf{EditProjectDetails}).
-			    \item[2.] The system displays the new project to the Administrator.
-			\end{enumerate}
-	    \end{minipage} \\
-
-		Entry Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The User is operating cuPID as an Administrator.
-			    \item The Administrator has chosen to create a new project.
-	        \end{itemize}
-	    \end{minipage} \\
-
-		Exit Conditions & 
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The project is created.
-	        \end{itemize}
-	    \end{minipage}\\
-
-		Quality Requirements & \\
-
-		Traceability & F-05 \\
 		\toprule
 	\end{tabu}
 \end{center}
@@ -1580,6 +1580,7 @@ Please also note that we have decided to not include any error cases in this par
 \end{table}
 
 \subsubsection*{Control and boundary objects for ManageEnrollment (\manageenrollment{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/manage-enrollment.png}
@@ -1587,13 +1588,15 @@ Please also note that we have decided to not include any error cases in this par
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditProfile (\editprofile{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/edit-profile.png}
 	\caption{Control/Boundary Objects for EditProfile}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ManageProjects (\manageprojects{})}
+\subsubsection*{Control and boundary objects for ManageProjects (\manageproject{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/manage-projects.png}
@@ -1601,6 +1604,7 @@ Please also note that we have decided to not include any error cases in this par
 \end{figure}
 
 \subsubsection*{Control and boundary objects for LaunchPPID (\launchppid{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/launch-ppid.png}
@@ -1615,6 +1619,7 @@ Please also note that we have decided to not include any error cases in this par
 %\end{figure}
 
 \subsubsection*{Control and boundary objects for ViewPPIDResults (\viewppidresults{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/view-ppid-results.png}
@@ -1622,6 +1627,7 @@ Please also note that we have decided to not include any error cases in this par
 \end{figure}
 
 \subsubsection*{Control and boundary objects for CreateNewProject (\createnewproject{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/create-new-project.png}
@@ -1629,6 +1635,7 @@ Please also note that we have decided to not include any error cases in this par
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditProjectDetails (\editprojectdetails{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/edit-project-details.png}
@@ -1636,6 +1643,7 @@ Please also note that we have decided to not include any error cases in this par
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditProject (\editproject{})}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/edit-project.png}
