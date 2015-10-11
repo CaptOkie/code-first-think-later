@@ -49,9 +49,6 @@
 \newusecase{viewppiddetails}
 \newusecase{editprojectdetails}
 \newusecase{editproject}
-\newusecase{addstudent}
-\newusecase{removestudent}
-\newusecase{invalidstudenterror}
 %%% END DETAILED USE CASES - ADMINISTRATOR
 
 %%% DETAILED USE CASES - STUDENT
@@ -387,10 +384,6 @@ tool that allows us to very clearly see what each use case does.
 		\viewppiddetails{} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
 		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified Project.\\
 		\editproject{} & EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
-		\addstudent{} & AddStudent & The Administrator adds a Student to the current Project.\\
-		\removestudent{} & RemoveStudent & The Administrator removes a Student from the current Project.\\
-		\invalidstudenterror{} & InvalidStudentError & The system reports that an invalid Student, be it no Student or a non-existent Student, 
-		was selected to carry out an operation.\\
 	\end{tabu}
 \end{table}
 
@@ -840,116 +833,6 @@ Please also note that we have decided to not include any error cases in this par
 		Quality Requirements & \\
 
 		Traceability & F-06 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \addstudent{} \\
-		Name & {\bf AddStudent} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}
-			    \item[1.] The Administrator selects a Student from a list of available Students.
-			    \begin{enumerate}
-			    	    \item[2.] The system adds the selected Student to the list of Students in the selected Project.
-			    \end{enumerate}
-			\end{enumerate}
-		\end{minipage} \\
-
-		Entry Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The User is operating cuPID as an Administrator.
-			    \item The Administrator has chosen to add a Student to a Project.
-	        \end{itemize}
-		\end{minipage} \\
-
-		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The addition of the Student to a Project has been saved.
-	        \end{itemize}
-		\end{minipage} \\
-
-		Quality Requirements & \\
-
-		Traceability & F-06-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \removestudent{} \\
-		Name & {\bf RemoveStudent} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}
-			    \item[1.] The Administrator selects a Student from the list of Students that are enrolled in the Project.
-			    \begin{enumerate} 
-			    	\item[2.] The system removes the Student from the list of Students in the selected Project.
-			    \end{enumerate}
-			\end{enumerate}
-		\end{minipage} \\
-
-		Entry Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The User is operating cuPID as an Administrator.
-			    \item The Administrator has chosen to remove a Student from a Project.
-	        \end{itemize}
-		\end{minipage} \\
-
-		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The removal of the Student from the Project has been saved.
-	        \end{itemize}
-		\end{minipage} \\
-
-		Quality Requirements & \\
-
-		Traceability & F-06-03 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \invalidstudenterror{} \\
-		Name & {\bf InvalidStudentError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}
-			    \item The system informs the Administrator that the chosen student is invalid for the desired operation.
-			\end{enumerate}
-		\end{minipage} \\
-
-		Entry Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The Administrator attempted to perform an operation without selecting a Student or with a Student that doesn't exist, add a Student to a Project in which the Student is already enrolled, or remove a Student from a Project in which the Student is not enrolled.
-	        \end{itemize}
-		\end{minipage} \\
-
-		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The operation initiated by the Administrator is cancelled.
-	        \end{itemize}
-		\end{minipage} \\
-
-		Quality Requirements & \\
-
-		Traceability & NF-02 \\
 		\toprule
 	\end{tabu}
 \end{center}
