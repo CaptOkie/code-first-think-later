@@ -1156,7 +1156,8 @@ Please also note that we have decided to not include any error cases in this par
 		    \begin{enumerate}
 			    \item[1.] The Administrator inputs a unique project name.
 			    \begin{enumerate}
-			        \item[2.] The system overwrites saves the new project name.
+			        \item[2.] The system updates the project name.
+			        \item[3.] The system notifies the Administrator that the name has updated.
 			    \end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
@@ -1165,14 +1166,14 @@ Please also note that we have decided to not include any error cases in this par
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 			    \item The User is operating cuPID as an Administrator.
-			    \item The Administrator has chosen to edit the existing, or set the initial, project name.
+			    \item The Administrator has chosen to set the project name.
 	        \end{itemize}
 		\end{minipage} \\
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The new project name is saved.
+			    \item The project name is updated.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1228,7 +1229,8 @@ Please also note that we have decided to not include any error cases in this par
 		    \begin{enumerate}
 			    \item[1.] The Administrator inputs a new value for the minimum or maximum team size.
 			    \begin{enumerate}
-			        \item[2.] The system sets the project's minimum and maximum team size values.
+			        \item[2.] The system updates the project's minimum and maximum team size values.
+			        \item[3.] The system notifies the Administrator that the team size has updated.
 			    \end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
@@ -1237,14 +1239,14 @@ Please also note that we have decided to not include any error cases in this par
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 			    \item The User is operating cuPID as an Administrator.
-			    \item The Administrator has chosen to edit the existing, or set the initial, team size.
+			    \item The Administrator has chosen to update the team size.
 	        \end{itemize}
 		\end{minipage} \\
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The minimum and maximum team size project values have are updated.
+			    \item The team size is updated.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1686,6 +1688,22 @@ Please also note that we have decided to not include any error cases in this par
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/edit-desired-values.png}
 	\caption{Control/Boundary Objects for EditDesiredValues}    
+\end{figure}
+
+\subsubsection*{Control and boundary objects for EditProjectName (\editprojectname{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/edit-project-name.png}
+	\caption{Control/Boundary Objects for EditProjectName}    
+\end{figure}
+
+\subsubsection*{Control and boundary objects for EditTeamSize (\editteamsize{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/edit-team-size.png}
+	\caption{Control/Boundary Objects for EditTeamSize}
 \end{figure}
 
 \subsubsection*{Control Objects Data Dictionary}
