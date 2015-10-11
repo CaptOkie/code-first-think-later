@@ -332,7 +332,7 @@ this first part, the second part will contain the more detailed flow of events f
 
 This section contains the high-level use cases - essentially, the most abstracted action each user (actor) can take. The diagram below, {\bf Figure 1}, illustrates the interaction between
 users, defined by the stick figure, and the system, defined by the rectangular box. The ovals represent the highest level actions that can be taken, with a connecting line to
-the user that can initiate them. Specifically, we have the {\it Student User} who can initiate the high-level action of {\it ParticipateInProjects}, and we have the {\it Administrator User} who can initiate in the action of {\it ManageProjects}. These actions are purposefully vague and general because they are the "parent action" that includes several other more specific actions.
+the user that can initiate them. Specifically, we have the {\it Student User} who can initiate the high-level action of {\it ParticipateInProjects}, and we have the {\it Administrator User} who can initiate in the action of {\it ManageProject}. These actions are purposefully vague and general because they are the "parent action" that includes several other more specific actions.
 \vspace{1em}
 
 \begin{figure}[H]
@@ -360,10 +360,10 @@ it comes to laying out data. Another benefit is, like in the case of {\it EditPr
 
 This section contains the more detailed use cases - the specific cases, as it were, of the the much more general high-level use cases. Whereas the high-level cases help give a good
 idea of how things are situated, detailed use cases are much more informative because they encompass all the finer details of the proposed software. Sure, it's nice to know that
-an {\it Administrator} can {\it ManageProjects}, but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
+an {\it Administrator} can {\it ManageProject}, but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
 section. 
 
-The below figure and table, {\bf Figure 2} and {\bf Table 3}, cover the use cases that concern the {\it Administrator}. With a quick glance of the below diagram, we can see that {\it ManageProjects} actually covers a 
+The below figure and table, {\bf Figure 2} and {\bf Table 3}, cover the use cases that concern the {\it Administrator}. With a quick glance of the below diagram, we can see that {\it ManageProject} actually covers a 
 great many details including {\it EditProject} and {\it CreateNewProject}! Note that we denote error cases with an <<extend>> relationship.
 
 \begin{figure}[H]
@@ -1591,12 +1591,12 @@ Please also note that we have decided to not include any error cases in this par
 	\caption{Control/Boundary Objects for EditProfile}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ManageProjects (\manageproject{})}
+\subsubsection*{Control and boundary objects for ManageProject (\manageproject{})}
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/manage-projects.png}
-	\caption{Control/Boundary Objects for ManageProjects}
+	\caption{Control/Boundary Objects for ManageProject}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for LaunchPPID (\launchppid{})}
