@@ -467,11 +467,13 @@ Please also note that we have decided to not include any error cases in this par
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The Student begins the cuPID process.
+			    \item[1.] The Student chooses the manage enrollment option.
 			    \begin{enumerate}
-					\item[2.] The Student is presented with a menu from the system. Options of: joining a project, or leaving a project
-					\item[3.] If the Student chooses to join a project, the system presents a list of projects to join (include use case \textbf{JoinProject}).
-					\item[4.] If the Student chooses to leave a project, the system presents a list of their joined projects to leave (include use case \textbf{LeaveProject}).
+			        \item[2.] The system displays a list of projects.
+				\end{enumerate}
+				\item[3.] The Student chooses a project.
+				\begin{enumerate}
+				    \item[4.] The system displays a menu with two options. The Student can choose to join the project (include use case \textbf{JoinProject}), or leave the project (include use case \textbf{LeaveProject}).
 				\end{enumerate}
 	        \end{enumerate}
 		\end{minipage} \\
@@ -483,7 +485,13 @@ Please also note that we have decided to not include any error cases in this par
 	        \end{itemize}
 		\end{minipage} \\
 
-		Exit Conditions & \\
+		Exit Conditions &
+        	\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The Student is shown a menu.
+	        \end{itemize}
+		\end{minipage} \\
+
 
 		Quality Requirements & \\
 
@@ -1674,5 +1682,14 @@ Please also note that we have decided to not include any error cases in this par
 
 \subsubsection{Dynamic Model}
 
+\subsubsection*{Sequence Diagrams}
+
+\subsubsection*{Sequence diagram for ManageEnrollment (\manageenrollment{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.3]{imgs/seq/manage-enrollment.png}
+	\caption{Sequence Diagram for ManageEnrollment}    
+\end{figure}
 
 \end{document}
