@@ -506,7 +506,7 @@ Please also note that we have decided to not include any error cases in this par
 		    \begin{enumerate}
 		    		\item[1.] The Student chooses the edit profile option.
 		    		\begin{enumerate}
-			    		\item[2.] The system presents the Student with a menu of two options: Edit their own values for the attributes (include use case \textbf{EditPersonalValues}) or edit their desired partner values for the attributes (include use case \textbf{EditDesiredValues}).
+			    		\item[2.] The system displays a menu with two options. The Student can choose to edit their own values for the attributes (include use case \textbf{EditPersonalValues}) or edit their desired partner values for the attributes (include use case \textbf{EditDesiredValues}).
 		    		\end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
@@ -536,13 +536,13 @@ Please also note that we have decided to not include any error cases in this par
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The Administrator begins the cuPID process.
+			    \item[1.] The Administrator selects the manage project option.
+			    \begin{enumerate}
+			        \item[2.] The system displays a list of projects.
+				\end{enumerate}
+				\item[3.] The Administrator chooses a project.
 				\begin{enumerate}
-					\item[2.] The Administrator is presented with a menu from the system. It has the options of: creating a new project, editing a project, launching the PPID, viewing PPID results.
-					\item[3.] If the Administrator chooses to create a new project, the system brings up a menu for creating a new project (include use case \textbf{CreateNewProject}).
-					\item[4.] If the Administrator chooses to edit a project, the system brings up a list of projects to edit (include use case \textbf{EditProject}).
-					\item[5.] If the Administrator chooses to launch the PPID, the system brings up a list of projects (include use case \textbf{LaunchPPID}).
-					\item[6.] If the Administrator chooses to view PPID results, the system brings up a list of projects with PPID results (include use case \textbf{ViewPPIDResults}).
+				    \item[4.] The system displays a menu with two options. The Administrator can choose to launch the PPID (include use case \textbf{LaunchPPID}), view PPID results (include use case \textbf{ViewPPIDResults}), edit an existing project (include use case \textbf{EditProject}), or delete an existing project (include use case \textbf{DeleteProject}).
 				\end{enumerate}
 			\end{enumerate}
 	    \end{minipage} \\
@@ -1595,7 +1595,7 @@ Please also note that we have decided to not include any error cases in this par
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/manage-projects.png}
+	\includegraphics[scale=0.4]{imgs/cbod/manage-project.png}
 	\caption{Control/Boundary Objects for ManageProject}
 \end{figure}
 
