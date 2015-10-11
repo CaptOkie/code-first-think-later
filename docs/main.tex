@@ -746,10 +746,8 @@ Please also note that we have decided to not include any error cases in this par
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The Administrator fills in the project details (include use case \textbf{EditProjectDetails}).
-			    \begin{enumerate}
-			        \item[2.] The system saves the new project.
-			    \end{enumerate}
+			    \item[1.] The system brings up a menu of details to edit on the new project (include use case \textbf{EditProjectDetails}).
+			    \item[2.] The system displays the new project to the Administrator.
 			\end{enumerate}
 	    \end{minipage} \\
 
@@ -761,12 +759,12 @@ Please also note that we have decided to not include any error cases in this par
 	        \end{itemize}
 	    \end{minipage} \\
 
-		Exit Conditions &
+		Exit Conditions & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item A new Project has been saved.
+			    \item The project is created.
 	        \end{itemize}
-	    \end{minipage} \\
+	    \end{minipage}\\
 
 		Quality Requirements & \\
 
@@ -784,7 +782,10 @@ Please also note that we have decided to not include any error cases in this par
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The system displays a menu of Project details that can be edited. The Administrator can choose to edit the minimum and maximum team size (include use case \textbf{EditTeamSize}), or the name of the Project (include use case \textbf{EditProjectName}).
+			    \item[1.] The Administrator can edit the minimum and maximum team size (include use case \textbf{EditTeamSize}), or the name of the Project (include use case \textbf{EditProjectName}).
+			    \begin{enumerate}
+			        \item[2.] The system saves the project details.
+			    \end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
 
@@ -823,10 +824,7 @@ Please also note that we have decided to not include any error cases in this par
 			    \item[1.] The Administrator selects a Project to edit.
 			    \begin{enumerate}
 			        \item[2.] The system brings up a menu of details to edit (include use case \textbf{EditProjectDetails}).
-			    \end{enumerate}
-			    \item[3.] The Administrator chooses to finish editing the Project.
-			    \begin{enumerate}
-			        \item[4.] The system saves the changed Project.
+			        \item[3.] The system displays the updated project to the Administrator.
 			    \end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
@@ -839,9 +837,9 @@ Please also note that we have decided to not include any error cases in this par
 		\end{minipage} \\
 
 		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
+        \begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The changed Project has been saved.
+			    \item The project has been updated.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1628,6 +1626,20 @@ Please also note that we have decided to not include any error cases in this par
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/create-new-project.png}
 	\caption{Control/Boundary Objects for CreateNewProject}
+\end{figure}
+
+\subsubsection*{Control and boundary objects for EditProjectDetails (\editprojectdetails{})}
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/edit-project-details.png}
+	\caption{Control/Boundary Objects for EditProjectDetails}    
+\end{figure}
+
+\subsubsection*{Control and boundary objects for EditProject (\editproject{})}
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/edit-project.png}
+	\caption{Control/Boundary Objects for EditProject}    
 \end{figure}
 
 \subsubsection*{Control Objects Data Dictionary}
