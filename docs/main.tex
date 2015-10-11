@@ -1038,9 +1038,12 @@ Please also note that we have decided to not include any error cases in this par
 		    \begin{enumerate}
 		        \item[]
 		        \begin{enumerate}
-				    \item[1.] The system displays a menu of the Student's qualifications that they can edit.
+				    \item[1.] The system displays a menu of the Student's personal values that they can edit.
 		        \end{enumerate}
-	            \item[2.] The Student changes the values for the qualifications in the menu.
+	            \item[2.] The Student edits their personal values.
+	            \begin{enumerate}
+				    \item[3.] The system saves the Student's personal values.
+		        \end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
 
@@ -1048,7 +1051,7 @@ Please also note that we have decided to not include any error cases in this par
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 			    \item The User is operating cuPID as a Student.
-			    \item The Student has chosen to edit the existing, or set the initial, details for the personal values in their profile.
+			    \item The Student has chosen to edit their personal values.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1077,17 +1080,20 @@ Please also note that we have decided to not include any error cases in this par
 		    \begin{enumerate}
 		        \item[]
 		        \begin{enumerate}
-				    \item[1.] The system displays a menu of qualifications that the Student can edit. They are qualifications the Student is looking for in partners.
+				    \item[1.] The system displays a menu of the Student's desired values that they can edit.
 		        \end{enumerate}
-	            \item[2.] The Student changes the values for the qualifications in the menu.
-			\end{enumerate}
+	            \item[2.] The Student edits their desired values.
+	            \begin{enumerate}
+				    \item[3.] The system saves the Student's desired values.
+		        \end{enumerate}
+			\end{enumerate}		
 		\end{minipage} \\
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 			    \item The User is operating cuPID as a Student.
-			    \item The Student has chosen to edit the existing, or set the initial, details for the desired values in their profile.
+			    \item The Student has chosen to edit their desired values.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1666,6 +1672,21 @@ Please also note that we have decided to not include any error cases in this par
 	\caption{Control/Boundary Objects for LeaveProject}    
 \end{figure}
 
+\subsubsection*{Control and boundary objects for EditPersonalValues (\editpersonalvalues{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/edit-personal-values.png}
+	\caption{Control/Boundary Objects for EditPersonalValues}    
+\end{figure}
+
+\subsubsection*{Control and boundary objects for EditDesiredValues (\editdesiredvalues{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/edit-desired-values.png}
+	\caption{Control/Boundary Objects for EditDesiredValues}    
+\end{figure}
 
 \subsubsection*{Control Objects Data Dictionary}
 
