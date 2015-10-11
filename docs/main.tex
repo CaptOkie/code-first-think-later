@@ -655,13 +655,14 @@ Please also note that we have decided to not include any error cases in this par
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
 			    \item[1.] The system informs the Administrator that there isn't enough Students in the Project to launch the PPID.
+			    \item[2.] The launch of the PPID is stopped.
 			\end{enumerate}
 	    \end{minipage} \\
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item An Administrator attempted to launch the PPID without enough students to form at least one Group.
+			    \item This use case \textbf{extends} the LaunchPPID use case. It is initiated by the system whenever the Administrator launches the PPID on a project but there are not enough students to satisfy the minimum team size.
 	        \end{itemize}
 	    \end{minipage} \\
 
@@ -1616,6 +1617,14 @@ Please also note that we have decided to not include any error cases in this par
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/launch-ppid.png}
 	\caption{Control/Boundary Objects for LaunchPPID}
+\end{figure}
+
+\subsubsection*{Control and boundary objects for InsufficientStudentsError (\insufficientstudentserror{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/insufficient-students-error.png}
+	\caption{Control/Boundary Objects for InsufficientStudentsError}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for ViewPPIDResults (\viewppidresults{})}
