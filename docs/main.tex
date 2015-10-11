@@ -485,12 +485,7 @@ Please also note that we have decided to not include any error cases in this par
 	        \end{itemize}
 		\end{minipage} \\
 
-		Exit Conditions &
-        	\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The Student is shown a menu.
-	        \end{itemize}
-		\end{minipage} \\
+		Exit Conditions & \\
 
 
 		Quality Requirements & \\
@@ -509,11 +504,9 @@ Please also note that we have decided to not include any error cases in this par
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-		    		\item[1.] The Student begins the cuPID process.
+		    		\item[1.] The Student chooses the edit profile option.
 		    		\begin{enumerate}
 			    		\item[2.] The system presents the Student with a menu of two options: Edit their own values for the attributes (include use case \textbf{EditPersonalValues}) or edit their desired partner values for the attributes (include use case \textbf{EditDesiredValues}).
-				    \item[3.] If the Student chooses to edit their own values, the system presents the Student with a list of their own values to edit.
-				    \item[4.] If the Student chooses to edit their desired partner values, the system presents the Student with a list of their desired partner values to edit.
 		    		\end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
@@ -525,12 +518,7 @@ Please also note that we have decided to not include any error cases in this par
 	        \end{itemize}
 		\end{minipage} \\
 
-		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item A menu is presented to the Student.
-	        \end{itemize}
-		\end{minipage} \\
+		Exit Conditions & \\
 
 		Quality Requirements & \\
 
@@ -1690,6 +1678,14 @@ Please also note that we have decided to not include any error cases in this par
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/manage-enrollment.png}
 	\caption{Sequence Diagram for ManageEnrollment}    
+\end{figure}
+
+\subsubsection*{Sequence diagram for EditProfile (\editprofile{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/seq/edit-profile.png}
+	\caption{Sequence Diagram for EditProfile}    
 \end{figure}
 
 \end{document}
