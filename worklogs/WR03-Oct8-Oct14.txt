@@ -5,6 +5,7 @@ CaptOkie:
 1 Hours: Updated UC details and NFRs.
 5 Hours: Improved table formatting, updated UC details, created UC control & boundary object diagrams.
 2 Hours: New control and boundary object diagrams.
+10 Hours: Refactor UCs, edit sequence diagram, add sequence diagram.
 
 TheBakedPotato:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
@@ -12,6 +13,7 @@ TheBakedPotato:
 2 Hours: Updated UC details and NFRs
 5 Hours: Updated UC details, created UC control & boundary object diagrams.
 2 Hours: New control and boundary object diagrams.
+10 Hours: Refactor UCs, edit boundary/control diagram, add boundary/control diagram.
 
 ViLLiELdR:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
