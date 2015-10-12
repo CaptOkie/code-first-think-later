@@ -643,7 +643,7 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \insufficientstudentserror{} \\
 		Name & {\bf InsufficientStudentsError} \\
-		Participating Actors & Administrator \\
+		Participating Actors & Communicates with Administrator \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
@@ -1000,7 +1000,7 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \invalidinputerror{} \\
 		Name & {\bf InvalidInputError} \\
-		Participating Actors & Administrator, Student \\
+		Participating Actors & Communicates with Administrator, Student \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
@@ -1074,25 +1074,26 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \projectexistserror{} \\
 		Name & {\bf ProjectExistsError} \\
-		Participating Actors & Administrator \\
+		Participating Actors & Communicates with Administrator \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item The system informs the Administrator that the project name is already in use.
+			    \item[1.] The system informs the Administrator that the project name is already in use.
+			    \item[2.] The saving of an updated project is cancelled.
 			\end{enumerate}
 		\end{minipage} \\
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The Administrator has input a project name that is already in use.
+			    \item This \textbf{extends} the EditProjectDetails use case. It is initiated by the Administrator when the attempts to save a project that has the same project name as an existing project.
 	        \end{itemize}
 		\end{minipage} \\
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The project name update is cancelled, and the project name reverts to the original value.
+			    \item The project update is cancelled and the project name is reverted to its original value.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1147,25 +1148,26 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \illegalminerror{} \\
 		Name & {\bf IllegalMinError} \\
-		Participating Actors & Administrator \\
+		Participating Actors & Communicates with Administrator \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The system informs the Administrator that the enter minimum team size is invalid.
+			    \item[1.] The system informs the Administrator that the entered minimum team size is invalid.
+			    \item[2.] The system reverts the minimum team size to its original value.
 			\end{enumerate}
         \end{minipage} \\
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The Administrator tries to set a minimum team size for a project that is higher than the maximum team size.
+			    \item This use case \textbf{extends} EditTeamSize use case. It is initiated by the Administrator when the administrator sets the minimum team size higher than the maximum team size.
 	        \end{itemize}
         \end{minipage} \\
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The minimum team size is not saved.
+			    \item The minimum team size is reverted.
 	        \end{itemize}
         \end{minipage} \\
 
@@ -1186,20 +1188,21 @@ Please also note that we have decided to not include any error cases in this par
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
 			    \item[1.] The system informs the Administrator that the enter maximum team size is invalid.
+			    \item[2.] The system reverts the minimum team size to its original value.
 			\end{enumerate}
         \end{minipage} \\
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The Administrator tries to set a maximum team size for a project that is lower than the minimum team size.
+			    \item This use case \textbf{extends} EditTeamSize use case. It is initiated by the Administrator when the administrator sets the maximum team size lower than the minimum team size.
 	        \end{itemize}
         \end{minipage} \\
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The maximum team size is not saved.
+			    \item The maximum team size is reverted.
 	        \end{itemize}
         \end{minipage} \\
 
@@ -1597,6 +1600,14 @@ Please also note that we have decided to not include any error cases in this par
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/cbod/edit-project-name.png}
 	\caption{Control/Boundary Objects for EditProjectName}    
+\end{figure}
+
+\subsubsection*{Control and boundary objects for ProjectExistsError (\projectexistserror{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/project-exists-error.png}
+	\caption{Control/Boundary Objects for ProjectExistsError}    
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditTeamSize (\editteamsize{})}
