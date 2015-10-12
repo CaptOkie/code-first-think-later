@@ -403,7 +403,7 @@ access to finer details such as project settings.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.3]{imgs/detailed-student-use-case-diagram.png}
+	\includegraphics[scale=0.25]{imgs/detailed-student-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Student}
 \end{figure}
 
@@ -421,11 +421,17 @@ Please also note that we have decided to not include any error cases in this par
 	\end{tabu}
 \end{table}
 
+The following diagram, {\bf Figure 4}, displays the possible ways each user can input into the system and their associated errors. Note that for most of the cases, the inputs are value-based and thus
+all refer to the same {\it InvalidInputError} use case.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/detailed-user-input-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - User Input}
 \end{figure}
+
+{\bf Table 6}, the following table, pulls the use cases from {\bf Figure 4} and provides both a detailed description and a unique identifier for each. That said, please note that several of the cases present in {\bf Figure 4}
+are absent in this table - {\it EditPersonalValues}, {\it EditDesiredValues}, and {\it EditProjectDetails} all have already been described in {\bf Table 4} and {\bf Table 5}.
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - User Input}
@@ -439,27 +445,38 @@ Please also note that we have decided to not include any error cases in this par
 	\end{tabu}
 \end{table}
 
+The following diagram, {\bf Figure 5}, shows which use cases, for both the {\it Administrator} and the {\it Student} Users, can trigger the {\it StorageError} use case. In other words, which of the 
+priorly mentioned use cases interact with reading files, writing files, and opening the Storage.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/detailed-common-error-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Common Errors}
 \end{figure}
 
+The table below, {\bf Table 7}, covers all the the descriptions and assignment of unique identifiers for the storage-related error use cases. Note that the first use case in this table, {\it StorageError}, is a generalization
+of the other three use cases.
+
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - Common Errors}
-	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		\storageerror{} & StorageError &  The system reports that there is an error with the stored information for cuPID.\\
+		\storageerror{} & StorageError &  The system reports that there is an error with the stored information for cuPID (generalizes StorageReadError, StorageOpenError, and StorageWriteError).\\
 		\storagereaderror{} & StorageReadError & The system reports that an error occurred while attempting to read from the Storage.\\
 		\storageopenerror{} & StorageOpenError & The system reports that an error occurred while attempting to open the Storage.\\
 		\storagewriteerror{} & StorageWriteError & The system reports that an error occurred while attempting to write to the Storage.\\
 	\end{tabu}
 \end{table}
 
-\subsubsection*{Use Case Flow of Events}
+\subsubsection*{Table-Based Use Case Flow of Events}
 
-\begin{center}
+In the following section, we will delve into each of the priorly mentioned use cases in much more detail. Specifically, participating actors, detailed flow of events, entry/exit conditions, quality requirements, if applicable, and 
+references to which requirements each address shall all be provided for each use case. To ensure ease of reading, we will maintain the exact same ordering as listed in the above section.
+
+The {\it ManageEnrollment} use case allows Student actors to both join or leave existing projects. It is a high-level use case that includes both the {\it JoinProject} and the {\it LeaveProject} use cases.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for UC-01: ManageEnrollment}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \manageenrollment{} \\
@@ -494,9 +511,14 @@ Please also note that we have decided to not include any error cases in this par
 		Traceability & F-01, F-02\\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+\newpage{}
+
+The {\it EditProfile} use case allows Student actors to edit their profiles. Specifically, this is a high-level use case that includes both {\it EditPersonalValues} and {\it EditDesiredValues} use cases.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for UC-02: EditProfile}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editprofile{} \\
@@ -526,14 +548,18 @@ Please also note that we have decided to not include any error cases in this par
 		Traceability &  F-03, F-03-01, F-03-02 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
-    \begin{tabu} to \textwidth {>{\it}l X}
-        \toprule
+The {\it ManageProject} use case allows Administrator actors to manage project details. This is a high-level use case that
+includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it DeleteProject}.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for UC-03: ManageProject}
+  	  \begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
 		Use Case Identifier & \manageproject{} \\
 		Name & {\bf ManageProject} \\
-        Participating Actors & Initiated by Administrator \\
+   	     Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
@@ -562,9 +588,12 @@ Please also note that we have decided to not include any error cases in this par
 		Traceability & F-05, F-06, F-07, F-08, F-09\\
         \toprule
     \end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The {\it CreateNewProject} use case allows Administrator actors to create a new project. This is a high-level use case that includes the {\it EditProjectDetails} use case.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for UC-04: CreateNewProject}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \createnewproject{} \\
@@ -601,9 +630,12 @@ Please also note that we have decided to not include any error cases in this par
 		Traceability & F-05 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The {\it LaunchPPID} use case allows Administrator actors to launch the sorting algorithm on a specified project and save the results.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for UC-05: LaunchPPID}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \launchppid{} \\
@@ -644,7 +676,7 @@ Please also note that we have decided to not include any error cases in this par
 		Traceability & F-07, NF-05 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
