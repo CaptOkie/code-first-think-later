@@ -476,7 +476,7 @@ references to which requirements each address shall all be provided for each use
 The {\it ManageEnrollment} use case allows Student actors to both join or leave existing projects. It is a high-level use case that includes both the {\it JoinProject} and the {\it LeaveProject} use cases.
 
 \begin{table}[H]
-	\caption{Detailed Flow-of-Events for UC-01: ManageEnrollment}
+	\caption{Detailed Flow-of-Events for \manageenrollment{}: ManageEnrollment}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \manageenrollment{} \\
@@ -518,7 +518,7 @@ The {\it ManageEnrollment} use case allows Student actors to both join or leave 
 The {\it EditProfile} use case allows Student actors to edit their profiles. Specifically, this is a high-level use case that includes both {\it EditPersonalValues} and {\it EditDesiredValues} use cases.
 
 \begin{table}[H]
-	\caption{Detailed Flow-of-Events for UC-02: EditProfile}
+	\caption{Detailed Flow-of-Events for \editprofile{}: EditProfile}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editprofile{} \\
@@ -554,7 +554,7 @@ The {\it ManageProject} use case allows Administrator actors to manage project d
 includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it DeleteProject}.
 
 \begin{table}[H]
-	\caption{Detailed Flow-of-Events for UC-03: ManageProject}
+	\caption{Detailed Flow-of-Events for \manageproject{}: ManageProject}
   	  \begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \manageproject{} \\
@@ -593,7 +593,7 @@ includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it De
 The {\it CreateNewProject} use case allows Administrator actors to create a new project. This is a high-level use case that includes the {\it EditProjectDetails} use case.
 
 \begin{table}[H]
-	\caption{Detailed Flow-of-Events for UC-04: CreateNewProject}
+	\caption{Detailed Flow-of-Events for \createnewproject{}: CreateNewProject}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \createnewproject{} \\
@@ -635,7 +635,7 @@ The {\it CreateNewProject} use case allows Administrator actors to create a new 
 The {\it LaunchPPID} use case allows Administrator actors to launch the sorting algorithm on a specified project and save the results.
 
 \begin{table}[H]
-	\caption{Detailed Flow-of-Events for UC-05: LaunchPPID}
+	\caption{Detailed Flow-of-Events for \launchppid{}: LaunchPPID}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \launchppid{} \\
@@ -678,7 +678,13 @@ The {\it LaunchPPID} use case allows Administrator actors to launch the sorting 
 	\end{tabu}
 \end{table}
 
-\begin{center}
+\newpage{}
+
+The {\it InsufficientStudentsError} use case allows the system to notify the Administrator actor if the Administrator actor attempts to run the PPID when there are
+insufficient students in the project.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for \insufficientstudentserror{}: InsufficientStudentsError}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \insufficientstudentserror{} \\
@@ -711,9 +717,12 @@ The {\it LaunchPPID} use case allows Administrator actors to launch the sorting 
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The {\it ViewPPIDResults} use case allows the Administrator actor to view the results of the last run PPID for the specified project. Includes the {\it ViewPPIDSummary} and {\it ViewPPIDDetails} use cases.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for \viewppidresults{}: ViewPPIDResults}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \viewppidresults{} \\
@@ -741,9 +750,12 @@ The {\it LaunchPPID} use case allows Administrator actors to launch the sorting 
 		Traceability & F-08, F-09 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The {\it ViewPPIDSummary} use case allows Administrator actors to see the print out of the final decision of the PPID. In other words, it allows the Administrator to see the different groups that the PPID came up with.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for \viewppidsummary{}: ViewPPIDSummary}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \viewppidsummary{} \\
@@ -771,9 +783,13 @@ The {\it LaunchPPID} use case allows Administrator actors to launch the sorting 
 		Traceability & F-08 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The {\it ViewPPIDDetails} use case allows Administrator actors to see the actual steps and reasoning of the PPID with regards to the last run PPID. This print out does include the decision (actual groups it decided on) as well
+as the inner-details.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for \viewppiddetails{}: ViewPPIDDetails}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \viewppiddetails{} \\
@@ -801,9 +817,14 @@ The {\it LaunchPPID} use case allows Administrator actors to launch the sorting 
 		Traceability & F-09 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+\newpage{}
+
+The {\it EditProjectDetails} use case allows Administrator actors to modify project details like the possible group sizes and project name. Includes the {\it EditGroupSize} and {\it EditProjectName} use cases.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for \editprojectdetails{}: EditProjectDetails}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editprojectdetails{} \\
@@ -838,9 +859,12 @@ The {\it LaunchPPID} use case allows Administrator actors to launch the sorting 
 		Traceability & F-05, F-06, F-06-01, F-06-04 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The {\it EditProject} use case allows Administrator actors to edit project details. Includes the {\it EditProjectDetails} use case.
+
+\begin{table}[H]
+	\caption{Detailed Flow-of-Events for \editproject{}: EditProject}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editproject{} \\
@@ -875,7 +899,11 @@ The {\it LaunchPPID} use case allows Administrator actors to launch the sorting 
 		Traceability & F-06 \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
+
+\newpage{}
+
+
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
