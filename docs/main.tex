@@ -62,12 +62,11 @@
 \newusecase{invalidinputerror}
 \newusecase{editprojectname}
 \newusecase{projectexistserror}
-\newusecase{editteamsize}
+\newusecase{editgroupsize}
 \newusecase{invalidgroupsizeerror}
 %%% END DETAILED USE CASES - USER INPUT
 
 %%% DETAILED USE CASES - COMMON ERRORS
-\newusecase{invalidprojecterror}
 \newusecase{storageerror}
 \newusecase{storagereaderror}
 \newusecase{storageopenerror}
@@ -423,7 +422,7 @@ Please also note that we have decided to not include any error cases in this par
 		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
 		\editprojectname{} & EditProjectName & The Administrator sets the name of the project. \\
 		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
-		\editteamsize{} & EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID. \\
+		\editgroupsize{} & EditGroupSize & The Administrator sets the minimum and maximum group sizes to be used by the PPID. \\
 		\invalidgroupsizeerror{} & InvalidGroupSizeError & The system reports that the given group size is illegal.\\
 	\end{tabu}
 \end{table}
@@ -439,7 +438,6 @@ Please also note that we have decided to not include any error cases in this par
 	\vspace{1em}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-   		\invalidprojecterror{} & InvalidProjectError & The system reports that an invalid Project, be it no Project or a non-existent Project, was selected to carry out an operation.\\
 		\storageerror{} & StorageError &  The system reports that there is an error with the stored information for cuPID.\\
 		\storagereaderror{} & StorageReadError & The system reports that an error occurred while attempting to read from the Storage.\\
 		\storageopenerror{} & StorageOpenError & The system reports that an error occurred while attempting to open the Storage.\\
@@ -653,7 +651,7 @@ Please also note that we have decided to not include any error cases in this par
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item This use case \textbf{extends} the LaunchPPID use case. It is initiated by the Administrator whenever the Administrator launches the PPID on a project but there are not enough students to satisfy the minimum team size.
+			    \item This use case \textbf{extends} the LaunchPPID use case. It is initiated by the Administrator whenever the Administrator launches the PPID on a project but there are not enough students to satisfy the minimum group size.
 	        \end{itemize}
 	    \end{minipage} \\
 
@@ -770,7 +768,7 @@ Please also note that we have decided to not include any error cases in this par
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The system displays a menu with two options. The Administrator can choose to edit the minimum and maximum team size (include use case \textbf{EditTeamSize}), or the name of the Project (include use case \textbf{EditProjectName}).
+			    \item[1.] The system displays a menu with two options. The Administrator can choose to edit the minimum and maximum group size (include use case \textbf{EditGroupSize}), or the name of the Project (include use case \textbf{EditProjectName}).
 			    \item[2.] The system saves the project details.
 			\end{enumerate}
 		\end{minipage} \\
@@ -1010,7 +1008,7 @@ Please also note that we have decided to not include any error cases in this par
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item This use case \textbf{extends} EditPersonalValues, EditDesiredValues, EditProjectName, and EditTeamSize. This is initiated by the Administrator/Student when the Administrator/Student inputs invalid data. 
+			    \item This use case \textbf{extends} EditPersonalValues, EditDesiredValues, EditProjectName, and EditGroupSize. This is initiated by the Administrator/Student when the Administrator/Student inputs invalid data. 
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1105,16 +1103,16 @@ Please also note that we have decided to not include any error cases in this par
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editteamsize{} \\
-		Name & {\bf EditTeamSize} \\
+		Use Case Identifier & \editgroupsize{} \\
+		Name & {\bf EditGroupSize} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The Administrator inputs a new value for the minimum or maximum team size.
+			    \item[1.] The Administrator inputs a new value for the minimum or maximum group size.
 			    \begin{enumerate}
-			        \item[2.] The system updates the project's minimum and maximum team size values.
-			        \item[3.] The system notifies the Administrator that the team size has updated.
+			        \item[2.] The system updates the project's minimum and maximum group size values.
+			        \item[3.] The system notifies the Administrator that the group size has updated.
 			    \end{enumerate}
 			\end{enumerate}
 		\end{minipage} \\
@@ -1123,14 +1121,14 @@ Please also note that we have decided to not include any error cases in this par
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 			    \item The User is operating cuPID as an Administrator.
-			    \item The Administrator has chosen to update the team size.
+			    \item The Administrator has chosen to update the group size.
 	        \end{itemize}
 		\end{minipage} \\
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The team size is updated.
+			    \item The group size is updated.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1179,40 +1177,6 @@ Please also note that we have decided to not include any error cases in this par
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \invalidprojecterror{} \\
-		Name & {\bf InvalidProjectError} \\
-		Participating Actors & Student \\
-		Flow of Events & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}
-			    \item[1.] The system informs the Student that the chosen project is invalid for the desired operation.
-			\end{enumerate}
-        \end{minipage} \\
-
-		Entry Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The Student tries to perform an operation on a project that does not exists.
-	        \end{itemize}
-        \end{minipage} \\
-
-		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The operation initiated by the Student is cancelled.
-	        \end{itemize}
-        \end{minipage} \\
-
-		Quality Requirements & \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
 		Use Case Identifier & \storageerror{} \\
 		Name & {\bf StorageError} \\
 		Participating Actors & Communicates with Administrator, Student \\
@@ -1226,7 +1190,7 @@ Please also note that we have decided to not include any error cases in this par
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item An operation involving the storage has failed.
+			    \item This use case \textbf{extends} ManageProject, ManageEnrollment, EditProfile, and CreateNewProject use cases. An operation involving the storage has failed.
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1390,21 +1354,21 @@ Please also note that we have decided to not include any error cases in this par
 		\end{minipage} & 
 		A \textbf{Group} is a collection of Student Users that are participating in a specified Project. Every Project contains at least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm.\\
 
-		TeamSize & 
+		GroupSize & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item minSize
 				\item maxSize
 			\end{itemize}
 		\end{minipage} & 
-		The \textbf{TeamSize} contains the possible range of team sizes allowed such that the PPID algorithm will not make too big or too small groups.\\
+		The \textbf{GroupSize} contains the possible range of group sizes allowed such that the PPID algorithm will not make too big or too small groups.\\
 
 		Project & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item name
 				\item students
-				\item teamSize
+				\item groupSize
 			\end{itemize}
 		\end{minipage} & 
 		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}.\\
@@ -1573,12 +1537,20 @@ Please also note that we have decided to not include any error cases in this par
 	\caption{Control/Boundary Objects for ProjectExistsError}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditTeamSize (\editteamsize{})}
+\subsubsection*{Control and boundary objects for EditGroupSize (\editgroupsize{})}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-team-size.png}
-	\caption{Control/Boundary Objects for EditTeamSize}
+	\includegraphics[scale=0.4]{imgs/cbod/edit-group-size.png}
+	\caption{Control/Boundary Objects for EditGroupSize}
+\end{figure}
+
+\subsubsection*{Control and boundary objects for InvalidGroupSizeError (\invalidgroupsizeerror{})}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.4]{imgs/cbod/invalid-group-size-error.png}
+	\caption{Control/Boundary Objects for InvalidGroupSizeError}
 \end{figure}
 
 \subsubsection*{Control Objects Data Dictionary}
@@ -1751,12 +1723,12 @@ Please also note that we have decided to not include any error cases in this par
 	\caption{Sequence Diagram for ProjectExistsError}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditTeamSize (\editteamsize{})}
+\subsubsection*{Sequence diagram for EditGroupSize (\editgroupsize{})}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.3]{imgs/seq/edit-team-size.png}
-	\caption{Sequence Diagram for EditTeamSize}
+	\includegraphics[scale=0.3]{imgs/seq/edit-group-size.png}
+	\caption{Sequence Diagram for EditGroupSize}
 \end{figure}
 
 \subsubsection*{Sequence diagram for InvalidGroupSizeError (\invalidgroupsizeerror{})}
