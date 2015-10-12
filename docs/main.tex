@@ -63,8 +63,7 @@
 \newusecase{editprojectname}
 \newusecase{projectexistserror}
 \newusecase{editteamsize}
-\newusecase{illegalminerror}
-\newusecase{illegalmaxerror}
+\newusecase{invalidgroupsizeerror}
 %%% END DETAILED USE CASES - USER INPUT
 
 %%% DETAILED USE CASES - COMMON ERRORS
@@ -425,8 +424,7 @@ Please also note that we have decided to not include any error cases in this par
 		\editprojectname{} & EditProjectName & The Administrator sets the name of the project. \\
 		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
 		\editteamsize{} & EditTeamSize & The Administrator sets the minimum and maximum team sizes to be used by the PPID. \\
-		\illegalminerror{} & IllegalMinError & The system reports that the given minimum team size is illegal.\\
-		\illegalmaxerror{} & IllegalMaxError & The system reports that the given maximum team size is illegal.\\
+		\invalidgroupsizeerror{} & InvalidGroupSizeError & The system reports that the given group size is illegal.\\
 	\end{tabu}
 \end{table}
 
@@ -622,7 +620,7 @@ Please also note that we have decided to not include any error cases in this par
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 			    \item The PPID results are saved.
-			    \item The PPID results are displayed to the user.
+			    \item The PPID results are displayed to the Administrator.
 	        \end{itemize}
 	    \end{minipage} \\
 
@@ -1004,7 +1002,7 @@ Please also note that we have decided to not include any error cases in this par
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The system informs the User that the entered input is invalid.
+			    \item[1.] The system informs the Administrator/Student that the entered input is invalid.
 			    \item[2.] Reverts the input to its original value.
 			\end{enumerate}
 		\end{minipage} \\
@@ -1012,7 +1010,7 @@ Please also note that we have decided to not include any error cases in this par
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item This use case \textbf{extends} EditPersonalValues, EditDesiredValues, EditProjectName, and EditTeamSize. This is initiated by the User when the User inputs invalid data. 
+			    \item This use case \textbf{extends} EditPersonalValues, EditDesiredValues, EditProjectName, and EditTeamSize. This is initiated by the Administrator/Student when the Administrator/Student inputs invalid data. 
 	        \end{itemize}
 		\end{minipage} \\
 
@@ -1146,63 +1144,28 @@ Please also note that we have decided to not include any error cases in this par
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \illegalminerror{} \\
-		Name & {\bf IllegalMinError} \\
+		Use Case Identifier & \invalidgroupsizeerror{} \\
+		Name & {\bf InvalidGroupSizeError} \\
 		Participating Actors & Communicates with Administrator \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-			    \item[1.] The system informs the Administrator that the entered minimum team size is invalid.
-			    \item[2.] The system reverts the minimum team size to its original value.
+			    \item[1.] The system informs the Administrator that the entered group size is invalid.
+			    \item[2.] The system reverts the group size to its original value.
 			\end{enumerate}
         \end{minipage} \\
 
 		Entry Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item This use case \textbf{extends} EditTeamSize use case. It is initiated by the Administrator when the administrator sets the minimum team size higher than the maximum team size.
+			    \item This use case \textbf{extends} EditGroupSize use case. It is initiated by the Administrator when the administrator sets the minimum group size higher than the maximum group size or vice versa.
 	        \end{itemize}
         \end{minipage} \\
 
 		Exit Conditions &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item The minimum team size is reverted.
-	        \end{itemize}
-        \end{minipage} \\
-
-		Quality Requirements & \\
-
-		Traceability & NF-02 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \illegalmaxerror{} \\
-		Name & {\bf IllegalMaxError} \\
-		Participating Actors & Administrator \\
-		Flow of Events & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}
-			    \item[1.] The system informs the Administrator that the enter maximum team size is invalid.
-			    \item[2.] The system reverts the minimum team size to its original value.
-			\end{enumerate}
-        \end{minipage} \\
-
-		Entry Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item This use case \textbf{extends} EditTeamSize use case. It is initiated by the Administrator when the administrator sets the maximum team size lower than the minimum team size.
-	        \end{itemize}
-        \end{minipage} \\
-
-		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The maximum team size is reverted.
+			    \item The group size is reverted.
 	        \end{itemize}
         \end{minipage} \\
 
@@ -1252,7 +1215,7 @@ Please also note that we have decided to not include any error cases in this par
 		\toprule
 		Use Case Identifier & \storageerror{} \\
 		Name & {\bf StorageError} \\
-		Participating Actors & Administrator, Student \\
+		Participating Actors & Communicates with Administrator, Student \\
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
