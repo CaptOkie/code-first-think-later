@@ -475,8 +475,7 @@ references to which requirements each address shall all be provided for each use
 
 The {\it ManageEnrollment} ({\bf \manageenrollment{}}) allows Student actors to both join or leave existing projects. It is a high-level use case that includes both the {\it JoinProject} and the {\it LeaveProject} use cases.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \manageenrollment{}: ManageEnrollment}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \manageenrollment{} \\
@@ -511,14 +510,13 @@ The {\it ManageEnrollment} ({\bf \manageenrollment{}}) allows Student actors to 
 		Traceability & F-01, F-02\\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it EditProfile} ({\bf \editprofile{}}) allows Student actors to edit their profiles. Specifically, this is a high-level use case that includes both {\it EditPersonalValues} and {\it EditDesiredValues} use cases.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \editprofile{}: EditProfile}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editprofile{} \\
@@ -548,13 +546,12 @@ The {\it EditProfile} ({\bf \editprofile{}}) allows Student actors to edit their
 		Traceability &  F-03, F-03-01, F-03-02 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it ManageProject} ({\bf \manageproject{}}) allows Administrator actors to manage project details. This is a high-level use case that
 includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it DeleteProject}.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \manageproject{}: ManageProject}
+\begin{center}
   	  \begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \manageproject{} \\
@@ -588,12 +585,13 @@ includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it De
 		Traceability & F-05, F-06, F-07, F-08, F-09\\
         \toprule
     \end{tabu}
-\end{table}
+\end{center}
+
+\newpage{}
 
 The {\it CreateNewProject} ({\bf \createnewproject{}}) allows Administrator actors to create a new project. This is a high-level use case that includes the {\it EditProjectDetails} use case.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \createnewproject{}: CreateNewProject}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \createnewproject{} \\
@@ -630,12 +628,11 @@ The {\it CreateNewProject} ({\bf \createnewproject{}}) allows Administrator acto
 		Traceability & F-05 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it LaunchPPID} ({\bf \launchppid{}}) allows Administrator actors to launch the sorting algorithm on a specified project and save the results.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \launchppid{}: LaunchPPID}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \launchppid{} \\
@@ -676,15 +673,14 @@ The {\it LaunchPPID} ({\bf \launchppid{}}) allows Administrator actors to launch
 		Traceability & F-07, NF-05 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it InsufficientStudentsError} ({\bf \insufficientstudentserror{}}) allows the system to notify the Administrator actor if the Administrator actor attempts to run the PPID when there are
 insufficient students in the project.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \insufficientstudentserror{}: InsufficientStudentsError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \insufficientstudentserror{} \\
@@ -717,12 +713,11 @@ insufficient students in the project.
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it ViewPPIDResults} ({\bf \viewppidresults{}}) allows the Administrator actor to view the results of the last run PPID for the specified project. Includes the {\it ViewPPIDSummary} and {\it ViewPPIDDetails} cases.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \viewppidresults{}: ViewPPIDResults}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \viewppidresults{} \\
@@ -750,12 +745,13 @@ The {\it ViewPPIDResults} ({\bf \viewppidresults{}}) allows the Administrator ac
 		Traceability & F-08, F-09 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
+
+\newpage{}
 
 The {\it ViewPPIDSummary} ({\bf \viewppidsummary{}}) allows Administrator actors to see the print out of the final decision of the PPID. In other words, it allows the Administrator to see the different groups that the PPID came up with.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \viewppidsummary{}: ViewPPIDSummary}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \viewppidsummary{} \\
@@ -783,13 +779,12 @@ The {\it ViewPPIDSummary} ({\bf \viewppidsummary{}}) allows Administrator actors
 		Traceability & F-08 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it ViewPPIDDetails} ({\bf \viewppiddetails{}}) allows Administrator actors to see the actual steps and reasoning of the PPID with regards to the last run PPID. This print out does include the decision (actual groups it decided on) as well
 as the inner-details.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \viewppiddetails{}: ViewPPIDDetails}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \viewppiddetails{} \\
@@ -817,14 +812,13 @@ as the inner-details.
 		Traceability & F-09 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it EditProjectDetails} ({\bf \editprojectdetails{}}) allows Administrator actors to modify project details like the possible group sizes and project name. Includes the {\it EditGroupSize} and {\it EditProjectName} use cases.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \editprojectdetails{}: EditProjectDetails}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editprojectdetails{} \\
@@ -859,12 +853,11 @@ The {\it EditProjectDetails} ({\bf \editprojectdetails{}}) allows Administrator 
 		Traceability & F-05, F-06, F-06-01, F-06-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it EditProject} ({\bf \editproject{}}) allows Administrator actors to edit project details. Includes the {\it EditProjectDetails} use case.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \editproject{}: EditProject}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editproject{} \\
@@ -899,14 +892,13 @@ The {\it EditProject} ({\bf \editproject{}}) allows Administrator actors to edit
 		Traceability & F-06 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it JoinProject} ({\bf \joinproject{}}) allows Student actors to add themselves to an existing project that they are not already part of.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \joinproject{}: JoinProject}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \joinproject{} \\
@@ -915,12 +907,8 @@ The {\it JoinProject} ({\bf \joinproject{}}) allows Student actors to add themse
 		Flow of Events & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{enumerate}
-				\item[1.] The Student selects a project from the list of available projects.
-				\begin{enumerate}
-					\item[2.] The system adds the Student to the selected project.
-					\item[3.] The system notifies the Student that they have been added to the project.
-				\end{enumerate}
-			    	
+				\item[1.] The system adds the Student to the selected project.
+				\item[2.] The system notifies the Student that they have been added to the project.
 			\end{enumerate}
 		\end{minipage} \\
 
@@ -944,12 +932,11 @@ The {\it JoinProject} ({\bf \joinproject{}}) allows Student actors to add themse
 		Traceability & F-01 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it LeaveProject} ({\bf \leaveproject{}}) allows Students actors to remove themselves from an existing project that they are a part of.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \leaveproject{}: LeaveProject}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \leaveproject{} \\
@@ -986,14 +973,13 @@ The {\it LeaveProject} ({\bf \leaveproject{}}) allows Students actors to remove 
 		Traceability & F-02 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it EditPersonalValues} ({\bf \editpersonalvalues{}}) allows Students to modify the values for the section pertaining to their personal details.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \editpersonalvalues{}: EditPersonalValues}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editpersonalvalues{} \\
@@ -1033,12 +1019,11 @@ The {\it EditPersonalValues} ({\bf \editpersonalvalues{}}) allows Students to mo
 		Traceability &  F-03-01\\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it EditDesiredValues} ({\bf \editdesiredvalues{}}) allows Student actors to modify the values for the section pertaining to the values they desire in teammates.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \editdesiredvalues{}: EditDesiredValues}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editdesiredvalues{} \\
@@ -1078,14 +1063,13 @@ The {\it EditDesiredValues} ({\bf \editdesiredvalues{}}) allows Student actors t
 		Traceability &  F-03-02\\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it InvalidInputError} ({\bf \invalidinputerror{}}) allows the system to notify the Administrator or Student actors when they input incorrect values.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \invalidinputerror{}: InvalidInputError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \invalidinputerror{} \\
@@ -1118,12 +1102,11 @@ The {\it InvalidInputError} ({\bf \invalidinputerror{}}) allows the system to no
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it EditProjectName} ({\bf \editprojectname{}}) allows Administrator actors to modify the name of the current project.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \editprojectname{}: EditProjectName}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editprojectname{} \\
@@ -1160,14 +1143,13 @@ The {\it EditProjectName} ({\bf \editprojectname{}}) allows Administrator actors
 		Traceability & F-06-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it ProjectExistsError} ({\bf \projectexistserror{}}) allows the system to notify the Administrator actor if the desired project name is already in use.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \projectexistserror{}: ProjectExistsError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \projectexistserror{} \\
@@ -1200,12 +1182,11 @@ The {\it ProjectExistsError} ({\bf \projectexistserror{}}) allows the system to 
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it EditGroupSize} ({\bf \editgroupsize{}}) allows Administrator actors to modify the range of possible group sizes, which includes the maximum and minimum values.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \editgroupsize{}: EditGroupSize}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \editgroupsize{} \\
@@ -1242,12 +1223,13 @@ The {\it EditGroupSize} ({\bf \editgroupsize{}}) allows Administrator actors to 
 		Traceability & F-06-01 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
+
+\newpage{}
 
 The {\it InvalidGroupSizeError} ({\bf \invalidgroupsizeerror{}}) allows the system to notify the Administrator actor that the desired group size is invalid.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \invalidgroupsizeerror{}: InvalidGroupSizeError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \invalidgroupsizeerror{} \\
@@ -1280,12 +1262,11 @@ The {\it InvalidGroupSizeError} ({\bf \invalidgroupsizeerror{}}) allows the syst
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it StorageError} ({\bf \storageerror{}}) allows the system to notify the Administrator and Student actors that an error has occured while trying to interact with the Storage.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \storageerror{}: StorageError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \storageerror{} \\
@@ -1317,14 +1298,13 @@ The {\it StorageError} ({\bf \storageerror{}}) allows the system to notify the A
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it StorageReadError} ({\bf \storagereaderror{}}) allows the system to notify the Administrator and Student actors when an error has occured while trying to read from the storage.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \storagereaderror{}: StorageReadError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \storagereaderror{} \\
@@ -1356,12 +1336,11 @@ The {\it StorageReadError} ({\bf \storagereaderror{}}) allows the system to noti
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 The {\it StorageOpenError} ({\bf \storageopenerror{}}) allows the system to notify the Administrator and Student actors when an error has occured while trying to opening the storage.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \storageopenerror{}: StorageOpenError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \storageopenerror{} \\
@@ -1393,14 +1372,13 @@ The {\it StorageOpenError} ({\bf \storageopenerror{}}) allows the system to noti
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \newpage{}
 
 The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to notify the Administrator and Student actors when an error has occured while trying to save to the storage.
 
-\begin{table}[H]
-	\caption{Detailed Flow-of-Events for \storagewriteerror{}: StorageWriteError}
+\begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Use Case Identifier & \storagewriteerror{} \\
@@ -1432,7 +1410,7 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 		Traceability & NF-04 \\
 		\toprule
 	\end{tabu}
-\end{table}
+\end{center}
 
 \subsubsection{Object Model}
 
