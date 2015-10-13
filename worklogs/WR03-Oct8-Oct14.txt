@@ -1,4 +1,4 @@
-StorageControl names, student-project relationship
+StorageControl names, state/sequence/class numbers.
 
 CaptOkie:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
@@ -9,7 +9,7 @@ CaptOkie:
 2 Hours: New control and boundary object diagrams.
 10 Hours: Refactor UCs, edit sequence diagram, add sequence diagram.
 1.5 Hours: Designed state diagrams, slight touch ups.
-
+6 pm.
 TheBakedPotato:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
 1 Hours: Filled out UC details.
