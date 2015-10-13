@@ -386,10 +386,7 @@ great many details including {\it EditProject} and {\it CreateNewProject}! Note 
 	\includegraphics[scale=0.26]{imgs/detailed-administrator-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Administrator}
 \end{figure}
-
-A picture may tell a thousand words, but, for that same reason, can often take a lot of time to fully extract necessary information. The next table, {\bf Table 4} contains 
-all the information about each particular use case for the {\it Administrator}, though forgoing the actual relationships. Though we may lose that tidbit of information here, we gain a valuable 
-tool that allows us to very clearly see what each use case does. %CHANGE THIS PARAGRAPH
+The next table, {\bf Table 4} contains all the information about each particular use case for the {\it Administrator}, though forgoing the actual relationships. A unique identifier for each use case is also assignment here.. %CHANGE THIS PARAGRAPH
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - Administrator}
@@ -415,7 +412,9 @@ access to finer details such as project settings.
 	\caption{Detailed Use Case Diagram - Student}
 \end{figure}
 
-With each diagram here in the use case section, there will be an accompanying table. The ensuing table, {\bf Table 5} describes each of the possible use cases that a {\it Student User} can use/encounter.
+\newpage{}
+
+The ensuing table, {\bf Table 5} describes each of the possible use cases that a {\it Student User} can use/encounter.
 Please also note that we have decided to not include any error cases in this particular diagram to maximize legibility.
 
 \begin{table}[H]
@@ -1447,7 +1446,7 @@ profile.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/entity-object-diagram.png}
+	\includegraphics[scale=0.35]{imgs/entity-object-diagram.png}
 	\caption{Entity Objects Diagram}
 \end{figure}
 
@@ -2018,9 +2017,25 @@ In essense, the definition explains what each object does.
 
 \subsubsection{Dynamic Model}
 
+Dynamic models serve to represent how a system works or behaves from an outside point-of-view. There will be two different types of dynamic
+models in this section: state machines and sequence diagrams. State machines are very particular in the sense that they will only represent the 
+behavior of a single object. For this project, only the entity state machines are shown. Sequence diagrams are different in the sense that they
+provide a visual representation of the interactions between multiple objects for the fulfillment of a single use case.
+
+\subsubsection*{State Machines}
+\newpage{}
+
 \subsubsection*{Sequence Diagrams}
 
-\subsubsection*{Sequence diagram for ManageEnrollment (\manageenrollment{})}
+Sequence diagrams are a great visual representation of the many interactions between different objects needed to satisfy one use case. Note that
+each object has a vertical dotted line - this represents the time-line of that object. Through the course of the diagram, multiple objects will be created
+and destroyed after fulfilling their purpose.
+
+\subsubsection*{Sequence diagram for ManageEnrollment (\manageenrollment{}):}
+
+The following figure, {\bf Figure 31}, shows the sequence diagram for the {\it ManageEnrollment} use case. The participating actor for this use case
+is the Student user. This figure shows the necessary interactions between the control object, {\it LaunchPPIDControl}, and the entity/boundary objects
+in order to manage \manageenrollment{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2028,15 +2043,23 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for ManageEnrollment}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProfile (\editprofile{})}
+\subsubsection*{Sequence diagram for EditProfile (\editprofile{}):}
+
+The following figure, {\bf Figure 32}, shows the sequence diagram for the {\it EditProfile} use case. The participating actor for this use case is the 
+Student user. This figure shows the necessary interactions between the control object, {\it EditProfileControl}, and the entity/boundary objects
+in order to manage \editprofile{}.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/seq/edit-profile.png}
+	\includegraphics[scale=0.3]{imgs/seq/edit-profile.png}
 	\caption{Sequence Diagram for EditProfile}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ManageProject (\manageproject{})}
+\subsubsection*{Sequence diagram for ManageProject (\manageproject{}):}
+
+The following figure, {\bf Figure 33}, shows the sequence diagram for the {\it ManageProject} use case. The participating actor for this use case is the
+Student user. This figure shows the necessary interactions between the control object, {\it ManageProjectControl}, and the entity/boundary objects 
+in order to manage \manageproject{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2044,7 +2067,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for ManageProject}
 \end{figure}
 
-\subsubsection*{Sequence diagram for CreateNewProject (\createnewproject{})}
+\subsubsection*{Sequence diagram for CreateNewProject (\createnewproject{}):}
+
+The following figure, {\bf Figure 34}, shows the sequence diagram for the {\it CreateNewProject} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it CreateNewProjectControl}, and the
+entity/boundary objects in order to manage \createnewproject{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2052,7 +2079,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for CreateNewProject}
 \end{figure}
 
-\subsubsection*{Sequence diagram for LaunchPPID (\launchppid{})}
+\subsubsection*{Sequence diagram for LaunchPPID (\launchppid{}):}
+
+The following figure, {\bf Figure 35}, shows the sequence diagram for the {\it LaunchPPID} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it LaunchPPIDControl}, and the
+entity/boundary objects in order to manage \launchppid{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2060,7 +2091,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for LaunchPPID}
 \end{figure}
 
-\subsubsection*{Sequence diagram for InsufficientStudentsError (\insufficientstudentserror{})}
+\subsubsection*{Sequence diagram for InsufficientStudentsError (\insufficientstudentserror{}):}
+
+The following figure, {\bf Figure 36}, shows the sequence diagram for the {\it InsufficientStudentsError} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it InsufficientStudentsErrorControl}, and the
+entity/boundary objects in order to manage \insufficientstudentserror{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2068,7 +2103,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for InsufficientStudentsError}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ViewPPIDResults (\viewppidresults{})}
+\subsubsection*{Sequence diagram for ViewPPIDResults (\viewppidresults{}):}
+
+The following figure, {\bf Figure 37}, shows the sequence diagram for the {\it ViewPPIDResults} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDResultsControl}, and the
+entity/boundary objects in order to manage \viewppidresults{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2076,7 +2115,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for ViewPPIDResults}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ViewPPIDSummary (\viewppidsummary{})}
+\subsubsection*{Sequence diagram for ViewPPIDSummary (\viewppidsummary{}):}
+
+The following figure, {\bf Figure 38}, shows the sequence diagram for the {\it ViewPPIDSummary} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDSummaryControl}, and the
+entity/boundary objects in order to manage \viewppidsummary{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2084,7 +2127,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for ViewPPIDSummary}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ViewPPIDDDetails (\viewppiddetails{})}
+\subsubsection*{Sequence diagram for ViewPPIDDDetails (\viewppiddetails{}):}
+
+The following figure, {\bf Figure 39}, shows the sequence diagram for the {\it ViewPPIDDetails} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDDetailsControl}, and the
+entity/boundary objects in order to manage \viewppiddetails{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2092,7 +2139,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for ViewPPIDDetails}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProjectDetails (\editprojectdetails{})}
+\subsubsection*{Sequence diagram for EditProjectDetails (\editprojectdetails{}):}
+
+The following figure, {\bf Figure 40}, shows the sequence diagram for the {\it EditProjectDetails} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectDetailsControl}, and the
+entity/boundary objects in order to manage \editprojectdetails{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2100,7 +2151,11 @@ In essense, the definition explains what each object does.
 	\caption{Sequence Diagram for EditProjectDetails}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProject (\editproject{})}
+\subsubsection*{Sequence diagram for EditProject (\editproject{}):}
+
+The following figure, {\bf Figure 41}, shows the sequence diagram for the {\it EditProject} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectControl}, and the
+entity/boundary objects in order to manage \editproject{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2110,6 +2165,10 @@ In essense, the definition explains what each object does.
 
 \subsubsection*{Sequence diagram for JoinProject (\joinproject{})}
 
+The following figure, {\bf Figure 42}, shows the sequence diagram for the {\it JoinProject} use case. The participating actor for this use case is
+the Student user. This figure shows the necessary interactions between the control object, {\it JoinProjectControl}, and the
+entity/boundary objects in order to manage \joinproject{}.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/join-project.png}
@@ -2117,6 +2176,10 @@ In essense, the definition explains what each object does.
 \end{figure}
 
 \subsubsection*{Sequence diagram for LeaveProject (\leaveproject{})}
+
+The following figure, {\bf Figure 43}, shows the sequence diagram for the {\it LeaveProject} use case. The participating actor for this use case is
+the Student user. This figure shows the necessary interactions between the control object, {\it LeaveProjectControl}, and the
+entity/boundary objects in order to manage \leaveproject{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2126,6 +2189,10 @@ In essense, the definition explains what each object does.
 
 \subsubsection*{Sequence diagram for EditPersonalValues (\editpersonalvalues{})}
 
+The following figure, {\bf Figure 44}, shows the sequence diagram for the {\it EditPersonalValues} use case. The participating actor for this use case is
+the Student user. This figure shows the necessary interactions between the control object, {\it EditPersonalValuesControl}, and the
+entity/boundary objects in order to manage \editpersonalvalues{}.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-personal-values.png}
@@ -2133,6 +2200,10 @@ In essense, the definition explains what each object does.
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditDesiredValues (\editdesiredvalues{})}
+
+The following figure, {\bf Figure 45}, shows the sequence diagram for the {\it EditDesiredValues} use case. The participating actor for this use case is
+the Student user. This figure shows the necessary interactions between the control object, {\it EditDesiredValuesControl}, and the
+entity/boundary objects in order to manage \editdesiredvalues{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2142,6 +2213,10 @@ In essense, the definition explains what each object does.
 
 \subsubsection*{Sequence diagram for InvalidInputError (\invalidinputerror{})}
 
+The following figure, {\bf Figure 46}, shows the sequence diagram for the {\it InvalidInputError} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it InvalidInputErrorControl}, and the
+entity/boundary objects in order to manage \invalidinputerror{}.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/invalid-input-error.png}
@@ -2149,6 +2224,10 @@ In essense, the definition explains what each object does.
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditProjectName (\editprojectname{})}
+
+The following figure, {\bf Figure 47}, shows the sequence diagram for the {\it EditProjectName} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectNameControl}, and the
+entity/boundary objects in order to manage \editprojectname{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2158,6 +2237,10 @@ In essense, the definition explains what each object does.
 
 \subsubsection*{Sequence diagram for ProjectExistsError (\projectexistserror{})}
 
+The following figure, {\bf Figure 48}, shows the sequence diagram for the {\it ProjectExistsError} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it ProjectExistsErorrControl}, and the
+entity/boundary objects in order to manage \projectexistserror{}.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/project-exists-error.png}
@@ -2165,6 +2248,10 @@ In essense, the definition explains what each object does.
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditGroupSize (\editgroupsize{})}
+
+The following figure, {\bf Figure 49}, shows the sequence diagram for the {\it EditGroupSize} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it EditGroupSizeControl}, and the
+entity/boundary objects in order to manage \editgroupsize{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2174,6 +2261,10 @@ In essense, the definition explains what each object does.
 
 \subsubsection*{Sequence diagram for InvalidGroupSizeError (\invalidgroupsizeerror{})}
 
+The following figure, {\bf Figure 50}, shows the sequence diagram for the {\it InvalidGroupSizeError} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it InvalidGroupSizeErrorControl}, and the
+entity/boundary objects in order to manage \invalidgroupsizeerror{}.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/invalid-group-size-error.png}
@@ -2181,6 +2272,10 @@ In essense, the definition explains what each object does.
 \end{figure}
 
 \subsubsection*{Sequence diagram for StorageError (\storageerror{})}
+
+The following figure, {\bf Figure 51}, shows the sequence diagram for the {\it StorageError} use case. The participating actor for this use case is
+the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageErrorControl}, and the
+entity/boundary objects in order to manage \storageerror{}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2190,6 +2285,10 @@ In essense, the definition explains what each object does.
 
 \subsubsection*{Sequence diagram for StorageReadError (\storagereaderror{})}
 
+The following figure, {\bf Figure 52}, shows the sequence diagram for the {\it StorageReadError} use case. The participating actor for this use case is
+the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageReadErrorControl}, and the
+entity/boundary objects in order to manage \storagereaderror{}.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/storage-read-error.png}
@@ -2198,6 +2297,10 @@ In essense, the definition explains what each object does.
 
 \subsubsection*{Sequence diagram for StorageOpenError (\storageopenerror{})}
 
+The following figure, {\bf Figure 53}, shows the sequence diagram for the {\it StorageOpenError} use case. The participating actor for this use case is
+the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageOpenErrorControl}, and the
+entity/boundary objects in order to manage \storageopenerror{}.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/storage-open-error.png}
@@ -2205,6 +2308,10 @@ In essense, the definition explains what each object does.
 \end{figure}
 
 \subsubsection*{Sequence diagram for StorageWriteError (\storagewriteerror{})}
+
+The following figure, {\bf Figure 54}, shows the sequence diagram for the {\it StorageWriteError} use case. The participating actor for this use case is
+the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageWriteError}, and the
+entity/boundary objects in order to manage \storagewriteerror{}.
 
 \begin{figure}[H]
 	\centering{}
