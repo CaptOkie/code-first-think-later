@@ -473,6 +473,8 @@ of the other three use cases.
 In the following section, we will delve into each of the priorly mentioned use cases in much more detail. Specifically, participating actors, detailed flow of events, entry/exit conditions, quality requirements, if applicable, and 
 references to which requirements each address shall all be provided for each use case. To ensure ease of reading, we will maintain the exact same ordering as listed in the above section.
 
+\vspace{1em}
+
 The {\it ManageEnrollment} ({\bf \manageenrollment{}}) allows Student actors to both join or leave existing projects. It is a high-level use case that includes both the {\it JoinProject} and the {\it LeaveProject} use cases.
 
 \begin{center}
@@ -548,6 +550,7 @@ The {\it EditProfile} ({\bf \editprofile{}}) allows Student actors to edit their
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it ManageProject} ({\bf \manageproject{}}) allows Administrator actors to manage project details. This is a high-level use case that
 includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it DeleteProject}.
 
@@ -630,6 +633,7 @@ The {\it CreateNewProject} ({\bf \createnewproject{}}) allows Administrator acto
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it LaunchPPID} ({\bf \launchppid{}}) allows Administrator actors to launch the sorting algorithm on a specified project and save the results.
 
 \begin{center}
@@ -715,6 +719,7 @@ insufficient students in the project.
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it ViewPPIDResults} ({\bf \viewppidresults{}}) allows the Administrator actor to view the results of the last run PPID for the specified project. Includes the {\it ViewPPIDSummary} and {\it ViewPPIDDetails} cases.
 
 \begin{center}
@@ -781,6 +786,7 @@ The {\it ViewPPIDSummary} ({\bf \viewppidsummary{}}) allows Administrator actors
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it ViewPPIDDetails} ({\bf \viewppiddetails{}}) allows Administrator actors to see the actual steps and reasoning of the PPID with regards to the last run PPID. This print out does include the decision (actual groups it decided on) as well
 as the inner-details.
 
@@ -855,6 +861,7 @@ The {\it EditProjectDetails} ({\bf \editprojectdetails{}}) allows Administrator 
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it EditProject} ({\bf \editproject{}}) allows Administrator actors to edit project details. Includes the {\it EditProjectDetails} use case.
 
 \begin{center}
@@ -934,6 +941,7 @@ The {\it JoinProject} ({\bf \joinproject{}}) allows Student actors to add themse
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it LeaveProject} ({\bf \leaveproject{}}) allows Students actors to remove themselves from an existing project that they are a part of.
 
 \begin{center}
@@ -1021,6 +1029,7 @@ The {\it EditPersonalValues} ({\bf \editpersonalvalues{}}) allows Students to mo
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it EditDesiredValues} ({\bf \editdesiredvalues{}}) allows Student actors to modify the values for the section pertaining to the values they desire in teammates.
 
 \begin{center}
@@ -1104,6 +1113,7 @@ The {\it InvalidInputError} ({\bf \invalidinputerror{}}) allows the system to no
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it EditProjectName} ({\bf \editprojectname{}}) allows Administrator actors to modify the name of the current project.
 
 \begin{center}
@@ -1184,6 +1194,7 @@ The {\it ProjectExistsError} ({\bf \projectexistserror{}}) allows the system to 
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it EditGroupSize} ({\bf \editgroupsize{}}) allows Administrator actors to modify the range of possible group sizes, which includes the maximum and minimum values.
 
 \begin{center}
@@ -1264,6 +1275,7 @@ The {\it InvalidGroupSizeError} ({\bf \invalidgroupsizeerror{}}) allows the syst
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it StorageError} ({\bf \storageerror{}}) allows the system to notify the Administrator and Student actors that an error has occured while trying to interact with the Storage.
 
 \begin{center}
@@ -1338,6 +1350,7 @@ The {\it StorageReadError} ({\bf \storagereaderror{}}) allows the system to noti
 	\end{tabu}
 \end{center}
 
+\vspace{1em}
 The {\it StorageOpenError} ({\bf \storageopenerror{}}) allows the system to notify the Administrator and Student actors when an error has occured while trying to opening the storage.
 
 \begin{center}
@@ -1694,34 +1707,79 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 \caption{Control Object Data Dictionary}
 	\begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
-		ManageEnrollmentControl & blah\\
-		EditProfileControl & blah\\
-		ManageProjectControl & blah\\
-		CreateNewProjectControl & blah\\
-		LaunchPPIDControl & blah\\
+		ManageEnrollmentControl & 
+			The {\bf ManageEnrollmentControl} object manages the ManageEnrollment use case. This object is created when the Student user
+			selects the ManageEnrollmentOption.  It displays a list of all the available Projects for the Student to choose from. Upon choosing, the
+			Student will then be given the options of either joining or leaving a project. \\
+		EditProfileControl & 
+			The {\bf EditProfileControl} object manages the EditProfile use case. This object is created when the Student user selects the EditProfileOption.
+			It provides the Student the option to edit/modify either their personal values or their desired values for their Profile. Depending on the response, control is then
+			handed over to either the EditPersonalValuesControl or the EditDesiredValuesControl objects. \\
+		ManageProjectControl & 
+			The {\bf ManageProjectControl} object manages the ManageProject use case. This object is created after the Administrator user selects the
+			ManageProjectOption. It provides the Administrator the option to select a Project and modify details for that Project. Depending on which detail
+			is selected, control is then handed over to either the LaunchPPIDControl, the ViewPPIDResultsControl, or the EditProjectControl objects.\\
+		CreateNewProjectControl & 
+			The {\bf CreateNewProjectControl} object manages the CreateNewProject use case. This object is created after the Administrator user selects the
+			CreateNewProjectOption. It provides the Administrator with the ability to create new Projects, including the filling in of the details for this new project,
+			which is managed by the EditProjectControl object. The notice, ProjectCreateNotice, is then displayed.\\
+		LaunchPPIDControl & 
+			The {\bf LaunchPPIDControl} object manages the LaunchPPID use case. This object is created after the Administrator launches the PPID from
+			the ManageProjectOption. It cycles through the list of currently enrolled students in the Project and sorts them into teams. The result is then saved
+			to the Storage and a notice, PPIDCompleteNotice, is displayed.\\
+	\end{tabu}
+\end{table}
+
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}l X[2]}
+		\tableheader{}Control Object & Definition\\
 		InsufficientStudentsErrorControl & blah\\
 		ViewPPIDResultsControl & blah\\
 		ViewPPIDSummaryControl & blah\\
 		ViewPPIDDetailsControl & blah\\
 		EditProjectDetailsControl & blah\\
+\end{tabu}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}l X[2]}
+		\tableheader{}Control Object & Definition\\
 		EditProjectControl & blah\\
 		JoinProjectControl & blah\\
 		LeaveProjectControl & blah\\
 		EditPersonalValuesControl & blah\\
 		EditDesiredValuesControl & blah\\
+\end{tabu}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}l X[2]}
+		\tableheader{}Control Object & Definition\\
 		InvalidInputErrorControl & blah\\
 		EditProjectNameControl & blah\\
 		EditProjectDetailsControl & blah\\
 		ProjectExistsErrorControl & blah\\
 		EditGroupSizeControl & blah\\
+\end{tabu}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}l X[2]}
+		\tableheader{}Control Object & Definition\\
 		InvalidGroupSizeErrorControl & blah\\
 		StorageControl & blah\\
 		StorageErrorControl & blah\\
 		StorageReadErrorControl & blah\\
 		StorageOpenErrorControl & blah\\
+\end{tabu}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}l X[2]}
+		\tableheader{}Control Object & Definition\\
 		StorageWriteErrorControl & blah\\
-	\end{tabu}
-\end{table}
+\end{tabu}
+\end{center}
 
 \subsubsection*{Boundary Objects Data Dictionary}
 
