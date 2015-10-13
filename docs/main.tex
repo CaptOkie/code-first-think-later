@@ -29,6 +29,9 @@
 \newcommand{\persontwo}{Hendrik Knoetze}
 \newcommand{\personthree}{Juhandr\'e Knoetze}
 
+\newcommand{\figurelabel}[1]{\label{figure:#1}}
+\newcommand{\figureref}[1]{\textbf{Figure \ref{figure:#1}}}
+
 %% USE-CASE COMMANDS
 \newcounter{usecasenum}
 \renewcommand{\theusecasenum}{UC-\ifnum\value{usecasenum}<10 0\fi\arabic{usecasenum}}
@@ -336,7 +339,7 @@ this first part, the second part will contain the more detailed flow of events f
 
 \subsubsection*{High-level Use Cases}
 
-This section contains the high-level use cases - essentially, the most abstracted action each user (actor) can take. The diagram below, {\bf Figure 1}, illustrates the interaction between
+This section contains the high-level use cases - essentially, the most abstracted action each user (actor) can take. The diagram below, \figureref{high-level-uc}, illustrates the interaction between
 users, defined by the stick figure, and the system, defined by the rectangular box. The ovals represent the highest level actions that can be taken, with a connecting line to
 the user that can initiate them. Specifically, we have the {\it Student User} who can initiate the high-level action of {\it ParticipateInProjects}, and we have the {\it Administrator User} 
 who can initiate in the action of {\it ManageProject}. These actions are purposefully vague and general because they are the "parent action" that includes several other more specific actions.
@@ -345,7 +348,7 @@ who can initiate in the action of {\it ManageProject}. These actions are purpose
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/high-level-use-case-diagram.png}
-	\caption{High-level Use Case Diagram}
+	\caption{High-level Use Case Diagram}\figurelabel{high-level-uc}
 \end{figure}
 
 Pulling the use cases from the diagram, we have next a list of the use cases in table format, {\bf Table 3}, with a short and succinct descriptions beside. The purpose of this table,
