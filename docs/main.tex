@@ -569,7 +569,7 @@ includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it De
 				\end{enumerate}
 				\item[3.] The Administrator chooses a project.
 				\begin{enumerate}
-				    \item[4.] The system displays a menu with two options. The Administrator can choose to launch the PPID (include use case \textbf{LaunchPPID}), view PPID results (include use case \textbf{ViewPPIDResults}), edit an existing project (include use case \textbf{EditProject}), or delete an existing project (include use case \textbf{DeleteProject}).
+				    \item[4.] The system displays a menu with three options. The Administrator can choose to launch the PPID (include use case \textbf{LaunchPPID}), view PPID results (include use case \textbf{ViewPPIDResults}), edit an existing project (include use case \textbf{EditProject}), or delete an existing project (include use case \textbf{DeleteProject}).
 				\end{enumerate}
 			\end{enumerate}
 	    \end{minipage} \\
@@ -1700,9 +1700,6 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 	\caption{Control/Boundary Objects for StorageWriteError}
 \end{figure}
 
-
-\subsubsection*{Control Objects Data Dictionary}
-
 \begin{table}[H]
 \caption{Control Object Data Dictionary}
 	\begin{tabu} to \textwidth {>{\bf}l X[2]}
@@ -1790,12 +1787,23 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 \begin{center}
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
-		EditProjectDetailsControl & blah\\
-		ProjectExistsErrorControl & blah\\
-		EditGroupSizeControl & blah\\
-		InvalidGroupSizeErrorControl & blah\\
-		StorageControl & blah\\
-		StorageErrorControl & blah\\
+		ProjectExistsErrorControl &
+			The {\bf ProjectExistsErrorControl} object manages the ProjectExistsError use case. The object is created when Administrator users attempt to set 
+			the Project name to a name that alread exists. A notice, ProjectExistsErrorNotice, is displayed to the Administrator, and the EditProjectName operation is cancelled.\\
+		EditGroupSizeControl & 
+			The {\bf EditGroupSizeControl} object manages the EditGroupSize use case. The object is created when the Administrator user selects the EditGroupSizeOption. It allows the 
+			Administrator to input a new Maximum and Minimum group size value and updates the Project object. Finally, a notice, GroupSizeUpdateNotice, is displayed to the Administrator.\\
+		InvalidGroupSizeErrorControl & 
+			The {\bf InvalidGroupSizeErrorControl} object manages the InvalidGroupSizeError use case. The object is created when the Administrator attempts to input an invalid size for the Maximum
+			and Minimum group size variables. A notice, InvalidGroupSizeErrorNotice, is displayed to the Administrator, and the EditGroupSize operation is cancelled. \\
+		StorageControl & 
+			The {\bf StorageControl} object manages...\\
+		StorageErrorControl & 
+			The {\bf StorageErrorControl} object manages the StorageError use case. The object is created when any user makes a request to the Storage and the request cannot be met.
+			It then displays a notice, StorageErrorNotice, to the user.\\
+		StorageReadControl & 
+			The {\bf StorageReadControl} object manages...\\
+
 \end{tabu}
 \end{center}
 
@@ -1803,49 +1811,85 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
 		StorageReadErrorControl & blah\\
+		StorageOpenControl & 
+			The {\bf StorageOpenControl} object manages...\\
 		StorageOpenErrorControl & blah\\
+		StorageWriteControl & 
+			The {\bf StorageWriteControl} object manages...\\
 		StorageWriteErrorControl & blah\\
 \end{tabu}
 \end{center}
-
-\subsubsection*{Boundary Objects Data Dictionary}
 
 \begin{table}[H]
 \caption{Boundary Object Data Dictionary}
 	\begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Boundary Object & Definition\\
-		ProjectListNotice & blah\\
-		EnrollmentOption & blah\\
-		ProjectSelectionOption & blah\\
-		ProfileOption & blah\\
-		ManageOption & blah\\
-		ProjectCreateNotice & blah\\
-		ProjectDetailsForm & blah\\
-		PPIDCompleteNotice & blah\\
-		InsufficientStudentErrorNotice & blah\\
-		ResultsOption & blah\\
-		SummaryResultsNotice & blah\\
-		DetailedResultsNotice & blah\\
-		DetailsUpdatedNotice & blah\\
-		ProjectDetailsForm & blah\\
-		ProjectUpdateNotice & blah\\
-		JoinCompleteNotice & blah\\
-		LeaveCompleteNotice & blah\\
-		UpdateCompleteNotice & blah\\
-		InputOption & blah\\
-		InvalidInputErrorNotice & blah\\
-		EditProjectNameOption & blah\\
-		ProjectNameUpdateNotice & blah\\
-		ProjectExistsErrorNotice & blah\\
-		EditGroupSizeOption & blah\\
-		GroupSizeUpdateNotice & blah\\
-		InvalidGroupSizeErrorNotice & blah\\
-		StorageErrorNotice & blah\\
-		StorageReadErrorNotice & blah\\
-		StorageOpenErrorNotice & blah\\
-		StorageWriteErrorNotice & blah\\
+		ProjectListNotice & 
+			This object is responsible for the visual output of the list of Projects to the User. It gets the required information from the Project objects and displays it.\\
+		EnrollmentOption & 
+			This object allows the Student to view and choose between the two enrollment options: Join or Leave.\\
+		ProjectSelectionOption & 
+			This object reads the selected Project from the Administrator.\\
+		ProfileOption & 
+			This object allows the Student to view and choose between the two profile options: edit Personal Details or edit Desired Details.\\
+		ManageOption & 
+			This object allows the Administrator to view and choose between three managing options: view the results of the last PPID, edit a project, or delete a project.\\
+		ProjectCreateNotice & 
+			This object displays a notice to the Administrator stating that the Project has been successfully created.\\
+		ProjectDetailsForm & 
+			This object is a form that reads the inputted values from the Administrator for the Project details.\\
+		PPIDCompleteNotice & 
+			This object displays a notice to the Administrator stating that the PPID has run successfully.\\
+		InsufficientStudentErrorNotice & 
+			This object displays a notice to the Administrator stating that the PPID has failed due to an insufficient amount of students enrolled in the Project.\\
+		ResultsOption & 
+			This object allows the Administrator to view and choose between the two result options: Summary or Detailed.\\
+		SummaryResultsNotice & 
+			This object displays a notice to the Administrator that shows the simple summary print out of the Groups.\\
+		DetailedResultsNotice & 
+			This object displays a notice to the Administrator that shows the detailed print out of the Groups and the reasoning that the algorithm had when making the decisions.\\
+		DetailsUpdatedNotice & 
+			This object displays a notice to the Administrator stating that the saving of the new Project details to Storage was successful.\\
 	\end{tabu}
 \end{table}
+
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}l X[2]}
+		\tableheader{}Boundary Object & Definition\\
+		ProjectUpdateNotice & 
+			This object displays a notice to the Administrator stating that the editing of the Project has been completed successfully\\
+		JoinCompleteNotice & 
+			This object displays a notice to the Student stating that the joining of a Project was successful.\\
+		LeaveCompleteNotice & 
+			This object displays a notice to the Student stating that the leaving of a Project was successful.\\
+		UpdateCompleteNotice & 
+			This object displays a notice to the Student stating that the saving of the new Profile details (either Personal values or Desired values) to the Storage was successful.\\
+		InputOption & 
+			This object reads the input from the Administrator.\\ %double check this one!
+		InvalidInputErrorNotice & 
+			This object displays a notice to the Administrator stating that the input given was invalid.\\
+		EditProjectNameOption & 
+			This object reads the input from the Administrator for the new Project Name field.\\
+		ProjectNameUpdateNotice & 
+			This object displays a notice to the Administrator stating that the updating/setting of the Project name has been successful.\\
+		ProjectExistsErrorNotice & 
+			This object displays a notice to teh Administrator stating that the desired Project name has already been taken.\\
+		EditGroupSizeOption & 
+			This object reads the input from the Administrator for the Maximum and Minimum group size fields.\\
+		GroupSizeUpdateNotice & 
+			This object displays a notice to the Administrator stating that the group size has been successfully updated.\\
+		InvalidGroupSizeErrorNotice & 
+			This object displays a notice to the Administrator stating that the given value for the group size is invalid.\\
+		StorageErrorNotice & 
+			This object displays a notice to the User stating that there was an error with the request to the Storage.\\
+		StorageReadErrorNotice & 
+			This object displays a notice to the User stating that there was an error with regards to reading a file from Storage.\\
+		StorageOpenErrorNotice & 
+			This object displays a notice to the User stating that there was an error with regards to opening the Storage.\\
+		StorageWriteErrorNotice & 
+			This object displays a notice to the User stating that there was an error with regards to writing to the Storage.\\
+\end{tabu}
+\end{center}
 
 \subsubsection{Dynamic Model}
 
