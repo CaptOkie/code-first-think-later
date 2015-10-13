@@ -12,6 +12,7 @@
 \usepackage{lmodern}
 \usepackage[table]{xcolor}  
 \usepackage[font=bf]{caption}
+\usepackage[hidelinks]{hyperref}
 
 \begin{document}
 
@@ -22,6 +23,13 @@
 \lfoot{COMP 3004}
 \rfoot{\thepage/\pageref{LastPage}}
 \cfoot{Requirements Analysis Document}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 % CUSTOM COMMANDS
 \newcommand{\teamname}{Code First, Think Later}
