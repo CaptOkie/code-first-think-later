@@ -1762,12 +1762,28 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 \begin{center}
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
-		JoinProjectControl & blah\\
-		LeaveProjectControl & blah\\
-		EditPersonalValuesControl & blah\\
-		EditDesiredValuesControl & blah\\
-		InvalidInputErrorControl & blah\\
-		EditProjectNameControl & blah\\
+		JoinProjectControl & 
+			The {\bf JoinProjectControl} object manages the JoinProject use case. The object is created when the Student user selects Join from the two options provided
+			in the EnrollmentOption object. It allows the Student to join an existing Project, then updates that Project and saves the updated Project to the Storage. Finally, 
+			a notice, JoinCompleteNotice, is displayed to the Student.\\
+		LeaveProjectControl & 
+			The {\bf LeaveProjectControl} object manages the LeaveProject use case. The object is created when the Student user selects Leave from the two options provided
+			in the EnrollmentOption object. It allows the Student to leave a Project that they are already a part of, then updates that Project and saves the updated Project to
+			the Storage. Finally, a notice, LeaveCompleteNotice, is displayed to the Student.\\
+		EditPersonalValuesControl & 
+			The {\bf EditPersonalValuesControl} object manages the EditPersonalValues use case. The object is created when the Student selects PersonalValues from the two
+			options provided by the ProfileOption object. It allows the Student to input new responses for the Personal Values section of their Profile, then updates the Student
+			object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student.\\
+		EditDesiredValuesControl & 
+			The {\bf EditDesiredValuesControl} object manages the EditDesiredValues use case. The object is created when the Student selects DesiredValues from the two
+			options provided by the ProfileOption object. It allows the Student to input new response for the Desired Values section of their Profile, then updates the Student
+			object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student. \\
+		InvalidInputErrorControl & 
+			The {\bf InvalidInputErrorControl} object manages the InvalidInputError use case. The object is created when the Administrator inputs invalid data. It creates a notice, 
+			InvalidInputErrorNotice, and displays it to the Administrator. The input operation is then cancelled.\\
+		EditProjectNameControl & 
+			The {\bf EditProjectNameControl} object manages the EditProjectName use case. The object is created when the Administrator selects the EditProjectNameOption.
+			It then updates the Project object and saves the updated Project object to the Storage. Finally, a notice, ProjectNameUpdateNotice, is displayed to the Administrator.\\
 \end{tabu}
 \end{center}
 
