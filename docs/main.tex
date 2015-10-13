@@ -1427,13 +1427,24 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 
 \subsubsection{Object Model}
 
+Object models can be separated into three sections: the entity objects, the control objects, and the boundary objects. As a whole, object models serve to
+show the high-level concepts of the system, the different kinds of persistent information, and their relationships/properties. In essence, we model how different
+objects interact with one another, either calling each other or simply getting called to display some information.
+
 \subsubsection*{Entity Objects}
+
+Entity objects are objects that contain persistent information that other objects can access or modify. The following diagram, {\bf Figure 6}, is an Entity Object Diagram
+that showcases the different relationships between the entities of this software. For example, Student and Administrator both inherit from User, whereas Students 'have-a'
+profile.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.4]{imgs/entity-object-diagram.png}
 	\caption{Entity Objects Diagram}
 \end{figure}
+
+The following table, {\bf Table 8}, is the Data Dictionary for the Entity Objects. Here, we list out all the attributes and associations for each of the entity objects, as well as provide
+a short but detailed definition of each.
 
 \begin{table}[H]
 	\caption{Entity Object Data Dictionary}
@@ -1508,195 +1519,303 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 	\end{tabu}
 \end{table}
 
-\subsubsection*{Control and boundary objects for ManageEnrollment (\manageenrollment{})}
+\subsubsection*{Control and Boundary Objects}
+
+Control objects are a special kind of object whose purpose is to fulfill use cases. In other words, the control objects are the objects that 
+are doing all the tying together - they use function calls to access information from entity objects and create boundary objects to notify 
+or interact with the actors (users). On the other hand, boundary objects are used to handle the interaction between actors and the system.
+For example, if something erroneous has occured, it is the boundary objects that notify the user.
+
+\newpage{}
+
+\subsubsection*{Control and boundary objects for ManageEnrollment (\manageenrollment{}):}
+
+The following figure, {\bf Figure 7}, handles the interactions between the control object, {\it ManageEnrollmentControl}, and the corresponding
+boundary objects, {\it ProjectListNotice, EnrollmentOption}, and {\it ProjectSelectionOption}. The control object here manages \manageenrollment{},
+ManageEnrollment.
+
+\vspace{1em}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/manage-enrollment.png}
+	\includegraphics[scale=0.37]{imgs/cbod/manage-enrollment.png}
 	\caption{Control/Boundary Objects for ManageEnrollment}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditProfile (\editprofile{})}
+\subsubsection*{Control and boundary objects for EditProfile (\editprofile{}):}
+
+The following figure, {\bf Figure 8}, handles the interactions between the control object, {\it EditProfileControl}, and the corresponding
+boundary object, {\it ProfileObject}. The control object here manages \editprofile{}, EditProfile.
+
+\vspace{1em}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-profile.png}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-profile.png}
 	\caption{Control/Boundary Objects for EditProfile}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ManageProject (\manageproject{})}
+\subsubsection*{Control and boundary objects for ManageProject (\manageproject{}):}
+
+The following figure, {\bf Figure 9}, handles the interactions between the control object, {\it ManageProjectControl}, and the corresponding
+boundary objects, {\it ManageOption, ProjectListNotice,} and {\it ProjectSelectionOption}. The control object here manages \manageproject{}, ManageProject.
+
+\vspace{1em}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/manage-project.png}
+	\includegraphics[scale=0.37]{imgs/cbod/manage-project.png}
 	\caption{Control/Boundary Objects for ManageProject}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for CreateNewProject (\createnewproject{})}
+\newpage{}
+
+\subsubsection*{Control and boundary objects for CreateNewProject (\createnewproject{}):}
+
+The following figure, {\bf Figure 10}, handles the interactions between the control object, {\it CreateNewProjectControl}, and the corresponding
+boundary objects, {\it ProjectDetailsForm} and {\it ProjectCreateNotice}. The control object here manages \createnewproject{}, CreateNewProject.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/create-new-project.png}
+	\includegraphics[scale=0.37]{imgs/cbod/create-new-project.png}
 	\caption{Control/Boundary Objects for CreateNewProject}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for LaunchPPID (\launchppid{})}
+\subsubsection*{Control and boundary objects for LaunchPPID (\launchppid{}):}
+
+The following figure, {\bf Figure 11}, handles the interactions between the control object, {\it LaunchPPIDControl}, the corresponding
+boundary object, {\it PPIDCompleteNotice}, and the entity object, {\it Project}. The control object here manages \launchppid{}, LaunchPPID.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/launch-ppid.png}
+	\includegraphics[scale=0.37]{imgs/cbod/launch-ppid.png}
 	\caption{Control/Boundary Objects for LaunchPPID}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for InsufficientStudentsError (\insufficientstudentserror{})}
+\subsubsection*{Control and boundary objects for InsufficientStudentsError (\insufficientstudentserror{}):}
+
+The following figure, {\bf Figure 12}, handles the interactions between the control objects, {\it LaunchPPIDControl} and {\it InsufficientStudentsErrorControl}, 
+and the corresponding boundary object, {\it InsufficientStudentErrorNotice}. The control object here manages \insufficientstudentserror{}, InsufficientStudentsError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/insufficient-students-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/insufficient-students-error.png}
 	\caption{Control/Boundary Objects for InsufficientStudentsError}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ViewPPIDResults (\viewppidresults{})}
+\newpage{}
+
+\subsubsection*{Control and boundary objects for ViewPPIDResults (\viewppidresults{}):}
+
+The following figure, {\bf Figure 13}, handles the interactions between the control object, {\it ViewPPIDResultsControl} and the corresponding boundary object, 
+{\it ResultsOption}. The control object here manages \viewppidresults{}, ViewPPIDResults.
+
+\vspace{1em}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/view-ppid-results.png}
+	\includegraphics[scale=0.37]{imgs/cbod/view-ppid-results.png}
 	\caption{Control/Boundary Objects for ViewPPIDResults}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ViewPPIDSummary (\viewppidsummary{})}
+\subsubsection*{Control and boundary objects for ViewPPIDSummary (\viewppidsummary{}):}
+
+The following figure, {\bf Figure 14}, handles the interactions between the control object, {\it ViewPPIDSummaryControl}, the corresponding boundary object, 
+{\it SummaryResultsNotice}, and the entity object, {\it Project}. The control object here manages \viewppidsummary{}, ViewPPIDSummary.
+
+\vspace{1em}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/view-ppid-summary.png}
+	\includegraphics[scale=0.37]{imgs/cbod/view-ppid-summary.png}
 	\caption{Control/Boundary Objects for ViewPPIDSummary}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ViewPPIDDetails (\viewppiddetails{})}
+\subsubsection*{Control and boundary objects for ViewPPIDDetails (\viewppiddetails{}):}
+
+The following figure, {\bf Figure 15}, handles the interactions between the control object, {\it ViewPPIDDetailsControl}, the corresponding boundary object, 
+{\it DetailsResultsNotice}, and the entity object, {\it Project}. The control object here manages \viewppiddetails{}, ViewPPIDDetails.
+
+\vspace{1em}
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/view-ppid-details.png}
+	\includegraphics[scale=0.37]{imgs/cbod/view-ppid-details.png}
 	\caption{Control/Boundary Objects for ViewPPIDDetails}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditProjectDetails (\editprojectdetails{})}
+\newpage{}
+
+\subsubsection*{Control and boundary objects for EditProjectDetails (\editprojectdetails{}):}
+
+The following figure, {\bf Figure 16}, handles the interactions between the control object, {\it EditProjectDetailsControl}, the corresponding boundary objects, 
+{\it ProjectDetailsForm} and {\it DetailsUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editprojectdetails{}, EditProjectDetails.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-project-details.png}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-project-details.png}
 	\caption{Control/Boundary Objects for EditProjectDetails}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditProject (\editproject{})}
+\subsubsection*{Control and boundary objects for EditProject (\editproject{}):}
+
+The following figure, {\bf Figure 17}, handles the interactions between the control object, {\it EditProjectControl} and the corresponding boundary objects, 
+{\it ProjectDetailsForm} and {\it DetailsUpdateNotice}. The control object here manages \editproject{}, EditProject.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-project.png}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-project.png}
 	\caption{Control/Boundary Objects for EditProject}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for JoinProject (\joinproject{})}
+\subsubsection*{Control and boundary objects for JoinProject (\joinproject{}):}
+
+The following figure, {\bf Figure 18}, handles the interactions between the control object, {\it JoinProjectControl}, the corresponding boundary objects, 
+{\it EnrollmentOption} and {\it JoinCompleteNotice}, and the entity object, {\it Project}. The control object here manages \joinproject{}, JoinProject.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/join-project.png}
+	\includegraphics[scale=0.37]{imgs/cbod/join-project.png}
 	\caption{Control/Boundary Objects for JoinProject}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for LeaveProject (\leaveproject{})}
+\newpage{}
+
+\subsubsection*{Control and boundary objects for LeaveProject (\leaveproject{}):}
+
+The following figure, {\bf Figure 19}, handles the interactions between the control object, {\it LeaveProjectControl}, the corresponding boundary objects, 
+{\it ProjectDetailsForm} and {\it LeaveCompleteNotice}, and the entity object, {\it Project}. The control object here manages \leaveproject{}, LeaveProject.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/leave-project.png}
+	\includegraphics[scale=0.37]{imgs/cbod/leave-project.png}
 	\caption{Control/Boundary Objects for LeaveProject}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditPersonalValues (\editpersonalvalues{})}
+\subsubsection*{Control and boundary objects for EditPersonalValues (\editpersonalvalues{}):}
+
+The following figure, {\bf Figure 20}, handles the interactions between the control object, {\it EditPersonalValues}, the corresponding boundary objects, 
+{\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editpersonalvalues{}, EditPersonalValues.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-personal-values.png}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-personal-values.png}
 	\caption{Control/Boundary Objects for EditPersonalValues}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditDesiredValues (\editdesiredvalues{})}
+\subsubsection*{Control and boundary objects for EditDesiredValues (\editdesiredvalues{}):}
+
+The following figure, {\bf Figure 21}, handles the interactions between the control object, {\it EditDesiredValues}, the corresponding boundary objects, 
+{\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editdesiredvalues{}, EditDesiredValues.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-desired-values.png}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-desired-values.png}
 	\caption{Control/Boundary Objects for EditDesiredValues}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for InvalidInputError (\invalidinputerror{})}
+\newpage{}
+
+\subsubsection*{Control and boundary objects for InvalidInputError (\invalidinputerror{}):}
+
+The following figure, {\bf Figure 22}, handles the interactions between the control object, {\it InvalidInputErrorControl} and the corresponding boundary objects, 
+{\it InputOption} and {\it InvalidInputErrorNotice}. The control object here manages \invalidinputerror{}, InvalidInputError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/invalid-input-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/invalid-input-error.png}
 	\caption{Control/Boundary Objects for InvalidInputError}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditProjectName (\editprojectname{})}
+\subsubsection*{Control and boundary objects for EditProjectName (\editprojectname{}):}
+
+The following figure, {\bf Figure 23}, handles the interactions between the control object, {\it EditProjectNameControl}, the corresponding boundary objects, 
+{\it EditProjectNameOption} and {\it ProjectNameUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editprojectname{}, EditProjectName.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-project-name.png}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-project-name.png}
 	\caption{Control/Boundary Objects for EditProjectName}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ProjectExistsError (\projectexistserror{})}
+\subsubsection*{Control and boundary objects for ProjectExistsError (\projectexistserror{}):}
+
+The following figure, {\bf Figure 24}, handles the interactions between the control objects, {\it EditProjectDetailsControl} and {\it ProjectExistsErrorControl}, and the corresponding boundary object, 
+{\it ProjectExistsErrorNotice}. The control object here manages \projectexistserror{}, ProjectExistsError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/project-exists-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/project-exists-error.png}
 	\caption{Control/Boundary Objects for ProjectExistsError}    
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditGroupSize (\editgroupsize{})}
+\newpage{}
+
+\subsubsection*{Control and boundary objects for EditGroupSize (\editgroupsize{}):}
+
+The following figure, {\bf Figure 25}, handles the interactions between the control object, {\it EditGroupSizeControl}, the corresponding boundary objects, 
+{\it EditGroupSizeOption} and {\it GroupSizeUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editgroupsize{}, EditGroupSize.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/edit-group-size.png}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-group-size.png}
 	\caption{Control/Boundary Objects for EditGroupSize}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for InvalidGroupSizeError (\invalidgroupsizeerror{})}
+\subsubsection*{Control and boundary objects for InvalidGroupSizeError (\invalidgroupsizeerror{}):}
+
+The following figure, {\bf Figure 26}, handles the interactions between the control objects, {\it EditGroupSizeControl} and {\it InvalidGroupSizeErrorControl}, and the corresponding boundary object, 
+{\it InvalidGroupSizeErrorNotice}. The control object here manages \invalidgroupsizeerror{}, InvalidGroupSizeError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/invalid-group-size-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/invalid-group-size-error.png}
 	\caption{Control/Boundary Objects for InvalidGroupSizeError}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for StorageError (\storageerror{})}
+\subsubsection*{Control and boundary objects for StorageError (\storageerror{}):}
+
+The following figure, {\bf Figure 27}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageErrorControl}, and the corresponding boundary object, 
+{\it StorageErrorNotice}. The control object here manages \storageerror{}, StorageError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/storage-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/storage-error.png}
 	\caption{Control/Boundary Objects for StorageError}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for StorageReadError (\storagereaderror{})}
+\newpage{}
+
+\subsubsection*{Control and boundary objects for StorageReadError (\storagereaderror{}):}
+
+The following figure, {\bf Figure 28}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageReadErrorControl}, and the corresponding boundary object, 
+{\it StorageReadErrorNotice}. The control object here manages \storagereaderror{}, StorageReadError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/storage-read-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/storage-read-error.png}
 	\caption{Control/Boundary Objects for StorageReadError}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for StorageOpenError (\storageopenerror{})}
+\subsubsection*{Control and boundary objects for StorageOpenError (\storageopenerror{}):}
+
+The following figure, {\bf Figure 29}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageOpenErrorControl}, and the corresponding boundary object, 
+{\it StorageOpenErrorNotice}. The control object here manages \storageopenerror{}, StorageOpenError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/storage-open-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/storage-open-error.png}
 	\caption{Control/Boundary Objects for StorageOpenError}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for StorageWriteError (\storagewriteerror{})}
+\subsubsection*{Control and boundary objects for StorageWriteError (\storagewriteerror{}):}
+
+The following figure, {\bf Figure 30}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageWriteErrorControl}, and the corresponding boundary object, 
+{\it StorageWriteErrorNotice}. The control object here manages \storagewriteerror{}, StorageWriteError.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.4]{imgs/cbod/storage-write-error.png}
+	\includegraphics[scale=0.37]{imgs/cbod/storage-write-error.png}
 	\caption{Control/Boundary Objects for StorageWriteError}
 \end{figure}
 
