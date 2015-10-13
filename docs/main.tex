@@ -179,7 +179,7 @@ the frequent torment associated with ill-matched teams.
 
 This report provides an overview of the design decisions we made for the cuPID project, including 
 use cases, object models, and dynamic models. The goal of this document is to clearly impart our vision of this
-program to Dr. Christine Laurendeau, our esteemed employer. In furtherance to this goal, we have painstakingly 
+program to Dr. Christine Laurendeau, our esteemed client. In furtherance to this goal, we have painstakingly 
 organized our report to maximize both basic legibility and traceability. Before delving into the more complex details 
 of our proposed system, we have included a general overview of the elements we wish to incorporate, as well as 
 some details with regards to our unique and innovative algorithm.
@@ -230,7 +230,7 @@ each subsequent section builds off the previous.
 Functional requirements are the result of us carefully analzing the problem statement that you have submitted and extracting all the key 
 desired features. In other words, we have converted your request into a list of requirements that we will fulfill. For example, you mention that
 it is essential that this software can create projects. All the main features that you have expressed the desire to have have been matched with
-the appropriate user and included in the following table, {\bf Table 1: Functional Requirements}. This format has the added advantage of allowing you, our employer, to see for 
+the appropriate user and included in the following table, {\bf Table 1: Functional Requirements}. This format has the added advantage of allowing you, our client, to see for 
 yourself that each and every requirement is carried out to your satisfaction. Note again the unique identifier preceding each of the functional 
 requirements - this will allow you to more easily trace our solution to each. 
 
@@ -310,7 +310,7 @@ or is required by law. Once again, each of these requirements have been assigned
 
 System models are some great tools that we have decided to incorporate into our system proposition to better convey the various functionalities and
 interactions in our system. They provide a strong visual representation of the various ideas that we have, including general scenarios (use-cases) such as 
-"Administrator creates a new project," interactions between different objects, and precise sequence diagrams that display what each object %if control object, add here
+"Administrator creates a new project," interactions between different objects, and precise sequence diagrams that display what each object
 does and for approximately how long. Specifically, you will be provided with use case diagrams with corresponding descriptions, entity, control, and boundary objects with corresponding  
 dictionaries, state machine diagrams, and sequence diagrams. 
 
@@ -381,7 +381,7 @@ great many details including {\it EditProject} and {\it CreateNewProject}! Note 
 
 A picture may tell a thousand words, but, for that same reason, can often take a lot of time to fully extract necessary information. The next table, {\bf Table 4} contains 
 all the information about each particular use case for the {\it Administrator}, though forgoing the actual relationships. Though we may lose that tidbit of information here, we gain a valuable 
-tool that allows us to very clearly see what each use case does. 
+tool that allows us to very clearly see what each use case does. %CHANGE THIS PARAGRAPH
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - Administrator}
@@ -1505,17 +1505,7 @@ a short but detailed definition of each.
 				\item details
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Profile} is a set of \textbf{Responses} maintained by each Student. These values are the necessary input for the PPID algorithm to run.\\
-
-		Response & 
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-				\item question
-				\item answer
-			\end{itemize}
-		\end{minipage} & 
-		The \textbf{Response} is a pair of Question and Answer.\\
-	
+		A \textbf{Profile} is a set of responses maintained by each Student. These values are the necessary input for the PPID algorithm to run.\\
 	\end{tabu}
 \end{table}
 
