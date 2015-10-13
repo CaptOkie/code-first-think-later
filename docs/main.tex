@@ -1733,50 +1733,61 @@ The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to no
 \begin{center}
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
-		InsufficientStudentsErrorControl & blah\\
-		ViewPPIDResultsControl & blah\\
-		ViewPPIDSummaryControl & blah\\
-		ViewPPIDDetailsControl & blah\\
-		EditProjectDetailsControl & blah\\
+		InsufficientStudentsErrorControl & 
+			The {\bf InsufficientStudentsErrorControl} object manages the InsufficientStudentsError use case. The object is created when the Administrator user
+			tries to run the PPID when the amount of Students enrolled is less than the minimum team size specified for the Project. A notice, InsufficientStudentsErrorNotice,
+			is displayed and the operation is cancelled.\\
+		ViewPPIDResultsControl & 
+			The {\bf ViewPPIDResultsControl} object manages the ViewPPIDResults use case. The object is created when the Administrator user selects the
+			ViewPPIDResultsOption. It provides the Administrator with two options for displaying the results of the last run PPID - either in simple form, where the
+			groups are simply printed out, or in detailed form, where the reasoning for the groups is also printed out. Depending on which gets selected, control is then
+			handed off to either the ViewPPIDSummaryControl or the ViewPPIDDetailsControl objects.\\
+		ViewPPIDSummaryControl & 
+			The {\bf ViewPPIDSummaryControl} object manages the ViewPPIDSummary use case. The object is created when the Administrator user selects Summary from the
+			two options provided in the ResultsOption object. It displays to the Administrator a print out of all the groups that the last run PPID created in a simple, easy to
+			read manner.\\
+		ViewPPIDDetailsControl & 
+			The {\bf ViewPPIDDetailsControl} object manages the ViewPPIDDetails use case. The object is created when the Administrator user selects Detailed from the two 
+			options provided in the ResultsOption object. It displays to the Administrator a detailed print out of the reasoning and steps with regards to the last PPID run.\\
+		EditProjectDetailsControl & 
+			The {\bf EditProjectDetailsControl} object manages the EditProjectDetails use case. The object is created after the Administrator user inputs the new details into
+			the ProjectDetailsForm and submits it. It then updates the values in the Project object and saves the updated Project to the Storage. A notice, DetailsUpdatedNotice,
+			is then displayed to the Administrator.\\
+		EditProjectControl & 
+			The {\bf EditProjectControl} object manages the EditProject use case. The object is created after the Administrator user selects the EditProjectOption. It then
+			creates a ProjectDetailsForm for the user to fill in. Control is then passed over to the EditProjectDetailsControl object.\\
 \end{tabu}
 \end{center}
 
 \begin{center}
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
-		EditProjectControl & blah\\
 		JoinProjectControl & blah\\
 		LeaveProjectControl & blah\\
 		EditPersonalValuesControl & blah\\
 		EditDesiredValuesControl & blah\\
+		InvalidInputErrorControl & blah\\
+		EditProjectNameControl & blah\\
 \end{tabu}
 \end{center}
 
 \begin{center}
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
-		InvalidInputErrorControl & blah\\
-		EditProjectNameControl & blah\\
 		EditProjectDetailsControl & blah\\
 		ProjectExistsErrorControl & blah\\
 		EditGroupSizeControl & blah\\
-\end{tabu}
-\end{center}
-
-\begin{center}
-\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Control Object & Definition\\
 		InvalidGroupSizeErrorControl & blah\\
 		StorageControl & blah\\
 		StorageErrorControl & blah\\
-		StorageReadErrorControl & blah\\
-		StorageOpenErrorControl & blah\\
 \end{tabu}
 \end{center}
 
 \begin{center}
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
+		StorageReadErrorControl & blah\\
+		StorageOpenErrorControl & blah\\
 		StorageWriteErrorControl & blah\\
 \end{tabu}
 \end{center}
