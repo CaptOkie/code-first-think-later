@@ -70,7 +70,7 @@
 \newcounter{seqnum}
 \renewcommand{\theseqnum}{\twodigits{seqnum}}
 \newcommand{\seqlabel}[1]{\refstepcounter{seqnum}\label{seq:#1}}
-\newcommand{\seqref}[1]{\textbf{CL-\ref{seq:#1}}}
+\newcommand{\seqref}[1]{\textbf{SQ-\ref{seq:#1}}}
 %% END SEQUENCE DIAGRAM COMMANDS
 % END CUSTOM COMMANDS
 
@@ -2136,11 +2136,11 @@ and destroyed after fulfilling their purpose.
 The following figure, \figureref{seq-manage-enrollment}, shows the sequence diagram for the {\it ManageEnrollment} use case. The participating actor for this use case
 is the Student user. This figure shows the necessary interactions between the control object, {\it LaunchPPIDControl}, and the entity/boundary objects
 in order to manage \ucref{manage-enrollment}.
-
 \begin{figure}[H]
+    \seqlabel{manage-enrollment}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/manage-enrollment.png}
-	\caption{Sequence Diagram for ManageEnrollment}
+	\caption{Sequence Diagram for ManageEnrollment (\seqref{manage-enrollment})}
 	\figurelabel{seq-manage-enrollment}
 \end{figure}
 
@@ -2153,9 +2153,10 @@ Student user. This figure shows the necessary interactions between the control o
 in order to manage \ucref{edit-profile}.
 
 \begin{figure}[H]
+    \seqlabel{edit-profile}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/edit-profile.png}
-	\caption{Sequence Diagram for EditProfile}
+	\caption{Sequence Diagram for EditProfile (\seqref{edit-profile})}
 	\figurelabel{seq-edit-profile}
 \end{figure}
 
@@ -2166,9 +2167,10 @@ Student user. This figure shows the necessary interactions between the control o
 in order to manage \ucref{manage-project}.
 
 \begin{figure}[H]
+    \seqlabel{manage-project}
 	\centering{}
 	\includegraphics[scale=0.24]{imgs/seq/manage-project.png}
-	\caption{Sequence Diagram for ManageProject}
+	\caption{Sequence Diagram for ManageProject (\seqref{manage-project})}
 	\figurelabel{seq-manage-project}
 \end{figure}
 
@@ -2179,9 +2181,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{create-new-project}.
 
 \begin{figure}[H]
+    \seqlabel{create-new-project}
 	\centering{}
 	\includegraphics[scale=0.24]{imgs/seq/create-new-project.png}
-	\caption{Sequence Diagram for CreateNewProject}
+	\caption{Sequence Diagram for CreateNewProject (\seqref{create-new-project})}
 	\figurelabel{seq-create-new-project}
 \end{figure}
 
@@ -2192,9 +2195,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{launch-ppid}.
 
 \begin{figure}[H]
+    \seqlabel{launch-ppid}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/launch-ppid.png}
-	\caption{Sequence Diagram for LaunchPPID}
+	\caption{Sequence Diagram for LaunchPPID (\seqref{launch-ppid})}
 	\figurelabel{seq-launch-ppid}
 \end{figure}
 
@@ -2205,9 +2209,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{insufficient-students-error}.
 
 \begin{figure}[H]
+    \seqlabel{insufficient-students-error}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/insufficient-students-error.png}
-	\caption{Sequence Diagram for InsufficientStudentsError}
+	\caption{Sequence Diagram for InsufficientStudentsError (\seqref{insufficient-students-error})}
 	\figurelabel{seq-insufficient-students-error}
 \end{figure}
 
@@ -2218,9 +2223,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{view-ppid-results}.
 
 \begin{figure}[H]
+    \seqlabel{view-ppid-results}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/view-ppid-results.png}
-	\caption{Sequence Diagram for ViewPPIDResults}
+	\caption{Sequence Diagram for ViewPPIDResults (\seqref{view-ppid-results})}
 	\figurelabel{seq-view-ppid-results}
 \end{figure}
 
@@ -2233,9 +2239,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{view-ppid-summary}.
 
 \begin{figure}[H]
+    \seqlabel{view-ppid-summary}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/view-ppid-summary.png}
-	\caption{Sequence Diagram for ViewPPIDSummary}
+	\caption{Sequence Diagram for ViewPPIDSummary (\seqref{view-ppid-summary})}
 	\figurelabel{seq-view-ppid-summary}
 \end{figure}
 
@@ -2246,9 +2253,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{view-ppid-details}.
 
 \begin{figure}[H]
+    \seqlabel{view-ppid-details}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/view-ppid-details.png}
-	\caption{Sequence Diagram for ViewPPIDDetails}
+	\caption{Sequence Diagram for ViewPPIDDetails (\seqref{view-ppid-details})}
 	\figurelabel{seq-view-ppid-details}
 \end{figure}
 
@@ -2259,9 +2267,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{edit-project-details}.
 
 \begin{figure}[H]
+    \seqlabel{edit-project-details}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/edit-project-details.png}
-	\caption{Sequence Diagram for EditProjectDetails}
+	\caption{Sequence Diagram for EditProjectDetails (\seqref{edit-project-details})}
 	\figurelabel{seq-edit-project-details}
 \end{figure}
 
@@ -2272,9 +2281,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{edit-project}.
 
 \begin{figure}[H]
+    \seqlabel{edit-project}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/edit-project.png}
-	\caption{Sequence Diagram for EditProject}
+	\caption{Sequence Diagram for EditProject (\seqref{edit-project})}
 	\figurelabel{seq-edit-project}
 \end{figure}
 
@@ -2285,9 +2295,10 @@ the Student user. This figure shows the necessary interactions between the contr
 entity/boundary objects in order to manage \ucref{join-project}.
 
 \begin{figure}[H]
+    \seqlabel{join-project}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/join-project.png}
-	\caption{Sequence Diagram for JoinProject}
+	\caption{Sequence Diagram for JoinProject (\seqref{join-project})}
 	\figurelabel{seq-join-project}
 \end{figure}
 
@@ -2298,9 +2309,10 @@ the Student user. This figure shows the necessary interactions between the contr
 entity/boundary objects in order to manage \ucref{leave-project}.
 
 \begin{figure}[H]
+    \seqlabel{leave-project}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/leave-project.png}
-	\caption{Sequence Diagram for LeaveProject}
+	\caption{Sequence Diagram for LeaveProject (\seqref{leave-project})}
 	\figurelabel{seq-leave-project}
 \end{figure}
 
@@ -2311,9 +2323,10 @@ the Student user. This figure shows the necessary interactions between the contr
 entity/boundary objects in order to manage \ucref{edit-personal-values}.
 
 \begin{figure}[H]
+    \seqlabel{edit-personal-values}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/edit-personal-values.png}
-	\caption{Sequence Diagram for EditPersonalValues}
+	\caption{Sequence Diagram for EditPersonalValues (\seqref{edit-personal-values})}
 	\figurelabel{seq-edit-personal-values}
 \end{figure}
 
@@ -2324,9 +2337,10 @@ the Student user. This figure shows the necessary interactions between the contr
 entity/boundary objects in order to manage \ucref{edit-desired-values}.
 
 \begin{figure}[H]
+    \seqlabel{edit-desired-values}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/edit-desired-values.png}
-	\caption{Sequence Diagram for EditDesiredValues}
+	\caption{Sequence Diagram for EditDesiredValues (\seqref{edit-desired-values})}
 	\figurelabel{seq-edit-desired-values}
 \end{figure}
 
@@ -2337,9 +2351,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{invalid-input-error}.
 
 \begin{figure}[H]
+    \seqlabel{invalid-input-error}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/invalid-input-error.png}
-	\caption{Sequence Diagram for InvalidInputError}
+	\caption{Sequence Diagram for InvalidInputError (\seqref{invalid-input-error})}
 	\figurelabel{seq-invalid-input-error}
 \end{figure}
 
@@ -2349,9 +2364,10 @@ The following figure, \figureref{seq-edit-project-name}, shows the sequence diag
 entity/boundary objects in order to manage \ucref{edit-project-name}.
 
 \begin{figure}[H]
+    \seqlabel{edit-project-name}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/edit-project-name.png}
-	\caption{Sequence Diagram for EditProjectName}
+	\caption{Sequence Diagram for EditProjectName (\seqref{edit-project-name})}
 	\figurelabel{seq-edit-project-name}
 \end{figure}
 
@@ -2364,9 +2380,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{project-exists-error}.
 
 \begin{figure}[H]
+    \seqlabel{project-exists-error}
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/seq/project-exists-error.png}
-	\caption{Sequence Diagram for ProjectExistsError}
+	\caption{Sequence Diagram for ProjectExistsError (\seqref{project-exists-error})}
 	\figurelabel{seq-project-exists-error}
 \end{figure}
 
@@ -2377,9 +2394,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{edit-group-size}.
 
 \begin{figure}[H]
+    \seqlabel{edit-group-size}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/edit-group-size.png}
-	\caption{Sequence Diagram for EditGroupSize}
+	\caption{Sequence Diagram for EditGroupSize (\seqref{edit-group-size})}
 	\figurelabel{seq-edit-group-size}
 \end{figure}
 
@@ -2390,9 +2408,10 @@ the Administrator user. This figure shows the necessary interactions between the
 entity/boundary objects in order to manage \ucref{invalid-group-size-error}.
 
 \begin{figure}[H]
+    \seqlabel{invalid-group-size-error}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/invalid-group-size-error.png}
-	\caption{Sequence Diagram for InvalidGroupSizeError}
+	\caption{Sequence Diagram for InvalidGroupSizeError (\seqref{invalid-group-size-error})}
 	\figurelabel{seq-invalid-group-size-error}
 \end{figure}
 
@@ -2403,9 +2422,10 @@ the User (both Administrator and Student). This figure shows the necessary inter
 entity/boundary objects in order to manage \ucref{storage-error}.
 
 \begin{figure}[H]
+    \seqlabel{storage-error}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/storage-error.png}
-	\caption{Sequence Diagram for StorageError}
+	\caption{Sequence Diagram for StorageError (\seqref{storage-error})}
 	\figurelabel{seq-storage-error}
 \end{figure}
 
@@ -2418,9 +2438,10 @@ the User (both Administrator and Student). This figure shows the necessary inter
 entity/boundary objects in order to manage \ucref{storage-read-error}.
 
 \begin{figure}[H]
+    \seqlabel{storage-read-error}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/storage-read-error.png}
-	\caption{Sequence Diagram for StorageReadError}
+	\caption{Sequence Diagram for StorageReadError (\seqref{storage-read-error})}
 	\figurelabel{seq-storage-read-error}
 \end{figure}
 
@@ -2431,9 +2452,10 @@ the User (both Administrator and Student). This figure shows the necessary inter
 entity/boundary objects in order to manage \ucref{storage-open-error}.
 
 \begin{figure}[H]
+    \seqlabel{storage-open-error}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/storage-open-error.png}
-	\caption{Sequence Diagram for StorageOpenError}
+	\caption{Sequence Diagram for StorageOpenError (\seqref{storage-open-error})}
 	\figurelabel{seq-storage-open-error}
 \end{figure}
 
@@ -2446,9 +2468,10 @@ the User (both Administrator and Student). This figure shows the necessary inter
 entity/boundary objects in order to manage \ucref{storage-write-error}.
 
 \begin{figure}[H]
+    \seqlabel{storage-write-error}
 	\centering{}
 	\includegraphics[scale=0.27]{imgs/seq/storage-write-error.png}
-	\caption{Sequence Diagram for StorageWriteError}
+	\caption{Sequence Diagram for StorageWriteError (\seqref{storage-write-error})}
 	\figurelabel{seq-storage-write-error}
 \end{figure}
 
