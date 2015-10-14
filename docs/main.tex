@@ -60,9 +60,17 @@
 %% END CLASS COMMANDS
 
 %% STATE MACHINE COMMANDS
+\newcounter{smnum}
+\renewcommand{\thesmnum}{\twodigits{smnum}}
+\newcommand{\smlabel}[1]{\refstepcounter{smnum}\label{sm:#1}}
+\newcommand{\smref}[1]{\textbf{SM-\ref{sm:#1}}}
 %% END STATE MACHINE COMMANDS
 
 %% SEQUENCE DIAGRAM COMMANDS
+\newcounter{seqnum}
+\renewcommand{\theseqnum}{\twodigits{seqnum}}
+\newcommand{\seqlabel}[1]{\refstepcounter{seqnum}\label{seq:#1}}
+\newcommand{\seqref}[1]{\textbf{CL-\ref{seq:#1}}}
 %% END SEQUENCE DIAGRAM COMMANDS
 % END CUSTOM COMMANDS
 
