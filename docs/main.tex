@@ -1440,9 +1440,9 @@ a short but detailed definition of each.
 
 \begin{table}[H]
 	\caption{Entity Object Data Dictionary}\tablelabel{entity-odd}
-	\begin{tabu} to \textwidth {>{\bf}l X X[2.75]}
-		\tableheader{}Entity Object & Attributes/\newline Associations & Definition\\
-		User & 
+	\begin{tabu} to \textwidth {l >{\bf}l X X[2.75]}
+		\tableheader{}ID & Entity Object & Attributes/\newline Associations & Definition\\
+		\cllabel{user}\clref{user} & User & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item name
@@ -1451,7 +1451,7 @@ a short but detailed definition of each.
 		\end{minipage} & 
 		A \textbf{User} that has the ability to access the cuPID system.\\
 		
-		Student & 
+		\cllabel{student}\clref{student} & Student & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item studentNumber
@@ -1460,11 +1460,11 @@ a short but detailed definition of each.
 		\end{minipage} & 
 		A \textbf{Student} is a specific type of User that can create/edit their Profiles and join/leave existing Projects.\\
 		
-		Administrator & 
+		\cllabel{administrator}\clref{administrator} & Administrator & 
 		&
 		An \textbf{Administrator} is a specific type of user that can create/edit projects and run/view results of the PPID.\\
 
-		Group & 
+		\cllabel{group}\clref{group} & Group & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item members
@@ -1472,7 +1472,7 @@ a short but detailed definition of each.
 		\end{minipage} & 
 		A \textbf{Group} is a collection of Student Users that are participating in a specified Project. Every Project contains at least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm.\\
 
-		GroupSize & 
+		\cllabel{groupsize}\clref{groupsize} & GroupSize & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item minSize
@@ -1481,7 +1481,7 @@ a short but detailed definition of each.
 		\end{minipage} & 
 		The \textbf{GroupSize} contains the possible range of group sizes allowed such that the PPID algorithm will not make too big or too small groups.\\
 
-		Project & 
+		\cllabel{project}\clref{project} & Project & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item name
@@ -1491,7 +1491,7 @@ a short but detailed definition of each.
 		\end{minipage} & 
 		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}.\\
 
-		Profile & 
+		\cllabel{profile}\clref{profile} & Profile & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item details
@@ -1506,7 +1506,7 @@ a short but detailed definition of each.
 Control objects are a special kind of object whose purpose is to fulfill use cases. In other words, the control objects are the objects that 
 are doing all the tying together - they use function calls to access information from entity objects and create boundary objects to notify 
 or interact with the actors (users). On the other hand, boundary objects are used to handle the interaction between actors and the system.
-For example, if something erroneous has occured, it is the boundary objects that notify the user.
+For example, if something erroneous has occurred, it is the boundary objects that notify the user.
 
 \newpage{}
 
@@ -1815,25 +1815,29 @@ This definition includes details such as what use case each control object manag
 
 \begin{table}[H]
 \caption{Control Object Data Dictionary}\tablelabel{control-odd}
-	\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Control Object & Definition\\
-		ManageEnrollmentControl & 
+	\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Control Object & Definition\\
+		\cllabel{manage-enrollment-ctrl}\clref{manage-enrollment-ctrl} & Manage\-Enrollment\-Control & 
 			The {\bf ManageEnrollmentControl} object manages the ManageEnrollment use case. This object is created when the Student user
 			selects the ManageEnrollmentOption.  It displays a list of all the available Projects for the Student to choose from. Upon choosing, the
 			Student will then be given the options of either joining or leaving a project. \\
-		EditProfileControl & 
+		
+		\cllabel{edit-profile-ctrl}\clref{edit-profile-ctrl} & Edit\-Profile\-Control & 
 			The {\bf EditProfileControl} object manages the EditProfile use case. This object is created when the Student user selects the EditProfileOption.
 			It provides the Student the option to edit/modify either their personal values or their desired values for their Profile. Depending on the response, control is then
 			handed over to either the EditPersonalValuesControl or the EditDesiredValuesControl objects. \\
-		ManageProjectControl & 
+		
+		\cllabel{manage-project-ctrl}\clref{manage-project-ctrl} & Manage\-Project\-Control & 
 			The {\bf ManageProjectControl} object manages the ManageProject use case. This object is created after the Administrator user selects the
 			ManageProjectOption. It provides the Administrator the option to select a Project and modify details for that Project. Depending on which detail
 			is selected, control is then handed over to either the LaunchPPIDControl, the ViewPPIDResultsControl, or the EditProjectControl objects.\\
-		CreateNewProjectControl & 
+		
+		\cllabel{create-new-project-ctrl}\clref{create-new-project-ctrl} & Create\-New\-Project\-Control & 
 			The {\bf CreateNewProjectControl} object manages the CreateNewProject use case. This object is created after the Administrator user selects the
 			CreateNewProjectOption. It provides the Administrator with the ability to create new Projects, including the filling in of the details for this new project,
 			which is managed by the EditProjectControl object. The notice, ProjectCreateNotice, is then displayed.\\
-		LaunchPPIDControl & 
+		
+		\cllabel{launch-ppid-ctrl}\clref{launch-ppid-ctrl} & Launch\-PPID\-Control & 
 			The {\bf LaunchPPIDControl} object manages the LaunchPPID use case. This object is created after the Administrator launches the PPID from
 			the ManageProjectOption. It cycles through the list of currently enrolled students in the Project and sorts them into teams. The result is then saved
 			to the Storage and a notice, PPIDCompleteNotice, is displayed.\\
@@ -1841,101 +1845,104 @@ This definition includes details such as what use case each control object manag
 \end{table}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Control Object & Definition\\
-		InsufficientStudentsErrorControl & 
+\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Control Object & Definition\\
+		\cllabel{insufficient-students-error-ctrl}\clref{insufficient-students-error-ctrl} & Insufficient\-StudentsError\-Control & 
 			The {\bf InsufficientStudentsErrorControl} object manages the InsufficientStudentsError use case. The object is created when the Administrator user
 			tries to run the PPID when the amount of Students enrolled is less than the minimum team size specified for the Project. A notice, InsufficientStudentsErrorNotice,
 			is displayed and the operation is cancelled.\\
-		ViewPPIDResultsControl & 
+		
+		\cllabel{view-ppid-results-ctrl}\clref{view-ppid-results-ctrl} & View\-PPID\-Results\-Control & 
 			The {\bf ViewPPIDResultsControl} object manages the ViewPPIDResults use case. The object is created when the Administrator user selects the
 			ViewPPIDResultsOption. It provides the Administrator with two options for displaying the results of the last run PPID - either in simple form, where the
 			groups are simply printed out, or in detailed form, where the reasoning for the groups is also printed out. Depending on which gets selected, control is then
 			handed off to either the ViewPPIDSummaryControl or the ViewPPIDDetailsControl objects.\\
-		ViewPPIDSummaryControl & 
+		
+		\cllabel{view-ppid-summary-ctrl}\clref{view-ppid-summary-ctrl} & View\-PPID\-Summary\-Control & 
 			The {\bf ViewPPIDSummaryControl} object manages the ViewPPIDSummary use case. The object is created when the Administrator user selects Summary from the
 			two options provided in the ResultsOption object. It displays to the Administrator a print out of all the groups that the last run PPID created in a simple, easy to
 			read manner.\\
-		ViewPPIDDetailsControl & 
+		
+		\cllabel{view-ppid-details-ctrl}\clref{view-ppid-details-ctrl} & View\-PPID\-Details\-Control & 
 			The {\bf ViewPPIDDetailsControl} object manages the ViewPPIDDetails use case. The object is created when the Administrator user selects Detailed from the two 
 			options provided in the ResultsOption object. It displays to the Administrator a detailed print out of the reasoning and steps with regards to the last PPID run.\\
-		EditProjectDetailsControl & 
+		
+		\cllabel{edit-project-details-ctrl}\clref{edit-project-details-ctrl} & Edit\-Project\-Details\-Control & 
 			The {\bf EditProjectDetailsControl} object manages the EditProjectDetails use case. The object is created after the Administrator user inputs the new details into
 			the ProjectDetailsForm and submits it. It then updates the values in the Project object and saves the updated Project to the Storage. A notice, DetailsUpdatedNotice,
 			is then displayed to the Administrator.\\
-		EditProjectControl & 
+		
+		\cllabel{edit-project-ctrl}\clref{edit-project-ctrl} & Edit\-Project\-Control & 
 			The {\bf EditProjectControl} object manages the EditProject use case. The object is created after the Administrator user selects the EditProjectOption. It then
 			creates a ProjectDetailsForm for the user to fill in. Control is then passed over to the EditProjectDetailsControl object.\\
 \end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Control Object & Definition\\
-		JoinProjectControl & 
+\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Control Object & Definition\\
+		\cllabel{join-project-ctrl}\clref{join-project-ctrl} & Join\-Project\-Control & 
 			The {\bf JoinProjectControl} object manages the JoinProject use case. The object is created when the Student user selects Join from the two options provided
 			in the EnrollmentOption object. It allows the Student to join an existing Project, then updates that Project and saves the updated Project to the Storage. Finally, 
 			a notice, JoinCompleteNotice, is displayed to the Student.\\
-		LeaveProjectControl & 
+		
+		\cllabel{leave-project-ctrl}\clref{leave-project-ctrl} & Leave\-Project\-Control & 
 			The {\bf LeaveProjectControl} object manages the LeaveProject use case. The object is created when the Student user selects Leave from the two options provided
 			in the EnrollmentOption object. It allows the Student to leave a Project that they are already a part of, then updates that Project and saves the updated Project to
 			the Storage. Finally, a notice, LeaveCompleteNotice, is displayed to the Student.\\
-		EditPersonalValuesControl & 
+		
+		\cllabel{edit-personal-values-ctrl}\clref{edit-personal-values-ctrl} & Edit\-Personal\-Values\-Control & 
 			The {\bf EditPersonalValuesControl} object manages the EditPersonalValues use case. The object is created when the Student selects PersonalValues from the two
 			options provided by the ProfileOption object. It allows the Student to input new responses for the Personal Values section of their Profile, then updates the Student
 			object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student.\\
-		EditDesiredValuesControl & 
+		
+		\cllabel{edit-desired-values-ctrl}\clref{edit-desired-values-ctrl} & Edit\-Desired\-Values\-Control & 
 			The {\bf EditDesiredValuesControl} object manages the EditDesiredValues use case. The object is created when the Student selects DesiredValues from the two
 			options provided by the ProfileOption object. It allows the Student to input new response for the Desired Values section of their Profile, then updates the Student
 			object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student. \\
-		InvalidInputErrorControl & 
+		
+		\cllabel{invalid-input-error-ctrl}\clref{invalid-input-error-ctrl} & Invalid\-Input\-Error\-Control & 
 			The {\bf InvalidInputErrorControl} object manages the InvalidInputError use case. The object is created when the Administrator inputs invalid data. It creates a notice, 
 			InvalidInputErrorNotice, and displays it to the Administrator. The input operation is then cancelled.\\
-		EditProjectNameControl & 
+
+		\cllabel{edit-project-name-ctrl}\clref{edit-project-name-ctrl} & Edit\-Project\-Name\-Control & 
 			The {\bf EditProjectNameControl} object manages the EditProjectName use case. The object is created when the Administrator selects the EditProjectNameOption.
 			It then updates the Project object and saves the updated Project object to the Storage. Finally, a notice, ProjectNameUpdateNotice, is displayed to the Administrator.\\
 \end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Control Object & Definition\\
-		ProjectExistsErrorControl &
+\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Control Object & Definition\\
+		\cllabel{project-exists-error-ctrl}\clref{project-exists-error-ctrl} & Project\-Exists\-Error\-Control &
 			The {\bf ProjectExistsErrorControl} object manages the ProjectExistsError use case. The object is created when Administrator users attempt to set 
 			the Project name to a name that alread exists. A notice, ProjectExistsErrorNotice, is displayed to the Administrator, and the EditProjectName operation is cancelled.\\
-		EditGroupSizeControl & 
+		
+		\cllabel{edit-group-size-ctrl}\clref{edit-group-size-ctrl} & Edit\-Group\-Size\-Control & 
 			The {\bf EditGroupSizeControl} object manages the EditGroupSize use case. The object is created when the Administrator user selects the EditGroupSizeOption. It allows the 
 			Administrator to input a new Maximum and Minimum group size value and updates the Project object. Finally, a notice, GroupSizeUpdateNotice, is displayed to the Administrator.\\
-		InvalidGroupSizeErrorControl & 
+		
+		\cllabel{invalid-group-size-error-ctrl}\clref{invalid-group-size-error-ctrl} & Invalid\-Group\-Size\-Error\-Control & 
 			The {\bf InvalidGroupSizeErrorControl} object manages the InvalidGroupSizeError use case. The object is created when the Administrator attempts to input an invalid size for the Maximum
 			and Minimum group size variables. A notice, InvalidGroupSizeErrorNotice, is displayed to the Administrator, and the EditGroupSize operation is cancelled. \\
-		StorageControl & 
+		
+		\cllabel{storage-ctrl}\clref{storage-ctrl} & Storage\-Control & 
 			The {\bf StorageControl} object manages...\\
-		StorageErrorControl & 
+		
+		\cllabel{storage-error-ctrl}\clref{storage-error-ctrl} & Storage\-Error\-Control & 
 			The {\bf StorageErrorControl} object manages the StorageError use case. The object is created when any user makes a request to the Storage and the request cannot be met.
 			It then displays a notice, StorageErrorNotice, to the user.\\
-		StorageReadControl & 
-			The {\bf StorageReadControl} object manages...\\
-
 \end{tabu}
 \end{center}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Control Object & Definition\\
-		StorageReadErrorControl & 
-			The {\bf StorageReadErrorControl} object manages the StorageReadError use case. The object is created when any user makes a request to read a file from the Storage and the
-			read operation fails. It then displays a notice, StorageReadErrorNotice, to the user.\\
-		StorageOpenControl & 
-			The {\bf StorageOpenControl} object manages...\\
-		StorageOpenErrorControl & 
-			The {\bf StorageOpenErrorControl} object manages the StorageOpenError use case. The object is created when any user makes a request to open the Storage and the operation
-			fails. It then displays a notice, StorageOpenErrorNotice, to the user.\\
-		StorageWriteControl & 
-			The {\bf StorageWriteControl} object manages...\\
-		StorageWriteErrorControl & 
-			The {\bf StorageWriteErrorControl} object manage the StorageWriteError use case. The object is created when any user makes a write to the Storage request and the operation
-			fails. It then displays a notice, StorageWriteErrorNotice, to the user.\\
+\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Control Object & Definition\\
+		\cllabel{storage-read-error-ctrl}\clref{storage-read-error-ctrl} & Storage\-Read\-Error\-Control & The {\bf StorageReadErrorControl} object manages the StorageReadError use case. The object is created when any user makes a request to read a file from the Storage and the read operation fails. It then displays a notice, StorageReadErrorNotice, to the user.\\
+
+		\cllabel{storage-open-error-ctrl}\clref{storage-open-error-ctrl} & Storage\-Open\-Error\-Control & The {\bf StorageOpenErrorControl} object manages the StorageOpenError use case. The object is created when any user makes a request to open the Storage and the operation fails. It then displays a notice, StorageOpenErrorNotice, to the user.\\
+
+		\cllabel{storage-write-error-ctrl}\clref{storage-write-error-ctrl} & Storage\-Write\-Error\-Control & object manage the StorageWriteError use case. The object is created when any user makes a write to the Storage request and the operation fails. It then displays a notice, StorageWriteErrorNotice, to the user.\\
 \end{tabu}
 \end{center}
 
@@ -1946,71 +1953,98 @@ In essence, the definition explains what each object does.
 
 \begin{table}[H]
     \caption{Boundary Object Data Dictionary}\tablelabel{boundary-odd}
-	\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Boundary Object & Definition\\
-		ProjectListNotice & 
+	\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Boundary Object & Definition\\
+		\cllabel{project-list-notice}\clref{project-list-notice} & Project\-List\-Notice & 
 			This object is responsible for the visual output of the list of Projects to the User. It gets the required information from the Project objects and displays it.\\
-		EnrollmentOption & 
+		
+		\cllabel{enrollment-option}\clref{enrollment-option} & Enrollment\-Option & 
 			This object allows the Student to view and choose between the two enrollment options: Join or Leave.\\
-		ProjectSelectionOption & 
+		
+		\cllabel{project-selection-option}\clref{project-selection-option} & Project\-Selection\-Option & 
 			This object reads the selected Project from the Administrator.\\
-		ProfileOption & 
+		
+		\cllabel{profile-option}\clref{profile-option} & Profile\-Option & 
 			This object allows the Student to view and choose between the two profile options: edit Personal Details or edit Desired Details.\\
-		ManageOption & 
+		
+		\cllabel{manage-option}\clref{manage-option} & Manage\-Option & 
 			This object allows the Administrator to view and choose between three managing options: view the results of the last PPID, edit a project, or delete a project.\\
-		ProjectCreateNotice & 
+		
+		\cllabel{project-create-notice}\clref{project-create-notice} & Project\-Create\-Notice & 
 			This object displays a notice to the Administrator stating that the Project has been successfully created.\\
-		ProjectDetailsForm & 
+		
+		\cllabel{project-details-form}\clref{project-details-form} & Project\-Details\-Form & 
 			This object is a form that reads the inputted values from the Administrator for the Project details.\\
-		PPIDCompleteNotice & 
+		
+		\cllabel{ppid-complete-notice}\clref{ppid-complete-notice} & PPID\-Complete\-Notice & 
 			This object displays a notice to the Administrator stating that the PPID has run successfully.\\
-		InsufficientStudentErrorNotice & 
+		
+		\cllabel{insufficient-student-error-notice}\clref{insufficient-student-error-notice} & Insufficient\-Student\-Error\-Notice & 
 			This object displays a notice to the Administrator stating that the PPID has failed due to an insufficient amount of students enrolled in the Project.\\
-		ResultsOption & 
+		
+		\cllabel{results-option}\clref{results-option} & Results\-Option & 
 			This object allows the Administrator to view and choose between the two result options: Summary or Detailed.\\
-		SummaryResultsNotice & 
+		
+		\cllabel{summary-results-notice}\clref{summary-results-notice} & Summary\-Results\-Notice & 
 			This object displays a notice to the Administrator that shows the simple summary print out of the Groups.\\
-		DetailedResultsNotice & 
+		
+		\cllabel{detailed-results-notice}\clref{detailed-results-notice} & Detailed\-Results\-Notice & 
 			This object displays a notice to the Administrator that shows the detailed print out of the Groups and the reasoning that the algorithm had when making the decisions.\\
-		DetailsUpdatedNotice & 
+		
+		\cllabel{details-update-notice}\clref{details-update-notice} & Details\-Updated\-Notice & 
 			This object displays a notice to the Administrator stating that the saving of the new Project details to Storage was successful.\\
 	\end{tabu}
 \end{table}
 
 \begin{center}
-\begin{tabu} to \textwidth {>{\bf}l X[2]}
-		\tableheader{}Boundary Object & Definition\\
-		ProjectUpdateNotice & 
+\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Boundary Object & Definition\\
+		\cllabel{project-update-notice}\clref{project-update-notice} & Project\-Update\-Notice & 
 			This object displays a notice to the Administrator stating that the editing of the Project has been completed successfully\\
-		JoinCompleteNotice & 
+		
+		\cllabel{join-complete-notice}\clref{join-complete-notice} & Join\-Complete\-Notice & 
 			This object displays a notice to the Student stating that the joining of a Project was successful.\\
-		LeaveCompleteNotice & 
+		
+		\cllabel{leave-complete-notice}\clref{leave-complete-notice} & Leave\-Complete\-Notice & 
 			This object displays a notice to the Student stating that the leaving of a Project was successful.\\
-		UpdateCompleteNotice & 
+		
+		\cllabel{update-complete-notice}\clref{update-complete-notice} & Update\-Complete\-Notice & 
 			This object displays a notice to the Student stating that the saving of the new Profile details (either Personal values or Desired values) to the Storage was successful.\\
-		InputOption & 
+		
+		\cllabel{input-option}\clref{input-option} & Input\-Option & 
 			This object reads the input from the Administrator.\\ %double check this one!
-		InvalidInputErrorNotice & 
+		
+		\cllabel{invalid-input-error-notice}\clref{invalid-input-error-notice} & Invalid\-Input\-Error\-Notice & 
 			This object displays a notice to the Administrator stating that the input given was invalid.\\
-		EditProjectNameOption & 
+		
+		\cllabel{edit-project-name-option}\clref{edit-project-name-option} & Edit\-Project\-Name\-Option & 
 			This object reads the input from the Administrator for the new Project Name field.\\
-		ProjectNameUpdateNotice & 
+		
+		\cllabel{project-name-update-notice}\clref{project-name-update-notice} & Project\-Name\-Update\-Notice & 
 			This object displays a notice to the Administrator stating that the updating/setting of the Project name has been successful.\\
-		ProjectExistsErrorNotice & 
+		
+		\cllabel{project-exists-error-notice}\clref{project-exists-error-notice} & Project\-Exists\-Error\-Notice & 
 			This object displays a notice to teh Administrator stating that the desired Project name has already been taken.\\
-		EditGroupSizeOption & 
+		
+		\cllabel{edit-group-size-option}\clref{edit-group-size-option} & Edit\-Group\-Size\-Option & 
 			This object reads the input from the Administrator for the Maximum and Minimum group size fields.\\
-		GroupSizeUpdateNotice & 
+		
+		\cllabel{group-size-update-notice}\clref{group-size-update-notice} & Group\-Size\-Update\-Notice & 
 			This object displays a notice to the Administrator stating that the group size has been successfully updated.\\
-		InvalidGroupSizeErrorNotice & 
+		
+		\cllabel{invalid-group-size-error-notice}\clref{invalid-group-size-error-notice} & Invalid\-Group\-Size\-Error\-Notice & 
 			This object displays a notice to the Administrator stating that the given value for the group size is invalid.\\
-		StorageErrorNotice & 
+		
+		\cllabel{storage-error-notice}\clref{storage-error-notice} & Storage\-Error\-Notice & 
 			This object displays a notice to the User stating that there was an error with the request to the Storage.\\
-		StorageReadErrorNotice & 
+		
+		\cllabel{storage-read-error-notice}\clref{storage-read-error-notice} & Storage\-Read\-Error\-Notice & 
 			This object displays a notice to the User stating that there was an error with regards to reading a file from Storage.\\
-		StorageOpenErrorNotice & 
+		
+		\cllabel{storage-open-error-notice}\clref{storage-open-error-notice} & Storage\-Open\-Error\-Notice & 
 			This object displays a notice to the User stating that there was an error with regards to opening the Storage.\\
-		StorageWriteErrorNotice & 
+		
+		\cllabel{storage-write-error-notice}\clref{storage-write-error-notice} & Storage\-Write\-Error\-Notice & 
 			This object displays a notice to the User stating that there was an error with regards to writing to the Storage.\\
 \end{tabu}
 \end{center}
