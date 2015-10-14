@@ -1449,7 +1449,7 @@ a short but detailed definition of each.
 				\item id
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{User} that has the ability to access the cuPID system. Applies to \\
+		A \textbf{User} that has the ability to access the cuPID system. Applies to \ucref{invalid-input-error}, \ucref{storage-error}, \ucref{storage-read-error}, \ucref{storage-open-error}, \ucref{storage-write-error} \\
 		
 		\cllabel{student}\clref{student} & Student & 
 		\begin{minipage}[t]{\linewidth}
@@ -1459,11 +1459,11 @@ a short but detailed definition of each.
 				\item projects
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Student} is a specific type of User that can create/edit their Profiles and join/leave existing Projects. Applies to \ucref{manage-enrollment}, \ucref{edit-profile} \\
+		A \textbf{Student} is a specific type of User that can create/edit their Profiles and join/leave existing Projects. Applies to \ucref{manage-enrollment}, \ucref{edit-profile}, \ucref{join-project}, \ucref{leave-project}, \ucref{edit-personal-values}, \ucref{edit-desired-values} \\
 		
 		\cllabel{administrator}\clref{administrator} & Administrator & 
 		&
-		An \textbf{Administrator} is a specific type of user that can create/edit projects and run/view results of the PPID. Applies to \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details} \\
+		An \textbf{Administrator} is a specific type of user that can create/edit projects and run/view results of the PPID. Applies to \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details}, \ucref{edit-project}, \ucref{insufficient-students-error}, \ucref{edit-project-name}, \ucref{project-exists-error}, \ucref{edit-group-size}, \ucref{invalid-group-size-error} \\
 
 		\cllabel{group}\clref{group} & Group & 
 		\begin{minipage}[t]{\linewidth}
@@ -1481,7 +1481,7 @@ a short but detailed definition of each.
 				\item groupSize
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}. Applies to \ucref{manage-enrollment}, \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details} \\
+		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}. Applies to \ucref{manage-enrollment}, \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details}, \ucref{edit-project}, \ucref{join-project}, \ucref{leave-project}, \ucref{edit-project-name}, \ucref{project-exists-error}, \ucref{edit-group-size}, \ucref{invalid-group-size-error} \\
 
 		\cllabel{profile}\clref{profile} & Profile & 
 		\begin{minipage}[t]{\linewidth}
@@ -1489,7 +1489,7 @@ a short but detailed definition of each.
 				\item details
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Profile} is a set of responses maintained by each Student. These values are the necessary input for the PPID algorithm to run. Applies to \ucref{edit-profile} \\
+		A \textbf{Profile} is a set of responses maintained by each Student. These values are the necessary input for the PPID algorithm to run. Applies to \ucref{edit-profile}, \ucref{edit-personal-values}, \ucref{edit-desired-values} \\
 	\end{tabu}
 \end{table}
 
