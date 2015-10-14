@@ -15,6 +15,9 @@
 
 \begin{document}
 
+\newcounter{classnum}
+\renewcommand{\theclassnum}
+
 \renewcommand\headrule{}
 
 \pagestyle{fancy}
@@ -373,13 +376,14 @@ idea of how things are situated, detailed use cases are much more informative be
 an {\it Administrator} can {\it ManageProject}, but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
 section. 
 
-The below figure and table, {\bf Figure 2} and \tableref{detailed-uc-administrator}, cover the use cases that concern the {\it Administrator}. With a quick glance of the below diagram, we can see that {\it ManageProject} actually covers a 
+The below figure and table, \figureref{detailed-admin-uc} and \tableref{detailed-uc-administrator}, cover the use cases that concern the {\it Administrator}. With a quick glance of the below diagram, we can see that {\it ManageProject} actually covers a
 great many details including {\it EditProject} and {\it CreateNewProject}! Note that we denote error cases with an <<extend>> relationship.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.26]{imgs/detailed-administrator-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Administrator}
+	\figurelabel{detailed-admin-uc}
 \end{figure}
 The next table, \tableref{detailed-uc-administrator} contains all the information about each particular use case for the {\it Administrator}, though forgoing the actual relationships. A unique identifier for each use case is also assignment here.. %CHANGE THIS PARAGRAPH
 
@@ -397,7 +401,7 @@ The next table, \tableref{detailed-uc-administrator} contains all the informatio
 	\end{tabu}
 \end{table}
 
-The following figure, {\bf Figure 3}, outlines the use cases and their relationships with each other for the {\it Student User}. Note here that the {\it Student} has far fewer possible use cases
+The following figure, \figureref{detailed-student-uc}, outlines the use cases and their relationships with each other for the {\it Student User}. Note here that the {\it Student} has far fewer possible use cases
 as compared to the {\it Administrator} - there are only two major things that {\it Students} can do: edit their profile, and manage their enrollment in projects. They have no 
 access to finer details such as project settings. 
 
@@ -405,6 +409,7 @@ access to finer details such as project settings.
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/detailed-student-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Student}
+	\figurelabel{detailed-student-uc}
 \end{figure}
 
 \newpage{}
@@ -423,17 +428,17 @@ Please also note that we have decided to not include any error cases in this par
 	\end{tabu}
 \end{table}
 
-The following diagram, {\bf Figure 4}, displays the possible ways each user can input into the system and their associated errors. Note that for most of the cases, the inputs are value-based and thus
+The following diagram, \figureref{detailed-user-input-uc}, displays the possible ways each user can input into the system and their associated errors. Note that for most of the cases, the inputs are value-based and thus
 all refer to the same {\it InvalidInputError} use case.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/detailed-user-input-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - User Input}
+	\figurelabel{detailed-user-input-uc}
 \end{figure}
 
-\tableref{detailed-uc-user-input}, the following table, pulls the use cases from {\bf Figure 4} and provides both a detailed description and a unique identifier for each. That said, please note that several of the cases present in {\bf Figure 4}
-are absent in this table - {\it EditPersonalValues}, {\it EditDesiredValues}, and {\it EditProjectDetails} all have already been described in \tableref{detailed-uc-administrator} and \tableref{detailed-uc-student}.
+\tableref{detailed-uc-user-input}, the following table, pulls the use cases from \figureref{detailed-user-input-uc} and provides both a detailed description and a unique identifier for each. That said, please note that several of the cases present in \figureref{detailed-user-input-uc} are absent in this table - {\it EditPersonalValues}, {\it EditDesiredValues}, and {\it EditProjectDetails} all have already been described in \tableref{detailed-uc-administrator} and \tableref{detailed-uc-student}.
 
 \begin{table}[H]
 	\caption{Detailed Use Case Descriptions - User Input}\tablelabel{detailed-uc-user-input}
@@ -447,13 +452,14 @@ are absent in this table - {\it EditPersonalValues}, {\it EditDesiredValues}, an
 	\end{tabu}
 \end{table}
 
-The following diagram, {\bf Figure 5}, shows which use cases, for both the {\it Administrator} and the {\it Student} Users, can trigger the {\it StorageError} use case. In other words, which of the 
+The following diagram, \figureref{detailed-common-error-uc}, shows which use cases, for both the {\it Administrator} and the {\it Student} Users, can trigger the {\it StorageError} use case. In other words, which of the 
 priorly mentioned use cases interact with reading files, writing files, and opening the Storage.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/detailed-common-error-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Common Errors}
+	\figurelabel{detailed-common-error-uc}
 \end{figure}
 
 The table below, \tableref{detailed-uc-common-errors}, covers all the the descriptions and assignment of unique identifiers for the storage-related error use cases. Note that the first use case in this table, {\it StorageError}, is a generalization
@@ -1435,7 +1441,7 @@ objects interact with one another, either calling each other or simply getting c
 
 \subsubsection*{Entity Objects}
 
-Entity objects are objects that contain persistent information that other objects can access or modify. The following diagram, {\bf Figure 6}, is an Entity Object Diagram
+Entity objects are objects that contain persistent information that other objects can access or modify. The following diagram, \figureref{entity-obj}, is an Entity Object Diagram
 that showcases the different relationships between the entities of this software. For example, Student and Administrator both inherit from User, whereas Students 'have-a'
 profile.
 
@@ -1443,6 +1449,7 @@ profile.
 	\centering{}
 	\includegraphics[scale=0.35]{imgs/entity-object-diagram.png}
 	\caption{Entity Objects Diagram}
+	\figurelabel{entity-obj}
 \end{figure}
 
 The following table, \tableref{entity-odd}, is the Data Dictionary for the Entity Objects. Here, we list out all the attributes and associations for each of the entity objects, as well as provide
@@ -1522,8 +1529,7 @@ For example, if something erroneous has occured, it is the boundary objects that
 
 \subsubsection*{Control and boundary objects for ManageEnrollment (\manageenrollment{}):}
 
-The following figure, {\bf Figure 7}, handles the interactions between the control object, {\it ManageEnrollmentControl}, and the corresponding
-boundary objects, {\it ProjectListNotice, EnrollmentOption}, and {\it ProjectSelectionOption}. The control object here manages \manageenrollment{},
+The following figure, \figureref{cbo-manage-enrollment}, handles the interactions between the control object, {\it ManageEnrollmentControl}, and the corresponding boundary objects, {\it ProjectListNotice, EnrollmentOption}, and {\it ProjectSelectionOption}. The control object here manages \manageenrollment{},
 ManageEnrollment.
 
 \vspace{1em}
@@ -1532,11 +1538,12 @@ ManageEnrollment.
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/manage-enrollment.png}
 	\caption{Control/Boundary Objects for ManageEnrollment}
+	\figurelabel{cbo-manage-enrollment}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditProfile (\editprofile{}):}
 
-The following figure, {\bf Figure 8}, handles the interactions between the control object, {\it EditProfileControl}, and the corresponding
+The following figure, \figureref{cbo-edit-profile}, handles the interactions between the control object, {\it EditProfileControl}, and the corresponding
 boundary object, {\it ProfileObject}. The control object here manages \editprofile{}, EditProfile.
 
 \vspace{1em}
@@ -1545,12 +1552,12 @@ boundary object, {\it ProfileObject}. The control object here manages \editprofi
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/edit-profile.png}
 	\caption{Control/Boundary Objects for EditProfile}
+	\figurelabel{cbo-edit-profile}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for ManageProject (\manageproject{}):}
 
-The following figure, {\bf Figure 9}, handles the interactions between the control object, {\it ManageProjectControl}, and the corresponding
-boundary objects, {\it ManageOption, ProjectListNotice,} and {\it ProjectSelectionOption}. The control object here manages \manageproject{}, ManageProject.
+The following figure, \figureref{cbo-edit-manage-project}, handles the interactions between the control object, {\it ManageProjectControl}, and the corresponding boundary objects, {\it ManageOption, ProjectListNotice,} and {\it ProjectSelectionOption}. The control object here manages \manageproject{}, ManageProject.
 
 \vspace{1em}
 
@@ -1558,49 +1565,49 @@ boundary objects, {\it ManageOption, ProjectListNotice,} and {\it ProjectSelecti
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/manage-project.png}
 	\caption{Control/Boundary Objects for ManageProject}
+	\figurelabel{cbo-edit-manage-project}
 \end{figure}
 
 \newpage{}
 
 \subsubsection*{Control and boundary objects for CreateNewProject (\createnewproject{}):}
 
-The following figure, {\bf Figure 10}, handles the interactions between the control object, {\it CreateNewProjectControl}, and the corresponding
-boundary objects, {\it ProjectDetailsForm} and {\it ProjectCreateNotice}. The control object here manages \createnewproject{}, CreateNewProject.
+The following figure, \figureref{cbo-create-new-project}, handles the interactions between the control object, {\it CreateNewProjectControl}, and the corresponding boundary objects, {\it ProjectDetailsForm} and {\it ProjectCreateNotice}. The control object here manages \createnewproject{}, CreateNewProject.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/create-new-project.png}
 	\caption{Control/Boundary Objects for CreateNewProject}
+	\figurelabel{cbo-create-new-project}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for LaunchPPID (\launchppid{}):}
 
-The following figure, {\bf Figure 11}, handles the interactions between the control object, {\it LaunchPPIDControl}, the corresponding
-boundary object, {\it PPIDCompleteNotice}, and the entity object, {\it Project}. The control object here manages \launchppid{}, LaunchPPID.
+The following figure, \figureref{cbo-launch-ppid}, handles the interactions between the control object, {\it LaunchPPIDControl}, the corresponding boundary object, {\it PPIDCompleteNotice}, and the entity object, {\it Project}. The control object here manages \launchppid{}, LaunchPPID.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/launch-ppid.png}
 	\caption{Control/Boundary Objects for LaunchPPID}
+	\figurelabel{cbo-launch-ppid}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for InsufficientStudentsError (\insufficientstudentserror{}):}
 
-The following figure, {\bf Figure 12}, handles the interactions between the control objects, {\it LaunchPPIDControl} and {\it InsufficientStudentsErrorControl}, 
-and the corresponding boundary object, {\it InsufficientStudentErrorNotice}. The control object here manages \insufficientstudentserror{}, InsufficientStudentsError.
+The following figure, \figureref{cbo-insufficient-students-error}, handles the interactions between the control objects, {\it LaunchPPIDControl} and {\it InsufficientStudentsErrorControl}, and the corresponding boundary object, {\it InsufficientStudentErrorNotice}. The control object here manages \insufficientstudentserror{}, InsufficientStudentsError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/insufficient-students-error.png}
 	\caption{Control/Boundary Objects for InsufficientStudentsError}
+	\figurelabel{cbo-insufficient-students-error}
 \end{figure}
 
 \newpage{}
 
 \subsubsection*{Control and boundary objects for ViewPPIDResults (\viewppidresults{}):}
 
-The following figure, {\bf Figure 13}, handles the interactions between the control object, {\it ViewPPIDResultsControl} and the corresponding boundary object, 
-{\it ResultsOption}. The control object here manages \viewppidresults{}, ViewPPIDResults.
+The following figure, \figureref{cbo-view-ppid-results}, handles the interactions between the control object, {\it ViewPPIDResultsControl} and the corresponding boundary object, {\it ResultsOption}. The control object here manages \viewppidresults{}, ViewPPIDResults.
 
 \vspace{1em}
 
@@ -1608,11 +1615,12 @@ The following figure, {\bf Figure 13}, handles the interactions between the cont
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/view-ppid-results.png}
 	\caption{Control/Boundary Objects for ViewPPIDResults}
+	\figurelabel{cbo-view-ppid-results}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for ViewPPIDSummary (\viewppidsummary{}):}
 
-The following figure, {\bf Figure 14}, handles the interactions between the control object, {\it ViewPPIDSummaryControl}, the corresponding boundary object, 
+The following figure, \figureref{cbo-view-ppid-summary}, handles the interactions between the control object, {\it ViewPPIDSummaryControl}, the corresponding boundary object, 
 {\it SummaryResultsNotice}, and the entity object, {\it Project}. The control object here manages \viewppidsummary{}, ViewPPIDSummary.
 
 \vspace{1em}
@@ -1621,11 +1629,12 @@ The following figure, {\bf Figure 14}, handles the interactions between the cont
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/view-ppid-summary.png}
 	\caption{Control/Boundary Objects for ViewPPIDSummary}
+	\figurelabel{cbo-view-ppid-summary}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for ViewPPIDDetails (\viewppiddetails{}):}
 
-The following figure, {\bf Figure 15}, handles the interactions between the control object, {\it ViewPPIDDetailsControl}, the corresponding boundary object, 
+The following figure, \figureref{cbo-view-ppid-details}, handles the interactions between the control object, {\it ViewPPIDDetailsControl}, the corresponding boundary object, 
 {\it DetailsResultsNotice}, and the entity object, {\it Project}. The control object here manages \viewppiddetails{}, ViewPPIDDetails.
 
 \vspace{1em}
@@ -1634,181 +1643,190 @@ The following figure, {\bf Figure 15}, handles the interactions between the cont
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/view-ppid-details.png}
 	\caption{Control/Boundary Objects for ViewPPIDDetails}
+	\figurelabel{cbo-view-ppid-details}
 \end{figure}
 
 \newpage{}
 
 \subsubsection*{Control and boundary objects for EditProjectDetails (\editprojectdetails{}):}
 
-The following figure, {\bf Figure 16}, handles the interactions between the control object, {\it EditProjectDetailsControl}, the corresponding boundary objects, 
+The following figure, \figureref{cbo-edit-project-details}, handles the interactions between the control object, {\it EditProjectDetailsControl}, the corresponding boundary objects, 
 {\it ProjectDetailsForm} and {\it DetailsUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editprojectdetails{}, EditProjectDetails.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/edit-project-details.png}
-	\caption{Control/Boundary Objects for EditProjectDetails}    
+	\caption{Control/Boundary Objects for EditProjectDetails}
+	\figurelabel{cbo-edit-project-details}  
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditProject (\editproject{}):}
 
-The following figure, {\bf Figure 17}, handles the interactions between the control object, {\it EditProjectControl} and the corresponding boundary objects, 
+The following figure, \figureref{cbo-edit-project}, handles the interactions between the control object, {\it EditProjectControl} and the corresponding boundary objects, 
 {\it ProjectDetailsForm} and {\it DetailsUpdateNotice}. The control object here manages \editproject{}, EditProject.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/edit-project.png}
-	\caption{Control/Boundary Objects for EditProject}    
+	\caption{Control/Boundary Objects for EditProject}
+	\figurelabel{cbo-edit-project}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for JoinProject (\joinproject{}):}
 
-The following figure, {\bf Figure 18}, handles the interactions between the control object, {\it JoinProjectControl}, the corresponding boundary objects, 
+The following figure, \figureref{cbo-join-project}, handles the interactions between the control object, {\it JoinProjectControl}, the corresponding boundary objects, 
 {\it EnrollmentOption} and {\it JoinCompleteNotice}, and the entity object, {\it Project}. The control object here manages \joinproject{}, JoinProject.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/join-project.png}
-	\caption{Control/Boundary Objects for JoinProject}    
+	\caption{Control/Boundary Objects for JoinProject}
+	\figurelabel{cbo-join-project}    
 \end{figure}
 
 \newpage{}
 
 \subsubsection*{Control and boundary objects for LeaveProject (\leaveproject{}):}
 
-The following figure, {\bf Figure 19}, handles the interactions between the control object, {\it LeaveProjectControl}, the corresponding boundary objects, 
+The following figure, \figureref{cbo-leave-project}, handles the interactions between the control object, {\it LeaveProjectControl}, the corresponding boundary objects, 
 {\it ProjectDetailsForm} and {\it LeaveCompleteNotice}, and the entity object, {\it Project}. The control object here manages \leaveproject{}, LeaveProject.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/leave-project.png}
-	\caption{Control/Boundary Objects for LeaveProject}    
+	\caption{Control/Boundary Objects for LeaveProject}
+	\figurelabel{cbo-leave-project}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditPersonalValues (\editpersonalvalues{}):}
 
-The following figure, {\bf Figure 20}, handles the interactions between the control object, {\it EditPersonalValues}, the corresponding boundary objects, 
-{\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editpersonalvalues{}, EditPersonalValues.
+The following figure, \figureref{cbo-edit-personal-values}, handles the interactions between the control object, {\it EditPersonalValues}, the corresponding boundary objects, {\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editpersonalvalues{}, EditPersonalValues.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/edit-personal-values.png}
-	\caption{Control/Boundary Objects for EditPersonalValues}    
+	\caption{Control/Boundary Objects for EditPersonalValues}
+	\figurelabel{cbo-edit-personal-values}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditDesiredValues (\editdesiredvalues{}):}
 
-The following figure, {\bf Figure 21}, handles the interactions between the control object, {\it EditDesiredValues}, the corresponding boundary objects, 
-{\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editdesiredvalues{}, EditDesiredValues.
+The following figure, \figureref{cbo-edit-desired-values}, handles the interactions between the control object, {\it EditDesiredValues}, the corresponding boundary objects, {\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editdesiredvalues{}, EditDesiredValues.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/edit-desired-values.png}
-	\caption{Control/Boundary Objects for EditDesiredValues}    
+	\caption{Control/Boundary Objects for EditDesiredValues}
+	\figurelabel{cbo-edit-desired-values}
 \end{figure}
 
 \newpage{}
 
 \subsubsection*{Control and boundary objects for InvalidInputError (\invalidinputerror{}):}
 
-The following figure, {\bf Figure 22}, handles the interactions between the control object, {\it InvalidInputErrorControl} and the corresponding boundary objects, 
-{\it InputOption} and {\it InvalidInputErrorNotice}. The control object here manages \invalidinputerror{}, InvalidInputError.
+The following figure, \figureref{cbo-invalid-input-error}, handles the interactions between the control object, {\it InvalidInputErrorControl} and the corresponding boundary objects, {\it InputOption} and {\it InvalidInputErrorNotice}. The control object here manages \invalidinputerror{}, InvalidInputError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/invalid-input-error.png}
-	\caption{Control/Boundary Objects for InvalidInputError}    
+	\caption{Control/Boundary Objects for InvalidInputError}
+	\figurelabel{cbo-invalid-input-error}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for EditProjectName (\editprojectname{}):}
 
-The following figure, {\bf Figure 23}, handles the interactions between the control object, {\it EditProjectNameControl}, the corresponding boundary objects, 
-{\it EditProjectNameOption} and {\it ProjectNameUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editprojectname{}, EditProjectName.
+The following figure, \figureref{cbo-edit-project-name}, handles the interactions between the control object, {\it EditProjectNameControl}, the corresponding boundary objects, {\it EditProjectNameOption} and {\it ProjectNameUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editprojectname{}, EditProjectName.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/edit-project-name.png}
-	\caption{Control/Boundary Objects for EditProjectName}    
+	\caption{Control/Boundary Objects for EditProjectName}
+	\figurelabel{cbo-edit-project-name}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for ProjectExistsError (\projectexistserror{}):}
 
-The following figure, {\bf Figure 24}, handles the interactions between the control objects, {\it EditProjectDetailsControl} and {\it ProjectExistsErrorControl}, and the corresponding boundary object, 
-{\it ProjectExistsErrorNotice}. The control object here manages \projectexistserror{}, ProjectExistsError.
+The following figure, \figureref{cbo-project-exists-error}, handles the interactions between the control objects, {\it EditProjectDetailsControl} and {\it ProjectExistsErrorControl}, and the corresponding boundary object, {\it ProjectExistsErrorNotice}. The control object here manages \projectexistserror{}, ProjectExistsError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/project-exists-error.png}
-	\caption{Control/Boundary Objects for ProjectExistsError}    
+	\caption{Control/Boundary Objects for ProjectExistsError}
+	\figurelabel{cbo-project-exists-error}
 \end{figure}
 
 \newpage{}
 
 \subsubsection*{Control and boundary objects for EditGroupSize (\editgroupsize{}):}
 
-The following figure, {\bf Figure 25}, handles the interactions between the control object, {\it EditGroupSizeControl}, the corresponding boundary objects, 
+The following figure, \figureref{cbo-edit-group-size}, handles the interactions between the control object, {\it EditGroupSizeControl}, the corresponding boundary objects, 
 {\it EditGroupSizeOption} and {\it GroupSizeUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editgroupsize{}, EditGroupSize.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/edit-group-size.png}
 	\caption{Control/Boundary Objects for EditGroupSize}
+	\figurelabel{cbo-edit-group-size}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for InvalidGroupSizeError (\invalidgroupsizeerror{}):}
 
-The following figure, {\bf Figure 26}, handles the interactions between the control objects, {\it EditGroupSizeControl} and {\it InvalidGroupSizeErrorControl}, and the corresponding boundary object, 
-{\it InvalidGroupSizeErrorNotice}. The control object here manages \invalidgroupsizeerror{}, InvalidGroupSizeError.
+The following figure, \figureref{cbo-invalid-group-size}, handles the interactions between the control objects, {\it EditGroupSizeControl} and {\it InvalidGroupSizeErrorControl}, and the corresponding boundary object, {\it InvalidGroupSizeErrorNotice}. The control object here manages \invalidgroupsizeerror{}, InvalidGroupSizeError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/invalid-group-size-error.png}
 	\caption{Control/Boundary Objects for InvalidGroupSizeError}
+    \figurelabel{cbo-invalid-group-size}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for StorageError (\storageerror{}):}
 
-The following figure, {\bf Figure 27}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageErrorControl}, and the corresponding boundary object, 
+The following figure, \figureref{cbo-storage-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageErrorControl}, and the corresponding boundary object, 
 {\it StorageErrorNotice}. The control object here manages \storageerror{}, StorageError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/storage-error.png}
 	\caption{Control/Boundary Objects for StorageError}
+	\figurelabel{cbo-storage-error}
 \end{figure}
 
 \newpage{}
 
 \subsubsection*{Control and boundary objects for StorageReadError (\storagereaderror{}):}
 
-The following figure, {\bf Figure 28}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageReadErrorControl}, and the corresponding boundary object, 
+The following figure, \figureref{cbo-storage-read-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageReadErrorControl}, and the corresponding boundary object, 
 {\it StorageReadErrorNotice}. The control object here manages \storagereaderror{}, StorageReadError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/storage-read-error.png}
 	\caption{Control/Boundary Objects for StorageReadError}
+	\figurelabel{cbo-storage-read-error}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for StorageOpenError (\storageopenerror{}):}
 
-The following figure, {\bf Figure 29}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageOpenErrorControl}, and the corresponding boundary object, 
+The following figure, \figureref{cbo-storage-open-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageOpenErrorControl}, and the corresponding boundary object, 
 {\it StorageOpenErrorNotice}. The control object here manages \storageopenerror{}, StorageOpenError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/storage-open-error.png}
 	\caption{Control/Boundary Objects for StorageOpenError}
+	\figurelabel{cbo-storage-open-error}
 \end{figure}
 
 \subsubsection*{Control and boundary objects for StorageWriteError (\storagewriteerror{}):}
 
-The following figure, {\bf Figure 30}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageWriteErrorControl}, and the corresponding boundary object, 
-{\it StorageWriteErrorNotice}. The control object here manages \storagewriteerror{}, StorageWriteError.
+The following figure, \figureref{cbo-storage-write-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageWriteErrorControl}, and the corresponding boundary object, {\it StorageWriteErrorNotice}. The control object here manages \storagewriteerror{}, StorageWriteError.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.37]{imgs/cbod/storage-write-error.png}
 	\caption{Control/Boundary Objects for StorageWriteError}
+	\figurelabel{cbo-storage-write-error}
 \end{figure}
 
 The following table, \tableref{control-odd}, is the Data Dictionary for the control objects. It contains all the control objects shown in the above diagrams, each coupled with a very detailed definition. 
@@ -2025,86 +2043,107 @@ machines only concern entity objects for this particular project.
 
 \subsubsection*{State Machines for User/Student/Administrator:}
 
-The following diagram, {\bf Figure 31}, represents a state machine for any type of User object. Shown here is the different states involved in logging in/logging out.
+The following diagram, \figureref{sm-user-student-administrator}, represents a state machine for any type of User object. Shown here is the different states involved in logging in/logging out.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/user-log-in.png}
 	\caption{State Machine for User/Student/Administrator Log in}
+	\figurelabel{sm-user-student-administrator}
 \end{figure}
 
 \subsubsection*{State Machines for Student:}
 
-The following diagram, {\bf Figure 32}, represents a state machine for the Student object. Shown here is the different states involved in the joining of Projects.
+The following diagram, \figureref{sm-student-join-project}, represents a state machine for the Student object. Shown here is the different states involved in the joining of Projects.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/student-join-project.png}
 	\caption{State Machine for Student Join Project}
+	\figurelabel{sm-student-join-project}
 \end{figure}
 
-\noindent The following diagram, {\bf Figure 33}, represents a state machine for the Student object. Shown here is the different states involved in the leaving of Projects.
+<<<<<<< Updated upstream
+\noindent The following diagram, \figureref{sm-student-leave-project}, represents a state machine for the Student object. Shown here is the different states involved in the leaving of Projects.
+=======
+The following diagram, \figureref{sm-student-leave-project}, represents a state machine for the Student object. Shown here is the different states involved in the leaving of Projects.
+>>>>>>> Stashed changes
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/student-leave-project.png}
 	\caption{State Machine for Student Leave Project}
+	\figurelabel{sm-student-leave-project}
 \end{figure}
 
 \subsubsection*{State Machines for Profile:}
 
-The following diagram, {\bf Figure 34}, represents a state machine for the Profile object. Shown here is the different states involved in managing profile details.
+The following diagram, \figureref{sm-profile-details}, represents a state machine for the Profile object. Shown here is the different states involved in managing profile details.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/profile-details.png}
 	\caption{State Machine for Profile Details}
+	\figurelabel{sm-profile-details}
 \end{figure}
 
 \subsubsection*{State Machines for Project:}
 
-The following diagram, {\bf Figure 35}, represents a state machine for the Project object. Shown here is the different states involved in the adding and removing Students.
+The following diagram, \figureref{sm-project-student-enrollment}, represents a state machine for the Project object. Shown here is the different states involved in the adding and removing Students.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/project-enrollment.png}
 	\caption{State Machine for Project Student Enrollment}
+	\figurelabel{sm-project-student-enrollment}
 \end{figure}
 
+<<<<<<< Updated upstream
 \noindent The following diagram, {\bf Figure 36}, represents a state machine for the Project object. Shown here is the different states involved in the setting of a Project's name.
+=======
+The following diagram, \figureref{sm-project-name}, represents a state machine for the Project object. Shown here is the different states involved in the setting of a Project's name.
+>>>>>>> Stashed changes
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/project-name.png}
 	\caption{State Machine for Project Name}
+	\figurelabel{sm-project-name}
 \end{figure}
 
+<<<<<<< Updated upstream
 \noindent The following diagram, {\bf Figure 37}, represents a state machine for the Project object. Shown here is the different states involved in showing the results of/running the PPID.
+=======
+The following diagram, \figureref{sm-project-ppid-results}, represents a state machine for the Project object. Shown here is the different states involved in showing the results of/running the PPID.
+>>>>>>> Stashed changes
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/project-ppid-results.png}
 	\caption{State Machine for Project PPID Results}
+	\figurelabel{sm-project-ppid-results}
 \end{figure}
 
 \subsubsection*{State Machines for Group:}
 
-The following diagram, {\bf Figure 38}, represents a state machine for the Group object. Shown here is the different states involved in adding/enrolling students into Groups.
+The following diagram, \figureref{sm-group-enrollment}, represents a state machine for the Group object. Shown here is the different states involved in adding/enrolling students into Groups.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/group-enrollment.png}
 	\caption{State Machine for Group Enrollment}
+	\figurelabel{sm-group-enrollment}
 \end{figure}
 
 \subsubsection*{State Machines for GroupSize:}
 
-The following diagram, {\bf Figure 39}, represents a state machine for the GroupSize object. Shown here is the different states involved in updating/setting a new value for the GroupSize.
+The following diagram, \figureref{sm-group-size-value}, represents a state machine for the GroupSize object. Shown here is the different states involved in updating/setting a new value for the GroupSize.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/state/group-size-value.png}
 	\caption{State Machine for GroupSize Value}
+	\figurelabel{sm-group-size-value}
 \end{figure}
 
 \subsubsection*{Sequence Diagrams}
@@ -2115,7 +2154,7 @@ and destroyed after fulfilling their purpose.
 
 \subsubsection*{Sequence diagram for ManageEnrollment (\manageenrollment{}):}
 
-The following figure, {\bf Figure 31}, shows the sequence diagram for the {\it ManageEnrollment} use case. The participating actor for this use case
+The following figure, \figureref{seq-manage-enrollment}, shows the sequence diagram for the {\it ManageEnrollment} use case. The participating actor for this use case
 is the Student user. This figure shows the necessary interactions between the control object, {\it LaunchPPIDControl}, and the entity/boundary objects
 in order to manage \manageenrollment{}.
 
@@ -2123,11 +2162,12 @@ in order to manage \manageenrollment{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/manage-enrollment.png}
 	\caption{Sequence Diagram for ManageEnrollment}
+	\figurelabel{seq-manage-enrollment}
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditProfile (\editprofile{}):}
 
-The following figure, {\bf Figure 32}, shows the sequence diagram for the {\it EditProfile} use case. The participating actor for this use case is the 
+The following figure, {seq-edit-profile}, shows the sequence diagram for the {\it EditProfile} use case. The participating actor for this use case is the 
 Student user. This figure shows the necessary interactions between the control object, {\it EditProfileControl}, and the entity/boundary objects
 in order to manage \editprofile{}.
 
@@ -2135,11 +2175,12 @@ in order to manage \editprofile{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-profile.png}
 	\caption{Sequence Diagram for EditProfile}
+	\figurelabel{seq-edit-profile}
 \end{figure}
 
 \subsubsection*{Sequence diagram for ManageProject (\manageproject{}):}
 
-The following figure, {\bf Figure 33}, shows the sequence diagram for the {\it ManageProject} use case. The participating actor for this use case is the
+The following figure, \figureref{seq-manage-project}, shows the sequence diagram for the {\it ManageProject} use case. The participating actor for this use case is the
 Student user. This figure shows the necessary interactions between the control object, {\it ManageProjectControl}, and the entity/boundary objects 
 in order to manage \manageproject{}.
 
@@ -2147,11 +2188,12 @@ in order to manage \manageproject{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/manage-project.png}
 	\caption{Sequence Diagram for ManageProject}
+	\figurelabel{seq-manage-project}
 \end{figure}
 
 \subsubsection*{Sequence diagram for CreateNewProject (\createnewproject{}):}
 
-The following figure, {\bf Figure 34}, shows the sequence diagram for the {\it CreateNewProject} use case. The participating actor for this use case is
+The following figure, \figureref{seq-create-new-project}, shows the sequence diagram for the {\it CreateNewProject} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it CreateNewProjectControl}, and the
 entity/boundary objects in order to manage \createnewproject{}.
 
@@ -2159,11 +2201,12 @@ entity/boundary objects in order to manage \createnewproject{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/create-new-project.png}
 	\caption{Sequence Diagram for CreateNewProject}
+	\figurelabel{seq-create-new-project}
 \end{figure}
 
 \subsubsection*{Sequence diagram for LaunchPPID (\launchppid{}):}
 
-The following figure, {\bf Figure 35}, shows the sequence diagram for the {\it LaunchPPID} use case. The participating actor for this use case is
+The following figure, \figureref{seq-launch-ppid}, shows the sequence diagram for the {\it LaunchPPID} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it LaunchPPIDControl}, and the
 entity/boundary objects in order to manage \launchppid{}.
 
@@ -2171,11 +2214,12 @@ entity/boundary objects in order to manage \launchppid{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/launch-ppid.png}
 	\caption{Sequence Diagram for LaunchPPID}
+	\figurelabel{seq-launch-ppid}
 \end{figure}
 
 \subsubsection*{Sequence diagram for InsufficientStudentsError (\insufficientstudentserror{}):}
 
-The following figure, {\bf Figure 36}, shows the sequence diagram for the {\it InsufficientStudentsError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-insufficient-students-error}, shows the sequence diagram for the {\it InsufficientStudentsError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it InsufficientStudentsErrorControl}, and the
 entity/boundary objects in order to manage \insufficientstudentserror{}.
 
@@ -2183,11 +2227,12 @@ entity/boundary objects in order to manage \insufficientstudentserror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/insufficient-students-error.png}
 	\caption{Sequence Diagram for InsufficientStudentsError}
+	\figurelabel{seq-insufficient-students-error}
 \end{figure}
 
 \subsubsection*{Sequence diagram for ViewPPIDResults (\viewppidresults{}):}
 
-The following figure, {\bf Figure 37}, shows the sequence diagram for the {\it ViewPPIDResults} use case. The participating actor for this use case is
+The following figure, \figureref{seq-view-ppid-results}, shows the sequence diagram for the {\it ViewPPIDResults} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDResultsControl}, and the
 entity/boundary objects in order to manage \viewppidresults{}.
 
@@ -2195,11 +2240,12 @@ entity/boundary objects in order to manage \viewppidresults{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/view-ppid-results.png}
 	\caption{Sequence Diagram for ViewPPIDResults}
+	\figurelabel{seq-view-ppid-results}
 \end{figure}
 
 \subsubsection*{Sequence diagram for ViewPPIDSummary (\viewppidsummary{}):}
 
-The following figure, {\bf Figure 38}, shows the sequence diagram for the {\it ViewPPIDSummary} use case. The participating actor for this use case is
+The following figure, \figureref{seq-view-ppid-summary}, shows the sequence diagram for the {\it ViewPPIDSummary} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDSummaryControl}, and the
 entity/boundary objects in order to manage \viewppidsummary{}.
 
@@ -2207,11 +2253,12 @@ entity/boundary objects in order to manage \viewppidsummary{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/view-ppid-summary.png}
 	\caption{Sequence Diagram for ViewPPIDSummary}
+	\figurelabel{seq-view-ppid-summary}
 \end{figure}
 
 \subsubsection*{Sequence diagram for ViewPPIDDDetails (\viewppiddetails{}):}
 
-The following figure, {\bf Figure 39}, shows the sequence diagram for the {\it ViewPPIDDetails} use case. The participating actor for this use case is
+The following figure, \figureref{seq-view-ppid-details}, shows the sequence diagram for the {\it ViewPPIDDetails} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDDetailsControl}, and the
 entity/boundary objects in order to manage \viewppiddetails{}.
 
@@ -2219,11 +2266,12 @@ entity/boundary objects in order to manage \viewppiddetails{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/view-ppid-details.png}
 	\caption{Sequence Diagram for ViewPPIDDetails}
+	\figurelabel{seq-view-ppid-details}
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditProjectDetails (\editprojectdetails{}):}
 
-The following figure, {\bf Figure 40}, shows the sequence diagram for the {\it EditProjectDetails} use case. The participating actor for this use case is
+The following figure, \figureref{seq-edit-project-details}, shows the sequence diagram for the {\it EditProjectDetails} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectDetailsControl}, and the
 entity/boundary objects in order to manage \editprojectdetails{}.
 
@@ -2231,11 +2279,12 @@ entity/boundary objects in order to manage \editprojectdetails{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-project-details.png}
 	\caption{Sequence Diagram for EditProjectDetails}
+	\figurelabel{seq-edit-project-details}
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditProject (\editproject{}):}
 
-The following figure, {\bf Figure 41}, shows the sequence diagram for the {\it EditProject} use case. The participating actor for this use case is
+The following figure, \figureref{seq-edit-project}, shows the sequence diagram for the {\it EditProject} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectControl}, and the
 entity/boundary objects in order to manage \editproject{}.
 
@@ -2243,11 +2292,12 @@ entity/boundary objects in order to manage \editproject{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-project.png}
 	\caption{Sequence Diagram for EditProject}
+	\figurelabel{seq-edit-project}
 \end{figure}
 
 \subsubsection*{Sequence diagram for JoinProject (\joinproject{})}
 
-The following figure, {\bf Figure 42}, shows the sequence diagram for the {\it JoinProject} use case. The participating actor for this use case is
+The following figure, \figureref{seq-join-project}, shows the sequence diagram for the {\it JoinProject} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it JoinProjectControl}, and the
 entity/boundary objects in order to manage \joinproject{}.
 
@@ -2255,11 +2305,12 @@ entity/boundary objects in order to manage \joinproject{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/join-project.png}
 	\caption{Sequence Diagram for JoinProject}
+	\figurelabel{seq-join-project}
 \end{figure}
 
 \subsubsection*{Sequence diagram for LeaveProject (\leaveproject{})}
 
-The following figure, {\bf Figure 43}, shows the sequence diagram for the {\it LeaveProject} use case. The participating actor for this use case is
+The following figure, \figureref{seq-leave-project}, shows the sequence diagram for the {\it LeaveProject} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it LeaveProjectControl}, and the
 entity/boundary objects in order to manage \leaveproject{}.
 
@@ -2267,11 +2318,12 @@ entity/boundary objects in order to manage \leaveproject{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/leave-project.png}
 	\caption{Sequence Diagram for LeaveProject}
+	\figurelabel{seq-leave-project}
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditPersonalValues (\editpersonalvalues{})}
 
-The following figure, {\bf Figure 44}, shows the sequence diagram for the {\it EditPersonalValues} use case. The participating actor for this use case is
+The following figure, \figureref{seq-edit-personal-values}, shows the sequence diagram for the {\it EditPersonalValues} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it EditPersonalValuesControl}, and the
 entity/boundary objects in order to manage \editpersonalvalues{}.
 
@@ -2279,11 +2331,12 @@ entity/boundary objects in order to manage \editpersonalvalues{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-personal-values.png}
 	\caption{Sequence Diagram for EditPersonalValues}
+	\figurelabel{seq-edit-personal-values}
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditDesiredValues (\editdesiredvalues{})}
 
-The following figure, {\bf Figure 45}, shows the sequence diagram for the {\it EditDesiredValues} use case. The participating actor for this use case is
+The following figure, \figureref{seq-edit-desired-values}, shows the sequence diagram for the {\it EditDesiredValues} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it EditDesiredValuesControl}, and the
 entity/boundary objects in order to manage \editdesiredvalues{}.
 
@@ -2291,11 +2344,12 @@ entity/boundary objects in order to manage \editdesiredvalues{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-desired-values.png}
 	\caption{Sequence Diagram for EditDesiredValues}
+	\figurelabel{seq-edit-desired-values}
 \end{figure}
 
 \subsubsection*{Sequence diagram for InvalidInputError (\invalidinputerror{})}
 
-The following figure, {\bf Figure 46}, shows the sequence diagram for the {\it InvalidInputError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-invalid-input-error}, shows the sequence diagram for the {\it InvalidInputError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it InvalidInputErrorControl}, and the
 entity/boundary objects in order to manage \invalidinputerror{}.
 
@@ -2303,23 +2357,24 @@ entity/boundary objects in order to manage \invalidinputerror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/invalid-input-error.png}
 	\caption{Sequence Diagram for InvalidInputError}
+	\figurelabel{seq-invalid-input-error}
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditProjectName (\editprojectname{})}
 
-The following figure, {\bf Figure 47}, shows the sequence diagram for the {\it EditProjectName} use case. The participating actor for this use case is
-the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectNameControl}, and the
+The following figure, \figureref{seq-edit-project-name}, shows the sequence diagram for the {\it EditProjectName} use case. The participating actor for this use case is the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectNameControl}, and the
 entity/boundary objects in order to manage \editprojectname{}.
 
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-project-name.png}
 	\caption{Sequence Diagram for EditProjectName}
+	\figurelabel{seq-edit-project-name}
 \end{figure}
 
 \subsubsection*{Sequence diagram for ProjectExistsError (\projectexistserror{})}
 
-The following figure, {\bf Figure 48}, shows the sequence diagram for the {\it ProjectExistsError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-project-exists-error}, shows the sequence diagram for the {\it ProjectExistsError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ProjectExistsErorrControl}, and the
 entity/boundary objects in order to manage \projectexistserror{}.
 
@@ -2327,11 +2382,12 @@ entity/boundary objects in order to manage \projectexistserror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/project-exists-error.png}
 	\caption{Sequence Diagram for ProjectExistsError}
+	\figurelabel{seq-project-exists-error}
 \end{figure}
 
 \subsubsection*{Sequence diagram for EditGroupSize (\editgroupsize{})}
 
-The following figure, {\bf Figure 49}, shows the sequence diagram for the {\it EditGroupSize} use case. The participating actor for this use case is
+The following figure, \figureref{seq-edit-group-size}, shows the sequence diagram for the {\it EditGroupSize} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it EditGroupSizeControl}, and the
 entity/boundary objects in order to manage \editgroupsize{}.
 
@@ -2339,11 +2395,12 @@ entity/boundary objects in order to manage \editgroupsize{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/edit-group-size.png}
 	\caption{Sequence Diagram for EditGroupSize}
+	\figurelabel{seq-edit-group-size}
 \end{figure}
 
 \subsubsection*{Sequence diagram for InvalidGroupSizeError (\invalidgroupsizeerror{})}
 
-The following figure, {\bf Figure 50}, shows the sequence diagram for the {\it InvalidGroupSizeError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-invalid-group-size-error}, shows the sequence diagram for the {\it InvalidGroupSizeError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it InvalidGroupSizeErrorControl}, and the
 entity/boundary objects in order to manage \invalidgroupsizeerror{}.
 
@@ -2351,11 +2408,12 @@ entity/boundary objects in order to manage \invalidgroupsizeerror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/invalid-group-size-error.png}
 	\caption{Sequence Diagram for InvalidGroupSizeError}
+	\figurelabel{seq-invalid-group-size-error}
 \end{figure}
 
 \subsubsection*{Sequence diagram for StorageError (\storageerror{})}
 
-The following figure, {\bf Figure 51}, shows the sequence diagram for the {\it StorageError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-storage-error}, shows the sequence diagram for the {\it StorageError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageErrorControl}, and the
 entity/boundary objects in order to manage \storageerror{}.
 
@@ -2363,11 +2421,12 @@ entity/boundary objects in order to manage \storageerror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/storage-error.png}
 	\caption{Sequence Diagram for StorageError}
+	\figurelabel{seq-storage-error}
 \end{figure}
 
 \subsubsection*{Sequence diagram for StorageReadError (\storagereaderror{})}
 
-The following figure, {\bf Figure 52}, shows the sequence diagram for the {\it StorageReadError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-storage-read-error}, shows the sequence diagram for the {\it StorageReadError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageReadErrorControl}, and the
 entity/boundary objects in order to manage \storagereaderror{}.
 
@@ -2375,11 +2434,12 @@ entity/boundary objects in order to manage \storagereaderror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/storage-read-error.png}
 	\caption{Sequence Diagram for StorageReadError}
+	\figurelabel{seq-storage-read-error}
 \end{figure}
 
 \subsubsection*{Sequence diagram for StorageOpenError (\storageopenerror{})}
 
-The following figure, {\bf Figure 53}, shows the sequence diagram for the {\it StorageOpenError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-storage-open-error}, shows the sequence diagram for the {\it StorageOpenError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageOpenErrorControl}, and the
 entity/boundary objects in order to manage \storageopenerror{}.
 
@@ -2387,11 +2447,12 @@ entity/boundary objects in order to manage \storageopenerror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/storage-open-error.png}
 	\caption{Sequence Diagram for StorageOpenError}
+	\figurelabel{seq-storage-open-error}
 \end{figure}
 
 \subsubsection*{Sequence diagram for StorageWriteError (\storagewriteerror{})}
 
-The following figure, {\bf Figure 54}, shows the sequence diagram for the {\it StorageWriteError} use case. The participating actor for this use case is
+The following figure, \figureref{seq-storage-write-error}, shows the sequence diagram for the {\it StorageWriteError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageWriteError}, and the
 entity/boundary objects in order to manage \storagewriteerror{}.
 
@@ -2399,6 +2460,7 @@ entity/boundary objects in order to manage \storagewriteerror{}.
 	\centering{}
 	\includegraphics[scale=0.3]{imgs/seq/storage-write-error.png}
 	\caption{Sequence Diagram for StorageWriteError}
+	\figurelabel{seq-storage-write-error}
 \end{figure}
 
 \end{document}
