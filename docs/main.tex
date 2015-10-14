@@ -1902,111 +1902,118 @@ In essence, the definition explains what each object does.
 	\begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Boundary Object & Definition\\
 		\cllabel{manage-enrollment-option}\clref{manage-enrollment-option} & Manage\-Enrollment\-Option & 
-			This object allows the Student to initiate the management of their enrollment in Projects. \\
+			This object allows the Student to initiate the management of their enrollment in Projects. Applies to \ucref{manage-enrollment}. \\
 		
 		\cllabel{project-list-notice}\clref{project-list-notice} & Project\-List\-Notice & 
-			This object is responsible for the visual output of the list of Projects to the User. It gets the required information from the Project objects and displays it.\\
+			This object is responsible for the visual output of the list of Projects to the User. It gets the required information from the Project objects and displays it. Applies to \ucref{manage-enrollment}, \ucref{manage-project}.\\
 		
 		\cllabel{enrollment-option}\clref{enrollment-option} & Enrollment\-Option & 
-			This object allows the Student to view and choose between the two enrollment options: Join or Leave.\\
+			This object allows the Student to view and choose between the two enrollment options: Join or Leave. Applies to \ucref{manage-enrollment}, \ucref{join-project}, \ucref{leave-project}. \\
 		
 		\cllabel{project-selection-option}\clref{project-selection-option} & Project\-Selection\-Option & 
-			This object reads the selected Project from the Administrator.\\
+			This object reads the selected Project from the Administrator. Applies to \ucref{manage-enrollment}, \ucref{manage-project}.\\
 		
    		\cllabel{edit-profile-option}\clref{edit-profile-option} & Edit\-Profile\-Option & 
-   			This object allows the Student to initiate the editing of their profile.\\
+   			This object allows the Student to initiate the editing of their profile. Applies to \ucref{edit-profile}. \\
 		
 		\cllabel{profile-option}\clref{profile-option} & Profile\-Option & 
-			This object allows the Student to view and choose between the two profile options: edit Personal Details or edit Desired Details.\\
+			This object allows the Student to view and choose between the two profile options: edit Personal Details or edit Desired Details. Applies to \ucref{edit-profile}, \ucref{edit-personal-values}, \ucref{edit-desired-values}. \\
 		
     		\cllabel{manage-project-option}\clref{manage-project-option} & Manage\-Project\-Option & 
-    			This object allows the Administrator to initiate the management of a Project.\\
+    			This object allows the Administrator to initiate the management of a Project. Applies to \ucref{manage-project}. \\
 		
 		\cllabel{manage-option}\clref{manage-option} & Manage\-Option & 
-			This object allows the Administrator to view and choose between two managing options: view the results of the last PPID, or edit a project. \\
+			This object allows the Administrator to view and choose between two managing options: view the results of the last PPID, or edit a project. Applies to \ucref{manage-project}. \\
 		
-		\cllabel{create-new-project-option}\clref{create-new-project-option} & Create\-New\-Proj4ect\-Option & 
-			This object allows the Administrator to initiate the process of creating a new Project.\\
+		\cllabel{create-new-project-option}\clref{create-new-project-option} & Create\-New\-Project\-Option & 
+			This object allows the Administrator to initiate the process of creating a new Project. Applies to \ucref{create-new-project}. \\
 		
 		\cllabel{project-create-notice}\clref{project-create-notice} & Project\-Create\-Notice & 
-			This object displays a notice to the Administrator stating that the Project has been successfully created.\\
+			This object displays a notice to the Administrator stating that the Project has been successfully created. Applies to \ucref{create-new-project}. \\
 		
 		\cllabel{project-details-form}\clref{project-details-form} & Project\-Details\-Form & 
-			This object is a form that reads the inputted values from the Administrator for the Project details.\\
+			This object is a form that reads the inputted values from the Administrator for the Project details. Applies to \ucref{create-new-project}, \ucref{edit-project}, \ucref{edit-project-details}. \\
 		
 		\cllabel{ppid-complete-notice}\clref{ppid-complete-notice} & PPID\-Complete\-Notice & 
-			This object displays a notice to the Administrator stating that the PPID has run successfully.\\
+			This object displays a notice to the Administrator stating that the PPID has run successfully. Applies to \ucref{launch-ppid}. \\
 		
-		\cllabel{insufficient-student-error-notice}\clref{insufficient-student-error-notice} & Insufficient\-Student\-Error\-Notice & 
-			This object displays a notice to the Administrator stating that the PPID has failed due to an insufficient amount of students enrolled in the Project.\\
-		
-		\cllabel{results-option}\clref{results-option} & Results\-Option & 
-			This object allows the Administrator to view and choose between the two result options: Summary or Detailed.\\
-		
-		\cllabel{summary-results-notice}\clref{summary-results-notice} & Summary\-Results\-Notice & 
-			This object displays a notice to the Administrator that shows the simple summary print out of the Groups.\\
-		
-		\cllabel{detailed-results-notice}\clref{detailed-results-notice} & Detailed\-Results\-Notice & 
-			This object displays a notice to the Administrator that shows the detailed print out of the Groups and the reasoning that the algorithm had when making the decisions.\\
+		\cllabel{insufficient-students-error-notice}\clref{insufficient-students-error-notice} & Insufficient\-Students\-Error\-Notice & 
+			This object displays a notice to the Administrator stating that the PPID has failed due to an insufficient amount of students enrolled in the Project. Applies to \ucref{insufficient-students-error}. \\
 	\end{tabu}
 \end{table}
 
 \begin{center}
 \begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Boundary Object & Definition\\
+		\cllabel{results-option}\clref{results-option} & Results\-Option & 
+			This object allows the Administrator to view and choose between the two result options: Summary or Detailed. Applies to \ucref{view-ppid-results}. \\		
+		
+		\cllabel{summary-results-notice}\clref{summary-results-notice} & Summary\-Results\-Notice & 
+			This object displays a notice to the Administrator that shows the simple summary print out of the Groups. Applies to \ucref{view-ppid-summary}. \\
+		
+		\cllabel{detailed-results-notice}\clref{detailed-results-notice} & Detailed\-Results\-Notice & 
+			This object displays a notice to the Administrator that shows the detailed print out of the Groups and the reasoning that the algorithm had when making the decisions. Applies to \ucref{view-ppid-details}. \\
+	
 		\cllabel{details-update-notice}\clref{details-update-notice} & Details\-Updated\-Notice & 
-			This object displays a notice to the Administrator stating that the saving of the new Project details to Storage was successful.\\
+			This object displays a notice to the Administrator stating that the saving of the new Project details to Storage was successful. Applies to \ucref{edit-project-details}. \\
+
 		\cllabel{project-update-notice}\clref{project-update-notice} & Project\-Update\-Notice & 
-			This object displays a notice to the Administrator stating that the editing of the Project has been completed successfully\\
+			This object displays a notice to the Administrator stating that the editing of the Project has been completed successfully. Applies to \ucref{edit-project}. \\
 		
 		\cllabel{join-complete-notice}\clref{join-complete-notice} & Join\-Complete\-Notice & 
-			This object displays a notice to the Student stating that the joining of a Project was successful.\\
+			This object displays a notice to the Student stating that the joining of a Project was successful. Applies to \ucref{join-project}. \\
 		
 		\cllabel{leave-complete-notice}\clref{leave-complete-notice} & Leave\-Complete\-Notice & 
-			This object displays a notice to the Student stating that the leaving of a Project was successful.\\
+			This object displays a notice to the Student stating that the leaving of a Project was successful. Applies to \ucref{leave-project}. \\
 		
 		\cllabel{update-complete-notice}\clref{update-complete-notice} & Update\-Complete\-Notice & 
-			This object displays a notice to the Student stating that the saving of the new Profile details (either Personal values or Desired values) to the Storage was successful.\\
+			This object displays a notice to the Student stating that the saving of the new Profile details (either Personal values or Desired values) to the Storage was successful. Applies to \ucref{edit-personal-values}, \ucref{edit-desired-values}. \\
 		
 		\cllabel{input-option}\clref{input-option} & Input\-Option & 
-			This object reads the input from the Administrator.\\ %double check this one!
+			This object reads the input from the User. Applies to \ucref{invalid-input-error}. \\
 		
 		\cllabel{invalid-input-error-notice}\clref{invalid-input-error-notice} & Invalid\-Input\-Error\-Notice & 
-			This object displays a notice to the Administrator stating that the input given was invalid.\\
+			This object displays a notice to the User stating that the input given was invalid. Applies to \ucref{invalid-input-error}. \\
 		
 		\cllabel{edit-project-name-option}\clref{edit-project-name-option} & Edit\-Project\-Name\-Option & 
-			This object reads the input from the Administrator for the new Project Name field.\\
+			This object reads the input from the Administrator for the new Project Name field. Applies to \ucref{edit-project-name}. \\
 		
 		\cllabel{project-name-update-notice}\clref{project-name-update-notice} & Project\-Name\-Update\-Notice & 
-			This object displays a notice to the Administrator stating that the updating/setting of the Project name has been successful.\\
+			This object displays a notice to the Administrator stating that the updating/setting of the Project name has been successful. Applies to \ucref{edit-project-name}. \\
 		
 		\cllabel{project-exists-error-notice}\clref{project-exists-error-notice} & Project\-Exists\-Error\-Notice & 
-			This object displays a notice to teh Administrator stating that the desired Project name has already been taken.\\
+			This object displays a notice to the Administrator stating that the desired Project name has already been taken. Applies to \ucref{project-exists-error}.\\
 		
 		\cllabel{edit-group-size-option}\clref{edit-group-size-option} & Edit\-Group\-Size\-Option & 
-			This object reads the input from the Administrator for the Maximum and Minimum group size fields.\\
-		
-		\cllabel{group-size-update-notice}\clref{group-size-update-notice} & Group\-Size\-Update\-Notice & 
-			This object displays a notice to the Administrator stating that the group size has been successfully updated.\\
-		
-		\cllabel{invalid-group-size-error-notice}\clref{invalid-group-size-error-notice} & Invalid\-Group\-Size\-Error\-Notice & 
-			This object displays a notice to the Administrator stating that the given value for the group size is invalid.\\
-		
-		\cllabel{storage-error-notice}\clref{storage-error-notice} & Storage\-Error\-Notice & 
-			This object displays a notice to the User stating that there was an error with the request to the Storage.\\
-		
-		\cllabel{storage-read-error-notice}\clref{storage-read-error-notice} & Storage\-Read\-Error\-Notice & 
-			This object displays a notice to the User stating that there was an error with regards to reading a file from Storage.\\
-		
-		\cllabel{storage-open-error-notice}\clref{storage-open-error-notice} & Storage\-Open\-Error\-Notice & 
-			This object displays a notice to the User stating that there was an error with regards to opening the Storage.\\
-		
-		\cllabel{storage-write-error-notice}\clref{storage-write-error-notice} & Storage\-Write\-Error\-Notice & 
-			This object displays a notice to the User stating that there was an error with regards to writing to the Storage.\\
+			This object reads the input from the Administrator for the Maximum and Minimum group size fields. Applies to \ucref{edit-group-size}. \\
+			
 \end{tabu}
 \end{center}
 
-\newpage{}
+\begin{center}
+\begin{tabu} to \textwidth {l >{\bf}X X[3]}
+		\tableheader{}ID & Boundary Object & Definition\\
+		
+		\cllabel{group-size-update-notice}\clref{group-size-update-notice} & Group\-Size\-Update\-Notice & 
+			This object displays a notice to the Administrator stating that the group size has been successfully updated. Applies to \ucref{edit-group-size}. \\
+
+		\cllabel{invalid-group-size-error-notice}\clref{invalid-group-size-error-notice} & Invalid\-Group\-Size\-Error\-Notice & 
+			This object displays a notice to the Administrator stating that the given value for the group size is invalid. Applies to \ucref{invalid-group-size-error}. \\
+		
+        \cllabel{storage-error-notice}\clref{storage-error-notice} & Storage\-Error\-Notice & 
+			This object displays a notice to the User stating that there was an error with the request to the Storage. Applies to \ucref{storage-error}. \\
+		
+		\cllabel{storage-read-error-notice}\clref{storage-read-error-notice} & Storage\-Read\-Error\-Notice & 
+			This object displays a notice to the User stating that there was an error with regards to reading a file from Storage. Applies to \ucref{storage-read-error}. \\
+		
+		\cllabel{storage-open-error-notice}\clref{storage-open-error-notice} & Storage\-Open\-Error\-Notice & 
+			This object displays a notice to the User stating that there was an error with regards to opening the Storage. Applies to \ucref{storage-open-error}. \\
+		
+		\cllabel{storage-write-error-notice}\clref{storage-write-error-notice} & Storage\-Write\-Error\-Notice & 
+			This object displays a notice to the User stating that there was an error with regards to writing to the Storage. Applies to \ucref{storage-write-error}. \\
+			
+\end{tabu}
+\end{center}
 
 \subsubsection{Dynamic Model}
 
@@ -2055,8 +2062,6 @@ The following diagram, \figureref{sm-student-join-project}, represents a state m
 	\figurelabel{sm-student-leave-project}
 \end{figure}
 
-\newpage{}
-
 \subsubsection*{State Machines for Profile:}
 
 The following diagram, \figureref{sm-profile-details}, represents a state machine for the Profile object. Shown here is the different states involved in managing profile details.
@@ -2080,6 +2085,8 @@ The following diagram, \figureref{sm-project-student-enrollment}, represents a s
 	\caption[\smref{project-student-enrollment} - State Machine for Project Student Enrollment]{State Machine for Project Student Enrollment (\smref{project-student-enrollment})}
 	\figurelabel{sm-project-student-enrollment}
 \end{figure}
+
+\newpage{}
 
 \noindent The following diagram, \figureref{sm-project-name}, represents a state machine for the Project object. Shown here is the different states involved in the setting of a Project's name.
 
@@ -2113,13 +2120,13 @@ The following diagram, \figureref{sm-group-enrollment}, represents a state machi
 	\figurelabel{sm-group-enrollment}
 \end{figure}
 
+\newpage{}
+
 \subsubsection*{Sequence Diagrams}
 
 Sequence diagrams are a great visual representation of the many interactions between different objects needed to satisfy one use case. Note that
 each object has a vertical dotted line - this represents the time-line of that object. Through the course of the diagram, multiple objects will be created
 and destroyed after fulfilling their purpose.
-
-\newpage{}
 
 \subsubsection*{Sequence diagram for ManageEnrollment (\ucref{manage-enrollment}):}
 
