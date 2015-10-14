@@ -1810,29 +1810,19 @@ This definition includes details such as what use case each control object manag
 	\begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Control Object & Definition\\
 		\cllabel{manage-enrollment-ctrl}\clref{manage-enrollment-ctrl} & Manage\-Enrollment\-Control & 
-			The {\bf ManageEnrollmentControl} object manages the ManageEnrollment use case. This object is created when the Student user
-			selects the ManageEnrollmentOption.  It displays a list of all the available Projects for the Student to choose from. Upon choosing, the
-			Student will then be given the options of either joining or leaving a project. \\
+			The {\bf ManageEnrollmentControl} object manages the ManageEnrollment use case. This object is created when the Student user selects the ManageEnrollmentOption.  It displays a list of all the available Projects for the Student to choose from. Upon choosing, the Student will then be given the options of either joining or leaving a project. Applies to \ucref{manage-enrollment}. \\
 		
 		\cllabel{edit-profile-ctrl}\clref{edit-profile-ctrl} & Edit\-Profile\-Control & 
-			The {\bf EditProfileControl} object manages the EditProfile use case. This object is created when the Student user selects the EditProfileOption.
-			It provides the Student the option to edit/modify either their personal values or their desired values for their Profile. Depending on the response, control is then
-			handed over to either the EditPersonalValuesControl or the EditDesiredValuesControl objects. \\
+			The {\bf EditProfileControl} object manages the EditProfile use case. This object is created when the Student user selects the EditProfileOption. It provides the Student the option to edit/modify either their personal values or their desired values for their Profile. Depending on the response, control is then handed over to either the EditPersonalValuesControl or the EditDesiredValuesControl objects. Applies \ucref{edit-profile}. \\
 		
 		\cllabel{manage-project-ctrl}\clref{manage-project-ctrl} & Manage\-Project\-Control & 
-			The {\bf ManageProjectControl} object manages the ManageProject use case. This object is created after the Administrator user selects the
-			ManageProjectOption. It provides the Administrator the option to select a Project and modify details for that Project. Depending on which detail
-			is selected, control is then handed over to either the LaunchPPIDControl, the ViewPPIDResultsControl, or the EditProjectControl objects.\\
+			The {\bf ManageProjectControl} object manages the ManageProject use case. This object is created after the Administrator user selects the ManageProjectOption. It provides the Administrator the option to select a Project and modify details for that Project. Depending on which detail is selected, control is then handed over to either the LaunchPPIDControl, the ViewPPIDResultsControl, or the EditProjectControl objects. Applies to \ucref{manage-project}. \\
 		
 		\cllabel{create-new-project-ctrl}\clref{create-new-project-ctrl} & Create\-New\-Project\-Control & 
-			The {\bf CreateNewProjectControl} object manages the CreateNewProject use case. This object is created after the Administrator user selects the
-			CreateNewProjectOption. It provides the Administrator with the ability to create new Projects, including the filling in of the details for this new project,
-			which is managed by the EditProjectControl object. The notice, ProjectCreateNotice, is then displayed.\\
+			The {\bf CreateNewProjectControl} object manages the CreateNewProject use case. This object is created after the Administrator user selects the CreateNewProjectOption. It provides the Administrator with the ability to create new Projects, including the filling in of the details for this new project, which is managed by the EditProjectControl object. The notice, ProjectCreateNotice, is then displayed. Applies to \ucref{create-new-project}. \\
 		
 		\cllabel{launch-ppid-ctrl}\clref{launch-ppid-ctrl} & Launch\-PPID\-Control & 
-			The {\bf LaunchPPIDControl} object manages the LaunchPPID use case. This object is created after the Administrator launches the PPID from
-			the ManageProjectOption. It cycles through the list of currently enrolled students in the Project and sorts them into teams. The result is then saved
-			to the Storage and a notice, PPIDCompleteNotice, is displayed.\\
+			The {\bf LaunchPPIDControl} object manages the LaunchPPID use case. This object is created after the Administrator launches the PPID from the ManageProjectOption. It cycles through the list of currently enrolled students in the Project and sorts them into teams. The result is then saved to the Storage and a notice, PPIDCompleteNotice, is displayed. Applies to \ucref{launch-ppid}.\\
 	\end{tabu}
 \end{table}
 
@@ -1840,33 +1830,22 @@ This definition includes details such as what use case each control object manag
 \begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Control Object & Definition\\
 		\cllabel{insufficient-students-error-ctrl}\clref{insufficient-students-error-ctrl} & Insufficient\-StudentsError\-Control & 
-			The {\bf InsufficientStudentsErrorControl} object manages the InsufficientStudentsError use case. The object is created when the Administrator user
-			tries to run the PPID when the amount of Students enrolled is less than the minimum team size specified for the Project. A notice, InsufficientStudentsErrorNotice,
-			is displayed and the operation is cancelled.\\
+			The {\bf InsufficientStudentsErrorControl} object manages the InsufficientStudentsError use case. The object is created when the Administrator user tries to run the PPID when the amount of Students enrolled is less than the minimum team size specified for the Project. A notice, InsufficientStudentsErrorNotice, is displayed and the operation is cancelled. Applies to \ucref{insufficient-students-error}.\\
 		
 		\cllabel{view-ppid-results-ctrl}\clref{view-ppid-results-ctrl} & View\-PPID\-Results\-Control & 
-			The {\bf ViewPPIDResultsControl} object manages the ViewPPIDResults use case. The object is created when the Administrator user selects the
-			ViewPPIDResultsOption. It provides the Administrator with two options for displaying the results of the last run PPID - either in simple form, where the
-			groups are simply printed out, or in detailed form, where the reasoning for the groups is also printed out. Depending on which gets selected, control is then
-			handed off to either the ViewPPIDSummaryControl or the ViewPPIDDetailsControl objects.\\
+			The {\bf ViewPPIDResultsControl} object manages the ViewPPIDResults use case. The object is created when the Administrator user selects the ViewPPIDResultsOption. It provides the Administrator with two options for displaying the results of the last run PPID - either in simple form, where the groups are simply printed out, or in detailed form, where the reasoning for the groups is also printed out. Depending on which gets selected, control is then handed off to either the ViewPPIDSummaryControl or the ViewPPIDDetailsControl objects. Applies to \ucref{view-ppid-results}. \\
 		
 		\cllabel{view-ppid-summary-ctrl}\clref{view-ppid-summary-ctrl} & View\-PPID\-Summary\-Control & 
-			The {\bf ViewPPIDSummaryControl} object manages the ViewPPIDSummary use case. The object is created when the Administrator user selects Summary from the
-			two options provided in the ResultsOption object. It displays to the Administrator a print out of all the groups that the last run PPID created in a simple, easy to
-			read manner.\\
+			The {\bf ViewPPIDSummaryControl} object manages the ViewPPIDSummary use case. The object is created when the Administrator user selects Summary from the two options provided in the ResultsOption object. It displays to the Administrator a print out of all the groups that the last run PPID created in a simple, easy to read manner. Applies to \ucref{view-ppid-summary}. \\
 		
 		\cllabel{view-ppid-details-ctrl}\clref{view-ppid-details-ctrl} & View\-PPID\-Details\-Control & 
-			The {\bf ViewPPIDDetailsControl} object manages the ViewPPIDDetails use case. The object is created when the Administrator user selects Detailed from the two 
-			options provided in the ResultsOption object. It displays to the Administrator a detailed print out of the reasoning and steps with regards to the last PPID run.\\
+			The {\bf ViewPPIDDetailsControl} object manages the ViewPPIDDetails use case. The object is created when the Administrator user selects Detailed from the two options provided in the ResultsOption object. It displays to the Administrator a detailed print out of the reasoning and steps with regards to the last PPID run. Applies to \ucref{view-ppid-details}. \\
 		
 		\cllabel{edit-project-details-ctrl}\clref{edit-project-details-ctrl} & Edit\-Project\-Details\-Control & 
-			The {\bf EditProjectDetailsControl} object manages the EditProjectDetails use case. The object is created after the Administrator user inputs the new details into
-			the ProjectDetailsForm and submits it. It then updates the values in the Project object and saves the updated Project to the Storage. A notice, DetailsUpdatedNotice,
-			is then displayed to the Administrator.\\
+			The {\bf EditProjectDetailsControl} object manages the EditProjectDetails use case. The object is created after the Administrator user inputs the new details into the ProjectDetailsForm and submits it. It then updates the values in the Project object and saves the updated Project to the Storage. A notice, DetailsUpdatedNotice, is then displayed to the Administrator. Applies to \ucref{edit-project-details}. \\
 		
 		\cllabel{edit-project-ctrl}\clref{edit-project-ctrl} & Edit\-Project\-Control & 
-			The {\bf EditProjectControl} object manages the EditProject use case. The object is created after the Administrator user selects the EditProjectOption. It then
-			creates a ProjectDetailsForm for the user to fill in. Control is then passed over to the EditProjectDetailsControl object.\\
+			The {\bf EditProjectControl} object manages the EditProject use case. The object is created after the Administrator user selects the EditProjectOption. It then creates a ProjectDetailsForm for the user to fill in. Control is then passed over to the EditProjectDetailsControl object. Applies to \ucref{edit-project}. \\
 \end{tabu}
 \end{center}
 
@@ -1874,32 +1853,22 @@ This definition includes details such as what use case each control object manag
 \begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Control Object & Definition\\
 		\cllabel{join-project-ctrl}\clref{join-project-ctrl} & Join\-Project\-Control & 
-			The {\bf JoinProjectControl} object manages the JoinProject use case. The object is created when the Student user selects Join from the two options provided
-			in the EnrollmentOption object. It allows the Student to join an existing Project, then updates that Project and saves the updated Project to the Storage. Finally, 
-			a notice, JoinCompleteNotice, is displayed to the Student.\\
+			The {\bf JoinProjectControl} object manages the JoinProject use case. The object is created when the Student user selects Join from the two options provided in the EnrollmentOption object. It allows the Student to join an existing Project, then updates that Project and saves the updated Project to the Storage. Finally, a notice, JoinCompleteNotice, is displayed to the Student. Applies to \ucref{join-project}. \\
 		
 		\cllabel{leave-project-ctrl}\clref{leave-project-ctrl} & Leave\-Project\-Control & 
-			The {\bf LeaveProjectControl} object manages the LeaveProject use case. The object is created when the Student user selects Leave from the two options provided
-			in the EnrollmentOption object. It allows the Student to leave a Project that they are already a part of, then updates that Project and saves the updated Project to
-			the Storage. Finally, a notice, LeaveCompleteNotice, is displayed to the Student.\\
+			The {\bf LeaveProjectControl} object manages the LeaveProject use case. The object is created when the Student user selects Leave from the two options provided in the EnrollmentOption object. It allows the Student to leave a Project that they are already a part of, then updates that Project and saves the updated Project to the Storage. Finally, a notice, LeaveCompleteNotice, is displayed to the Student. Applies to \ucref{leave-project}. \\
 		
 		\cllabel{edit-personal-values-ctrl}\clref{edit-personal-values-ctrl} & Edit\-Personal\-Values\-Control & 
-			The {\bf EditPersonalValuesControl} object manages the EditPersonalValues use case. The object is created when the Student selects PersonalValues from the two
-			options provided by the ProfileOption object. It allows the Student to input new responses for the Personal Values section of their Profile, then updates the Student
-			object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student.\\
+			The {\bf EditPersonalValuesControl} object manages the EditPersonalValues use case. The object is created when the Student selects PersonalValues from the two options provided by the ProfileOption object. It allows the Student to input new responses for the Personal Values section of their Profile, then updates the Student object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student. Applies to \ucref{edit-personal-values}. \\
 		
 		\cllabel{edit-desired-values-ctrl}\clref{edit-desired-values-ctrl} & Edit\-Desired\-Values\-Control & 
-			The {\bf EditDesiredValuesControl} object manages the EditDesiredValues use case. The object is created when the Student selects DesiredValues from the two
-			options provided by the ProfileOption object. It allows the Student to input new response for the Desired Values section of their Profile, then updates the Student
-			object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student. \\
+			The {\bf EditDesiredValuesControl} object manages the EditDesiredValues use case. The object is created when the Student selects DesiredValues from the two options provided by the ProfileOption object. It allows the Student to input new response for the Desired Values section of their Profile, then updates the Student object and saves the updated Student object to the Storage. Finally, a notice, UpdateCompleteNotice, is displayed to the Student. Applies to \ucref{edit-desired-values}. \\
 		
 		\cllabel{invalid-input-error-ctrl}\clref{invalid-input-error-ctrl} & Invalid\-Input\-Error\-Control & 
-			The {\bf InvalidInputErrorControl} object manages the InvalidInputError use case. The object is created when the Administrator inputs invalid data. It creates a notice, 
-			InvalidInputErrorNotice, and displays it to the Administrator. The input operation is then cancelled.\\
+			The {\bf InvalidInputErrorControl} object manages the InvalidInputError use case. The object is created when the Administrator inputs invalid data. It creates a notice, InvalidInputErrorNotice, and displays it to the Administrator. The input operation is then cancelled. Applies to \ucref{invalid-input-error}. \\
 
 		\cllabel{edit-project-name-ctrl}\clref{edit-project-name-ctrl} & Edit\-Project\-Name\-Control & 
-			The {\bf EditProjectNameControl} object manages the EditProjectName use case. The object is created when the Administrator selects the EditProjectNameOption.
-			It then updates the Project object and saves the updated Project object to the Storage. Finally, a notice, ProjectNameUpdateNotice, is displayed to the Administrator.\\
+			The {\bf EditProjectNameControl} object manages the EditProjectName use case. The object is created when the Administrator selects the EditProjectNameOption. It then updates the Project object and saves the updated Project object to the Storage. Finally, a notice, ProjectNameUpdateNotice, is displayed to the Administrator. Applies to \ucref{edit-project-name}. \\
 \end{tabu}
 \end{center}
 
