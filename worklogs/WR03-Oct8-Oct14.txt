@@ -1,5 +1,3 @@
-StorageControl names, state/sequence/class numbers.
-
 CaptOkie:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
 1 Hours: Filled out UC details.
@@ -8,8 +6,9 @@ CaptOkie:
 5 Hours: Improved table formatting, updated UC details, created UC control & boundary object diagrams.
 2 Hours: New control and boundary object diagrams.
 10 Hours: Refactor UCs, edit sequence diagram, add sequence diagram.
-1.5 Hours: Designed state diagrams, slight touch ups.
-6 pm.
+1.5 Hours: Group meeting, Designed state diagrams, slight touch ups.
+7.5 Hours: Created state machinces, refactored table/UC/sequence references, traceability.
+
 TheBakedPotato:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
 1 Hours: Filled out UC details.
@@ -17,7 +16,8 @@ TheBakedPotato:
 5 Hours: Updated UC details, created UC control & boundary object diagrams.
 2 Hours: New control and boundary object diagrams.
 10 Hours: Refactor UCs, edit boundary/control diagram, add boundary/control diagram.
-1.5 Hours: Designed state diagrams, slight touch ups.
+1.5 Hours: Group meeting, designed state diagrams, slight touch ups.
+7.5Hours: Created state machines, refactored figure/class references, traceability.
 
 ViLLiELdR:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
@@ -25,4 +25,4 @@ ViLLiELdR:
 1 Hour: Updated details with regards to references, reworded things
 1 Hour: Sequence Diagram
 10 Hours: Fixed some issues, control/boundary table, entity table, introductor paragraphs for use cases.
-1.5 Hours: Designed state diagrams, slight touch ups.
+1.5 Hours: Group meeting, designed state diagrams, slight touch ups.
