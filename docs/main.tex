@@ -1464,13 +1464,13 @@ a short but detailed definition of each.
 		&
 		An \textbf{Administrator} is a specific type of user that can create/edit projects and run/view results of the PPID. Applies to \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details}, \ucref{edit-project}, \ucref{insufficient-students-error}, \ucref{edit-project-name}, \ucref{project-exists-error}, \ucref{edit-group-size}, \ucref{invalid-group-size-error} \\
 
-		\cllabel{group}\clref{group} & Group & 
+		\cllabel{profile}\clref{profile} & Profile & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-				\item members
+				\item details
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Group} is a collection of Student Users that are participating in a specified Project. Every Project contains at least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm. Applies to \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details} \\
+		A \textbf{Profile} is a set of responses maintained by each Student. These values are the necessary input for the PPID algorithm to run. Applies to \ucref{edit-profile}, \ucref{edit-personal-values}, \ucref{edit-desired-values} \\
 
 		\cllabel{project}\clref{project} & Project & 
 		\begin{minipage}[t]{\linewidth}
@@ -1482,13 +1482,13 @@ a short but detailed definition of each.
 		\end{minipage} & 
 		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}. Applies to \ucref{manage-enrollment}, \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details}, \ucref{edit-project}, \ucref{join-project}, \ucref{leave-project}, \ucref{edit-project-name}, \ucref{project-exists-error}, \ucref{edit-group-size}, \ucref{invalid-group-size-error} \\
 
-		\cllabel{profile}\clref{profile} & Profile & 
+		\cllabel{group}\clref{group} & Group & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-				\item details
+				\item members
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Profile} is a set of responses maintained by each Student. These values are the necessary input for the PPID algorithm to run. Applies to \ucref{edit-profile}, \ucref{edit-personal-values}, \ucref{edit-desired-values} \\
+		A \textbf{Group} is a collection of Student Users that are participating in a specified Project. Every Project contains at least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm. Applies to \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details} \\
 	\end{tabu}
 \end{table}
 
@@ -2028,7 +2028,7 @@ State machines are a special kind of dynamic model that shows all the possible s
 different states - that is, how it goes from one state to the other. The starting and ending points, or beginning and exit points, are also shown. Specifically, these state
 machines only concern entity objects for this particular project.
 
-\subsubsection*{State Machines for User/Student/Administrator:}
+\subsubsection*{State Machines for User (\clref{user}), Student (\clref{student}), and Administrator (\clref{administrator}):}
 
 The following diagram, \figureref{sm-user-log-in}, represents a state machine for any type of User object. Shown here is the different states involved in logging in/logging out.
 
@@ -2040,7 +2040,7 @@ The following diagram, \figureref{sm-user-log-in}, represents a state machine fo
 	\figurelabel{sm-user-log-in}
 \end{figure}
 
-\subsubsection*{State Machines for Student:}
+\subsubsection*{State Machines for Student (\clref{student}):}
 
 The following diagram, \figureref{sm-student-join-project}, represents a state machine for the Student object. Shown here is the different states involved in the joining of Projects.
 
@@ -2062,7 +2062,7 @@ The following diagram, \figureref{sm-student-join-project}, represents a state m
 	\figurelabel{sm-student-leave-project}
 \end{figure}
 
-\subsubsection*{State Machines for Profile:}
+\subsubsection*{State Machines for Profile (\clref{profile}):}
 
 The following diagram, \figureref{sm-profile-details}, represents a state machine for the Profile object. Shown here is the different states involved in managing profile details.
 
@@ -2074,7 +2074,7 @@ The following diagram, \figureref{sm-profile-details}, represents a state machin
 	\figurelabel{sm-profile-details}
 \end{figure}
 
-\subsubsection*{State Machines for Project:}
+\subsubsection*{State Machines for Project (\clref{project}):}
 
 The following diagram, \figureref{sm-project-student-enrollment}, represents a state machine for the Project object. Shown here is the different states involved in the adding and removing Students.
 
@@ -2108,7 +2108,7 @@ The following diagram, \figureref{sm-project-student-enrollment}, represents a s
 	\figurelabel{sm-project-ppid-results}
 \end{figure}
 
-\subsubsection*{State Machines for Group:}
+\subsubsection*{State Machines for Group (\clref{group}):}
 
 The following diagram, \figureref{sm-group-enrollment}, represents a state machine for the Group object. Shown here is the different states involved in adding/enrolling students into Groups.
 
