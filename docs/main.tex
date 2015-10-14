@@ -1902,7 +1902,8 @@ In essence, the definition explains what each object does.
     \caption{Boundary Object Data Dictionary}\tablelabel{boundary-odd}
 	\begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Boundary Object & Definition\\
-		\cllabel{manage-enrollment-option}\clref{manage-enrollment-option} & Manage\-Enrollment\-Option & \\
+		\cllabel{manage-enrollment-option}\clref{manage-enrollment-option} & Manage\-Enrollment\-Option & 
+			This object allows the Student to initiate the management of their participation to Projects \\
 		\cllabel{project-list-notice}\clref{project-list-notice} & Project\-List\-Notice & 
 			This object is responsible for the visual output of the list of Projects to the User. It gets the required information from the Project objects and displays it.\\
 		
@@ -1912,17 +1913,20 @@ In essence, the definition explains what each object does.
 		\cllabel{project-selection-option}\clref{project-selection-option} & Project\-Selection\-Option & 
 			This object reads the selected Project from the Administrator.\\
 		
-        \cllabel{edit-profile-option}\clref{edit-profile-option} & Edit\-Profile\-Option & \\
+   		\cllabel{edit-profile-option}\clref{edit-profile-option} & Edit\-Profile\-Option & 
+   			This object allows the Student to initiate the editting of their profiles.\\
 		
 		\cllabel{profile-option}\clref{profile-option} & Profile\-Option & 
 			This object allows the Student to view and choose between the two profile options: edit Personal Details or edit Desired Details.\\
 		
-    		\cllabel{manage-project-option}\clref{manage-project-option} & Manage\-Project\-Option & \\
+    		\cllabel{manage-project-option}\clref{manage-project-option} & Manage\-Project\-Option & 
+    			This object allows the Administrator to initiate the management of a Project.\\
 		
 		\cllabel{manage-option}\clref{manage-option} & Manage\-Option & 
 			This object allows the Administrator to view and choose between three managing options: view the results of the last PPID, or edit a project. \\
 		
-		\cllabel{create-new-project-option}\clref{create-new-project-option} & Create\-New\-Project\-Option & \\
+		\cllabel{create-new-project-option}\clref{create-new-project-option} & Create\-New\-Project\-Option & 
+			This object allows the Administrator to initiate the process of creating a new Project.\\
 		
 		\cllabel{project-create-notice}\clref{project-create-notice} & Project\-Create\-Notice & 
 			This object displays a notice to the Administrator stating that the Project has been successfully created.\\
@@ -1944,15 +1948,14 @@ In essence, the definition explains what each object does.
 		
 		\cllabel{detailed-results-notice}\clref{detailed-results-notice} & Detailed\-Results\-Notice & 
 			This object displays a notice to the Administrator that shows the detailed print out of the Groups and the reasoning that the algorithm had when making the decisions.\\
-		
-		\cllabel{details-update-notice}\clref{details-update-notice} & Details\-Updated\-Notice & 
-			This object displays a notice to the Administrator stating that the saving of the new Project details to Storage was successful.\\
 	\end{tabu}
 \end{table}
 
 \begin{center}
 \begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Boundary Object & Definition\\
+		\cllabel{details-update-notice}\clref{details-update-notice} & Details\-Updated\-Notice & 
+			This object displays a notice to the Administrator stating that the saving of the new Project details to Storage was successful.\\
 		\cllabel{project-update-notice}\clref{project-update-notice} & Project\-Update\-Notice & 
 			This object displays a notice to the Administrator stating that the editing of the Project has been completed successfully\\
 		
