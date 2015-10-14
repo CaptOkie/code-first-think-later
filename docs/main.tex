@@ -1906,35 +1906,21 @@ This definition includes details such as what use case each control object manag
 \begin{center}
 \begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Control Object & Definition\\
-		\cllabel{project-exists-error-ctrl}\clref{project-exists-error-ctrl} & Project\-Exists\-Error\-Control &
-			The {\bf ProjectExistsErrorControl} object manages the ProjectExistsError use case. The object is created when Administrator users attempt to set 
-			the Project name to a name that alread exists. A notice, ProjectExistsErrorNotice, is displayed to the Administrator, and the EditProjectName operation is cancelled.\\
+		\cllabel{project-exists-error-ctrl}\clref{project-exists-error-ctrl} & Project\-Exists\-Error\-Control & The {\bf ProjectExistsErrorControl} object manages the ProjectExistsError use case. The object is created when Administrator users attempt to set the Project name to a name that alread exists. A notice, ProjectExistsErrorNotice, is displayed to the Administrator, and the EditProjectName operation is cancelled. Applies to \ucref{project-exists-error}. \\
 		
-		\cllabel{edit-group-size-ctrl}\clref{edit-group-size-ctrl} & Edit\-Group\-Size\-Control & 
-			The {\bf EditGroupSizeControl} object manages the EditGroupSize use case. The object is created when the Administrator user selects the EditGroupSizeOption. It allows the 
-			Administrator to input a new Maximum and Minimum group size value and updates the Project object. Finally, a notice, GroupSizeUpdateNotice, is displayed to the Administrator.\\
+		\cllabel{edit-group-size-ctrl}\clref{edit-group-size-ctrl} & Edit\-Group\-Size\-Control & The {\bf EditGroupSizeControl} object manages the EditGroupSize use case. The object is created when the Administrator user selects the EditGroupSizeOption. It allows the Administrator to input a new Maximum and Minimum group size value and updates the Project object. Finally, a notice, GroupSizeUpdateNotice, is displayed to the Administrator. Applies to \ucref{edit-group-size}. \\
 		
-		\cllabel{invalid-group-size-error-ctrl}\clref{invalid-group-size-error-ctrl} & Invalid\-Group\-Size\-Error\-Control & 
-			The {\bf InvalidGroupSizeErrorControl} object manages the InvalidGroupSizeError use case. The object is created when the Administrator attempts to input an invalid size for the Maximum
-			and Minimum group size variables. A notice, InvalidGroupSizeErrorNotice, is displayed to the Administrator, and the EditGroupSize operation is cancelled. \\
+		\cllabel{invalid-group-size-error-ctrl}\clref{invalid-group-size-error-ctrl} & Invalid\-Group\-Size\-Error\-Control & The {\bf InvalidGroupSizeErrorControl} object manages the InvalidGroupSizeError use case. The object is created when the Administrator attempts to input an invalid size for the Maximum and Minimum group size variables. A notice, InvalidGroupSizeErrorNotice, is displayed to the Administrator, and the EditGroupSize operation is cancelled. Applies to \ucref{invalid-group-size-error}. \\
 		
-		\cllabel{storage-ctrl}\clref{storage-ctrl} & Storage\-Control & 
-			The {\bf StorageControl} object manages...\\
+		\cllabel{storage-ctrl}\clref{storage-ctrl} & Storage\-Control & The {\bf StorageControl} object manages interaction with the storage, and is responsible for delegating to the \textbf{StorageErrorControl}. Applies to \ucref{storage-error}, \ucref{storage-read-error}, \ucref{storage-open-error}, \ucref{storage-write-error}. \\
 		
-		\cllabel{storage-error-ctrl}\clref{storage-error-ctrl} & Storage\-Error\-Control & 
-			The {\bf StorageErrorControl} object manages the StorageError use case. The object is created when any user makes a request to the Storage and the request cannot be met.
-			It then displays a notice, StorageErrorNotice, to the user.\\
-\end{tabu}
-\end{center}
+		\cllabel{storage-error-ctrl}\clref{storage-error-ctrl} & Storage\-Error\-Control & The {\bf StorageErrorControl} object manages the StorageError use case. The object is created when any user makes a request to the Storage and the request cannot be met. It then displays a notice, StorageErrorNotice, to the user. Applies to \ucref{storage-error}. \\
 
-\begin{center}
-\begin{tabu} to \textwidth {l >{\bf}X X[3]}
-		\tableheader{}ID & Control Object & Definition\\
-		\cllabel{storage-read-error-ctrl}\clref{storage-read-error-ctrl} & Storage\-Read\-Error\-Control & The {\bf StorageReadErrorControl} object manages the StorageReadError use case. The object is created when any user makes a request to read a file from the Storage and the read operation fails. It then displays a notice, StorageReadErrorNotice, to the user.\\
+		\cllabel{storage-read-error-ctrl}\clref{storage-read-error-ctrl} & Storage\-Read\-Error\-Control & The {\bf StorageReadErrorControl} object manages the StorageReadError use case. The object is created when any user makes a request to read a file from the Storage and the read operation fails. It then displays a notice, StorageReadErrorNotice, to the user. Applies to \ucref{storage-read-error}. \\
 
-		\cllabel{storage-open-error-ctrl}\clref{storage-open-error-ctrl} & Storage\-Open\-Error\-Control & The {\bf StorageOpenErrorControl} object manages the StorageOpenError use case. The object is created when any user makes a request to open the Storage and the operation fails. It then displays a notice, StorageOpenErrorNotice, to the user.\\
+		\cllabel{storage-open-error-ctrl}\clref{storage-open-error-ctrl} & Storage\-Open\-Error\-Control & The {\bf StorageOpenErrorControl} object manages the StorageOpenError use case. The object is created when any user makes a request to open the Storage and the operation fails. It then displays a notice, StorageOpenErrorNotice, to the user. Applies to \ucref{storage-open-error}. \\
 
-		\cllabel{storage-write-error-ctrl}\clref{storage-write-error-ctrl} & Storage\-Write\-Error\-Control & object manage the StorageWriteError use case. The object is created when any user makes a write to the Storage request and the operation fails. It then displays a notice, StorageWriteErrorNotice, to the user.\\
+		\cllabel{storage-write-error-ctrl}\clref{storage-write-error-ctrl} & Storage\-Write\-Error\-Control & object manage the StorageWriteError use case. The object is created when any user makes a write to the Storage request and the operation fails. It then displays a notice, StorageWriteErrorNotice, to the user. Applies to \ucref{storage-write-error}. \\
 \end{tabu}
 \end{center}
 
