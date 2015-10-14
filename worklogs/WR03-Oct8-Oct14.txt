@@ -17,7 +17,7 @@ TheBakedPotato:
 2 Hours: New control and boundary object diagrams.
 10 Hours: Refactor UCs, edit boundary/control diagram, add boundary/control diagram.
 1.5 Hours: Group meeting, designed state diagrams, slight touch ups.
-7.5Hours: Created state machines, refactored figure/class references, traceability.
+7.5 Hours: Created state machines, refactored figure/class references, traceability.
 
 ViLLiELdR:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
