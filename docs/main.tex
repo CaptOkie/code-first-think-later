@@ -379,8 +379,8 @@ The next table, \tableref{detailed-uc-administrator} contains all the informatio
 		\uclabel{view-ppid-results}\ucref{view-ppid-results} & ViewPPIDResults & The Administrator views the results of the PPID for a project.\\
 		\uclabel{view-ppid-summary}\ucref{view-ppid-summary} & ViewPPIDSummary & The Administrator views a summary of the groups that are created.\\
 		\uclabel{view-ppid-details}\ucref{view-ppid-details} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
-		\uclabel{edit-project-details}\ucref{edit-project-details} & EditProjectDetails & The Administrator modifies the parameters of a specified project.\\
 		\uclabel{edit-project}\ucref{edit-project} & EditProject & The Administrator modifies an aspect of the project (includes Student participation and project parameters).\\
+		\uclabel{edit-project-details}\ucref{edit-project-details} & EditProjectDetails & The Administrator modifies the parameters of a specified project.\\
 	\end{tabu}
 \end{table}
 
@@ -813,45 +813,6 @@ as the inner-details.
 
 \newpage{}
 
-The {\it EditProjectDetails} (\ucref{edit-project-details}) allows Administrator actors to modify project details like the possible group sizes and project name. Includes the {\it EditGroupSize} and {\it EditProjectName} use cases.
-
-\begin{center}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Use Case Identifier & \ucref{edit-project-details} \\
-		Name & {\bf EditProjectDetails} \\
-		Participating Actors & Initiated by Administrator \\
-		Flow of Events & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{enumerate}
-			    \item[1.] The system displays a menu with two options. The Administrator can choose to edit the minimum and maximum group size (include use case \textbf{EditGroupSize}), or the name of the Project (include use case \textbf{EditProjectName}).
-			    \item[2.] The system saves the project details.
-			\end{enumerate}
-		\end{minipage} \\
-
-		Entry Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The User is operating cuPID as an Administrator.
-			    \item The Administrator has chosen to edit existing, or set the initial, project details.
-	        \end{itemize}
-		\end{minipage} \\
-
-		Exit Conditions &
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-			    \item The project details have been saved.
-	        \end{itemize}
-		\end{minipage} \\
-
-
-		Quality Requirements & \\
-
-		Traceability & F-05, F-06, F-06-01, F-06-04 \\
-		\toprule
-	\end{tabu}
-\end{center}
-
 \vspace{1em}
 The {\it EditProject} (\ucref{edit-project}) allows Administrator actors to edit project details. Includes the {\it EditProjectDetails} use case.
 
@@ -888,6 +849,45 @@ The {\it EditProject} (\ucref{edit-project}) allows Administrator actors to edit
 		Quality Requirements & \\
 
 		Traceability & F-06 \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+The {\it EditProjectDetails} (\ucref{edit-project-details}) allows Administrator actors to modify project details like the possible group sizes and project name. Includes the {\it EditGroupSize} and {\it EditProjectName} use cases.
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Use Case Identifier & \ucref{edit-project-details} \\
+		Name & {\bf EditProjectDetails} \\
+		Participating Actors & Initiated by Administrator \\
+		Flow of Events & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{enumerate}
+			    \item[1.] The system displays a menu with two options. The Administrator can choose to edit the minimum and maximum group size (include use case \textbf{EditGroupSize}), or the name of the Project (include use case \textbf{EditProjectName}).
+			    \item[2.] The system saves the project details.
+			\end{enumerate}
+		\end{minipage} \\
+
+		Entry Conditions &
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The User is operating cuPID as an Administrator.
+			    \item The Administrator has chosen to edit existing, or set the initial, project details.
+	        \end{itemize}
+		\end{minipage} \\
+
+		Exit Conditions &
+		\begin{minipage}[t]{\linewidth}
+			\begin{itemize}
+			    \item The project details have been saved.
+	        \end{itemize}
+		\end{minipage} \\
+
+
+		Quality Requirements & \\
+
+		Traceability & F-05, F-06, F-06-01, F-06-04 \\
 		\toprule
 	\end{tabu}
 \end{center}
