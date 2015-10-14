@@ -1924,15 +1924,18 @@ This definition includes details such as what use case each control object manag
 \begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
 		StorageReadErrorControl & 
-			The {\bf StorageReadErrorControl} object manages...\\
+			The {\bf StorageReadErrorControl} object manages the StorageReadError use case. The object is created when any user makes a request to read a file from the Storage and the
+			read operation fails. It then displays a notice, StorageReadErrorNotice, to the user.\\
 		StorageOpenControl & 
 			The {\bf StorageOpenControl} object manages...\\
 		StorageOpenErrorControl & 
-			The {\bf StorageOpenErrorControl} object manages...\\
+			The {\bf StorageOpenErrorControl} object manages the StorageOpenError use case. The object is created when any user makes a request to open the Storage and the operation
+			fails. It then displays a notice, StorageOpenErrorNotice, to the user.\\
 		StorageWriteControl & 
 			The {\bf StorageWriteControl} object manages...\\
 		StorageWriteErrorControl & 
-			The {\bf StorageWriteErrorControl} object manage...5\\
+			The {\bf StorageWriteErrorControl} object manage the StorageWriteError use case. The object is created when any user makes a write to the Storage request and the operation
+			fails. It then displays a notice, StorageWriteErrorNotice, to the user.\\
 \end{tabu}
 \end{center}
 
