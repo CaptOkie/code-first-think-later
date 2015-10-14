@@ -15,9 +15,6 @@
 
 \begin{document}
 
-\newcounter{classnum}
-\renewcommand{\theclassnum}
-
 \renewcommand\headrule{}
 
 \pagestyle{fancy}
@@ -27,67 +24,46 @@
 \cfoot{Requirements Analysis Document}
 
 % CUSTOM COMMANDS
+\newcommand{\twodigits}[1]{\ifnum\value{#1}<10 0\fi\arabic{#1}}
+
 \newcommand{\teamname}{Code First, Think Later}
 \newcommand{\personone}{Kevin Hua}
 \newcommand{\persontwo}{Hendrik Knoetze}
 \newcommand{\personthree}{Juhandr\'e Knoetze}
 
+%% FIGURE COMMANDS
 \newcommand{\figurelabel}[1]{\label{figure:#1}}
 \newcommand{\figureref}[1]{\textbf{Figure \ref{figure:#1}}}
-\newcommand{\tablelabel}[1]{\label{table:#1}}
-\newcommand{\tableref}[1]{\textbf{Table \ref{table:#1}}}
-
-%% USE-CASE COMMANDS
-\newcounter{usecasenum}
-\renewcommand{\theusecasenum}{UC-\ifnum\value{usecasenum}<10 0\fi\arabic{usecasenum}}
-\newcommand{\newusecase}[1]{\refstepcounter{usecasenum}\label{#1}\expandafter\newcommand\csname #1\endcsname{\ref{#1}}}
-
-%%% HIGH-LEVEL USE CASES
-\newusecase{manageenrollment}
-\newusecase{editprofile}
-\newusecase{manageproject}
-\newusecase{createnewproject}
-%%% END HIGH-LEVEL USE CASES
-
-%%% DETAILED USE CASES - ADMINISTRATOR
-\newusecase{launchppid}
-\newusecase{insufficientstudentserror}
-\newusecase{viewppidresults}
-\newusecase{viewppidsummary}
-\newusecase{viewppiddetails}
-\newusecase{editprojectdetails}
-\newusecase{editproject}
-%%% END DETAILED USE CASES - ADMINISTRATOR
-
-%%% DETAILED USE CASES - STUDENT
-\newusecase{joinproject}
-\newusecase{leaveproject}
-\newusecase{editpersonalvalues}
-\newusecase{editdesiredvalues}
-%%% END DETAILED USE CASES - STUDENT
-
-%%% DETAILED USE CASES - USER INPUT
-\newusecase{invalidinputerror}
-\newusecase{editprojectname}
-\newusecase{projectexistserror}
-\newusecase{editgroupsize}
-\newusecase{invalidgroupsizeerror}
-%%% END DETAILED USE CASES - USER INPUT
-
-%%% DETAILED USE CASES - COMMON ERRORS
-\newusecase{storageerror}
-\newusecase{storagereaderror}
-\newusecase{storageopenerror}
-\newusecase{storagewriteerror}
-\newusecase{storagecloseerror}
-%%% END DETAILED USE CASES - COMMON ERRORS
-%% END USE-CASE COMMANDS
+%% END FIGURE COMMANDS
 
 %% TABLE COMMANDS
 \definecolor{thcolor}{RGB}{193,193,193}
 \newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
 \newcommand{\tableheader}{\rowfont\bf\rowcolor{thcolor!30}}
+
+\newcommand{\tablelabel}[1]{\label{table:#1}}
+\newcommand{\tableref}[1]{\textbf{Table \ref{table:#1}}}
 %% END TABLE COMMANDS
+
+%% USE-CASE COMMANDS
+\newcounter{usecasenum}
+\renewcommand{\theusecasenum}{\twodigits{usecasenum}}
+\newcommand{\uclabel}[1]{\refstepcounter{usecasenum}\label{uc:#1}}
+\newcommand{\ucref}[1]{\textbf{UC-\ref{uc:#1}}}
+%% END USE-CASE COMMANDS
+
+%% CLASS COMMANDS
+\newcounter{classnum}
+\renewcommand{\theclassnum}{\twodigits{classnum}}
+\newcommand{\cllabel}[1]{\refstepcounter{classnum}\label{cl:#1}}
+\newcommand{\clref}[1]{\textbf{CL-\ref{cl:#1}}}
+%% END CLASS COMMANDS
+
+%% STATE MACHINE COMMANDS
+%% END STATE MACHINE COMMANDS
+
+%% SEQUENCE DIAGRAM COMMANDS
+%% END SEQUENCE DIAGRAM COMMANDS
 % END CUSTOM COMMANDS
 
 % TABLE STYLING
@@ -362,10 +338,10 @@ it comes to laying out data. Another benefit is, like in the case of {\it EditPr
 	\caption{High-Level Use Case Descriptions}\tablelabel{high-level-uc}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-	    \manageenrollment{} & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
-		\editprofile{} & EditProfile & The Student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
-		\manageproject{} & ManageProject & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
-		\createnewproject{} & CreateNewProject & The Administrator creates a new instance of a Project.\\
+	    \uclabel{manage-enrollment}\ucref{manage-enrollment} & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
+		\uclabel{edit-profile}\ucref{edit-profile} & EditProfile & The Student modifies the parameters of their profile (includes EditPersonalValues and EditDesiredValues).\\
+		\uclabel{manage-project}\ucref{manage-project} & ManageProject & The Administrator manages Projects as well as having the option to create a new instance of a project (includes manipulating student participation and access to the PPID and its results).\\
+		\uclabel{create-new-project}\ucref{create-new-project} & CreateNewProject & The Administrator creates a new instance of a Project.\\
 	\end{tabu}
 \end{table}
 
@@ -391,13 +367,13 @@ The next table, \tableref{detailed-uc-administrator} contains all the informatio
 	\caption{Detailed Use Case Descriptions - Administrator}\tablelabel{detailed-uc-administrator}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		\launchppid{} & LaunchPPID & The Administrator runs the PPID for a specified Project.\\
-		\insufficientstudentserror{} & InsufficientStudentsError & The system reports that there are not enough Students registered in the Project to run the PPID.\\
-		\viewppidresults{} & ViewPPIDResults & The Administrator views the results of the PPID for a Project.\\
-		\viewppidsummary{} & ViewPPIDSummary & The Administrator views a summary of the Groups that are created.\\
-		\viewppiddetails{} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
-		\editprojectdetails{} & EditProjectDetails & The Administrator modifies the parameters of a specified Project.\\
-		\editproject{} & EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
+		\uclabel{launch-ppid}\ucref{launch-ppid} & LaunchPPID & The Administrator runs the PPID for a specified Project.\\
+		\uclabel{insufficient-students-error}\ucref{insufficient-students-error} & InsufficientStudentsError & The system reports that there are not enough Students registered in the Project to run the PPID.\\
+		\uclabel{view-ppid-results}\ucref{view-ppid-results} & ViewPPIDResults & The Administrator views the results of the PPID for a Project.\\
+		\uclabel{view-ppid-summary}\ucref{view-ppid-summary} & ViewPPIDSummary & The Administrator views a summary of the Groups that are created.\\
+		\uclabel{view-ppid-details}\ucref{view-ppid-details} & ViewPPIDDetails & The Administrator views a detailed analysis of the grouping decisions.\\
+		\uclabel{edit-project-details}\ucref{edit-project-details} & EditProjectDetails & The Administrator modifies the parameters of a specified Project.\\
+		\uclabel{edit-project}\ucref{edit-project} & EditProject & The Administrator modifies an aspect of the Project (includes Student participation and Project parameters).\\
 	\end{tabu}
 \end{table}
 
@@ -421,10 +397,10 @@ Please also note that we have decided to not include any error cases in this par
 	\caption{Detailed Use Case Descriptions - Student}\tablelabel{detailed-uc-student}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
-		\leaveproject{} & LeaveProject & The student removes themselves from an existing project.\\
-		\editpersonalvalues{} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer).\\
-		\editdesiredvalues{} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members).\\
+		\uclabel{join-project}\ucref{join-project} & JoinProject & The student adds themselves to an existing project.\\
+		\uclabel{leave-project}\ucref{leave-project} & LeaveProject & The student removes themselves from an existing project.\\
+		\uclabel{edit-personal-values}\ucref{edit-personal-values} & EditPersonalValues & The student modifies the personal details in his profile (what they have to offer).\\
+		\uclabel{edit-desired-values}\ucref{edit-desired-values} & EditDesiredValues & The student modifies the desired details in his profile (what they are looking for in potential team members).\\
 	\end{tabu}
 \end{table}
 
@@ -444,11 +420,11 @@ all refer to the same {\it InvalidInputError} use case.
 	\caption{Detailed Use Case Descriptions - User Input}\tablelabel{detailed-uc-user-input}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
-		\editprojectname{} & EditProjectName & The Administrator sets the name of the project. \\
-		\projectexistserror{} & ProjectExistsError & The system reports that a project with the given name already exists.\\
-		\editgroupsize{} & EditGroupSize & The Administrator sets the minimum and maximum group sizes to be used by the PPID. \\
-		\invalidgroupsizeerror{} & InvalidGroupSizeError & The system reports that the given group size is illegal.\\
+		\uclabel{invalid-input-error}\ucref{invalid-input-error} & InvalidInputError & The system reports that the given value is invalid.\\
+		\uclabel{edit-project-name}\ucref{edit-project-name} & EditProjectName & The Administrator sets the name of the project. \\
+		\uclabel{project-exists-error}\ucref{project-exists-error} & ProjectExistsError & The system reports that a project with the given name already exists.\\
+		\uclabel{edit-group-size}\ucref{edit-group-size} & EditGroupSize & The Administrator sets the minimum and maximum group sizes to be used by the PPID. \\
+		\uclabel{invalid-group-size-error}\ucref{invalid-group-size-error} & InvalidGroupSizeError & The system reports that the given group size is illegal.\\
 	\end{tabu}
 \end{table}
 
@@ -469,10 +445,10 @@ of the other three use cases.
 	\caption{Detailed Use Case Descriptions - Common Errors}\tablelabel{detailed-uc-common-errors}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
-		\storageerror{} & StorageError &  The system reports that there is an error with the stored information for cuPID (generalizes StorageReadError, StorageOpenError, and StorageWriteError).\\
-		\storagereaderror{} & StorageReadError & The system reports that an error occurred while attempting to read from the Storage.\\
-		\storageopenerror{} & StorageOpenError & The system reports that an error occurred while attempting to open the Storage.\\
-		\storagewriteerror{} & StorageWriteError & The system reports that an error occurred while attempting to write to the Storage.\\
+		\uclabel{storage-error}\ucref{storage-error} & StorageError &  The system reports that there is an error with the stored information for cuPID (generalizes StorageReadError, StorageOpenError, and StorageWriteError).\\
+		\uclabel{storage-read-error}\ucref{storage-read-error} & StorageReadError & The system reports that an error occurred while attempting to read from the Storage.\\
+		\uclabel{storage-open-error}\ucref{storage-open-error} & StorageOpenError & The system reports that an error occurred while attempting to open the Storage.\\
+		\uclabel{storage-write-error}\ucref{storage-write-error} & StorageWriteError & The system reports that an error occurred while attempting to write to the Storage.\\
 	\end{tabu}
 \end{table}
 
@@ -483,12 +459,12 @@ references to which requirements each address shall all be provided for each use
 
 \vspace{1em}
 
-The {\it ManageEnrollment} ({\bf \manageenrollment{}}) allows Student actors to both join or leave existing projects. It is a high-level use case that includes both the {\it JoinProject} and the {\it LeaveProject} use cases.
+The {\it ManageEnrollment} (\ucref{manage-enrollment}) allows Student actors to both join or leave existing projects. It is a high-level use case that includes both the {\it JoinProject} and the {\it LeaveProject} use cases.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \manageenrollment{} \\
+		Use Case Identifier & \ucref{manage-enrollment} \\
 		Name & {\bf ManageEnrollment} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -524,12 +500,12 @@ The {\it ManageEnrollment} ({\bf \manageenrollment{}}) allows Student actors to 
 
 \newpage{}
 
-The {\it EditProfile} ({\bf \editprofile{}}) allows Student actors to edit their profiles. Specifically, this is a high-level use case that includes both {\it EditPersonalValues} and {\it EditDesiredValues} use cases.
+The {\it EditProfile} (\ucref{edit-profile}) allows Student actors to edit their profiles. Specifically, this is a high-level use case that includes both {\it EditPersonalValues} and {\it EditDesiredValues} use cases.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editprofile{} \\
+		Use Case Identifier & \ucref{edit-profile} \\
 		Name & {\bf EditProfile} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -559,13 +535,13 @@ The {\it EditProfile} ({\bf \editprofile{}}) allows Student actors to edit their
 \end{center}
 
 \vspace{1em}
-The {\it ManageProject} ({\bf \manageproject{}}) allows Administrator actors to manage project details. This is a high-level use case that
+The {\it ManageProject} (\ucref{manage-project}) allows Administrator actors to manage project details. This is a high-level use case that
 includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it DeleteProject}.
 
 \begin{center}
   	  \begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \manageproject{} \\
+		Use Case Identifier & \ucref{manage-project} \\
 		Name & {\bf ManageProject} \\
    	     Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -600,12 +576,12 @@ includes {\it LaunchPPID}, {\it ViewPPIDResults}, {\it EditProject}, and {\it De
 
 \newpage{}
 
-The {\it CreateNewProject} ({\bf \createnewproject{}}) allows Administrator actors to create a new project. This is a high-level use case that includes the {\it EditProjectDetails} use case.
+The {\it CreateNewProject} (\ucref{create-new-project}) allows Administrator actors to create a new project. This is a high-level use case that includes the {\it EditProjectDetails} use case.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \createnewproject{} \\
+		Use Case Identifier & \ucref{create-new-project} \\
 		Name & {\bf CreateNewProject} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -642,12 +618,12 @@ The {\it CreateNewProject} ({\bf \createnewproject{}}) allows Administrator acto
 \end{center}
 
 \vspace{1em}
-The {\it LaunchPPID} ({\bf \launchppid{}}) allows Administrator actors to launch the sorting algorithm on a specified project and save the results.
+The {\it LaunchPPID} (\ucref{launch-ppid}) allows Administrator actors to launch the sorting algorithm on a specified project and save the results.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \launchppid{} \\
+		Use Case Identifier & \ucref{launch-ppid} \\
 		Name & {\bf LaunchPPID} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -689,13 +665,13 @@ The {\it LaunchPPID} ({\bf \launchppid{}}) allows Administrator actors to launch
 
 \newpage{}
 
-The {\it InsufficientStudentsError} ({\bf \insufficientstudentserror{}}) allows the system to notify the Administrator actor if the Administrator actor attempts to run the PPID when there are
+The {\it InsufficientStudentsError} (\ucref{insufficient-students-error}) allows the system to notify the Administrator actor if the Administrator actor attempts to run the PPID when there are
 insufficient students in the project.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \insufficientstudentserror{} \\
+		Use Case Identifier & \ucref{insufficient-students-error} \\
 		Name & {\bf InsufficientStudentsError} \\
 		Participating Actors & Communicates with Administrator \\
 		Flow of Events & 
@@ -728,12 +704,12 @@ insufficient students in the project.
 \end{center}
 
 \vspace{1em}
-The {\it ViewPPIDResults} ({\bf \viewppidresults{}}) allows the Administrator actor to view the results of the last run PPID for the specified project. Includes the {\it ViewPPIDSummary} and {\it ViewPPIDDetails} cases.
+The {\it ViewPPIDResults} (\ucref{view-ppid-results}) allows the Administrator actor to view the results of the last run PPID for the specified project. Includes the {\it ViewPPIDSummary} and {\it ViewPPIDDetails} cases.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \viewppidresults{} \\
+		Use Case Identifier & \ucref{view-ppid-results} \\
 		Name & {\bf ViewPPIDResults} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -762,12 +738,12 @@ The {\it ViewPPIDResults} ({\bf \viewppidresults{}}) allows the Administrator ac
 
 \newpage{}
 
-The {\it ViewPPIDSummary} ({\bf \viewppidsummary{}}) allows Administrator actors to see the print out of the final decision of the PPID. In other words, it allows the Administrator to see the different groups that the PPID came up with.
+The {\it ViewPPIDSummary} (\ucref{view-ppid-summary}) allows Administrator actors to see the print out of the final decision of the PPID. In other words, it allows the Administrator to see the different groups that the PPID came up with.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \viewppidsummary{} \\
+		Use Case Identifier & \ucref{view-ppid-summary} \\
 		Name & {\bf ViewPPIDSummary} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -795,13 +771,13 @@ The {\it ViewPPIDSummary} ({\bf \viewppidsummary{}}) allows Administrator actors
 \end{center}
 
 \vspace{1em}
-The {\it ViewPPIDDetails} ({\bf \viewppiddetails{}}) allows Administrator actors to see the actual steps and reasoning of the PPID with regards to the last run PPID. This print out does include the decision (actual groups it decided on) as well
+The {\it ViewPPIDDetails} (\ucref{view-ppid-details}) allows Administrator actors to see the actual steps and reasoning of the PPID with regards to the last run PPID. This print out does include the decision (actual groups it decided on) as well
 as the inner-details.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \viewppiddetails{} \\
+		Use Case Identifier & \ucref{view-ppid-details} \\
 		Name & {\bf ViewPPIDDetails} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -830,12 +806,12 @@ as the inner-details.
 
 \newpage{}
 
-The {\it EditProjectDetails} ({\bf \editprojectdetails{}}) allows Administrator actors to modify project details like the possible group sizes and project name. Includes the {\it EditGroupSize} and {\it EditProjectName} use cases.
+The {\it EditProjectDetails} (\ucref{edit-project-details}) allows Administrator actors to modify project details like the possible group sizes and project name. Includes the {\it EditGroupSize} and {\it EditProjectName} use cases.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editprojectdetails{} \\
+		Use Case Identifier & \ucref{edit-project-details} \\
 		Name & {\bf EditProjectDetails} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -870,12 +846,12 @@ The {\it EditProjectDetails} ({\bf \editprojectdetails{}}) allows Administrator 
 \end{center}
 
 \vspace{1em}
-The {\it EditProject} ({\bf \editproject{}}) allows Administrator actors to edit project details. Includes the {\it EditProjectDetails} use case.
+The {\it EditProject} (\ucref{edit-project}) allows Administrator actors to edit project details. Includes the {\it EditProjectDetails} use case.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editproject{} \\
+		Use Case Identifier & \ucref{edit-project} \\
 		Name & {\bf EditProject} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -911,12 +887,12 @@ The {\it EditProject} ({\bf \editproject{}}) allows Administrator actors to edit
 
 \newpage{}
 
-The {\it JoinProject} ({\bf \joinproject{}}) allows Student actors to add themselves to an existing project that they are not already part of.
+The {\it JoinProject} (\ucref{join-project}) allows Student actors to add themselves to an existing project that they are not already part of.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \joinproject{} \\
+		Use Case Identifier & \ucref{join-project} \\
 		Name & {\bf JoinProject} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -950,12 +926,12 @@ The {\it JoinProject} ({\bf \joinproject{}}) allows Student actors to add themse
 \end{center}
 
 \vspace{1em}
-The {\it LeaveProject} ({\bf \leaveproject{}}) allows Students actors to remove themselves from an existing project that they are a part of.
+The {\it LeaveProject} (\ucref{leave-project}) allows Students actors to remove themselves from an existing project that they are a part of.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \leaveproject{} \\
+		Use Case Identifier & \ucref{leave-project} \\
 		Name & {\bf LeaveProject} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -993,12 +969,12 @@ The {\it LeaveProject} ({\bf \leaveproject{}}) allows Students actors to remove 
 
 \newpage{}
 
-The {\it EditPersonalValues} ({\bf \editpersonalvalues{}}) allows Students to modify the values for the section pertaining to their personal details.
+The {\it EditPersonalValues} (\ucref{edit-personal-values}) allows Students to modify the values for the section pertaining to their personal details.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editpersonalvalues{} \\
+		Use Case Identifier & \ucref{edit-personal-values} \\
 		Name & {\bf EditPersonalValues} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -1038,12 +1014,12 @@ The {\it EditPersonalValues} ({\bf \editpersonalvalues{}}) allows Students to mo
 \end{center}
 
 \vspace{1em}
-The {\it EditDesiredValues} ({\bf \editdesiredvalues{}}) allows Student actors to modify the values for the section pertaining to the values they desire in teammates.
+The {\it EditDesiredValues} (\ucref{edit-desired-values}) allows Student actors to modify the values for the section pertaining to the values they desire in teammates.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editdesiredvalues{} \\
+		Use Case Identifier & \ucref{edit-desired-values} \\
 		Name & {\bf EditDesiredValues} \\
 		Participating Actors & Initiated by Student \\
 		Flow of Events & 
@@ -1084,12 +1060,12 @@ The {\it EditDesiredValues} ({\bf \editdesiredvalues{}}) allows Student actors t
 
 \newpage{}
 
-The {\it InvalidInputError} ({\bf \invalidinputerror{}}) allows the system to notify the Administrator or Student actors when they input incorrect values.
+The {\it InvalidInputError} (\ucref{invalid-input-error}) allows the system to notify the Administrator or Student actors when they input incorrect values.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \invalidinputerror{} \\
+		Use Case Identifier & \ucref{invalid-input-error} \\
 		Name & {\bf InvalidInputError} \\
 		Participating Actors & Communicates with Administrator, Student \\
 		Flow of Events & 
@@ -1122,12 +1098,12 @@ The {\it InvalidInputError} ({\bf \invalidinputerror{}}) allows the system to no
 \end{center}
 
 \vspace{1em}
-The {\it EditProjectName} ({\bf \editprojectname{}}) allows Administrator actors to modify the name of the current project.
+The {\it EditProjectName} (\ucref{edit-project-name}) allows Administrator actors to modify the name of the current project.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editprojectname{} \\
+		Use Case Identifier & \ucref{edit-project-name} \\
 		Name & {\bf EditProjectName} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -1165,12 +1141,12 @@ The {\it EditProjectName} ({\bf \editprojectname{}}) allows Administrator actors
 
 \newpage{}
 
-The {\it ProjectExistsError} ({\bf \projectexistserror{}}) allows the system to notify the Administrator actor if the desired project name is already in use.
+The {\it ProjectExistsError} (\ucref{project-exists-error}) allows the system to notify the Administrator actor if the desired project name is already in use.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \projectexistserror{} \\
+		Use Case Identifier & \ucref{project-exists-error} \\
 		Name & {\bf ProjectExistsError} \\
 		Participating Actors & Communicates with Administrator \\
 		Flow of Events & 
@@ -1203,12 +1179,12 @@ The {\it ProjectExistsError} ({\bf \projectexistserror{}}) allows the system to 
 \end{center}
 
 \vspace{1em}
-The {\it EditGroupSize} ({\bf \editgroupsize{}}) allows Administrator actors to modify the range of possible group sizes, which includes the maximum and minimum values.
+The {\it EditGroupSize} (\ucref{edit-group-size}) allows Administrator actors to modify the range of possible group sizes, which includes the maximum and minimum values.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \editgroupsize{} \\
+		Use Case Identifier & \ucref{edit-group-size} \\
 		Name & {\bf EditGroupSize} \\
 		Participating Actors & Initiated by Administrator \\
 		Flow of Events & 
@@ -1246,12 +1222,12 @@ The {\it EditGroupSize} ({\bf \editgroupsize{}}) allows Administrator actors to 
 
 \newpage{}
 
-The {\it InvalidGroupSizeError} ({\bf \invalidgroupsizeerror{}}) allows the system to notify the Administrator actor that the desired group size is invalid.
+The {\it InvalidGroupSizeError} (\ucref{invalid-group-size-error}) allows the system to notify the Administrator actor that the desired group size is invalid.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \invalidgroupsizeerror{} \\
+		Use Case Identifier & \ucref{invalid-group-size-error} \\
 		Name & {\bf InvalidGroupSizeError} \\
 		Participating Actors & Communicates with Administrator \\
 		Flow of Events & 
@@ -1284,12 +1260,12 @@ The {\it InvalidGroupSizeError} ({\bf \invalidgroupsizeerror{}}) allows the syst
 \end{center}
 
 \vspace{1em}
-The {\it StorageError} ({\bf \storageerror{}}) allows the system to notify the Administrator and Student actors that an error has occured while trying to interact with the Storage.
+The {\it StorageError} (\ucref{storage-error}) allows the system to notify the Administrator and Student actors that an error has occured while trying to interact with the Storage.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \storageerror{} \\
+		Use Case Identifier & \ucref{storage-error} \\
 		Name & {\bf StorageError} \\
 		Participating Actors & Communicates with Administrator, Student \\
 		Flow of Events & 
@@ -1322,12 +1298,12 @@ The {\it StorageError} ({\bf \storageerror{}}) allows the system to notify the A
 
 \newpage{}
 
-The {\it StorageReadError} ({\bf \storagereaderror{}}) allows the system to notify the Administrator and Student actors when an error has occured while trying to read from the storage.
+The {\it StorageReadError} (\ucref{storage-read-error}) allows the system to notify the Administrator and Student actors when an error has occured while trying to read from the storage.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \storagereaderror{} \\
+		Use Case Identifier & \ucref{storage-read-error} \\
 		Name & {\bf StorageReadError} \\
 		Participating Actors & \textbf{Inherited} from StorageError use case. \\
 		Flow of Events & 
@@ -1359,12 +1335,12 @@ The {\it StorageReadError} ({\bf \storagereaderror{}}) allows the system to noti
 \end{center}
 
 \vspace{1em}
-The {\it StorageOpenError} ({\bf \storageopenerror{}}) allows the system to notify the Administrator and Student actors when an error has occured while trying to opening the storage.
+The {\it StorageOpenError} (\ucref{storage-open-error}) allows the system to notify the Administrator and Student actors when an error has occured while trying to opening the storage.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \storageopenerror{} \\
+		Use Case Identifier & \ucref{storage-open-error} \\
 		Name & {\bf StorageOpenError} \\
 		Participating Actors & \textbf{Inherited} from StorageError use case. \\
 		Flow of Events & 
@@ -1397,12 +1373,12 @@ The {\it StorageOpenError} ({\bf \storageopenerror{}}) allows the system to noti
 
 \newpage{}
 
-The {\it StorageWriteError} ({\bf \storagewriteerror{}}) allows the system to notify the Administrator and Student actors when an error has occured while trying to save to the storage.
+The {\it StorageWriteError} (\ucref{storage-write-error}) allows the system to notify the Administrator and Student actors when an error has occured while trying to save to the storage.
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Use Case Identifier & \storagewriteerror{} \\
+		Use Case Identifier & \ucref{storage-write-error} \\
 		Name & {\bf StorageWriteError} \\
 		Participating Actors & \textbf{Inherited} from StorageError use case. \\
 		Flow of Events & 
@@ -1527,10 +1503,9 @@ For example, if something erroneous has occured, it is the boundary objects that
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for ManageEnrollment (\manageenrollment{}):}
+\subsubsection*{Control and boundary objects for ManageEnrollment (\ucref{manage-enrollment}):}
 
-The following figure, \figureref{cbo-manage-enrollment}, handles the interactions between the control object, {\it ManageEnrollmentControl}, and the corresponding boundary objects, {\it ProjectListNotice, EnrollmentOption}, and {\it ProjectSelectionOption}. The control object here manages \manageenrollment{},
-ManageEnrollment.
+The following figure, \figureref{cbo-manage-enrollment}, handles the interactions between the control object, {\it ManageEnrollmentControl}, and the corresponding boundary objects, {\it ProjectListNotice, EnrollmentOption}, and {\it ProjectSelectionOption}. The control object here manages \ucref{manage-enrollment}, ManageEnrollment.
 
 \vspace{1em}
 
@@ -1541,10 +1516,10 @@ ManageEnrollment.
 	\figurelabel{cbo-manage-enrollment}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditProfile (\editprofile{}):}
+\subsubsection*{Control and boundary objects for EditProfile (\ucref{edit-profile}):}
 
 The following figure, \figureref{cbo-edit-profile}, handles the interactions between the control object, {\it EditProfileControl}, and the corresponding
-boundary object, {\it ProfileObject}. The control object here manages \editprofile{}, EditProfile.
+boundary object, {\it ProfileObject}. The control object here manages \ucref{edit-profile}, EditProfile.
 
 \vspace{1em}
 
@@ -1555,9 +1530,9 @@ boundary object, {\it ProfileObject}. The control object here manages \editprofi
 	\figurelabel{cbo-edit-profile}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ManageProject (\manageproject{}):}
+\subsubsection*{Control and boundary objects for ManageProject (\ucref{manage-project}):}
 
-The following figure, \figureref{cbo-edit-manage-project}, handles the interactions between the control object, {\it ManageProjectControl}, and the corresponding boundary objects, {\it ManageOption, ProjectListNotice,} and {\it ProjectSelectionOption}. The control object here manages \manageproject{}, ManageProject.
+The following figure, \figureref{cbo-edit-manage-project}, handles the interactions between the control object, {\it ManageProjectControl}, and the corresponding boundary objects, {\it ManageOption, ProjectListNotice,} and {\it ProjectSelectionOption}. The control object here manages \ucref{manage-project}, ManageProject.
 
 \vspace{1em}
 
@@ -1570,9 +1545,9 @@ The following figure, \figureref{cbo-edit-manage-project}, handles the interacti
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for CreateNewProject (\createnewproject{}):}
+\subsubsection*{Control and boundary objects for CreateNewProject (\ucref{create-new-project}):}
 
-The following figure, \figureref{cbo-create-new-project}, handles the interactions between the control object, {\it CreateNewProjectControl}, and the corresponding boundary objects, {\it ProjectDetailsForm} and {\it ProjectCreateNotice}. The control object here manages \createnewproject{}, CreateNewProject.
+The following figure, \figureref{cbo-create-new-project}, handles the interactions between the control object, {\it CreateNewProjectControl}, and the corresponding boundary objects, {\it ProjectDetailsForm} and {\it ProjectCreateNotice}. The control object here manages \ucref{create-new-project}, CreateNewProject.
 
 \begin{figure}[H]
 	\centering{}
@@ -1581,9 +1556,9 @@ The following figure, \figureref{cbo-create-new-project}, handles the interactio
 	\figurelabel{cbo-create-new-project}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for LaunchPPID (\launchppid{}):}
+\subsubsection*{Control and boundary objects for LaunchPPID (\ucref{launch-ppid}):}
 
-The following figure, \figureref{cbo-launch-ppid}, handles the interactions between the control object, {\it LaunchPPIDControl}, the corresponding boundary object, {\it PPIDCompleteNotice}, and the entity object, {\it Project}. The control object here manages \launchppid{}, LaunchPPID.
+The following figure, \figureref{cbo-launch-ppid}, handles the interactions between the control object, {\it LaunchPPIDControl}, the corresponding boundary object, {\it PPIDCompleteNotice}, and the entity object, {\it Project}. The control object here manages \ucref{launch-ppid}, LaunchPPID.
 
 \begin{figure}[H]
 	\centering{}
@@ -1592,9 +1567,9 @@ The following figure, \figureref{cbo-launch-ppid}, handles the interactions betw
 	\figurelabel{cbo-launch-ppid}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for InsufficientStudentsError (\insufficientstudentserror{}):}
+\subsubsection*{Control and boundary objects for InsufficientStudentsError (\ucref{insufficient-students-error}):}
 
-The following figure, \figureref{cbo-insufficient-students-error}, handles the interactions between the control objects, {\it LaunchPPIDControl} and {\it InsufficientStudentsErrorControl}, and the corresponding boundary object, {\it InsufficientStudentErrorNotice}. The control object here manages \insufficientstudentserror{}, InsufficientStudentsError.
+The following figure, \figureref{cbo-insufficient-students-error}, handles the interactions between the control objects, {\it LaunchPPIDControl} and {\it InsufficientStudentsErrorControl}, and the corresponding boundary object, {\it InsufficientStudentErrorNotice}. The control object here manages \ucref{insufficient-students-error}, InsufficientStudentsError.
 
 \begin{figure}[H]
 	\centering{}
@@ -1605,9 +1580,9 @@ The following figure, \figureref{cbo-insufficient-students-error}, handles the i
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for ViewPPIDResults (\viewppidresults{}):}
+\subsubsection*{Control and boundary objects for ViewPPIDResults (\ucref{view-ppid-results}):}
 
-The following figure, \figureref{cbo-view-ppid-results}, handles the interactions between the control object, {\it ViewPPIDResultsControl} and the corresponding boundary object, {\it ResultsOption}. The control object here manages \viewppidresults{}, ViewPPIDResults.
+The following figure, \figureref{cbo-view-ppid-results}, handles the interactions between the control object, {\it ViewPPIDResultsControl} and the corresponding boundary object, {\it ResultsOption}. The control object here manages \ucref{view-ppid-results}, ViewPPIDResults.
 
 \vspace{1em}
 
@@ -1618,10 +1593,10 @@ The following figure, \figureref{cbo-view-ppid-results}, handles the interaction
 	\figurelabel{cbo-view-ppid-results}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ViewPPIDSummary (\viewppidsummary{}):}
+\subsubsection*{Control and boundary objects for ViewPPIDSummary (\ucref{view-ppid-summary}):}
 
 The following figure, \figureref{cbo-view-ppid-summary}, handles the interactions between the control object, {\it ViewPPIDSummaryControl}, the corresponding boundary object, 
-{\it SummaryResultsNotice}, and the entity object, {\it Project}. The control object here manages \viewppidsummary{}, ViewPPIDSummary.
+{\it SummaryResultsNotice}, and the entity object, {\it Project}. The control object here manages \ucref{view-ppid-summary}, ViewPPIDSummary.
 
 \vspace{1em}
 
@@ -1632,10 +1607,10 @@ The following figure, \figureref{cbo-view-ppid-summary}, handles the interaction
 	\figurelabel{cbo-view-ppid-summary}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ViewPPIDDetails (\viewppiddetails{}):}
+\subsubsection*{Control and boundary objects for ViewPPIDDetails (\ucref{view-ppid-details}):}
 
 The following figure, \figureref{cbo-view-ppid-details}, handles the interactions between the control object, {\it ViewPPIDDetailsControl}, the corresponding boundary object, 
-{\it DetailsResultsNotice}, and the entity object, {\it Project}. The control object here manages \viewppiddetails{}, ViewPPIDDetails.
+{\it DetailsResultsNotice}, and the entity object, {\it Project}. The control object here manages \ucref{view-ppid-details}, ViewPPIDDetails.
 
 \vspace{1em}
 
@@ -1648,10 +1623,9 @@ The following figure, \figureref{cbo-view-ppid-details}, handles the interaction
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for EditProjectDetails (\editprojectdetails{}):}
+\subsubsection*{Control and boundary objects for EditProjectDetails (\ucref{edit-project-details}):}
 
-The following figure, \figureref{cbo-edit-project-details}, handles the interactions between the control object, {\it EditProjectDetailsControl}, the corresponding boundary objects, 
-{\it ProjectDetailsForm} and {\it DetailsUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editprojectdetails{}, EditProjectDetails.
+The following figure, \figureref{cbo-edit-project-details}, handles the interactions between the control object, {\it EditProjectDetailsControl}, the corresponding boundary objects, {\it ProjectDetailsForm} and {\it DetailsUpdateNotice}, and the entity object, {\it Project}. The control object here manages \ucref{edit-project-details}, EditProjectDetails.
 
 \begin{figure}[H]
 	\centering{}
@@ -1660,10 +1634,10 @@ The following figure, \figureref{cbo-edit-project-details}, handles the interact
 	\figurelabel{cbo-edit-project-details}  
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditProject (\editproject{}):}
+\subsubsection*{Control and boundary objects for EditProject (\ucref{edit-project}):}
 
 The following figure, \figureref{cbo-edit-project}, handles the interactions between the control object, {\it EditProjectControl} and the corresponding boundary objects, 
-{\it ProjectDetailsForm} and {\it DetailsUpdateNotice}. The control object here manages \editproject{}, EditProject.
+{\it ProjectDetailsForm} and {\it DetailsUpdateNotice}. The control object here manages \ucref{edit-project}, EditProject.
 
 \begin{figure}[H]
 	\centering{}
@@ -1672,10 +1646,10 @@ The following figure, \figureref{cbo-edit-project}, handles the interactions bet
 	\figurelabel{cbo-edit-project}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for JoinProject (\joinproject{}):}
+\subsubsection*{Control and boundary objects for JoinProject (\ucref{join-project}):}
 
 The following figure, \figureref{cbo-join-project}, handles the interactions between the control object, {\it JoinProjectControl}, the corresponding boundary objects, 
-{\it EnrollmentOption} and {\it JoinCompleteNotice}, and the entity object, {\it Project}. The control object here manages \joinproject{}, JoinProject.
+{\it EnrollmentOption} and {\it JoinCompleteNotice}, and the entity object, {\it Project}. The control object here manages \ucref{join-project}, JoinProject.
 
 \begin{figure}[H]
 	\centering{}
@@ -1686,10 +1660,10 @@ The following figure, \figureref{cbo-join-project}, handles the interactions bet
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for LeaveProject (\leaveproject{}):}
+\subsubsection*{Control and boundary objects for LeaveProject (\ucref{leave-project}):}
 
 The following figure, \figureref{cbo-leave-project}, handles the interactions between the control object, {\it LeaveProjectControl}, the corresponding boundary objects, 
-{\it ProjectDetailsForm} and {\it LeaveCompleteNotice}, and the entity object, {\it Project}. The control object here manages \leaveproject{}, LeaveProject.
+{\it ProjectDetailsForm} and {\it LeaveCompleteNotice}, and the entity object, {\it Project}. The control object here manages \ucref{leave-project}, LeaveProject.
 
 \begin{figure}[H]
 	\centering{}
@@ -1698,9 +1672,9 @@ The following figure, \figureref{cbo-leave-project}, handles the interactions be
 	\figurelabel{cbo-leave-project}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditPersonalValues (\editpersonalvalues{}):}
+\subsubsection*{Control and boundary objects for EditPersonalValues (\ucref{edit-personal-values}):}
 
-The following figure, \figureref{cbo-edit-personal-values}, handles the interactions between the control object, {\it EditPersonalValues}, the corresponding boundary objects, {\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editpersonalvalues{}, EditPersonalValues.
+The following figure, \figureref{cbo-edit-personal-values}, handles the interactions between the control object, {\it EditPersonalValues}, the corresponding boundary objects, {\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \ucref{edit-personal-values}, EditPersonalValues.
 
 \begin{figure}[H]
 	\centering{}
@@ -1709,9 +1683,9 @@ The following figure, \figureref{cbo-edit-personal-values}, handles the interact
 	\figurelabel{cbo-edit-personal-values}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditDesiredValues (\editdesiredvalues{}):}
+\subsubsection*{Control and boundary objects for EditDesiredValues (\ucref{edit-desired-values}):}
 
-The following figure, \figureref{cbo-edit-desired-values}, handles the interactions between the control object, {\it EditDesiredValues}, the corresponding boundary objects, {\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \editdesiredvalues{}, EditDesiredValues.
+The following figure, \figureref{cbo-edit-desired-values}, handles the interactions between the control object, {\it EditDesiredValues}, the corresponding boundary objects, {\it ProfileOption} and {\it UpdateCompleteNotice}, and the entity object, {\it Student}. The control object here manages \ucref{edit-desired-values}, EditDesiredValues.
 
 \begin{figure}[H]
 	\centering{}
@@ -1722,9 +1696,9 @@ The following figure, \figureref{cbo-edit-desired-values}, handles the interacti
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for InvalidInputError (\invalidinputerror{}):}
+\subsubsection*{Control and boundary objects for InvalidInputError (\ucref{invalid-input-error}):}
 
-The following figure, \figureref{cbo-invalid-input-error}, handles the interactions between the control object, {\it InvalidInputErrorControl} and the corresponding boundary objects, {\it InputOption} and {\it InvalidInputErrorNotice}. The control object here manages \invalidinputerror{}, InvalidInputError.
+The following figure, \figureref{cbo-invalid-input-error}, handles the interactions between the control object, {\it InvalidInputErrorControl} and the corresponding boundary objects, {\it InputOption} and {\it InvalidInputErrorNotice}. The control object here manages \ucref{invalid-input-error}, InvalidInputError.
 
 \begin{figure}[H]
 	\centering{}
@@ -1733,9 +1707,9 @@ The following figure, \figureref{cbo-invalid-input-error}, handles the interacti
 	\figurelabel{cbo-invalid-input-error}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for EditProjectName (\editprojectname{}):}
+\subsubsection*{Control and boundary objects for EditProjectName (\ucref{edit-project-name}):}
 
-The following figure, \figureref{cbo-edit-project-name}, handles the interactions between the control object, {\it EditProjectNameControl}, the corresponding boundary objects, {\it EditProjectNameOption} and {\it ProjectNameUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editprojectname{}, EditProjectName.
+The following figure, \figureref{cbo-edit-project-name}, handles the interactions between the control object, {\it EditProjectNameControl}, the corresponding boundary objects, {\it EditProjectNameOption} and {\it ProjectNameUpdateNotice}, and the entity object, {\it Project}. The control object here manages \ucref{edit-project-name}, EditProjectName.
 
 \begin{figure}[H]
 	\centering{}
@@ -1744,9 +1718,9 @@ The following figure, \figureref{cbo-edit-project-name}, handles the interaction
 	\figurelabel{cbo-edit-project-name}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for ProjectExistsError (\projectexistserror{}):}
+\subsubsection*{Control and boundary objects for ProjectExistsError (\ucref{project-exists-error}):}
 
-The following figure, \figureref{cbo-project-exists-error}, handles the interactions between the control objects, {\it EditProjectDetailsControl} and {\it ProjectExistsErrorControl}, and the corresponding boundary object, {\it ProjectExistsErrorNotice}. The control object here manages \projectexistserror{}, ProjectExistsError.
+The following figure, \figureref{cbo-project-exists-error}, handles the interactions between the control objects, {\it EditProjectDetailsControl} and {\it ProjectExistsErrorControl}, and the corresponding boundary object, {\it ProjectExistsErrorNotice}. The control object here manages \ucref{project-exists-error}, ProjectExistsError.
 
 \begin{figure}[H]
 	\centering{}
@@ -1757,10 +1731,10 @@ The following figure, \figureref{cbo-project-exists-error}, handles the interact
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for EditGroupSize (\editgroupsize{}):}
+\subsubsection*{Control and boundary objects for EditGroupSize (\ucref{edit-group-size}):}
 
 The following figure, \figureref{cbo-edit-group-size}, handles the interactions between the control object, {\it EditGroupSizeControl}, the corresponding boundary objects, 
-{\it EditGroupSizeOption} and {\it GroupSizeUpdateNotice}, and the entity object, {\it Project}. The control object here manages \editgroupsize{}, EditGroupSize.
+{\it EditGroupSizeOption} and {\it GroupSizeUpdateNotice}, and the entity object, {\it Project}. The control object here manages \ucref{edit-group-size}, EditGroupSize.
 
 \begin{figure}[H]
 	\centering{}
@@ -1769,9 +1743,9 @@ The following figure, \figureref{cbo-edit-group-size}, handles the interactions 
 	\figurelabel{cbo-edit-group-size}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for InvalidGroupSizeError (\invalidgroupsizeerror{}):}
+\subsubsection*{Control and boundary objects for InvalidGroupSizeError (\ucref{invalid-group-size-error}):}
 
-The following figure, \figureref{cbo-invalid-group-size}, handles the interactions between the control objects, {\it EditGroupSizeControl} and {\it InvalidGroupSizeErrorControl}, and the corresponding boundary object, {\it InvalidGroupSizeErrorNotice}. The control object here manages \invalidgroupsizeerror{}, InvalidGroupSizeError.
+The following figure, \figureref{cbo-invalid-group-size}, handles the interactions between the control objects, {\it EditGroupSizeControl} and {\it InvalidGroupSizeErrorControl}, and the corresponding boundary object, {\it InvalidGroupSizeErrorNotice}. The control object here manages \ucref{invalid-group-size-error}, InvalidGroupSizeError.
 
 \begin{figure}[H]
 	\centering{}
@@ -1780,10 +1754,10 @@ The following figure, \figureref{cbo-invalid-group-size}, handles the interactio
     \figurelabel{cbo-invalid-group-size}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for StorageError (\storageerror{}):}
+\subsubsection*{Control and boundary objects for StorageError (\ucref{storage-error}):}
 
 The following figure, \figureref{cbo-storage-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageErrorControl}, and the corresponding boundary object, 
-{\it StorageErrorNotice}. The control object here manages \storageerror{}, StorageError.
+{\it StorageErrorNotice}. The control object here manages \ucref{storage-error}, StorageError.
 
 \begin{figure}[H]
 	\centering{}
@@ -1794,10 +1768,10 @@ The following figure, \figureref{cbo-storage-error}, handles the interactions be
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for StorageReadError (\storagereaderror{}):}
+\subsubsection*{Control and boundary objects for StorageReadError (\ucref{storage-read-error}):}
 
 The following figure, \figureref{cbo-storage-read-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageReadErrorControl}, and the corresponding boundary object, 
-{\it StorageReadErrorNotice}. The control object here manages \storagereaderror{}, StorageReadError.
+{\it StorageReadErrorNotice}. The control object here manages \ucref{storage-read-error}, StorageReadError.
 
 \begin{figure}[H]
 	\centering{}
@@ -1806,10 +1780,10 @@ The following figure, \figureref{cbo-storage-read-error}, handles the interactio
 	\figurelabel{cbo-storage-read-error}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for StorageOpenError (\storageopenerror{}):}
+\subsubsection*{Control and boundary objects for StorageOpenError (\ucref{storage-open-error}):}
 
 The following figure, \figureref{cbo-storage-open-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageOpenErrorControl}, and the corresponding boundary object, 
-{\it StorageOpenErrorNotice}. The control object here manages \storageopenerror{}, StorageOpenError.
+{\it StorageOpenErrorNotice}. The control object here manages \ucref{storage-open-error}, StorageOpenError.
 
 \begin{figure}[H]
 	\centering{}
@@ -1818,9 +1792,9 @@ The following figure, \figureref{cbo-storage-open-error}, handles the interactio
 	\figurelabel{cbo-storage-open-error}
 \end{figure}
 
-\subsubsection*{Control and boundary objects for StorageWriteError (\storagewriteerror{}):}
+\subsubsection*{Control and boundary objects for StorageWriteError (\ucref{storage-write-error}):}
 
-The following figure, \figureref{cbo-storage-write-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageWriteErrorControl}, and the corresponding boundary object, {\it StorageWriteErrorNotice}. The control object here manages \storagewriteerror{}, StorageWriteError.
+The following figure, \figureref{cbo-storage-write-error}, handles the interactions between the control objects, {\it StorageControl} and {\it StorageWriteErrorControl}, and the corresponding boundary object, {\it StorageWriteErrorNotice}. The control object here manages \ucref{storage-write-error}, StorageWriteError.
 
 \begin{figure}[H]
 	\centering{}
@@ -2063,11 +2037,7 @@ The following diagram, \figureref{sm-student-join-project}, represents a state m
 	\figurelabel{sm-student-join-project}
 \end{figure}
 
-<<<<<<< Updated upstream
 \noindent The following diagram, \figureref{sm-student-leave-project}, represents a state machine for the Student object. Shown here is the different states involved in the leaving of Projects.
-=======
-The following diagram, \figureref{sm-student-leave-project}, represents a state machine for the Student object. Shown here is the different states involved in the leaving of Projects.
->>>>>>> Stashed changes
 
 \begin{figure}[H]
 	\centering{}
@@ -2098,11 +2068,7 @@ The following diagram, \figureref{sm-project-student-enrollment}, represents a s
 	\figurelabel{sm-project-student-enrollment}
 \end{figure}
 
-<<<<<<< Updated upstream
-\noindent The following diagram, {\bf Figure 36}, represents a state machine for the Project object. Shown here is the different states involved in the setting of a Project's name.
-=======
-The following diagram, \figureref{sm-project-name}, represents a state machine for the Project object. Shown here is the different states involved in the setting of a Project's name.
->>>>>>> Stashed changes
+\noindent The following diagram, \figureref{sm-project-name}, represents a state machine for the Project object. Shown here is the different states involved in the setting of a Project's name.
 
 \begin{figure}[H]
 	\centering{}
@@ -2111,11 +2077,7 @@ The following diagram, \figureref{sm-project-name}, represents a state machine f
 	\figurelabel{sm-project-name}
 \end{figure}
 
-<<<<<<< Updated upstream
-\noindent The following diagram, {\bf Figure 37}, represents a state machine for the Project object. Shown here is the different states involved in showing the results of/running the PPID.
-=======
-The following diagram, \figureref{sm-project-ppid-results}, represents a state machine for the Project object. Shown here is the different states involved in showing the results of/running the PPID.
->>>>>>> Stashed changes
+\noindent The following diagram, \figureref{sm-project-ppid-results}, represents a state machine for the Project object. Shown here is the different states involved in showing the results of/running the PPID.
 
 \begin{figure}[H]
 	\centering{}
@@ -2152,11 +2114,11 @@ Sequence diagrams are a great visual representation of the many interactions bet
 each object has a vertical dotted line - this represents the time-line of that object. Through the course of the diagram, multiple objects will be created
 and destroyed after fulfilling their purpose.
 
-\subsubsection*{Sequence diagram for ManageEnrollment (\manageenrollment{}):}
+\subsubsection*{Sequence diagram for ManageEnrollment (\ucref{manage-enrollment}):}
 
 The following figure, \figureref{seq-manage-enrollment}, shows the sequence diagram for the {\it ManageEnrollment} use case. The participating actor for this use case
 is the Student user. This figure shows the necessary interactions between the control object, {\it LaunchPPIDControl}, and the entity/boundary objects
-in order to manage \manageenrollment{}.
+in order to manage \ucref{manage-enrollment}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2165,11 +2127,11 @@ in order to manage \manageenrollment{}.
 	\figurelabel{seq-manage-enrollment}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProfile (\editprofile{}):}
+\subsubsection*{Sequence diagram for EditProfile (\ucref{edit-profile}):}
 
 The following figure, {seq-edit-profile}, shows the sequence diagram for the {\it EditProfile} use case. The participating actor for this use case is the 
 Student user. This figure shows the necessary interactions between the control object, {\it EditProfileControl}, and the entity/boundary objects
-in order to manage \editprofile{}.
+in order to manage \ucref{edit-profile}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2178,11 +2140,11 @@ in order to manage \editprofile{}.
 	\figurelabel{seq-edit-profile}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ManageProject (\manageproject{}):}
+\subsubsection*{Sequence diagram for ManageProject (\ucref{manage-project}):}
 
 The following figure, \figureref{seq-manage-project}, shows the sequence diagram for the {\it ManageProject} use case. The participating actor for this use case is the
 Student user. This figure shows the necessary interactions between the control object, {\it ManageProjectControl}, and the entity/boundary objects 
-in order to manage \manageproject{}.
+in order to manage \ucref{manage-project}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2191,11 +2153,11 @@ in order to manage \manageproject{}.
 	\figurelabel{seq-manage-project}
 \end{figure}
 
-\subsubsection*{Sequence diagram for CreateNewProject (\createnewproject{}):}
+\subsubsection*{Sequence diagram for CreateNewProject (\ucref{create-new-project}):}
 
 The following figure, \figureref{seq-create-new-project}, shows the sequence diagram for the {\it CreateNewProject} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it CreateNewProjectControl}, and the
-entity/boundary objects in order to manage \createnewproject{}.
+entity/boundary objects in order to manage \ucref{create-new-project}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2204,11 +2166,11 @@ entity/boundary objects in order to manage \createnewproject{}.
 	\figurelabel{seq-create-new-project}
 \end{figure}
 
-\subsubsection*{Sequence diagram for LaunchPPID (\launchppid{}):}
+\subsubsection*{Sequence diagram for LaunchPPID (\ucref{launch-ppid}):}
 
 The following figure, \figureref{seq-launch-ppid}, shows the sequence diagram for the {\it LaunchPPID} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it LaunchPPIDControl}, and the
-entity/boundary objects in order to manage \launchppid{}.
+entity/boundary objects in order to manage \ucref{launch-ppid}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2217,11 +2179,11 @@ entity/boundary objects in order to manage \launchppid{}.
 	\figurelabel{seq-launch-ppid}
 \end{figure}
 
-\subsubsection*{Sequence diagram for InsufficientStudentsError (\insufficientstudentserror{}):}
+\subsubsection*{Sequence diagram for InsufficientStudentsError (\ucref{insufficient-students-error}):}
 
 The following figure, \figureref{seq-insufficient-students-error}, shows the sequence diagram for the {\it InsufficientStudentsError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it InsufficientStudentsErrorControl}, and the
-entity/boundary objects in order to manage \insufficientstudentserror{}.
+entity/boundary objects in order to manage \ucref{insufficient-students-error}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2230,11 +2192,11 @@ entity/boundary objects in order to manage \insufficientstudentserror{}.
 	\figurelabel{seq-insufficient-students-error}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ViewPPIDResults (\viewppidresults{}):}
+\subsubsection*{Sequence diagram for ViewPPIDResults (\ucref{view-ppid-results}):}
 
 The following figure, \figureref{seq-view-ppid-results}, shows the sequence diagram for the {\it ViewPPIDResults} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDResultsControl}, and the
-entity/boundary objects in order to manage \viewppidresults{}.
+entity/boundary objects in order to manage \ucref{view-ppid-results}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2243,11 +2205,11 @@ entity/boundary objects in order to manage \viewppidresults{}.
 	\figurelabel{seq-view-ppid-results}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ViewPPIDSummary (\viewppidsummary{}):}
+\subsubsection*{Sequence diagram for ViewPPIDSummary (\ucref{view-ppid-summary}):}
 
 The following figure, \figureref{seq-view-ppid-summary}, shows the sequence diagram for the {\it ViewPPIDSummary} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDSummaryControl}, and the
-entity/boundary objects in order to manage \viewppidsummary{}.
+entity/boundary objects in order to manage \ucref{view-ppid-summary}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2256,11 +2218,11 @@ entity/boundary objects in order to manage \viewppidsummary{}.
 	\figurelabel{seq-view-ppid-summary}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ViewPPIDDDetails (\viewppiddetails{}):}
+\subsubsection*{Sequence diagram for ViewPPIDDDetails (\ucref{view-ppid-details}):}
 
 The following figure, \figureref{seq-view-ppid-details}, shows the sequence diagram for the {\it ViewPPIDDetails} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ViewPPIDDetailsControl}, and the
-entity/boundary objects in order to manage \viewppiddetails{}.
+entity/boundary objects in order to manage \ucref{view-ppid-details}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2269,11 +2231,11 @@ entity/boundary objects in order to manage \viewppiddetails{}.
 	\figurelabel{seq-view-ppid-details}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProjectDetails (\editprojectdetails{}):}
+\subsubsection*{Sequence diagram for EditProjectDetails (\ucref{edit-project-details}):}
 
 The following figure, \figureref{seq-edit-project-details}, shows the sequence diagram for the {\it EditProjectDetails} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectDetailsControl}, and the
-entity/boundary objects in order to manage \editprojectdetails{}.
+entity/boundary objects in order to manage \ucref{edit-project-details}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2282,11 +2244,11 @@ entity/boundary objects in order to manage \editprojectdetails{}.
 	\figurelabel{seq-edit-project-details}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProject (\editproject{}):}
+\subsubsection*{Sequence diagram for EditProject (\ucref{edit-project}):}
 
 The following figure, \figureref{seq-edit-project}, shows the sequence diagram for the {\it EditProject} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectControl}, and the
-entity/boundary objects in order to manage \editproject{}.
+entity/boundary objects in order to manage \ucref{edit-project}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2295,11 +2257,11 @@ entity/boundary objects in order to manage \editproject{}.
 	\figurelabel{seq-edit-project}
 \end{figure}
 
-\subsubsection*{Sequence diagram for JoinProject (\joinproject{})}
+\subsubsection*{Sequence diagram for JoinProject (\ucref{join-project})}
 
 The following figure, \figureref{seq-join-project}, shows the sequence diagram for the {\it JoinProject} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it JoinProjectControl}, and the
-entity/boundary objects in order to manage \joinproject{}.
+entity/boundary objects in order to manage \ucref{join-project}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2308,11 +2270,11 @@ entity/boundary objects in order to manage \joinproject{}.
 	\figurelabel{seq-join-project}
 \end{figure}
 
-\subsubsection*{Sequence diagram for LeaveProject (\leaveproject{})}
+\subsubsection*{Sequence diagram for LeaveProject (\ucref{leave-project})}
 
 The following figure, \figureref{seq-leave-project}, shows the sequence diagram for the {\it LeaveProject} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it LeaveProjectControl}, and the
-entity/boundary objects in order to manage \leaveproject{}.
+entity/boundary objects in order to manage \ucref{leave-project}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2321,11 +2283,11 @@ entity/boundary objects in order to manage \leaveproject{}.
 	\figurelabel{seq-leave-project}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditPersonalValues (\editpersonalvalues{})}
+\subsubsection*{Sequence diagram for EditPersonalValues (\ucref{edit-personal-values})}
 
 The following figure, \figureref{seq-edit-personal-values}, shows the sequence diagram for the {\it EditPersonalValues} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it EditPersonalValuesControl}, and the
-entity/boundary objects in order to manage \editpersonalvalues{}.
+entity/boundary objects in order to manage \ucref{edit-personal-values}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2334,11 +2296,11 @@ entity/boundary objects in order to manage \editpersonalvalues{}.
 	\figurelabel{seq-edit-personal-values}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditDesiredValues (\editdesiredvalues{})}
+\subsubsection*{Sequence diagram for EditDesiredValues (\ucref{edit-desired-values})}
 
 The following figure, \figureref{seq-edit-desired-values}, shows the sequence diagram for the {\it EditDesiredValues} use case. The participating actor for this use case is
 the Student user. This figure shows the necessary interactions between the control object, {\it EditDesiredValuesControl}, and the
-entity/boundary objects in order to manage \editdesiredvalues{}.
+entity/boundary objects in order to manage \ucref{edit-desired-values}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2347,11 +2309,11 @@ entity/boundary objects in order to manage \editdesiredvalues{}.
 	\figurelabel{seq-edit-desired-values}
 \end{figure}
 
-\subsubsection*{Sequence diagram for InvalidInputError (\invalidinputerror{})}
+\subsubsection*{Sequence diagram for InvalidInputError (\ucref{invalid-input-error})}
 
 The following figure, \figureref{seq-invalid-input-error}, shows the sequence diagram for the {\it InvalidInputError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it InvalidInputErrorControl}, and the
-entity/boundary objects in order to manage \invalidinputerror{}.
+entity/boundary objects in order to manage \ucref{invalid-input-error}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2360,10 +2322,10 @@ entity/boundary objects in order to manage \invalidinputerror{}.
 	\figurelabel{seq-invalid-input-error}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProjectName (\editprojectname{})}
+\subsubsection*{Sequence diagram for EditProjectName (\ucref{edit-project-name})}
 
 The following figure, \figureref{seq-edit-project-name}, shows the sequence diagram for the {\it EditProjectName} use case. The participating actor for this use case is the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectNameControl}, and the
-entity/boundary objects in order to manage \editprojectname{}.
+entity/boundary objects in order to manage \ucref{edit-project-name}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2372,11 +2334,11 @@ entity/boundary objects in order to manage \editprojectname{}.
 	\figurelabel{seq-edit-project-name}
 \end{figure}
 
-\subsubsection*{Sequence diagram for ProjectExistsError (\projectexistserror{})}
+\subsubsection*{Sequence diagram for ProjectExistsError (\ucref{project-exists-error})}
 
 The following figure, \figureref{seq-project-exists-error}, shows the sequence diagram for the {\it ProjectExistsError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it ProjectExistsErorrControl}, and the
-entity/boundary objects in order to manage \projectexistserror{}.
+entity/boundary objects in order to manage \ucref{project-exists-error}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2385,11 +2347,11 @@ entity/boundary objects in order to manage \projectexistserror{}.
 	\figurelabel{seq-project-exists-error}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditGroupSize (\editgroupsize{})}
+\subsubsection*{Sequence diagram for EditGroupSize (\ucref{edit-group-size})}
 
 The following figure, \figureref{seq-edit-group-size}, shows the sequence diagram for the {\it EditGroupSize} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it EditGroupSizeControl}, and the
-entity/boundary objects in order to manage \editgroupsize{}.
+entity/boundary objects in order to manage \ucref{edit-group-size}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2398,11 +2360,11 @@ entity/boundary objects in order to manage \editgroupsize{}.
 	\figurelabel{seq-edit-group-size}
 \end{figure}
 
-\subsubsection*{Sequence diagram for InvalidGroupSizeError (\invalidgroupsizeerror{})}
+\subsubsection*{Sequence diagram for InvalidGroupSizeError (\ucref{invalid-group-size-error})}
 
 The following figure, \figureref{seq-invalid-group-size-error}, shows the sequence diagram for the {\it InvalidGroupSizeError} use case. The participating actor for this use case is
 the Administrator user. This figure shows the necessary interactions between the control object, {\it InvalidGroupSizeErrorControl}, and the
-entity/boundary objects in order to manage \invalidgroupsizeerror{}.
+entity/boundary objects in order to manage \ucref{invalid-group-size-error}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2411,11 +2373,11 @@ entity/boundary objects in order to manage \invalidgroupsizeerror{}.
 	\figurelabel{seq-invalid-group-size-error}
 \end{figure}
 
-\subsubsection*{Sequence diagram for StorageError (\storageerror{})}
+\subsubsection*{Sequence diagram for StorageError (\ucref{storage-error})}
 
 The following figure, \figureref{seq-storage-error}, shows the sequence diagram for the {\it StorageError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageErrorControl}, and the
-entity/boundary objects in order to manage \storageerror{}.
+entity/boundary objects in order to manage \ucref{storage-error}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2424,11 +2386,11 @@ entity/boundary objects in order to manage \storageerror{}.
 	\figurelabel{seq-storage-error}
 \end{figure}
 
-\subsubsection*{Sequence diagram for StorageReadError (\storagereaderror{})}
+\subsubsection*{Sequence diagram for StorageReadError (\ucref{storage-read-error})}
 
 The following figure, \figureref{seq-storage-read-error}, shows the sequence diagram for the {\it StorageReadError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageReadErrorControl}, and the
-entity/boundary objects in order to manage \storagereaderror{}.
+entity/boundary objects in order to manage \ucref{storage-read-error}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2437,11 +2399,11 @@ entity/boundary objects in order to manage \storagereaderror{}.
 	\figurelabel{seq-storage-read-error}
 \end{figure}
 
-\subsubsection*{Sequence diagram for StorageOpenError (\storageopenerror{})}
+\subsubsection*{Sequence diagram for StorageOpenError (\ucref{storage-open-error})}
 
 The following figure, \figureref{seq-storage-open-error}, shows the sequence diagram for the {\it StorageOpenError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageOpenErrorControl}, and the
-entity/boundary objects in order to manage \storageopenerror{}.
+entity/boundary objects in order to manage \ucref{storage-open-error}.
 
 \begin{figure}[H]
 	\centering{}
@@ -2450,11 +2412,11 @@ entity/boundary objects in order to manage \storageopenerror{}.
 	\figurelabel{seq-storage-open-error}
 \end{figure}
 
-\subsubsection*{Sequence diagram for StorageWriteError (\storagewriteerror{})}
+\subsubsection*{Sequence diagram for StorageWriteError (\ucref{storage-write-error})}
 
 The following figure, \figureref{seq-storage-write-error}, shows the sequence diagram for the {\it StorageWriteError} use case. The participating actor for this use case is
 the User (both Administrator and Student). This figure shows the necessary interactions between the control object, {\it StorageWriteError}, and the
-entity/boundary objects in order to manage \storagewriteerror{}.
+entity/boundary objects in order to manage \ucref{storage-write-error}.
 
 \begin{figure}[H]
 	\centering{}
