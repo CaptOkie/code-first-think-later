@@ -235,12 +235,12 @@ each subsequent section builds off the previous.
 Functional requirements are the result of us carefully analzing the problem statement that you have submitted and extracting all the key 
 desired features. In other words, we have converted your request into a list of requirements that we will fulfill. For example, you mention that
 it is essential that this software can create projects. All the main features that you have expressed the desire to have have been matched with
-the appropriate user and included in the following table, {\bf Table 1: Functional Requirements}. This format has the added advantage of allowing you, our client, to see for 
+the appropriate user and included in the following table, \tableref{fr}. This format has the added advantage of allowing you, our client, to see for 
 yourself that each and every requirement is carried out to your satisfaction. Note again the unique identifier preceding each of the functional 
 requirements - this will allow you to more easily trace our solution to each. 
 
 \begin{table}[H]
-	\caption{Functional Requirements}
+	\caption{Functional Requirements}\tablelabel{fr}
 	\begin{tabu} to \textwidth {>{\bf}l X}
 	    \tableheader{}ID & Description\\
 		F-01 & Students must be able to add themselves to any number of projects. \\
@@ -266,14 +266,14 @@ requirements - this will allow you to more easily trace our solution to each.
 
 Non-functional requirements are differentiable from the functional requirements in that they are not the requested features of the project, but
 rather the various standards our proposed system must meet. For example, you expressed the desire that the system be designed specifically 
-for use with the Linux Ubuntu platform, and that all code must be written in the C++ programming language. Also included in {\bf Table 2: None-Functional Requirements} are
+for use with the Linux Ubuntu platform, and that all code must be written in the C++ programming language. Also included in \tableref{nfr} are
 assorted promises to meet various standards that you have not included in your problem statement but that either we believe should be required, 
 or is required by law. Once again, each of these requirements have been assigned a unique identifier and can be used to trace our response to them.
 
 \begin{table}[H]
-	\caption{Non-Functional Requirements}
+	\caption{Non-Functional Requirements}\tablelabel{nfr}
 	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
-        % Categories left: Legal(1), Usability(2), Interface(2), Operation(1)
+        % Categories left: Interface(2), Operation(1)
 	    \tableheader{}ID & Category & Description\\
 		NF-01 & Usability & The option to customize the key bindings for default keyboard short cuts must be available for all users.\\
 		NF-02 & Usability & The option to change the interface colour scheme to accomodate for colour-blindness must be available for all users.\\
@@ -353,12 +353,12 @@ who can initiate in the action of {\it ManageProject}. These actions are purpose
 	\caption{High-level Use Case Diagram}\figurelabel{high-level-uc}
 \end{figure}
 
-Pulling the use cases from the diagram, we have next a list of the use cases in table format, {\bf Table 3}, with a short and succinct descriptions beside. The purpose of this table,
+Pulling the use cases from the diagram, we have next a list of the use cases in table format, \tableref{high-level-uc}, with a short and succinct descriptions beside. The purpose of this table,
 on top of having the diagram, is for ease of access with regards to information. While it is very nice to see a diagram, nothing quite beats the traditional table when
 it comes to laying out data. Another benefit is, like in the case of {\it EditProfile}, it shows what detailed use cases are included in these higher-level cases.
 
 \begin{table}[H]
-	\caption{High-Level Use Case Descriptions}
+	\caption{High-Level Use Case Descriptions}\tablelabel{high-level-uc}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
 	    \manageenrollment{} & ManageEnrollment & The Student accesses and modifies the Projects the Student is enrolled in.\\
@@ -375,7 +375,7 @@ idea of how things are situated, detailed use cases are much more informative be
 an {\it Administrator} can {\it ManageProject}, but I am sure that you would agree with us that this is very vague. What exactly is "Managing Projects"? Well, that is the puprose of this 
 section. 
 
-The below figure and table, {\bf Figure 2} and {\bf Table 3}, cover the use cases that concern the {\it Administrator}. With a quick glance of the below diagram, we can see that {\it ManageProject} actually covers a 
+The below figure and table, {\bf Figure 2} and \tableref{detailed-uc-administrator}, cover the use cases that concern the {\it Administrator}. With a quick glance of the below diagram, we can see that {\it ManageProject} actually covers a 
 great many details including {\it EditProject} and {\it CreateNewProject}! Note that we denote error cases with an <<extend>> relationship.
 
 \begin{figure}[H]
@@ -383,10 +383,10 @@ great many details including {\it EditProject} and {\it CreateNewProject}! Note 
 	\includegraphics[scale=0.26]{imgs/detailed-administrator-use-case-diagram.png}
 	\caption{Detailed Use Case Diagram - Administrator}
 \end{figure}
-The next table, {\bf Table 4} contains all the information about each particular use case for the {\it Administrator}, though forgoing the actual relationships. A unique identifier for each use case is also assignment here.. %CHANGE THIS PARAGRAPH
+The next table, \tableref{detailed-uc-administrator} contains all the information about each particular use case for the {\it Administrator}, though forgoing the actual relationships. A unique identifier for each use case is also assignment here.. %CHANGE THIS PARAGRAPH
 
 \begin{table}[H]
-	\caption{Detailed Use Case Descriptions - Administrator}
+	\caption{Detailed Use Case Descriptions - Administrator}\tablelabel{detailed-uc-administrator}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
 		\launchppid{} & LaunchPPID & The Administrator runs the PPID for a specified Project.\\
@@ -411,11 +411,11 @@ access to finer details such as project settings.
 
 \newpage{}
 
-The ensuing table, {\bf Table 5} describes each of the possible use cases that a {\it Student User} can use/encounter.
+The ensuing table, \tableref{detailed-uc-student} describes each of the possible use cases that a {\it Student User} can use/encounter.
 Please also note that we have decided to not include any error cases in this particular diagram to maximize legibility.
 
 \begin{table}[H]
-	\caption{Detailed Use Case Descriptions - Student}
+	\caption{Detailed Use Case Descriptions - Student}\tablelabel{detailed-uc-student}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
 		\joinproject{} & JoinProject & The student adds themselves to an existing project.\\
@@ -434,11 +434,11 @@ all refer to the same {\it InvalidInputError} use case.
 	\caption{Detailed Use Case Diagram - User Input}
 \end{figure}
 
-{\bf Table 6}, the following table, pulls the use cases from {\bf Figure 4} and provides both a detailed description and a unique identifier for each. That said, please note that several of the cases present in {\bf Figure 4}
-are absent in this table - {\it EditPersonalValues}, {\it EditDesiredValues}, and {\it EditProjectDetails} all have already been described in {\bf Table 4} and {\bf Table 5}.
+\tableref{detailed-uc-user-input}, the following table, pulls the use cases from {\bf Figure 4} and provides both a detailed description and a unique identifier for each. That said, please note that several of the cases present in {\bf Figure 4}
+are absent in this table - {\it EditPersonalValues}, {\it EditDesiredValues}, and {\it EditProjectDetails} all have already been described in \tableref{detailed-uc-administrator} and \tableref{detailed-uc-student}.
 
 \begin{table}[H]
-	\caption{Detailed Use Case Descriptions - User Input}
+	\caption{Detailed Use Case Descriptions - User Input}\tablelabel{detailed-uc-user-input}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
 		\invalidinputerror{} & InvalidInputError & The system reports that the given value is invalid.\\
@@ -458,11 +458,11 @@ priorly mentioned use cases interact with reading files, writing files, and open
 	\caption{Detailed Use Case Diagram - Common Errors}
 \end{figure}
 
-The table below, {\bf Table 7}, covers all the the descriptions and assignment of unique identifiers for the storage-related error use cases. Note that the first use case in this table, {\it StorageError}, is a generalization
+The table below, \tableref{detailed-uc-common-errors}, covers all the the descriptions and assignment of unique identifiers for the storage-related error use cases. Note that the first use case in this table, {\it StorageError}, is a generalization
 of the other three use cases.
 
 \begin{table}[H]
-	\caption{Detailed Use Case Descriptions - Common Errors}
+	\caption{Detailed Use Case Descriptions - Common Errors}\tablelabel{detailed-uc-common-errors}
 	\begin{tabu} to \textwidth {l >{\bf}l X}
 	    \tableheader{}ID & Name & Description\\
 		\storageerror{} & StorageError &  The system reports that there is an error with the stored information for cuPID (generalizes StorageReadError, StorageOpenError, and StorageWriteError).\\
@@ -1447,11 +1447,11 @@ profile.
 	\caption{Entity Objects Diagram}
 \end{figure}
 
-The following table, {\bf Table 8}, is the Data Dictionary for the Entity Objects. Here, we list out all the attributes and associations for each of the entity objects, as well as provide
+The following table, \tableref{entity-odd}, is the Data Dictionary for the Entity Objects. Here, we list out all the attributes and associations for each of the entity objects, as well as provide
 a short but detailed definition of each.
 
 \begin{table}[H]
-	\caption{Entity Object Data Dictionary}
+	\caption{Entity Object Data Dictionary}\tablelabel{entity-odd}
 	\begin{tabu} to \textwidth {>{\bf}l X X[2.75]}
 		\tableheader{}Entity Object & Attributes/\newline Associations & Definition\\
 		User & 
@@ -1813,11 +1813,11 @@ The following figure, {\bf Figure 30}, handles the interactions between the cont
 	\caption{Control/Boundary Objects for StorageWriteError}
 \end{figure}
 
-The following table, {\bf Table 9}, is the Data Dictionaru for the control objects. It contains all the control objects shown in the above diagrams, each coupled with a very detailed definition. 
+The following table, \tableref{control-odd}, is the Data Dictionary for the control objects. It contains all the control objects shown in the above diagrams, each coupled with a very detailed definition. 
 This definition includes details such as what use case each control object manages and when/how each control objects are created.
 
 \begin{table}[H]
-\caption{Control Object Data Dictionary}
+\caption{Control Object Data Dictionary}\tablelabel{control-odd}
 	\begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Control Object & Definition\\
 		ManageEnrollmentControl & 
@@ -1938,11 +1938,11 @@ This definition includes details such as what use case each control object manag
 
 \newpage{}
 
-The following table, {\bf Table 10}, is the Data Dictionary for the boundary objects. It contains all the boundary objects shown in the above diagrams, each coupled with a detailed definition.
-In essense, the definition explains what each object does.
+The following table, \tableref{boundary-odd}, is the Data Dictionary for the boundary objects. It contains all the boundary objects shown in the above diagrams, each coupled with a detailed definition.
+In essence, the definition explains what each object does.
 
 \begin{table}[H]
-\caption{Boundary Object Data Dictionary}
+    \caption{Boundary Object Data Dictionary}\tablelabel{boundary-odd}
 	\begin{tabu} to \textwidth {>{\bf}l X[2]}
 		\tableheader{}Boundary Object & Definition\\
 		ProjectListNotice & 
