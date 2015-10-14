@@ -1622,17 +1622,6 @@ The following figure, \figureref{cbo-view-ppid-details}, handles the interaction
 
 \newpage{}
 
-\subsubsection*{Control and boundary objects for EditProjectDetails (\ucref{edit-project-details}):}
-
-The following figure, \figureref{cbo-edit-project-details}, handles the interactions between the control object, {\it EditProjectDetailsControl}, the corresponding boundary objects, {\it ProjectDetailsForm} and {\it DetailsUpdateNotice}, and the entity object, {\it Project}. The control object here manages \ucref{edit-project-details}, EditProjectDetails.
-
-\begin{figure}[H]
-	\centering{}
-	\includegraphics[scale=0.37]{imgs/cbod/edit-project-details.png}
-	\caption{Control/Boundary Objects for EditProjectDetails}
-	\figurelabel{cbo-edit-project-details}  
-\end{figure}
-
 \subsubsection*{Control and boundary objects for EditProject (\ucref{edit-project}):}
 
 The following figure, \figureref{cbo-edit-project}, handles the interactions between the control object, {\it EditProjectControl} and the corresponding boundary objects, 
@@ -1643,6 +1632,17 @@ The following figure, \figureref{cbo-edit-project}, handles the interactions bet
 	\includegraphics[scale=0.37]{imgs/cbod/edit-project.png}
 	\caption{Control/Boundary Objects for EditProject}
 	\figurelabel{cbo-edit-project}
+\end{figure}
+
+\subsubsection*{Control and boundary objects for EditProjectDetails (\ucref{edit-project-details}):}
+
+The following figure, \figureref{cbo-edit-project-details}, handles the interactions between the control object, {\it EditProjectDetailsControl}, the corresponding boundary objects, {\it ProjectDetailsForm} and {\it DetailsUpdateNotice}, and the entity object, {\it Project}. The control object here manages \ucref{edit-project-details}, EditProjectDetails.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.37]{imgs/cbod/edit-project-details.png}
+	\caption{Control/Boundary Objects for EditProjectDetails}
+	\figurelabel{cbo-edit-project-details}  
 \end{figure}
 
 \subsubsection*{Control and boundary objects for JoinProject (\ucref{join-project}):}
@@ -1902,6 +1902,7 @@ In essence, the definition explains what each object does.
     \caption{Boundary Object Data Dictionary}\tablelabel{boundary-odd}
 	\begin{tabu} to \textwidth {l >{\bf}X X[3]}
 		\tableheader{}ID & Boundary Object & Definition\\
+		\cllabel{manage-enrollment-option}\clref{manage-enrollment-option} & Manage\-Enrollment\-Option & \\
 		\cllabel{project-list-notice}\clref{project-list-notice} & Project\-List\-Notice & 
 			This object is responsible for the visual output of the list of Projects to the User. It gets the required information from the Project objects and displays it.\\
 		
@@ -1911,11 +1912,17 @@ In essence, the definition explains what each object does.
 		\cllabel{project-selection-option}\clref{project-selection-option} & Project\-Selection\-Option & 
 			This object reads the selected Project from the Administrator.\\
 		
+        \cllabel{edit-profile-option}\clref{edit-profile-option} & Edit\-Profile\-Option & \\
+		
 		\cllabel{profile-option}\clref{profile-option} & Profile\-Option & 
 			This object allows the Student to view and choose between the two profile options: edit Personal Details or edit Desired Details.\\
 		
+    		\cllabel{manage-project-option}\clref{manage-project-option} & Manage\-Project\-Option & \\
+		
 		\cllabel{manage-option}\clref{manage-option} & Manage\-Option & 
 			This object allows the Administrator to view and choose between three managing options: view the results of the last PPID, or edit a project. \\
+		
+		\cllabel{create-new-project-option}\clref{create-new-project-option} & Create\-New\-Project\-Option & \\
 		
 		\cllabel{project-create-notice}\clref{project-create-notice} & Project\-Create\-Notice & 
 			This object displays a notice to the Administrator stating that the Project has been successfully created.\\
@@ -2240,20 +2247,6 @@ entity/boundary objects in order to manage \ucref{view-ppid-details}.
 	\figurelabel{seq-view-ppid-details}
 \end{figure}
 
-\subsubsection*{Sequence diagram for EditProjectDetails (\ucref{edit-project-details}):}
-
-The following figure, \figureref{seq-edit-project-details}, shows the sequence diagram for the {\it EditProjectDetails} use case. The participating actor for this use case is
-the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectDetailsControl}, and the
-entity/boundary objects in order to manage \ucref{edit-project-details}.
-
-\begin{figure}[H]
-    \seqlabel{edit-project-details}
-	\centering{}
-	\includegraphics[scale=0.25]{imgs/seq/edit-project-details.png}
-	\caption[\seqref{edit-project-details} - Sequence Diagram for EditProjectDetails]{Sequence Diagram for EditProjectDetails (\seqref{edit-project-details})}
-	\figurelabel{seq-edit-project-details}
-\end{figure}
-
 \subsubsection*{Sequence diagram for EditProject (\ucref{edit-project}):}
 
 The following figure, \figureref{seq-edit-project}, shows the sequence diagram for the {\it EditProject} use case. The participating actor for this use case is
@@ -2266,6 +2259,20 @@ entity/boundary objects in order to manage \ucref{edit-project}.
 	\includegraphics[scale=0.25]{imgs/seq/edit-project.png}
 	\caption[\seqref{edit-project} - Sequence Diagram for EditProject]{Sequence Diagram for EditProject (\seqref{edit-project})}
 	\figurelabel{seq-edit-project}
+\end{figure}
+
+\subsubsection*{Sequence diagram for EditProjectDetails (\ucref{edit-project-details}):}
+
+The following figure, \figureref{seq-edit-project-details}, shows the sequence diagram for the {\it EditProjectDetails} use case. The participating actor for this use case is
+the Administrator user. This figure shows the necessary interactions between the control object, {\it EditProjectDetailsControl}, and the
+entity/boundary objects in order to manage \ucref{edit-project-details}.
+
+\begin{figure}[H]
+    \seqlabel{edit-project-details}
+	\centering{}
+	\includegraphics[scale=0.25]{imgs/seq/edit-project-details.png}
+	\caption[\seqref{edit-project-details} - Sequence Diagram for EditProjectDetails]{Sequence Diagram for EditProjectDetails (\seqref{edit-project-details})}
+	\figurelabel{seq-edit-project-details}
 \end{figure}
 
 \subsubsection*{Sequence diagram for JoinProject (\ucref{join-project})}
