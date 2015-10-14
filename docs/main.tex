@@ -1449,20 +1449,21 @@ a short but detailed definition of each.
 				\item id
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{User} that has the ability to access the cuPID system.\\
+		A \textbf{User} that has the ability to access the cuPID system. Applies to \\
 		
 		\cllabel{student}\clref{student} & Student & 
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
 				\item studentNumber
 				\item profile
+				\item projects
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Student} is a specific type of User that can create/edit their Profiles and join/leave existing Projects.\\
+		A \textbf{Student} is a specific type of User that can create/edit their Profiles and join/leave existing Projects. Applies to \ucref{manage-enrollment}, \ucref{edit-profile} \\
 		
 		\cllabel{administrator}\clref{administrator} & Administrator & 
 		&
-		An \textbf{Administrator} is a specific type of user that can create/edit projects and run/view results of the PPID.\\
+		An \textbf{Administrator} is a specific type of user that can create/edit projects and run/view results of the PPID. Applies to \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details} \\
 
 		\cllabel{group}\clref{group} & Group & 
 		\begin{minipage}[t]{\linewidth}
@@ -1470,16 +1471,7 @@ a short but detailed definition of each.
 				\item members
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Group} is a collection of Student Users that are participating in a specified Project. Every Project contains at least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm.\\
-
-		\cllabel{groupsize}\clref{groupsize} & GroupSize & 
-		\begin{minipage}[t]{\linewidth}
-			\begin{itemize}
-				\item minSize
-				\item maxSize
-			\end{itemize}
-		\end{minipage} & 
-		The \textbf{GroupSize} contains the possible range of group sizes allowed such that the PPID algorithm will not make too big or too small groups.\\
+		A \textbf{Group} is a collection of Student Users that are participating in a specified Project. Every Project contains at least 1 Group, and the Students in a Group are decided when the Administrator runs the PPID algorithm. Applies to \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details} \\
 
 		\cllabel{project}\clref{project} & Project & 
 		\begin{minipage}[t]{\linewidth}
@@ -1489,7 +1481,7 @@ a short but detailed definition of each.
 				\item groupSize
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}.\\
+		A \textbf{Project} contains a collection of Students that will get sorted into Groups. These are made and edited by the \textbf{Administrator}. Applies to \ucref{manage-enrollment}, \ucref{manage-project}, \ucref{create-new-project}, \ucref{launch-ppid}, \ucref{view-ppid-results}, \ucref{view-ppid-summary}, \ucref{view-ppid-details}, \ucref{edit-project-details} \\
 
 		\cllabel{profile}\clref{profile} & Profile & 
 		\begin{minipage}[t]{\linewidth}
@@ -1497,7 +1489,7 @@ a short but detailed definition of each.
 				\item details
 			\end{itemize}
 		\end{minipage} & 
-		A \textbf{Profile} is a set of responses maintained by each Student. These values are the necessary input for the PPID algorithm to run.\\
+		A \textbf{Profile} is a set of responses maintained by each Student. These values are the necessary input for the PPID algorithm to run. Applies to \ucref{edit-profile} \\
 	\end{tabu}
 \end{table}
 
