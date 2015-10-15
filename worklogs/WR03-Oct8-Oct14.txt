@@ -8,6 +8,8 @@ CaptOkie:
 10 Hours: Refactor UCs, edit sequence diagram, add sequence diagram.
 1.5 Hours: Group meeting, Designed state diagrams, slight touch ups.
 7.5 Hours: Created state machinces, refactored table/UC/sequence references, traceability.
+--------
+32 Hours
 
 TheBakedPotato:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
@@ -18,6 +20,8 @@ TheBakedPotato:
 10 Hours: Refactor UCs, edit boundary/control diagram, add boundary/control diagram.
 1.5 Hours: Group meeting, designed state diagrams, slight touch ups.
 7.5 Hours: Created state machines, refactored figure/class references, traceability.
+--------
+31 Hours
 
 ViLLiELdR:
 2 Hours: Group meeting on objects, sequence diagrams, and state machines.
@@ -26,3 +30,7 @@ ViLLiELdR:
 1 Hour: Sequence Diagram
 10 Hours: Fixed some issues, control/boundary table, entity table, introductor paragraphs for use cases.
 1.5 Hours: Group meeting, designed state diagrams, slight touch ups.
+2 Hours: Writing up SQ descriptions.
+7.5 Hours: Touch ups, writing up descriptions, formatting, NFR.
+--------
+27 Hours
