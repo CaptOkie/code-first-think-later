@@ -1,3 +1,6 @@
+DNA matcher (range of things that fit together).
+Drectionaly graph matcher.
+
 COMP2401
 COMP2404
 Has taken HCI
@@ -52,3 +55,32 @@ morning person vs night owl
 availablity times?
 Average response time
 Prefer mode of communication
+
+==============================================================
+
+# Skills
+--------
+1. What grade did you get in 2401? (Grade scale)
+2. What grade did you get in 2404? (Grade scale)
+3. Rate your comfortability/proficiency with report writing. (5 point scale)
+4. Rate your procificiency at finding program bugs. (5 point scale)
+
+# Leadership
+------------
+1. How comforatable are you being the in leadership position? (5 point scale)
+2. Rate the level of importance you place on organization. (5 point scale)
+3. Rate your comfortability making decisions. (5 point scale)
+4. Rate your tendency to take initiative. (5 point scale)
+
+# Personality
+-------------
+1. Rate your tendency to procrastinate. (5 point scale)
+2. Rate your tendency to start discussion. (5 point scale)
+3. What is your preferred style of working. (5 point scale -- multitasking to singlular)
+4. You have a meeting, what time do you usually arrive. (5 point scale -- early to late)
+
+# Availability
+--------------
+1. When is preffered working time. (5 point scale -- morning to late night)
+2. Based on your current schedule, when are you usually available. (weekdays)
+3. What is your preferred mode of communication? (text, IM, email, conference calling)
