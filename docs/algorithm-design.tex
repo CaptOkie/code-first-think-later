@@ -1,0 +1,583 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.75in,headheight=1.5em]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[table]{xcolor}  
+\usepackage[font=bf]{caption}
+
+\begin{document}
+
+\renewcommand\headrule{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lfoot{COMP 3004}
+\rfoot{\thepage/\pageref{LastPage}}
+\cfoot{Algorithm Design Document}
+
+% CUSTOM COMMANDS
+\newcommand{\twodigits}[1]{\ifnum\value{#1}<10 0\fi\arabic{#1}}
+
+\newcommand{\teamname}{Code First, Think Later}
+\newcommand{\personone}{Kevin Hua}
+\newcommand{\persontwo}{Hendrik Knoetze}
+\newcommand{\personthree}{Juhandr\'e Knoetze}
+
+%% FIGURE COMMANDS
+\newcommand{\figurelabel}[1]{\label{figure:#1}}
+\newcommand{\figureref}[1]{\textbf{Figure \ref{figure:#1}}}
+%% END FIGURE COMMANDS
+
+%% TABLE COMMANDS
+\definecolor{thcolor}{RGB}{193,193,193}
+\newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
+\newcommand{\tableheader}{\rowfont\bf\rowcolor{thcolor!30}}
+
+\newcommand{\tablelabel}[1]{\label{table:#1}}
+\newcommand{\tableref}[1]{\textbf{Table \ref{table:#1}}}
+%% END TABLE COMMANDS
+
+% TABLE STYLING
+\everyrow{\hline}
+\tabulinesep=0.5em
+
+\setlist[itemize]{leftmargin=*,noitemsep,nolistsep}
+\setlist[enumerate]{leftmargin=*,noitemsep,nolistsep}
+% END TABLE STYLING
+
+\thispagestyle{empty}
+
+\begin{center}
+	CARLETON UNIVERSITY
+\end{center}
+
+\vfill
+
+\begin{center}
+	{\fontsize{55pt}{55pt}\selectfont cuPID}
+	\vspace{0.5em}\rule{\textwidth}{0.5pt}
+	Algorithm Design Document
+\end{center}
+
+\vspace{5em}
+
+\begin{center}
+	\textbf{Team [\teamname{}]}\\
+	\personone{}\\
+	\persontwo{}\\
+	\personthree{}
+\end{center}
+
+\vfill
+
+\begin{center}
+	Submitted to:\\
+	Dr. Christine Laurendeau\\
+	COMP 3004: Object Oriented Software Engineering\\
+	School of Computer Science\\
+	Carleton University
+\end{center}
+
+\vspace{2em}
+
+\begin{center}
+	\today
+\end{center}
+
+\newpage{}
+
+\tableofcontents{}
+
+\renewcommand{\listfigurename}{Figures}
+\listoffigures
+
+\renewcommand{\listtablename}{Tables}
+\listoftables
+
+\newpage{}
+
+\section{Introduction}
+
+\begin{center}
+    -- project --
+\end{center}
+
+\begin{center}
+	\Huge [cuPID]
+\end{center}
+
+\begin{center}
+    \rule{0.85\textwidth}{0.5pt}
+\end{center}
+
+\subsection{Purpose of Algorithm}
+
+\subsection{Overview of Document}
+
+\vspace{1em}
+
+\noindent Best regards,
+
+\vspace{1em}
+
+\begin{center}
+	\includegraphics[scale=0.4]{imgs/logo.png} \\ \footnotesize{(Team [Code First, Think Later])}
+\end{center}
+
+\vspace{1em}
+
+\section{Proposed Algorithm}
+
+\subsection{Overview}
+
+\subsection{Qualifications}
+
+\subsubsection{Overview of Qualifications}
+
+\begin{table}[H]
+	\caption{Overview of Qualifications}\tablelabel{oq}
+	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+	    \tableheader{}Identifier & Category/Class & Description\\
+		QF-01 & Skills & Grade in COMP 2401.\\
+		QF-02 & Skills & Grade in COMP 2404.\\
+		QF-03 & Skills & Report writing aptitude.\\
+		QF-04 & Skills & Debugging aptitude.\\
+		QF-05 & Leadership & Comfort in taking charge. \\
+		QF-06 & Leadership & Importance of organization. \\
+		QF-07 & Leadership & Decision-making ability. \\
+		QF-08 & Leadership & Tendency towards initiatiation. \\
+		QF-09 & Personality & Procrastination tendency. \\
+		QF-10 & Personality & Sociability level. \\
+		QF-11 & Personality & Preferred working style. \\
+		QF-12 & Personality & Punctuality level. \\
+		QF-13 & Availability & Daily availability. \\
+		QF-14 & Availability & Weekly availability. \\
+		QF-15 & Availability & Preferred mode of communication. \\
+		QF-16 & Availability & \\
+	\end{tabu}
+\end{table}
+
+\subsubsection{Detailed Breakdown of Qualifications}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-01}\tablelabel{dq01}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-01}\\
+		Category & Skills \\
+		Phrasing of Qualification & What grade did you receive in COMP 2401? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & Author Last Name(s)\cite{example}\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-02}\tablelabel{dq02}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-02}\\
+		Category & Skills \\
+		Phrasing of Qualification & What grade did you receive in COMP 2404? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-03}\tablelabel{dq03}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-03}\\
+		Category & Skills \\
+		Phrasing of Qualification & How confident and/or comfortable are you in report writing? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-04}\tablelabel{dq04}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-04}\\
+		Category & Skills \\
+		Phrasing of Qualification & How proficient are you at software debugging? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-05}\tablelabel{dq05}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-05}\\
+		Category & Leadership \\
+		Phrasing of Qualification & How comfortable are in the a seat of power? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-06}\tablelabel{dq06}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-06}\\
+		Category & Leadership \\
+		Phrasing of Qualification & Rate the level of importance you place of organization.\\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-07}\tablelabel{dq07}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-07}\\
+		Category & Leadership \\
+		Phrasing of Qualification & Rate your comfortability in making big, important decisions. \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-08}\tablelabel{dq08}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-08}\\
+		Category & Leadership \\
+		Phrasing of Qualification & How willing are you to step up to the plate and take the initiative?\\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-09}\tablelabel{dq09}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-09}\\
+		Category & Personality \\
+		Phrasing of Qualification & Rate your tendency to procrastinate to the last minute on work. \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-10}\tablelabel{dq10}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-10}\\
+		Category & Personality \\
+		Phrasing of Qualification & Rate your tendency to start/begin a discussion with relative strangers. \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-11}\tablelabel{dq11}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-11}\\
+		Category & Personality \\
+		Phrasing of Qualification & When working on large scale projects, what is your preferred way of working? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-12}\tablelabel{dq12}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-12}\\
+		Category & Personality \\
+		Phrasing of Qualification & If you have a meeting tomorrow, what time would you usually arrive? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-13}\tablelabel{dq13}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-13}\\
+		Category & Availability \\
+		Phrasing of Qualification & During a typical day, when is your preffered working time? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-14}\tablelabel{dq14}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-14}\\
+		Category & Availability \\
+		Phrasing of Qualification & Based on your current schedule, which days are you usually available? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-15}\tablelabel{dq15}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-15}\\
+		Category & Availability \\
+		Phrasing of Qualification & Based on how often you check, what is your preferred mode of communication? \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Detailed Breakdown of QF-16}\tablelabel{dq16}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Qualification Identifier & {\bf QF-16}\\
+		Category & Availability \\
+		Phrasing of Qualification & \\
+		Description & blah\\
+		Scale for Responses &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+				\item[1.] stuff.
+				\item[2.] stuff.
+				\item[3.] stuff.
+				\item[4.] stuff.
+				\item[5.] stuff.
+			\end{enumerate}
+		\end{minipage}\\
+		Reasoning & blah\\
+		References & blah\\
+		\toprule
+	\end{tabu}
+\end{table}
+
+
+\subsection{Rules}
+\subsubsection{Overview of Rules}
+
+\begin{table}[H]
+	\caption{Overview of Rules}\tablelabel{or}
+	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+	    \tableheader{}Identifier & Category/Class & Description\\
+		R-01 &  & \\
+		R-02 &  & \\
+		R-03 &  & \\
+		R-04 &  & \\
+	\end{tabu}
+\end{table}
+
+\subsubsection{Detailed Breakdown of Rules}
+
+\renewcommand\refname{\vskip -1cm}
+\section{References}
+
+\begin{thebibliography}{16}
+
+\bibitem{example}
+Last, First, etc.,
+{\it Article/book Name},
+Publisher, City, Year.
+
+\end{thebibliography}
+
+\end{document}
