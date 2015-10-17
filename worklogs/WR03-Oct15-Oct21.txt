@@ -6,3 +6,4 @@ TheBakedPotato:
 
 ViLLiELdR:
 2 Hours: Group metting, refined koala-fications
+2 Hours: Set up Algorithm Design Document
