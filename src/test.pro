@@ -13,14 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    stulogindialog.cpp \
-    ../adminlogindialog.cpp
+        mainwindow.cpp\
+    stulogindialog.cpp\
+    adminlogindialog.cpp
 
-HEADERS  += mainwindow.h \
-    stulogindialog.h \
-    ../adminlogindialog.h
+HEADERS  += mainwindow.h\
+    stulogindialog.h\
+    adminlogindialog.h
 
-FORMS    += mainwindow.ui \
-    stulogindialog.ui \
-    ../adminlogindialog.ui
+FORMS    += mainwindow.ui\
+    stulogindialog.ui\
+    adminlogindialog.ui

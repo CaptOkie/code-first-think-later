@@ -34,3 +34,6 @@
 *.lot
 *.synctex.gz
 *.toc
+
+# Qt Creator
+build/
