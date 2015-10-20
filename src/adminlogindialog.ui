@@ -72,7 +72,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>Desktop/6566154-circuit-board-vector-background-technology-illustration-form-of-dna-molecular-eps10.jpg</pixmap>
+    <pixmap resource="resources/images.qrc">:/images/images/adminLoginBackground.jpg</pixmap>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -80,7 +80,9 @@
   <zorder>lineEdit_2</zorder>
   <zorder>label_2</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources/images.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

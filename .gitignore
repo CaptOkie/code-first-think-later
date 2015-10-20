@@ -37,3 +37,4 @@
 
 # Qt Creator
 build/
+*.autosave

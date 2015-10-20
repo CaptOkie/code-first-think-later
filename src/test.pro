@@ -24,3 +24,8 @@ HEADERS  += mainwindow.h\
 FORMS    += mainwindow.ui\
     stulogindialog.ui\
     adminlogindialog.ui
+
+OTHER_FILES +=
+
+RESOURCES += \
+    resources/images.qrc

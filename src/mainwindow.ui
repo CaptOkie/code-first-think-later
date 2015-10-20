@@ -245,7 +245,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/logo2.png</pixmap>
+     <pixmap resource="resources/images.qrc">:/images/images/logo2.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="leftCircuitLabel">
@@ -261,7 +261,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/l-circuit.png</pixmap>
+     <pixmap resource="resources/images.qrc">:/images/images/l-circuit.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="rightCircuitLabel">
@@ -277,7 +277,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/r-circuit.png</pixmap>
+     <pixmap resource="resources/images.qrc">:/images/images/r-circuit.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="adminButton">
@@ -447,7 +447,7 @@
      <x>0</x>
      <y>0</y>
      <width>1023</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -462,6 +462,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources/images.qrc"/>
+ </resources>
  <connections/>
 </ui>
