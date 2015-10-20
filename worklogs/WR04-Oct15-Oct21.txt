@@ -1,5 +1,6 @@
 CaptOkie:
 2 Hours: Group metting, refined koala-fications
+2 Hours: Fixed building. Fixed main window layout/alignment
 
 TheBakedPotato:
 2 Hours: Group metting, refined koala-fications
