@@ -10,3 +10,4 @@ ViLLiELdR:
 2 Hours: Researching for articles to reference
 2 Hours: Made a mock-up of initial screen of GUI using Qt Creator/Photoshop
 1 Hour: Work on GUI
+1 Hour: Work on GUI
