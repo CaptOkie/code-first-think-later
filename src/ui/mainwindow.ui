@@ -106,7 +106,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resources/images.qrc">:/images/images/l-circuit.png</pixmap>
+         <pixmap resource="../resources/images.qrc">:/images/images/l-circuit.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -136,7 +136,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resources/images.qrc">:/images/images/logo2.png</pixmap>
+         <pixmap resource="../resources/images.qrc">:/images/images/logo2.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -452,7 +452,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resources/images.qrc">:/images/images/r-circuit.png</pixmap>
+         <pixmap resource="../resources/images.qrc">:/images/images/r-circuit.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -498,7 +498,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="resources/images.qrc"/>
+  <include location="../resources/images.qrc"/>
  </resources>
  <connections/>
 </ui>
