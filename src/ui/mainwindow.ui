@@ -251,7 +251,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QPushButton" name="studentButton">
+         <widget class="QPushButton" name="studentBtn">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -278,7 +278,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="adminButton">
+         <widget class="QPushButton" name="adminBtn">
           <property name="enabled">
            <bool>true</bool>
           </property>
