@@ -13,19 +13,17 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp\
-    stulogindialog.cpp\
-    adminlogindialog.cpp
+        ui/mainwindow.cpp\
+    ui/stulogindialog.cpp\
+    ui/adminlogindialog.cpp
 
-HEADERS  += mainwindow.h\
-    stulogindialog.h\
-    adminlogindialog.h
+HEADERS  += ui/mainwindow.h\
+    ui/stulogindialog.h\
+    ui/adminlogindialog.h
 
-FORMS    += mainwindow.ui\
-    stulogindialog.ui\
-    adminlogindialog.ui
-
-OTHER_FILES +=
+FORMS    += ui/mainwindow.ui\
+    ui/stulogindialog.ui\
+    ui/adminlogindialog.ui
 
 RESOURCES += \
     resources/images.qrc
