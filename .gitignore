@@ -38,3 +38,4 @@
 # Qt Creator
 build/
 *.autosave
+*.pro.user
