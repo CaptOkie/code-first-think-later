@@ -1,6 +1,7 @@
 CaptOkie:
 2 Hours: Group metting, refined koala-fications
 2 Hours: Fixed building. Fixed main window layout/alignment
+1.5 Hours: Fixed project name. Improved main window, file organization, admin/student login
 
 TheBakedPotato:
 2 Hours: Group metting, refined koala-fications
