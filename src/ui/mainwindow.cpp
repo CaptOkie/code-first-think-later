@@ -3,6 +3,7 @@
 #include "ui_mainwindow.h"
 #include "stulogindialog.h"
 #include "adminlogindialog.h"
+#include <QMovie>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
