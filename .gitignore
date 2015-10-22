@@ -37,5 +37,7 @@
 
 # Qt Creator
 build/
+build-cupid-Desktop-Debug/
+build-cupid-Desktop-Release/
 *.autosave
 *.pro.user
