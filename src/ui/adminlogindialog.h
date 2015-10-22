@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class adminLoginDialog;
+    class AdminLoginDialog;
 }
 
-class adminLoginDialog : public QDialog
+class AdminLoginDialog : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit adminLoginDialog(QWidget *parent = 0);
-    ~adminLoginDialog();
+    public:
+        explicit AdminLoginDialog(QWidget *parent = 0);
+        ~AdminLoginDialog();
 
-private:
-    Ui::adminLoginDialog *ui;
+    private:
+        Ui::AdminLoginDialog *ui;
 };
 
 #endif // ADMINLOGINDIALOG_H

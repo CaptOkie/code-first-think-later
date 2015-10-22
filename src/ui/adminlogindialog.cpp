@@ -1,14 +1,13 @@
 #include "adminlogindialog.h"
 #include "ui_adminlogindialog.h"
 
-adminLoginDialog::adminLoginDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::adminLoginDialog)
+AdminLoginDialog::AdminLoginDialog(QWidget *parent)
+    : QDialog(parent), ui(new Ui::AdminLoginDialog)
 {
     ui->setupUi(this);
 }
 
-adminLoginDialog::~adminLoginDialog()
+AdminLoginDialog::~AdminLoginDialog()
 {
     delete ui;
 }

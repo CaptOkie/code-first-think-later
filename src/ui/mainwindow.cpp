@@ -25,6 +25,6 @@ void MainWindow::handleStuButton()
 
 void MainWindow::handleAdminButton()
 {
-    QDialog* adminDialog = new adminLoginDialog(parentWidget());
+    QDialog* adminDialog = new AdminLoginDialog(parentWidget());
     adminDialog->show();
 }
