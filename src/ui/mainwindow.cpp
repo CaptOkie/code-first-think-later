@@ -1,12 +1,13 @@
 #include "stdio.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "stulogindialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->studentBtn, SIGNAL (pressed()), this, SLOT (handleButton()));
+    connect(ui->studentBtn, SIGNAL (clicked()), this, SLOT (handleButton()));
 }
 
 MainWindow::~MainWindow()
@@ -16,5 +17,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleButton()
 {
-
+    QDialog* stuDialog = new StuLoginDialog(parentWidget());
+    stuDialog->show();
 }
