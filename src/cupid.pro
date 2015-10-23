@@ -15,15 +15,18 @@ TEMPLATE = app
 SOURCES += main.cpp\
         ui/mainwindow.cpp\
     ui/stulogindialog.cpp\
-    ui/adminlogindialog.cpp
+    ui/adminlogindialog.cpp \
+    ui/errordialog.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/stulogindialog.h\
-    ui/adminlogindialog.h
+    ui/adminlogindialog.h \
+    ui/errordialog.h
 
 FORMS    += ui/mainwindow.ui\
     ui/stulogindialog.ui\
-    ui/adminlogindialog.ui
+    ui/adminlogindialog.ui \
+    ui/errordialog.ui
 
 RESOURCES += \
     resources/images.qrc
