@@ -21,11 +21,11 @@ MainWindow::~MainWindow()
 void MainWindow::handleStuButton()
 {
     QDialog* stuDialog = new StuLoginDialog(parentWidget());
-    stuDialog->show();
+    stuDialog->exec();
 }
 
 void MainWindow::handleAdminButton()
 {
     QDialog* adminDialog = new AdminLoginDialog(parentWidget());
-    adminDialog->show();
+    adminDialog->exec();
 }

@@ -15,6 +15,9 @@ class AdminLoginDialog : public QDialog
         explicit AdminLoginDialog(QWidget *parent = 0);
         ~AdminLoginDialog();
 
+    private slots:
+        void handleCancelButton();
+
     private:
         Ui::AdminLoginDialog *ui;
 };

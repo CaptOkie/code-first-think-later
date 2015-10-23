@@ -15,6 +15,9 @@ public:
     explicit ErrorDialog(QWidget *parent = 0);
     ~ErrorDialog();
 
+private slots:
+    void on_closeButton_clicked();
+
 private:
     Ui::ErrorDialog *ui;
 };

@@ -12,3 +12,8 @@ ErrorDialog::~ErrorDialog()
 {
     delete ui;
 }
+
+void ErrorDialog::on_closeButton_clicked()
+{
+    close();
+}

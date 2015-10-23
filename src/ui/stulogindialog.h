@@ -15,6 +15,9 @@ class StuLoginDialog : public QDialog
         explicit StuLoginDialog(QWidget *parent = 0);
         ~StuLoginDialog();
 
+    private slots:
+        void handleCancelButton();
+
     private:
         Ui::StuLoginDialog *ui;
 };
