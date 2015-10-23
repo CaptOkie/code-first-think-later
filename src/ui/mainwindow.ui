@@ -87,6 +87,9 @@
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
       <widget class="QWidget" name="page_3">
        <widget class="QLabel" name="logoLabel_2">
         <property name="geometry">
@@ -458,7 +461,36 @@
        <zorder>rightCircuitLabel_2</zorder>
        <zorder></zorder>
       </widget>
-      <widget class="QWidget" name="page_4"/>
+      <widget class="QWidget" name="page_4">
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>160</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>STUDENT</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_5">
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>160</y>
+          <width>101</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Administrator</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
