@@ -16,17 +16,20 @@ SOURCES += main.cpp\
         ui/mainwindow.cpp\
     ui/stulogindialog.cpp\
     ui/adminlogindialog.cpp \
-    ui/errordialog.cpp
+    ui/errordialog.cpp \
+    ui/loginwidget.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/stulogindialog.h\
     ui/adminlogindialog.h \
-    ui/errordialog.h
+    ui/errordialog.h \
+    ui/loginwidget.h
 
 FORMS    += ui/mainwindow.ui\
     ui/stulogindialog.ui\
     ui/adminlogindialog.ui \
-    ui/errordialog.ui
+    ui/errordialog.ui \
+    ui/loginwidget.ui
 
 RESOURCES += \
     resources/images.qrc

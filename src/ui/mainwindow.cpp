@@ -1,16 +1,21 @@
-#include "stdio.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include "loginwidget.h"
+
 #include "stulogindialog.h"
 #include "adminlogindialog.h"
-#include <QMovie>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->studentBtn, SIGNAL(clicked()), this, SLOT(handleStuButton()));
-    connect(ui->adminBtn, SIGNAL(clicked()), this, SLOT(handleAdminButton()));
+    LoginWidget* loginWidget = new LoginWidth(this);
+    int index = ui->stackedWidget->addWidget(loginWidget);
+    ui->stackedWidget->setCurrentIndex(index);
+
+//    connect(ui->studentBtn, SIGNAL(clicked()), this, SLOT(handleStuButton()));
+//    connect(ui->adminBtn, SIGNAL(clicked()), this, SLOT(handleAdminButton()));
 }
 
 MainWindow::~MainWindow()
