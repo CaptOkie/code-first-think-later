@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    LoginWidget* loginWidget = new LoginWidth(this);
+    LoginWidget* loginWidget = new LoginWidget(this);
     int index = ui->stackedWidget->addWidget(loginWidget);
     ui->stackedWidget->setCurrentIndex(index);
 
