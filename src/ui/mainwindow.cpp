@@ -10,12 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    LoginWidget* loginWidget = new LoginWidget(this);
+    LoginWidget* loginWidget = new LoginWidget(ui->stackedWidget);
     int index = ui->stackedWidget->addWidget(loginWidget);
     ui->stackedWidget->setCurrentIndex(index);
 
-//    connect(ui->studentBtn, SIGNAL(clicked()), this, SLOT(handleStuButton()));
-//    connect(ui->adminBtn, SIGNAL(clicked()), this, SLOT(handleAdminButton()));
+    connect(loginWidget->getStudentBtn(), SIGNAL(clicked()), this, SLOT(handleStuButton()));
+    connect(loginWidget->getAdminBtn(), SIGNAL(clicked()), this, SLOT(handleAdminButton()));
 }
 
 MainWindow::~MainWindow()

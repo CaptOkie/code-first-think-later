@@ -2,6 +2,7 @@
 #define LOGINWIDGET_H
 
 #include <QWidget>
+#include <QPushButton>
 
 namespace Ui {
     class LoginWidget;
@@ -14,6 +15,8 @@ class LoginWidget : public QWidget
     public:
         explicit LoginWidget(QWidget *parent = 0);
         ~LoginWidget();
+        QPushButton* getStudentBtn();
+        QPushButton* getAdminBtn();
 
     private:
         Ui::LoginWidget *ui;
