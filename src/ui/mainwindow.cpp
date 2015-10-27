@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "loginwidget.h"
+#include "studentloginwidget.h"
 
 #include "stulogindialog.h"
 #include "adminlogindialog.h"
@@ -10,12 +11,17 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    LoginWidget* loginWidget = new LoginWidget(ui->stackedWidget);
-    int index = ui->stackedWidget->addWidget(loginWidget);
-    ui->stackedWidget->setCurrentIndex(index);
 
-    connect(loginWidget->getStudentBtn(), SIGNAL(clicked()), this, SLOT(handleStuButton()));
-    connect(loginWidget->getAdminBtn(), SIGNAL(clicked()), this, SLOT(handleAdminButton()));
+    LoginWidget* loginWidget = new LoginWidget(ui->stackedWidget);
+    StudentLoginWidget* studentLoginWidget = new StudentLoginWidget(ui->stackedWidget);
+
+    login = ui->stackedWidget->addWidget(loginWidget);
+    studentLogin = ui->stackedWidget->addWidget(studentLoginWidget);
+
+    ui->stackedWidget->setCurrentIndex(login);
+
+    connect(loginWidget->getStudentBtn(), SIGNAL(clicked()), this, SLOT(handleStudentBtn()));
+    connect(loginWidget->getAdminBtn(), SIGNAL(clicked()), this, SLOT(handleAdminBtn()));
 }
 
 MainWindow::~MainWindow()
@@ -23,13 +29,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::handleStuButton()
+void MainWindow::handleStudentBtn()
 {
-    QDialog* stuDialog = new StuLoginDialog(parentWidget());
-    stuDialog->exec();
+    ui->stackedWidget->setCurrentIndex(studentLogin);
 }
 
-void MainWindow::handleAdminButton()
+void MainWindow::handleAdminBtn()
 {
     QDialog* adminDialog = new AdminLoginDialog(parentWidget());
     adminDialog->exec();

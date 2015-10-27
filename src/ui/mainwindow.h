@@ -16,11 +16,14 @@ class MainWindow : public QMainWindow
         ~MainWindow();
 
     private slots:
-        void handleStuButton();
-        void handleAdminButton();
+        void handleStudentBtn();
+        void handleAdminBtn();
 
     private:
         Ui::MainWindow *ui;
+        int login;
+        int studentLogin;
+        int adminLogin;
 };
 
 #endif // MAINWINDOW_H
