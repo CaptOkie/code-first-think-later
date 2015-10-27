@@ -1,8 +1,10 @@
 CaptOkie:
 2 Hours: Group meeting
+2.5 Hours: Improved UI separation
 
 TheBakedPotato:
 2 Hours: Group metting
+2.5 Hours: Started SQL storage system
 
 ViLLiELdR:
 2 Hours: Group metting
