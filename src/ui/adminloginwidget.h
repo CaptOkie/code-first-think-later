@@ -20,12 +20,12 @@ class AdminLoginWidget : public QWidget
         void cancelled();
         void submitted(QString& id);
 
-    public slots:
-        void handleCancelBtn();
-        void handleOkBtn();
-
     private:
         Ui::AdminLoginWidget *ui;
+
+    private slots:
+        void handleCancelBtn();
+        void handleOkBtn();
 };
 
 #endif // ADMINLOGINWIDGET_H

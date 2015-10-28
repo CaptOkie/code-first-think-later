@@ -15,8 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     // Add LoginWidget
     LoginWidget* loginWidget = new LoginWidget(ui->stackedWidget);
     login = addWidget(loginWidget);
-    connect(loginWidget->getStudentBtn(), &QPushButton::clicked, this, &MainWindow::showStudentLogin);
-    connect(loginWidget->getAdminBtn(), &QPushButton::clicked, this, &MainWindow::showAdminLogin);
+    connect(loginWidget, &LoginWidget::studentSelected, this, &MainWindow::showStudentLogin);
+    connect(loginWidget, &LoginWidget::adminSelected, this, &MainWindow::showAdminLogin);
 
     // Add StudentLoginWidget
     StudentLoginWidget* studentLoginWidget = new StudentLoginWidget(ui->stackedWidget);

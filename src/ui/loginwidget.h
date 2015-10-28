@@ -15,11 +15,17 @@ class LoginWidget : public QWidget
     private:
         Ui::LoginWidget *ui;
 
+    private slots:
+        void handleStudentBtn();
+        void handleAdminBtn();
+
     public:
         explicit LoginWidget(QWidget *parent = 0);
         ~LoginWidget();
-        QPushButton* getStudentBtn();
-        QPushButton* getAdminBtn();
+
+    signals:
+        void studentSelected();
+        void adminSelected();
 };
 
 #endif // LOGINWIDGET_H
