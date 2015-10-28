@@ -65,7 +65,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="studentInput"/>
        </item>
        <item>
         <widget class="QDialogButtonBox" name="buttonBox">

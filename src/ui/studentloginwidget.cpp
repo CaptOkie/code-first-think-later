@@ -6,6 +6,9 @@ StudentLoginWidget::StudentLoginWidget(QWidget *parent) :
     ui(new Ui::StudentLoginWidget)
 {
     ui->setupUi(this);
+
+    connect(ui->buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &StudentLoginWidget::handleOkBtn);
+    connect(ui->buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &StudentLoginWidget::handleCancelBtn);
 }
 
 StudentLoginWidget::~StudentLoginWidget()
@@ -13,12 +16,13 @@ StudentLoginWidget::~StudentLoginWidget()
     delete ui;
 }
 
-QPushButton* StudentLoginWidget::getOkBtn()
+void StudentLoginWidget::handleOkBtn()
 {
-    return ui->buttonBox->button(QDialogButtonBox::Ok);
+    QString id = ui->studentInput->text();
+    emit submitted(id);
 }
 
-QPushButton* StudentLoginWidget::getCancelBtn()
+void StudentLoginWidget::handleCancelBtn()
 {
-    return ui->buttonBox->button(QDialogButtonBox::Cancel);
+    emit cancelled();
 }

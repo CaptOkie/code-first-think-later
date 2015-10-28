@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Add StudentLoginWidget
     StudentLoginWidget* studentLoginWidget = new StudentLoginWidget(ui->stackedWidget);
     studentLogin = addWidget(studentLoginWidget);
-    connect(studentLoginWidget->getCancelBtn(), &QPushButton::clicked, this, &MainWindow::showLogin);
+    connect(studentLoginWidget, &StudentLoginWidget::cancelled, this, &MainWindow::showLogin);
 
     // Add AdminLoginWidget
     AdminLoginWidget* adminLoginWidget = new AdminLoginWidget(ui->stackedWidget);

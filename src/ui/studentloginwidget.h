@@ -15,11 +15,17 @@ class StudentLoginWidget : public QWidget
     public:
         explicit StudentLoginWidget(QWidget *parent = 0);
         ~StudentLoginWidget();
-        QPushButton* getOkBtn();
-        QPushButton* getCancelBtn();
+
+    signals:
+        void cancelled();
+        void submitted(QString& id);
 
     private:
         Ui::StudentLoginWidget *ui;
+
+    private slots:
+        void handleCancelBtn();
+        void handleOkBtn();
 };
 
 #endif // STUDENTLOGINWIDGET_H
