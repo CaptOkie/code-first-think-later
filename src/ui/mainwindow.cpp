@@ -19,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->stackedWidget->setCurrentIndex(login);
 
-    loginWidget->setStudentBtnHandler(SIGNAL(clicked()), SLOT(handleStudentBtn()), this);
-    loginWidget->setAdminBtnHandler(SIGNAL(clicked()), SLOT(handleAdminBtn()), this);
+    connect(loginWidget->getStudentBtn(), &QPushButton::clicked, this, &MainWindow::handleStudentBtn);
+    connect(loginWidget->getAdminBtn(), &QPushButton::clicked, this, &MainWindow::handleAdminBtn);
 }
 
 MainWindow::~MainWindow()

@@ -12,12 +12,12 @@ LoginWidget::~LoginWidget()
     delete ui;
 }
 
-QMetaObject::Connection LoginWidget::setStudentBtnHandler(const char *signal, const char *slot, const QObject *receiver)
+QPushButton* LoginWidget::getStudentBtn()
 {
-    return connect(ui->studentBtn, signal, receiver, slot);
+    return ui->studentBtn;
 }
 
-QMetaObject::Connection LoginWidget::setAdminBtnHandler(const char *signal, const char *slot, const QObject *receiver)
+QPushButton* LoginWidget::getAdminBtn()
 {
-    return connect(ui->adminBtn, signal, receiver, slot);
+    return ui->adminBtn;
 }

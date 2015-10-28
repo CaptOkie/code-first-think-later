@@ -12,14 +12,14 @@ class LoginWidget : public QWidget
 {
         Q_OBJECT
 
+    private:
+        Ui::LoginWidget *ui;
+
     public:
         explicit LoginWidget(QWidget *parent = 0);
         ~LoginWidget();
-        QMetaObject::Connection setStudentBtnHandler(const char* signal, const char* slot, const QObject* receiver);
-        QMetaObject::Connection setAdminBtnHandler(const char* signal, const char* slot, const QObject* receiver);
-
-    private:
-        Ui::LoginWidget *ui;
+        QPushButton* getStudentBtn();
+        QPushButton* getAdminBtn();
 };
 
 #endif // LOGINWIDGET_H
