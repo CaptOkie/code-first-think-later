@@ -15,8 +15,14 @@ class AdminLoginWidget : public QWidget
     public:
         explicit AdminLoginWidget(QWidget *parent = 0);
         ~AdminLoginWidget();
-        QPushButton* getOkBtn();
-        QPushButton* getCancelBtn();
+
+    signals:
+        void cancelled();
+        void submitted(QString& id);
+
+    public slots:
+        void handleCancelBtn();
+        void handleOkBtn();
 
     private:
         Ui::AdminLoginWidget *ui;
