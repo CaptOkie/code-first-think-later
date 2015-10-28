@@ -32,7 +32,7 @@ void Storage::setupDB() {
     db.close();
 }
 
-bool Storage::addStudent(string& name) {
+void Storage::addStudent(QString& name) {
     db.open();
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " STU_TABLE "(name)"
@@ -42,7 +42,7 @@ bool Storage::addStudent(string& name) {
     db.close();
 }
 
-bool Storage::addAdmin(string& name) {
+void Storage::addAdmin(QString& name) {
     db.open();
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " ADMIN_TABLE "(name)"
@@ -52,7 +52,7 @@ bool Storage::addAdmin(string& name) {
     db.close();
 }
 
-bool Storage::addProject(string& name) {
+void Storage::addProject(QString& name) {
     db.open();
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " PROJECT_TABLE "(name)"

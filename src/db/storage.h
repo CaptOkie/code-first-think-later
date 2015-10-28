@@ -13,9 +13,9 @@ class Storage
         ~Storage();
 
         // Adding entries into their tables
-        bool addStudent(string&);
-        bool addAdmin(string&);
-        bool addProject(string&);
+        void addStudent(QString&);
+        void addAdmin(QString&);
+        void addProject(QString&);
 
     private:
         // Attributes
