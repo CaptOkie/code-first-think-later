@@ -2,9 +2,6 @@
 #define STORAGE_H
 
 #include <QtSql>
-#include <string>
-
-using namespace std;
 
 class Storage
 {
@@ -16,6 +13,9 @@ class Storage
         void addStudent(QString&);
         void addAdmin(QString&);
         void addProject(QString&);
+
+        // Select entries from database
+        bool getStudent(QString&);
 
     private:
         // Attributes
