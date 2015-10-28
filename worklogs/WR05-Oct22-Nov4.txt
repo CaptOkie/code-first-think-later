@@ -1,10 +1,12 @@
 CaptOkie:
 2 Hours: Group meeting
 2.5 Hours: Improved UI separation
+5.5 Hours: Improved setting button handlers, connected button handlers, added pages.
 
 TheBakedPotato:
 2 Hours: Group metting
 2.5 Hours: Started SQL storage system
+5.5 Hours: Worked on storage system
 
 ViLLiELdR:
 2 Hours: Group metting
