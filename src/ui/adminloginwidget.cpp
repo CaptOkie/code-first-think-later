@@ -6,6 +6,9 @@ AdminLoginWidget::AdminLoginWidget(QWidget *parent) :
     ui(new Ui::AdminLoginWidget)
 {
     ui->setupUi(this);
+
+    connect(ui->buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &AdminLoginWidget::handleOkBtn);
+    connect(ui->buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &AdminLoginWidget::handleCancelBtn);
 }
 
 AdminLoginWidget::~AdminLoginWidget()
@@ -13,12 +16,13 @@ AdminLoginWidget::~AdminLoginWidget()
     delete ui;
 }
 
-QPushButton* AdminLoginWidget::getOkBtn()
+void AdminLoginWidget::handleOkBtn()
 {
-    return ui->buttonBox->button(QDialogButtonBox::Ok);
+    QString id = ui->adminInput->text();
+    emit submitted(id);
 }
 
-QPushButton* AdminLoginWidget::getCancelBtn()
+void AdminLoginWidget::handleCancelBtn()
 {
-    return ui->buttonBox->button(QDialogButtonBox::Cancel);
+    emit cancelled();
 }

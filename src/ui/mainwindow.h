@@ -19,7 +19,7 @@ class MainWindow : public QMainWindow
         void showLogin();
         void showStudentLogin();
         void showAdminLogin();
-        void showAdminHome();
+        void attemptAdminLogin(QString& id);
 
     private:
         Ui::MainWindow *ui;

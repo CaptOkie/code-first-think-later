@@ -26,8 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     // Add AdminLoginWidget
     AdminLoginWidget* adminLoginWidget = new AdminLoginWidget(ui->stackedWidget);
     adminLogin = addWidget(adminLoginWidget);
-    connect(adminLoginWidget->getOkBtn(), &QPushButton::clicked, this, &MainWindow::showAdminHome);
-    connect(adminLoginWidget->getCancelBtn(), &QPushButton::clicked, this, &MainWindow::showLogin);
+    connect(adminLoginWidget, &AdminLoginWidget::submitted, this, &MainWindow::attemptAdminLogin);
+    connect(adminLoginWidget, &AdminLoginWidget::cancelled, this, &MainWindow::showLogin);
 
     // Add AdminHomeWidget
     AdminHomeWidget* adminHomeWidget = new AdminHomeWidget(ui->stackedWidget);
@@ -74,7 +74,7 @@ void MainWindow::showAdminLogin()
     changeView(adminLogin);
 }
 
-void MainWindow::showAdminHome()
+void MainWindow::attemptAdminLogin(QString& id)
 {
     changeView(adminHome);
 }
