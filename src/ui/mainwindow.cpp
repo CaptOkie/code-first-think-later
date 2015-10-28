@@ -5,27 +5,36 @@
 #include "studentloginwidget.h"
 #include "adminloginwidget.h"
 
+#include "adminhomewidget.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    // Add LoginWidget
     LoginWidget* loginWidget = new LoginWidget(ui->stackedWidget);
-    StudentLoginWidget* studentLoginWidget = new StudentLoginWidget(ui->stackedWidget);
-    AdminLoginWidget* adminLoginWidget = new AdminLoginWidget(ui->stackedWidget);
-
-    login = ui->stackedWidget->addWidget(loginWidget);
-    studentLogin = ui->stackedWidget->addWidget(studentLoginWidget);
-    adminLogin = ui->stackedWidget->addWidget(adminLoginWidget);
-
-    ui->stackedWidget->setCurrentIndex(login);
-
+    login = addWidget(loginWidget);
     connect(loginWidget->getStudentBtn(), &QPushButton::clicked, this, &MainWindow::showStudentLogin);
     connect(loginWidget->getAdminBtn(), &QPushButton::clicked, this, &MainWindow::showAdminLogin);
 
+    // Add StudentLoginWidget
+    StudentLoginWidget* studentLoginWidget = new StudentLoginWidget(ui->stackedWidget);
+    studentLogin = addWidget(studentLoginWidget);
     connect(studentLoginWidget->getCancelBtn(), &QPushButton::clicked, this, &MainWindow::showLogin);
 
+    // Add AdminLoginWidget
+    AdminLoginWidget* adminLoginWidget = new AdminLoginWidget(ui->stackedWidget);
+    adminLogin = addWidget(adminLoginWidget);
+    connect(adminLoginWidget->getOkBtn(), &QPushButton::clicked, this, &MainWindow::showAdminHome);
     connect(adminLoginWidget->getCancelBtn(), &QPushButton::clicked, this, &MainWindow::showLogin);
+
+    // Add AdminHomeWidget
+    AdminHomeWidget* adminHomeWidget = new AdminHomeWidget(ui->stackedWidget);
+    adminHome = addWidget(adminHomeWidget);
+
+    // Set the starting page
+    changeView(login);
 }
 
 MainWindow::~MainWindow()
@@ -33,17 +42,39 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+int MainWindow::addWidget(QWidget* widget)
+{
+    widget->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    return ui->stackedWidget->addWidget(widget);
+}
+
+void MainWindow::changeView(int index)
+{
+    if (ui->stackedWidget->currentWidget() != 0) {
+        ui->stackedWidget->currentWidget()->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    }
+    ui->stackedWidget->setCurrentIndex(index);
+    if (ui->stackedWidget->currentWidget() != 0) {
+        ui->stackedWidget->currentWidget()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    }
+}
+
 void MainWindow::showLogin()
 {
-    ui->stackedWidget->setCurrentIndex(login);
+    changeView(login);
 }
 
 void MainWindow::showStudentLogin()
 {
-    ui->stackedWidget->setCurrentIndex(studentLogin);
+    changeView(studentLogin);
 }
 
 void MainWindow::showAdminLogin()
 {
-    ui->stackedWidget->setCurrentIndex(adminLogin);
+    changeView(adminLogin);
+}
+
+void MainWindow::showAdminHome()
+{
+    changeView(adminHome);
 }

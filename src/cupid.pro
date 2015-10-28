@@ -19,20 +19,23 @@ SOURCES += main.cpp\
     ui/loginwidget.cpp \
     db/storage.cpp \
     ui/studentloginwidget.cpp \
-    ui/adminloginwidget.cpp
+    ui/adminloginwidget.cpp \
+    ui/adminhomewidget.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/errordialog.h \
     ui/loginwidget.h \
     db/storage.h \
     ui/studentloginwidget.h \
-    ui/adminloginwidget.h
+    ui/adminloginwidget.h \
+    ui/adminhomewidget.h
 
 FORMS    += ui/mainwindow.ui\
     ui/errordialog.ui \
     ui/loginwidget.ui \
     ui/studentloginwidget.ui \
-    ui/adminloginwidget.ui
+    ui/adminloginwidget.ui \
+    ui/adminhomewidget.ui
 
 RESOURCES += \
     resources/images.qrc
