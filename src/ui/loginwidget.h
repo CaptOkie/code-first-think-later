@@ -15,8 +15,8 @@ class LoginWidget : public QWidget
     public:
         explicit LoginWidget(QWidget *parent = 0);
         ~LoginWidget();
-        QPushButton* getStudentBtn();
-        QPushButton* getAdminBtn();
+        QMetaObject::Connection setStudentBtnHandler(const char* signal, const char* slot, const QObject* receiver);
+        QMetaObject::Connection setAdminBtnHandler(const char* signal, const char* slot, const QObject* receiver);
 
     private:
         Ui::LoginWidget *ui;

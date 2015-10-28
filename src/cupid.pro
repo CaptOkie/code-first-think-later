@@ -15,27 +15,27 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     ui/mainwindow.cpp\
-    ui/stulogindialog.cpp\
     ui/adminlogindialog.cpp \
     ui/errordialog.cpp \
     ui/loginwidget.cpp \
     db/storage.cpp \
-    ui/studentloginwidget.cpp
+    ui/studentloginwidget.cpp \
+    ui/adminloginwidget.cpp
 
 HEADERS  += ui/mainwindow.h\
-    ui/stulogindialog.h\
     ui/adminlogindialog.h \
     ui/errordialog.h \
     ui/loginwidget.h \
     db/storage.h \
-    ui/studentloginwidget.h
+    ui/studentloginwidget.h \
+    ui/adminloginwidget.h
 
 FORMS    += ui/mainwindow.ui\
-    ui/stulogindialog.ui\
     ui/adminlogindialog.ui \
     ui/errordialog.ui \
     ui/loginwidget.ui \
-    ui/studentloginwidget.ui
+    ui/studentloginwidget.ui \
+    ui/adminloginwidget.ui
 
 RESOURCES += \
     resources/images.qrc

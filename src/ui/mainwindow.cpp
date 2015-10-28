@@ -4,7 +4,6 @@
 #include "loginwidget.h"
 #include "studentloginwidget.h"
 
-#include "stulogindialog.h"
 #include "adminlogindialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -20,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->stackedWidget->setCurrentIndex(login);
 
-    connect(loginWidget->getStudentBtn(), SIGNAL(clicked()), this, SLOT(handleStudentBtn()));
-    connect(loginWidget->getAdminBtn(), SIGNAL(clicked()), this, SLOT(handleAdminBtn()));
+    loginWidget->setStudentBtnHandler(SIGNAL(clicked()), SLOT(handleStudentBtn()), this);
+    loginWidget->setAdminBtnHandler(SIGNAL(clicked()), SLOT(handleAdminBtn()), this);
 }
 
 MainWindow::~MainWindow()
