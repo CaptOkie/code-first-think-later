@@ -12,3 +12,13 @@ StudentLoginWidget::~StudentLoginWidget()
 {
     delete ui;
 }
+
+QPushButton* StudentLoginWidget::getOkBtn()
+{
+    return ui->buttonBox->button(QDialogButtonBox::Ok);
+}
+
+QPushButton* StudentLoginWidget::getCancelBtn()
+{
+    return ui->buttonBox->button(QDialogButtonBox::Cancel);
+}

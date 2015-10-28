@@ -15,9 +15,10 @@ class MainWindow : public QMainWindow
         explicit MainWindow(QWidget *parent = 0);
         ~MainWindow();
 
-    private slots:
-        void handleStudentBtn();
-        void handleAdminBtn();
+    private:
+        void showLogin();
+        void showStudentLogin();
+        void showAdminLogin();
 
     private:
         Ui::MainWindow *ui;

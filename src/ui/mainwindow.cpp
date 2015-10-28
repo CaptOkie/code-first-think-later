@@ -20,8 +20,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->stackedWidget->setCurrentIndex(login);
 
-    connect(loginWidget->getStudentBtn(), &QPushButton::clicked, this, &MainWindow::handleStudentBtn);
-    connect(loginWidget->getAdminBtn(), &QPushButton::clicked, this, &MainWindow::handleAdminBtn);
+    connect(loginWidget->getStudentBtn(), &QPushButton::clicked, this, &MainWindow::showStudentLogin);
+    connect(loginWidget->getAdminBtn(), &QPushButton::clicked, this, &MainWindow::showAdminLogin);
+
+    connect(studentLoginWidget->getCancelBtn(), &QPushButton::clicked, this, &MainWindow::showLogin);
+
+    connect(adminLoginWidget->getCancelBtn(), &QPushButton::clicked, this, &MainWindow::showLogin);
 }
 
 MainWindow::~MainWindow()
@@ -29,12 +33,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::handleStudentBtn()
+void MainWindow::showLogin()
+{
+    ui->stackedWidget->setCurrentIndex(login);
+}
+
+void MainWindow::showStudentLogin()
 {
     ui->stackedWidget->setCurrentIndex(studentLogin);
 }
 
-void MainWindow::handleAdminBtn()
+void MainWindow::showAdminLogin()
 {
     ui->stackedWidget->setCurrentIndex(adminLogin);
 }
