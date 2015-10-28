@@ -9,8 +9,12 @@ class Storage
         Storage();
         ~Storage();
 
+
     private:
+        // Attributes
         QSqlDatabase db;
+
+        void setupDB();
 };
 
 #endif // STORAGE_H
