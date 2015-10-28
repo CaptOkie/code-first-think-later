@@ -15,7 +15,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     ui/mainwindow.cpp\
-    ui/adminlogindialog.cpp \
     ui/errordialog.cpp \
     ui/loginwidget.cpp \
     db/storage.cpp \
@@ -23,7 +22,6 @@ SOURCES += main.cpp\
     ui/adminloginwidget.cpp
 
 HEADERS  += ui/mainwindow.h\
-    ui/adminlogindialog.h \
     ui/errordialog.h \
     ui/loginwidget.h \
     db/storage.h \
@@ -31,7 +29,6 @@ HEADERS  += ui/mainwindow.h\
     ui/adminloginwidget.h
 
 FORMS    += ui/mainwindow.ui\
-    ui/adminlogindialog.ui \
     ui/errordialog.ui \
     ui/loginwidget.ui \
     ui/studentloginwidget.ui \

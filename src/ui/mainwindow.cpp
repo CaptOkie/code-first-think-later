@@ -3,8 +3,7 @@
 
 #include "loginwidget.h"
 #include "studentloginwidget.h"
-
-#include "adminlogindialog.h"
+#include "adminloginwidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -13,9 +12,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     LoginWidget* loginWidget = new LoginWidget(ui->stackedWidget);
     StudentLoginWidget* studentLoginWidget = new StudentLoginWidget(ui->stackedWidget);
+    AdminLoginWidget* adminLoginWidget = new AdminLoginWidget(ui->stackedWidget);
 
     login = ui->stackedWidget->addWidget(loginWidget);
     studentLogin = ui->stackedWidget->addWidget(studentLoginWidget);
+    adminLogin = ui->stackedWidget->addWidget(adminLoginWidget);
 
     ui->stackedWidget->setCurrentIndex(login);
 
@@ -35,6 +36,5 @@ void MainWindow::handleStudentBtn()
 
 void MainWindow::handleAdminBtn()
 {
-    QDialog* adminDialog = new AdminLoginDialog(parentWidget());
-    adminDialog->exec();
+    ui->stackedWidget->setCurrentIndex(adminLogin);
 }
