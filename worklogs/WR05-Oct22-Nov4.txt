@@ -10,3 +10,5 @@ TheBakedPotato:
 
 ViLLiELdR:
 2 Hours: Group metting
+2 Hours: Animated home screen and converted to GIF
+1 Hour: Worked on some UI
