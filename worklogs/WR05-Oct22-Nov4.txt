@@ -2,13 +2,16 @@ CaptOkie:
 2 Hours: Group meeting
 2.5 Hours: Improved UI separation
 5.5 Hours: Improved setting button handlers, connected button handlers, added pages.
+2 Hours: Work on Algorithm design
 
 TheBakedPotato:
 2 Hours: Group metting
 2.5 Hours: Started SQL storage system
 5.5 Hours: Worked on storage system
+2 Hours: Work on Algorithm design
 
 ViLLiELdR:
 2 Hours: Group metting
 2 Hours: Animated home screen and converted to GIF
 1 Hour: Worked on some UI
+2 Hours: Work on Algorithm design
