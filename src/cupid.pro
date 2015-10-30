@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     ui/loginwidget.cpp \
     db/storage.cpp \
     ui/adminhomewidget.cpp \
-    ui/projectdetailsdialog.cpp
+    ui/projectdetailsdialog.cpp \
+    ui/studenthomewidget.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/errordialog.h \
@@ -27,13 +28,15 @@ HEADERS  += ui/mainwindow.h\
     db/storage.h \
     ui/adminhomewidget.h \
     ui/projectdetailsdialog.h \
-    enum/usertype.h
+    enum/usertype.h \
+    ui/studenthomewidget.h
 
 FORMS    += ui/mainwindow.ui\
     ui/errordialog.ui \
     ui/loginwidget.ui \
     ui/adminhomewidget.ui \
-    ui/projectdetailsdialog.ui
+    ui/projectdetailsdialog.ui \
+    ui/studenthomewidget.ui
 
 RESOURCES += \
     resources/images.qrc
