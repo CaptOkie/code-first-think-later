@@ -84,3 +84,16 @@ Prefer mode of communication
 1. When is preffered working time. (5 point scale -- morning to late night)
 2. Based on your current schedule, when are you usually available. (weekdays)
 3. What is your preferred mode of communication? (text, IM, email, conference calling)
+
+===========================================================================================
+
+Algorithm
+---------
+
+Problems:
+1. Always find a match
+2. Account for both personal and desired values
+3. Prevent using a system where opposite answers would match people together
+4. Deterministic
+5. Balanced matching, or best matching?
+6. Make graph of best 2*(max group size), and start removing the worst connections ensuring you have at least the min.
