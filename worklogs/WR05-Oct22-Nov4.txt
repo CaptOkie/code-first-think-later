@@ -3,12 +3,14 @@ CaptOkie:
 2.5 Hours: Improved UI separation
 5.5 Hours: Improved setting button handlers, connected button handlers, added pages.
 2 Hours: Work on Algorithm design
+6 Hours: Improved main window, refactored login, added project details editting, added student home.
 
 TheBakedPotato:
 2 Hours: Group metting
 2.5 Hours: Started SQL storage system
 5.5 Hours: Worked on storage system
 2 Hours: Work on Algorithm design
+6 Hours: Added user login through DB, refactored DB
 
 ViLLiELdR:
 2 Hours: Group metting
