@@ -37,7 +37,14 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QSpinBox" name="minGroupSizeInput"/>
+      <widget class="QSpinBox" name="minGroupSizeInput">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>999999</number>
+       </property>
+      </widget>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
@@ -47,7 +54,14 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QSpinBox" name="maxGroupSizeInput"/>
+      <widget class="QSpinBox" name="maxGroupSizeInput">
+       <property name="minimum">
+        <number>2</number>
+       </property>
+       <property name="maximum">
+        <number>1000000</number>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

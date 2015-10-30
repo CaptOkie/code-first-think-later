@@ -17,6 +17,10 @@ class ProjectDetailsDialog : public QDialog
 
     private:
         Ui::ProjectDetailsDialog *ui;
+
+    private slots:
+        void minUpdated(int value);
+        void maxUpdated(int value);
 };
 
 #endif // PROJECTDETAILSDIALOG_H
