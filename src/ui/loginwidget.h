@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QPushButton>
 
+#include "../enum/usertype.h"
+
 namespace Ui {
     class LoginWidget;
 }
@@ -16,16 +18,14 @@ class LoginWidget : public QWidget
         Ui::LoginWidget *ui;
 
     private slots:
-        void handleStudentBtn();
-        void handleAdminBtn();
+        void handleLoginBtn();
 
     public:
         explicit LoginWidget(QWidget *parent = 0);
         ~LoginWidget();
 
     signals:
-        void studentSelected();
-        void adminSelected();
+        void loggedIn(UserType userType);
 };
 
 #endif // LOGINWIDGET_H

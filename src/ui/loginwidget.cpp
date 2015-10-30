@@ -6,8 +6,7 @@ LoginWidget::LoginWidget(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(ui->studentBtn, &QPushButton::clicked, this, &LoginWidget::handleStudentBtn);
-    connect(ui->adminBtn, &QPushButton::clicked, this, &LoginWidget::handleAdminBtn);
+    connect(ui->loginBtn, &QPushButton::clicked, this, &LoginWidget::handleLoginBtn);
 }
 
 LoginWidget::~LoginWidget()
@@ -15,12 +14,7 @@ LoginWidget::~LoginWidget()
     delete ui;
 }
 
-void LoginWidget::handleAdminBtn()
+void LoginWidget::handleLoginBtn()
 {
-    emit adminSelected();
-}
-
-void LoginWidget::handleStudentBtn()
-{
-    emit studentSelected();
+    emit loggedIn(ADMIN);
 }

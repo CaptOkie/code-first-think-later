@@ -153,16 +153,16 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPushButton" name="studentBtn">
-         <property name="text">
-          <string>Student</string>
+        <widget class="QLineEdit" name="idInput">
+         <property name="placeholderText">
+          <string>ID Number</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="adminBtn">
+        <widget class="QPushButton" name="loginBtn">
          <property name="text">
-          <string>Administrator</string>
+          <string>Login</string>
          </property>
         </widget>
        </item>
@@ -211,6 +211,8 @@
   <zorder>label_5</zorder>
   <zorder>horizontalSpacer</zorder>
   <zorder>horizontalSpacer_2</zorder>
+  <zorder>loginBtn</zorder>
+  <zorder>idInput</zorder>
  </widget>
  <resources>
   <include location="../resources/images.qrc"/>

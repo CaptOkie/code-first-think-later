@@ -2,6 +2,7 @@
 #define ADMINHOMEWIDGET_H
 
 #include <QWidget>
+#include "projectdetailsdialog.h"
 
 namespace Ui {
     class AdminHomeWidget;
@@ -16,7 +17,8 @@ class AdminHomeWidget : public QWidget
         ~AdminHomeWidget();
 
     private:
-        Ui::AdminHomeWidget *ui;
+        Ui::AdminHomeWidget* ui;
+        ProjectDetailsDialog* detailsDialog;
 };
 
 #endif // ADMINHOMEWIDGET_H

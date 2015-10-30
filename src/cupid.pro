@@ -18,24 +18,22 @@ SOURCES += main.cpp\
     ui/errordialog.cpp \
     ui/loginwidget.cpp \
     db/storage.cpp \
-    ui/studentloginwidget.cpp \
-    ui/adminloginwidget.cpp \
-    ui/adminhomewidget.cpp
+    ui/adminhomewidget.cpp \
+    ui/projectdetailsdialog.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/errordialog.h \
     ui/loginwidget.h \
     db/storage.h \
-    ui/studentloginwidget.h \
-    ui/adminloginwidget.h \
-    ui/adminhomewidget.h
+    ui/adminhomewidget.h \
+    ui/projectdetailsdialog.h \
+    enum/usertype.h
 
 FORMS    += ui/mainwindow.ui\
     ui/errordialog.ui \
     ui/loginwidget.ui \
-    ui/studentloginwidget.ui \
-    ui/adminloginwidget.ui \
-    ui/adminhomewidget.ui
+    ui/adminhomewidget.ui \
+    ui/projectdetailsdialog.ui
 
 RESOURCES += \
     resources/images.qrc
