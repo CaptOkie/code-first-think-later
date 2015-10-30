@@ -106,21 +106,15 @@
 
 \section{Introduction}
 
-\begin{center}
-    -- project --
-\end{center}
-
-\begin{center}
-	\Huge [cuPID]
-\end{center}
-
-\begin{center}
-    \rule{0.85\textwidth}{0.5pt}
-\end{center}
+Large-scale projects have always required a team to develop, design, and maintain. Unfortunately, it is rarely the case that team members are chosen based on their personalities or other such personal qualities - when you get right down to what's important to the employer, skills are paramount. Sure, the quirky, good-natured person might be favored over the quieter, unsocial person, but if that quieter person eclipsed the former with regards to talent, then they get chosen. Regrettably, the end result becomes a team of peerless talent that clash heavily on all other aspects. Maybe they're all `alpha' personalities and cannot handle not being either the center of attention or in charge. Maybe they despise the idea of sharing code with each other. Either way, the project suffers in quality because of this. Our firm, [Code First, Think Later], would like to propose in this document a potential algorithm that could solve all these problems.
 
 \subsection{Purpose of Algorithm}
 
+Our PPID (Project-Partner-IDentification) algorithm's purpose, as the name suggests, is, given a pool of potential team members, to sort those members into the optimal teams based on several factors including relevant skills, personality traits, leadership qualities, and degree of availability. The basis upon which the algorithm sorts the members is a set of qualifications given by each member. The qualifications themselves can be divided into two sections: the qualifications that they have, and the qualifications that they desire in a group member. By incorporating both these sets, we can more confidently ensure that the groups fit perfectly.
+
 \subsection{Overview of Document}
+
+This document will start with basic, simple details and slowly build upwards in complexity. As such, we begin with the Qualifications section where explanations and descriptions of each of our proposed qualifications are outlined. Furthermore, we have included the scale of possible responses for each of the qualifications and assigned each a unique ID to allow maximum traceability throughout this document. Following the Qualifications section, you will find the Rules section where the algorithmic logic gets explained. Once again, each rule is assigned a unique ID. Finally, the last section will pull all the parts together and explain how the rules, when applied to the qualifications, will give optimal and consistent results.
 
 \vspace{1em}
 
@@ -161,7 +155,6 @@
 		QF-13 & Availability & Daily availability. \\
 		QF-14 & Availability & Weekly availability. \\
 		QF-15 & Availability & Preferred mode of communication. \\
-		QF-16 & Availability & \\
 	\end{tabu}
 \end{table}
 
@@ -174,19 +167,18 @@
 		Qualification Identifier & {\bf QF-01}\\
 		Category & Skills \\
 		Phrasing of Qualification & What grade did you receive in COMP 2401? \\
-		Description & blah\\
+		Description & COMP 2401, Introduction to Systems Programming, is a second year course whose material covers some of the basic but essential components of systems programming. These components include, but are not limited to: memory management, program design, and data types.\\
 		Scale for Responses &
 		\begin{minipage}[t]{\linewidth}
 			\begin{enumerate}
-				\item[1.] stuff.
-				\item[2.] stuff.
-				\item[3.] stuff.
-				\item[4.] stuff.
-				\item[5.] stuff.
+				\item[1.] D- to D+
+				\item[2.] C- to C+
+				\item[3.] B- to B+
+				\item[4.] A- to A+
 			\end{enumerate}
 		\end{minipage}\\
-		Reasoning & blah\\
-		References & Author Last Name(s)\cite{example}\\
+		Reasoning & A strong understanding of the basic and fundamentals of systems programming is essential to creating a good, clean program. Without the skills learned in this class, software may be poorly managed with regards to memory allocations, file divisions, and use of the dreaded global variables.\\
+		References & Laurendeau\cite{claurend1}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -198,19 +190,18 @@
 		Qualification Identifier & {\bf QF-02}\\
 		Category & Skills \\
 		Phrasing of Qualification & What grade did you receive in COMP 2404? \\
-		Description & blah\\
+		Description & COMP 2404, Introduction to Software Engineering, is a crucial second year course that covers nearly all the important parts pertaining to the software engineering life-cycle. Components include: the concepts of data abstraction, UML notation, design patterns, and fault/exception handling.\\
 		Scale for Responses &
 		\begin{minipage}[t]{\linewidth}
 			\begin{enumerate}
-				\item[1.] stuff.
-				\item[2.] stuff.
-				\item[3.] stuff.
-				\item[4.] stuff.
-				\item[5.] stuff.
+				\item[1.] D- to D+
+				\item[2.] C- to C+
+				\item[3.] B- to B+
+				\item[4.] A- to A+
 			\end{enumerate}
 		\end{minipage}\\
 		Reasoning & blah\\
-		References & blah\\
+		References & Laurendeau\cite{claurend2}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -226,11 +217,11 @@
 		Scale for Responses &
 		\begin{minipage}[t]{\linewidth}
 			\begin{enumerate}
-				\item[1.] stuff.
-				\item[2.] stuff.
-				\item[3.] stuff.
-				\item[4.] stuff.
-				\item[5.] stuff.
+				\item[1.] Wait.. You mean writing with like, words?? 
+				\item[2.] Ugh, I don't like writing.
+				\item[3.] It's okay I guess.
+				\item[4.] I enjoy writing!
+				\item[5.] Just call me Shakespeare 2.0.
 			\end{enumerate}
 		\end{minipage}\\
 		Reasoning & blah\\
@@ -250,11 +241,11 @@
 		Scale for Responses &
 		\begin{minipage}[t]{\linewidth}
 			\begin{enumerate}
-				\item[1.] stuff.
-				\item[2.] stuff.
-				\item[3.] stuff.
-				\item[4.] stuff.
-				\item[5.] stuff.
+				\item[1.] You mean like flies? Yeah, I'm pretty good at killing bugs..
+				\item[2.] I have no idea why it's not working right now..
+				\item[3.] I can usually figure things out eventually.
+				\item[4.] I have a good idea of where the bugs usually happen so I'm pretty fast at debugging!
+				\item[5.] Ha. Please. I'm so good at debugging, you wouldn't even have time to notice any bugs before they're fixed.
 			\end{enumerate}
 		\end{minipage}\\
 		Reasoning & blah\\
@@ -274,11 +265,11 @@
 		Scale for Responses &
 		\begin{minipage}[t]{\linewidth}
 			\begin{enumerate}
-				\item[1.] stuff.
-				\item[2.] stuff.
-				\item[3.] stuff.
-				\item[4.] stuff.
-				\item[5.] stuff.
+				\item[1.] Baaa. I am a sheep. Without a herder, I am helpless.
+				\item[2.] I panic when people depend on me.
+				\item[3.] I can handle it if I have to.
+				\item[4.] I'm pretty happy taking charge of situations.
+				\item[5.] DANCE FOR ME, MY PUPPETS, DANCE!\cite{himym}
 			\end{enumerate}
 		\end{minipage}\\
 		Reasoning & blah\\
@@ -293,7 +284,7 @@
 		\toprule
 		Qualification Identifier & {\bf QF-06}\\
 		Category & Leadership \\
-		Phrasing of Qualification & Rate the level of importance you place of organization.\\
+		Phrasing of Qualification & Rate the level of importance you place on organization.\\
 		Description & blah\\
 		Scale for Responses &
 		\begin{minipage}[t]{\linewidth}
@@ -527,31 +518,6 @@
 	\end{tabu}
 \end{table}
 
-\begin{table}[H]
-	\caption{Detailed Breakdown of QF-16}\tablelabel{dq16}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Qualification Identifier & {\bf QF-16}\\
-		Category & Availability \\
-		Phrasing of Qualification & \\
-		Description & blah\\
-		Scale for Responses &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-				\item[1.] stuff.
-				\item[2.] stuff.
-				\item[3.] stuff.
-				\item[4.] stuff.
-				\item[5.] stuff.
-			\end{enumerate}
-		\end{minipage}\\
-		Reasoning & blah\\
-		References & blah\\
-		\toprule
-	\end{tabu}
-\end{table}
-
-
 \subsection{Rules}
 \subsubsection{Overview of Rules}
 
@@ -592,6 +558,11 @@ Personnel Psychology, West Lafayette, Indiana, 1996.
 Gachter, Simon et al.
 {\it Who Makes a Good Leader? Cooperativeness, Optimism, and Leading-by-Example},
 Economic Inquiry, 2010.
+
+\bibitem{claurend1}
+Laurendeau, Christine.
+{\it COMP 2401 -- Introduction to Systems Programming: Course Outline},
+Carleton University, Ottawa, Ontario, 2014.
 
 \bibitem{morgeson}
 Morgeson, Frederick P. et al.
