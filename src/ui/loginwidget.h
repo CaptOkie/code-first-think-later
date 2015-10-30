@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 
+#include "../db/storage.h"
 #include "../enum/usertype.h"
 
 namespace Ui {
@@ -17,12 +18,13 @@ class LoginWidget : public QWidget
     private:
         Ui::LoginWidget *ui;
         QRegExp idRegex;
+        Storage* db;
 
     private slots:
         void handleLoginBtn();
 
     public:
-        explicit LoginWidget(QWidget *parent = 0);
+        explicit LoginWidget(Storage* db = 0, QWidget *parent = 0);
         ~LoginWidget();
 
     signals:

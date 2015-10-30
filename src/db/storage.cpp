@@ -60,19 +60,22 @@ void Storage::addProject(QString& name) {
     db.close();
 }
 
-int Storage::validUser(QString& name) {
+bool Storage::validUser(QString& idStr, UserType* type) {
+    return validUser(atoi(idStr.toStdString().c_str()), type);
+}
+
+bool Storage::validUser(int id, UserType* type) {
     db.open();
     QSqlQuery select = QSqlQuery(db);
-    select.prepare("SELECT * FROM " USER_NAME_COL " WHERE " USER_NAME_COL " =  :name");
-    select.bindValue(":name", name);
+    select.prepare("SELECT * FROM " USER_TABLE " WHERE " USER_ID_COL " = :id");
+    select.bindValue(":id", id);
     select.exec();
 
     if(select.first()) {
+        *type = (UserType)select.value(USER_TYPE_COL).toInt();
         db.close();
-        return 1;
+        return true;
     }
-    else {
-        db.close();
-        return -1;
-    }
+    db.close();
+    return false;
 }

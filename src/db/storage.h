@@ -12,11 +12,12 @@ class Storage
         ~Storage();
 
         // Add entries into their tables
-        void addUser(QString&, UserType type);
+        void addUser(QString&, UserType);
         void addProject(QString&);
 
         // Select entries from database
-        int validUser(QString&);
+        bool validUser(QString&, UserType*);
+        bool validUser(int, UserType*);
 
     private:
         // Attributes

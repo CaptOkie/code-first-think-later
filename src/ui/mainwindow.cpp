@@ -29,7 +29,7 @@ void MainWindow::changeView(QWidget* widget)
 
 void MainWindow::showLogin()
 {
-    LoginWidget* loginWidget = new LoginWidget();
+    LoginWidget* loginWidget = new LoginWidget(db);
     changeView(loginWidget);
     connect(loginWidget, &LoginWidget::loggedIn, this, &MainWindow::showHome);
 }
