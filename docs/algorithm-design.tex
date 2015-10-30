@@ -521,13 +521,33 @@ This document will start with basic, simple details and slowly build upwards in 
 \subsubsection{Overview of Rules}
 
 \begin{table}[H]
-	\caption{Overview of Rules}\tablelabel{or}
+	\caption{Rule Categories/Classes}\tablelabel{rc}
 	\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
-	    \tableheader{}Identifier & Category/Class & Description\\
-		R-01 &  & \\
-		R-02 &  & \\
-		R-03 &  & \\
-		R-04 &  & \\
+	    \tableheader{}Identifier & Name & Description\\
+		RC-01 & 4-point Scale & Rules in this category apply to Qualifications that use a 4-point Scale.\\
+		RC-02 & 5-point Scale & Rules in this category apply to Qualifications that use a 5-point Scale.\\
+		RC-03 & Percent-Match & Rules in this category handle converting responses to a percentage value.\\
+		RC-04 & Percent-Total & Rules in this category convert a collection of response percentage values to a Total Match Percent.\\
+		RC-05 & Personal & Rules in this category handle Personal Values. \\
+		RC-06 & Desired & Rules in this category handle Desired Values.\\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Overview of Rules}\tablelabel{or}
+	\begin{tabu} to \textwidth {>{\bf}l >{\it}p{2.75cm} X}
+	    \tableheader{}Identifier & Categories & Description\\
+		R-01 & RC-01 & Qualifications use percent increments of 25\%.\\
+		R-02 & RC-02 & Qualifications use percent increments of 20\%.\\
+		R-03 & RC-01, RC-03, RC-05, RC-06 & A Response matching the desired Response is given a Match Percent of 100\%.\\
+		R-04 & RC-01, RC-03, RC-05, RC-06 & A Response that is directly to the left or to the right of the desired Response is given a Match Percent of 75\%\\
+		R-05 & RC-01, RC-03, RC-05, RC-06 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 50\%\\
+		R-06 & RC-01, RC-03, RC-05, RC-06 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 25\%\\
+		R-07 & RC-02, RC-03, RC-05, RC-06 & A Response matching the desired Response is given a Match Percent of 100\%.\\
+		R-08 & RC-01, RC-03, RC-05, RC-06 & A Response that is directly to the left or to the right of the desired Response is given a Match Percent of 80\%\\
+		R-09 & RC-01, RC-03, RC-05, RC-06 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 60\%\\
+		R-10 & RC-01, RC-03, RC-05, RC-06 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 40\%\\
+		R-11 & RC-01, RC-03, RC-05, RC-06 & A Response that is four places to the left or to the right of the desired Response is given a Match Percent of 20\%\\
 	\end{tabu}
 \end{table}
 
