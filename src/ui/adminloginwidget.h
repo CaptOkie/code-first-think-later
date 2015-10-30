@@ -18,7 +18,7 @@ class AdminLoginWidget : public QWidget
 
     signals:
         void cancelled();
-        void submitted(QString& id);
+        void loggedIn(QString& id);
 
     private:
         Ui::AdminLoginWidget *ui;

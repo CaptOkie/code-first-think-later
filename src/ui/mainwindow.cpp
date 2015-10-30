@@ -12,29 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Add LoginWidget
-    LoginWidget* loginWidget = new LoginWidget(ui->stackedWidget);
-    login = addWidget(loginWidget);
-    connect(loginWidget, &LoginWidget::studentSelected, this, &MainWindow::showStudentLogin);
-    connect(loginWidget, &LoginWidget::adminSelected, this, &MainWindow::showAdminLogin);
-
-    // Add StudentLoginWidget
-    StudentLoginWidget* studentLoginWidget = new StudentLoginWidget(ui->stackedWidget);
-    studentLogin = addWidget(studentLoginWidget);
-    connect(studentLoginWidget, &StudentLoginWidget::cancelled, this, &MainWindow::showLogin);
-
-    // Add AdminLoginWidget
-    AdminLoginWidget* adminLoginWidget = new AdminLoginWidget(ui->stackedWidget);
-    adminLogin = addWidget(adminLoginWidget);
-    connect(adminLoginWidget, &AdminLoginWidget::submitted, this, &MainWindow::attemptAdminLogin);
-    connect(adminLoginWidget, &AdminLoginWidget::cancelled, this, &MainWindow::showLogin);
-
-    // Add AdminHomeWidget
-    AdminHomeWidget* adminHomeWidget = new AdminHomeWidget(ui->stackedWidget);
-    adminHome = addWidget(adminHomeWidget);
-
-    // Set the starting page
-    changeView(login);
+    showLogin();
 }
 
 MainWindow::~MainWindow()
@@ -42,39 +20,41 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-int MainWindow::addWidget(QWidget* widget)
+void MainWindow::changeView(QWidget* widget)
 {
-    widget->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-    return ui->stackedWidget->addWidget(widget);
-}
-
-void MainWindow::changeView(int index)
-{
-    if (ui->stackedWidget->currentWidget() != 0) {
-        ui->stackedWidget->currentWidget()->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-    }
-    ui->stackedWidget->setCurrentIndex(index);
-    if (ui->stackedWidget->currentWidget() != 0) {
-        ui->stackedWidget->currentWidget()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    QWidget* old = ui->stackedWidget->currentWidget();
+    ui->stackedWidget->addWidget(widget);
+    if (old != 0) {
+        ui->stackedWidget->removeWidget(old);
+        delete old;
     }
 }
 
 void MainWindow::showLogin()
 {
-    changeView(login);
+    LoginWidget* loginWidget = new LoginWidget();
+    changeView(loginWidget);
+    connect(loginWidget, &LoginWidget::studentSelected, this, &MainWindow::showStudentLogin);
+    connect(loginWidget, &LoginWidget::adminSelected, this, &MainWindow::showAdminLogin);
 }
 
 void MainWindow::showStudentLogin()
 {
-    changeView(studentLogin);
+    StudentLoginWidget* studentLoginWidget = new StudentLoginWidget();
+    changeView(studentLoginWidget);
+    connect(studentLoginWidget, &StudentLoginWidget::cancelled, this, &MainWindow::showLogin);
 }
 
 void MainWindow::showAdminLogin()
 {
-    changeView(adminLogin);
+    AdminLoginWidget* adminLoginWidget = new AdminLoginWidget(ui->stackedWidget);
+    changeView(adminLoginWidget);
+    connect(adminLoginWidget, &AdminLoginWidget::loggedIn, this, &MainWindow::showAdminHome);
+    connect(adminLoginWidget, &AdminLoginWidget::cancelled, this, &MainWindow::showLogin);
 }
 
-void MainWindow::attemptAdminLogin(QString& id)
+void MainWindow::showAdminHome(QString& id)
 {
-    changeView(adminHome);
+    AdminHomeWidget* adminHomeWidget = new AdminHomeWidget(ui->stackedWidget);
+    changeView(adminHomeWidget);
 }

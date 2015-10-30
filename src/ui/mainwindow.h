@@ -19,17 +19,12 @@ class MainWindow : public QMainWindow
         void showLogin();
         void showStudentLogin();
         void showAdminLogin();
-        void attemptAdminLogin(QString& id);
+        void showAdminHome(QString& id);
 
     private:
         Ui::MainWindow *ui;
-        int login;
-        int studentLogin;
-        int adminLogin;
-        int adminHome;
 
-        int addWidget(QWidget* widget);
-        void changeView(int index);
+        void changeView(QWidget* widget);
 };
 
 #endif // MAINWINDOW_H
