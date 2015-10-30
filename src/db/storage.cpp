@@ -79,3 +79,15 @@ bool Storage::getStudent(QString& name) {
 
     return true;
 }
+
+bool Storage::getAdmin(QString& name) {
+    db.open();
+    QSqlQuery select = QSqlQuery(db);
+    select.prepare("SELECT FROM " ADMIN_TABLE " WHERE " ADMIN_NAME_COL " = ?"
+                   "VALUES (:name)");
+    select.bindValue(":name", name);
+    select.exec();
+    db.close();
+
+    return true;
+}

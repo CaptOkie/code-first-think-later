@@ -7,8 +7,8 @@
 
 #include "adminhomewidget.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(Storage* db, QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::MainWindow), db(db)
 {
     ui->setupUi(this);
 
@@ -53,7 +53,7 @@ void MainWindow::showAdminLogin()
     connect(adminLoginWidget, &AdminLoginWidget::cancelled, this, &MainWindow::showLogin);
 }
 
-void MainWindow::showAdminHome(QString& id)
+void MainWindow::showAdminHome()
 {
     AdminHomeWidget* adminHomeWidget = new AdminHomeWidget(ui->stackedWidget);
     changeView(adminHomeWidget);

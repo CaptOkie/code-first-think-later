@@ -5,10 +5,10 @@
 
 int main(int argc, char *argv[])
 {
-    Storage db = Storage();
+    Storage db;
 
     QApplication a(argc, argv);
-    MainWindow w;
+    MainWindow w(&db);
     w.show();
 
     return a.exec();

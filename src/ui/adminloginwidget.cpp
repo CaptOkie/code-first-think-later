@@ -19,7 +19,7 @@ AdminLoginWidget::~AdminLoginWidget()
 void AdminLoginWidget::handleOkBtn()
 {
     QString id = ui->adminInput->text();
-    emit loggedIn(id);
+    emit loggedIn();
 }
 
 void AdminLoginWidget::handleCancelBtn()

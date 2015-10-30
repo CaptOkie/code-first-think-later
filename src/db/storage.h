@@ -16,6 +16,7 @@ class Storage
 
         // Select entries from database
         bool getStudent(QString&);
+        bool getAdmin(QString&);
 
     private:
         // Attributes
