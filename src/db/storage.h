@@ -13,7 +13,7 @@ class Storage
 
         // Add entries into their tables
         void addUser(QString&, UserType);
-        void addProject(QString&);
+        bool addProject(QString&);
 
         // Select entries from database
         bool validUser(QString&, UserType*);

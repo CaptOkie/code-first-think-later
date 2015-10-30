@@ -36,6 +36,13 @@ void Storage::setupDB() {
                      USER_TYPE_COL " integer NOT NULL)");
     create = db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
                      " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL)");
+
+    QSqlQuery insert;
+    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) VALUES ('a', 1) "
+                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1");
+    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) VALUES ('s', 0) "
+                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0");
+
     db.close();
 }
 
@@ -50,7 +57,7 @@ void Storage::addUser(QString& name, UserType type) {
     db.close();
 }
 
-void Storage::addProject(QString& name) {
+bool Storage::addProject(QString& name) {
     db.open();
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL ")"
@@ -58,6 +65,8 @@ void Storage::addProject(QString& name) {
     insert.bindValue(":name", name);
     insert.exec();
     db.close();
+
+    return true;
 }
 
 bool Storage::validUser(QString& idStr, UserType* type) {
