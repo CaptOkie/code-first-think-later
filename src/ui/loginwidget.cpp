@@ -2,9 +2,10 @@
 #include "ui_loginwidget.h"
 
 LoginWidget::LoginWidget(QWidget *parent)
-    : QWidget(parent), ui(new Ui::LoginWidget)
+    : QWidget(parent), ui(new Ui::LoginWidget), idRegex(QRegExp("\\d+"))
 {
     ui->setupUi(this);
+    ui->idInput->setValidator(new QRegExpValidator(idRegex, ui->idInput));
 
     connect(ui->loginBtn, &QPushButton::clicked, this, &LoginWidget::handleLoginBtn);
 }

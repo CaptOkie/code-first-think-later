@@ -16,6 +16,7 @@ class LoginWidget : public QWidget
 
     private:
         Ui::LoginWidget *ui;
+        QRegExp idRegex;
 
     private slots:
         void handleLoginBtn();
