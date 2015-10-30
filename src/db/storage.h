@@ -3,20 +3,20 @@
 
 #include <QtSql>
 
+#include "../enum/usertype.h"
+
 class Storage
 {
     public:
         Storage();
         ~Storage();
 
-        // Adding entries into their tables
-        void addStudent(QString&);
-        void addAdmin(QString&);
+        // Add entries into their tables
+        void addUser(QString&, UserType type);
         void addProject(QString&);
 
         // Select entries from database
-        bool getStudent(QString&);
-        bool getAdmin(QString&);
+        int validUser(QString&);
 
     private:
         // Attributes
