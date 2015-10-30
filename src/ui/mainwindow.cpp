@@ -3,6 +3,7 @@
 
 #include "loginwidget.h"
 #include "adminhomewidget.h"
+#include "studenthomewidget.h"
 
 MainWindow::MainWindow(Storage* db, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), db(db)
@@ -36,13 +37,18 @@ void MainWindow::showLogin()
 
 void MainWindow::showHome(UserType userType)
 {
-    QWidget* widget;
+    QWidget* widget = NULL;
     switch(userType) {
         case ADMIN:
             widget = new AdminHomeWidget(ui->stackedWidget);
             break;
+        case STUDENT:
+            widget = new StudentHomeWidget(ui->stackedWidget);
+            break;
         default:
             break;
     }
-    changeView(widget);
+    if (widget != NULL) {
+        changeView(widget);
+    }
 }
