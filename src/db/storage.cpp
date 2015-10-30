@@ -38,10 +38,13 @@ void Storage::setupDB() {
                      " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL)");
 
     QSqlQuery insert;
-    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) VALUES ('a', 1) "
-                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1");
-    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) VALUES ('s', 0) "
-                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0");
+    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) SELECT 'a', 1 "
+                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1)");
+    qDebug() << insert.lastError();
+
+    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) SELECT 's', 0 "
+                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0)");
+    qDebug() << insert.lastError();
 
     db.close();
 }
