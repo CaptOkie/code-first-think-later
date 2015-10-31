@@ -4,6 +4,7 @@ CaptOkie:
 5.5 Hours: Improved setting button handlers, connected button handlers, added pages.
 2 Hours: Group meeting: Work on Algorithm design
 6 Hours: Improved main window, refactored login, added project details editting, added student home.
+4 Hours: Created project and group size objects, added quit keyboard shortcut, added logout ability.
 
 TheBakedPotato:
 2 Hours: Group metting
