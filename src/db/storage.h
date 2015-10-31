@@ -3,7 +3,7 @@
 
 #include <QtSql>
 
-#include "../enum/usertype.h"
+#include "user.h"
 
 class Storage
 {
@@ -12,12 +12,12 @@ class Storage
         ~Storage();
 
         // Add entries into their tables
-        void addUser(QString&, UserType);
+        void addUser(QString&, User::Type);
         bool addProject(QString&);
 
         // Select entries from database
-        bool validUser(QString&, UserType*);
-        bool validUser(int, UserType*);
+        bool validUser(QString&, User**);
+        bool validUser(int, User**);
 
     private:
         // Attributes

@@ -50,7 +50,7 @@ void Storage::setupDB() {
     db.close();
 }
 
-void Storage::addUser(QString& name, UserType type) {
+void Storage::addUser(QString& name, User::Type type) {
     db.open();
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
@@ -73,11 +73,11 @@ bool Storage::addProject(QString& name) {
     return true;
 }
 
-bool Storage::validUser(QString& idStr, UserType* type) {
-    return validUser(atoi(idStr.toStdString().c_str()), type);
+bool Storage::validUser(QString& idStr, User** user) {
+    return validUser(atoi(idStr.toStdString().c_str()), user);
 }
 
-bool Storage::validUser(int id, UserType* type) {
+bool Storage::validUser(int id, User** user) {
     db.open();
     QSqlQuery select = QSqlQuery(db);
     select.prepare("SELECT * FROM " USER_TABLE " WHERE " USER_ID_COL " = :id");
@@ -85,7 +85,10 @@ bool Storage::validUser(int id, UserType* type) {
     select.exec();
 
     if(select.first()) {
-        *type = (UserType)select.value(USER_TYPE_COL).toInt();
+        User::Type type = (User::Type)select.value(USER_TYPE_COL).toInt();
+        QString name = (QString)select.value(USER_NAME_COL).toString();
+        *user = new User(type, new QString(name));
+
         db.close();
         return true;
     }

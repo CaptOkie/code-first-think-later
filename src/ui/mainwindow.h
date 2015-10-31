@@ -4,7 +4,7 @@
 #include <QMainWindow>
 
 #include "../db/storage.h"
-#include "../enum/usertype.h"
+#include "../db/user.h"
 
 namespace Ui {
     class MainWindow;
@@ -20,11 +20,12 @@ class MainWindow : public QMainWindow
 
     private slots:
         void showLogin();
-        void showHome(UserType userType);
+        void showHome(User*);
 
     private:
         Ui::MainWindow* ui;
         Storage& db;
+        User* currUser;
 
         void changeView(QWidget* widget);
 };

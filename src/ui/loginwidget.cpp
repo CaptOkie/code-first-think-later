@@ -17,9 +17,9 @@ LoginWidget::~LoginWidget()
 
 void LoginWidget::handleLoginBtn()
 {
-    UserType type;
     QString input = ui->idInput->text();
-    if(db.validUser(input, &type)) {
-        emit loggedIn(type);
+    User* user = 0;
+    if(db.validUser(input, &user)) {
+        emit loggedIn(user);
     }
 }

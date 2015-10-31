@@ -5,7 +5,7 @@
 #include <QPushButton>
 
 #include "../db/storage.h"
-#include "../enum/usertype.h"
+#include "../db/user.h"
 
 namespace Ui {
     class LoginWidget;
@@ -27,7 +27,7 @@ class LoginWidget : public QWidget
         ~LoginWidget();
 
     signals:
-        void loggedIn(UserType userType);
+        void loggedIn(User* user);
 };
 
 #endif // LOGINWIDGET_H
