@@ -99,8 +99,26 @@
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuUser">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>User</string>
+    </property>
+    <addaction name="actionLogout"/>
+   </widget>
+   <addaction name="menuUser"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionLogout">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

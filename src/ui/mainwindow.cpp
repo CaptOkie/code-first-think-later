@@ -15,6 +15,8 @@ MainWindow::MainWindow(Storage& db, QWidget *parent)
     connect(action, &QAction::triggered, this, &MainWindow::close);
     addAction(action);
 
+    connect(ui->actionLogout, &QAction::triggered, this, &MainWindow::showLogin);
+
     showLogin();
 }
 
@@ -35,6 +37,7 @@ void MainWindow::changeView(QWidget* widget)
 
 void MainWindow::showLogin()
 {
+    ui->menuUser->setEnabled(false);
     LoginWidget* loginWidget = new LoginWidget(db);
     changeView(loginWidget);
     connect(loginWidget, &LoginWidget::loggedIn, this, &MainWindow::showHome);
@@ -42,6 +45,7 @@ void MainWindow::showLogin()
 
 void MainWindow::showHome(User* user)
 {
+    ui->menuUser->setEnabled(true);
     QWidget* widget = NULL;
     switch(user->getType()) {
         case User::ADMIN:
