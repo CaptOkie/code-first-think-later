@@ -7,17 +7,17 @@
 class Project
 {
     public:
-        Project(const QString&, const GroupSize&);
-        Project(const Project&);
+        Project(QString&, GroupSize&);
+        Project(Project&);
 
         const GroupSize& getGroupSize() const;
         GroupSize& getGroupSize();
         const QString& getName() const;
-        void setName(const QString&);
+        QString& getName();
 
     private:
-        QString name;
-        GroupSize groupSize;
+        QString& name;
+        GroupSize& groupSize;
 };
 
 #endif // PROJECT_H

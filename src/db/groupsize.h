@@ -9,8 +9,6 @@ class GroupSize
 
         int getMin() const;
         int getMax() const;
-        void setMin(int);
-        void setMax(int);
 
     private:
         int min,max;

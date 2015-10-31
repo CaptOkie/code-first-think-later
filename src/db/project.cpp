@@ -1,9 +1,12 @@
 #include "project.h"
 
-Project::Project(const QString& name, const GroupSize& groupSize)
+Project::Project(QString& name, GroupSize& groupSize)
     : name(name), groupSize(groupSize)
-{
-}
+{ }
+
+Project::Project(Project& copy)
+    : name(copy.getName()), groupSize(copy.getGroupSize())
+{ }
 
 const GroupSize& Project::getGroupSize() const
 {
@@ -20,7 +23,8 @@ const QString& Project::getName() const
     return name;
 }
 
-void Project::setName(const QString& name)
+QString& Project::getName()
 {
-    this->name = name;
+    return name;
 }
+

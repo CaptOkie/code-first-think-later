@@ -17,7 +17,6 @@ class LoginWidget : public QWidget
 
     private:
         Ui::LoginWidget *ui;
-        QRegExp idRegex;
         Storage& db;
 
     private slots:
