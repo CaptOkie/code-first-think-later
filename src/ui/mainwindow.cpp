@@ -5,7 +5,7 @@
 #include "adminhomewidget.h"
 #include "studenthomewidget.h"
 
-MainWindow::MainWindow(Storage* db, QWidget *parent)
+MainWindow::MainWindow(Storage& db, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), db(db)
 {
     ui->setupUi(this);

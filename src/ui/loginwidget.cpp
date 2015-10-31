@@ -1,9 +1,7 @@
 #include "loginwidget.h"
 #include "ui_loginwidget.h"
 
-#include <QDebug>
-
-LoginWidget::LoginWidget(Storage* db, QWidget *parent)
+LoginWidget::LoginWidget(Storage& db, QWidget *parent)
     : QWidget(parent), ui(new Ui::LoginWidget), idRegex(QRegExp("\\d+")), db(db)
 {
     ui->setupUi(this);
@@ -20,8 +18,8 @@ LoginWidget::~LoginWidget()
 void LoginWidget::handleLoginBtn()
 {
     UserType type;
-    if(db->validUser(atoi(ui->idInput->text().toStdString().c_str()), &type)) {
-        qDebug() << type;
+    QString input = ui->idInput->text();
+    if(db.validUser(input, &type)) {
         emit loggedIn(type);
     }
 }

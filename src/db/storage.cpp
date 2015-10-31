@@ -8,8 +8,10 @@
 #define USER_NAME_COL "name"
 #define USER_TYPE_COL "type"
 // Project table
-#define PRO_TABLE     "projects"
-#define PRO_NAME_COL  "name"
+#define PRO_TABLE       "projects"
+#define PRO_NAME_COL    "name"
+#define PRO_MAX_GRP_COL "max_grp_size"
+#define PRO_MIN_GRP_COL "min_grp_size"
 
 #include <QDebug>
 
@@ -35,16 +37,15 @@ void Storage::setupDB() {
                      USER_NAME_COL " text NOT NULL, "
                      USER_TYPE_COL " integer NOT NULL)");
     create = db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
-                     " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL)");
+                     " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL, "
+                     PRO_MAX_GRP_COL " integer NOT NULL, "
+                     PRO_MIN_GRP_COL " integer NOT NULL)");
 
     QSqlQuery insert;
     insert = db.exec("INSERT INTO " USER_TABLE " (name, type) SELECT 'a', 1 "
                      "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1)");
-    qDebug() << insert.lastError();
-
     insert = db.exec("INSERT INTO " USER_TABLE " (name, type) SELECT 's', 0 "
                      "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0)");
-    qDebug() << insert.lastError();
 
     db.close();
 }

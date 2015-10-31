@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
     public:
-        explicit MainWindow(Storage* db = 0, QWidget* parent = 0);
+        MainWindow(Storage&, QWidget* parent = 0);
         ~MainWindow();
 
     private slots:
@@ -24,7 +24,7 @@ class MainWindow : public QMainWindow
 
     private:
         Ui::MainWindow* ui;
-        Storage* db;
+        Storage& db;
 
         void changeView(QWidget* widget);
 };

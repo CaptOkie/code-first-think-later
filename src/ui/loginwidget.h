@@ -18,13 +18,13 @@ class LoginWidget : public QWidget
     private:
         Ui::LoginWidget *ui;
         QRegExp idRegex;
-        Storage* db;
+        Storage& db;
 
     private slots:
         void handleLoginBtn();
 
     public:
-        explicit LoginWidget(Storage* db = 0, QWidget *parent = 0);
+        LoginWidget(Storage&, QWidget *parent = 0);
         ~LoginWidget();
 
     signals:
