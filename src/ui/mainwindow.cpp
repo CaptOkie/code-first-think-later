@@ -49,7 +49,7 @@ void MainWindow::showHome(User* user)
     currUser = user;
     switch(user->getType()) {
         case User::ADMIN:
-            widget = new AdminHomeWidget(ui->stackedWidget);
+            widget = new AdminHomeWidget(db, *user, ui->stackedWidget);
             break;
         case User::STUDENT:
             widget = new StudentHomeWidget(ui->stackedWidget);

@@ -85,9 +85,10 @@ bool Storage::validUser(int id, User** user) {
     select.exec();
 
     if(select.first()) {
+        int id = select.value(USER_ID_COL).toInt();
         User::Type type = (User::Type)select.value(USER_TYPE_COL).toInt();
         QString name = (QString)select.value(USER_NAME_COL).toString();
-        *user = new User(type, new QString(name));
+        *user = new User(id, type, new QString(name));
 
         db.close();
         return true;

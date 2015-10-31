@@ -11,12 +11,16 @@ class User
         };
 
     public:
-        User(Type, QString*);
+        User(int, Type, QString*);
         ~User();
 
-        Type getType();
+        int      getId();
+        Type     getType();
+        QString& getName();
+
 
     private:
+        int      id;
         Type     type;
         QString* name;
 };

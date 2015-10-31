@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "projectdetailsdialog.h"
+#include "../db/user.h"
+#include "../db/storage.h"
 
 namespace Ui {
     class AdminHomeWidget;
@@ -13,12 +15,15 @@ class AdminHomeWidget : public QWidget
         Q_OBJECT
 
     public:
-        explicit AdminHomeWidget(QWidget *parent = 0);
+        AdminHomeWidget(Storage&, User&, QWidget *parent = 0);
         ~AdminHomeWidget();
 
     private:
         Ui::AdminHomeWidget* ui;
-        ProjectDetailsDialog* detailsDialog;
+        ProjectDetailsDialog detailsDialog;
+        Storage& db;
+        User& currUser;
+
 };
 
 #endif // ADMINHOMEWIDGET_H
