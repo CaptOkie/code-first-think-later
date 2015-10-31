@@ -20,3 +20,4 @@ ViLLiELdR:
 1 Hour: Worked on some UI
 2 Hours: Group meeting: Work on Algorithm design
 8 Hours: Worked on Algorithm Design Doc, including References.
+3 Hours: Worked on Algorithm Design Doc - finished all Qualifications.
