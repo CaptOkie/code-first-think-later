@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     db/storage.cpp \
     ui/adminhomewidget.cpp \
     ui/projectdetailsdialog.cpp \
-    ui/studenthomewidget.cpp
+    ui/studenthomewidget.cpp \
+    db/project.cpp \
+    db/groupsize.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/errordialog.h \
@@ -29,7 +31,9 @@ HEADERS  += ui/mainwindow.h\
     ui/adminhomewidget.h \
     ui/projectdetailsdialog.h \
     enum/usertype.h \
-    ui/studenthomewidget.h
+    ui/studenthomewidget.h \
+    db/project.h \
+    db/groupsize.h
 
 FORMS    += ui/mainwindow.ui\
     ui/errordialog.ui \

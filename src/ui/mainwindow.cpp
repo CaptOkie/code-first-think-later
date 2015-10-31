@@ -10,6 +10,11 @@ MainWindow::MainWindow(Storage* db, QWidget *parent)
 {
     ui->setupUi(this);
 
+    QAction* action = new QAction(this);
+    action->setShortcut(Qt::Key_Q | Qt::CTRL);
+    connect(action, &QAction::triggered, this, &MainWindow::close);
+    addAction(action);
+
     showLogin();
 }
 
