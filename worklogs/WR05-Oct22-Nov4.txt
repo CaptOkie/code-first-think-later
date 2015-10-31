@@ -11,6 +11,7 @@ TheBakedPotato:
 5.5 Hours: Worked on storage system
 2 Hours: Group meeting: Work on Algorithm design
 6 Hours: Added user login through DB, refactored DB
+4 Hours: Refactored login process
 
 ViLLiELdR:
 2 Hours: Group metting
