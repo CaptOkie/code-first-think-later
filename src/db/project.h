@@ -8,7 +8,7 @@ class Project
 {
     public:
         Project(QString&, GroupSize&);
-        Project(Project&);
+        Project(const Project&);
 
         const GroupSize& getGroupSize() const;
         GroupSize& getGroupSize();
@@ -16,8 +16,8 @@ class Project
         QString& getName();
 
     private:
-        QString& name;
-        GroupSize& groupSize;
+        QString* name;
+        GroupSize* groupSize;
 };
 
 #endif // PROJECT_H

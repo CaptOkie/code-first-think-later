@@ -1,30 +1,29 @@
 #include "project.h"
 
 Project::Project(QString& name, GroupSize& groupSize)
-    : name(name), groupSize(groupSize)
+    : name(&name), groupSize(&groupSize)
 { }
 
-Project::Project(Project& copy)
-    : name(copy.getName()), groupSize(copy.getGroupSize())
+Project::Project(const Project& copy)
+    : name(copy.name), groupSize(copy.groupSize)
 { }
 
 const GroupSize& Project::getGroupSize() const
 {
-    return groupSize;
+    return *groupSize;
 }
 
 GroupSize& Project::getGroupSize()
 {
-    return groupSize;
+    return *groupSize;
 }
 
 const QString& Project::getName() const
 {
-    return name;
+    return *name;
 }
 
 QString& Project::getName()
 {
-    return name;
+    return *name;
 }
-
