@@ -1,12 +1,18 @@
 #include "project.h"
 
-Project::Project(QString& name, GroupSize& groupSize)
-    : name(&name), groupSize(&groupSize)
+Project::Project(QString* name, GroupSize* groupSize)
+    : name(name), groupSize(groupSize)
 { }
 
 Project::Project(const Project& copy)
     : name(copy.name), groupSize(copy.groupSize)
 { }
+
+Project::~Project()
+{
+    delete name;
+    delete groupSize;
+}
 
 const GroupSize& Project::getGroupSize() const
 {

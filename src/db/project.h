@@ -7,8 +7,9 @@
 class Project
 {
     public:
-        Project(QString&, GroupSize&);
+        Project(QString*, GroupSize*);
         Project(const Project&);
+        ~Project();
 
         const GroupSize& getGroupSize() const;
         GroupSize& getGroupSize();
