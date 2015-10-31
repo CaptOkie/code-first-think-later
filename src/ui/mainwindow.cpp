@@ -6,7 +6,7 @@
 #include "studenthomewidget.h"
 
 MainWindow::MainWindow(Storage& db, QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), db(db), currUser(NULL)
+    : QMainWindow(parent), ui(new Ui::MainWindow), db(db)
 {
     ui->setupUi(this);
 
@@ -21,9 +21,6 @@ MainWindow::MainWindow(Storage& db, QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-    if(currUser != NULL) {
-        delete currUser;
-    }
 }
 
 void MainWindow::changeView(QWidget* widget)
@@ -46,13 +43,12 @@ void MainWindow::showLogin()
 void MainWindow::showHome(User* user)
 {
     QWidget* widget = NULL;
-    currUser = user;
     switch(user->getType()) {
         case User::ADMIN:
-            widget = new AdminHomeWidget(db, *user, ui->stackedWidget);
+            widget = new AdminHomeWidget(db, user, ui->stackedWidget);
             break;
         case User::STUDENT:
-            widget = new StudentHomeWidget(ui->stackedWidget);
+            widget = new StudentHomeWidget(db, user, ui->stackedWidget);
             break;
         default:
             break;

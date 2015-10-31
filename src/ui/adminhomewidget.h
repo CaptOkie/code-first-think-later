@@ -15,14 +15,14 @@ class AdminHomeWidget : public QWidget
         Q_OBJECT
 
     public:
-        AdminHomeWidget(Storage&, User&, QWidget *parent = 0);
+        AdminHomeWidget(Storage&, User*, QWidget *parent = 0);
         ~AdminHomeWidget();
 
     private:
         Ui::AdminHomeWidget* ui;
         ProjectDetailsDialog detailsDialog;
         Storage& db;
-        User& currUser;
+        User* currUser;
 
 };
 

@@ -25,8 +25,6 @@ class MainWindow : public QMainWindow
     private:
         Ui::MainWindow* ui;
         Storage& db;
-        User* currUser;
-
         void changeView(QWidget* widget);
 };
 
