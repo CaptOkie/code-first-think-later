@@ -5,7 +5,7 @@ Project::Project(QString* name, GroupSize* groupSize)
 { }
 
 Project::Project(const Project& copy)
-    : name(copy.name), groupSize(copy.groupSize)
+    : name(new QString(copy.getName())), groupSize(new GroupSize(copy.getGroupSize()))
 { }
 
 Project::~Project()

@@ -12,11 +12,12 @@ class User
 
     public:
         User(int, Type, QString*);
+        User(const User&);
         ~User();
 
-        int      getId();
-        Type     getType();
-        QString& getName();
+        int      getId() const;
+        Type     getType() const;
+        QString& getName() const;
 
 
     private:
