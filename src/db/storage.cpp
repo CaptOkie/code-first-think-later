@@ -46,17 +46,17 @@ void Storage::setupDB() {
 
     QSqlQuery create;
     create = db.exec("CREATE TABLE IF NOT EXISTS " USER_TABLE
-                     " (" USER_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
+                     " (" USER_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT ON DELETE CASCADE NOT NULL, "
                      USER_NAME_COL " text NOT NULL, "
                      USER_TYPE_COL " integer NOT NULL)");
     create = db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
-                     " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL, "
+                     " (" PRO_NAME_COL " text PRIMARY KEY ON DELETE CASCADE NOT NULL, "
                      PRO_MAX_GRP_COL " integer NOT NULL, "
                      PRO_MIN_GRP_COL " integer NOT NULL)");
     create = db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
-                     " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE NOT NULL, "
-                     ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE NOT NULL, "
-                     "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
+                     " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") NOT NULL, "
+                     ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") NOT NULL, "
+                     "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL ") ON DELETE CASCADE)");
 
 #ifdef DEBUG
     // Populating database for debugging
@@ -133,6 +133,19 @@ void Storage::removeProject(QString& project) {
     remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
     remove.bindValue(":name", project);
     remove.exec();
+
+    db.close();
+}
+
+void Storage::enrollStudent(QString& project, int id) {
+    db.open();
+
+    QSqlQuery insert;
+    insert.prepare("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
+                   "VALUES (:student, :project)");
+    insert.bindValue(":student", id);
+    insert.bindValue(":project", project);
+    insert.exec();
 
     db.close();
 }

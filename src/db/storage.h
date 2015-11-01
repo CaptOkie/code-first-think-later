@@ -18,8 +18,8 @@ class Storage
         bool addProject(Project&);
         void updateProject(Project&, QString&);
         void removeProject(QString&);
-        void enrollStudent(QString&, User&);
-        void unenrollStudent(QString&, User&);
+        void enrollStudent(QString&, int);
+        void unenrollStudent(QString&, int);
 
         // Select entries from database
         bool validUser(QString&, User**);
