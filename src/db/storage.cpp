@@ -36,6 +36,14 @@ Storage::~Storage() {
 
 void Storage::setupDB() {
     db.open();
+
+#ifdef DEBUG
+    QSqlQuery drop;
+    drop = db.exec("DROP TABLE IF EXISTS " USER_TABLE);
+    drop = db.exec("DROP TABLE IF EXISTS " PRO_TABLE);
+    drop = db.exec("DROP TABLE IF EXISTS " ENRL_TABLE);
+#endif
+
     QSqlQuery create;
     create = db.exec("CREATE TABLE IF NOT EXISTS " USER_TABLE
                      " (" USER_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
