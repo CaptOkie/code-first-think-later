@@ -19,6 +19,8 @@ class AdminHomeWidget : public QWidget
         ~AdminHomeWidget();
 
     private:
+        void loadProjects();
+
         Ui::AdminHomeWidget* ui;
         ProjectDetailsDialog detailsDialog;
         Storage& db;

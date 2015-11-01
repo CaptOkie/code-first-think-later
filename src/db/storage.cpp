@@ -1,5 +1,5 @@
 #include "storage.h"
-#include <iostream>
+#include "groupsize.h"
 
 // Table names and columns
 // Student table
@@ -14,6 +14,7 @@
 #define PRO_MIN_GRP_COL "min_grp_size"
 
 #include <QDebug>
+#define DEBUG
 
 Storage::Storage()
     : db(QSqlDatabase::addDatabase("QSQLITE"))
@@ -41,11 +42,20 @@ void Storage::setupDB() {
                      PRO_MAX_GRP_COL " integer NOT NULL, "
                      PRO_MIN_GRP_COL " integer NOT NULL)");
 
+#ifdef DEBUG
+    // Populating database for debugging
     QSqlQuery insert;
-    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) SELECT 'a', 1 "
+    insert = db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 'a', 1 "
                      "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1)");
-    insert = db.exec("INSERT INTO " USER_TABLE " (name, type) SELECT 's', 0 "
+    insert = db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 's', 0 "
                      "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0)");
+    insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+                     "VALUES ('pro_1', 5, 4)");
+    insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+                     "VALUES ('pro_2', 7, 4)");
+    insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+                     "VALUES ('pro_3', 3, 2)");
+#endif
 
     db.close();
 }
@@ -95,4 +105,16 @@ bool Storage::validUser(int id, User** user) {
     }
     db.close();
     return false;
+}
+
+void Storage::getProjects(QList<Project>** projects) {
+    *projects = new QList<Project>;
+    db.open();
+    QSqlQuery select = db.exec("SELECT * FROM " PRO_TABLE);
+    while(select.next()) {
+        QString name = QString(select.value(PRO_NAME_COL).toString());
+        int min = select.value(PRO_MIN_GRP_COL).toInt();
+        int max = select.value(PRO_MAX_GRP_COL).toInt();
+        (*projects)->append(Project(new QString(name), new GroupSize(min, max)));
+    }
 }

@@ -4,6 +4,8 @@
 #include <QtSql>
 
 #include "user.h"
+#include "project.h"
+#include <QList>
 
 class Storage
 {
@@ -18,6 +20,7 @@ class Storage
         // Select entries from database
         bool validUser(QString&, User**);
         bool validUser(int, User**);
+        void getProjects(QList<Project>**);
 
     private:
         // Attributes
