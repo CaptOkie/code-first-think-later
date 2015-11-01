@@ -36,11 +36,15 @@ void ProjectDetailsDialog::maxUpdated(int value)
 
 void ProjectDetailsDialog::saveProject()
 {
+    QString name = ui->projectNameInput->text();
+    GroupSize groupSize(ui->minGroupSizeInput->value(), ui->maxGroupSizeInput->value());
+    Project project(name, groupSize);
+
     if (currProject == NULL) {
-        QString name = ui->projectNameInput->text();
-        GroupSize groupSize(ui->minGroupSizeInput->value(), ui->maxGroupSizeInput->value());
-        Project project(name, groupSize);
         db.addProject(project);
+    }
+    else {
+        db.updateProject(project, *currProject);
     }
     emit projectUpdated();
 }
