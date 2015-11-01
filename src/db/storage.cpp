@@ -12,6 +12,10 @@
 #define PRO_NAME_COL    "name"
 #define PRO_MAX_GRP_COL "max_grp_size"
 #define PRO_MIN_GRP_COL "min_grp_size"
+// Enrollment Table
+#define ENRL_TABLE   "enrollment"
+#define ENRL_STU_COL "stu_id"
+#define ENRL_PRO_COL "project_name"
 
 #include <QDebug>
 #define DEBUG
@@ -41,20 +45,30 @@ void Storage::setupDB() {
                      " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL, "
                      PRO_MAX_GRP_COL " integer NOT NULL, "
                      PRO_MIN_GRP_COL " integer NOT NULL)");
+    create = db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
+                     " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE NOT NULL, "
+                     ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE NOT NULL, "
+                     "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
 
 #ifdef DEBUG
     // Populating database for debugging
     QSqlQuery insert;
+    // Adding admin
     insert = db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 'a', 1 "
                      "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1)");
+    // Adding student
     insert = db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 's', 0 "
                      "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0)");
+    // Adding projects
     insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
                      "VALUES ('pro_1', 5, 4)");
     insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
                      "VALUES ('pro_2', 7, 4)");
     insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
                      "VALUES ('pro_3', 3, 2)");
+    //Adding student enrollment
+    insert = db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
+                     "VALUES (2, 'pro_1'), (2, 'pro_3')");
 #endif
 
     db.close();
