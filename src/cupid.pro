@@ -31,7 +31,6 @@ HEADERS  += ui/mainwindow.h\
     db/storage.h \
     ui/adminhomewidget.h \
     ui/projectdetailsdialog.h \
-    enum/usertype.h \
     ui/studenthomewidget.h \
     db/project.h \
     db/groupsize.h \

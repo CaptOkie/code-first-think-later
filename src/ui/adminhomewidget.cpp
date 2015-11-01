@@ -15,6 +15,7 @@ AdminHomeWidget::AdminHomeWidget(Storage& db, User* currUser, QWidget *parent)
 
     connect(ui->newBtn, &QPushButton::clicked, this, &AdminHomeWidget::newProject);
     connect(ui->editBtn, &QPushButton::clicked, this, &AdminHomeWidget::editProject);
+    connect(&detailsDialog, &ProjectDetailsDialog::projectUpdated, this, &AdminHomeWidget::loadProjects);
 }
 
 AdminHomeWidget::~AdminHomeWidget()
@@ -40,6 +41,7 @@ void AdminHomeWidget::editProject()
 
 void AdminHomeWidget::loadProjects()
 {
+    ui->projectTreeWidget->clear();
     QList<Project>* projects = 0;
     db.getProjects(&projects);
 

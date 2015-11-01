@@ -20,14 +20,13 @@ class AdminHomeWidget : public QWidget
         ~AdminHomeWidget();
 
     private:
-        void loadProjects();
-
         Ui::AdminHomeWidget* ui;
         ProjectDetailsDialog detailsDialog;
         Storage& db;
         User* currUser;
 
     private slots:
+        void loadProjects();
         void newProject();
         void editProject();
 };

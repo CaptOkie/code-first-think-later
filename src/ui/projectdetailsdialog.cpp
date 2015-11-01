@@ -42,6 +42,7 @@ void ProjectDetailsDialog::saveProject()
         Project project(name, groupSize);
         db.addProject(project);
     }
+    emit projectUpdated();
 }
 
 void ProjectDetailsDialog::showProject(const Project* project)

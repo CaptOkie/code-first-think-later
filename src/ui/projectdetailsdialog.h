@@ -18,6 +18,9 @@ class ProjectDetailsDialog : public QDialog
         ProjectDetailsDialog(Storage&, QWidget *parent = 0);
         ~ProjectDetailsDialog();
 
+    signals:
+        void projectUpdated();
+
     private:
         Ui::ProjectDetailsDialog *ui;
         Storage& db;
