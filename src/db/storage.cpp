@@ -127,7 +127,7 @@ void Storage::updateProject(Project& project, QString& name) {
 }
 
 bool Storage::validUser(QString& idStr, User** user) {
-    return validUser(atoi(idStr.toStdString().c_str()), user);
+    return validUser(idStr.toInt(), user);
 }
 
 bool Storage::validUser(int id, User** user) {
