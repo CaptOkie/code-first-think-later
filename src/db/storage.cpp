@@ -126,6 +126,17 @@ void Storage::updateProject(Project& project, QString& name) {
     db.close();
 }
 
+void Storage::removeProject(QString& project) {
+    db.open();
+
+    QSqlQuery remove;
+    remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
+    remove.bindValue(":name", project);
+    remove.exec();
+
+    db.close();
+}
+
 bool Storage::validUser(QString& idStr, User** user) {
     return validUser(idStr.toInt(), user);
 }
@@ -195,8 +206,8 @@ void Storage::getProjects(QList<QString>** enrolled, QList<QString>** available,
 
 void Storage::getProjects(QList<Project>** projects, QString& name) {
     *projects = new QList<Project>;
-
     db.open();
+
     QSqlQuery select;
     select.prepare("SELECT * FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
     select.bindValue(":name", name);
@@ -211,3 +222,4 @@ void Storage::getProjects(QList<Project>** projects, QString& name) {
 
     db.close();
 }
+

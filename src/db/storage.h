@@ -13,10 +13,13 @@ class Storage
         Storage();
         ~Storage();
 
-        // Add entries into their tables
+        // Add/remove/update entries into their tables
         void addUser(QString&, User::Type);
         bool addProject(Project&);
         void updateProject(Project&, QString&);
+        void removeProject(QString&);
+        void enrollStudent(QString&, User&);
+        void unenrollStudent(QString&, User&);
 
         // Select entries from database
         bool validUser(QString&, User**);
