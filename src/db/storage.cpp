@@ -108,6 +108,10 @@ bool Storage::addProject(Project& project) {
     return true;
 }
 
+void Storage::updateProject(Project& project, QString& name) {
+    db.open();
+}
+
 bool Storage::validUser(QString& idStr, User** user) {
     return validUser(atoi(idStr.toStdString().c_str()), user);
 }
@@ -158,17 +162,16 @@ void Storage::getProjects(QList<QString>** enrolled, QList<QString>** available,
 
     while(select.next()) {
         QString project = QString(select.value(ENRL_PRO_COL).toString());
-        qDebug() << project;
         (*enrolled)->append(project);
     }
 
     select.prepare("SELECT " PRO_NAME_COL " FROM " PRO_TABLE " EXCEPT "
-                   "(SELECT " ENRL_TABLE "." ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_TABLE "." ENRL_STU_COL " = :id)");
+                   "SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
     select.bindValue(":id", student.getId());
     select.exec();
 
     while(select.next()) {
-        QString project = QString(select.value(ENRL_PRO_COL).toString());
+        QString project = QString(select.value(PRO_NAME_COL).toString());
         (*available)->append(project);
     }
 
