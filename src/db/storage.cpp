@@ -84,17 +84,20 @@ void Storage::setupDB() {
 
 void Storage::addUser(QString& name, User::Type type) {
     db.open();
+
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
                    "VALUES (:name, :type)");
     insert.bindValue(":name", name);
     insert.bindValue(":type", type);
     insert.exec();
+
     db.close();
 }
 
 bool Storage::addProject(Project& project) {
     db.open();
+
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MIN_GRP_COL " , " PRO_MAX_GRP_COL ")"
                    "VALUES (:name, :min, :max)");
@@ -110,6 +113,17 @@ bool Storage::addProject(Project& project) {
 
 void Storage::updateProject(Project& project, QString& name) {
     db.open();
+
+    QSqlQuery update = QSqlQuery(db);
+    update.prepare("UPDATE " PRO_TABLE " SET " PRO_NAME_COL " = :newName, " PRO_MIN_GRP_COL " = :newMin, "
+                   PRO_MAX_GRP_COL " = :newMax WHERE " PRO_NAME_COL " = :name");
+    update.bindValue(":newName", project.getName());
+    update.bindValue(":newMin", project.getGroupSize().getMin());
+    update.bindValue(":newMax", project.getGroupSize().getMax());
+    update.bindValue(":name", name);
+    update.exec();
+
+    db.close();
 }
 
 bool Storage::validUser(QString& idStr, User** user) {
@@ -118,6 +132,7 @@ bool Storage::validUser(QString& idStr, User** user) {
 
 bool Storage::validUser(int id, User** user) {
     db.open();
+
     QSqlQuery select = QSqlQuery(db);
     select.prepare("SELECT * FROM " USER_TABLE " WHERE " USER_ID_COL " = :id");
     select.bindValue(":id", id);
