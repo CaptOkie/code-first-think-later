@@ -93,13 +93,16 @@ void Storage::addUser(QString& name, User::Type type) {
     db.close();
 }
 
-bool Storage::addProject(QString& name, int min, int max) {
+bool Storage::addProject(Project& project) {
     db.open();
     QSqlQuery insert = QSqlQuery(db);
     insert.prepare("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MIN_GRP_COL " , " PRO_MAX_GRP_COL ")"
                    "VALUES (:name, :min, :max)");
-    insert.bindValue(":name", name);
+    insert.bindValue(":name", project.getName());
+    insert.bindValue(":min", project.getGroupSize().getMin());
+    insert.bindValue(":max", project.getGroupSize().getMax());
     insert.exec();
+
     db.close();
 
     return true;
