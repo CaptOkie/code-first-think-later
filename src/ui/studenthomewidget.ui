@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>543</width>
-    <height>329</height>
+    <width>686</width>
+    <height>394</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,21 +101,48 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QListView" name="availableListView"/>
+      <widget class="QTreeWidget" name="availableTreeWidget">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="indentation">
+        <number>0</number>
+       </property>
+       <property name="uniformRowHeights">
+        <bool>true</bool>
+       </property>
+       <property name="itemsExpandable">
+        <bool>false</bool>
+       </property>
+       <property name="expandsOnDoubleClick">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerVisible">
+        <bool>true</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Available Projects</string>
+        </property>
+       </column>
+      </widget>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QPushButton" name="addAllBtn">
          <property name="text">
-          <string>&gt;&gt;</string>
+          <string>Join All</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="addBtn">
          <property name="text">
-          <string>&gt;</string>
+          <string>Join</string>
          </property>
         </widget>
        </item>
@@ -135,21 +162,48 @@
        <item>
         <widget class="QPushButton" name="removeAllBtn">
          <property name="text">
-          <string>&lt;</string>
+          <string>Leave</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="removeBtn">
          <property name="text">
-          <string>&lt;&lt;</string>
+          <string>Leave All</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="QListView" name="joinedListView"/>
+      <widget class="QTreeWidget" name="enrolledTreeWidget">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="indentation">
+        <number>0</number>
+       </property>
+       <property name="uniformRowHeights">
+        <bool>true</bool>
+       </property>
+       <property name="itemsExpandable">
+        <bool>false</bool>
+       </property>
+       <property name="expandsOnDoubleClick">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerVisible">
+        <bool>true</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Enrolled Projects</string>
+        </property>
+       </column>
+      </widget>
      </item>
     </layout>
    </item>
