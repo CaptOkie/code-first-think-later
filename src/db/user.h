@@ -12,6 +12,7 @@ class User
 
     public:
         User(int, Type, QString*);
+        User(int, Type, const QString&);
         User(const User&);
         ~User();
 

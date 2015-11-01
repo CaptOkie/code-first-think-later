@@ -29,6 +29,7 @@ class ProjectDetailsDialog : public QDialog
     private slots:
         void minUpdated(int value);
         void maxUpdated(int value);
+        void saveProject();
 };
 
 #endif // PROJECTDETAILSDIALOG_H

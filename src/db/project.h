@@ -8,6 +8,7 @@ class Project
 {
     public:
         Project(QString*, GroupSize*);
+        Project(const QString&, const GroupSize&);
         Project(const Project&);
         ~Project();
 

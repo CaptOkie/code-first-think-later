@@ -8,6 +8,8 @@ ProjectDetailsDialog::ProjectDetailsDialog(Storage& db, QWidget *parent)
 
     connect(ui->minGroupSizeInput, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &ProjectDetailsDialog::minUpdated);
     connect(ui->maxGroupSizeInput, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &ProjectDetailsDialog::maxUpdated);
+
+    connect(this, &ProjectDetailsDialog::accepted, this, &ProjectDetailsDialog::saveProject);
 }
 
 ProjectDetailsDialog::~ProjectDetailsDialog()
@@ -32,6 +34,16 @@ void ProjectDetailsDialog::maxUpdated(int value)
     }
 }
 
+void ProjectDetailsDialog::saveProject()
+{
+    if (currProject == NULL) {
+        QString name = ui->projectNameInput->text();
+        GroupSize groupSize(ui->minGroupSizeInput->value(), ui->maxGroupSizeInput->value());
+        Project project(name, groupSize);
+        db.addProject(project);
+    }
+}
+
 void ProjectDetailsDialog::showProject(const Project* project)
 {
     if (currProject != NULL) {
@@ -50,5 +62,5 @@ void ProjectDetailsDialog::showProject(const Project* project)
         ui->minGroupSizeInput->setValue(1);
         ui->maxGroupSizeInput->setValue(2);
     }
-    this->show();
+    show();
 }
