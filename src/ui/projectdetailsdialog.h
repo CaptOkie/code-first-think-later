@@ -3,6 +3,9 @@
 
 #include <QDialog>
 
+#include "../db/project.h"
+#include "../db/storage.h"
+
 namespace Ui {
     class ProjectDetailsDialog;
 }
@@ -12,11 +15,16 @@ class ProjectDetailsDialog : public QDialog
         Q_OBJECT
 
     public:
-        explicit ProjectDetailsDialog(QWidget *parent = 0);
+        ProjectDetailsDialog(Storage&, QWidget *parent = 0);
         ~ProjectDetailsDialog();
 
     private:
         Ui::ProjectDetailsDialog *ui;
+        Storage& db;
+        QString* currProject;
+
+    public slots:
+        void showProject(const Project*);
 
     private slots:
         void minUpdated(int value);

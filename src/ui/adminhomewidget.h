@@ -2,6 +2,7 @@
 #define ADMINHOMEWIDGET_H
 
 #include <QWidget>
+
 #include "projectdetailsdialog.h"
 #include "../db/user.h"
 #include "../db/storage.h"
@@ -26,6 +27,9 @@ class AdminHomeWidget : public QWidget
         Storage& db;
         User* currUser;
 
+    private slots:
+        void newProject();
+        void editProject();
 };
 
 #endif // ADMINHOMEWIDGET_H

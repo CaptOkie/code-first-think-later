@@ -1,12 +1,11 @@
 #include "adminhomewidget.h"
 #include "ui_adminhomewidget.h"
 
-#include "../db/project.h"
-#include <QList>
 #include <QTreeWidgetItem>
+#include "../db/project.h"
 
 AdminHomeWidget::AdminHomeWidget(Storage& db, User* currUser, QWidget *parent)
-    : QWidget(parent), ui(new Ui::AdminHomeWidget), detailsDialog(this),
+    : QWidget(parent), ui(new Ui::AdminHomeWidget), detailsDialog(db, this),
       db(db), currUser(currUser)
 {
     ui->setupUi(this);
@@ -14,7 +13,8 @@ AdminHomeWidget::AdminHomeWidget(Storage& db, User* currUser, QWidget *parent)
     ui->numberLabel->setText(QString::number(currUser->getId()));
     loadProjects();
 
-    connect(ui->newBtn, &QPushButton::clicked, &detailsDialog, &QDialog::show);
+    connect(ui->newBtn, &QPushButton::clicked, this, &AdminHomeWidget::newProject);
+    connect(ui->editBtn, &QPushButton::clicked, this, &AdminHomeWidget::editProject);
 }
 
 AdminHomeWidget::~AdminHomeWidget()
@@ -23,7 +23,23 @@ AdminHomeWidget::~AdminHomeWidget()
     delete currUser;
 }
 
-void AdminHomeWidget::loadProjects() {
+void AdminHomeWidget::newProject()
+{
+    detailsDialog.showProject(NULL);
+}
+
+void AdminHomeWidget::editProject()
+{
+    QList<Project>* projects = NULL;
+    QString project = ui->projectTreeWidget->currentItem()->text(0);
+    db.getProjects(&projects, project);
+
+    detailsDialog.showProject(&(projects->first()));
+    delete projects;
+}
+
+void AdminHomeWidget::loadProjects()
+{
     QList<Project>* projects = 0;
     db.getProjects(&projects);
 
