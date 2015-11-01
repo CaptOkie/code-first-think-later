@@ -19,6 +19,8 @@ class StudentHomeWidget : public QWidget
         ~StudentHomeWidget();
 
     private:
+        void loadProjects();
+
         Ui::StudentHomeWidget *ui;
         Storage& db;
         User* currUser;

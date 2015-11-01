@@ -21,6 +21,8 @@ class Storage
         bool validUser(QString&, User**);
         bool validUser(int, User**);
         void getProjects(QList<Project>**);
+        void getProjects(QList<QString>**, QList<QString>**, User&);
+        void getProjects(QList<Project>**, QString&);
 
     private:
         // Attributes

@@ -7,10 +7,19 @@ StudentHomeWidget::StudentHomeWidget(Storage& db, User* currUser, QWidget *paren
     ui->setupUi(this);
     ui->nameLabel->setText(currUser->getName());
     ui->numberLabel->setText(QString::number(currUser->getId()));
+
+    loadProjects();
 }
 
 StudentHomeWidget::~StudentHomeWidget()
 {
     delete ui;
     delete currUser;
+}
+
+void StudentHomeWidget::loadProjects() {
+    QList<QString>* enrolled = 0;
+    QList<QString>* available = 0;
+
+//    db.getProjects(&enrolled, &available, currUser);
 }
