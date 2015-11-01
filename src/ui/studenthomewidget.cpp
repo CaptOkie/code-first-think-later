@@ -7,7 +7,6 @@ StudentHomeWidget::StudentHomeWidget(Storage& db, User* currUser, QWidget *paren
     ui->setupUi(this);
     ui->nameLabel->setText(currUser->getName());
     ui->numberLabel->setText(QString::number(currUser->getId()));
-
     loadProjects();
 }
 
@@ -21,5 +20,16 @@ void StudentHomeWidget::loadProjects() {
     QList<QString>* enrolled = 0;
     QList<QString>* available = 0;
 
-//    db.getProjects(&enrolled, &available, currUser);
+    db.getProjects(&enrolled, &available, *currUser);
+    QList<QString>::const_iterator it;
+    for(it = enrolled->begin(); it != enrolled->end(); ++it) {
+        new QTreeWidgetItem(ui->enrolledTreeWidget, QStringList(*it));
+    }
+
+    for(it = available->begin(); it != available->end(); ++it) {
+        new QTreeWidgetItem(ui->availableTreeWidget, QStringList(*it));
+    }
+
+    delete enrolled;
+    delete available;
 }

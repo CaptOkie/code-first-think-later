@@ -131,6 +131,8 @@ void Storage::getProjects(QList<Project>** projects) {
         int max = select.value(PRO_MAX_GRP_COL).toInt();
         (*projects)->append(Project(new QString(name), new GroupSize(min, max)));
     }
+
+    db.close();
 }
 
 void Storage::getProjects(QList<QString>** enrolled, QList<QString>** available, User& student) {
@@ -141,14 +143,19 @@ void Storage::getProjects(QList<QString>** enrolled, QList<QString>** available,
     QSqlQuery select;
     select.prepare("SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
     select.bindValue(":id", student.getId());
+    select.exec();
+
     while(select.next()) {
         QString project = QString(select.value(ENRL_PRO_COL).toString());
+        qDebug() << project;
         (*enrolled)->append(project);
     }
 
     select.prepare("SELECT " PRO_NAME_COL " FROM " PRO_TABLE " EXCEPT "
                    "SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
     select.bindValue(":id", student.getId());
+    select.exec();
+
     while(select.next()) {
         QString project = QString(select.value(ENRL_PRO_COL).toString());
         (*available)->append(project);
@@ -164,11 +171,14 @@ void Storage::getProjects(QList<Project>** projects, QString& name) {
     QSqlQuery select;
     select.prepare("SELECT * FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
     select.bindValue(":name", name);
+    select.exec();
+
     while(select.next()) {
         QString name = QString(select.value(PRO_NAME_COL).toString());
         int min = select.value(PRO_MIN_GRP_COL).toInt();
         int max = select.value(PRO_MAX_GRP_COL).toInt();
         (*projects)->append(Project(new QString(name), new GroupSize(min, max)));
     }
+
     db.close();
 }
