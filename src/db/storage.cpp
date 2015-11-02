@@ -40,7 +40,7 @@
 Storage::Storage()
     : db(QSqlDatabase::addDatabase("QSQLITE"))
 {
-    db.setDatabaseName("cuPID.db");
+    db.setDatabaseName("cupid.db");
     setupDB();
 }
 
@@ -105,27 +105,6 @@ void Storage::setupDB() {
 
 #ifdef DEBUG
     // Populating database for testing
-    // Adding admin
-//    db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 'a', 1 "
-//            "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1)");
-
-//    // Adding student
-//    db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 's', 0 "
-//            "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0)");
-
-//    // Adding projects
-//    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-//            "VALUES ('pro_1', 5, 4)");
-
-//    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-//            "VALUES ('pro_2', 7, 4)");
-
-//    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-//            "VALUES ('pro_3', 3, 2)");
-
-//    //Adding student enrollment
-//    db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
-//            "VALUES (2, 'pro_1'), (2, 'pro_3')");
     // Adding Admins
     db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
             "VALUES ('Gandalf the Grey', 1), ('Ad Min', 1)");
@@ -139,6 +118,20 @@ void Storage::setupDB() {
             "('Timothy Burr', 0), ('Luke Skywalker', 0), ('Tony Stark', 0), ('Natasha Romanova', 0), ('Steve Rogers', 0), "
             "('Pepper Brickolini', 0), ('The Brickster', 0), ('Woody', 0), ('Buzz Lightyear', 0), ('Matt Murdock', 0), "
             "('He-Man', 0), ('Optimus Prime', 0), ('Gordon Freeman', 0), ('Jeff Goldblum', 0), ('Sasquatch', 0)");
+
+    // Adding projects
+    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+            "VALUES ('pro_1', 5, 4)");
+
+    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+            "VALUES ('pro_2', 7, 4)");
+
+    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+            "VALUES ('pro_3', 3, 2)");
+
+    //Adding student enrollment
+    db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
+            "VALUES (7, 'pro_1'), (7, 'pro_3'), (20, 'pro_1'), (20, 'pro_2'), (20, 'pro_3')");
 #endif
 
     db.close();
