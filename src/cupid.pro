@@ -23,7 +23,12 @@ SOURCES += main.cpp\
     ui/studenthomewidget.cpp \
     db/project.cpp \
     db/groupsize.cpp \
-    db/user.cpp
+    db/user.cpp \
+    ui/profiledialog.cpp \
+    db/question.cpp \
+    db/answer.cpp \
+    ui/questionwidget.cpp \
+    ui/questionswidget.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/errordialog.h \
@@ -34,14 +39,22 @@ HEADERS  += ui/mainwindow.h\
     ui/studenthomewidget.h \
     db/project.h \
     db/groupsize.h \
-    db/user.h
+    db/user.h \
+    ui/profiledialog.h \
+    db/question.h \
+    db/answer.h \
+    ui/questionwidget.h \
+    ui/questionswidget.h
 
 FORMS    += ui/mainwindow.ui\
     ui/errordialog.ui \
     ui/loginwidget.ui \
     ui/adminhomewidget.ui \
     ui/projectdetailsdialog.ui \
-    ui/studenthomewidget.ui
+    ui/studenthomewidget.ui \
+    ui/profiledialog.ui \
+    ui/questionwidget.ui \
+    ui/questionswidget.ui
 
 RESOURCES += \
     resources/images.qrc

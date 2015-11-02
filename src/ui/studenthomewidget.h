@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "profiledialog.h"
 #include "../db/storage.h"
 #include "../db/user.h"
 
@@ -24,10 +25,12 @@ class StudentHomeWidget : public QWidget
         Ui::StudentHomeWidget *ui;
         Storage& db;
         User* currUser;
+        ProfileDialog profileDialog;
 
     private slots:
         void joinProject();
         void leaveProject();
+        void showProfile();
 };
 
 #endif // STUDENTHOMEWIDGET_H
