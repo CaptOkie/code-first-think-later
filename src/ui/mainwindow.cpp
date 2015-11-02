@@ -31,7 +31,8 @@ void MainWindow::changeView(QWidget* widget)
     ui->stackedWidget->addWidget(widget);
     if (old != 0) {
         ui->stackedWidget->removeWidget(old);
-        delete old;
+        old->setParent(0);
+        old->deleteLater();
     }
 }
 
