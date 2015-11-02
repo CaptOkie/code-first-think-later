@@ -16,6 +16,23 @@
 #define ENRL_TABLE   "enrollment"
 #define ENRL_STU_COL "stu_id"
 #define ENRL_PRO_COL "project_name"
+// Questions table
+#define QSTN_TABLE    "questions"
+#define QSTN_ID_COL   "id"
+#define QSTN_DESR_COL "desired"
+#define QSTN_PSNL_COL "personal"
+#define QSTN_CAT_COL  "category"
+// Answers table
+#define ANSR_TABLE   "answers"
+#define ANSR_AID_COL "id"
+#define ANSR_QID_COL "question_id"
+#define ANSR_VAL_COL "answer"
+// Student's response table
+#define RESP_TABLE         "responses"
+#define RESP_STU_COL       "student_id"
+#define RESP_QSTN_COL      "question_id"
+#define RESP_DESR_ANSR_COL "desired_answer_id"
+#define RESP_PSNL_ANSR_COL "personal_answer_id"
 
 #include <QDebug>
 #define DEBUG
@@ -41,6 +58,9 @@ void Storage::setupDB() {
     db.exec("DROP TABLE IF EXISTS " USER_TABLE);
     db.exec("DROP TABLE IF EXISTS " PRO_TABLE);
     db.exec("DROP TABLE IF EXISTS " ENRL_TABLE);
+    db.exec("DROP TABLE IF EXISTS " QSTN_TABLE);
+    db.exec("DROP TABLE IF EXISTS " ANSR_TABLE);
+    db.exec("DROP TABLE IF EXISTS " RESP_TABLE);
 #endif
 
     db.exec("CREATE TABLE IF NOT EXISTS " USER_TABLE
@@ -57,6 +77,32 @@ void Storage::setupDB() {
             " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
             ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
             "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
+
+    db.exec("CREATE TABLE IF NOT EXISTS " QSTN_TABLE
+            " (" QSTN_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
+            QSTN_PSNL_COL " text NOT NULL, "
+            QSTN_DESR_COL " text NOT NULL, "
+            QSTN_CAT_COL " text NOT NULL)");
+    qDebug() << db.lastError();
+
+    db.exec("CREATE TABLE IF NOT EXISTS " ANSR_TABLE
+            " (" ANSR_QID_COL " REFERENCES " QSTN_TABLE " (" QSTN_ID_COL ") ON DELETE CASCADE NOT NULL, "
+            ANSR_AID_COL " integer NOT NULL, "
+            ANSR_VAL_COL " text NOT NULL, "
+            "PRIMARY KEY (" ANSR_QID_COL " , " ANSR_AID_COL "))");
+
+    db.exec("CREATE TABLE IF NOT EXISTS " RESP_TABLE
+            " (" RESP_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE NOT NULL, "
+            RESP_QSTN_COL " NOT NULL, "
+            RESP_PSNL_ANSR_COL " NOT NULL, "
+            RESP_DESR_ANSR_COL " NOT NULL, "
+            "FOREIGN KEY (" RESP_QSTN_COL " , " RESP_DESR_ANSR_COL ") "
+                          "REFERENCES " QSTN_TABLE " (" QSTN_ID_COL " , " QSTN_PSNL_COL ") "
+                          "ON DELETE CASCADE ON UPDATE CASCADE, "
+            "FOREIGN KEY (" RESP_QSTN_COL " , " RESP_DESR_ANSR_COL ") "
+                          "REFERENCES " QSTN_TABLE " (" QSTN_ID_COL " , " QSTN_DESR_COL ") "
+                          "ON DELETE CASCADE ON UPDATE CASCADE, "
+            "PRIMARY KEY (" RESP_STU_COL " , " RESP_QSTN_COL "))");
 
 #ifdef DEBUG
     // Populating database for debugging
@@ -143,13 +189,13 @@ void Storage::removeProject(QString& project) {
     db.close();
 }
 
-void Storage::enrollStudent(QString& project, int id) {
+void Storage::enrollStudent(QString& project, int stuId) {
     db.open();
 
     QSqlQuery insert(db);
     insert.prepare("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
                    "VALUES (:student, :project)");
-    insert.bindValue(":student", id);
+    insert.bindValue(":student", stuId);
     insert.bindValue(":project", project);
     insert.exec();
 
