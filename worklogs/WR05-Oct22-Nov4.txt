@@ -6,6 +6,7 @@ CaptOkie:
 6 Hours: Improved main window, refactored login, added project details editting, added student home.
 4 Hours: Created project and group size objects, added quit keyboard shortcut, added logout ability.
 10 Hours: Hooked up the home pages. Started work on student profile dialog. Refactoring. New Entity objects.
+2 Hours: Finished the profile dialog mockup.
 
 TheBakedPotato:
 2 Hours: Group metting
