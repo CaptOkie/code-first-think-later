@@ -54,8 +54,8 @@ void Storage::setupDB() {
             PRO_MIN_GRP_COL " integer NOT NULL)");
 
     db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
-            " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE NOT NULL, "
-            ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE NOT NULL, "
+            " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
+            ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
             "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
 
 #ifdef DEBUG
@@ -117,6 +117,7 @@ bool Storage::addProject(Project& project) {
 
 void Storage::updateProject(Project& project, QString& name) {
     db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
 
     QSqlQuery update(db);
     update.prepare("UPDATE " PRO_TABLE " SET " PRO_NAME_COL " = :newName, " PRO_MIN_GRP_COL " = :newMin, "
@@ -157,6 +158,7 @@ void Storage::enrollStudent(QString& project, int id) {
 
 void Storage::unenrollStudent(QString& project, int stuId) {
     db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
 
     QSqlQuery remove(db);
     remove.prepare("DELETE FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :stuId AND " ENRL_PRO_COL " = :project");
