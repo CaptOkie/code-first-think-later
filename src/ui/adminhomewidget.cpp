@@ -15,6 +15,7 @@ AdminHomeWidget::AdminHomeWidget(Storage& db, User* currUser, QWidget *parent)
 
     connect(ui->newBtn, &QPushButton::clicked, this, &AdminHomeWidget::newProject);
     connect(ui->editBtn, &QPushButton::clicked, this, &AdminHomeWidget::editProject);
+    connect(ui->deleteBtn, &QPushButton::clicked, this, &AdminHomeWidget::deleteProject);
     connect(&detailsDialog, &ProjectDetailsDialog::projectUpdated, this, &AdminHomeWidget::loadProjects);
 }
 
@@ -56,4 +57,11 @@ void AdminHomeWidget::loadProjects()
     }
 
     delete projects;
+}
+
+void AdminHomeWidget::deleteProject()
+{
+    QString project = ui->projectTreeWidget->currentItem()->text(0);
+    db.removeProject(project);
+    loadProjects();
 }

@@ -29,6 +29,7 @@ class AdminHomeWidget : public QWidget
         void loadProjects();
         void newProject();
         void editProject();
+        void deleteProject();
 };
 
 #endif // ADMINHOMEWIDGET_H

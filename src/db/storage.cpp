@@ -24,7 +24,6 @@ Storage::Storage()
     : db(QSqlDatabase::addDatabase("QSQLITE"))
 {
     db.setDatabaseName("cuPID.db");
-    db.setConnectOptions("PRAGMA foreign_keys = ON;");
     setupDB();
 }
 
@@ -129,6 +128,7 @@ void Storage::updateProject(Project& project, QString& name) {
 
 void Storage::removeProject(QString& project) {
     db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
 
     QSqlQuery remove;
     remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
