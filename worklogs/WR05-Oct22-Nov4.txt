@@ -5,6 +5,7 @@ CaptOkie:
 2 Hours: Group meeting: Work on Algorithm design
 6 Hours: Improved main window, refactored login, added project details editting, added student home.
 4 Hours: Created project and group size objects, added quit keyboard shortcut, added logout ability.
+10 Hours: Hooked up the home pages. Started work on student profile dialog. Refactoring. New Entity objects.
 
 TheBakedPotato:
 2 Hours: Group metting
@@ -13,6 +14,7 @@ TheBakedPotato:
 2 Hours: Group meeting: Work on Algorithm design
 6 Hours: Added user login through DB, refactored DB
 4 Hours: Refactored login process
+9 Hours: Refactored database, and related classes. Added new tables. Implemented new database operations.
 
 ViLLiELdR:
 2 Hours: Group metting
