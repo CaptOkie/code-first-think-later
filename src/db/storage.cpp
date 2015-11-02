@@ -83,7 +83,6 @@ void Storage::setupDB() {
             QSTN_PSNL_COL " text NOT NULL, "
             QSTN_DESR_COL " text NOT NULL, "
             QSTN_CAT_COL " text NOT NULL)");
-    qDebug() << db.lastError();
 
     db.exec("CREATE TABLE IF NOT EXISTS " ANSR_TABLE
             " (" ANSR_QID_COL " REFERENCES " QSTN_TABLE " (" QSTN_ID_COL ") ON DELETE CASCADE NOT NULL, "
