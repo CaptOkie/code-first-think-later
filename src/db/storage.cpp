@@ -38,45 +38,49 @@ void Storage::setupDB() {
     db.open();
 
 #ifdef DEBUG
-    QSqlQuery drop;
-    drop = db.exec("DROP TABLE IF EXISTS " USER_TABLE);
-    drop = db.exec("DROP TABLE IF EXISTS " PRO_TABLE);
-    drop = db.exec("DROP TABLE IF EXISTS " ENRL_TABLE);
+    db.exec("DROP TABLE IF EXISTS " USER_TABLE);
+    db.exec("DROP TABLE IF EXISTS " PRO_TABLE);
+    db.exec("DROP TABLE IF EXISTS " ENRL_TABLE);
 #endif
 
-    QSqlQuery create;
-    create = db.exec("CREATE TABLE IF NOT EXISTS " USER_TABLE
-                     " (" USER_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
-                     USER_NAME_COL " text NOT NULL, "
-                     USER_TYPE_COL " integer NOT NULL)");
-    create = db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
-                     " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL, "
-                     PRO_MAX_GRP_COL " integer NOT NULL, "
-                     PRO_MIN_GRP_COL " integer NOT NULL)");
-    create = db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
-                     " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE NOT NULL, "
-                     ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE NOT NULL, "
-                     "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
+    db.exec("CREATE TABLE IF NOT EXISTS " USER_TABLE
+            " (" USER_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
+            USER_NAME_COL " text NOT NULL, "
+            USER_TYPE_COL " integer NOT NULL)");
+
+    db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
+            " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL, "
+            PRO_MAX_GRP_COL " integer NOT NULL, "
+            PRO_MIN_GRP_COL " integer NOT NULL)");
+
+    db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
+            " (" ENRL_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE NOT NULL, "
+            ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE NOT NULL, "
+            "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
 
 #ifdef DEBUG
     // Populating database for debugging
-    QSqlQuery insert;
     // Adding admin
-    insert = db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 'a', 1 "
-                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1)");
+    db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 'a', 1 "
+            "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 1)");
+
     // Adding student
-    insert = db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 's', 0 "
-                     "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0)");
+    db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") SELECT 's', 0 "
+            "WHERE NOT EXISTS (SELECT * FROM " USER_TABLE " WHERE " USER_TYPE_COL " = 0)");
+
     // Adding projects
-    insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-                     "VALUES ('pro_1', 5, 4)");
-    insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-                     "VALUES ('pro_2', 7, 4)");
-    insert = db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-                     "VALUES ('pro_3', 3, 2)");
+    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+            "VALUES ('pro_1', 5, 4)");
+
+    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+            "VALUES ('pro_2', 7, 4)");
+
+    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
+            "VALUES ('pro_3', 3, 2)");
+
     //Adding student enrollment
-    insert = db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
-                     "VALUES (2, 'pro_1'), (2, 'pro_3')");
+    db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
+            "VALUES (2, 'pro_1'), (2, 'pro_3')");
 #endif
 
     db.close();
@@ -85,7 +89,7 @@ void Storage::setupDB() {
 void Storage::addUser(QString& name, User::Type type) {
     db.open();
 
-    QSqlQuery insert = QSqlQuery(db);
+    QSqlQuery insert(db);
     insert.prepare("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
                    "VALUES (:name, :type)");
     insert.bindValue(":name", name);
@@ -98,7 +102,7 @@ void Storage::addUser(QString& name, User::Type type) {
 bool Storage::addProject(Project& project) {
     db.open();
 
-    QSqlQuery insert = QSqlQuery(db);
+    QSqlQuery insert(db);
     insert.prepare("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MIN_GRP_COL " , " PRO_MAX_GRP_COL ")"
                    "VALUES (:name, :min, :max)");
     insert.bindValue(":name", project.getName());
@@ -114,7 +118,7 @@ bool Storage::addProject(Project& project) {
 void Storage::updateProject(Project& project, QString& name) {
     db.open();
 
-    QSqlQuery update = QSqlQuery(db);
+    QSqlQuery update(db);
     update.prepare("UPDATE " PRO_TABLE " SET " PRO_NAME_COL " = :newName, " PRO_MIN_GRP_COL " = :newMin, "
                    PRO_MAX_GRP_COL " = :newMax WHERE " PRO_NAME_COL " = :name");
     update.bindValue(":newName", project.getName());
@@ -130,7 +134,7 @@ void Storage::removeProject(QString& project) {
     db.open();
     db.exec("PRAGMA foreign_keys = ON;");
 
-    QSqlQuery remove;
+    QSqlQuery remove(db);
     remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
     remove.bindValue(":name", project);
     remove.exec();
@@ -141,12 +145,24 @@ void Storage::removeProject(QString& project) {
 void Storage::enrollStudent(QString& project, int id) {
     db.open();
 
-    QSqlQuery insert;
+    QSqlQuery insert(db);
     insert.prepare("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
                    "VALUES (:student, :project)");
     insert.bindValue(":student", id);
     insert.bindValue(":project", project);
     insert.exec();
+
+    db.close();
+}
+
+void Storage::unenrollStudent(QString& project, int stuId) {
+    db.open();
+
+    QSqlQuery remove(db);
+    remove.prepare("DELETE FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :stuId AND " ENRL_PRO_COL " = :project");
+    remove.bindValue(":stuId", stuId);
+    remove.bindValue(":project", project);
+    remove.exec();
 
     db.close();
 }
@@ -158,7 +174,7 @@ bool Storage::validUser(QString& idStr, User** user) {
 bool Storage::validUser(int id, User** user) {
     db.open();
 
-    QSqlQuery select = QSqlQuery(db);
+    QSqlQuery select(db);
     select.prepare("SELECT * FROM " USER_TABLE " WHERE " USER_ID_COL " = :id");
     select.bindValue(":id", id);
     select.exec();
@@ -179,6 +195,7 @@ bool Storage::validUser(int id, User** user) {
 void Storage::getProjects(QList<Project>** projects) {
     *projects = new QList<Project>;
     db.open();
+
     QSqlQuery select = db.exec("SELECT * FROM " PRO_TABLE);
     while(select.next()) {
         QString name = QString(select.value(PRO_NAME_COL).toString());
@@ -193,9 +210,9 @@ void Storage::getProjects(QList<Project>** projects) {
 void Storage::getProjects(QList<QString>** enrolled, QList<QString>** available, User& student) {
     *enrolled = new QList<QString>;
     *available = new QList<QString>;
-
     db.open();
-    QSqlQuery select;
+
+    QSqlQuery select(db);
     select.prepare("SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
     select.bindValue(":id", student.getId());
     select.exec();
@@ -222,7 +239,7 @@ void Storage::getProjects(QList<Project>** projects, QString& name) {
     *projects = new QList<Project>;
     db.open();
 
-    QSqlQuery select;
+    QSqlQuery select(db);
     select.prepare("SELECT * FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
     select.bindValue(":name", name);
     select.exec();
