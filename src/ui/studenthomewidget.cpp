@@ -8,6 +8,9 @@ StudentHomeWidget::StudentHomeWidget(Storage& db, User* currUser, QWidget *paren
     ui->nameLabel->setText(currUser->getName());
     ui->numberLabel->setText(QString::number(currUser->getId()));
     loadProjects();
+
+    connect(ui->joinBtn, &QPushButton::clicked, this, &StudentHomeWidget::joinProject);
+    connect(ui->leaveBtn, &QPushButton::clicked, this, &StudentHomeWidget::leaveProject);
 }
 
 StudentHomeWidget::~StudentHomeWidget()
@@ -16,7 +19,25 @@ StudentHomeWidget::~StudentHomeWidget()
     delete currUser;
 }
 
-void StudentHomeWidget::loadProjects() {
+void StudentHomeWidget::joinProject()
+{
+    QString project = ui->availableTreeWidget->currentItem()->text(0);
+    db.enrollStudent(project, currUser->getId());
+    loadProjects();
+}
+
+void StudentHomeWidget::leaveProject()
+{
+    QString project = ui->enrolledTreeWidget->currentItem()->text(0);
+    db.unenrollStudent(project, currUser->getId());
+    loadProjects();
+}
+
+void StudentHomeWidget::loadProjects()
+{
+    ui->availableTreeWidget->clear();
+    ui->enrolledTreeWidget->clear();
+
     QList<QString>* enrolled = 0;
     QList<QString>* available = 0;
 

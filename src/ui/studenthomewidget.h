@@ -24,6 +24,10 @@ class StudentHomeWidget : public QWidget
         Ui::StudentHomeWidget *ui;
         Storage& db;
         User* currUser;
+
+    private slots:
+        void joinProject();
+        void leaveProject();
 };
 
 #endif // STUDENTHOMEWIDGET_H
