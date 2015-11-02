@@ -24,7 +24,7 @@ Storage::Storage()
     : db(QSqlDatabase::addDatabase("QSQLITE"))
 {
     db.setDatabaseName("cuPID.db");
-    db.setConnectOptions("foreign_keys = ON");
+    db.setConnectOptions("PRAGMA foreign_keys = ON;");
     setupDB();
 }
 
