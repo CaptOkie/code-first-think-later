@@ -158,7 +158,6 @@ void Storage::enrollStudent(QString& project, int id) {
 
 void Storage::unenrollStudent(QString& project, int stuId) {
     db.open();
-    db.exec("PRAGMA foreign_keys = ON;");
 
     QSqlQuery remove(db);
     remove.prepare("DELETE FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :stuId AND " ENRL_PRO_COL " = :project");
