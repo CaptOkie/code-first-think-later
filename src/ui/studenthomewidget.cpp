@@ -43,8 +43,8 @@ void StudentHomeWidget::loadProjects()
     ui->availableTreeWidget->clear();
     ui->enrolledTreeWidget->clear();
 
-    QList<QString>* enrolled = 0;
-    QList<QString>* available = 0;
+    QList<QString>* enrolled = NULL;
+    QList<QString>* available = NULL;
 
     db.getProjects(&enrolled, &available, *currUser);
     QList<QString>::const_iterator it;

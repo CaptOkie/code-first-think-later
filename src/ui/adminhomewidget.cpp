@@ -32,12 +32,14 @@ void AdminHomeWidget::newProject()
 
 void AdminHomeWidget::editProject()
 {
-    QList<Project>* projects = NULL;
-    QString project = ui->projectTreeWidget->currentItem()->text(0);
-    db.getProjects(&projects, project);
+    if (ui->projectTreeWidget->currentItem() != NULL) {
+        QList<Project>* projects = NULL;
+        QString project = ui->projectTreeWidget->currentItem()->text(0);
+        db.getProjects(&projects, project);
 
-    detailsDialog.showProject(&(projects->first()));
-    delete projects;
+        detailsDialog.showProject(&(projects->first()));
+        delete projects;
+    }
 }
 
 void AdminHomeWidget::loadProjects()
@@ -61,7 +63,9 @@ void AdminHomeWidget::loadProjects()
 
 void AdminHomeWidget::deleteProject()
 {
-    QString project = ui->projectTreeWidget->currentItem()->text(0);
-    db.removeProject(project);
-    loadProjects();
+    if (ui->projectTreeWidget->currentItem() != NULL) {
+        QString project = ui->projectTreeWidget->currentItem()->text(0);
+        db.removeProject(project);
+        loadProjects();
+    }
 }
