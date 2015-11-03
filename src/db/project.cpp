@@ -18,22 +18,12 @@ Project::~Project()
     delete groupSize;
 }
 
-const GroupSize& Project::getGroupSize() const
-{
-    return *groupSize;
-}
-
-GroupSize& Project::getGroupSize()
-{
-    return *groupSize;
-}
-
 const QString& Project::getName() const
 {
     return *name;
 }
 
-QString& Project::getName()
+const GroupSize& Project::getGroupSize() const
 {
-    return *name;
+    return *groupSize;
 }

@@ -8,6 +8,9 @@ GroupSize::GroupSize(const GroupSize& copy)
     : min(copy.getMin()), max(copy.getMax())
 { }
 
+GroupSize::~GroupSize()
+{ }
+
 int GroupSize::getMin() const
 {
     return min;

@@ -1,25 +1,55 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
-#include "groupsize.h"
 #include <QString>
 
+#include "groupsize.h"
+
+/**
+ * @brief The Project class
+ *
+ * Stores information about a project.
+ */
 class Project
 {
     public:
-        Project(QString*, GroupSize*);
-        Project(const QString&, const GroupSize&);
-        Project(const Project&);
+        /**
+         * @brief Project Creates a new instance, which claims ownership of, and responsibility for deleting, pointers.
+         * @param name The name of the project.
+         * @param groupSize The group size constraints on the project.
+         */
+        Project(QString* name, GroupSize* groupSize);
+
+        /**
+         * @brief Project Creates a new instance.
+         * @param name The name of the project.
+         * @param groupSize The group size constraints on the project.
+         */
+        Project(const QString& name, const GroupSize& groupSize);
+
+        /**
+         * @brief Project Creates a new instance.
+         * @param copy The Project to copy.
+         */
+        Project(const Project& copy);
+
         ~Project();
 
-        const GroupSize& getGroupSize() const;
-        GroupSize& getGroupSize();
+        /**
+         * @brief getName
+         * @return The name of the project.
+         */
         const QString& getName() const;
-        QString& getName();
+
+        /**
+         * @brief getGroupSize
+         * @return The GroupSize constraints on the Project.
+         */
+        const GroupSize& getGroupSize() const;
 
     private:
-        QString* name;
-        GroupSize* groupSize;
+        QString* name;        // The name of the project
+        GroupSize* groupSize; // The group size constraint
 };
 
 #endif // PROJECT_H
