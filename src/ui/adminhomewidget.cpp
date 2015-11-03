@@ -5,8 +5,7 @@
 #include "../db/project.h"
 
 AdminHomeWidget::AdminHomeWidget(Storage& db, User* currUser, QWidget *parent)
-    : QWidget(parent), ui(new Ui::AdminHomeWidget), detailsDialog(db, this),
-      db(db), currUser(currUser)
+    : QWidget(parent), ui(new Ui::AdminHomeWidget), detailsDialog(db, this), db(db), currUser(currUser)
 {
     ui->setupUi(this);
     ui->nameLabel->setText(currUser->getName());

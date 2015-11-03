@@ -11,24 +11,45 @@ namespace Ui {
     class StudentHomeWidget;
 }
 
+/**
+ * @brief The StudentHomeWidget class
+ *
+ * The widget for the student home screen.
+ */
 class StudentHomeWidget : public QWidget
 {
         Q_OBJECT
 
     public:
-        StudentHomeWidget(Storage&, User*, QWidget *parent = 0);
+        /**
+         * @brief StudentHomeWidget Creates a new instance, which claims ownership of, and responsibility for deleting, currUser.
+         * @param db The storage object.
+         * @param currUser The current user.
+         * @param parent The parent widget.
+         */
+        StudentHomeWidget(Storage& db, User* currUser, QWidget *parent = 0);
         ~StudentHomeWidget();
 
     private:
+        Ui::StudentHomeWidget *ui;   // The UI
+        Storage& db;                 // The storage object
+        User* currUser;              // The current user
+        ProfileDialog profileDialog; // The profile dialog
+
+        /**
+         * @brief loadProjects Loads the projects.
+         */
         void loadProjects();
 
-        Ui::StudentHomeWidget *ui;
-        Storage& db;
-        User* currUser;
-        ProfileDialog profileDialog;
-
     private slots:
+        /**
+         * @brief joinProject Places the student in the selected project.
+         */
         void joinProject();
+
+        /**
+         * @brief leaveProject Removes the student from the selected project.
+         */
         void leaveProject();
 };
 

@@ -8,7 +8,7 @@ LoginWidget::LoginWidget(Storage& db, QWidget *parent)
     ui->idInput->setValidator(new QRegExpValidator(QRegExp("\\d+"), ui->idInput));
 
     connect(ui->idInput, &QLineEdit::returnPressed, ui->loginBtn, &QPushButton::click);
-    connect(ui->loginBtn, &QPushButton::clicked, this, &LoginWidget::handleLoginBtn);
+    connect(ui->loginBtn, &QPushButton::clicked, this, &LoginWidget::attemptLogin);
 }
 
 LoginWidget::~LoginWidget()
@@ -16,7 +16,7 @@ LoginWidget::~LoginWidget()
     delete ui;
 }
 
-void LoginWidget::handleLoginBtn()
+void LoginWidget::attemptLogin()
 {
     QString input = ui->idInput->text();
     User* user = 0;

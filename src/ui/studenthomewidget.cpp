@@ -2,7 +2,7 @@
 #include "ui_studenthomewidget.h"
 
 StudentHomeWidget::StudentHomeWidget(Storage& db, User* currUser, QWidget *parent)
-    : QWidget(parent), ui(new Ui::StudentHomeWidget), db(db), currUser(currUser), profileDialog(*currUser, this)
+    : QWidget(parent), ui(new Ui::StudentHomeWidget), db(db), currUser(currUser), profileDialog(*currUser, db, this)
 {
     ui->setupUi(this);
     ui->nameLabel->setText(currUser->getName());
