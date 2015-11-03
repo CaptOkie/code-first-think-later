@@ -96,4 +96,3 @@ Problems:
 3. Prevent using a system where opposite answers would match people together
 4. Deterministic
 5. Balanced matching, or best matching?
-6. Make graph of best 2*(max group size), and start removing the worst connections ensuring you have at least the min.
