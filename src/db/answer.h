@@ -6,11 +6,31 @@
 class Answer
 {
     public:
-        Answer(int, QString*);
-        Answer(int, const QString&);
-        Answer(const Answer&);
+        /**
+         * @brief Answer Creates a new instance, which claims ownership of, and responsibility for deleting, pointers.
+         * @param id The ID of the Answer.
+         * @param value The actual Answer.
+         */
+        Answer(int id, QString* value);
+
+        /**
+         * @brief Answer Creates a new instance.
+         * @param id The ID of the Answer.
+         * @param value The actual Answer.
+         */
+        Answer(int id, const QString& value);
+
+        /**
+         * @brief Answer
+         * @param copy The Answer to copy.
+         */
+        Answer(const Answer& copy);
         ~Answer();
 
+        /**
+         * @brief getId
+         * @return The ID of the Answer.
+         */
         int getId() const;
         const QString& getValue() const;
 

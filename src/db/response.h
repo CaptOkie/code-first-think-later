@@ -1,24 +1,21 @@
 #ifndef RESPONSE_H
 #define RESPONSE_H
 
-#include "question.h"
-
 class Response
 {
     public:
-        Response(int, int, Question*);
-        Response(int, int, const Question&);
+        Response(int student, int personal, int desired);
         Response(const Response&);
         ~Response();
 
+        int getStudent() const;
         int getPersonal() const;
         int getDesired() const;
-        const Question& getQuestion() const;
 
     private:
+        int student;
         int personal;
         int desired;
-        Question* question;
 };
 
 #endif // RESPONSE_H

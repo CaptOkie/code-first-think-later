@@ -5,13 +5,14 @@
 #include <QList>
 
 #include "answer.h"
+#include "response.h"
 
 class Question
 {
     public:
-        Question(int, QString*, QString*, QString*, QList<Answer>*);
-        Question(int, const QString&, const QString&, const QString&, QList<Answer>*);
-        Question(const Question&);
+        Question(int id, QString* personal, QString* desired, QString* category, QList<Answer>* answers, QList<Response>* responses);
+        Question(int id, const QString& personal, const QString& desired, const QString& category, QList<Answer>* answers, QList<Response>* responses);
+        Question(const Question& copy);
         ~Question();
 
         int getId() const;
@@ -19,6 +20,7 @@ class Question
         const QString& getDesired() const;
         const QString& getCategory() const;
         const QList<Answer>& getAnswers() const;
+        const QList<Response>& getResponses() const;
 
     private:
         int id;
@@ -26,6 +28,7 @@ class Question
         QString* desired;
         QString* category;
         QList<Answer>* answers;
+        QList<Response>* responses;
 };
 
 #endif // QUESTION_H

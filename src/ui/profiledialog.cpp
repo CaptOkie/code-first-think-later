@@ -26,7 +26,7 @@ void ProfileDialog::showProfile()
     answers->append(Answer(1, "answer 1"));
     answers->append(Answer(2, "answer 2"));
     questions->append(Question(1, "Some hopefully really long personal question that may end up wrapping over more than a single line?",
-                               "Some hopefully really long desired question that may end up wrapping over more than a single line?", "Long", answers));
+                               "Some hopefully really long desired question that may end up wrapping over more than a single line?", "Long", answers, new QList<Response>()));
 
     answers = new QList<Answer>();
     answers->append(Answer(1, "answer 1"));
@@ -36,7 +36,7 @@ void ProfileDialog::showProfile()
     answers->append(Answer(2, "answer 5"));
     answers->append(Answer(2, "answer 6"));
     questions->append(Question(1, "Short personal?",
-                               "Short desired?", "Short", answers));
+                               "Short desired?", "Short", answers, new QList<Response>()));
 
     QMap<QString, QList<Question> > tabs;
     for (QList<Question>::const_iterator it = questions->begin(); it != questions->end(); ++it) {
