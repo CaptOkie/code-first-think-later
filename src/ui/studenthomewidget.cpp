@@ -22,16 +22,20 @@ StudentHomeWidget::~StudentHomeWidget()
 
 void StudentHomeWidget::joinProject()
 {
-    QString project = ui->availableTreeWidget->currentItem()->text(0);
-    db.enrollStudent(project, currUser->getId());
-    loadProjects();
+    if (ui->availableTreeWidget->currentItem() != NULL) {
+        QString project = ui->availableTreeWidget->currentItem()->text(0);
+        db.enrollStudent(project, currUser->getId());
+        loadProjects();
+    }
 }
 
 void StudentHomeWidget::leaveProject()
 {
-    QString project = ui->enrolledTreeWidget->currentItem()->text(0);
-    db.unenrollStudent(project, currUser->getId());
-    loadProjects();
+    if (ui->enrolledTreeWidget->currentItem()) {
+        QString project = ui->enrolledTreeWidget->currentItem()->text(0);
+        db.unenrollStudent(project, currUser->getId());
+        loadProjects();
+    }
 }
 
 void StudentHomeWidget::loadProjects()
