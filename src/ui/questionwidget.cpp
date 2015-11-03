@@ -16,11 +16,11 @@ QuestionWidget::QuestionWidget(const Question& question, QWidget *parent)
         const Answer& answer = *it;
 
         QRadioButton* pBtn = new QRadioButton(answer.getValue(), this);
-        ui->personalHLayout->addWidget(pBtn);
+        ui->personalLayout->addWidget(pBtn);
         personal->addButton(pBtn, answer.getId());
 
         QRadioButton* dBtn = new QRadioButton(answer.getValue(), this);
-        ui->desiredHLayout->addWidget(dBtn);
+        ui->desiredLayout->addWidget(dBtn);
         desired->addButton(dBtn, answer.getId());
     }
 }

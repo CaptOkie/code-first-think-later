@@ -33,7 +33,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="personalHLayout"/>
+      <layout class="QVBoxLayout" name="personalLayout"/>
      </item>
     </layout>
    </item>
@@ -56,7 +56,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="desiredHLayout"/>
+      <layout class="QVBoxLayout" name="desiredLayout"/>
      </item>
     </layout>
    </item>
