@@ -1,19 +1,23 @@
 #include "response.h"
 
-Response::Response(int question, int personal, int desired)
-    : question(question), personal(personal), desired(desired)
+Response::Response(int personal, int desired, Question* question)
+    : personal(personal), desired(desired), question(question)
+{ }
+
+Response::Response(int personal, int desired, const Question& question)
+    : personal(personal), desired(desired), question(new Question(question))
 { }
 
 Response::Response(const Response& copy)
-    : question(copy.getQuestion()), personal(copy.getPersonal()), desired(copy.getDesired())
+    : personal(copy.getPersonal()), desired(copy.getDesired()), question(new Question(copy.getQuestion()))
 { }
 
 Response::~Response()
 { }
 
-int Response::getQuestion() const
+const Question& Response::getQuestion() const
 {
-    return question;
+    return *question;
 }
 
 int Response::getPersonal() const
