@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     db/question.cpp \
     db/answer.cpp \
     ui/questionwidget.cpp \
-    ui/questionswidget.cpp
+    ui/questionswidget.cpp \
+    db/response.cpp
 
 HEADERS  += ui/mainwindow.h\
     ui/errordialog.h \
@@ -44,7 +45,8 @@ HEADERS  += ui/mainwindow.h\
     db/question.h \
     db/answer.h \
     ui/questionwidget.h \
-    ui/questionswidget.h
+    ui/questionswidget.h \
+    db/response.h
 
 FORMS    += ui/mainwindow.ui\
     ui/errordialog.ui \
