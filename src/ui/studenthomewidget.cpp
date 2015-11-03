@@ -2,7 +2,7 @@
 #include "ui_studenthomewidget.h"
 
 StudentHomeWidget::StudentHomeWidget(Storage& db, User* currUser, QWidget *parent)
-    : QWidget(parent), ui(new Ui::StudentHomeWidget), db(db), currUser(currUser), profileDialog(this)
+    : QWidget(parent), ui(new Ui::StudentHomeWidget), db(db), currUser(currUser), profileDialog(*currUser, this)
 {
     ui->setupUi(this);
     ui->nameLabel->setText(currUser->getName());
@@ -11,7 +11,7 @@ StudentHomeWidget::StudentHomeWidget(Storage& db, User* currUser, QWidget *paren
 
     connect(ui->joinBtn, &QPushButton::clicked, this, &StudentHomeWidget::joinProject);
     connect(ui->leaveBtn, &QPushButton::clicked, this, &StudentHomeWidget::leaveProject);
-    connect(ui->editProfileBtn, &QPushButton::clicked, this, &StudentHomeWidget::showProfile);
+    connect(ui->editProfileBtn, &QPushButton::clicked, &profileDialog, &ProfileDialog::showProfile);
 }
 
 StudentHomeWidget::~StudentHomeWidget()
@@ -54,9 +54,4 @@ void StudentHomeWidget::loadProjects()
 
     delete enrolled;
     delete available;
-}
-
-void StudentHomeWidget::showProfile()
-{
-    profileDialog.showProfile(*currUser);
 }

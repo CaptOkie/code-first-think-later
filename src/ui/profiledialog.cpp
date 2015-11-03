@@ -4,10 +4,11 @@
 #include "questionswidget.h"
 #include "../db/question.h"
 
-ProfileDialog::ProfileDialog(QWidget *parent)
-    : QDialog(parent), ui(new Ui::ProfileDialog)
+ProfileDialog::ProfileDialog(const User& user, QWidget *parent)
+    : QDialog(parent), ui(new Ui::ProfileDialog), user(user)
 {
     ui->setupUi(this);
+
 }
 
 ProfileDialog::~ProfileDialog()
@@ -15,7 +16,7 @@ ProfileDialog::~ProfileDialog()
     delete ui;
 }
 
-void ProfileDialog::showProfile(const User& user)
+void ProfileDialog::showProfile()
 {
     ui->tabWidget->clear();
 

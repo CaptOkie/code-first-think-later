@@ -14,14 +14,15 @@ class ProfileDialog : public QDialog
         Q_OBJECT
 
     public:
-        explicit ProfileDialog(QWidget* parent = 0);
+        explicit ProfileDialog(const User&, QWidget* parent = 0);
         ~ProfileDialog();
 
     public slots:
-        void showProfile(const User&);
+        void showProfile();
 
     private:
         Ui::ProfileDialog *ui;
+        const User& user;
 };
 
 #endif // PROFILEDIALOG_H

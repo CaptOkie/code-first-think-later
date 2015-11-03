@@ -30,7 +30,6 @@ class StudentHomeWidget : public QWidget
     private slots:
         void joinProject();
         void leaveProject();
-        void showProfile();
 };
 
 #endif // STUDENTHOMEWIDGET_H
