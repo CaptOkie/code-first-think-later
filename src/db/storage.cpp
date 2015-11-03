@@ -129,9 +129,64 @@ void Storage::setupDB() {
     db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
             "VALUES ('pro_3', 3, 2)");
 
-    //Adding student enrollment
+    // Adding student enrollment
     db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
             "VALUES (7, 'pro_1'), (7, 'pro_3'), (20, 'pro_1'), (20, 'pro_2'), (20, 'pro_3')");
+
+    // Adding questions
+    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
+            "VALUES ('What grade did you receive in COMP 2401?', "
+            "'What grade would like partners to have received in 2401?', "
+            "'Skills')");
+    // Adding answers
+    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL " , " ANSR_ID_COL " , " ANSR_VAL_COL ") "
+            "VALUES (1, 1, 'D- to D+'), (1, 2, 'C- to C+'), (1, 3, 'B- to B+'), (1, 4, 'A- to A+')");
+
+    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
+            "VALUES ('How comfortable are you in the seat of power?', "
+            "'How comfortable would you like your partners to be in the seat of power?', "
+            "'Leadership')");
+    // Adding answers
+    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL " , " ANSR_ID_COL " , " ANSR_VAL_COL") "
+            "VALUES "
+            "(2, 1, 'Baa. I am a sheep. Without a herder, I am lost.'), "
+            "(2, 2, 'I panic when people depend on me'), "
+            "(2, 3, 'I can handle it if I have to.'), "
+            "(2, 4, 'I am pretty happy taking charge of the situation.'), "
+            "(2, 5, 'DANCE FOR ME, MY PUPPETS, DANCE!.')");
+
+    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
+            "VALUES ('Rate your tendency to procrastinate work?', "
+            "'What would you like the tendency for procrastination of your partners to be?', "
+            "'Personality')");
+    // Adding answers
+    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL" , " ANSR_ID_COL " , " ANSR_VAL_COL") "
+            "VALUES "
+            "(3, 1, 'Eh, I will finish answering this tomorrow...'), "
+            "(3, 2, 'If there is an entire week now, I see no reason to start now.'), "
+            "(3, 3, 'Sometimes it happens, sometimes I start early. Depends on my mood.'), "
+            "(3, 4, 'I prefer starting earlier rather than later.'), "
+            "(3, 5, 'New assignment today? Please, I finished that yesterday.')");
+
+    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
+            "VALUES ('During a typical day, what is your preferred working time?', "
+            "'When would you like your partnets to prefer working on a typical day?', "
+            "'Availability')");
+    // Adding answers
+    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL" , " ANSR_ID_COL " , " ANSR_VAL_COL") "
+            "VALUES "
+            "(4, 1, 'I am a vampire. The sunlight BURNS me (11 PM or later).'), "
+            "(4, 2, 'A bit of a night owl (7 PM)'), "
+            "(4, 3, 'Around the afternoon is usually good (1 PM or later).'), "
+            "(4, 4, 'A bit of an early bird (9 AM).'), "
+            "(4, 5, 'At the break of dawn, or earlier, of course! (6 AM or so).')");
+
+    // Adding student response
+    db.exec("INSERT INTO " RESP_TABLE
+            " (" RESP_STU_COL " , " RESP_QSTN_COL " , " RESP_PSNL_ANSR_COL " , " RESP_DESR_ANSR_COL ") "
+            "VALUES "
+            "(3, 1, 1, 2), (3, 2, 2, 3), (3, 3, 3, 1), (3, 4, 4, 1), "
+            "(4, 1, 5, 4), (4, 2, 3, 4), (4, 3, 1, 5), (4, 4, 3, 2)");
 #endif
 
     db.close();
