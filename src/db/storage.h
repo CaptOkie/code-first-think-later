@@ -5,6 +5,8 @@
 
 #include "user.h"
 #include "project.h"
+#include "response.h"
+#include "question.h"
 #include <QList>
 
 class Storage
@@ -20,6 +22,7 @@ class Storage
         void removeProject(QString&);
         void enrollStudent(QString&, int);
         void unenrollStudent(QString&, int);
+        void updateResponses(const QList<Response>&, int);
 
         // Select entries from database
         bool validUser(QString&, User**);
@@ -27,6 +30,7 @@ class Storage
         void getProjects(QList<Project>**);
         void getProjects(QList<QString>**, QList<QString>**, User&);
         void getProjects(QList<Project>**, QString&);
+        void getResponses(QList<Question>&, int);
 
     private:
         // Attributes

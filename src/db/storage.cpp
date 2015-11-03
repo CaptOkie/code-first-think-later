@@ -24,7 +24,7 @@
 #define QSTN_CAT_COL  "category"
 // Answers table
 #define ANSR_TABLE   "answers"
-#define ANSR_AID_COL "id"
+#define ANSR_ID_COL  "id"
 #define ANSR_QID_COL "question_id"
 #define ANSR_VAL_COL "answer"
 // Student's response table
@@ -86,9 +86,9 @@ void Storage::setupDB() {
 
     db.exec("CREATE TABLE IF NOT EXISTS " ANSR_TABLE
             " (" ANSR_QID_COL " REFERENCES " QSTN_TABLE " (" QSTN_ID_COL ") ON DELETE CASCADE NOT NULL, "
-            ANSR_AID_COL " integer NOT NULL, "
+            ANSR_ID_COL " integer NOT NULL, "
             ANSR_VAL_COL " text NOT NULL, "
-            "PRIMARY KEY (" ANSR_QID_COL " , " ANSR_AID_COL "))");
+            "PRIMARY KEY (" ANSR_QID_COL " , " ANSR_ID_COL "))");
 
     db.exec("CREATE TABLE IF NOT EXISTS " RESP_TABLE
             " (" RESP_STU_COL " REFERENCES " USER_TABLE " (" USER_ID_COL ") ON DELETE CASCADE NOT NULL, "
@@ -96,10 +96,10 @@ void Storage::setupDB() {
             RESP_PSNL_ANSR_COL " NOT NULL, "
             RESP_DESR_ANSR_COL " NOT NULL, "
             "FOREIGN KEY (" RESP_QSTN_COL " , " RESP_DESR_ANSR_COL ") "
-                          "REFERENCES " QSTN_TABLE " (" QSTN_ID_COL " , " QSTN_PSNL_COL ") "
+                          "REFERENCES " ANSR_TABLE " (" ANSR_QID_COL " , " ANSR_ID_COL ") "
                           "ON DELETE CASCADE ON UPDATE CASCADE, "
             "FOREIGN KEY (" RESP_QSTN_COL " , " RESP_DESR_ANSR_COL ") "
-                          "REFERENCES " QSTN_TABLE " (" QSTN_ID_COL " , " QSTN_DESR_COL ") "
+                          "REFERENCES " ANSR_TABLE " (" ANSR_QID_COL " , " ANSR_ID_COL ") "
                           "ON DELETE CASCADE ON UPDATE CASCADE, "
             "PRIMARY KEY (" RESP_STU_COL " , " RESP_QSTN_COL "))");
 
@@ -116,8 +116,8 @@ void Storage::setupDB() {
             "('Stuart Dent', 0), ('Harvey Dent', 0), ('Bruce Wayne', 0), ('Frodo Baggins', 0), ('Cheese Man', 0), "
             "('Nathan Drake', 0), ('Jeremy Clarkson', 0), ('James T. Kirk', 0), ('Clark Kent', 0), ('Barry Allen', 0), "
             "('Timothy Burr', 0), ('Luke Skywalker', 0), ('Tony Stark', 0), ('Natasha Romanova', 0), ('Steve Rogers', 0), "
-            "('Pepper Brickolini', 0), ('The Brickster', 0), ('Woody', 0), ('Buzz Lightyear', 0), ('Matt Murdock', 0), "
-            "('He-Man', 0), ('Optimus Prime', 0), ('Gordon Freeman', 0), ('Jeff Goldblum', 0), ('Sasquatch', 0)");
+            "('Pepper Roni', 0), ('The Brickster', 0), ('Woody', 0), ('Buzz Lightyear', 0), ('Matt Murdock', 0), "
+            "('He-Man', 0), ('Optimus Prime', 0), ('Gordon Freeman', 0), ('Jeff Goldblum', 0), ('Obi-Wan Kenobi', 0)");
 
     // Adding projects
     db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
@@ -219,6 +219,13 @@ void Storage::unenrollStudent(QString& project, int stuId) {
     db.close();
 }
 
+//void Storage::updateResponses(const QList<Response>& responses, int stuId) {
+//    db.open();
+
+//    QSqlQuery update(db);
+//    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal ");
+//}
+
 bool Storage::validUser(QString& idStr, User** user) {
     return validUser(idStr.toInt(), user);
 }
@@ -306,3 +313,50 @@ void Storage::getProjects(QList<Project>** projects, QString& name) {
     db.close();
 }
 
+void Storage::getResponses(QList<Question>& questions, int stuId) {
+    db.open();
+
+    QSqlQuery selectQuestions(db);
+    QSqlQuery selectAnswer(db);
+    QSqlQuery selectResponses(db);
+
+    selectQuestions.prepare("SELECT * FROM " QSTN_TABLE);
+    selectAnswer.prepare("SELECT * FROM " ANSR_TABLE " WHERE " ANSR_QID_COL " = :questionId");
+    selectResponses.prepare("SELECT * FROM " RESP_TABLE " WHERE "
+                            RESP_STU_COL " = :studentId AND "
+                            RESP_QSTN_COL " = :questionId");
+    selectResponses.bindValue(":studentId", stuId);
+
+    selectQuestions.exec();
+    while(selectQuestions.next()) {
+        int questionId = selectQuestions.value(QSTN_ID_COL).toInt();
+
+        selectAnswer.bindValue(":questionId", questionId);
+        selectAnswer.exec();
+        QList<Answer>* answers = new QList<Answer>;
+        while(selectAnswer.next()) {
+            int answerId = selectAnswer.value(ANSR_ID_COL).toInt();
+            QString answerText = selectAnswer.value(ANSR_VAL_COL).toString();
+
+            answers->append(Answer(answerId, answerText));
+        }
+
+        selectResponses.bindValue(":questionId", questionId);
+        selectResponses.exec();
+        QList<Response>* responses = new QList<Response>;
+        while(selectResponses.next()) {
+            int personal = selectResponses.value(RESP_PSNL_ANSR_COL).toInt();
+            int desired = selectResponses.value(RESP_DESR_ANSR_COL).toInt();
+
+            responses->append(Response(stuId, personal, desired));
+        }
+
+        QString personal = selectQuestions.value(QSTN_PSNL_COL).toString();
+        QString desired = selectQuestions.value(QSTN_DESR_COL).toString();
+        QString category = selectQuestions.value(QSTN_CAT_COL).toString();
+
+        questions.append(Question(questionId, personal, desired, category, answers, responses));
+    }
+
+    db.close();
+}
