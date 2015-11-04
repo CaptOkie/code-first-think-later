@@ -620,49 +620,49 @@ The second major section of rules deals with the creation of teams using the fir
 \end{figure}
 	\item[2.] Every Student is then compared to every other Student that is a part of the current project using the first section's percent-match algorithm. {\bf Figure 3} shows {\it Stu1} being compared to every other Student and their match-percents are calculated.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{One-To-Many Percent Comparison}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure3.png}
 	\end{center}
 \end{figure}
 	\item[3.] Of all the comparisons, the algorithm will only keep the best two matches for each Student, discarding all the other matches. {\bf Figure 4} demonstrates that only the two highest values are kept.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Best-Two-of-Many Decision}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure4.png}
 	\end{center}
 \end{figure}
 	\item[4.] This process, as mentioned earlier, gets repeated with every Student such that every Student has their best two matches. The following figure, {\bf Figure 5}, shows the result of steps 2-3 applied on every Student.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Best-Two-of-Many For All Students}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure5.png}
 	\end{center}
 \end{figure}
 	\item[5.] The algorithm then selects the match amongst all Students that is the lowest match percent. In {\bf Figure 6}, the lowest match is showed via a bold, blue arrow. Keep in mind here that the lowest match is for {\it Stu4}.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Lowest Match Selection}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure6.png}
 	\end{center}
 \end{figure}
 	\item[6.] The algorithm then discards this match and, with the Student that had the lowest match, find his best match using the first section's algorithm. {\bf Figure 7} shows {\it Stu4}'s actual best match.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Highest Match Selection}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure7.png}
 	\end{center}
 \end{figure}
 	\item[7.] These two matched individuals are then grouped together. {\bf Figure 8} shows that the these two individuals are put into a group together, portrayed here as being in an ellipse together.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Grouping Matches Together}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure8.png}
 	\end{center}
 \end{figure}
 	\item[8.] This process is then repeated over and over again until everyone is sorted into a group. The following figure, {\bf Figure 9}, shows the eventual final result of the algorithm after it has run successfully.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Final Result}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure9.png}
 	\end{center}
@@ -675,30 +675,30 @@ In the circumstance that an already formed group is being compared to either ano
 \subsubsection*{Case 2: Uneven Groups}
 In the event that the final groups sizes are off by more than $\pm$ 1 then the balancing portion of the algorithm begins.
 \begin{enumerate}
-	\item[1.] Unven teams have been formed. The following figure, {\bf Figure 10} shows two groups, wherein the first group consists of a single Student, whereas the second group consists of four students, thus having a differential of 3.
+	\item[1.] Unven group have been formed. The following figure, {\bf Figure 10} shows two groups, wherein the first group consists of a single Student, whereas the second group consists of four students, thus having a differential of 3.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Initial Step For Uneven Groups}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure10.png}
 	\end{center}
 \end{figure}
 	\item[2.] In a group where the number of people in it is equal to the max group size, or the group with the highest group size, each member gets compared to the group that is too small using the match-percent algorithm outlined in the previous section. The below figure, {\bf Figure 11}, shows how every individual in the larger group is matched with the smaller group.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Many-to-One Percent Comparison}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure11.png}
 	\end{center}
 \end{figure}
 	\item[3.] The Student from the bigger group that has the highest match-percent is then moved over to the smaller group. In {\bf Figure 12}, we see that {\it Stu3} is the best match for {\it Stu1}.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Selecting Highest Percent-Match}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure12.png}
 	\end{center}
 \end{figure}
 	\item[4.] The process is repeated until all groups are balanced to within $\pm$ 1 of each other. {\bf Figure 13} shows how {\it Stu3} then gets moved over into {\it Stu1}'s group.
 \begin{figure}[H]
-	\caption{Flow of Rule Application Between Individuals}
+	\caption{Rebalancing of Groups}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure13.png}
 	\end{center}
