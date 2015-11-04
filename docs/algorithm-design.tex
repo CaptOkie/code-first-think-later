@@ -597,7 +597,7 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 
 \begin{tabu} to \textwidth {>{\bf}l >{\it}p{2.75cm} X}
 	    \tableheader{}Identifier & Categories & Description\\
-		R-15 & RC-08 & If R-14 is run successfully, the two best matches for each Student is kept.\\
+		R-15 & RC-08 & If R-14 is run successfully, the two best matches for every Student is kept.\\
 		R-16 & RC-08 & If R-15 is run successfully, out of all Students, the worst match percent is found.\\
 		R-17 & RC-08 & If R-16 is run successfully, the Student that has the worst match is then rematched with their best match using R-03 to R-13.\\
 		R-18 & RC-08 & If R-17 is run successfully, then the two matched Students are put into a group together.\\
@@ -616,9 +616,9 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 The following figure, {\bf Figure 1},  is a visual representation of the flow of the rule application with regards to the first major section of rules (percent-compatibility between individuals). The process can be broken down into four segments:
 \begin{enumerate}
 	\item[1.] Students complete their profiles.
-	\item[2.] Rules are cross-applied to each Student's profiles, where their desired values get compared to the personal values of other Student's and vice-versa.
-	\item[3.] The resulting percentage values for each comparison is averaged within each person.
-	\item[4.] The average percentage of a person's match to another is averaged with the average percentage of that other person's match to the original person.
+	\item[2.] Rules are cross-applied to each Student's profiles, where their desired values get compared to the personal values of other Student's and vice-versa. {\bf R-03} to {\bf R-11}
+	\item[3.] The resulting percentage values for each comparison is averaged within each person. {\bf R-12}
+	\item[4.] The average percentage of a person's match to another is averaged with the average percentage of that other person's match to the original person. {\bf R-13}
 \end{enumerate}
 
 \begin{figure}[H]
@@ -630,56 +630,56 @@ The following figure, {\bf Figure 1},  is a visual representation of the flow of
 \subsubsection*{Group Making Rules}
 The second major section of rules deals with the creation of teams using the first section as a basis for matching. The process can be broken down into several segments:
 \begin{enumerate}
-	\item[1.] A group of Students have filled out their respective profiles and the Administrator begins running the algorithm. The following figure, {\bf Figure 2}, shows five students that have successfully completed their profiles and are ready to be sorted.
+	\item[1.] A group of Students have filled out their respective profiles and the Administrator begins running the algorithm. The following figure, {\bf Figure 2}, shows five students that have successfully completed their profiles and are ready to be sorted. 
 \begin{figure}[H]
 	\caption{Initiation Step}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure2.png}
 	\end{center}
 \end{figure}
-	\item[2.] Every Student is then compared to every other Student that is a part of the current project using the first section's percent-match algorithm. {\bf Figure 3} shows {\it Stu1} being compared to every other Student and their match-percents are calculated.
+	\item[2.] Every Student is then compared to every other Student that is a part of the current project using the first section's percent-match algorithm. {\bf Figure 3} shows {\it Stu1} being compared to every other Student and their match-percents are calculated. {\bf R-14}
 \begin{figure}[H]
 	\caption{One-To-Many Percent Comparison}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure3.png}
 	\end{center}
 \end{figure}
-	\item[3.] Of all the comparisons, the algorithm will only keep the best two matches for each Student. {\bf Figure 4} demonstrates that only the two highest values are kept.
+	\item[3.] Of all the comparisons, the algorithm will only keep the best two matches for each Student. {\bf Figure 4} demonstrates that only the two highest values are kept. {\bf R-15}
 \begin{figure}[H]
 	\caption{Best-Two-of-Many Decision}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure4.png}
 	\end{center}
 \end{figure}
-	\item[4.] This process, as mentioned earlier, gets repeated with every Student such that every Student has their best two matches. The following figure, {\bf Figure 5}, shows the result of steps 2-3 applied on every Student.
+	\item[4.] This process, as mentioned earlier, gets repeated with every Student such that every Student has their best two matches. The following figure, {\bf Figure 5}, shows the result of steps 2-3 applied on every Student. {\bf R-16}
 \begin{figure}[H]
 	\caption{Best-Two-of-Many For All Students}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure5.png}
 	\end{center}
 \end{figure}
-	\item[5.] The algorithm then selects the match amongst all Students that is the lowest match percent. In {\bf Figure 6}, the lowest match is showed via a bold, blue arrow. Keep in mind here that the lowest match is for {\it Stu4}.
+	\item[5.] The algorithm then selects the match amongst all Students that is the lowest match percent. In {\bf Figure 6}, the lowest match is showed via a bold, blue arrow. Keep in mind here that the lowest match is for {\it Stu4}. {\bf R-17}
 \begin{figure}[H]
 	\caption{Lowest Match Selection}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure6.png}
 	\end{center}
 \end{figure}
-	\item[6.] The algorithm then discards this match and, with the Student that had the lowest match, find his best match using the first section's algorithm. {\bf Figure 7} shows {\it Stu4}'s actual best match.
+	\item[6.] The algorithm then discards this match and, with the Student that had the lowest match, find his best match using the first section's algorithm. {\bf Figure 7} shows {\it Stu4}'s actual best match. {\bf R-17}
 \begin{figure}[H]
 	\caption{Highest Match Selection}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure7.png}
 	\end{center}
 \end{figure}
-	\item[7.] These two matched individuals are then grouped together. {\bf Figure 8} shows that the these two individuals are put into a group together, portrayed here as being in an ellipse together.
+	\item[7.] These two matched individuals are then grouped together. {\bf Figure 8} shows that the these two individuals are put into a group together, portrayed here as being in an ellipse together.{\bf R-18}
 \begin{figure}[H]
 	\caption{Grouping Matches Together}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure8.png}
 	\end{center}
 \end{figure}
-	\item[8.] This process is then repeated over and over again until everyone is sorted into a group. The following figure, {\bf Figure 9}, shows the eventual final result of the algorithm after it has run successfully.
+	\item[8.] This process is then repeated over and over again until everyone is sorted into a group. The following figure, {\bf Figure 9}, shows the eventual final result of the algorithm after it has run successfully. {\bf R-19}
 \begin{figure}[H]
 	\caption{Final Result}
 	\begin{center}
@@ -694,7 +694,7 @@ In the circumstance that an already formed group is being compared to either ano
 \subsubsection*{Case 2: Leftover Too-Small Groups}
 In the event that the final groups sizes are off by more than $\pm$ 1 then the balancing portion of the algorithm begins.
 \begin{enumerate}
-	\item[1.] Unven group have been formed. The following figure, {\bf Figure 10} shows two groups, wherein the first group consists of a single Student, whereas the second group consists of four students, thus having a differential of 3.
+	\item[1.] Groups that don't fall in the min/max range have been formed. The following figure, {\bf Figure 10} shows two groups, wherein the first group consists of a single Student, whereas the second group consists of four students, and where the min is 4 and the max is 6.
 \begin{figure}[H]
 	\caption{Initial Step For Leftover Small Groups}
 	\begin{center}
