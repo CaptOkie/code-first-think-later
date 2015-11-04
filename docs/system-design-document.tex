@@ -1,0 +1,132 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.75in,headheight=1.5em]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[table]{xcolor}  
+\usepackage[font=bf]{caption}
+
+\begin{document}
+
+\renewcommand\headrule{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lfoot{COMP 3004}
+\rfoot{\thepage/\pageref{LastPage}}
+\cfoot{System Design Document}
+
+% CUSTOM COMMANDS
+\newcommand{\twodigits}[1]{\ifnum\value{#1}<10 0\fi\arabic{#1}}
+
+\newcommand{\teamname}{Code First, Think Later}
+\newcommand{\personone}{Kevin Hua}
+\newcommand{\persontwo}{Hendrik Knoetze}
+\newcommand{\personthree}{Juhandr\'e Knoetze}
+
+%% FIGURE COMMANDS
+\newcommand{\figurelabel}[1]{\label{figure:#1}}
+\newcommand{\figureref}[1]{\textbf{Figure \ref{figure:#1}}}
+%% END FIGURE COMMANDS
+
+%% TABLE COMMANDS
+\definecolor{thcolor}{RGB}{193,193,193}
+\newcommand{\ccindent}{\hspace{1.5em}\hangindent=1.5em}
+\newcommand{\tableheader}{\rowfont\bf\rowcolor{thcolor!30}}
+
+\newcommand{\tablelabel}[1]{\label{table:#1}}
+\newcommand{\tableref}[1]{\textbf{Table \ref{table:#1}}}
+%% END TABLE COMMANDS
+
+% TABLE STYLING
+\everyrow{\hline}
+\tabulinesep=0.5em
+
+\setlist[itemize]{leftmargin=*,noitemsep,nolistsep}
+\setlist[enumerate]{leftmargin=*,noitemsep,nolistsep}
+% END TABLE STYLING
+
+\thispagestyle{empty}
+
+\begin{center}
+	CARLETON UNIVERSITY
+\end{center}
+
+\vfill
+
+\begin{center}
+	{\fontsize{55pt}{55pt}\selectfont cuPID}
+	\vspace{0.5em}\rule{\textwidth}{0.5pt}
+	System Design Document
+\end{center}
+
+\vspace{5em}
+
+\begin{center}
+	\textbf{Team [\teamname{}]}\\
+	\personone{}\\
+	\persontwo{}\\
+	\personthree{}
+\end{center}
+
+\vfill
+
+\begin{center}
+	Submitted to:\\
+	Dr. Christine Laurendeau\\
+	COMP 3004: Object Oriented Software Engineering\\
+	School of Computer Science\\
+	Carleton University
+\end{center}
+
+\vspace{2em}
+
+\begin{center}
+	\today
+\end{center}
+
+\newpage{}
+
+\tableofcontents{}
+
+\renewcommand{\listfigurename}{Figures}
+\listoffigures
+
+\renewcommand{\listtablename}{Tables}
+\listoftables
+
+\newpage{}
+
+\section{Introduction}
+
+\subsection{Overview of Document}
+
+\vspace{1em}
+
+\noindent Best regards,
+
+\vspace{1em}
+
+\begin{center}
+	\includegraphics[scale=0.4]{imgs/logo.png} \\ \footnotesize{(Team [Code First, Think Later])}
+\end{center}
+
+\section{Subsystem Decomposition}
+\subsection{Phase 1 Prototype Decomposition}
+\subsection{System Decomposition}
+\subsection{Design Evolution}
+\section{Design Strategies}
+\subsection{Hardware/Software Mapping}
+\subsection{Persistent Data Management}
+\subsection{Design Patterns}
+\section{Subsystem Services}
+\section{Class Interfaces}
+
+\end{document}
