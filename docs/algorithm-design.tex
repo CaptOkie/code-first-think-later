@@ -701,7 +701,7 @@ In the event that the final groups sizes are off by more than $\pm$ 1 then the b
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure10.png}
 	\end{center}
 \end{figure}
-	\item[2.] In a group where the number of people in it is equal to the max group size, or the group with the highest group size, each member gets compared to every member of the group that is too small using the match-percent algorithm outlined in the previous section. The below figure, {\bf Figure 11}, shows how every individual in the larger group is matched with each individual in the smaller group, where {\it Stu1} is in a group of size 1. {\bf R-21}
+	\item[2.] In all groups where the number of people in it is less than the max group size, each member gets compared to every member of the group that is too small using the match-percent algorithm outlined in the previous section. The below figure, {\bf Figure 11}, shows how every individual in a larger group is matched with each individual in the smaller group, where {\it Stu1} is in a group of size 1. {\bf R-21}
 \begin{figure}[H]
 	\caption{Many-to-One Percent Comparison}
 	\begin{center}
