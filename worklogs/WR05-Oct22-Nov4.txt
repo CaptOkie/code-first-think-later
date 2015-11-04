@@ -27,3 +27,4 @@ ViLLiELdR:
 8 Hours: Worked on Algorithm Design Doc, including References.
 3 Hours: Worked on Algorithm Design Doc - finished all Qualifications.
 2 Hours: Finished up document minus some rules
+5 Hours: Diagrams, formatting, descriptions, details, traceability
