@@ -22,7 +22,8 @@ class Storage
         void removeProject(QString&);
         void enrollStudent(QString&, int);
         void unenrollStudent(QString&, int);
-        void updateResponses(const QList<Response>&, int);
+        void updateResponse(const Response&);
+        void updateResponses(const QList<Response>&);
 
         // Select entries from database
         bool validUser(QString&, User**);

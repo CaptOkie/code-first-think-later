@@ -274,12 +274,43 @@ void Storage::unenrollStudent(QString& project, int stuId) {
     db.close();
 }
 
-//void Storage::updateResponses(const QList<Response>& responses, int stuId) {
-//    db.open();
+void Storage::updateResponse(const Response& response) {
+    db.open();
 
-//    QSqlQuery update(db);
-//    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal ");
-//}
+    QSqlQuery update(db);
+    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal, "
+                   RESP_DESR_ANSR_COL " = :newDesired "
+                   "WHERE " RESP_STU_COL " = :studentId AND " RESP_QSTN_COL " = :questionId");
+    update.bindValue(":studentId", response.getStudent());
+    update.bindValue(":questionId", response.getQuestion());
+    update.bindValue(":newPersonal", response.getPersonal());
+    update.bindValue(":newDesired", response.getDesired());
+    update.exec();
+
+    db.close();
+}
+
+void Storage::updateResponses(const QList<Response>& responses) {
+    db.open();
+
+    QSqlQuery update(db);
+    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal, "
+                   RESP_DESR_ANSR_COL " = :newDesired "
+                   "WHERE " RESP_STU_COL " = :studentId AND " RESP_QSTN_COL " = :questionId");
+
+    QList<Response>::const_iterator it;
+    for(it = responses.begin(); it != responses.end(); ++it) {
+        const Response& resp = *it;
+
+        update.bindValue(":studentId", resp.getStudent());
+        update.bindValue(":questionId", resp.getQuestion());
+        update.bindValue(":newPersonal", resp.getPersonal());
+        update.bindValue(":newDesired", resp.getPersonal());
+        update.exec();
+    }
+
+    db.close();
+}
 
 bool Storage::validUser(QString& idStr, User** user) {
     return validUser(idStr.toInt(), user);
@@ -403,7 +434,7 @@ void Storage::getResponses(QList<Question>& questions, int stuId) {
             int personal = selectResponses.value(RESP_PSNL_ANSR_COL).toInt();
             int desired = selectResponses.value(RESP_DESR_ANSR_COL).toInt();
 
-            responses->append(Response(stuId, personal, desired));
+            responses->append(Response(stuId, questionId, personal, desired));
         }
 
         QString personal = selectQuestions.value(QSTN_PSNL_COL).toString();

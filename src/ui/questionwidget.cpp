@@ -3,8 +3,10 @@
 
 #include <QRadioButton>
 
-QuestionWidget::QuestionWidget(const Question& question, QWidget *parent)
-    : QWidget(parent), ui(new Ui::QuestionWidget), personal(new QButtonGroup(this)), desired(new QButtonGroup(this))
+QuestionWidget::QuestionWidget(Storage& db, const Question& question, QWidget *parent)
+    : QWidget(parent), ui(new Ui::QuestionWidget), db(db), question(question.getId()),
+      student(question.getResponses().first().getStudent()),
+      personal(new QButtonGroup(this)), desired(new QButtonGroup(this))
 {
     ui->setupUi(this);
 
@@ -39,4 +41,8 @@ QuestionWidget::~QuestionWidget()
     delete ui;
     personal->deleteLater();
     desired->deleteLater();
+}
+
+void QuestionWidget::saveResponses() {
+    db.updateResponse(Response(student, question, personal->checkedId(), desired->checkedId()));
 }

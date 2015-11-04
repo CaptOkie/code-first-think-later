@@ -34,7 +34,9 @@ void ProfileDialog::showProfile()
     }
 
     for (QMap<QString, QList<Question> >::const_iterator it = tabs.begin(); it != tabs.end(); ++it) {
-        ui->tabWidget->addTab(new QuestionsWidget(*it), (*it).first().getCategory());
+        QuestionsWidget* widget = new QuestionsWidget(db, *it, ui->tabWidget);
+        ui->tabWidget->addTab(widget, (*it).first().getCategory());
+        connect(ui->btnBox, &QDialogButtonBox::accepted, widget, &QuestionsWidget::save);
     }
 
     show();

@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "../db/question.h"
+#include "../db/storage.h"
 
 namespace Ui {
     class QuestionsWidget;
@@ -24,8 +25,14 @@ class QuestionsWidget : public QWidget
          * @param questions The questions to show.
          * @param parent The parent widget.
          */
-        explicit QuestionsWidget(const QList<Question>& questions, QWidget *parent = 0);
+        explicit QuestionsWidget(Storage& db, const QList<Question>& questions, QWidget *parent = 0);
         ~QuestionsWidget();
+
+    signals:
+        void saveResponses();
+
+    public slots:
+        void save();
 
     private:
         Ui::QuestionsWidget *ui; // The UI

@@ -15,7 +15,7 @@ class Response
          * @param personal The ID of the answer for the personal question.
          * @param desired The ID of the answer for the desired question.
          */
-        Response(int student, int personal, int desired);
+        Response(int student, int question, int personal, int desired);
 
         /**
          * @brief Response Creates a new instance.
@@ -32,6 +32,12 @@ class Response
         int getStudent() const;
 
         /**
+         * @brief getQuestion
+         * @return The ID of the question to which the response belongs.
+         */
+        int getQuestion() const;
+
+        /**
          * @brief getPersonal
          * @return The ID of the answer for the personal question.
          */
@@ -45,6 +51,7 @@ class Response
 
     private:
         int student;  // The ID of the student
+        int question; // The ID of the question
         int personal; // The ID of the answer for the personal question
         int desired;  // The ID of the answer for the desired question
 };

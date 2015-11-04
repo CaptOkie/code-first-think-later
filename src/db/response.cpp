@@ -1,7 +1,7 @@
 #include "response.h"
 
-Response::Response(int student, int personal, int desired)
-    : student(student), personal(personal), desired(desired)
+Response::Response(int student, int question, int personal, int desired)
+    : student(student), question(question), personal(personal), desired(desired)
 { }
 
 Response::Response(const Response& copy)
@@ -14,6 +14,11 @@ Response::~Response()
 int Response::getStudent() const
 {
     return student;
+}
+
+int Response::getQuestion() const
+{
+    return question;
 }
 
 int Response::getPersonal() const
