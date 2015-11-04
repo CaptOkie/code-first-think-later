@@ -595,7 +595,8 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 	\end{tabu}
 \end{table}
 
-\begin{tabu} to \textwidth {>{\bf}l >{\it}p{2.75cm} X}
+\begin{center}
+    \begin{tabu} to \textwidth {>{\bf}l >{\it}p{2.75cm} X}
 	    \tableheader{}Identifier & Categories & Description\\
 		R-15 & RC-08 & If R-14 is run successfully, the two best matches for every Student is kept.\\
 		R-16 & RC-08 & If R-15 is run successfully, out of all Students, the worst match percent is found.\\
@@ -607,7 +608,8 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 		R-22 & RC-08, RC-09 & After R-21, the member of the smaller group with the highest match to a member of a larger group that is not already at the max group size is then moved to the larger group.\\
 		R-23 & RC-08, RC-09 & R-20 is repeated until either all groups are within the min/max range specified, or until all groups are within $\pm$ 1 of each other (in the situation where the first condition is impossible to attain).\\
 		R-24 & RC-08, RC-09 & A Student that is not part of a group of 2 or more is considered to be in a group of size 1.
-\end{tabu}
+    \end{tabu}
+\end{center}
 
 \newpage{}
 
