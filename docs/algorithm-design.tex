@@ -611,7 +611,7 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 		R-19 & RC-08 & R-14 is repeated until all groups are within the min/max range or until only one group is left that is not at the max group size (where said group's size is below the min).\\
 		R-20 & RC-08, RC-09 & After R-19 is completed, the largest group size is compared to the lowest group size, and if the difference is greater than 1 and not within the min/max range requested, then initiate R-21.\\
 		R-21 & RC-08, RC-09 & Every member in the larger groups is compared to every member of the smaller group using R-03 to R-13. \\
-		R-22 & RC-08, RC-09 & After R-21, the member of the larger group with the highest match to a member of a smaller group that is not yet at the min size is then moved to the smaller group.\\
+		R-22 & RC-08, RC-09 & After R-21, the member of the larger group with the highest match to the members of the smallest group that is not yet at the min size is then moved to the smaller group.\\
 		R-23 & RC-08, RC-09 & R-20 is repeated until either all groups are within the min/max range specified, or until all groups are within $\pm$ 1 of each other (in the situation where the first condition is impossible to attain).\\
 		R-24 & RC-08, RC-09 & A Student that is not part of a group of 2 or more is considered to be in a group of size 1.
     \end{tabu}
