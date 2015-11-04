@@ -637,61 +637,65 @@ The following figure, {\bf Figure 1},  is a visual representation of the flow of
 \end{figure}
 \subsubsection*{Group Making Rules}
 The second major section of rules deals with the creation of teams using the first section as a basis for matching. The process can be broken down into several segments:
+\vspace{1em}
 \begin{enumerate}
 	\item[1.] A group of Students have filled out their respective profiles and the Administrator begins running the algorithm. The following figure, {\bf Figure 2}, shows five students that have successfully completed their profiles and are ready to be sorted. 
 \begin{figure}[H]
 	\caption{Initiation Step}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure2.png}
+		\includegraphics[scale=0.78]{imgs/algorithm-design-figure2.png}
 	\end{center}
 \end{figure}
 	\item[2.] Every Student is then compared to every other Student that is a part of the current project using the first section's percent-match algorithm. {\bf Figure 3} shows {\it Stu1} being compared to every other Student and their match-percents are calculated. {\bf R-14}
 \begin{figure}[H]
 	\caption{One-To-Many Percent Comparison}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure3.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure3.png}
 	\end{center}
 \end{figure}
+\newpage{}
 	\item[3.] Of all the comparisons, the algorithm will keep the best two matches for each Student. {\bf Figure 4} focuses on the two highest values. {\bf R-15}
 \begin{figure}[H]
 	\caption{Best-Two-of-Many Decision}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure4.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure4.png}
 	\end{center}
 \end{figure}
 	\item[4.] This process, as mentioned earlier, gets repeated with every Student such that every Student has their best two matches. The following figure, {\bf Figure 5}, shows the result of steps 2-3 applied on every Student. {\bf R-16}
 \begin{figure}[H]
 	\caption{Best-Two-of-Many For All Students}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure5.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure5.png}
 	\end{center}
 \end{figure}
+\newpage{}
 	\item[5.] The algorithm then selects the match amongst all Students that is the lowest match percent. In {\bf Figure 6}, the lowest match is showed via a bold, blue arrow. Keep in mind here that the lowest match is for {\it Stu4}. {\bf R-17}
 \begin{figure}[H]
 	\caption{Lowest Match Selection}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure6.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure6.png}
 	\end{center}
 \end{figure}
 	\item[6.] The algorithm then finds his best match using the first section's algorithm. {\bf Figure 7} shows {\it Stu4}'s actual best match. {\bf R-17}
 \begin{figure}[H]
 	\caption{Highest Match Selection}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure7.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure7.png}
 	\end{center}
 \end{figure}
 	\item[7.] These two matched individuals are then grouped together. {\bf Figure 8} shows that the these two individuals are put into a group together, portrayed here as being in an ellipse together.{\bf R-18}
 \begin{figure}[H]
 	\caption{Grouping Matches Together}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure8.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure8.png}
 	\end{center}
 \end{figure}
+\newpage{}
 	\item[8.] This process is then repeated over and over again until all groups are within the min/max range, or until every group but 1 is at the max group size and the last group falls below the min size. The following figure, {\bf Figure 9}, shows the eventual final result of the algorithm after it has run successfully. {\bf R-19}
 \begin{figure}[H]
 	\caption{Final Result}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure9.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure9.png}
 	\end{center}
 \end{figure}
 
@@ -701,37 +705,39 @@ The second major section of rules deals with the creation of teams using the fir
 In the circumstance that an already formed group is being compared to either another formed group or a single individual, that group's match value is equivalent to the average match value of every person in that group with the Student or group that it is being compared to. 
 \subsubsection*{Case 2: Leftover Too-Small Groups}
 In the event that the final groups sizes are off by more than $\pm$ 1 then the balancing portion of the algorithm begins.
+\vspace{1em}
 \begin{enumerate}
 	\item[1.] Groups that don't fall in the min/max range have been formed. The following figure, {\bf Figure 10} shows two groups, wherein the first group consists of a single Student, whereas the second group consists of four students, and where the min is 4 and the max is 6. {\bf R-20}
 \begin{figure}[H]
 	\caption{Initial Step For Leftover Small Groups}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure10.png}
+		\includegraphics[scale=0.78]{imgs/algorithm-design-figure10.png}
 	\end{center}
 \end{figure}
+\newpage{}
 	\item[2.] In all groups where the number of people in it is less than the max group size, each member gets compared to every member of the group that is too small using the match-percent algorithm outlined in the previous section. The below figure, {\bf Figure 11}, shows how every individual in a larger group is matched with each individual in the smaller group, where {\it Stu1} is in a group of size 1. {\bf R-21}
 \begin{figure}[H]
 	\caption{Many-to-One Percent Comparison}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure11.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure11.png}
 	\end{center}
 \end{figure}
 	\item[3.] The Student from the smaller group that has the highest match-percent with the larger group is then moved over to the larger group. In {\bf Figure 12}, we see that {\it Stu3} is the best match for {\it Stu1}. {\bf R-22}
 \begin{figure}[H]
 	\caption{Selecting Highest Percent-Match}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure12.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure12.png}
 	\end{center}
 \end{figure}
 	\item[4.] The process is repeated until all groups are within the max and min range. {\bf Figure 13} shows how {\it Stu1} then gets moved over into the larger group. {\bf R-23}
 \begin{figure}[H]
 	\caption{Rebalancing of Groups}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure14.png}
+		\includegraphics[scale=0.68]{imgs/algorithm-design-figure14.png}
 	\end{center}
 \end{figure}
 \end{enumerate}
-
+\newpage{}
 \subsubsection{Case 3: Insufficient Students to Form Desired Group Sizes}
 
 In the event that the amount of Students is insufficient, the algorithm will still run and sort the pool of Students into groups of approximately the same size ($\pm$ 1). The algorithm however will also flag to the Administrator the groups may be smaller than intended. This algorithm component works similarly to the previous Case's, except that instead of moving the member from the smallest group to the larger group, a member from the larger group gets moved to the smaller group.
