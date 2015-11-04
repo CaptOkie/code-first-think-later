@@ -10,6 +10,7 @@ QuestionWidget::QuestionWidget(Storage& db, const Question& question, QWidget *p
 {
     ui->setupUi(this);
 
+    ui->title->setText("Question #" + QString::number(question.getId()));
     ui->personalLabel->setText(question.getPersonal());
     ui->desiredLabel->setText(question.getDesired());
 

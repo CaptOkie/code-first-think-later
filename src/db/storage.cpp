@@ -383,6 +383,11 @@ void Storage::populateDatabase() {
     QList<Question> questions;
     QList<Answer>* answers = new QList<Answer>();
 
+#define SKILLS "1. Skills"
+#define LEADERSHIP "2. Leadership"
+#define PERSONALITY "3. Personality"
+#define AVAILABILITY "4. Availability"
+
     answers->append(Answer(1, "D- to D+"));
     answers->append(Answer(2, "C- to C+"));
     answers->append(Answer(3, "B- to B+"));
@@ -390,7 +395,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "What grade did you receive in COMP 2401?",
                               "What grade would you like your partners to have received in COMP 2401?",
-                              "Skills",
+                              SKILLS,
                               answers,
                               new QList<Response>));
 
@@ -402,7 +407,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "What grade did you receive in COMP 2404?",
                               "What grade would you like your partners to have received in COMP 2404?",
-                              "Skills",
+                              SKILLS,
                               answers,
                               new QList<Response>));
 
@@ -415,7 +420,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "How confident and/or comfortable are you in report writing?",
                               "How confident and/or comfortable would you like your partners to be in report writing?",
-                              "Skills",
+                              SKILLS,
                               answers,
                               new QList<Response>));
 
@@ -428,7 +433,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "How proficient are you at software debugging?",
                               "How proficient would you like your partners to be at debugging?",
-                              "Skills",
+                              SKILLS,
                               answers,
                               new QList<Response>));
 
@@ -441,7 +446,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "How comfortable are you in the seat of power?",
                               "How comfortable would you like your partners to be in the seat of power?",
-                              "Leadership",
+                              LEADERSHIP,
                               answers,
                               new QList<Response>));
 
@@ -454,7 +459,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "Rate your level of organization.",
                               "Rate the level of organization you would like your partners to have?",
-                              "Leadership",
+                              LEADERSHIP,
                               answers,
                               new QList<Response>));
 
@@ -467,7 +472,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "Rate your comfortability in making big, important decisions.",
                               "Rate how comfortable you would like your partners to be at making big, important decisions.",
-                              "Leadership",
+                              LEADERSHIP,
                               answers,
                               new QList<Response>));
 
@@ -480,7 +485,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "How willing are you to step up to the plate and take the initiative?",
                               "How willing should your partners be to step up to the plate to take the initiative?",
-                              "Leadership",
+                              LEADERSHIP,
                               answers,
                               new QList<Response>));
 
@@ -493,7 +498,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "Rate your tendency to procrastinate to the last minute.",
                               "Rate the tendency you would like for your group members to procrastinate to the last minute.",
-                              "Personality",
+                              PERSONALITY,
                               answers,
                               new QList<Response>));
 
@@ -506,7 +511,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "Rate your tendency to start/begin discussions with relative strangers.",
                               "Rate the tendency you would like your partners to start/begin discussions with relative strnagers.",
-                              "Personality",
+                              PERSONALITY,
                               answers,
                               new QList<Response>));
 
@@ -518,7 +523,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "When working on large scale projects, what is your preferred way of working?",
                               "How would you like your partners to prefer working on large scale projects?",
-                              "Personality",
+                              PERSONALITY,
                               answers,
                               new QList<Response>));
 
@@ -531,7 +536,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "If you have a meeting tomorrow, what time would you usually arrive?",
                               "If you have a meeting tomorrow, what time would you like your partners to arrive?",
-                              "Personality",
+                              PERSONALITY,
                               answers,
                               new QList<Response>));
 
@@ -544,7 +549,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "During a typical day, what it your preferred working time?",
                               "What would you like your partner's preferred working times to be?",
-                              "Availability",
+                              AVAILABILITY,
                               answers,
                               new QList<Response>));
 
@@ -557,7 +562,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "Based on your current schedule, what days are you usually available?",
                               "What days would you like your partners to be available?",
-                              "Availability",
+                              AVAILABILITY,
                               answers,
                               new QList<Response>));
 
@@ -569,7 +574,7 @@ void Storage::populateDatabase() {
     questions.append(Question(0,
                               "Based on how often you check, what is your preferred mode of communication?",
                               "What would you like your partners' preferred mode of communication to be?",
-                              "Availability",
+                              AVAILABILITY,
                               answers,
                               new QList<Response>));
 
