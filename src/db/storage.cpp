@@ -34,8 +34,7 @@
 #define RESP_DESR_ANSR_COL "desired_answer_id"
 #define RESP_PSNL_ANSR_COL "personal_answer_id"
 
-#include <QDebug>
-#define DEBUG
+//#define DEBUG
 
 Storage::Storage()
     : db(QSqlDatabase::addDatabase("QSQLITE"))
