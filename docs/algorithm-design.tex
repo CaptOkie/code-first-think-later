@@ -608,7 +608,7 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 		R-16 & RC-08 & If R-15 is run successfully, out of all Students, the worst match percent is found.\\
 		R-17 & RC-08 & If R-16 is run successfully, the Student that has the worst match is then rematched with their best match using R-03 to R-13.\\
 		R-18 & RC-08 & If R-17 is run successfully, then the two matched Students are put into a group together.\\
-		R-19 & RC-08 & R-14 is repeated until all Students are in a group.\\
+		R-19 & RC-08 & R-14 is repeated until all groups are within the min/max range or until only one group is left that is not at the max group size (where said group's size is below the min).\\
 		R-20 & RC-08, RC-09 & After R-19 is completed, the largest group size is compared to the lowest group size, and if either the difference is greater than 1 and not within the min/max range requested, then initiate R-21.\\
 		R-21 & RC-08, RC-09 & Every member in the larger groups is compared to every member of the smaller group using R-03 to R-13. \\
 		R-22 & RC-08, RC-09 & After R-21, the member of the smaller group with the highest match to a member of a larger group that is not already at the max group size is then moved to the larger group.\\
@@ -652,7 +652,7 @@ The second major section of rules deals with the creation of teams using the fir
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure3.png}
 	\end{center}
 \end{figure}
-	\item[3.] Of all the comparisons, the algorithm will only keep the best two matches for each Student. {\bf Figure 4} demonstrates that only the two highest values are kept. {\bf R-15}
+	\item[3.] Of all the comparisons, the algorithm will keep the best two matches for each Student. {\bf Figure 4} focuses on the two highest values. {\bf R-15}
 \begin{figure}[H]
 	\caption{Best-Two-of-Many Decision}
 	\begin{center}
@@ -673,7 +673,7 @@ The second major section of rules deals with the creation of teams using the fir
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure6.png}
 	\end{center}
 \end{figure}
-	\item[6.] The algorithm then discards this match and, with the Student that had the lowest match, find his best match using the first section's algorithm. {\bf Figure 7} shows {\it Stu4}'s actual best match. {\bf R-17}
+	\item[6.] The algorithm then finds his best match using the first section's algorithm. {\bf Figure 7} shows {\it Stu4}'s actual best match. {\bf R-17}
 \begin{figure}[H]
 	\caption{Highest Match Selection}
 	\begin{center}
@@ -687,7 +687,7 @@ The second major section of rules deals with the creation of teams using the fir
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure8.png}
 	\end{center}
 \end{figure}
-	\item[8.] This process is then repeated over and over again until everyone is sorted into a group. The following figure, {\bf Figure 9}, shows the eventual final result of the algorithm after it has run successfully. {\bf R-19}
+	\item[8.] This process is then repeated over and over again until all groups are within the min/max range, or until every group but 1 is at the max group size and the last group falls below the min size. The following figure, {\bf Figure 9}, shows the eventual final result of the algorithm after it has run successfully. {\bf R-19}
 \begin{figure}[H]
 	\caption{Final Result}
 	\begin{center}
