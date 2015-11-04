@@ -133,13 +133,6 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QPushButton" name="joinAllBtn">
-         <property name="text">
-          <string>Join All</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="joinBtn">
          <property name="text">
           <string>Join</string>
@@ -163,13 +156,6 @@
         <widget class="QPushButton" name="leaveBtn">
          <property name="text">
           <string>Leave</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="leaveAllBtn">
-         <property name="text">
-          <string>Leave All</string>
          </property>
         </widget>
        </item>
