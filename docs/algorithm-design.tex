@@ -565,6 +565,9 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 		RC-04 & Percent-Total & Rules in this category convert a collection of response percentage values to a Total Match Percent.\\
 		RC-05 & Personal & Rules in this category handle Personal Values. \\
 		RC-06 & Desired & Rules in this category handle Desired Values.\\
+		RC-07 & Part 1 & Rules in this category are a part of the individual Percent-Match component of the algorithm.\\
+		RC-08 & Part 2 & Rules in this category are a part of the Group-Matching component of the algorithm.\\
+		RC-09 & Special Cases & Rules in this category deal with special cases in the algorithm.\\
 	\end{tabu}
 \end{table}
 
@@ -576,19 +579,35 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 	    \tableheader{}Identifier & Categories & Description\\
 		R-01 & RC-01 & Qualifications use percent increments of 25\%.\\
 		R-02 & RC-02 & Qualifications use percent increments of 20\%.\\
-		R-03 & RC-01, RC-03, RC-05, RC-06 & A Response matching the desired Response is given a Match Percent of 100\%.\\
-		R-04 & RC-01, RC-03, RC-05, RC-06 & A Response that is directly to the left or to the right of the desired Response is given a Match Percent of 75\%\\
-		R-05 & RC-01, RC-03, RC-05, RC-06 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 50\%\\
-		R-06 & RC-01, RC-03, RC-05, RC-06 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 25\%\\
-		R-07 & RC-02, RC-03, RC-05, RC-06 & A Response matching the desired Response is given a Match Percent of 100\%.\\
-		R-08 & RC-02, RC-03, RC-05, RC-06 & A Response that is directly to the left or to the right of the desired Response is given a Match Percent of 80\%\\
-		R-09 & RC-02, RC-03, RC-05, RC-06 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 60\%\\
-		R-10 & RC-02, RC-03, RC-05, RC-06 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 40\%\\
-		R-11 & RC-02, RC-03, RC-05, RC-06 & A Response that is four places to the left or to the right of the desired Response is given a Match Percent of 20\%\\
-		R-12 & RC-04 & A Student's degree of match to another Student is calculated via averaging all the Match Percents found. \\
-		R-13 & & The final Match Percentage between two Students is calculated by averaging each Student's Match Percent with each other's.\\
+		R-03 & RC-01, RC-03, RC-05, RC-06, RC-07 & A Response matching the desired Response is given a Match Percent of 100\%.\\
+		R-04 & RC-01, RC-03, RC-05, RC-06, RC-07 & A Response that is directly to the left or to the right of the desired Response is given a Match Percent of 75\%\\
+		R-05 & RC-01, RC-03, RC-05, RC-06, RC-07 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 50\%\\
+		R-06 & RC-01, RC-03, RC-05, RC-06, RC-07 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 25\%\\
+		R-07 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response matching the desired Response is given a Match Percent of 100\%.\\
+		R-08 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is directly to the left or to the right of the desired Response is given a Match Percent of 80\%\\
+		R-09 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 60\%\\
+		R-10 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 40\%\\
+		R-11 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is four places to the left or to the right of the desired Response is given a Match Percent of 20\%\\
+		R-12 & RC-04, R-07 & A Student's degree of match to another Student is calculated via averaging all the Match Percents found. \\
+		R-13 & RC-07 & The final Match Percentage between two Students is calculated by averaging each Student's Match Percent with each other's.\\
+		R-14 & RC-08 & A Student is compared to every other Student using R-03 to R-13 and the final Match Percentages are stored.\\
+		
 	\end{tabu}
 \end{table}
+
+\begin{tabu} to \textwidth {>{\bf}l >{\it}p{2.75cm} X}
+	    \tableheader{}Identifier & Categories & Description\\
+		R-15 & RC-08 & If R-14 is run successfully, the two best matches for each Student is kept.\\
+		R-16 & RC-08 & If R-15 is run successfully, out of all Students, the worst match percent is found.\\
+		R-17 & RC-08 & If R-16 is run successfully, the Student that has the worst match is then rematched with their best match using R-03 to R-13.\\
+		R-18 & RC-08 & If R-17 is run successfully, then the two matched Students are put into a group together.\\
+		R-19 & RC-08 & R-14 is repeated until all Students are in a group.\\
+		R-20 & RC-08, RC-09 & After R-19 is completed, the largest group size is compared to the lowest group size, and if either the difference is greater than 1 and not within the min/max range requested, then initiate R-21.\\
+		R-21 & RC-08 & Every member in the larger groups is compared to every member of the smaller group using R-03 to R-13. \\
+		R-22 & RC-08 & After R-21, the member of the smallest group with the highest match to a member of a larger group that is not already at the max group size is then moved to the larger group.\\
+		R-23 & RC-08 & R-20 is repeated until either all groups are within the min/max range specified, or until all groups are within $\pm$ 1 of each other (in the situation where the first condition is impossible to attain).\\
+		R-24 & RC-08 & A Student that is not part of a group of 2 or more is considered to be in a group of size 1.
+\end{tabu}
 
 \newpage{}
 
@@ -625,7 +644,7 @@ The second major section of rules deals with the creation of teams using the fir
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure3.png}
 	\end{center}
 \end{figure}
-	\item[3.] Of all the comparisons, the algorithm will only keep the best two matches for each Student, discarding all the other matches. {\bf Figure 4} demonstrates that only the two highest values are kept.
+	\item[3.] Of all the comparisons, the algorithm will only keep the best two matches for each Student. {\bf Figure 4} demonstrates that only the two highest values are kept.
 \begin{figure}[H]
 	\caption{Best-Two-of-Many Decision}
 	\begin{center}
@@ -672,42 +691,42 @@ The second major section of rules deals with the creation of teams using the fir
 \subsubsection{Special Cases}
 \subsubsection*{Case 1: A Group is Being Compared to a Single Person/Group}
 In the circumstance that an already formed group is being compared to either another formed group or a single individual, that group's match value is equivalent to the average match value of every person in that group with the Student or group that it is being compared to. 
-\subsubsection*{Case 2: Uneven Groups}
+\subsubsection*{Case 2: Leftover Too-Small Groups}
 In the event that the final groups sizes are off by more than $\pm$ 1 then the balancing portion of the algorithm begins.
 \begin{enumerate}
 	\item[1.] Unven group have been formed. The following figure, {\bf Figure 10} shows two groups, wherein the first group consists of a single Student, whereas the second group consists of four students, thus having a differential of 3.
 \begin{figure}[H]
-	\caption{Initial Step For Uneven Groups}
+	\caption{Initial Step For Leftover Small Groups}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure10.png}
 	\end{center}
 \end{figure}
-	\item[2.] In a group where the number of people in it is equal to the max group size, or the group with the highest group size, each member gets compared to the group that is too small using the match-percent algorithm outlined in the previous section. The below figure, {\bf Figure 11}, shows how every individual in the larger group is matched with the smaller group.
+	\item[2.] In a group where the number of people in it is equal to the max group size, or the group with the highest group size, each member gets compared to every member of the group that is too small using the match-percent algorithm outlined in the previous section. The below figure, {\bf Figure 11}, shows how every individual in the larger group is matched with each individual in the smaller group, where {\it Stu1} is in a group of size 1.
 \begin{figure}[H]
 	\caption{Many-to-One Percent Comparison}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure11.png}
 	\end{center}
 \end{figure}
-	\item[3.] The Student from the bigger group that has the highest match-percent is then moved over to the smaller group. In {\bf Figure 12}, we see that {\it Stu3} is the best match for {\it Stu1}.
+	\item[3.] The Student from the smaller group that has the highest match-percent with the larger group is then moved over to the larger group. In {\bf Figure 12}, we see that {\it Stu3} is the best match for {\it Stu1}.
 \begin{figure}[H]
 	\caption{Selecting Highest Percent-Match}
 	\begin{center}
 		\includegraphics[scale=0.58]{imgs/algorithm-design-figure12.png}
 	\end{center}
 \end{figure}
-	\item[4.] The process is repeated until all groups are balanced to within $\pm$ 1 of each other. {\bf Figure 13} shows how {\it Stu3} then gets moved over into {\it Stu1}'s group.
+	\item[4.] The process is repeated until all groups are within the max and min range. {\bf Figure 13} shows how {\it Stu1} then gets moved over into the larger group.
 \begin{figure}[H]
 	\caption{Rebalancing of Groups}
 	\begin{center}
-		\includegraphics[scale=0.58]{imgs/algorithm-design-figure13.png}
+		\includegraphics[scale=0.58]{imgs/algorithm-design-figure14.png}
 	\end{center}
 \end{figure}
 \end{enumerate}
 
 \subsubsection{Case 3: Insufficient Students to Form Desired Group Sizes}
 
-In the event that the amount of Students is insufficient, the algorithm will still run and sort the pool of Students into groups of approximately the same size. The algorithm however will also flag to the Administrator the groups may be smaller than intended.
+In the event that the amount of Students is insufficient, the algorithm will still run and sort the pool of Students into groups of approximately the same size ($\pm$ 1). The algorithm however will also flag to the Administrator the groups may be smaller than intended. This algorithm component works similarly to the previous Case's, except that instead of moving the member from the smallest group to the larger group, a member from the larger group gets moved to the smaller group.
 
 \renewcommand\refname{\vskip -1cm}
 \section{References}
