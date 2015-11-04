@@ -8,6 +8,7 @@ CaptOkie:
 10 Hours: Hooked up the home pages. Started work on student profile dialog. Refactoring. New Entity objects.
 2 Hours: Finished the profile dialog mockup.
 4 Hours: Commenting, profile dialog tweaks.
+7 Hours: Finishing touches!
 
 TheBakedPotato:
 2 Hours: Group metting
@@ -18,6 +19,7 @@ TheBakedPotato:
 4 Hours: Refactored login process
 9 Hours: Refactored database, and related classes. Added new tables. Implemented new database operations.
 3 Hours: Database updates/additions.
+7 Hours: Finishing touches!
 
 ViLLiELdR:
 2 Hours: Group metting
