@@ -42,6 +42,10 @@ Storage::Storage()
 {
     db.setDatabaseName("cupid.db");
     setupDB();
+
+#ifdef DEBUG
+    populateDatabase();
+#endif
 }
 
 Storage::~Storage() {
@@ -103,7 +107,254 @@ void Storage::setupDB() {
                           "ON DELETE CASCADE ON UPDATE CASCADE, "
             "PRIMARY KEY (" RESP_STU_COL " , " RESP_QSTN_COL "))");
 
+    db.close();
+}
+
+bool Storage::addProject(Project& project) {
+    db.open();
+
+    QSqlQuery insert(db);
+    insert.prepare("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MIN_GRP_COL " , " PRO_MAX_GRP_COL ")"
+                   "VALUES (:name, :min, :max)");
+    insert.bindValue(":name", project.getName());
+    insert.bindValue(":min", project.getGroupSize().getMin());
+    insert.bindValue(":max", project.getGroupSize().getMax());
+    insert.exec();
+
+    db.close();
+
+    return true;
+}
+
+void Storage::updateProject(Project& project, QString& name) {
+    db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
+
+    QSqlQuery update(db);
+    update.prepare("UPDATE " PRO_TABLE " SET " PRO_NAME_COL " = :newName, " PRO_MIN_GRP_COL " = :newMin, "
+                   PRO_MAX_GRP_COL " = :newMax WHERE " PRO_NAME_COL " = :name");
+    update.bindValue(":newName", project.getName());
+    update.bindValue(":newMin", project.getGroupSize().getMin());
+    update.bindValue(":newMax", project.getGroupSize().getMax());
+    update.bindValue(":name", name);
+    update.exec();
+
+    db.close();
+}
+
+void Storage::removeProject(QString& project) {
+    db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
+
+    QSqlQuery remove(db);
+    remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
+    remove.bindValue(":name", project);
+    remove.exec();
+
+    db.close();
+}
+
+void Storage::enrollStudent(QString& project, int stuId) {
+    db.open();
+
+    QSqlQuery insert(db);
+    insert.prepare("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
+                   "VALUES (:student, :project)");
+    insert.bindValue(":student", stuId);
+    insert.bindValue(":project", project);
+    insert.exec();
+
+    db.close();
+}
+
+void Storage::unenrollStudent(QString& project, int stuId) {
+    db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
+
+    QSqlQuery remove(db);
+    remove.prepare("DELETE FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :stuId AND " ENRL_PRO_COL " = :project");
+    remove.bindValue(":stuId", stuId);
+    remove.bindValue(":project", project);
+    remove.exec();
+
+    db.close();
+}
+
+void Storage::updateResponse(const Response& response) {
+    db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
+
+    QSqlQuery update(db);
+    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal, "
+                   RESP_DESR_ANSR_COL " = :newDesired "
+                   "WHERE " RESP_STU_COL " = :studentId AND " RESP_QSTN_COL " = :questionId");
+    update.bindValue(":studentId", response.getStudent());
+    update.bindValue(":questionId", response.getQuestion());
+    update.bindValue(":newPersonal", response.getPersonal());
+    update.bindValue(":newDesired", response.getDesired());
+    update.exec();
+
+    db.close();
+}
+
+void Storage::updateResponses(const QList<Response>& responses) {
+    db.open();
+    db.exec("PRAGMA foreign_keys = ON;");
+
+    QSqlQuery update(db);
+    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal, "
+                   RESP_DESR_ANSR_COL " = :newDesired "
+                   "WHERE " RESP_STU_COL " = :studentId AND " RESP_QSTN_COL " = :questionId");
+
+    QList<Response>::const_iterator it;
+    for(it = responses.begin(); it != responses.end(); ++it) {
+        const Response& resp = *it;
+
+        update.bindValue(":studentId", resp.getStudent());
+        update.bindValue(":questionId", resp.getQuestion());
+        update.bindValue(":newPersonal", resp.getPersonal());
+        update.bindValue(":newDesired", resp.getPersonal());
+        update.exec();
+    }
+
+    db.close();
+}
+
+bool Storage::getUser(int id, User** user) {
+    db.open();
+
+    QSqlQuery select(db);
+    select.prepare("SELECT * FROM " USER_TABLE " WHERE " USER_ID_COL " = :id");
+    select.bindValue(":id", id);
+    select.exec();
+
+    if(select.first()) {
+        int id = select.value(USER_ID_COL).toInt();
+        User::Type type = (User::Type)select.value(USER_TYPE_COL).toInt();
+        QString name = (QString)select.value(USER_NAME_COL).toString();
+        *user = new User(id, type, new QString(name));
+
+        db.close();
+        return true;
+    }
+    db.close();
+    return false;
+}
+
+void Storage::getProjects(QList<Project>** projects) {
+    *projects = new QList<Project>;
+    db.open();
+
+    QSqlQuery select = db.exec("SELECT * FROM " PRO_TABLE);
+    while(select.next()) {
+        QString name = QString(select.value(PRO_NAME_COL).toString());
+        int min = select.value(PRO_MIN_GRP_COL).toInt();
+        int max = select.value(PRO_MAX_GRP_COL).toInt();
+        (*projects)->append(Project(new QString(name), new GroupSize(min, max)));
+    }
+
+    db.close();
+}
+
+void Storage::getProjects(QList<QString>** enrolled, QList<QString>** available, User& student) {
+    *enrolled = new QList<QString>;
+    *available = new QList<QString>;
+    db.open();
+
+    QSqlQuery select(db);
+    select.prepare("SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
+    select.bindValue(":id", student.getId());
+    select.exec();
+
+    while(select.next()) {
+        QString project = QString(select.value(ENRL_PRO_COL).toString());
+        (*enrolled)->append(project);
+    }
+
+    select.prepare("SELECT " PRO_NAME_COL " FROM " PRO_TABLE " EXCEPT "
+                   "SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
+    select.bindValue(":id", student.getId());
+    select.exec();
+
+    while(select.next()) {
+        QString project = QString(select.value(PRO_NAME_COL).toString());
+        (*available)->append(project);
+    }
+
+    db.close();
+}
+
+void Storage::getProjects(QList<Project>** projects, QString& name) {
+    *projects = new QList<Project>;
+    db.open();
+
+    QSqlQuery select(db);
+    select.prepare("SELECT * FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
+    select.bindValue(":name", name);
+    select.exec();
+
+    while(select.next()) {
+        QString name = QString(select.value(PRO_NAME_COL).toString());
+        int min = select.value(PRO_MIN_GRP_COL).toInt();
+        int max = select.value(PRO_MAX_GRP_COL).toInt();
+        (*projects)->append(Project(new QString(name), new GroupSize(min, max)));
+    }
+
+    db.close();
+}
+
+void Storage::getResponses(QList<Question>& questions, int stuId) {
+    db.open();
+
+    QSqlQuery selectQuestions(db);
+    QSqlQuery selectAnswer(db);
+    QSqlQuery selectResponses(db);
+
+    selectQuestions.prepare("SELECT * FROM " QSTN_TABLE);
+    selectAnswer.prepare("SELECT * FROM " ANSR_TABLE " WHERE " ANSR_QID_COL " = :questionId");
+    selectResponses.prepare("SELECT * FROM " RESP_TABLE " WHERE "
+                            RESP_STU_COL " = :studentId AND "
+                            RESP_QSTN_COL " = :questionId");
+    selectResponses.bindValue(":studentId", stuId);
+
+    selectQuestions.exec();
+    while(selectQuestions.next()) {
+        int questionId = selectQuestions.value(QSTN_ID_COL).toInt();
+
+        selectAnswer.bindValue(":questionId", questionId);
+        selectAnswer.exec();
+        QList<Answer>* answers = new QList<Answer>;
+        while(selectAnswer.next()) {
+            int answerId = selectAnswer.value(ANSR_ID_COL).toInt();
+            QString answerText = selectAnswer.value(ANSR_VAL_COL).toString();
+
+            answers->append(Answer(answerId, answerText));
+        }
+
+        selectResponses.bindValue(":questionId", questionId);
+        selectResponses.exec();
+        QList<Response>* responses = new QList<Response>;
+        while(selectResponses.next()) {
+            int personal = selectResponses.value(RESP_PSNL_ANSR_COL).toInt();
+            int desired = selectResponses.value(RESP_DESR_ANSR_COL).toInt();
+
+            responses->append(Response(stuId, questionId, personal, desired));
+        }
+
+        QString personal = selectQuestions.value(QSTN_PSNL_COL).toString();
+        QString desired = selectQuestions.value(QSTN_DESR_COL).toString();
+        QString category = selectQuestions.value(QSTN_CAT_COL).toString();
+
+        questions.append(Question(questionId, personal, desired, category, answers, responses));
+    }
+
+    db.close();
+}
+
+void Storage::populateDatabase() {
 #ifdef DEBUG
+    db.open();
+
     QList<int> users;
     QList<int> projects;
 
@@ -359,262 +610,7 @@ void Storage::setupDB() {
             insert.exec();
         }
     }
+
+    db.close();
 #endif
-
-    db.close();
-}
-
-void Storage::addUser(QString& name, User::Type type) {
-    db.open();
-
-    QSqlQuery insert(db);
-    insert.prepare("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
-                   "VALUES (:name, :type)");
-    insert.bindValue(":name", name);
-    insert.bindValue(":type", type);
-    insert.exec();
-
-    db.close();
-}
-
-bool Storage::addProject(Project& project) {
-    db.open();
-
-    QSqlQuery insert(db);
-    insert.prepare("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MIN_GRP_COL " , " PRO_MAX_GRP_COL ")"
-                   "VALUES (:name, :min, :max)");
-    insert.bindValue(":name", project.getName());
-    insert.bindValue(":min", project.getGroupSize().getMin());
-    insert.bindValue(":max", project.getGroupSize().getMax());
-    insert.exec();
-
-    db.close();
-
-    return true;
-}
-
-void Storage::updateProject(Project& project, QString& name) {
-    db.open();
-    db.exec("PRAGMA foreign_keys = ON;");
-
-    QSqlQuery update(db);
-    update.prepare("UPDATE " PRO_TABLE " SET " PRO_NAME_COL " = :newName, " PRO_MIN_GRP_COL " = :newMin, "
-                   PRO_MAX_GRP_COL " = :newMax WHERE " PRO_NAME_COL " = :name");
-    update.bindValue(":newName", project.getName());
-    update.bindValue(":newMin", project.getGroupSize().getMin());
-    update.bindValue(":newMax", project.getGroupSize().getMax());
-    update.bindValue(":name", name);
-    update.exec();
-
-    db.close();
-}
-
-void Storage::removeProject(QString& project) {
-    db.open();
-    db.exec("PRAGMA foreign_keys = ON;");
-
-    QSqlQuery remove(db);
-    remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
-    remove.bindValue(":name", project);
-    remove.exec();
-
-    db.close();
-}
-
-void Storage::enrollStudent(QString& project, int stuId) {
-    db.open();
-
-    QSqlQuery insert(db);
-    insert.prepare("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
-                   "VALUES (:student, :project)");
-    insert.bindValue(":student", stuId);
-    insert.bindValue(":project", project);
-    insert.exec();
-
-    db.close();
-}
-
-void Storage::unenrollStudent(QString& project, int stuId) {
-    db.open();
-
-    QSqlQuery remove(db);
-    remove.prepare("DELETE FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :stuId AND " ENRL_PRO_COL " = :project");
-    remove.bindValue(":stuId", stuId);
-    remove.bindValue(":project", project);
-    remove.exec();
-
-    db.close();
-}
-
-void Storage::updateResponse(const Response& response) {
-    db.open();
-
-    QSqlQuery update(db);
-    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal, "
-                   RESP_DESR_ANSR_COL " = :newDesired "
-                   "WHERE " RESP_STU_COL " = :studentId AND " RESP_QSTN_COL " = :questionId");
-    update.bindValue(":studentId", response.getStudent());
-    update.bindValue(":questionId", response.getQuestion());
-    update.bindValue(":newPersonal", response.getPersonal());
-    update.bindValue(":newDesired", response.getDesired());
-    update.exec();
-
-    db.close();
-}
-
-void Storage::updateResponses(const QList<Response>& responses) {
-    db.open();
-
-    QSqlQuery update(db);
-    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :newPersonal, "
-                   RESP_DESR_ANSR_COL " = :newDesired "
-                   "WHERE " RESP_STU_COL " = :studentId AND " RESP_QSTN_COL " = :questionId");
-
-    QList<Response>::const_iterator it;
-    for(it = responses.begin(); it != responses.end(); ++it) {
-        const Response& resp = *it;
-
-        update.bindValue(":studentId", resp.getStudent());
-        update.bindValue(":questionId", resp.getQuestion());
-        update.bindValue(":newPersonal", resp.getPersonal());
-        update.bindValue(":newDesired", resp.getPersonal());
-        update.exec();
-    }
-
-    db.close();
-}
-
-bool Storage::validUser(QString& idStr, User** user) {
-    return validUser(idStr.toInt(), user);
-}
-
-bool Storage::validUser(int id, User** user) {
-    db.open();
-
-    QSqlQuery select(db);
-    select.prepare("SELECT * FROM " USER_TABLE " WHERE " USER_ID_COL " = :id");
-    select.bindValue(":id", id);
-    select.exec();
-
-    if(select.first()) {
-        int id = select.value(USER_ID_COL).toInt();
-        User::Type type = (User::Type)select.value(USER_TYPE_COL).toInt();
-        QString name = (QString)select.value(USER_NAME_COL).toString();
-        *user = new User(id, type, new QString(name));
-
-        db.close();
-        return true;
-    }
-    db.close();
-    return false;
-}
-
-void Storage::getProjects(QList<Project>** projects) {
-    *projects = new QList<Project>;
-    db.open();
-
-    QSqlQuery select = db.exec("SELECT * FROM " PRO_TABLE);
-    while(select.next()) {
-        QString name = QString(select.value(PRO_NAME_COL).toString());
-        int min = select.value(PRO_MIN_GRP_COL).toInt();
-        int max = select.value(PRO_MAX_GRP_COL).toInt();
-        (*projects)->append(Project(new QString(name), new GroupSize(min, max)));
-    }
-
-    db.close();
-}
-
-void Storage::getProjects(QList<QString>** enrolled, QList<QString>** available, User& student) {
-    *enrolled = new QList<QString>;
-    *available = new QList<QString>;
-    db.open();
-
-    QSqlQuery select(db);
-    select.prepare("SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
-    select.bindValue(":id", student.getId());
-    select.exec();
-
-    while(select.next()) {
-        QString project = QString(select.value(ENRL_PRO_COL).toString());
-        (*enrolled)->append(project);
-    }
-
-    select.prepare("SELECT " PRO_NAME_COL " FROM " PRO_TABLE " EXCEPT "
-                   "SELECT " ENRL_PRO_COL " FROM " ENRL_TABLE " WHERE " ENRL_STU_COL " = :id");
-    select.bindValue(":id", student.getId());
-    select.exec();
-
-    while(select.next()) {
-        QString project = QString(select.value(PRO_NAME_COL).toString());
-        (*available)->append(project);
-    }
-
-    db.close();
-}
-
-void Storage::getProjects(QList<Project>** projects, QString& name) {
-    *projects = new QList<Project>;
-    db.open();
-
-    QSqlQuery select(db);
-    select.prepare("SELECT * FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
-    select.bindValue(":name", name);
-    select.exec();
-
-    while(select.next()) {
-        QString name = QString(select.value(PRO_NAME_COL).toString());
-        int min = select.value(PRO_MIN_GRP_COL).toInt();
-        int max = select.value(PRO_MAX_GRP_COL).toInt();
-        (*projects)->append(Project(new QString(name), new GroupSize(min, max)));
-    }
-
-    db.close();
-}
-
-void Storage::getResponses(QList<Question>& questions, int stuId) {
-    db.open();
-
-    QSqlQuery selectQuestions(db);
-    QSqlQuery selectAnswer(db);
-    QSqlQuery selectResponses(db);
-
-    selectQuestions.prepare("SELECT * FROM " QSTN_TABLE);
-    selectAnswer.prepare("SELECT * FROM " ANSR_TABLE " WHERE " ANSR_QID_COL " = :questionId");
-    selectResponses.prepare("SELECT * FROM " RESP_TABLE " WHERE "
-                            RESP_STU_COL " = :studentId AND "
-                            RESP_QSTN_COL " = :questionId");
-    selectResponses.bindValue(":studentId", stuId);
-
-    selectQuestions.exec();
-    while(selectQuestions.next()) {
-        int questionId = selectQuestions.value(QSTN_ID_COL).toInt();
-
-        selectAnswer.bindValue(":questionId", questionId);
-        selectAnswer.exec();
-        QList<Answer>* answers = new QList<Answer>;
-        while(selectAnswer.next()) {
-            int answerId = selectAnswer.value(ANSR_ID_COL).toInt();
-            QString answerText = selectAnswer.value(ANSR_VAL_COL).toString();
-
-            answers->append(Answer(answerId, answerText));
-        }
-
-        selectResponses.bindValue(":questionId", questionId);
-        selectResponses.exec();
-        QList<Response>* responses = new QList<Response>;
-        while(selectResponses.next()) {
-            int personal = selectResponses.value(RESP_PSNL_ANSR_COL).toInt();
-            int desired = selectResponses.value(RESP_DESR_ANSR_COL).toInt();
-
-            responses->append(Response(stuId, questionId, personal, desired));
-        }
-
-        QString personal = selectQuestions.value(QSTN_PSNL_COL).toString();
-        QString desired = selectQuestions.value(QSTN_DESR_COL).toString();
-        QString category = selectQuestions.value(QSTN_CAT_COL).toString();
-
-        questions.append(Question(questionId, personal, desired, category, answers, responses));
-    }
-
-    db.close();
 }

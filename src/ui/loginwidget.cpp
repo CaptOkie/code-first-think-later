@@ -20,7 +20,7 @@ void LoginWidget::attemptLogin()
 {
     QString input = ui->idInput->text();
     User* user = 0;
-    if(db.validUser(input, &user)) {
+    if(db.getUser(input.toInt(), &user)) {
         emit loggedIn(user);
     }
 }
