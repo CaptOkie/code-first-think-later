@@ -6,6 +6,7 @@ CaptOkie:
 6 Hours: Improved main window, refactored login, added project details editting, added student home.
 4 Hours: Created project and group size objects, added quit keyboard shortcut, added logout ability.
 10 Hours: Hooked up the home pages. Started work on student profile dialog. Refactoring. New Entity objects.
+1 Hour: Group Meeting - algorithm details
 2 Hours: Finished the profile dialog mockup.
 4 Hours: Commenting, profile dialog tweaks.
 7 Hours: Finishing touches!
@@ -18,6 +19,7 @@ TheBakedPotato:
 6 Hours: Added user login through DB, refactored DB
 4 Hours: Refactored login process
 9 Hours: Refactored database, and related classes. Added new tables. Implemented new database operations.
+1 Hour: Group Meeting - algorithm details
 3 Hours: Database updates/additions.
 7 Hours: Finishing touches!
 
@@ -27,6 +29,7 @@ ViLLiELdR:
 1 Hour: Worked on some UI
 2 Hours: Group meeting: Work on Algorithm design
 8 Hours: Worked on Algorithm Design Doc, including References.
+1 Hour: Group Meeting - algorithm details
 3 Hours: Worked on Algorithm Design Doc - finished all Qualifications.
 2 Hours: Finished up document minus some rules
 5 Hours: Diagrams, formatting, descriptions, details, traceability
