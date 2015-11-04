@@ -564,12 +564,19 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 		RC-03 & Percent-Match & Rules in this category handle converting responses to a percentage value.\\
 		RC-04 & Percent-Total & Rules in this category convert a collection of response percentage values to a Total Match Percent.\\
 		RC-05 & Personal & Rules in this category handle Personal Values. \\
+		
+	\end{tabu}
+\end{table}
+
+\begin{center}
+\begin{tabu} to \textwidth {>{\bf}l >{\it}l X}
+	    \tableheader{}Identifier & Name & Description\\
 		RC-06 & Desired & Rules in this category handle Desired Values.\\
 		RC-07 & Part 1 & Rules in this category are a part of the individual Percent-Match component of the algorithm.\\
 		RC-08 & Part 2 & Rules in this category are a part of the Group-Matching component of the algorithm.\\
 		RC-09 & Special Cases & Rules in this category deal with special cases in the algorithm.\\
-	\end{tabu}
-\end{table}
+\end{tabu}
+\end{center}
 
 \tableref{or} is a table that contains all the different rules used to manipulate the raw results of the qualifications into values that we can actually make use of. Alongside the unique ID for each, you will also notice that there is a column for the categories that the rule in question is a part of. Frequently, rules are part of several different categories. There are two major sections within the different types of rules: rules that apply to responses and generates the percent-compatibility with another specified individual ({\bf R-01} to {\bf R-13}), and rules that build the teams based on those percent-compatibilities ({\bf R-14} to {\bf }).
 
@@ -585,19 +592,18 @@ The following table, \tableref{rc}, outlines and describes all the different pos
 		R-06 & RC-01, RC-03, RC-05, RC-06, RC-07 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 25\%\\
 		R-07 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response matching the desired Response is given a Match Percent of 100\%.\\
 		R-08 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is directly to the left or to the right of the desired Response is given a Match Percent of 80\%\\
-		R-09 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 60\%\\
-		R-10 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 40\%\\
-		R-11 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is four places to the left or to the right of the desired Response is given a Match Percent of 20\%\\
-		R-12 & RC-04, R-07 & A Student's degree of match to another Student is calculated via averaging all the Match Percents found. \\
-		R-13 & RC-07 & The final Match Percentage between two Students is calculated by averaging each Student's Match Percent with each other's.\\
-		R-14 & RC-08 & A Student is compared to every other Student using R-03 to R-13 and the final Match Percentages are stored.\\
-		
 	\end{tabu}
 \end{table}
 
 \begin{center}
     \begin{tabu} to \textwidth {>{\bf}l >{\it}p{2.75cm} X}
 	    \tableheader{}Identifier & Categories & Description\\
+		R-09 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is two places to the left or to the right of the desired Response is given a Match Percent of 60\%\\
+		R-10 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is three places to the left or to the right of the desired Response is given a Match Percent of 40\%\\
+		R-11 & RC-02, RC-03, RC-05, RC-06, RC-07 & A Response that is four places to the left or to the right of the desired Response is given a Match Percent of 20\%\\
+		R-12 & RC-04, R-07 & A Student's degree of match to another Student is calculated via averaging all the Match Percents found. \\
+		R-13 & RC-07 & The final Match Percentage between two Students is calculated by averaging each Student's Match Percent with each other's.\\
+		R-14 & RC-08 & A Student is compared to every other Student using R-03 to R-13 and the final Match Percentages are stored.\\
 		R-15 & RC-08 & If R-14 is run successfully, the two best matches for every Student is kept.\\
 		R-16 & RC-08 & If R-15 is run successfully, out of all Students, the worst match percent is found.\\
 		R-17 & RC-08 & If R-16 is run successfully, the Student that has the worst match is then rematched with their best match using R-03 to R-13.\\
