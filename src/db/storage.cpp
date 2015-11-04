@@ -104,12 +104,10 @@ void Storage::setupDB() {
             "PRIMARY KEY (" RESP_STU_COL " , " RESP_QSTN_COL "))");
 
 #ifdef DEBUG
+    QList<int> users;
+    QList<int> projects;
+
     // Populating database for testing
-    // Adding Admins
-    db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
-            "VALUES ('Gandalf the Grey', 1), ('Ad Min', 1)");
-
-
     // Adding Students
     db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
             "VALUES "
@@ -118,75 +116,249 @@ void Storage::setupDB() {
             "('Timothy Burr', 0), ('Luke Skywalker', 0), ('Tony Stark', 0), ('Natasha Romanova', 0), ('Steve Rogers', 0), "
             "('Pepper Roni', 0), ('The Brickster', 0), ('Woody', 0), ('Buzz Lightyear', 0), ('Matt Murdock', 0), "
             "('He-Man', 0), ('Optimus Prime', 0), ('Gordon Freeman', 0), ('Jeff Goldblum', 0), ('Obi-Wan Kenobi', 0)");
+    QSqlQuery query = db.exec("SELECT " USER_ID_COL " FROM " USER_TABLE);
+    while(query.next()) {
+        users.append(query.value(USER_ID_COL).toInt());
+    }
+
+    // Adding Admins
+    db.exec("INSERT INTO " USER_TABLE " (" USER_NAME_COL " , " USER_TYPE_COL ") "
+            "VALUES ('Gandalf the Grey', 1), ('Ad Min', 1)");
 
     // Adding projects
     db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-            "VALUES ('pro_1', 5, 4)");
+            "VALUES ('Super Duper Router 3000', 5, 4), ('Hacking Time', 7, 4), ('HAL', 3, 2)");
 
-    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-            "VALUES ('pro_2', 7, 4)");
+    QList<Question> questions;
+    QList<Answer>* answers = new QList<Answer>();
 
-    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL " , " PRO_MAX_GRP_COL " , " PRO_MIN_GRP_COL ") "
-            "VALUES ('pro_3', 3, 2)");
+    answers->append(Answer(1, "D- to D+"));
+    answers->append(Answer(2, "C- to C+"));
+    answers->append(Answer(3, "B- to B+"));
+    answers->append(Answer(4, "A- to A+"));
+    questions.append(Question(0,
+                              "What grade did you receive in COMP 2401?",
+                              "What grade would you like your partners to have received in COMP 2401?",
+                              "Skills",
+                              answers,
+                              new QList<Response>));
 
-    // Adding student enrollment
-    db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL " , " ENRL_PRO_COL ") "
-            "VALUES (7, 'pro_1'), (7, 'pro_3'), (20, 'pro_1'), (20, 'pro_2'), (20, 'pro_3')");
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "D- to D+"));
+    answers->append(Answer(2, "C- to C+"));
+    answers->append(Answer(3, "B- to B+"));
+    answers->append(Answer(4, "A- to A+"));
+    questions.append(Question(0,
+                              "What grade did you receive in COMP 2404?",
+                              "What grade would you like your partners to have received in COMP 2404?",
+                              "Skills",
+                              answers,
+                              new QList<Response>));
 
-    // Adding questions
-    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
-            "VALUES ('What grade did you receive in COMP 2401?', "
-            "'What grade would like partners to have received in 2401?', "
-            "'Skills')");
-    // Adding answers
-    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL " , " ANSR_ID_COL " , " ANSR_VAL_COL ") "
-            "VALUES (1, 1, 'D- to D+'), (1, 2, 'C- to C+'), (1, 3, 'B- to B+'), (1, 4, 'A- to A+')");
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "Very uncomfortable/zero confidence."));
+    answers->append(Answer(2, "Uncomfortable/low confidence."));
+    answers->append(Answer(3, "It's okay, I guess."));
+    answers->append(Answer(4, "I enjoy writing!"));
+    answers->append(Answer(5, "I'm very comfortable/confident."));
+    questions.append(Question(0,
+                              "How confident and/or comfortable are you in report writing?",
+                              "How confident and/or comfortable would you like your partners to be in report writing?",
+                              "Skills",
+                              answers,
+                              new QList<Response>));
 
-    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
-            "VALUES ('How comfortable are you in the seat of power?', "
-            "'How comfortable would you like your partners to be in the seat of power?', "
-            "'Leadership')");
-    // Adding answers
-    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL " , " ANSR_ID_COL " , " ANSR_VAL_COL") "
-            "VALUES "
-            "(2, 1, 'Baa. I am a sheep. Without a herder, I am lost.'), "
-            "(2, 2, 'I panic when people depend on me'), "
-            "(2, 3, 'I can handle it if I have to.'), "
-            "(2, 4, 'I am pretty happy taking charge of the situation.'), "
-            "(2, 5, 'DANCE FOR ME, MY PUPPETS, DANCE!.')");
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "I cannot debug."));
+    answers->append(Answer(2, "I have a lot of trouble with debugging."));
+    answers->append(Answer(3, "I can usually figure things out eventually."));
+    answers->append(Answer(4, "I have a fair idea of where the bugs usually happen so I'm pretty fast at debugging!"));
+    answers->append(Answer(5, "I'm very good at debugging software."));
+    questions.append(Question(0,
+                              "How proficient are you at software debugging?",
+                              "How proficient would you like your partners to be at debugging?",
+                              "Skills",
+                              answers,
+                              new QList<Response>));
 
-    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
-            "VALUES ('Rate your tendency to procrastinate work?', "
-            "'What would you like the tendency for procrastination of your partners to be?', "
-            "'Personality')");
-    // Adding answers
-    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL" , " ANSR_ID_COL " , " ANSR_VAL_COL") "
-            "VALUES "
-            "(3, 1, 'Eh, I will finish answering this tomorrow...'), "
-            "(3, 2, 'If there is an entire week now, I see no reason to start now.'), "
-            "(3, 3, 'Sometimes it happens, sometimes I start early. Depends on my mood.'), "
-            "(3, 4, 'I prefer starting earlier rather than later.'), "
-            "(3, 5, 'New assignment today? Please, I finished that yesterday.')");
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "I am very uncomfortabl with power."));
+    answers->append(Answer(2, "I dislike having power."));
+    answers->append(Answer(3, "I can handle it if I have to."));
+    answers->append(Answer(4, "I'm pretty happy taking charge of situations."));
+    answers->append(Answer(5, "I am very comfortable with having power."));
+    questions.append(Question(0,
+                              "How comfortable are you in the seat of power?",
+                              "How comfortable would you like your partners to be in the seat of power?",
+                              "Leadership",
+                              answers,
+                              new QList<Response>));
 
-    db.exec("INSERT INTO " QSTN_TABLE " (" QSTN_PSNL_COL " , " QSTN_DESR_COL " , " QSTN_CAT_COL ") "
-            "VALUES ('During a typical day, what is your preferred working time?', "
-            "'When would you like your partnets to prefer working on a typical day?', "
-            "'Availability')");
-    // Adding answers
-    db.exec("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL" , " ANSR_ID_COL " , " ANSR_VAL_COL") "
-            "VALUES "
-            "(4, 1, 'I am a vampire. The sunlight BURNS me (11 PM or later).'), "
-            "(4, 2, 'A bit of a night owl (7 PM)'), "
-            "(4, 3, 'Around the afternoon is usually good (1 PM or later).'), "
-            "(4, 4, 'A bit of an early bird (9 AM).'), "
-            "(4, 5, 'At the break of dawn, or earlier, of course! (6 AM or so).')");
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "Extrememely unorganized."));
+    answers->append(Answer(2, "Unorganized."));
+    answers->append(Answer(3, "I have a pretty good idea of where everything is."));
+    answers->append(Answer(4, "Organized."));
+    answers->append(Answer(5, "Extremely well organized."));
+    questions.append(Question(0,
+                              "Rate your level of organization.",
+                              "Rate the level of organization you would like your partners to have?",
+                              "Leadership",
+                              answers,
+                              new QList<Response>));
 
-    // Adding student response
-    db.exec("INSERT INTO " RESP_TABLE
-            " (" RESP_STU_COL " , " RESP_QSTN_COL " , " RESP_PSNL_ANSR_COL " , " RESP_DESR_ANSR_COL ") "
-            "VALUES "
-            "(3, 1, 1, 2), (3, 2, 2, 3), (3, 3, 3, 1), (3, 4, 4, 1), "
-            "(4, 1, 5, 4), (4, 2, 3, 4), (4, 3, 1, 5), (4, 4, 3, 2)");
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "Very uncomfortable."));
+    answers->append(Answer(2, "Uncomfortable."));
+    answers->append(Answer(3, "I don't really mind making decisions if I have to."));
+    answers->append(Answer(4, "I am pretty comfortable with making tough decisions."));
+    answers->append(Answer(5, "I am very comfortable making tough decisions."));
+    questions.append(Question(0,
+                              "Rate your comfortability in making big, important decisions.",
+                              "Rate how comfortable you would like your partners to be at making big, important decisions.",
+                              "Leadership",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "I will not step up and take the initiative."));
+    answers->append(Answer(2, "I dislike taking charge."));
+    answers->append(Answer(3, "If no one else wants to, I have no problem taking charge."));
+    answers->append(Answer(4, "I like stepping up and taking charge."));
+    answers->append(Answer(5, "I love stepping up and taking charge."));
+    questions.append(Question(0,
+                              "How willing are you to step up to the plate and take the initiative?",
+                              "How willing should your partners be to step up to the plate to take the initiative?",
+                              "Leadership",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "I always procrastinate to the last minute."));
+    answers->append(Answer(2, "I have a tendency to procrastinate."));
+    answers->append(Answer(3, "Sometimes it happens, sometimes I start early. Depends on my mood."));
+    answers->append(Answer(4, "I prefer starting earlier rather than later."));
+    answers->append(Answer(5, "I never procrastinate."));
+    questions.append(Question(0,
+                              "Rate your tendency to procrastinate to the last minute.",
+                              "Rate the tendency you would like for your group members to procrastinate to the last minute.",
+                              "Personality",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "I will never start talking with relative strangers."));
+    answers->append(Answer(2, "I feel uneasy around strangers."));
+    answers->append(Answer(3, "If the look approachable, I might say hello."));
+    answers->append(Answer(4, "I enjoy speaking with strangers."));
+    answers->append(Answer(5, "I will always start talking with random strangers."));
+    questions.append(Question(0,
+                              "Rate your tendency to start/begin discussions with relative strangers.",
+                              "Rate the tendency you would like your partners to start/begin discussions with relative strnagers.",
+                              "Personality",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "I start everything at once and distribute my time across everything evenly."));
+    answers->append(Answer(2, "I try to do a bit of everything, but I tend to get excited/focused on one part and finish it completely."));
+    answers->append(Answer(3, "I try to do things one at a time, but usually end up starting multiple things anyways."));
+    answers->append(Answer(4, "I focus on one thing at a time until it's finished."));
+    questions.append(Question(0,
+                              "When working on large scale projects, what is your preferred way of working?",
+                              "How would you like your partners to prefer working on large scale projects?",
+                              "Personality",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "I don't usually show up to meetings."));
+    answers->append(Answer(2, "Considerably late."));
+    answers->append(Answer(3, "About on time - perhaps a few minutes either way."));
+    answers->append(Answer(4, "Several minutes early."));
+    answers->append(Answer(5, "More than 15 minutes early."));
+    questions.append(Question(0,
+                              "If you have a meeting tomorrow, what time would you usually arrive?",
+                              "If you have a meeting tomorrow, what time would you like your partners to arrive?",
+                              "Personality",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "Very late at night."));
+    answers->append(Answer(2, "During the evening."));
+    answers->append(Answer(3, "During the afternoon."));
+    answers->append(Answer(4, "During the morning."));
+    answers->append(Answer(5, "Very early in the morning."));
+    questions.append(Question(0,
+                              "During a typical day, what it your preferred working time?",
+                              "What would you like your partner's preferred working times to be?",
+                              "Availability",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "Never."));
+    answers->append(Answer(2, "Weekends only."));
+    answers->append(Answer(3, "Some weekdays only."));
+    answers->append(Answer(4, "Any day of the week, but not the weekends."));
+    answers->append(Answer(5, "Everyday is a good day."));
+    questions.append(Question(0,
+                              "Based on your current schedule, what days are you usually available?",
+                              "What days would you like your partners to be available?",
+                              "Availability",
+                              answers,
+                              new QList<Response>));
+
+    answers = new QList<Answer>();
+    answers->append(Answer(1, "Phone calls."));
+    answers->append(Answer(2, "Text messages."));
+    answers->append(Answer(3, "Emails."));
+    answers->append(Answer(4, "Forums."));
+    questions.append(Question(0,
+                              "Based on how often you check, what is your preferred mode of communication?",
+                              "What would you like your partners' preferred mode of communication to be?",
+                              "Availability",
+                              answers,
+                              new QList<Response>));
+
+    query.prepare("INSERT INTO " QSTN_TABLE " (" QSTN_DESR_COL ", " QSTN_PSNL_COL ", " QSTN_CAT_COL ") VALUES "
+                  "(:desr, :pern, :catg)");
+    for (QList<Question>::const_iterator it = questions.begin(); it != questions.end(); ++it) {
+        const Question& question = *it;
+        query.bindValue(":desr", question.getDesired());
+        query.bindValue(":pern", question.getPersonal());
+        query.bindValue(":catg", question.getCategory());
+        query.exec();
+
+        int id = query.lastInsertId().toInt();
+        QSqlQuery insert(db);
+        insert.prepare("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL ", " ANSR_ID_COL ", " ANSR_VAL_COL ") VALUES "
+                       "(:qid, :id, :val)");
+        insert.bindValue(":qid", id);
+        for (QList<Answer>::const_iterator it2 = question.getAnswers().begin(); it2 != question.getAnswers().end(); ++it2) {
+            const Answer& answer = *it2;
+            insert.bindValue(":id", answer.getId());
+            insert.bindValue(":val", answer.getValue());
+            insert.exec();
+        }
+
+        int low = question.getAnswers().first().getId();
+        int high = question.getAnswers().last().getId();
+        insert.prepare("INSERT INTO " RESP_TABLE " (" RESP_STU_COL ", " RESP_QSTN_COL ", " RESP_PSNL_ANSR_COL ", " RESP_DESR_ANSR_COL ") "
+                       " VALUES (:stu, :ques, :pern, :desr)");
+        insert.bindValue(":ques", id);
+        for (QList<int>::const_iterator it2 = users.begin(); it2 != users.end(); ++it2) {
+            const int& student = *it2;
+            int pern = qrand() % ((high + 1) - low) + low;
+            int desr = qrand() % ((high + 1) - low) + low;
+
+            insert.bindValue(":stu", student);
+            insert.bindValue(":pern", pern);
+            insert.bindValue(":desr", desr);
+            insert.exec();
+        }
+    }
 #endif
 
     db.close();
