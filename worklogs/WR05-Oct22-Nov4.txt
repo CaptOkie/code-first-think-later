@@ -10,6 +10,7 @@ CaptOkie:
 2 Hours: Finished the profile dialog mockup.
 4 Hours: Commenting, profile dialog tweaks.
 7 Hours: Finishing touches!
+46 Hours
 
 TheBakedPotato:
 2 Hours: Group metting
@@ -22,6 +23,7 @@ TheBakedPotato:
 1 Hour: Group Meeting - algorithm details
 3 Hours: Database updates/additions.
 7 Hours: Finishing touches!
+42 Hours
 
 ViLLiELdR:
 2 Hours: Group metting
@@ -33,3 +35,4 @@ ViLLiELdR:
 3 Hours: Worked on Algorithm Design Doc - finished all Qualifications.
 2 Hours: Finished up document minus some rules
 5 Hours: Diagrams, formatting, descriptions, details, traceability
+26 Hours
