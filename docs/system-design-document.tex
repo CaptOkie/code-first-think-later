@@ -45,6 +45,48 @@
 \newcommand{\tableref}[1]{\textbf{Table \ref{table:#1}}}
 %% END TABLE COMMANDS
 
+%% NODE COMMANDS
+\newcounter{nodenum}
+\renewcommand{\thenodenum}{\twodigits{nodenum}}
+\newcommand{\nlabel}[1]{\refstepcounter{nodenum}\label{n:#1}}
+\newcommand{\nref}[1]{\textbf{N-\ref{n:#1}}}
+%% END NODE COMMANDS
+
+%% SUBSYSTEM COMMANDS
+\newcounter{subsystemnum}
+\renewcommand{\thesubsystemnum}{\twodigits{subsystemnum}}
+\newcommand{\sdlabel}[1]{\refstepcounter{subsystemnum}\label{sd:#1}}
+\newcommand{\sdref}[1]{\textbf{SD-\ref{sd:#1}}}
+%% END SUBSYSTEM COMMANDS
+
+%% CLASS DIAGRAM COMMANDS
+\newcounter{classdiagramnum}
+\renewcommand{\theclassdiagramnum}{\twodigits{classdiagramnum}}
+\newcommand{\cdlabel}[1]{\refstepcounter{classdiagramnum}\label{cd:#1}}
+\newcommand{\cdref}[1]{\textbf{CD-\ref{cd:#1}}}
+%% END CLASS DIAGRAM COMMANDS
+
+%% DESIGN PATTERNS COMMANDS
+\newcounter{designpatternnum}
+\renewcommand{\thedesignpatternnum}{\twodigits{designpatternnum}}
+\newcommand{\dplabel}[1]{\refstepcounter{designpatternnum}\label{dp:#1}}
+\newcommand{\dpref}[1]{\textbf{DP-\ref{dp:#1}}}
+%% END DESIGN PATTERNS COMMANDS
+
+%% SERVICES COMMANDS
+\newcounter{servicenum}
+\renewcommand{\theservicenum}{\twodigits{servicenum}}
+\newcommand{\sslabel}[1]{\refstepcounter{servicenum}\label{ss:#1}}
+\newcommand{\ssref}[1]{\textbf{SS-\ref{ss:#1}}}
+%% END SERVICES COMMANDS
+
+%% OPERATIONS COMMANDS
+\newcounter{operationnum}
+\renewcommand{\theoperationnum}{\twodigits{operationnum}}
+\newcommand{\oplabel}[1]{\refstepcounter{operationnum}\label{op:#1}}
+\newcommand{\opref}[1]{\textbf{OP-\ref{op:#1}}}
+%% END OPERATIONS COMMANDS
+
 % TABLE STYLING
 \everyrow{\hline}
 \tabulinesep=0.5em
@@ -138,11 +180,22 @@ Beginning with a full decomposition of our prototype, we will then show a modifi
 	\includegraphics[scale=0.6]{imgs/d3/class-diagram-decomp.png}
 \end{center}
 \subsection{Design Evolution}
+\subsubsection{Prototype Design Decisions}
+\subsubsection{Updated Design Decisions}
 \section{Design Strategies}
 \subsection{Hardware/Software Mapping}
+\subsubsection{Overview}
+\subsubsection{Reasoning}
 \subsection{Persistent Data Management}
+\subsubsection{Overview}
+\subsubsection{Reasoning}
 \subsection{Design Patterns}
+\subsubsection{Overview}
+\subsubsection{Reasoning}
 \section{Subsystem Services}
+\subsection{Overview}
+\subsection{Services}
+\subsection{Operations}
 \section{Class Interfaces}
 
 \end{document}
