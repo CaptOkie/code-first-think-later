@@ -171,18 +171,30 @@ Beginning with a full decomposition of our prototype, we will then show a modifi
 \end{center}
 
 \section{Subsystem Decomposition}
+
+This section will be three-pronged - firstly, we will decompose the current working prototype into its corresponding set of logical subsystem. Following, we will introduce a more complete system decomposition, wherein we will include aspects that are not yet implemented in the current cuPID prototype. Also in this part, we will possibly modify existing subsystmes from the prototype to promote a higher degree of cohesion and minimal coupling. Finally, we will discuss the changes that we have decided on and how they impact the software as a whole. 
+
 \subsection{Phase 1 Prototype Decomposition}
-\begin{center}
+\begin{figure}[H]
+	\centering{}
 	\includegraphics[scale=0.55]{imgs/d3/class-diagram-prototype.png}
-\end{center}
+	\caption{Subsystem Decomposition (Prototype)}
+	\figurelabel{proto-decomp}
+\end{figure}
 \subsection{System Decomposition}
-\begin{center}
+\begin{figure}[H]
+	\centering{}
 	\includegraphics[scale=0.6]{imgs/d3/class-diagram-decomp.png}
-\end{center}
+	\caption{Subsystem Decomposition}
+	\figurelabel{subsys-decomp}
+\end{figure}
 \subsection{Design Evolution}
 \subsubsection{Prototype Design Decisions}
 \subsubsection{Updated Design Decisions}
 \section{Design Strategies}
+
+Similar to the previous section, this section is also divided into three major parts: architectural style, persistent data management, and design patterns. In the first part, we will describe our chosen architectural style and explain the benefits to using this particular style with regards to our system. We will also include UML deployment diagrams as a visual representation of the architecture of our software. Following this part, we will discuss our design choices with regards to our persistent data management. We will also be covering some particular cases here, such as duplicate records. Finally, we will discuss the our chosen design patterns and why they are appropriate given our decisions form the other parts in this section.
+
 \subsection{Hardware/Software Mapping}
 \subsubsection{Overview}
 \subsubsection{Reasoning}
