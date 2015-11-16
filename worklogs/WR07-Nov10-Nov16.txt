@@ -1,0 +1,10 @@
+CaptOkie:
+2 Hours: Group meeting
+4 Hours: Finished prototype class diagram
+
+TheBakedPotato:
+2 Hours: Group meeting
+4 Hours: Worked on final class diagram
+
+ViLLiELdR:
+2 Hours: Group meeting
