@@ -207,7 +207,27 @@ Similar to the previous section, this section is also divided into three major p
 \section{Subsystem Services}
 \subsection{Overview}
 \subsection{Services}
+
+\begin{table}[H]
+\caption{Services Offered by Subsystem X} \tablelabel{service-sub-x}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service1}\ssref{service1} & service1 & desc\\
+	\sslabel{service2}\ssref{service2} & service2 & desc\\
+\end{tabu}
+\end{table}
+
 \subsection{Operations}
+
+\begin{table}[H]
+\caption{Operations Offered in Service1 (\ssref{service1})} \tablelabel{operation-service1}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\sslabel{service1}\ssref{service1} & service1 & classA & desc\\
+	\sslabel{service2}\ssref{service2} & service2 & classB & desc\\
+\end{tabu}
+\end{table}
+
 \section{Class Interfaces}
 
 \end{document}
