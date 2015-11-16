@@ -106,7 +106,17 @@
 
 \section{Introduction}
 
+\subsection{Purpose of System}
+
+Team projects are intrinsically part of every student's academic life at some point or another. Many become resigned to losing the marks due to poor compatbility with assigned team members. This system has been designed to alleviate some of that pain by removing both the random factor and human error with regards to an educator's decision. Our system employs a special sorting algorithm that we have developed that combines psychological knowledge and research with computational reliability.
+
+ Loosely speaking, the purpose of this system is to sort a group or class of people into groups of a specified size. However, more than just sorting people, our software takes into account a total of fifteen different characteristics of a person to determine the most optimal team that is based on more than just academic achievement. Here at [Code First, Think Later], we strongly believe that smart people don't have to like another smart person simply because they're smart.
+
 \subsection{Overview of Document}
+
+This report will provide an updated overview of various design decisions with regards to our system. This new system aims to correct all the shortcomings of the previous prototype, as well as smooth out several other issues that we encountered during the coding of the prototype. Futhermore, at this stage of development, it is time to revise and reorganize our prototype in such a way that it adheres more closely with both a reliable architectural style and appropriate design styles. 
+
+Beginning with a full decomposition of our prototype, we will then show a modified decomposition wherein poor design choices have been fixed. Following these decompositions, our report will feature our chosen strategies with regards to architectural and design styles. We will also be covering the details of our persistent storage system in this section. Afterwards, we will revisit the subsystems that we have decomposed in the first section and provide a detailed set of descriptions as to what services each offers in the grand scheme of things. Finally, we will end the report with a UML style set of class diagrams for each class.
 
 \vspace{1em}
 
@@ -120,7 +130,13 @@
 
 \section{Subsystem Decomposition}
 \subsection{Phase 1 Prototype Decomposition}
+\begin{center}
+	\includegraphics[scale=0.55]{imgs/d3/class-diagram-prototype.png}
+\end{center}
 \subsection{System Decomposition}
+\begin{center}
+	\includegraphics[scale=0.6]{imgs/d3/class-diagram-decomp.png}
+\end{center}
 \subsection{Design Evolution}
 \section{Design Strategies}
 \subsection{Hardware/Software Mapping}
