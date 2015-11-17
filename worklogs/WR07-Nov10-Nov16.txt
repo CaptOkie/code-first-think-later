@@ -8,3 +8,4 @@ TheBakedPotato:
 
 ViLLiELdR:
 2 Hours: Group meeting
+2 Hour: Wrote out the introduction section
