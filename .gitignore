@@ -36,6 +36,7 @@
 *.toc
 docs/algorithm-design.pdf
 docs/main.pdf
+docs/system-design-document.pdf
 
 # Qt Creator
 build/

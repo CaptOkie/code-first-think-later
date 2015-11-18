@@ -3,36 +3,36 @@
 
 // Table names and columns
 // Student table
-#define USER_TABLE    "users"
-#define USER_ID_COL   "id"
+#define USER_TABLE    "users"   // Table name
+#define USER_ID_COL   "id"      // Primary Key
 #define USER_NAME_COL "name"
 #define USER_TYPE_COL "type"
 // Project table
-#define PRO_TABLE       "projects"
-#define PRO_NAME_COL    "name"
+#define PRO_TABLE       "projects"      // Table name
+#define PRO_NAME_COL    "name"          // Primary Key
 #define PRO_MAX_GRP_COL "max_grp_size"
 #define PRO_MIN_GRP_COL "min_grp_size"
 // Enrollment Table
-#define ENRL_TABLE   "enrollment"
-#define ENRL_STU_COL "stu_id"
-#define ENRL_PRO_COL "project_name"
+#define ENRL_TABLE   "enrollment"   // Table name
+#define ENRL_STU_COL "stu_id"       // Primary Key  // References USER_ID_COL
+#define ENRL_PRO_COL "project_name" // Primary Key  // References PRO_NAME_COL
 // Questions table
-#define QSTN_TABLE    "questions"
-#define QSTN_ID_COL   "id"
+#define QSTN_TABLE    "questions"   // Table name   
+#define QSTN_ID_COL   "id"          // Primary Key
 #define QSTN_DESR_COL "desired"
 #define QSTN_PSNL_COL "personal"
 #define QSTN_CAT_COL  "category"
 // Answers table
-#define ANSR_TABLE   "answers"
-#define ANSR_ID_COL  "id"
-#define ANSR_QID_COL "question_id"
+#define ANSR_TABLE   "answers"      // Table name
+#define ANSR_ID_COL  "id"           // Primary Key
+#define ANSR_QID_COL "question_id"  // Primary Key  // References QSTN_ID_COL
 #define ANSR_VAL_COL "answer"
 // Student's response table
-#define RESP_TABLE         "responses"
-#define RESP_STU_COL       "student_id"
-#define RESP_QSTN_COL      "question_id"
-#define RESP_DESR_ANSR_COL "desired_answer_id"
-#define RESP_PSNL_ANSR_COL "personal_answer_id"
+#define RESP_TABLE         "responses"          // Table name
+#define RESP_STU_COL       "student_id"         // Primary Key  // References USER_ID_COL
+#define RESP_QSTN_COL      "question_id"        // Primary Key  // References ANSR_QID_COL
+#define RESP_DESR_ANSR_COL "desired_answer_id"                  // References ANSR_VAL_COL
+#define RESP_PSNL_ANSR_COL "personal_answer_id"                 // References ANSR_VAL_COL
 
 //#define DEBUG
 

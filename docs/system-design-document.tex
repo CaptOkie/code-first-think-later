@@ -198,12 +198,14 @@ Similar to the previous section, this section is also divided into three major p
 \subsection{Hardware/Software Mapping}
 \subsubsection{Overview}
 
-Our system revolves heavily upon a central storage, or respository. Other than the repository, we make use of several subsystems. Simply with this in mind, we can instantly rule out the {\it pipe and filter} achitectural style - while we do indeed have subsystems (filters) that associate with each other (pipes), our subsystems are fairly dependent on one another. Furthermor, our subsystems are responsible for more than simply processing a set of inputs to get a set of outputs. 
+Our system revolves heavily upon a central storage, or repository. Other than the repository, we make use of several subsystems. Simply with this in mind, we can instantly rule out the {\it pipe and filter} architectural style - while we do indeed have subsystems (filters) that associate with each other (pipes), our subsystems are fairly dependent on one another. Furthermore, our subsystems are responsible for more than simply processing a set of inputs to get a set of outputs. 
 
 We can also rule out the four-tier architectural style right away - our system is entirely local, thus a separate client and server layer are unnecessary. We use a login-type system, and the UI is common to any user that logs in. The only difference would be that the displayed information changes, as well as some usability. That said, this type of functionality would best fit as multiple partitions within a layer. As a result, the difference in the student and admin users should be as sister partitions within the same layer.
 
 \subsubsection{Reasoning}
 \subsection{Persistent Data Management}
+To store the data for our system, a relational database is being used. The relational database used is SQLite. In the database, multiple tables are used to store related information together, such as a 
+
 \subsubsection{Overview}
 \subsubsection{Reasoning}
 \subsection{Design Patterns}
