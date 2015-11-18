@@ -45,6 +45,48 @@
 \newcommand{\tableref}[1]{\textbf{Table \ref{table:#1}}}
 %% END TABLE COMMANDS
 
+%% NODE COMMANDS
+\newcounter{nodenum}
+\renewcommand{\thenodenum}{\twodigits{nodenum}}
+\newcommand{\nlabel}[1]{\refstepcounter{nodenum}\label{n:#1}}
+\newcommand{\nref}[1]{\textbf{N-\ref{n:#1}}}
+%% END NODE COMMANDS
+
+%% SUBSYSTEM COMMANDS
+\newcounter{subsystemnum}
+\renewcommand{\thesubsystemnum}{\twodigits{subsystemnum}}
+\newcommand{\sdlabel}[1]{\refstepcounter{subsystemnum}\label{sd:#1}}
+\newcommand{\sdref}[1]{\textbf{SD-\ref{sd:#1}}}
+%% END SUBSYSTEM COMMANDS
+
+%% CLASS DIAGRAM COMMANDS
+\newcounter{classdiagramnum}
+\renewcommand{\theclassdiagramnum}{\twodigits{classdiagramnum}}
+\newcommand{\cdlabel}[1]{\refstepcounter{classdiagramnum}\label{cd:#1}}
+\newcommand{\cdref}[1]{\textbf{CD-\ref{cd:#1}}}
+%% END CLASS DIAGRAM COMMANDS
+
+%% DESIGN PATTERNS COMMANDS
+\newcounter{designpatternnum}
+\renewcommand{\thedesignpatternnum}{\twodigits{designpatternnum}}
+\newcommand{\dplabel}[1]{\refstepcounter{designpatternnum}\label{dp:#1}}
+\newcommand{\dpref}[1]{\textbf{DP-\ref{dp:#1}}}
+%% END DESIGN PATTERNS COMMANDS
+
+%% SERVICES COMMANDS
+\newcounter{servicenum}
+\renewcommand{\theservicenum}{\twodigits{servicenum}}
+\newcommand{\sslabel}[1]{\refstepcounter{servicenum}\label{ss:#1}}
+\newcommand{\ssref}[1]{\textbf{SS-\ref{ss:#1}}}
+%% END SERVICES COMMANDS
+
+%% OPERATIONS COMMANDS
+\newcounter{operationnum}
+\renewcommand{\theoperationnum}{\twodigits{operationnum}}
+\newcommand{\oplabel}[1]{\refstepcounter{operationnum}\label{op:#1}}
+\newcommand{\opref}[1]{\textbf{OP-\ref{op:#1}}}
+%% END OPERATIONS COMMANDS
+
 % TABLE STYLING
 \everyrow{\hline}
 \tabulinesep=0.5em
@@ -106,7 +148,17 @@
 
 \section{Introduction}
 
+\subsection{Purpose of System}
+
+Team projects are intrinsically part of every student's academic life at some point or another. Many become resigned to losing the marks due to poor compatbility with assigned team members. This system has been designed to alleviate some of that pain by removing both the random factor and human error with regards to an educator's decision. Our system employs a special sorting algorithm that we have developed that combines psychological knowledge and research with computational reliability.
+
+ Loosely speaking, the purpose of this system is to sort a group or class of people into groups of a specified size. However, more than just sorting people, our software takes into account a total of fifteen different characteristics of a person to determine the most optimal team that is based on more than just academic achievement. Here at [Code First, Think Later], we strongly believe that smart people don't have to like another smart person simply because they're smart.
+
 \subsection{Overview of Document}
+
+This report will provide an updated overview of various design decisions with regards to our system. This new system aims to correct all the shortcomings of the previous prototype, as well as smooth out several other issues that we encountered during the coding of the prototype. Futhermore, at this stage of development, it is time to revise and reorganize our prototype in such a way that it adheres more closely with both a reliable architectural style and appropriate design styles. 
+
+Beginning with a full decomposition of our prototype, we will then show a modified decomposition wherein poor design choices have been fixed. Following these decompositions, our report will feature our chosen strategies with regards to architectural and design styles. We will also be covering the details of our persistent storage system in this section. Afterwards, we will revisit the subsystems that we have decomposed in the first section and provide a detailed set of descriptions as to what services each offers in the grand scheme of things. Finally, we will end the report with a UML style set of class diagrams for each class.
 
 \vspace{1em}
 
@@ -119,14 +171,91 @@
 \end{center}
 
 \section{Subsystem Decomposition}
+
+This section will be three-pronged - firstly, we will decompose the current working prototype into its corresponding set of logical subsystem. Following, we will introduce a more complete system decomposition, wherein we will include aspects that are not yet implemented in the current cuPID prototype. Also in this part, we will possibly modify existing subsystmes from the prototype to promote a higher degree of cohesion and minimal coupling. Finally, we will discuss the changes that we have decided on and how they impact the software as a whole. 
+
 \subsection{Phase 1 Prototype Decomposition}
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.55]{imgs/d3/class-diagram-prototype.png}
+	\caption{Subsystem Decomposition (Prototype)}
+	\figurelabel{proto-decomp}
+\end{figure}
 \subsection{System Decomposition}
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.6]{imgs/d3/class-diagram-decomp.png}
+	\caption{Subsystem Decomposition}
+	\figurelabel{subsys-decomp}
+\end{figure}
 \subsection{Design Evolution}
+\subsubsection{Prototype Design Decisions}
+\subsubsection{Updated Design Decisions}
 \section{Design Strategies}
+
+Similar to the previous section, this section is also divided into three major parts: architectural style, persistent data management, and design patterns. In the first part, we will describe our chosen architectural style and explain the benefits to using this particular style with regards to our system. We will also include UML deployment diagrams as a visual representation of the architecture of our software. Following this part, we will discuss our design choices with regards to our persistent data management. We will also be covering some particular cases here, such as duplicate records. Finally, we will discuss the our chosen design patterns and why they are appropriate given our decisions form the other parts in this section.
+
 \subsection{Hardware/Software Mapping}
+\subsubsection{Overview}
+
+Our system revolves heavily upon a central storage, or respository. Other than the repository, we make use of several subsystems. Simply with this in mind, we can instantly rule out the {\it pipe and filter} achitectural style - while we do indeed have subsystems (filters) that associate with each other (pipes), our subsystems are fairly dependent on one another. Furthermor, our subsystems are responsible for more than simply processing a set of inputs to get a set of outputs. 
+
+We can also rule out the four-tier architectural style right away - our system is entirely local, thus a separate client and server layer are unnecessary. We use a login-type system, and the UI is common to any user that logs in. The only difference would be that the displayed information changes, as well as some usability. That said, this type of functionality would best fit as multiple partitions within a layer. As a result, the difference in the student and admin users should be as sister partitions within the same layer.
+
+\subsubsection{Reasoning}
 \subsection{Persistent Data Management}
+\subsubsection{Overview}
+\subsubsection{Reasoning}
 \subsection{Design Patterns}
+\subsubsection{Overview}
+\subsubsection{Reasoning}
 \section{Subsystem Services}
+\subsection{Overview}
+\subsection{Services}
+
+\begin{table}[H]
+\caption{Services Offered by Subsystem X} \tablelabel{service-sub-x}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service1}\ssref{service1} & service1 & desc\\
+	\sslabel{service2}\ssref{service2} & service2 & desc\\
+\end{tabu}
+\end{table}
+
+\subsection{Operations}
+
+\begin{table}[H]
+\caption{Operations Offered in Service1 (\ssref{service1})} \tablelabel{operation-service1}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation1}\opref{operation1} & operation1 & classA & desc\\
+	\oplabel{operation2}\opref{operation2} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
 \section{Class Interfaces}
+
+\begin{table}[H]
+\caption{} 
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Class Name & Description \\
+	\cdlabel{student}\cdref{student} & Student & desc \\
+	\cdlabel{admin}\cdref{admin} & Admin & desc \\
+	\cdlabel{user}\cdref{user} & User & desc \\
+	\cdlabel{storage}\cdref{storage} & Storage & desc \\
+	\cdlabel{question}\cdref{question} & Question & desc \\
+	\cdlabel{response}\cdref{response} & Response & desc \\
+	\cdlabel{answer}\cdref{answer} & Answer & desc \\
+	\cdlabel{project}\cdref{project} & Project & desc \\
+	\cdlabel{groupsize}\cdref{groupsize} & GroupSize & desc \\
+	\cdlabel{ppidcontrol}\cdref{ppidcontrol} & PPIDControl & desc \\
+	\cdlabel{logincontrol}\cdref{logincontrol} & LoginControl & desc \\
+	\cdlabel{studenthomecontrol}\cdref{studenthomecontrol} & StudentHomeControl & desc \\
+	\cdlabel{adminhomecontrol}\cdref{adminhomecontrol} & AdminHomeControl & desc \\
+	\cdlabel{profilecontrol}\cdref{profilecontrol} & ProfileControl & desc \\
+	\cdlabel{questioncontrol}\cdref{questioncontrol} & QuestionControl & desc \\
+	\cdlabel{questionscontrol}\cdref{questionscontrol} & QuestionsControl & desc \\
+\end{tabu}
+\end{table}
 
 \end{document}
