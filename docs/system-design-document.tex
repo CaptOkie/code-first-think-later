@@ -243,15 +243,15 @@ To store the data for our system, a relational database is being used. The relat
 \caption{} 
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
-	\cdlabel{student}\cdref{student} & Student & desc \\
-	\cdlabel{admin}\cdref{admin} & Admin & desc \\
-	\cdlabel{user}\cdref{user} & User & desc \\
-	\cdlabel{storage}\cdref{storage} & Storage & desc \\
-	\cdlabel{question}\cdref{question} & Question & desc \\
+	\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
+	\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains only a single attribute - the unique ID, inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class.  \\
+	\cdlabel{user}\cdref{user} & User & The user class contains only a single attribute - the unique ID. It provides the archetype for a generic user - the only defining feature being the unique identifier.\\
+	\cdlabel{storage}\cdref{storage} & Storage & The Storage class is the class that interacts directly with the relational database. All its methods revolve around pulling information from the database, or pushing information into the database. This class feeds the persistent information to other classes so that they can modify/display them, before receiving modified/new information to save into the database.\\
+	\cdlabel{question}\cdref{question} & Question & The Question class contains an attribute that contains the a String representation of the questions used in the algorithm. Also as an attribute, the Question class contains an integer attribute that stores the scale of possible responses. \\
 	\cdlabel{response}\cdref{response} & Response & desc \\
 	\cdlabel{answer}\cdref{answer} & Answer & desc \\
-	\cdlabel{project}\cdref{project} & Project & desc \\
-	\cdlabel{groupsize}\cdref{groupsize} & GroupSize & desc \\
+	\cdlabel{project}\cdref{project} & Project & The Project class contains two attributes: a GroupSize object as an attribute and a collection of Student objects. Its methods revolve around simply return the collection of Students.\\
+	\cdlabel{groupsize}\cdref{groupsize} & GroupSize & The GroupSoze class contains two attributes - the minimum group size and the maximum group size. This class offers no methods other than standard getters and setters for each attribute. \\
 	\cdlabel{ppidcontrol}\cdref{ppidcontrol} & PPIDControl & desc \\
 	\cdlabel{logincontrol}\cdref{logincontrol} & LoginControl & desc \\
 	\cdlabel{studenthomecontrol}\cdref{studenthomecontrol} & StudentHomeControl & desc \\
