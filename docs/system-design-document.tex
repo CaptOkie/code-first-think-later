@@ -202,13 +202,15 @@ Our system revolves heavily upon a central storage, or repository. Other than th
 
 We can also rule out the four-tier architectural style right away - our system is entirely local, thus a separate client and server layer are unnecessary. We use a login-type system, and the UI is common to any user that logs in. The only difference would be that the displayed information changes, as well as some usability. That said, this type of functionality would best fit as multiple partitions within a layer. As a result, the difference in the student and admin users should be as sister partitions within the same layer.
 
-\subsubsection{Reasoning}
+\subsubsection{Three-Tier Architecture}
+\subsubsection{Model-View Controller Architecture}
+\subsubsection{Repository Architecture}
+
 \subsection{Persistent Data Management}
-To store the data for our system, a relational database is being used. The relational database used is SQLite. In the database, multiple tables are used to store related information together, such as the \textit{Users} table.
-
-
-
 \subsubsection{Overview}
+
+To store the data for our system, a relational database is being used. Our relational database is built in the SQLite architecture. Multiple tables are used to store related information together, such as the \textit{Users} table.
+
 \subsubsection{Reasoning}
 \subsection{Design Patterns}
 \subsubsection{Overview}
@@ -217,8 +219,10 @@ To store the data for our system, a relational database is being used. The relat
 \subsection{Overview}
 \subsection{Services}
 
+In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. The below table, \tableref{service-sub-repo}, covers the services offered by our Repository Subsystem (\sdref{repo}).
+
 \begin{table}[H]
-\caption{Services Offered by Subsystem X} \tablelabel{service-sub-x}
+\caption{Services Offered by Repository Subsystem (\sdref{repo})} \tablelabel{service-sub-repo}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
 	\sslabel{service1}\ssref{service1} & service1 & desc\\
@@ -226,7 +230,31 @@ To store the data for our system, a relational database is being used. The relat
 \end{tabu}
 \end{table}
 
+The following table encompasses all the services offered by the Student Subsystem (\sdref{stu}). 
+
+\begin{table}[H]
+\caption{Services Offered by Student Subsystem (\sdref{stu})} \tablelabel{service-sub-stu}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service3}\ssref{service3} & service3 & desc\\
+	\sslabel{service4}\ssref{service4} & service4 & desc\\
+\end{tabu}
+\end{table}
+
+The following table showcases all the different services offered by the Administrator Subsytem (\sdref{admin}).
+
+\begin{table}[H]
+\caption{Services Offered by Administrator Subsystem (\sdref{admin})} \tablelabel{service-sub-admin}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service5}\ssref{service5} & service5 & desc\\
+	\sslabel{service6}\ssref{service6} & service6 & desc\\
+\end{tabu}
+\end{table}
+
 \subsection{Operations}
+
+In this section, we focus on the Operations that each of the services described in the above section offer. For added traceability, we have also included the specific class that provides each of the operations, as well as a description of each.
 
 \begin{table}[H]
 \caption{Operations Offered in Service1 (\ssref{service1})} \tablelabel{operation-service1}
@@ -234,6 +262,42 @@ To store the data for our system, a relational database is being used. The relat
 	\tableheader{}ID & Operation & Class & Description\\
 	\oplabel{operation1}\opref{operation1} & operation1 & classA & desc\\
 	\oplabel{operation2}\opref{operation2} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
+\begin{table}[H]
+\caption{Operations Offered in Service2 (\ssref{service2})} \tablelabel{operation-service2}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation3}\opref{operation3} & operation1 & classA & desc\\
+	\oplabel{operation4}\opref{operation4} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
+\begin{table}[H]
+\caption{Operations Offered in Service3 (\ssref{service3})} \tablelabel{operation-service3}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation5}\opref{operation5} & operation1 & classA & desc\\
+	\oplabel{operation6}\opref{operation6} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
+\begin{table}[H]
+\caption{Operations Offered in Service4 (\ssref{service4})} \tablelabel{operation-service4}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation7}\opref{operation7} & operation1 & classA & desc\\
+	\oplabel{operation8}\opref{operation8} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
+\begin{table}[H]
+\caption{Operations Offered in Service5 (\ssref{service5})} \tablelabel{operation-service5}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation9}\opref{operation9} & operation1 & classA & desc\\
+	\oplabel{operation10}\opref{operation10} & operation2 & classB & desc\\
 \end{tabu}
 \end{table}
 
