@@ -87,6 +87,13 @@
 \newcommand{\opref}[1]{\textbf{OP-\ref{op:#1}}}
 %% END OPERATIONS COMMANDS
 
+%% TABLE COMMANDS
+\newcounter{dbtablenum}
+\renewcommand{\thedbtablenum}{\twodigits{dbtablenum}}
+\newcommand{\dtlabel}[1]{\refstepcounter{dbtablenum}\label{dt:#1}}
+\newcommand{\dtref}[1]{\textbf{DT-\ref{dt:#1}}}
+%% END TABLE COMMANDS
+
 % TABLE STYLING
 \everyrow{\hline}
 \tabulinesep=0.5em
@@ -209,7 +216,7 @@ We can also rule out the four-tier architectural style right away - our system i
 \subsection{Persistent Data Management}
 \subsubsection{Overview}
 
-To store the data for our system, a relational database is being used. Our relational database is built in the SQLite architecture. Multiple tables are used to store related information together, such as the \textit{Users} table.
+To store the data for our system, a relational database is being used. Our relational database is built in the SQLite architecture. Multiple tables are used to store related information together, such as the \textit{Students} table.
 
 \begin{figure}[H]
 	\centering{}
@@ -217,6 +224,80 @@ To store the data for our system, a relational database is being used. Our relat
 	\caption{Database Schema}
 	\figurelabel{db-schema}
 \end{figure}
+
+\begin{table}[H]
+	\caption{Tables in Database} \tablelabel{db-table}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Name & Description \\
+		\dtlabel{students}\dtref{students}     & students   & Stores the Student entity object. \\
+		\dtlabel{admins}\dtref{admins}         & admins     & Stores the Admin entity object. \\
+		\dtlabel{projects}\dtref{projects}     & projects   & Stores the Project entity object. \\
+		\dtlabel{enrollment}\dtref{enrollment} & enrollment & Stores the association between the Student and Project entity objects,
+		                                                      which is refers to a student's enrollment into a project. \\
+		\dtlabel{questions}\dtref{questions}   & questions  & Stores the Question entity object. \\
+		\dtlabel{answers}\dtref{answers}       & answers    & Stores the Answer entity object. \\
+		\dtlabel{responses}\dtref{responses}   & responses  & Stores the association between the Student and Question entity objects. 
+		                                                      which refers to what answer a student has selected for a question. \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Students Table (\dtref{students})} \tablelabel{students-table}
+	\begin{tabu} to \textwidth {l l l X}
+		\tableheader{}Column & Type & Constraint & Description \\
+		id   & Integer & Primary Key & The unique ID given to the student. \\
+		name & Text    &             & The name of the student. \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Admins Table (\dtref{admins})} \tablelabel{admins-table}
+	\begin{tabu} to \textwidth {l l l X}
+		\tableheader{}Column & Type & Constraint & Description \\
+		id   & Integer & Primary Key & The unique ID given to the administrator. \\
+		name & Text    &             & The name of the administrator. \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
+	\begin{tabu} to \textwidth {l l l X}
+		\tableheader{}Column & Type & Constraint & Description \\
+		name         & Text    & Primary Key & The unique name given to a project. \\
+		max\_grp\_size & Integer &             & The maximum group size of a project. \\
+		min\_grp\_size & Integer &             & The minimum group size of a project. \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Enrollment Table (\dtref{enrollment})} \tablelabel{enrollment-table}
+	\begin{tabu} to \textwidth {l l l X}
+		\tableheader{}Column & Type & Constraint & Description \\
+		stu     & Integer & Primary Key, Foreign Key & References \textit{id} of the Students table. \\
+		project & Text    & Primary Key, Foreign Key & \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Questions Table (\dtref{questions})} \tablelabel{questions-table}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}Column & Constraint & Description \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Answers Table (\dtref{answers})} \tablelabel{answers-table}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}Column & Constraint & Description \\
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{Responses Table (\dtref{responses})} \tablelabel{responses-table}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}Column & Constraint & Description \\
+	\end{tabu}
+\end{table}
 
 \subsubsection{Reasoning}
 \subsection{Design Patterns}
