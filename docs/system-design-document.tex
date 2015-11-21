@@ -263,7 +263,7 @@ To store the data for our system, a relational database is being used. Our relat
 	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
 	\begin{tabu} to \textwidth {l l l X}
 		\tableheader{}Column & Type & Constraint & Description \\
-		name         & Text    & Primary Key & The unique name given to a project. \\
+		name           & Text    & Primary Key & The unique name given to a project. \\
 		max\_grp\_size & Integer &             & The maximum group size of a project. \\
 		min\_grp\_size & Integer &             & The minimum group size of a project. \\
 	\end{tabu}
@@ -271,10 +271,12 @@ To store the data for our system, a relational database is being used. Our relat
 
 \begin{table}[H]
 	\caption{Enrollment Table (\dtref{enrollment})} \tablelabel{enrollment-table}
-	\begin{tabu} to \textwidth {l l l X}
+	\begin{tabu} to \textwidth {l l X X[3]}
 		\tableheader{}Column & Type & Constraint & Description \\
-		stu     & Integer & Primary Key, Foreign Key & References \textit{id} of the Students table. \\
-		project & Text    & Primary Key, Foreign Key & \\
+		stu     & Integer & Primary Key,\newline
+		                    Foreign Key          & References \textit{id} of the Students table. \\
+		project & Text    & Primary Key,\newline
+		                    Case Insensitive     &  \\
 	\end{tabu}
 \end{table}
 
