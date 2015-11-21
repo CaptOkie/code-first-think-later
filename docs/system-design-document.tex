@@ -344,33 +344,33 @@ To store the data for our system, a relational database is being used. Our relat
 \end{table}
 
 \subsubsection{Reasoning}
+<<<<<<< HEAD
 \subsubsection*{Students Table (\dtref{students})}
 %NEED ENTITY REFERENCE
 The Student entity object has an ID, which is a unique identifier for that Student. To make sure there can only be one Student to one ID, in the \textit{students} table, (\dtref{students}), the primary key is set to the \textit{id} column. This ensures that there will duplication of an ID value. As well, by making the \textit{id} column the primary key, it shortens look up time for entries when searching by the Student's ID. The \textit{name} column does not have a constraint because the name is irrelevant to identifying a Student when a unique ID value is available. As well, it allows for Student objects with the same name to be stored in the database.
+=======
+\subsubsection*{students}
+While it it, in the real world, possible for multiple people to share the same name, we want to make certain that the system can handle them appropriately. To do so, we added a unique identifier as the Primary Key, which is independent of the name itself. With this kind of system, it is impossible for duplicate accounts to exist.
+>>>>>>> 15afa2a280d3376a40162761d7369129766c237d
 
 \subsubsection*{Administrator Table (\dtref{admins})}
 %NEED ENTITY REFERENCE
 The Admin entity object has an ID, which is a unique identifier for that Admin. To make sure there can only be one Admin to one ID, in the \textit{admins} table, (\dtref{admins}), the primary key is set to the \textit{id} column. This ensures that there will duplication of an ID value. As well, by making the \textit{id} column the primary key, it shortens look up time for entries when searching by the Admin's ID. The \textit{name} column does not have a constraint because the name is irrelevant to identifying a Admin when a unique ID value is available. As well, it allows for Student objects with the same name to be stored in the database.
 
 \subsubsection*{projects}
-- unique project name, can't have projects of same name \\
-Oftentimes, admins will have to create multiple projects. To assure that no duplicate projects exist, we have enforced a unique project name attribute. This assures that the admin won't confuse themselves by having several identically named projects, thus maximizing readabilit and useability.
+Oftentimes, admins will have to create multiple projects. To assure that no duplicate projects exist, we have enforced a unique project name as the Primary Key. This assures that the admin won't confuse themselves by having several identically named projects, thus maximizing readabilit and useability. Projects also have columns storing the max and min group sizes, which are importantly distinct from one another as to allow maximum flexibility with regards to number of students enrolled in a project (for when the PPID is run).
 
 \subsubsection*{enrollment}
-- primary key made up of \textit{students}.\textit{id} and \textit{projects}.\textit{name} \\
-- means can only have one entry per student and project association \\
+Its important that each student can only enroll in each project once. To accomplish this, we have two Primary Keys - the student's unique identitier (\textit{students}.\textit{id}) and the project's unique name (\textit{projects}.\textit{name}).
 
-\noindent
-\textit{questions} \\
-- each question has unique ID so it is easy to reference \\
+\subsubsection*{questions}
+- each question has unique ID so it is easy to reference 
 
-\noindent
-\textit{answers} \\
+\subsubsection*{answers}
 - primary key made of foreign key to \textit{questions}.\textit{id} and \textit{id}. \\
-- this allows an answer to belong to only one question. \\
+- this allows an answer to belong to only one question. 
 
-\noindent
-\textit{responses} \\
+\subsubsection*{responses}
 - using \textit{students}.\textit{id} and \textit{questions}.\textit{id}, guarantees that a student may have only one response per question.
 
 \subsection{Design Patterns}
@@ -396,10 +396,10 @@ Using this class.....................
 \subsection{Overview}
 \subsection{Services}
 
-In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. \sdlabel{proxy}The following table encompasses all the services offered by the Proxy Subsystem (\sdref{proxy}). 
+In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. \sdlabel{storage}The following table encompasses all the services offered by the Proxy Subsystem (\sdref{storage}). 
 
 \begin{table}[H]
-\caption{Services Offered by the Proxy Subsystem (\sdref{proxy})} \tablelabel{service-sub-proxy}
+\caption{Services Offered by the StorageSubsystem (\sdref{storage})} \tablelabel{service-sub-storage}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
 	\sslabel{data}\ssref{data} & Data Service & This service encompasses the operations related to getting or setting data that is being held in the persistent relational database storages. \\
@@ -407,10 +407,52 @@ In this section, we give a list and description of each of the services that our
 \end{tabu}
 \end{table}
 
-\sdlabel{ppid}The following table showcases all the different services offered by the PPID Subsytem (\sdref{ppid}).
+\sdlabel{ppid}The following table showcases all the different services offered by the PPIDSubsytem (\sdref{ppid}).
 
 \begin{table}[H]
-\caption{Services Offered by PPID Subsystem (\sdref{ppid})} \tablelabel{service-sub-ppdi}
+\caption{Services Offered by PPIDSubsystem (\sdref{ppid})} \tablelabel{service-sub-ppdi}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service5}\ssref{service5} & service5 & desc\\
+	\sslabel{service6}\ssref{service6} & service6 & desc\\
+\end{tabu}
+\end{table}
+
+\sdlabel{login}The following table showcases all the different services offered by the LoginSubsytem (\sdref{login}).
+
+\begin{table}[H]
+\caption{Services Offered by LoginSubsystem (\sdref{login})} \tablelabel{service-sub-login}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service5}\ssref{service5} & service5 & desc\\
+	\sslabel{service6}\ssref{service6} & service6 & desc\\
+\end{tabu}
+\end{table}
+
+\sdlabel{profile}The following table showcases all the different services offered by the ProfileSubsytem (\sdref{profile}).
+
+\begin{table}[H]
+\caption{Services Offered by ProfileSubsystem (\sdref{profile})} \tablelabel{service-sub-profile}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service5}\ssref{service5} & service5 & desc\\
+	\sslabel{service6}\ssref{service6} & service6 & desc\\
+\end{tabu}
+\end{table}
+\sdlabel{user}The following table showcases all the different services offered by the UserSubsytem (\sdref{user}).
+
+\begin{table}[H]
+\caption{Services Offered by UserSubsystem (\sdref{user})} \tablelabel{service-sub-user}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Service & Description\\
+	\sslabel{service5}\ssref{service5} & service5 & desc\\
+	\sslabel{service6}\ssref{service6} & service6 & desc\\
+\end{tabu}
+\end{table}
+\sdlabel{project}The following table showcases all the different services offered by the ProjectSubsytem (\sdref{project}).
+
+\begin{table}[H]
+\caption{Services Offered by ProjectSubsystem (\sdref{project})} \tablelabel{service-sub-project}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
 	\sslabel{service5}\ssref{service5} & service5 & desc\\
