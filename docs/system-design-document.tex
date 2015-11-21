@@ -232,19 +232,6 @@ To store the data for our system, a relational database is being used. Our relat
 	\figurelabel{db-schema}
 \end{figure}
 
-\subsection*{Objects in Storage}
-\begin{table}[H]
-	\caption{Objects in Storage} \tablelabel{storage-obj}
-	\begin{tabu} to \textwidth {l X}
-		\tableheader{}ID & Name & Description \\
-		\dtlabel{students}\dtref{students}     & Student   & Stores the Student entity object. \\
-		\dtlabel{admins}\dtref{admins}         & Admin     & Stores the Admin entity object. \\
-		\dtlabel{projects}\dtref{projects}     & Project   & Stores the Project entity object. \\
-		\dtlabel{questions}\dtref{questions}   & Question  & Stores the Question entity object. \\
-		\dtlabel{answers}\dtref{answers}       & Answer    & Stores the Answer entity object. \\
-	\end{tabu}
-\end{table}
-
 \subsubsection*{Tables in Database}
 \begin{table}[H]
 	\caption{Tables in Database} \tablelabel{db-table}
@@ -344,14 +331,9 @@ To store the data for our system, a relational database is being used. Our relat
 \end{table}
 
 \subsubsection{Reasoning}
-<<<<<<< HEAD
 \subsubsection*{Students Table (\dtref{students})}
 %NEED ENTITY REFERENCE
 The Student entity object has an ID, which is a unique identifier for that Student. To make sure there can only be one Student to one ID, in the \textit{students} table, (\dtref{students}), the primary key is set to the \textit{id} column. This ensures that there will duplication of an ID value. As well, by making the \textit{id} column the primary key, it shortens look up time for entries when searching by the Student's ID. The \textit{name} column does not have a constraint because the name is irrelevant to identifying a Student when a unique ID value is available. As well, it allows for Student objects with the same name to be stored in the database.
-=======
-\subsubsection*{students}
-While it it, in the real world, possible for multiple people to share the same name, we want to make certain that the system can handle them appropriately. To do so, we added a unique identifier as the Primary Key, which is independent of the name itself. With this kind of system, it is impossible for duplicate accounts to exist.
->>>>>>> 15afa2a280d3376a40162761d7369129766c237d
 
 \subsubsection*{Administrator Table (\dtref{admins})}
 %NEED ENTITY REFERENCE
