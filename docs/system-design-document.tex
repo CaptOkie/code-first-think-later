@@ -325,21 +325,21 @@ Using this class.....................
 \subsection{Overview}
 \subsection{Services}
 
-In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. \sdlabel{stu}The following table encompasses all the services offered by the Student Subsystem (\sdref{stu}). 
+In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. \sdlabel{proxy}The following table encompasses all the services offered by the Proxy Subsystem (\sdref{proxy}). 
 
 \begin{table}[H]
-\caption{Services Offered by Student Subsystem (\sdref{stu})} \tablelabel{service-sub-stu}
+\caption{Services Offered by the Proxy Subsystem (\sdref{proxy})} \tablelabel{service-sub-proxy}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
-	\sslabel{service3}\ssref{service3} & service3 & desc\\
+	\sslabel{data}\ssref{data} & Data Service & This service encompasses the operations related to getting or setting data that is being held in the persistent relational database storages. \\
 	\sslabel{service4}\ssref{service4} & service4 & desc\\
 \end{tabu}
 \end{table}
 
-\sdlabel{admin}The following table showcases all the different services offered by the Administrator Subsytem (\sdref{admin}).
+\sdlabel{ppid}The following table showcases all the different services offered by the PPID Subsytem (\sdref{ppid}).
 
 \begin{table}[H]
-\caption{Services Offered by Administrator Subsystem (\sdref{admin})} \tablelabel{service-sub-admin}
+\caption{Services Offered by PPID Subsystem (\sdref{ppid})} \tablelabel{service-sub-ppdi}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
 	\sslabel{service5}\ssref{service5} & service5 & desc\\
@@ -352,11 +352,17 @@ In this section, we give a list and description of each of the services that our
 In this section, we focus on the Operations that each of the services described in the above section offer. For added traceability, we have also included the specific class that provides each of the operations, as well as a description of each.
 
 \begin{table}[H]
-\caption{Operations Offered in Service1 (\ssref{service1})} \tablelabel{operation-service1}
+\caption{Operations Offered in Data Service (\ssref{data})} \tablelabel{operation-data}
 \begin{tabu} to \textwidth {l >{\it}l l X}
 	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation1}\opref{operation1} & operation1 & classA & desc\\
-	\oplabel{operation2}\opref{operation2} & operation2 & classB & desc\\
+	\oplabel{getstuname}\opref{getstuname} & GetStudentName & ProxyStudent & desc\\
+	\oplabel{getadminname}\opref{getadminname} & GetAdminName & ProxyAdmin & desc\\
+	\oplabel{getprojectname}\opref{getprojectname} & GetProjectName & ProxyProject & desc\\
+	\oplabel{getdesiredquestion}\opref{getdesiredquestion} & GetDesiredQuestion & ProxyQuestion & desc\\
+	\oplabel{getpersonalquestion}\opref{getpersonalquestion} & GetPersonalQuestion & ProxyQuestion & desc\\
+	\oplabel{getcategory}\opref{getcategory} & GetQuestionCategory & ProxyQuestion & desc\\
+	\oplabel{getmaxgroupsize}\opref{getmaxgroupsize} & GetMaxGroupSize & ProxyProject & desc\\
+	\oplabel{getmingroupsize}\opref{getmingroupsize} & GetMinGroupSize & ProxyProject & desc\\
 \end{tabu}
 \end{table}
 
