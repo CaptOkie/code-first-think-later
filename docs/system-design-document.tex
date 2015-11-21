@@ -94,13 +94,6 @@
 \newcommand{\dtref}[1]{\textbf{DT-\ref{dt:#1}}}
 %% END TABLE COMMANDS
 
-%% STORAGE OBJECT COMMANDS
-\newcounter{storeobjnum}
-\renewcommand{\thedbtablenum}{\twodigits{storeobjnum}}
-\newcommand{\dtlabel}[1]{\refstepcounter{storeobjnum}\label{so:#1}}
-\newcommand{\dtref}[1]{\textbf{SO-\ref{so:#1}}}
-%% END STORAGE OBJECT COMMANDS
-
 % TABLE STYLING
 \everyrow{\hline}
 \tabulinesep=0.5em
@@ -237,15 +230,17 @@ To store the data for our system, a relational database is being used. Our relat
 	\caption{Tables in Database} \tablelabel{db-table}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Name & Description \\
-		\dtlabel{students}\dtref{students}     & students   & Stores the Student entity object. \\
-		\dtlabel{admins}\dtref{admins}         & admins     & Stores the Admin entity object. \\
-		\dtlabel{projects}\dtref{projects}     & projects   & Stores the Project entity object. \\
-		\dtlabel{enrollment}\dtref{enrollment} & enrollment & Stores the association between the Student and Project entity objects,
-		                                                      which is refers to a student's enrollment into a project. \\
-		\dtlabel{questions}\dtref{questions}   & questions  & Stores the Question entity object. \\
-		\dtlabel{answers}\dtref{answers}       & answers    & Stores the Answer entity object. \\
-		\dtlabel{responses}\dtref{responses}   & responses  & Stores the association between the Student and Question entity objects. 
-		                                                      which refers to what answer a student has selected for a question. \\
+		\dtlabel{students}\dtref{students}     & students   & Stores the \textit{Student} (\cdref{student}) entity object. \\
+		\dtlabel{admins}\dtref{admins}         & admins     & Stores the \textit{Admin} (\cdref{admin}) entity object. \\
+		\dtlabel{projects}\dtref{projects}     & projects   & Stores the \textit{Project} (\cdref{project}) entity object. \\
+		\dtlabel{enrollment}\dtref{enrollment} & enrollment & Stores the association between the \textit{Student} (\cdref{student}) 
+		                                                      and \textit{Project} (\cdref{project}) entity objects, which is refers 
+		                                                      to a student's enrollment into a project. \\
+		\dtlabel{questions}\dtref{questions}   & questions  & Stores the \textit{Question} (\cdref{question}) entity object. \\
+		\dtlabel{answers}\dtref{answers}       & answers    & Stores the \textit{Answer} (\cdref{answer}) entity object. \\
+		\dtlabel{responses}\dtref{responses}   & responses  & Stores the association between the \textit{Student} (\cdref{student}) 
+		                                                      and \textit{Question} (\cdref{question}) entity objects, which refers to      
+		                                                      what answer a student has selected for a question. \\
 	\end{tabu}
 \end{table}
 
@@ -253,8 +248,8 @@ To store the data for our system, a relational database is being used. Our relat
 	\caption{Students Table (\dtref{students})} \tablelabel{students-table}
 	\begin{tabu} to \textwidth {l l l X}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id   & Integer & Primary Key & The unique ID given to the student. \\
-		name & Text    &             & The name of the student. \\
+		id   & Integer & Primary Key & The unique ID given to the Student. \\
+		name & Text    &             & The name of the Student. \\
 	\end{tabu}
 \end{table}
 
@@ -262,8 +257,8 @@ To store the data for our system, a relational database is being used. Our relat
 	\caption{Admins Table (\dtref{admins})} \tablelabel{admins-table}
 	\begin{tabu} to \textwidth {l l l X}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id   & Integer & Primary Key & The unique ID given to the administrator. \\
-		name & Text    &             & The name of the administrator. \\
+		id   & Integer & Primary Key & The unique ID given to the Admin. \\
+		name & Text    &             & The name of the Admin. \\
 	\end{tabu}
 \end{table}
 
@@ -271,11 +266,11 @@ To store the data for our system, a relational database is being used. Our relat
 	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
 	\begin{tabu} to \textwidth {l l X X[3]}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id             & Integer & Primary Key      & The unique ID given to a project. \\
+		id             & Integer & Primary Key      & The unique ID given to a Project. \\
 		name           & Text    & Unique,\newline 
-		                           Case Insensitive & The unique name given to a project. \\
-		max\_grp\_size & Integer &                  & The maximum group size of a project. \\
-		min\_grp\_size & Integer &                  & The minimum group size of a project. \\
+		                           Case Insensitive & The unique name given to a Project. \\
+		max\_grp\_size & Integer &                  & The maximum group size of a Project. \\
+		min\_grp\_size & Integer &                  & The minimum group size of a Project. \\
 	\end{tabu}
 \end{table}
 
@@ -294,10 +289,10 @@ To store the data for our system, a relational database is being used. Our relat
 	\caption{Questions Table (\dtref{questions})} \tablelabel{questions-table}
 	\begin{tabu} to \textwidth {l l l X}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id       & Integer & Primary Key & The unique identifier given to a question. \\
-		personal & Text    &             & Asks the student to describe their self. \\
-		desired  & Text    &             & Asks the student to described their desired partner. \\
-		category & Text    &             & The qualification category the question belongs. \\
+		id       & Integer & Primary Key & The unique identifier given to a Question. \\
+		personal & Text    &             & Asks the Student to describe their self. \\
+		desired  & Text    &             & Asks the Student to described their desired partner. \\
+		category & Text    &             & The qualification category the Question belongs. \\
 	\end{tabu}
 \end{table}
 
@@ -306,10 +301,10 @@ To store the data for our system, a relational database is being used. Our relat
 	\begin{tabu} to \textwidth {l l X X[4]}
 		\tableheader{}Column & Type & Constraint & Description \\
 		question & Integer & Primary Key,\newline
-		                     Foreign Key          & The question the answer belongs to. References \textit{id} of the 
+		                     Foreign Key          & The Question the answer belongs to. References \textit{id} of the 
 		                                            \textit{questions} table. \\
-		id       & Integer & Primary Key          & The unique id given to the answer. \\
-		answer   & Text    &                      & The answer of a question. \\
+		id       & Integer & Primary Key          & The unique ID given to the Answer. \\
+		answer   & Text    &                      & The answer of a Question. \\
 	\end{tabu}
 \end{table}
 
@@ -318,28 +313,30 @@ To store the data for our system, a relational database is being used. Our relat
 	\begin{tabu} to \textwidth {l l X X[4]}
 		\tableheader{}Column & Type & Constraint & Description \\
 		stu      & Integer & Primary Key,\newline
-		                     Foreign Key          & Identifies the associated with the response. References \textit{id} of the 
+		                     Foreign Key          & Identifies the associated Student with the response. References \textit{id} of the 
 		                                            \textit{students} table. \\
 		question & Integer & Primary Key,\newline
-		                     Foreign Key          & Identifies which question the response belongs to. References \textit{question}
+		                     Foreign Key          & Identifies which Question the response belongs to. References \textit{question}
 		                                            of the \textit{answers} table. \\
-		personal & Integer & Foreign Key          & Identifies a student's selection for their personal attribute for the given
+		personal & Integer & Foreign Key          & Identifies a Student's selection for their personal attribute for the given
 		                                            given question. References \textit{id} of the \textit{answers} table. \\
-		desired  & Integer & Foreign Key          & Identifies a student's selection for their desired attribute for the given
+		desired  & Integer & Foreign Key          & Identifies a Student's selection for their desired attribute for the given
 		                                            given question. References \textit{id} of the \textit{answers} table. \\
 	\end{tabu}
 \end{table}
 
 \subsubsection{Reasoning}
 \subsubsection*{Students Table (\dtref{students})}
-%NEED ENTITY REFERENCE
-The Student entity object has an ID, which is a unique identifier for that Student. To make sure there can only be one Student to one ID, in the \textit{students} table, (\dtref{students}), the primary key is set to the \textit{id} column. This ensures that there will duplication of an ID value. As well, by making the \textit{id} column the primary key, it shortens look up time for entries when searching by the Student's ID. The \textit{name} column does not have a constraint because the name is irrelevant to identifying a Student when a unique ID value is available. As well, it allows for Student objects with the same name to be stored in the database.
+To ensure that ID of a \textit{Student} (\cdref{student}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Student} by their ID is increased.
+
+There isn't a constraint put on the \textit{name} column to allow for \textit{Students} with the same name to be entered into the database.
 
 \subsubsection*{Administrator Table (\dtref{admins})}
-%NEED ENTITY REFERENCE
-The Admin entity object has an ID, which is a unique identifier for that Admin. To make sure there can only be one Admin to one ID, in the \textit{admins} table, (\dtref{admins}), the primary key is set to the \textit{id} column. This ensures that there will duplication of an ID value. As well, by making the \textit{id} column the primary key, it shortens look up time for entries when searching by the Admin's ID. The \textit{name} column does not have a constraint because the name is irrelevant to identifying a Admin when a unique ID value is available. As well, it allows for Student objects with the same name to be stored in the database.
+To ensure that ID of a \textit{Admin} (\cdref{admin}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Admin} by their ID is increased.
 
-\subsubsection*{projects}
+There isn't a constraint put on the \textit{name} column to allow for \textit{Admins} with the same name to be entered into the database.
+
+\subsubsection*{Projects Table (\dtref{projects})}
 Oftentimes, admins will have to create multiple projects. To assure that no duplicate projects exist, we have enforced a unique project name as the Primary Key. This assures that the admin won't confuse themselves by having several identically named projects, thus maximizing readabilit and useability. Projects also have columns storing the max and min group sizes, which are importantly distinct from one another as to allow maximum flexibility with regards to number of students enrolled in a project (for when the PPID is run).
 
 \subsubsection*{enrollment}
@@ -503,12 +500,12 @@ In this section, we focus on the Operations that each of the services described 
 \caption{} 
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
-	\cdlabel{user}\cdref{user} & User & The user class contains only a single attribute - the unique ID. It provides the archetype for a generic user - the only defining feature being the unique identifier.\\
-	\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, inherited from the User class, a name, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
+	\cdlabel{user}\cdref{user} & User & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
+	\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, a name, both inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
 	\cdlabel{realstudent}\cdref{realstudent} & RealStudent & The RealStudent class inherits from the Student class and contains the actual information pulled from the StudentStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyStudent object.\\
 	\cdlabel{proxystudent}\cdref{proxystudent} & ProxyStudent & The ProxyStudent class also inherits from the Student class and provides a proxy or interface to the RealStudent object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealStudent object.\\
 	\cdlabel{studentstorage}\cdref{studentstorage} & StudentStorage & The StudentStorage class is a class that provides a set of methods to pull/push data related to the Student user from/to the relational database. The RealStudent object is the only object that directly interacts with this object.\\
-	\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains two attributes - the unique ID, inherited from the User class, and a name - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
+	\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains two attributes - the unique ID, and a name, both inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
 	\cdlabel{realadmin}\cdref{realadmin} & RealAdmin & The RealAdmin class inherits from the Admin class and contains the actual information pulled from the AdminStorage object. It is relatively hidden from the rest of the system, though the data contained can only be accessed through the ProxyAdmin object. \\
 	\cdlabel{proxyadmin}\cdref{proxyadmin} & ProxyAdmin & The ProxyAdmin class also inherits from the Admin class and provides a proxy or interface to the RealAdmin object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealAdmin object.\\
 	\cdlabel{adminstorage}\cdref{adminstorage} & AdminStorage & The AdminStorage class is a class that provides a set of methods to pull/push data related to the Admin user from/to the relational database. The RealAdmin object is the only object that directly interacts with this object.\\
