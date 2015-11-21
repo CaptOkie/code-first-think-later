@@ -320,22 +320,12 @@ We have chosen to implement this design pattern in our system. By empassing seve
 \subsubsection*{Command}
 \subsubsection*{Observer}
 \subsubsection*{Strategy}
+Using this class.....................
 \section{Subsystem Services}
 \subsection{Overview}
 \subsection{Services}
 
-In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. The below table, \tableref{service-sub-repo}, covers the services offered by our Repository Subsystem (\sdref{repo}).
-
-\begin{table}[H]
-\caption{Services Offered by Repository Subsystem (\sdref{repo})} \tablelabel{service-sub-repo}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Service & Description\\
-	\sslabel{service1}\ssref{service1} & service1 & desc\\
-	\sslabel{service2}\ssref{service2} & service2 & desc\\
-\end{tabu}
-\end{table}
-
-The following table encompasses all the services offered by the Student Subsystem (\sdref{stu}). 
+In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. \sdlabel{stu}The following table encompasses all the services offered by the Student Subsystem (\sdref{stu}). 
 
 \begin{table}[H]
 \caption{Services Offered by Student Subsystem (\sdref{stu})} \tablelabel{service-sub-stu}
@@ -346,7 +336,7 @@ The following table encompasses all the services offered by the Student Subsyste
 \end{tabu}
 \end{table}
 
-The following table showcases all the different services offered by the Administrator Subsytem (\sdref{admin}).
+\sdlabel{admin}The following table showcases all the different services offered by the Administrator Subsytem (\sdref{admin}).
 
 \begin{table}[H]
 \caption{Services Offered by Administrator Subsystem (\sdref{admin})} \tablelabel{service-sub-admin}
@@ -413,11 +403,11 @@ In this section, we focus on the Operations that each of the services described 
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
 	\cdlabel{user}\cdref{user} & User & The user class contains only a single attribute - the unique ID. It provides the archetype for a generic user - the only defining feature being the unique identifier.\\
-	\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
+	\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, inherited from the User class, a name, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
 	\cdlabel{realstudent}\cdref{realstudent} & RealStudent & The RealStudent class inherits from the Student class and contains the actual information pulled from the StudentStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyStudent object.\\
 	\cdlabel{proxystudent}\cdref{proxystudent} & ProxyStudent & The ProxyStudent class also inherits from the Student class and provides a proxy or interface to the RealStudent object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealStudent object.\\
 	\cdlabel{studentstorage}\cdref{studentstorage} & StudentStorage & The StudentStorage class is a class that provides a set of methods to pull/push data related to the Student user from/to the relational database. The RealStudent object is the only object that directly interacts with this object.\\
-	\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains only a single attribute - the unique ID, inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class.  \\
+	\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains two attributes - the unique ID, inherited from the User class, and a name - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
 	\cdlabel{realadmin}\cdref{realadmin} & RealAdmin & The RealAdmin class inherits from the Admin class and contains the actual information pulled from the AdminStorage object. It is relatively hidden from the rest of the system, though the data contained can only be accessed through the ProxyAdmin object. \\
 	\cdlabel{proxyadmin}\cdref{proxyadmin} & ProxyAdmin & The ProxyAdmin class also inherits from the Admin class and provides a proxy or interface to the RealAdmin object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealAdmin object.\\
 	\cdlabel{adminstorage}\cdref{adminstorage} & AdminStorage & The AdminStorage class is a class that provides a set of methods to pull/push data related to the Admin user from/to the relational database. The RealAdmin object is the only object that directly interacts with this object.\\
@@ -427,11 +417,11 @@ In this section, we focus on the Operations that each of the services described 
 \begin{center}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
-	\cdlabel{project}\cdref{project} & Project & The Project class contains two attributes: a GroupSize object as an attribute and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
+	\cdlabel{project}\cdref{project} & Project & The Project class contains four attributes: a name, a minimum group size, a maximum group size, and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
 	\cdlabel{realproject}\cdref{realproject} & RealProject & The RealProject class inherits from the Project class and contains the actual information pulled from the ProjectStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyProject object.\\
 	\cdlabel{proxyproject}\cdref{proxyproject} & ProxyProject & The ProxyProject also inherits from the Project class and provides a proxy or interface to the RealProject object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealProject object.\\
 	\cdlabel{projectstorage}\cdref{projectstorage} & ProjectStorage & The ProjectStorage class is a class that provides a set of methods to pull/push data related to Projects from/to the relational database. The RealProject object is the only object that directly interacts with this object.\\
-	\cdlabel{question}\cdref{question} & Question & The Question class contains an attribute that contains the a String representation of the questions used in the algorithm. Also as an attribute, the Question class contains an integer attribute that stores the scale of possible responses. \\
+	\cdlabel{question}\cdref{question} & Question & The Question class contains four attributes: a String representation of the questions used in the algorithm for the desired and personal versions of the questions, a unique identifier, and the category of the question. \\
 	\cdlabel{realquestion}\cdref{realquestion} & RealQuestion & The RealQuestion class inherits from the Question class and contains the actual information pulled from the QuestionStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyQuestion object.\\
 	\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
 	\cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
@@ -443,7 +433,6 @@ In this section, we focus on the Operations that each of the services described 
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
 	\cdlabel{group}\cdref{group} & Group & \\
-	\cdlabel{groupsize}\cdref{groupsize} & GroupSize & The GroupSoze class contains two attributes - the minimum group size and the maximum group size. This class offers no methods other than standard getters and setters for each attribute. \\
 	\cdlabel{grouper}\cdref{grouper} & Grouper & \\
 	\cdlabel{matcher}\cdref{matcher} & Matcher & \\
 	\cdlabel{splitsmallest}\cdref{splitsmallest} & SplitSmallest & \\
