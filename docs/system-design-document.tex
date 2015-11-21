@@ -94,6 +94,13 @@
 \newcommand{\dtref}[1]{\textbf{DT-\ref{dt:#1}}}
 %% END TABLE COMMANDS
 
+%% STORAGE OBJECT COMMANDS
+\newcounter{storeobjnum}
+\renewcommand{\thedbtablenum}{\twodigits{storeobjnum}}
+\newcommand{\dtlabel}[1]{\refstepcounter{storeobjnum}\label{so:#1}}
+\newcommand{\dtref}[1]{\textbf{SO-\ref{so:#1}}}
+%% END STORAGE OBJECT COMMANDS
+
 % TABLE STYLING
 \everyrow{\hline}
 \tabulinesep=0.5em
@@ -225,6 +232,20 @@ To store the data for our system, a relational database is being used. Our relat
 	\figurelabel{db-schema}
 \end{figure}
 
+\subsection*{Objects in Storage}
+\begin{table}[H]
+	\caption{Objects in Storage} \tablelabel{storage-obj}
+	\begin{tabu} to \textwidth {l X}
+		\tableheader{}ID & Name & Description \\
+		\dtlabel{students}\dtref{students}     & Student   & Stores the Student entity object. \\
+		\dtlabel{admins}\dtref{admins}         & Admin     & Stores the Admin entity object. \\
+		\dtlabel{projects}\dtref{projects}     & Project   & Stores the Project entity object. \\
+		\dtlabel{questions}\dtref{questions}   & Question  & Stores the Question entity object. \\
+		\dtlabel{answers}\dtref{answers}       & Answer    & Stores the Answer entity object. \\
+	\end{tabu}
+\end{table}
+
+\subsubsection*{Tables in Database}
 \begin{table}[H]
 	\caption{Tables in Database} \tablelabel{db-table}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -261,11 +282,13 @@ To store the data for our system, a relational database is being used. Our relat
 
 \begin{table}[H]
 	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
-	\begin{tabu} to \textwidth {l l l X}
+	\begin{tabu} to \textwidth {l l X X[3]}
 		\tableheader{}Column & Type & Constraint & Description \\
-		name           & Text    & Primary Key & The unique name given to a project. \\
-		max\_grp\_size & Integer &             & The maximum group size of a project. \\
-		min\_grp\_size & Integer &             & The minimum group size of a project. \\
+		id             & Integer & Primary Key      & The unique ID given to a project. \\
+		name           & Text    & Unique,\newline 
+		                           Case Insensitive & The unique name given to a project. \\
+		max\_grp\_size & Integer &                  & The maximum group size of a project. \\
+		min\_grp\_size & Integer &                  & The minimum group size of a project. \\
 	\end{tabu}
 \end{table}
 
@@ -274,9 +297,9 @@ To store the data for our system, a relational database is being used. Our relat
 	\begin{tabu} to \textwidth {l l X X[4]}
 		\tableheader{}Column & Type & Constraint & Description \\
 		stu     & Integer & Primary Key,\newline
-		                    Foreign Key          & References \textit{id} of the \textit{students} table. \\
-		project & Text    & Primary Key,\newline
-		                    Case Insensitive     & References \textit{name} of the \textit{projects} table. \\
+		                    Foreign Key          & References \textit{id} of the \textit{students} table (\dtref{students}). \\
+		project & Integer & Primary Key,\newline
+		                    Foreign Key          & References \textit{id} of the \textit{projects} table (\dtref{projects}). \\
 	\end{tabu}
 \end{table}
 
@@ -321,11 +344,13 @@ To store the data for our system, a relational database is being used. Our relat
 \end{table}
 
 \subsubsection{Reasoning}
-\subsubsection*{students}
-While it it, in the real world, possible for multiple people to share the same name, we want to make certain that the system can handle them appropriately. To do so, we added a unique identifier attribute, which is independent of the name itself. With this kind of system, it is impossible for duplicate accounts to exist.
+\subsubsection*{Students Table (\dtref{students})}
+%NEED ENTITY REFERENCE
+The Student entity object has an ID, which is a unique identifier for that Student. To make sure there can only be one Student to one ID, in the \textit{students} table, (\dtref{students}), the primary key is set to the \textit{id} column. This ensures that there will duplication of an ID value. As well, by making the \textit{id} column the primary key, it shortens look up time for entries when searching by the Student's ID. The \textit{name} column does not have a constraint because the name is irrelevant to identifying a Student when a unique ID value is available. As well, it allows for Student objects with the same name to be stored in the database.
 
-\subsubsection*{admins}
-Similar to the student duplicate account possibility, we have implemented the same unique identifier system for admin users. Additionally, it is important to note that both admins and students share the same numbering scheme for ID's, so it is impossible for a student and an admin to share the same ID.
+\subsubsection*{Administrator Table (\dtref{admins})}
+%NEED ENTITY REFERENCE
+The Admin entity object has an ID, which is a unique identifier for that Admin. To make sure there can only be one Admin to one ID, in the \textit{admins} table, (\dtref{admins}), the primary key is set to the \textit{id} column. This ensures that there will duplication of an ID value. As well, by making the \textit{id} column the primary key, it shortens look up time for entries when searching by the Admin's ID. The \textit{name} column does not have a constraint because the name is irrelevant to identifying a Admin when a unique ID value is available. As well, it allows for Student objects with the same name to be stored in the database.
 
 \subsubsection*{projects}
 - unique project name, can't have projects of same name \\
