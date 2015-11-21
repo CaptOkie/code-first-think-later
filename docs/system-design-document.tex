@@ -210,9 +210,20 @@ Our system revolves heavily upon a central storage, or repository. Other than th
 We can also rule out the four-tier architectural style right away - our system is entirely local, thus a separate client and server layer are unnecessary. We use a login-type system, and the UI is common to any user that logs in. The only difference would be that the displayed information changes, as well as some usability. That said, this type of functionality would best fit as multiple partitions within a layer. As a result, the difference in the student and admin users should be as sister partitions within the same layer.
 
 \subsubsection{Three-Tier Architecture}
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.22]{imgs/d3/decomp/three-tier.png}
+	\caption{Three-Tier Subsystem Decomposition}
+	\figurelabel{three-tier}
+\end{figure}
 \subsubsection{Model-View Controller Architecture}
 \subsubsection{Repository Architecture}
-
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.24]{imgs/d3/decomp/repository.png}
+	\caption{Three-Tier Subsystem Decomposition}
+	\figurelabel{three-tier}
+\end{figure}
 \subsection{Persistent Data Management}
 \subsubsection{Overview}
 
@@ -382,7 +393,6 @@ In this section, we give a list and description of each of the services that our
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
 	\sslabel{data}\ssref{data} & Data Service & This service encompasses the operations related to getting or setting data that is being held in the persistent relational database storages. \\
-	\sslabel{service4}\ssref{service4} & service4 & desc\\
 \end{tabu}
 \end{table}
 
@@ -392,8 +402,7 @@ In this section, we give a list and description of each of the services that our
 \caption{Services Offered by PPIDSubsystem (\sdref{ppid})} \tablelabel{service-sub-ppdi}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
-	\sslabel{service5}\ssref{service5} & service5 & desc\\
-	\sslabel{service6}\ssref{service6} & service6 & desc\\
+	\sslabel{sortstudents}\ssref{sortstudents} & Student-Sorting Service & This service encompasses several operations that handle the running of the PPID algorithm, which sorts the given set of Student objects into groups.\\
 \end{tabu}
 \end{table}
 
@@ -459,7 +468,7 @@ In this section, we focus on the Operations that each of the services described 
 \end{table}
 
 \begin{table}[H]
-\caption{Operations Offered in Service2 (\ssref{service2})} \tablelabel{operation-service2}
+\caption{Operations Offered in Student-Sorting Service (\ssref{studentsort})} \tablelabel{operation-studentsort}
 \begin{tabu} to \textwidth {l >{\it}l l X}
 	\tableheader{}ID & Operation & Class & Description\\
 	\oplabel{operation3}\opref{operation3} & operation1 & classA & desc\\
