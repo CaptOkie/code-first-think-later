@@ -302,7 +302,22 @@ To store the data for our system, a relational database is being used. Our relat
 \subsubsection{Reasoning}
 \subsection{Design Patterns}
 \subsubsection{Overview}
-\subsubsection{Reasoning}
+While organizing code with an eye to the larger picture - architectural styles - is vitally important, the smaller scale design patterns fall not far behind. Design patterns are largely independent of the architectural style insofar as nearly all design patterns can be implemented in any of the architectural patterns. They usually are used to minimize coupling across layers or to maximize cohesion across sister subsystems (partitions). This section will go over several different design patterns and explain either why we decided to use them or why we forgoed their implementation. There are three main categories of design patterns that we will include in this breakdown: creational patterns, structural patterns, and behavioural patterns.
+\subsubsection{Creational Patterns}
+Patterns in this section affect how objects get created. 
+\subsubsection*{Abstract Factory}
+We have decided to implement this design pattern in our system. Add more here later.
+\subsubsection{Structural Patterns}
+\subsubsection*{Adapter}
+This design pattern is ill suited to our particular system since we will be developing the entirety of our system. Since we will not need to write code that adapts between newer and older code, this pattern would be counter-intuitive.
+\subsubsection*{Bridge}
+\subsubsection*{Facade}
+\subsubsection*{Proxy}
+We have chosen to implement this design pattern in our system. By empassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time tradeoff is comparably minimal, even neglible. 
+\subsubsection{Behavioural Patterns}
+\subsubsection*{Command}
+\subsubsection*{Observer}
+\subsubsection*{Strategy}
 \section{Subsystem Services}
 \subsection{Overview}
 \subsection{Services}
@@ -395,23 +410,75 @@ In this section, we focus on the Operations that each of the services described 
 \caption{} 
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
-	\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
-	\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains only a single attribute - the unique ID, inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class.  \\
 	\cdlabel{user}\cdref{user} & User & The user class contains only a single attribute - the unique ID. It provides the archetype for a generic user - the only defining feature being the unique identifier.\\
-	\cdlabel{storage}\cdref{storage} & Storage & The Storage class is the class that interacts directly with the relational database. All its methods revolve around pulling information from the database, or pushing information into the database. This class feeds the persistent information to other classes so that they can modify/display them, before receiving modified/new information to save into the database.\\
-	\cdlabel{question}\cdref{question} & Question & The Question class contains an attribute that contains the a String representation of the questions used in the algorithm. Also as an attribute, the Question class contains an integer attribute that stores the scale of possible responses. \\
-	\cdlabel{response}\cdref{response} & Response & desc \\
-	\cdlabel{answer}\cdref{answer} & Answer & desc \\
+	\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
+	\cdlabel{realstudent}\cdref{realstudent} & RealStudent & \\
+	\cdlabel{proxystudent}\cdref{proxystudent} & ProxyStudent & \\
+	\cdlabel{studentstorage}\cdref{studentstorage} & StudentStorage & \\
+	\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains only a single attribute - the unique ID, inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class.  \\
+	\cdlabel{realadmin}\cdref{realadmin} & RealAdmin &\\
+	\cdlabel{proxyadmin}\cdref{proxyadmin} & ProxyAdmin &\\
+	\cdlabel{adminstorage}\cdref{adminstorage} & AdminStorage & \\
+\end{tabu}
+\end{table}
+
+\begin{center}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Class Name & Description \\
 	\cdlabel{project}\cdref{project} & Project & The Project class contains two attributes: a GroupSize object as an attribute and a collection of Student objects. Its methods revolve around simply return the collection of Students.\\
+	\cdlabel{realproject}\cdref{realproject} & RealProject & \\
+	\cdlabel{proxyproject}\cdref{proxyproject} & ProxyProject & \\
+	\cdlabel{projectstorage}\cdref{projectstorage} & ProjectStorage & \\
+	\cdlabel{question}\cdref{question} & Question & The Question class contains an attribute that contains the a String representation of the questions used in the algorithm. Also as an attribute, the Question class contains an integer attribute that stores the scale of possible responses. \\
+	\cdlabel{realquestion}\cdref{realquestion} & RealQuestion & \\
+	\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & \\
+	\cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & \\
+	\cdlabel{answer}\cdref{answer} & Answer & desc \\
+\end{tabu}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Class Name & Description \\
+	\cdlabel{group}\cdref{group} & Group & \\
 	\cdlabel{groupsize}\cdref{groupsize} & GroupSize & The GroupSoze class contains two attributes - the minimum group size and the maximum group size. This class offers no methods other than standard getters and setters for each attribute. \\
+	\cdlabel{grouper}\cdref{grouper} & Grouper & \\
+	\cdlabel{matcher}\cdref{matcher} & Matcher & \\
+	\cdlabel{splitsmallest}\cdref{splitsmallest} & SplitSmallest & \\
+	\cdlabel{percentdistance}\cdref{percentdistance} & PercentDistance & \\
 	\cdlabel{ppidcontrol}\cdref{ppidcontrol} & PPIDControl & desc \\
 	\cdlabel{logincontrol}\cdref{logincontrol} & LoginControl & desc \\
+	\cdlabel{projectcontrol}\cdref{projectcontrol} & ProjectControl\\
+\end{tabu}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Class Name & Description \\
+	\cdlabel{usercontrol}\cdref{usercontrol} & UserControl & \\
 	\cdlabel{studenthomecontrol}\cdref{studenthomecontrol} & StudentHomeControl & desc \\
 	\cdlabel{adminhomecontrol}\cdref{adminhomecontrol} & AdminHomeControl & desc \\
 	\cdlabel{profilecontrol}\cdref{profilecontrol} & ProfileControl & desc \\
 	\cdlabel{questioncontrol}\cdref{questioncontrol} & QuestionControl & desc \\
 	\cdlabel{questionscontrol}\cdref{questionscontrol} & QuestionsControl & desc \\
+	\cdlabel{userconfact}\cdref{userconfact} & UserControlFactory & \\
+	\cdlabel{userstorage}\cdref{userstorage} & UserStorage & \\
+	\cdlabel{loginform}\cdref{loginform} & LoginForm & \\
+
 \end{tabu}
-\end{table}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	\tableheader{}ID & Class Name & Description \\
+	\cdlabel{questionsform}\cdref{questionsform} & QuestionsForm & \\
+	\cdlabel{questionoption}\cdref{questionoption} & QuestionOption & \\
+	\cdlabel{profileform}\cdref{profileform} & ProfileForm & \\
+	\cdlabel{studentform}\cdref{studentform} & StudentForm & \\
+	\cdlabel{adminform}\cdref{adminform} & AdminForm & \\
+	\cdlabel{projectform}\cdref{projectform} & ProjectForm & \\
+	\cdlabel{ppidform}\cdref{ppidform} & PPIDForm & \\
+\end{tabu}
+\end{center}
 
 \end{document}
