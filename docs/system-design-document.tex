@@ -191,7 +191,7 @@ This section will be three-pronged - firstly, we will decompose the current work
 \subsection{System Decomposition}
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.6]{imgs/d3/class-diagram-decomp.png}
+	\includegraphics[scale=0.3]{imgs/d3/class-diagram-decomp.png}
 	\caption{Subsystem Decomposition}
 	\figurelabel{subsys-decomp}
 \end{figure}
@@ -321,22 +321,17 @@ To store the data for our system, a relational database is being used. Our relat
 \end{table}
 
 \subsubsection{Reasoning}
-\noindent
-\textit{students} \\
-- student has unique id. \\
-- can't have multiple accounts with same id, but same name okay \\
+\subsubsection*{students}
+While it it, in the real world, possible for multiple people to share the same name, we want to make certain that the system can handle them appropriately. To do so, we added a unique identifier attribute, which is independent of the name itself. With this kind of system, it is impossible for duplicate accounts to exist.
 
-\noindent
-\textit{admins} \\
-- admin has unique id. \\
-- can't have multiple accounts with same id, but same name okay \\
+\subsubsection*{admins}
+Similar to the student duplicate account possibility, we have implemented the same unique identifier system for admin users. Additionally, it is important to note that both admins and students share the same numbering scheme for ID's, so it is impossible for a student and an admin to share the same ID.
 
-\noindent
-\textit{projects} \\
+\subsubsection*{projects}
 - unique project name, can't have projects of same name \\
+Oftentimes, admins will have to create multiple projects. To assure that no duplicate projects exist, we have enforced a unique project name attribute. This assures that the admin won't confuse themselves by having several identically named projects, thus maximizing readabilit and useability.
 
-\noindent
-\textit{enrollment} \\
+\subsubsection*{enrollment}
 - primary key made up of \textit{students}.\textit{id} and \textit{projects}.\textit{name} \\
 - means can only have one entry per student and project association \\
 
