@@ -216,7 +216,7 @@ We can also rule out the four-tier architectural style right away - our system i
 \subsection{Persistent Data Management}
 \subsubsection{Overview}
 
-To store the data for our system, a relational database is being used. Our relational database is built in the SQLite architecture. Multiple tables are used to store related information together, such as the \textit{Students} table.
+To store the data for our system, a relational database is being used. Our relational database is built in the SQLite architecture. Multiple tables are used to store related information together, such as the \textit{students} table.
 
 \begin{figure}[H]
 	\centering{}
@@ -271,43 +271,94 @@ To store the data for our system, a relational database is being used. Our relat
 
 \begin{table}[H]
 	\caption{Enrollment Table (\dtref{enrollment})} \tablelabel{enrollment-table}
-	\begin{tabu} to \textwidth {l l X X[3]}
+	\begin{tabu} to \textwidth {l l X X[4]}
 		\tableheader{}Column & Type & Constraint & Description \\
 		stu     & Integer & Primary Key,\newline
-		                    Foreign Key          & References \textit{id} of the Students table. \\
+		                    Foreign Key          & References \textit{id} of the \textit{students} table. \\
 		project & Text    & Primary Key,\newline
-		                    Case Insensitive     &  \\
+		                    Case Insensitive     & References \textit{name} of the \textit{projects} table. \\
 	\end{tabu}
 \end{table}
 
 \begin{table}[H]
 	\caption{Questions Table (\dtref{questions})} \tablelabel{questions-table}
-	\begin{tabu} to \textwidth {l >{\it}l X}
-		\tableheader{}Column & Constraint & Description \\
+	\begin{tabu} to \textwidth {l l l X}
+		\tableheader{}Column & Type & Constraint & Description \\
+		id       & Integer & Primary Key & The unique identifier given to a question. \\
+		personal & Text    &             & Asks the student to describe their self. \\
+		desired  & Text    &             & Asks the student to described their desired partner. \\
+		category & Text    &             & The qualification category the question belongs. \\
 	\end{tabu}
 \end{table}
 
 \begin{table}[H]
 	\caption{Answers Table (\dtref{answers})} \tablelabel{answers-table}
-	\begin{tabu} to \textwidth {l >{\it}l X}
-		\tableheader{}Column & Constraint & Description \\
+	\begin{tabu} to \textwidth {l l X X[4]}
+		\tableheader{}Column & Type & Constraint & Description \\
+		question & Integer & Primary Key,\newline
+		                     Foreign Key          & The question the answer belongs to. References \textit{id} of the 
+		                                            \textit{questions} table. \\
+		id       & Integer & Primary Key          & The unique id given to the answer. \\
+		answer   & Text    &                      & The answer of a question. \\
 	\end{tabu}
 \end{table}
 
 \begin{table}[H]
 	\caption{Responses Table (\dtref{responses})} \tablelabel{responses-table}
-	\begin{tabu} to \textwidth {l >{\it}l X}
-		\tableheader{}Column & Constraint & Description \\
+	\begin{tabu} to \textwidth {l l X X[4]}
+		\tableheader{}Column & Type & Constraint & Description \\
+		stu      & Integer & Primary Key,\newline
+		                     Foreign Key          & Identifies the associated with the response. References \textit{id} of the 
+		                                            \textit{students} table. \\
+		question & Integer & Primary Key,\newline
+		                     Foreign Key          & Identifies which question the response belongs to. References \textit{question}
+		                                            of the \textit{answers} table. \\
+		personal & Integer & Foreign Key          & Identifies a student's selection for their personal attribute for the given
+		                                            given question. References \textit{id} of the \textit{answers} table. \\
+		desired  & Integer & Foreign Key          & Identifies a student's selection for their desired attribute for the given
+		                                            given question. References \textit{id} of the \textit{answers} table. \\
 	\end{tabu}
 \end{table}
 
 \subsubsection{Reasoning}
+\noindent
+\textit{students} \\
+- student has unique id. \\
+- can't have multiple accounts with same id, but same name okay \\
+
+\noindent
+\textit{admins} \\
+- admin has unique id. \\
+- can't have multiple accounts with same id, but same name okay \\
+
+\noindent
+\textit{projects} \\
+- unique project name, can't have projects of same name \\
+
+\noindent
+\textit{enrollment} \\
+- primary key made up of \textit{students}.\textit{id} and \textit{projects}.\textit{name} \\
+- means can only have one entry per student and project association \\
+
+\noindent
+\textit{questions} \\
+- each question has unique ID so it is easy to reference \\
+
+\noindent
+\textit{answers} \\
+- primary key made of foreign key to \textit{questions}.\textit{id} and \textit{id}. \\
+- this allows an answer to belong to only one question. \\
+
+\noindent
+\textit{responses} \\
+- using \textit{students}.\textit{id} and \textit{questions}.\textit{id}, guarantees that a student may have only one response per question.
+
 \subsection{Design Patterns}
 \subsubsection{Overview}
-While organizing code with an eye to the larger picture - architectural styles - is vitally important, the smaller scale design patterns fall not far behind. Design patterns are largely independent of the architectural style insofar as nearly all design patterns can be implemented in any of the architectural patterns. They usually are used to minimize coupling across layers or to maximize cohesion across sister subsystems (partitions). This section will go over several different design patterns and explain either why we decided to use them or why we forgoed their implementation. There are three main categories of design patterns that we will include in this breakdown: creational patterns, structural patterns, and behavioural patterns.
+While organizing code with an eye to the larger picture - architectural styles - is vitally important, the smaller scale design patterns fall not far behind. Design patterns are largely independent of the architectural style insofar as nearly all design patterns can be implemented in any of the architectural patterns. They usually are used to minimize coupling across layers or to maximize cohesion across sister subsystems (partitions). This section will go over several different design patterns and explain either why we decide to use them or why we forgo their implementation. There are three main categories of design patterns that we will include in this breakdown: creational patterns, structural patterns, and behavioural patterns.
 \subsubsection{Creational Patterns}
 Patterns in this section affect how objects get created. 
-\subsubsection*{Abstract Factory}
+\subsubsection*{Factory Method}
 We have decided to implement this design pattern in our system. Add more here later.
 \subsubsection{Structural Patterns}
 \subsubsection*{Adapter}
@@ -315,7 +366,7 @@ This design pattern is ill suited to our particular system since we will be deve
 \subsubsection*{Bridge}
 \subsubsection*{Facade}
 \subsubsection*{Proxy}
-We have chosen to implement this design pattern in our system. By empassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time tradeoff is comparably minimal, even neglible. 
+We have chosen to implement this design pattern in our system. By encompassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time trade-off is comparably minimal, even negligible. 
 \subsubsection{Behavioural Patterns}
 \subsubsection*{Command}
 \subsubsection*{Observer}
