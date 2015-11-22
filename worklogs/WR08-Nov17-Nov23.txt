@@ -3,12 +3,14 @@ CaptOkie:
 2 Hours: Group Meeting: Subsystem Decomposition
 2 Hours: Worked on class diagrams
 2.5 Hours: Finished class breakdown
+9 Hours: Worked on diagrams, started class interface stuff
 
 TheBakedPotato:
 2.5 Hours: Updated class diagrams, started database write up
 2 Hours: Group Meeting: Subsystem Decomposition
 2 Hours: Worked on database diagram
 2.5 Hours: Worked on database diagram
+10 Hours: Worked on database stuff, started class interface stuff
 
 ViLLiELdR:
 3 Hours: Documentation, traceability, class descriptions
