@@ -182,12 +182,26 @@ Beginning with a full decomposition of our prototype, we will then show a modifi
 This section will be three-pronged - firstly, we will decompose the current working prototype into its corresponding set of logical subsystem. Following, we will introduce a more complete system decomposition, wherein we will include aspects that are not yet implemented in the current cuPID prototype. Also in this part, we will possibly modify existing subsystmes from the prototype to promote a higher degree of cohesion and minimal coupling. Finally, we will discuss the changes that we have decided on and how they impact the software as a whole. 
 
 \subsection{Phase 1 Prototype Decomposition}
+
+In the figure below, \figureref{proto-decomp}, we have the system decomposition for our prototype cuPID system. Note here that we have three major subsystems: the StorageSubsystem, the UpdateSubsystem, and the LoginSubsystem. Unfortunately, this prototype features a design that boasts extremely high coupling. While a saving grace might be that it also has high cohesion, high coupling is intolerable for a good, future-proof system - any one update can essentially destroy everything.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.35]{imgs/d3/prototype/class-diagram.png}
 	\caption{Subsystem Decomposition (Prototype)}
 	\figurelabel{proto-decomp}
 \end{figure}
+
+\begin{table}[H]
+	\caption{Prototype Subsystems}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Name & Description \\
+		\sdlabel{proto-storage}\sdref{proto-storage} & StorageSubsystem  & \\
+		\sdlabel{proto-update}\sdref{proto-update} & UpdateSubsystem  & \\
+		\sdlabel{proto-login}\sdref{proto-login} & LoginSubsystem  & \\
+	\end{tabu}
+\end{table}
+
 \subsection{System Decomposition}
 \begin{figure}[H]
 	\centering{}
@@ -205,11 +219,15 @@ Similar to the previous section, this section is also divided into three major p
 \subsection{Hardware/Software Mapping}
 \subsubsection{Overview}
 
+
+
+\subsubsection{Architectural Style}
+
 Our system revolves heavily upon a central storage, or repository. Other than the repository, we make use of several subsystems. Simply with this in mind, we can instantly rule out the {\it pipe and filter} architectural style - while we do indeed have subsystems (filters) that associate with each other (pipes), our subsystems are fairly dependent on one another. Furthermore, our subsystems are responsible for more than simply processing a set of inputs to get a set of outputs. 
 
 We can also rule out the four-tier architectural style right away - our system is entirely local, thus a separate client and server layer are unnecessary. We use a login-type system, and the UI is common to any user that logs in. The only difference would be that the displayed information changes, as well as some usability. That said, this type of functionality would best fit as multiple partitions within a layer. As a result, the difference in the student and admin users should be as sister partitions within the same layer.
 
-\subsubsection{Three-Tier Architecture}
+\subsubsection*{Three-Tier Architecture}
 
 Three-tier architecture involves dividing the system into three layers - the interface layer, the logic layer, and the storage layer. While it is more than possible, and, indeed, even appealing to consider such a decomposition, we decided not to go with this style. Unfortunately, this style, while having fairly high cohesion, has equally high coupling. For these reasons, we have decided to discard this architectural style.
 
@@ -219,8 +237,8 @@ Three-tier architecture involves dividing the system into three layers - the int
 	\caption{Three-Tier Subsystem Decomposition}
 	\figurelabel{three-tier}
 \end{figure}
-\subsubsection{Model-View Controller Architecture}
-\subsubsection{Repository Architecture}
+\subsubsection*{Model-View Controller Architecture}
+\subsubsection*{Repository Architecture}
 
 The Repository architectural style involves an absolutely necessary storage layer, followed by many subsystems one layer up. Essentially, this style boasts two layers, wherein the second layer would have multiple partitions. This is the architectural style that we decided to implement for our system design because of the incredibly appealing benefits: by organzing our system like this, we can achieve extremely high cohesion along with minimal coupling. This means that there are very few interdepencies between different subsystems.
 
@@ -230,6 +248,11 @@ The Repository architectural style involves an absolutely necessary storage laye
 	\caption{Repository Subsystem Decomposition}
 	\figurelabel{repository}
 \end{figure}
+
+\subsubsection{Deployment Diagrams}
+
+
+
 \subsection{Persistent Data Management}
 \subsubsection{Overview}
 
@@ -324,7 +347,7 @@ Its important that each student can only enroll in each project once. To accompl
 \end{table}
 
 \subsubsection*{Questions Table (\dtref{questions})}
-The column \textit{id} in the \textit{questions} table stores a unique ID for a given question and is set as the primary key for the table. This allows for uniquely identifying a question which is very important for faster look up speeds and for referencing in other tables, which is required in this database.
+The column \textit{id} in the \textit{questions} table stores a unique ID for a given question and is set as the primary key for the table. This allows for uniquely identifying a question which is very important for faster look-up speeds and for referencing in other tables, which is required in this database.
 
 The following table, \tableref{questions-table}, gives a more detailed breakdown and description of each of the columns of the \textit{questions} table.
 
