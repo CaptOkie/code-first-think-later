@@ -477,19 +477,37 @@ While we were potentially considering implementing this design pattern, we decid
 \subsubsection*{Factory Method}
 We have decided to implement this design pattern in our system. The idea for this pattern is define a specialized interface for object creation that lets subclasses make the decision as to which particular class to instantiate. This pattern is apparent a user attempts to login - we do not know initially what type of user is logging in. In this scenario, we let UserStorage class tell us what type of user it is and then the UserControlFactory class will instantiate it. Another way of seeing this pattern is to imagine the UserControlFactory as a Template method - there is a placeholder of sorts that subclasses will specify.
 \subsubsection{Structural Patterns}
-The design patterns in this section affect the relationships between objects. Specifically, they aim to simplify their implementation.
+The design patterns in this section affect the relationships between objects. Specifically, they aim to simplify their implementation. There are three patterns that we considered implementing in our system: the adapter design pattern, the facade design pattern, and the proxy design pattern.
 \subsubsection*{Adapter}
-This design pattern is ill suited to our particular system since we will be developing the entirety of our system. Since we will not need to write code that adapts between newer and older code, this pattern would be counter-intuitive.
-\subsubsection*{Bridge}
+This design pattern is ill suited to our particular system since we will be developing the entirety of our system. Since we will not need to write code that adapts between newer and older code, this pattern would be counter-intuitive. The way that the adapter pattern works is that it converts an existing interface of a class into an typically older, or `legacy', interface that the client is more familiar with. As mentioned earlier, our system uses no old components, so this pattern will not fit in. The below figure, \figureref{adapter-example}, provides a small UML-based visual of how the Adapter Pattern is set up. Note here that the Interface represents an old interface that the NewObject must `adapt' to.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.55]{imgs/d3/sample-adapter.png}
+	\caption{Example of the Adapter Design Pattern}
+	\figurelabel{adapter-example}
+\end{figure}
+
 \subsubsection*{Facade}
+We heavily considered using this design pattern. Initially, it seemed like our subsystems were fairly complex, but, after reorganizing things, we managed to simplify everything greatly. With that in mind, the facade pattern no longer seemed appealing. The facade pattern is specifically designed to provide a simple interface to a complex subsystem. Since our subsystems ended up rather simplisitic, using the facade pattern would simply be an additional level of complexity, which is extremely counter-intuitive to the purpose of using this design pattern. The figure below, \figureref{facade-example}, provides a small UML-based visual of how the Facade Pattern is set up. Note here that the Facade is the class interacting with the Client - it provides a simplified interface and does the actual complicated work behind the scenes.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.55]{imgs/d3/sample-facade.png}
+	\caption{Example of the Facade Design Pattern}
+	\figurelabel{facade-example}
+\end{figure}
+
 \subsubsection*{Proxy}
 We have chosen to implement this design pattern in our system. By encompassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time trade-off is comparably minimal, even negligible. The following figure, \figureref{proxy-example}, provides a small UML-based visual of how the Proxy Pattern is set up. The idea is that the ProxyObject acts as a kind of interface to the RealObject, wherein the rest of the system has no access to the RealObject.
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.55]{imgs/d3/proxy-example.png}
 	\caption{Example of the Proxy Design Pattern}
 	\figurelabel{proxy-example}
 \end{figure}
+
 \subsubsection{Behavioural Patterns}
 The design patterns in this section are concerned with communication patterns between different objects. Specifically, they aim to provide a regular, common communication pattern.
 \subsubsection*{Command}
