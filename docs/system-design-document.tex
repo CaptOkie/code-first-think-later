@@ -310,7 +310,7 @@ The following table, \tableref{projects-table}, gives a more detailed breakdown 
 \end{table}
 
 \subsubsection*{Enrollment Table (\dtref{enrollment})}
-Its important that each student can only enroll in each project once. To accomplish this, we have two Primary Keys - the student's unique identitier (\textit{students}.\textit{id}) and the project's unique name (\textit{projects}.\textit{name}). The following table, \tableref{enrollment-table}, gives a more detailed breakdown and description of each of the columns of the \textit{enrollment} table.
+Its important that each student can only enroll in each project once. To accomplish this, as shown in table \tableref{enrollment-table}, the \textit{enrollment} table has two columns: \textit{stu}, to reference the \textit{id} column for \textit{students}, and \textit{project}, to reference \textit{id} from projects. The primary key is then made up of both columns to ensure that only one instance of a \textit{students} entry and \textit{projects} entry combination exists at one time.
 
 \begin{table}[H]
 	\caption{Enrollment Table (\dtref{enrollment})} \tablelabel{enrollment-table}
