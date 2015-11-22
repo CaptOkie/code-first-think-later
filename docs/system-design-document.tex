@@ -471,10 +471,11 @@ To deal with the desired and personal values, \textit{responses} has two other c
 \subsubsection{Overview}
 While organizing code with an eye to the larger picture - architectural styles - is vitally important, the smaller scale design patterns fall not far behind. Design patterns are largely independent of the architectural style insofar as nearly all design patterns can be implemented in any of the architectural patterns. They usually are used to minimize coupling across layers or to maximize cohesion across sister subsystems (partitions). This section will go over several different design patterns and explain either why we decide to use them or why we forgo their implementation. There are three main categories of design patterns that we will include in this breakdown: creational patterns, structural patterns, and behavioural patterns.
 \subsubsection{Creational Patterns}
-Patterns in this section affect how objects get created. 
+The design patterns in this section affect how objects get created. 
 \subsubsection*{Factory Method}
 We have decided to implement this design pattern in our system. Add more here later.
 \subsubsection{Structural Patterns}
+The design patterns in this section affect the relationships between objects. Specifically, they aim to simplify their implementation.
 \subsubsection*{Adapter}
 This design pattern is ill suited to our particular system since we will be developing the entirety of our system. Since we will not need to write code that adapts between newer and older code, this pattern would be counter-intuitive.
 \subsubsection*{Bridge}
@@ -488,12 +489,16 @@ We have chosen to implement this design pattern in our system. By encompassing s
 	\figurelabel{proxy-example}
 \end{figure}
 \subsubsection{Behavioural Patterns}
+The design patterns in this section are concerned with communication patterns between different objects. Specifically, they aim to provide a regular, common communication pattern.
 \subsubsection*{Command}
 \subsubsection*{Observer}
 \subsubsection*{Strategy}
 Using this class.....................
 \section{Subsystem Services}
 \subsection{Overview}
+
+The following section will be divided into three major sections: services, operations, and component diagrams. The first section will cover all the different services that each subsystem offers, whereas the second section will concern itself with the various operations that each service requires and the corresponding classes that offer those operations. The final section will include component diagrams that showcase the services provided by each subsystem via the ball-and-socket notation.
+
 \subsection{Services}
 
 In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. The following table encompasses all the services offered by the ProxySubsystem (\sdref{storage}). 
@@ -745,6 +750,8 @@ In this section, we focus on the Operations that each of the services described 
 \end{tabu}
 \end{table}
 
+\subsection{Component Diagrams}
+
 \section{Class Interfaces}
 
 \subsection{LoginSubsystem (\sdref{login})}
@@ -764,7 +771,10 @@ In this section, we focus on the Operations that each of the services described 
 	\end{tabu}
 \end{table}
 
-\begin{center}
+The following table, \tableref{user}, gives a detailed breakdown of the User class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{User Class (\cdref{user})} \tablelabel{user}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{user} \\
@@ -780,9 +790,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{userstorage}, gives a detailed breakdown of the UserStorage class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{UserStorage Class (\cdref{userstorage})} \tablelabel{userstorage}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{userstorage} \\
@@ -803,9 +816,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{student}, gives a detailed breakdown of the Student class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{Student Class (\cdref{student})} \tablelabel{student}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{student} \\
@@ -827,9 +843,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{realstudent}, gives a detailed breakdown of the RealStudent class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{RealStudent Class (\cdref{realstudent})} \tablelabel{realstudent}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{realstudent} \\
@@ -850,9 +869,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{proxystudent}, gives a detailed breakdown of the ProxyStudent class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProxyStudent Class (\cdref{proxystudent})} \tablelabel{proxystudent}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{proxystudent} \\
@@ -873,9 +895,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{studentstorage}, gives a detailed breakdown of the StudentStorage class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{StudentStorage Class (\cdref{studentstorage})} \tablelabel{studentstorage}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{studentstorage} \\
@@ -896,9 +921,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{admin}, gives a detailed breakdown of the Admin class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{Admin Class (\cdref{admin})} \tablelabel{admin}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{admin} \\
@@ -920,9 +948,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{realadmin}, gives a detailed breakdown of the RealAdmin class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{RealAdmin Class (\cdref{realadmin})} \tablelabel{realadmin}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{realadmin} \\
@@ -943,9 +974,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{proxyadmin}, gives a detailed breakdown of the ProxyAdmin class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProxyAdmin Class (\cdref{proxyadmin})} \tablelabel{proxyadmin}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{proxyadmin} \\
@@ -966,9 +1000,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{adminstorage}, gives a detailed breakdown of the AdminStorage class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{AdminStorage Class (\cdref{adminstorage})} \tablelabel{adminstorage}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{adminstorage} \\
@@ -989,9 +1026,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{project}, gives a detailed breakdown of the Project class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{RealProject Class (\cdref{project})} \tablelabel{project}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{project} \\
@@ -1012,8 +1052,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
-\begin{center}
+\end{table}
+
+The following table, \tableref{realproject}, gives a detailed breakdown of the RealProject class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{RealProject Class (\cdref{realproject})} \tablelabel{realproject}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{realproject} \\
@@ -1034,9 +1078,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{proxyproject}, gives a detailed breakdown of the ProxyProject class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProxyProject Class (\cdref{proxyproject})} \tablelabel{proxyproject}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{proxyproject} \\
@@ -1057,9 +1104,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{projectstorage}, gives a detailed breakdown of the ProjectStorage class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProjectStorage Class (\cdref{projectstorage})} \tablelabel{projectstorage}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{projectstorage} \\
@@ -1080,9 +1130,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{question}, gives a detailed breakdown of the Question class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{Question Class (\cdref{question})} \tablelabel{question}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{question} \\
@@ -1103,9 +1156,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{realquestion}, gives a detailed breakdown of the RealQuestion class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{RealQuestion Class (\cdref{realquestion})} \tablelabel{realquestion}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{realquestion} \\
@@ -1126,9 +1182,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{proxyquestion}, gives a detailed breakdown of the ProxyQuestion class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProxyQuestion Class (\cdref{proxyquestion})} \tablelabel{proxyquestion}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{proxyquestion} \\
@@ -1149,9 +1208,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{questionstorage}, gives a detailed breakdown of the QuestionStorage class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{QuestionStorage Class (\cdref{questionstorage})} \tablelabel{questionstorage}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{questionstorage} \\
@@ -1172,9 +1234,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{answer}, gives a detailed breakdown of the Answer class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{Answer Class (\cdref{answer})} \tablelabel{answer}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{answer} \\
@@ -1195,9 +1260,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{group}, gives a detailed breakdown of the Group class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{Group Class (\cdref{group})} \tablelabel{group}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{group} \\
@@ -1218,9 +1286,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{grouper}, gives a detailed breakdown of the Grouper class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{Grouper Class (\cdref{grouper})} \tablelabel{grouper}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{grouper} \\
@@ -1241,9 +1312,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{matcher}, gives a detailed breakdown of the Matcher class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{Matcher Class (\cdref{matcher})} \tablelabel{matcher}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{matcher} \\
@@ -1264,9 +1338,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{splitsmallest}, gives a detailed breakdown of the SplitSmallest class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{SplitSmallest Class (\cdref{splitsmallest})} \tablelabel{splitsmallest}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{splitsmallest} \\
@@ -1287,9 +1364,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{percentdistance}, gives a detailed breakdown of the PercentDistance class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{PercentDistance Class (\cdref{percentdistance})} \tablelabel{percentdistance}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{percentdistance} \\
@@ -1310,9 +1390,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{ppidcontrol}, gives a detailed breakdown of the PPIDControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{PPIDControl Class (\cdref{ppidcontrol})} \tablelabel{ppidcontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{ppidcontrol} \\
@@ -1333,9 +1416,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{ppidform}, gives a detailed breakdown of the PPIDForm class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{PPIDForm Class (\cdref{ppidform})} \tablelabel{ppidform}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{ppidform} \\
@@ -1356,9 +1442,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{projectcontrol}, gives a detailed breakdown of the ProjectControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProjectControl Class (\cdref{projectcontrol})} \tablelabel{projectcontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{projectcontrol} \\
@@ -1379,9 +1468,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{projectform}, gives a detailed breakdown of the ProjectForm class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProjectForm Class (\cdref{projectform})} \tablelabel{projectform}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{projectform} \\
@@ -1402,9 +1494,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{usercontrol}, gives a detailed breakdown of the UserControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{UserControl Class (\cdref{usercontrol})} \tablelabel{usercontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{usercontrol} \\
@@ -1425,9 +1520,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{studentcontrol}, gives a detailed breakdown of the StudentControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{StudentControl Class (\cdref{studentcontrol})} \tablelabel{studentcontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{studentcontrol} \\
@@ -1448,9 +1546,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{admincontrol}, gives a detailed breakdown of the AdminControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{AdminControl Class (\cdref{admincontrol})} \tablelabel{admincontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{admincontrol} \\
@@ -1471,9 +1572,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{studentform}, gives a detailed breakdown of the StudentForm class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{StudentForm Class (\cdref{studentform})} \tablelabel{studentform}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{studentform} \\
@@ -1494,9 +1598,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{adminform}, gives a detailed breakdown of the AdminForm class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{AdminForm Class (\cdref{adminform})} \tablelabel{adminform}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{adminform} \\
@@ -1517,9 +1624,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{loginform}, gives a detailed breakdown of the LoginForm class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{LoginForm Class (\cdref{loginform})} \tablelabel{loginform}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{loginform} \\
@@ -1540,9 +1650,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{logincontrol}, gives a detailed breakdown of the LoginControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{LoginControl Class (\cdref{logincontrol})} \tablelabel{logincontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{logincontrol} \\
@@ -1563,12 +1676,15 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{userconfact}, gives a detailed breakdown of the UserControlFactory class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{UserControlFactory Class (\cdref{userconfact})} \tablelabel{userconfact}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{userconfac} \\
+		Class Identifier & \cdref{userconfact} \\
 		Name & {\bf UserControlFactory} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1586,9 +1702,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{questionsform}, gives a detailed breakdown of the QuestionsForm class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{QuestionsForm Class (\cdref{questionsform})} \tablelabel{questionsform}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{questionsform} \\
@@ -1609,9 +1728,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{questionsoption}, gives a detailed breakdown of the QuestionsOption class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{QuestionsOption Class (\cdref{questionsoption})} \tablelabel{questionsoption}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{questionsoption} \\
@@ -1632,9 +1754,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{profileform}, gives a detailed breakdown of the ProfileForm class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProfileForm Class (\cdref{profileform})} \tablelabel{profileform}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{profileform} \\
@@ -1655,9 +1780,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{profilecontrol}, gives a detailed breakdown of the ProfileControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{ProfileControl Class (\cdref{profilecontrol})} \tablelabel{profilecontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{profilecontrol} \\
@@ -1678,9 +1806,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{questioncontrol}, gives a detailed breakdown of the QuestionControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{QuestionControl Class (\cdref{questioncontrol})} \tablelabel{questioncontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{questioncontrol} \\
@@ -1701,9 +1832,12 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
-\begin{center}
+The following table, \tableref{questionscontrol}, gives a detailed breakdown of the QuestionsControl class. Included in the breakdown are the attributes, operations, and any traceability with operations/services/subsystems.
+
+\begin{table}[H]
+    \caption{QuestionsControl Class (\cdref{questionscontrol})} \tablelabel{questionscontrol}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{questionscontrol} \\
@@ -1724,6 +1858,6 @@ In this section, we focus on the Operations that each of the services described 
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
-\end{center}
+\end{table}
 
 \end{document}
