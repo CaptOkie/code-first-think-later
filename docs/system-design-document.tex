@@ -471,9 +471,11 @@ To deal with the desired and personal values, \textit{responses} has two other c
 \subsubsection{Overview}
 While organizing code with an eye to the larger picture - architectural styles - is vitally important, the smaller scale design patterns fall not far behind. Design patterns are largely independent of the architectural style insofar as nearly all design patterns can be implemented in any of the architectural patterns. They usually are used to minimize coupling across layers or to maximize cohesion across sister subsystems (partitions). This section will go over several different design patterns and explain either why we decide to use them or why we forgo their implementation. There are three main categories of design patterns that we will include in this breakdown: creational patterns, structural patterns, and behavioural patterns.
 \subsubsection{Creational Patterns}
-The design patterns in this section affect how objects get created. 
+The design patterns in this section affect how objects get created. There will be two patterns in this section that we will be considering for our system: the factory method design pattern and the abstract factory design pattern. 
+\subsubsection*{Abstract Factory}
+While we were potentially considering implementing this design pattern, we decided not to in the end in favor of the more directly applicable Factory Method pattern. This design patterns essentially works by providing a standard interface for creating objects, wherein the concrete classes themselves are not specified. This would not work well for our system since it is crucial for objects to know whether the class is a Student user or an Admin user - functionality is highly dependent on this fact.
 \subsubsection*{Factory Method}
-We have decided to implement this design pattern in our system. Add more here later.
+We have decided to implement this design pattern in our system. The idea for this pattern is define a specialized interface for object creation that lets subclasses make the decision as to which particular class to instantiate. This pattern is apparent a user attempts to login - we do not know initially what type of user is logging in. In this scenario, we let UserStorage class tell us what type of user it is and then the UserControlFactory class will instantiate it. Another way of seeing this pattern is to imagine the UserControlFactory as a Template method - there is a placeholder of sorts that subclasses will specify.
 \subsubsection{Structural Patterns}
 The design patterns in this section affect the relationships between objects. Specifically, they aim to simplify their implementation.
 \subsubsection*{Adapter}
