@@ -293,7 +293,9 @@ There isn't a constraint put on the \textit{name} column to allow for \textit{Ad
 \end{table}
 
 \subsubsection*{Projects Table (\dtref{projects})}
-Oftentimes, admins will have to create multiple projects. To assure that no duplicate projects exist, we have enforced a unique project name as the Primary Key. This assures that the admin won't confuse themselves by having several identically named projects, thus maximizing readabilit and useability. Projects also have columns storing the max and min group sizes, which are importantly distinct from one another as to allow maximum flexibility with regards to number of students enrolled in a project (for when the PPID is run).  The following table, \tableref{projects-table}, gives a more detailed breakdown and description of each of the columns of the \textit{projects} table.
+Each \textit{Project} object (\cbref{project}) has a unique ID to uniquely identify it when querying or for referencing it in other tables. This ID is stored in the \textit{id} column, which is the primary key for the table. \textit{id} is used as the primary key oppose to the \textit{name} column, even though \textit{name} is always going to be unique as well, due to the fact the column is being referenced in other tables. If a \textit{Project's} name is changed, not only must be changed in the \textit{name} column, but in every table it is referenced as well. That operation can be time consuming and, most importantly, may lead to errors causing the data in the database to be incorrect. By using an ID that will never change, then the name of the \textit{Project} can change without fear of causing corrupt data.
+
+The following table, \tablelable{projects-table}, gives a more detailed breakdown and description of each of the columns of the \textit{projects} table.
 
 \begin{table}[H]
 	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
@@ -545,7 +547,7 @@ In this section, we focus on the Operations that each of the services described 
 \begin{center}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
-	\cdlabel{project}\cdref{project} & Project & The Project class contains four attributes: a name, a minimum group size, a maximum group size, and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
+	\cdlabel{project}\cdref{project} & Project & The Project class contains five attributes: a name, a unique ID, a minimum group size, a maximum group size, and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
 	\cdlabel{realproject}\cdref{realproject} & RealProject & The RealProject class inherits from the Project class and contains the actual information pulled from the ProjectStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyProject object.\\
 	\cdlabel{proxyproject}\cdref{proxyproject} & ProxyProject & The ProxyProject also inherits from the Project class and provides a proxy or interface to the RealProject object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealProject object.\\
 	\cdlabel{projectstorage}\cdref{projectstorage} & ProjectStorage & The ProjectStorage class is a class that provides a set of methods to pull/push data related to Projects from/to the relational database. The RealProject object is the only object that directly interacts with this object.\\
