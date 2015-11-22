@@ -521,7 +521,7 @@ The design patterns in this section are concerned with communication patterns be
 
 \subsubsection*{Observer}
 
-This design pattern is at the heart of the Model-View-Controller architectural style. It involves a one-to-many dependency between multiple objects such that when the one object changes state, all the `observing' objects are notified and updated automatically. We heavily considered implementing this design pattern while we were still considering between using Model-View-Controller and using Repository Style. That said, the MVC style resulted in a high degree of coupling, so we decided to go with the more basic Repository Style. Because of the way that we set up our system now, there is no need for the Observer pattern - objects pull their information directly from the persistent storage whenever there is a need to display. Because of this peculiarity, updating the UI objects that a change has been made would be useless. The following figure, \figureref{observer-example}, provides a small UML-based visual on how the Observer Pattern is set up.
+This design pattern is at the heart of the Model-View-Controller architectural style. It involves a one-to-many dependency between multiple objects such that when the one object changes state, all the `observing' objects are notified and updated automatically. We heavily considered implementing this design pattern while we were still considering between using Model-View-Controller and using Repository Style. That said, the MVC style resulted in a high degree of coupling, so we decided to go with the more basic Repository Style. Because of the way that we set up our system now, there is no need for the Observer Pattern - objects pull their information directly from the persistent storage whenever there is a need to display. Because of this peculiarity, updating the UI objects that a change has been made would be useless. The following figure, \figureref{observer-example}, provides a small UML-based visual on how the Observer Pattern is set up.
 
 \begin{figure}[H]
 	\centering{}
@@ -531,7 +531,16 @@ This design pattern is at the heart of the Model-View-Controller architectural s
 \end{figure}
 
 \subsubsection*{Strategy}
-Using this class.....................
+
+We have decided to implement this pattern in our system, though it may not seem obviously apparent as to why initially. While it is true that it currently serves little to no purpose, it acts as a future-proofing mechanism. It is entirely possible that at some point in time we may want to extend the functionality of our system to include the usage of multiple different sorting algorithms - perhaps one for each field. By incorporating the Strategy Pattern, we have given our system the tools to easily handle this change. This class has the huge benefit of minimizing coupling - other classes are coupled only to an abstraction, thus added more derived classes wouldn't change anything for them. The below figure, \figureref{strategy-example}, provides a small UML-based visual on how the Strategy Pattern is set up.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.45]{imgs/d3/sample-strategy.png}
+	\caption{Example of the Strategy Design Pattern}
+	\figurelabel{strategy-example}
+\end{figure}
+
 \section{Subsystem Services}
 \subsection{Overview}
 
