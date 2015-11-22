@@ -192,6 +192,7 @@ In the figure below, \figureref{proto-decomp}, we have the system decomposition 
 	\figurelabel{proto-decomp}
 \end{figure}
 
+<<<<<<< HEAD
 \begin{table}[H]
 	\caption{Prototype Subsystems}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -202,13 +203,30 @@ In the figure below, \figureref{proto-decomp}, we have the system decomposition 
 	\end{tabu}
 \end{table}
 
+=======
+>>>>>>> origin/phase-2
 \subsection{System Decomposition}
+
+\begin{table}[H]
+	\caption{Subsystems} \tablelabel{subsystems}
+    \begin{tabu} to \linewidth {l >{\it}l X}
+        \tableheader{}ID & Name & Description \\
+        \sdlabel{login}\sdref{login} & LoginSubsystem & \\
+        \sdlabel{user}\sdref{user} & UserSubsystem & \\
+        \sdlabel{profile}\sdref{profile} & ProfileSubsystem & \\
+        \sdlabel{ppid}\sdref{ppid} & PPIDSubsystem & \\
+        \sdlabel{project}\sdref{project} & ProjectSubsystem & \\
+        \sdlabel{storage}\sdref{storage} & StorageSubsystem & \\
+    \end{tabu}
+\end{table}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/d3/decomp/repository.png}
 	\caption{Subsystem Decomposition}
 	\figurelabel{subsys-decomp}
 \end{figure}
+
 \subsection{Design Evolution}
 \subsubsection{Prototype Design Decisions}
 \subsubsection{Updated Design Decisions}
@@ -268,7 +286,7 @@ To store the data for our system, a relational database is being used. Our relat
 While figures are great for visualization, what do these tables actually represent? The following table, \tableref{db-table}, describes what each table in our relational database represents. Each of these tables are assigned a unique identifier to allow for maximum traceability.
 
 \begin{table}[H]
-	\caption{Tables in Database} \tablelabel{db-table}
+	\caption{Database Tables} \tablelabel{db-table}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Name & Description \\
 		\dtlabel{students}\dtref{students}     & students   & Stores the \textit{Student} (\cdref{student}) entity object. \\
@@ -503,6 +521,15 @@ In this section, we give a list and description of each of the services that our
 
 In this section, we focus on the Operations that each of the services described in the above section offer. For added traceability, we have also included the specific class that provides each of the operations, as well as a description of each.
 
+\subsubsection{DataService (\ssref{data-service})}
+\subsubsection*{User (\cdref{user})}
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Name & Description \\
+        \oplabel{user-getid}\opref{user-getid} & getId & Gets the ID of the \textit{User} (\cdref{user}) \\
+	\end{tabu}
+\end{center}
+
 \subsubsection*{StorageSubsystem}
 
 \begin{table}[H]
@@ -671,6 +698,8 @@ In this section, we focus on the Operations that each of the services described 
 \end{table}
 
 \section{Class Interfaces}
+
+\subsection{}
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
