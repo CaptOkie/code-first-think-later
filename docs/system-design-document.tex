@@ -589,12 +589,23 @@ The following table showcases all the different services offered by the PPIDSubs
 The following table encompasses all the services offered by the StorageSubsystem (\sdref{storage}). 
 
 \begin{table}[H]
-\caption{Services Offered by the StorageSubsystem (\sdref{storage})} \tablelabel{service-sub-storage}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Service & Description\\
-	\sslabel{data}\ssref{data} & Data Service & This service encompasses the operations related to getting or setting data that is being held in the persistent relational database storages. \\
-\end{tabu}
+	\caption{Services Offered by the StorageSubsystem (\sdref{storage})} \tablelabel{storage-services}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Service & Description\\
+		\sslabel{user}\ssref{user} & UserService & \\
+		\sslabel{student}\ssref{student} & StudentService & \\
+		\sslabel{admin}\ssref{admin} & AdminService & \\
+		\sslabel{project}\ssref{project} & ProjectService & \\
+		\sslabel{question}\ssref{question} & QuestionService & \\
+	\end{tabu}
 \end{table}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.27]{imgs/d3/services/storage-subsystem.png}
+	\caption{Services Offered by StorageSubsystem (\sdref{storage})}
+	\figurelabel{storage-services}
+\end{figure}
 
 \subsection{Operations}
 
