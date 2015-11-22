@@ -340,8 +340,9 @@ The following table, \tableref{questions-table}, gives a more detailed breakdown
 \end{table}
 
 \subsubsection*{Answers Table (\dtref{answers})}
-- primary key made of foreign key to \textit{questions}.\textit{id} and \textit{id}. \\
-- this allows an answer to belong to only one question. 
+In the system, an \textit{Answer} appears only once in a \textit{Question}, therefore the database should model that. To accomplish this, the primary key of the \textit{answers} table is made up of two columns: \textit{question}, which references the \textit{id} from the \textit{questions} table, and \textit{id}, which is a unique ID for each \textit{Answer}. By having both columns as the primary key, this ensures that only one combination of \textit{question} and \textit{id} exist. That means a \textit{Question} can only have one occurrence of an \textit{Answer}.
+
+The following table, \tableref{answers-table}, gives a more detailed breakdown and description of each of the columns of the \textit{answers} table.
 
 \begin{table}[H]
 	\caption{Answers Table (\dtref{answers})} \tablelabel{answers-table}
