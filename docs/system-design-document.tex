@@ -255,7 +255,7 @@ The figure below, \figureref{component}, illustrates the dependencies that exist
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.35]{imgs/d3/decomp/component-diagram.png}
+	\includegraphics[scale=0.27]{imgs/d3/decomp/component-diagram.png}
 	\caption{Component Diagram}
 	\figurelabel{component}
 \end{figure}
@@ -517,62 +517,82 @@ The following table showcases all the different services offered by the UserSubs
 	\end{tabu}
 \end{table}
 
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.40]{imgs/d3/services/user-subsystem.png}
+	\caption{Services Offered by UserSubsystem (\sdref{user})}
+	\figurelabel{user-services}
+\end{figure}
 
+\subsubsection{ProfileSubsystem (\sdref{profile})}
 
-The following table encompasses all the services offered by the ProxySubsystem (\sdref{storage}). 
+\noindent{}
+The following table showcases all the different services offered by the ProfileSubsystem (\sdref{profile}).
+
+\begin{table}[H]
+	\caption{Services Offered by ProfileSubsystem (\sdref{profile})} \tablelabel{profile-services}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Service & Description\\
+		\sslabel{profile-options}\ssref{profile-options} & ProfileOptionsService & \\
+	\end{tabu}
+\end{table}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.40]{imgs/d3/services/profile-subsystem.png}
+	\caption{Services Offered by ProfileSubsystem (\sdref{profile})}
+	\figurelabel{profile-services}
+\end{figure}
+
+\subsubsection{ProjectSubsystem (\sdref{project})}
+
+\noindent{}
+The following table showcases all the different services offered by the ProjectSubsystem (\sdref{project}).
+
+\begin{table}[H]
+	\caption{Services Offered by ProjectSubsystem (\sdref{project})} \tablelabel{prject-services}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Service & Description\\
+		\sslabel{project-options}\ssref{project-options} & ProjectOptionsService & \\
+	\end{tabu}
+\end{table}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.40]{imgs/d3/services/project-subsystem.png}
+	\caption{Services Offered by ProjectSubsystem (\sdref{project})}
+	\figurelabel{project-services}
+\end{figure}
+
+\subsubsection{PPIDSubsystem (\sdref{ppid})}
+
+\noindent{}
+The following table showcases all the different services offered by the PPIDSubsystem (\sdref{ppid}).
+
+\begin{table}[H]
+	\caption{Services Offered by PPIDSubsystem (\sdref{ppid})} \tablelabel{ppid-services}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Service & Description\\
+		\sslabel{ppid-options}\ssref{ppid-options} & PPIDOptionsService & \\
+	\end{tabu}
+\end{table}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.40]{imgs/d3/services/ppid-subsystem.png}
+	\caption{Services Offered by PPIDSubsystem (\sdref{ppid})}
+	\figurelabel{ppid-services}
+\end{figure}
+
+\subsubsection{StorageSubsystem (\sdref{storage})}
+
+The following table encompasses all the services offered by the StorageSubsystem (\sdref{storage}). 
 
 \begin{table}[H]
 \caption{Services Offered by the StorageSubsystem (\sdref{storage})} \tablelabel{service-sub-storage}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
 	\sslabel{data}\ssref{data} & Data Service & This service encompasses the operations related to getting or setting data that is being held in the persistent relational database storages. \\
-\end{tabu}
-\end{table}
-
-\noindent{}
-The following table showcases all the different services offered by the PPIDSubsystem (\sdref{ppid}).
-
-\begin{table}[H]
-\caption{Services Offered by PPIDSubsystem (\sdref{ppid})} \tablelabel{service-sub-ppdi}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Service & Description\\
-	\sslabel{sortstudents}\ssref{sortstudents} & Student-Sorting Service & This service encompasses several operations that handle the running of the PPID algorithm, which sorts the given set of Student objects into groups.\\
-\end{tabu}
-\end{table}
-
-\noindent{}
-The following table showcases all the different services offered by the LoginSubsystem (\sdref{login}).
-
-\begin{table}[H]
-\caption{Services Offered by LoginSubsystem (\sdref{login})} \tablelabel{service-sub-login}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Service & Description\\
-	\sslabel{service5}\ssref{service5} & service5 & desc\\
-	\sslabel{service6}\ssref{service6} & service6 & desc\\
-\end{tabu}
-\end{table}
-
-\noindent{}
-The following table showcases all the different services offered by the ProfileSubsystem (\sdref{profile}).
-
-\begin{table}[H]
-\caption{Services Offered by ProfileSubsystem (\sdref{profile})} \tablelabel{service-sub-profile}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Service & Description\\
-	\sslabel{service5}\ssref{service5} & service5 & desc\\
-	\sslabel{service6}\ssref{service6} & service6 & desc\\
-\end{tabu}
-\end{table}
-
-\noindent{}
-The following table showcases all the different services offered by the ProjectSubsystem (\sdref{project}).
-
-\begin{table}[H]
-\caption{Services Offered by ProjectSubsystem (\sdref{project})} \tablelabel{service-sub-project}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Service & Description\\
-	\sslabel{service5}\ssref{service5} & service5 & desc\\
-	\sslabel{service6}\ssref{service6} & service6 & desc\\
 \end{tabu}
 \end{table}
 
