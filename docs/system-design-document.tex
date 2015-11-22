@@ -272,6 +272,8 @@ Similar to the previous section, this section is also divided into three major p
 \subsection{Hardware/Software Mapping}
 \subsubsection{Overview}
 
+This section includes three separate parts: architectural styles, persistent data management, and design patterns. The first subsection will delve into the particular nuances of several architectural styles that we considered for our system and whether or not we decided to go with them. Included for each style will be some justification as to whether or not we believed them to be suitable. The following subsection dives into the particularities and details of our chosen persistent storage system. This subsection will include define all the tables that we use in our storage as well as the relationships existing between them. Finally, the last subsection will provide a detailed discussion of several different design patterns. Included in this discussion will be our reasoning as to whether or not we believe them to be appropriate for our system design. 
+
 \subsubsection{Architectural Style}
 
 Our system revolves heavily upon a central storage, or repository. Other than the repository, we make use of several subsystems. Simply with this in mind, we can instantly rule out the {\it pipe and filter} architectural style - while we do indeed have subsystems (filters) that associate with each other (pipes), our subsystems are fairly dependent on one another. Furthermore, our subsystems are responsible for more than simply processing a set of inputs to get a set of outputs. 
