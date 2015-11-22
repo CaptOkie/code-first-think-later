@@ -14,3 +14,4 @@ ViLLiELdR:
 3 Hours: Documentation, traceability, class descriptions
 2 Hours: Worked on Classes and Design Patterns
 2 Hours: Group Meeting: Subsystem Decomposition
+12 Hours: Work on documentation everywhere
