@@ -674,29 +674,95 @@ In this section, we focus on the Operations that each of the services described 
 \end{tabu}
 \end{table}
 
+
+\subsubsection*{PPIDSubsystem}
+
 \begin{table}[H]
-\caption{Classes involved in Data Service (\ssref{data})} 
+\caption{Operations Offered in Student-Sorting Service (\ssref{studentsort})} \tablelabel{operation-studentsort}
 \begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Class Name & Operations Provided & Description \\
-	\cdlabel{user}\cdref{user} & User & & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
-	\cdlabel{student}\cdref{student} & Student &  & The Student class contains several attributes: a unique ID, a name, both inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
-	\cdlabel{realstudent}\cdref{realstudent} & RealStudent & & The RealStudent class inherits from the Student class and contains the actual information pulled from the StudentStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyStudent object.\\
-	\cdlabel{proxystudent}\cdref{proxystudent} & ProxyStudent & GetStudentName (\opref{getstuname}) & The ProxyStudent class also inherits from the Student class and provides a proxy or interface to the RealStudent object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealStudent object.\\
-	\cdlabel{studentstorage}\cdref{studentstorage} & StudentStorage & & The StudentStorage class is a class that provides a set of methods to pull/push data related to the Student user from/to the relational database. The RealStudent object is the only object that directly interacts with this object.\\
-	\cdlabel{admin}\cdref{admin} & Admin & & The Admin class contains two attributes - the unique ID, and a name, both inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation3}\opref{operation3} & operation1 & classA & desc\\
+	\oplabel{operation4}\opref{operation4} & operation2 & classB & desc\\
 \end{tabu}
 \end{table}
 
-\begin{center}
+\subsubsection*{ProjectSubsystem}
+
+\begin{table}[H]
+\caption{Operations Offered in Service3 (\ssref{service3})} \tablelabel{operation-service3}
 \begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Class Name & Operations Provided & Description \\
-	\cdlabel{realadmin}\cdref{realadmin} & RealAdmin & & The RealAdmin class inherits from the Admin class and contains the actual information pulled from the AdminStorage object. It is relatively hidden from the rest of the system, though the data contained can only be accessed through the ProxyAdmin object. \\
-	\cdlabel{proxyadmin}\cdref{proxyadmin} & ProxyAdmin & GetAdminName (\opref{getadminname}) & The ProxyAdmin class also inherits from the Admin class and provides a proxy or interface to the RealAdmin object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealAdmin object.\\
-	\cdlabel{adminstorage}\cdref{adminstorage} & AdminStorage & & The AdminStorage class is a class that provides a set of methods to pull/push data related to the Admin user from/to the relational database. The RealAdmin object is the only object that directly interacts with this object.\\
-	\cdlabel{project}\cdref{project} & Project & & The Project class contains five attributes: a name, a unique ID, a minimum group size, a maximum group size, and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
-	\cdlabel{realproject}\cdref{realproject} & RealProject & & The RealProject class inherits from the Project class and contains the actual information pulled from the ProjectStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyProject object.\\
-	\cdlabel{proxyproject}\cdref{proxyproject} & ProxyProject & & The ProxyProject also inherits from the Project class and provides a proxy or interface to the RealProject object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealProject object.\\
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation5}\opref{operation5} & operation1 & classA & desc\\
+	\oplabel{operation6}\opref{operation6} & operation2 & classB & desc\\
 \end{tabu}
+\end{table}
+
+\subsubsection*{UserSubsystem}
+
+\begin{table}[H]
+\caption{Operations Offered in Service4 (\ssref{service4})} \tablelabel{operation-service4}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation7}\opref{operation7} & operation1 & classA & desc\\
+	\oplabel{operation8}\opref{operation8} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
+
+
+\subsubsection*{LoginSubsystem}
+
+\begin{table}[H]
+\caption{Operations Offered in Service5 (\ssref{service5})} \tablelabel{operation-service5}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation9}\opref{operation9} & operation1 & classA & desc\\
+	\oplabel{operation10}\opref{operation10} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
+
+
+\subsubsection*{ProfileSubsystem}
+
+\begin{table}[H]
+\caption{Operations Offered in Service6 (\ssref{service6})} \tablelabel{operation-service6}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Operation & Class & Description\\
+	\oplabel{operation9}\opref{operation9} & operation1 & classA & desc\\
+	\oplabel{operation10}\opref{operation10} & operation2 & classB & desc\\
+\end{tabu}
+\end{table}
+
+
+\subsection{Component Diagrams}
+
+\section{Class Interfaces}
+
+\subsection{UserOptionsService (\ssref{user-options})}
+\begin{table}[H]
+	\caption{Classes involved in Data Service (\ssref{data})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Class Name & Description \\
+		\cdlabel{user}\cdref{user} & User & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
+		\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, a name, both inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
+		\cdlabel{realstudent}\cdref{realstudent} & RealStudent & The RealStudent class inherits from the Student class and contains the actual information pulled from the StudentStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyStudent object.\\
+		\cdlabel{proxystudent}\cdref{proxystudent} & ProxyStudent & The ProxyStudent class also inherits from the Student class and provides a proxy or interface to the RealStudent object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealStudent object.\\
+		\cdlabel{studentstorage}\cdref{studentstorage} & StudentStorage & The StudentStorage class is a class that provides a set of methods to pull/push data related to the Student user from/to the relational database. The RealStudent object is the only object that directly interacts with this object.\\
+		\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains two attributes - the unique ID, and a name, both inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
+	\end{tabu}
+\end{table}
+
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l l X}
+		\tableheader{}ID & Class Name & Operations Provided & Description \\
+		\cdlabel{realadmin}\cdref{realadmin} & RealAdmin & & The RealAdmin class inherits from the Admin class and contains the actual information pulled from the AdminStorage object. It is relatively hidden from the rest of the system, though the data contained can only be accessed through the ProxyAdmin object. \\
+		\cdlabel{proxyadmin}\cdref{proxyadmin} & ProxyAdmin & GetAdminName (\opref{getadminname}) & The ProxyAdmin class also inherits from the Admin class and provides a proxy or interface to the RealAdmin object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealAdmin object.\\
+		\cdlabel{adminstorage}\cdref{adminstorage} & AdminStorage & & The AdminStorage class is a class that provides a set of methods to pull/push data related to the Admin user from/to the relational database. The RealAdmin object is the only object that directly interacts with this object.\\
+		\cdlabel{project}\cdref{project} & Project & & The Project class contains five attributes: a name, a unique ID, a minimum group size, a maximum group size, and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
+		\cdlabel{realproject}\cdref{realproject} & RealProject & & The RealProject class inherits from the Project class and contains the actual information pulled from the ProjectStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyProject object.\\
+		\cdlabel{proxyproject}\cdref{proxyproject} & ProxyProject & & The ProxyProject also inherits from the Project class and provides a proxy or interface to the RealProject object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealProject object.\\
+	\end{tabu}
 \end{center}
 
 \begin{center}
@@ -713,14 +779,23 @@ In this section, we focus on the Operations that each of the services described 
 \end{tabu}
 \end{center}
 
-\subsubsection*{PPIDSubsystem}
+\begin{table}[H]
+\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\cdlabel{usercontrol}\cdref{usercontrol} & UserControl & & \\
+	\cdlabel{studentcontrol}\cdref{studentcontrol} & StudentControl & & desc \\
+	\cdlabel{admincontrol}\cdref{admincontrol} & AdminControl & & desc \\
+	\cdlabel{studentform}\cdref{studentform} & StudentForm & & \\
+	\cdlabel{adminform}\cdref{adminform} & AdminForm & & \\
+\end{tabu}
+\end{table}
 
 \begin{table}[H]
-\caption{Operations Offered in Student-Sorting Service (\ssref{studentsort})} \tablelabel{operation-studentsort}
+\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
 \begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation3}\opref{operation3} & operation1 & classA & desc\\
-	\oplabel{operation4}\opref{operation4} & operation2 & classB & desc\\
+	\tableheader{}ID & Class Name & Operations Provided & Description \\
+	\cdlabel{projectcontrol}\cdref{projectcontrol} & ProjectControl & &\\
+	\cdlabel{projectform}\cdref{projectform} & ProjectForm & &\\
 \end{tabu}
 \end{table}
 
@@ -737,78 +812,14 @@ In this section, we focus on the Operations that each of the services described 
 \end{tabu}
 \end{table}
 
-\subsubsection*{ProjectSubsystem}
-
 \begin{table}[H]
-\caption{Operations Offered in Service3 (\ssref{service3})} \tablelabel{operation-service3}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation5}\opref{operation5} & operation1 & classA & desc\\
-	\oplabel{operation6}\opref{operation6} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
-
-\begin{table}[H]
-\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Class Name & Operations Provided & Description \\
-	\cdlabel{projectcontrol}\cdref{projectcontrol} & ProjectControl & &\\
-	\cdlabel{projectform}\cdref{projectform} & ProjectForm & &\\
-\end{tabu}
-\end{table}
-
-\subsubsection*{UserSubsystem}
-
-\begin{table}[H]
-\caption{Operations Offered in Service4 (\ssref{service4})} \tablelabel{operation-service4}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation7}\opref{operation7} & operation1 & classA & desc\\
-	\oplabel{operation8}\opref{operation8} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
-
-\begin{table}[H]
-\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\cdlabel{usercontrol}\cdref{usercontrol} & UserControl & & \\
-	\cdlabel{studentcontrol}\cdref{studentcontrol} & StudentControl & & desc \\
-	\cdlabel{admincontrol}\cdref{admincontrol} & AdminControl & & desc \\
-	\cdlabel{studentform}\cdref{studentform} & StudentForm & & \\
-	\cdlabel{adminform}\cdref{adminform} & AdminForm & & \\
-\end{tabu}
-\end{table}
-
-\subsubsection*{LoginSubsystem}
-
-\begin{table}[H]
-\caption{Operations Offered in Service5 (\ssref{service5})} \tablelabel{operation-service5}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation9}\opref{operation9} & operation1 & classA & desc\\
-	\oplabel{operation10}\opref{operation10} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
-
-\begin{table}[H]
-\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Class Name & Operations Provided & Description \\
-	\cdlabel{loginform}\cdref{loginform} & LoginForm & & \\
-	\cdlabel{logincontrol}\cdref{logincontrol} & LoginControl & & desc \\
-	\cdlabel{userconfact}\cdref{userconfact} & UserControlFactory & & \\
-\end{tabu}
-\end{table}
-
-\subsubsection*{ProfileSubsystem}
-
-\begin{table}[H]
-\caption{Operations Offered in Service6 (\ssref{service6})} \tablelabel{operation-service6}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation9}\opref{operation9} & operation1 & classA & desc\\
-	\oplabel{operation10}\opref{operation10} & operation2 & classB & desc\\
-\end{tabu}
+    \caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
+	\begin{tabu} to \textwidth {l >{\it}l l X}
+		\tableheader{}ID & Class Name & Operations Provided & Description \\
+		\cdlabel{loginform}\cdref{loginform} & LoginForm & & \\
+		\cdlabel{logincontrol}\cdref{logincontrol} & LoginControl & & desc \\
+		\cdlabel{userconfact}\cdref{userconfact} & UserControlFactory & & \\
+	\end{tabu}
 \end{table}
 
 \begin{table}[H]
@@ -824,26 +835,6 @@ In this section, we focus on the Operations that each of the services described 
 \end{tabu}
 \end{table}
 
-\subsection{Component Diagrams}
-
-\section{Class Interfaces}
-
-\subsection{LoginSubsystem (\sdref{login})}
-\subsection{UserSubsystem (\sdref{user})}
-\subsection{PPIDSubsystem (\sdref{ppid})}
-\subsection{ProjectSubsystem (\sdref{project})}
-\subsection{ProfileSubsystem (\sdref{profile})}
-\subsection{StorageSubsystem (\sdref{storage})}
-
-\begin{table}[H]
-    \caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-	\begin{tabu} to \textwidth {l >{\it}l l X}
-		\tableheader{}ID & Class Name & Operations Provided & Description \\
-		\cdlabel{loginform}\cdref{loginform} & LoginForm & & \\
-		\cdlabel{logincontrol}\cdref{logincontrol} & LoginControl & & desc \\
-		\cdlabel{userconfact}\cdref{userconfact} & UserControlFactory & & \\
-	\end{tabu}
-\end{table}
 
 The following table, \tableref{user}, gives a detailed breakdown of the User class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
