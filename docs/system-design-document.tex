@@ -188,13 +188,29 @@ This section will be three-pronged - firstly, we will decompose the current work
 	\caption{Subsystem Decomposition (Prototype)}
 	\figurelabel{proto-decomp}
 \end{figure}
+
 \subsection{System Decomposition}
+
+\begin{table}[H]
+	\caption{Subsystems} \tablelabel{subsystems}
+    \begin{tabu} to \linewidth {l >{\it}l X}
+        \tableheader{}ID & Name & Description \\
+        \sdlabel{login}\sdref{login} & LoginSubsystem & \\
+        \sdlabel{user}\sdref{user} & UserSubsystem & \\
+        \sdlabel{profile}\sdref{profile} & ProfileSubsystem & \\
+        \sdlabel{ppid}\sdref{ppid} & PPIDSubsystem & \\
+        \sdlabel{project}\sdref{project} & ProjectSubsystem & \\
+        \sdlabel{storage}\sdref{storage} & StorageSubsystem & \\
+    \end{tabu}
+\end{table}
+
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.25]{imgs/d3/decomp/repository.png}
 	\caption{Subsystem Decomposition}
 	\figurelabel{subsys-decomp}
 \end{figure}
+
 \subsection{Design Evolution}
 \subsubsection{Prototype Design Decisions}
 \subsubsection{Updated Design Decisions}
@@ -245,7 +261,7 @@ To store the data for our system, a relational database is being used. Our relat
 While figures are great for visualization, what do these tables actually represent? The following table, \tableref{db-table}, describes what each table in our relational database represents. Each of these tables are assigned a unique identifier to allow for maximum traceability.
 
 \begin{table}[H]
-	\caption{Tables in Database} \tablelabel{db-table}
+	\caption{Database Tables} \tablelabel{db-table}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Name & Description \\
 		\dtlabel{students}\dtref{students}     & students   & Stores the \textit{Student} (\cdref{student}) entity object. \\
@@ -657,6 +673,8 @@ In this section, we focus on the Operations that each of the services described 
 \end{table}
 
 \section{Class Interfaces}
+
+\subsection{}
 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
