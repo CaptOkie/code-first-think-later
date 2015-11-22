@@ -477,14 +477,14 @@ In this section, we focus on the Operations that each of the services described 
 \caption{Operations Offered in Data Service (\ssref{data})} \tablelabel{operation-data}
 \begin{tabu} to \textwidth {l >{\it}l l X}
 	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{getstuname}\opref{getstuname} & GetStudentName & ProxyStudent & The \textit{GetStudentName} operation is a method offered by the \textit{ProxyStudent} class (\cdref{proxystudent}). The operation takes in an ID value (an integer), and asks the \textit{RealStudent} class (\cdref{realstudent}) for the \textit{Student} corresponding to the given ID's name and returns it (as a String).\\
-	\oplabel{getadminname}\opref{getadminname} & GetAdminName & ProxyAdmin & The \textit{GetAdminName} operation is a method offered by the \textit{ProxyAdmin} class (\cdref{proxyadmin}). The operation takes in an ID value (an integer), and asks the \textit{RealAdmin} class (\cdref{realadmin}) for the \textit{Admin} corresponding to the given ID's name and returns it (as a String).\\
-	\oplabel{getprojectname}\opref{getprojectname} & GetProjectName & ProxyProject & The \textit{GetProjectName} operation is a method offered by the \textit{ProxyProject} class (\cdref{proxyproject}). The operation takes in an ID value (an integer) and asks the \textit{RealProject} class (\cdref{realproject}) for the \textit{Project} corresponding to the given ID's name and returns it (as a String).\\
-	\oplabel{getdesiredquestion}\opref{getdesiredquestion} & GetDesiredQuestion & ProxyQuestion & desc\\
-	\oplabel{getpersonalquestion}\opref{getpersonalquestion} & GetPersonalQuestion & ProxyQuestion & desc\\
-	\oplabel{getcategory}\opref{getcategory} & GetQuestionCategory & ProxyQuestion & desc\\
-	\oplabel{getmaxgroupsize}\opref{getmaxgroupsize} & GetMaxGroupSize & ProxyProject & desc\\
-	\oplabel{getmingroupsize}\opref{getmingroupsize} & GetMinGroupSize & ProxyProject & desc\\
+	\oplabel{getstuname}\opref{getstuname} & GetStudentName & ProxyStudent (\cdref{proxystudent}) & The \textit{GetStudentName} operation is a method offered by the \textit{ProxyStudent} class (\cdref{proxystudent}). The operation takes in an ID value (an integer), and asks the \textit{RealStudent} class (\cdref{realstudent}) for the \textit{Student} corresponding to the given ID's name and returns it (as a String).\\
+	\oplabel{getadminname}\opref{getadminname} & GetAdminName & ProxyAdmin (\cdref{proxyadmin}) & The \textit{GetAdminName} operation is a method offered by the \textit{ProxyAdmin} class (\cdref{proxyadmin}). The operation takes in an ID value (an integer), and asks the \textit{RealAdmin} class (\cdref{realadmin}) for the \textit{Admin} corresponding to the given ID's name and returns it (as a String).\\
+	\oplabel{getprojectname}\opref{getprojectname} & GetProjectName & ProxyProject (\cdref{proxyproject}) & The \textit{GetProjectName} operation is a method offered by the \textit{ProxyProject} class (\cdref{proxyproject}). The operation takes in an ID value (an integer) and asks the \textit{RealProject} class (\cdref{realproject}) for the \textit{Project} corresponding to the given ID's name and returns it (as a String).\\
+	\oplabel{getdesiredquestion}\opref{getdesiredquestion} & GetDesiredQuestion & ProxyQuestion (\cdref{proxyquestion}) & desc\\
+	\oplabel{getpersonalquestion}\opref{getpersonalquestion} & GetPersonalQuestion & ProxyQuestion (\cdref{proxyquestion}) & desc\\
+	\oplabel{getcategory}\opref{getcategory} & GetQuestionCategory & ProxyQuestion (\cdref{proxyquestion}) & desc\\
+	\oplabel{getmaxgroupsize}\opref{getmaxgroupsize} & GetMaxGroupSize & ProxyProject (\cdref{proxyproject}) & desc\\
+	\oplabel{getmingroupsize}\opref{getmingroupsize} & GetMinGroupSize & ProxyProject (\cdref{proxyproject}) & desc\\
 \end{tabu}
 \end{table}
 
