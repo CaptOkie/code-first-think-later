@@ -265,6 +265,9 @@ The figure below, \figureref{component}, illustrates the dependencies that exist
 This section will explain the various design decisions we made for the new, updated system. The goal of this new system is to maximize the amount of cohesion in our subsystems while minimizing the degree of coupling. While some of our decisions did involve architectural styles and design patterns, they will only be briefly discussed in this section. The following section will provide a more detailed explanation of why we decided on a particular patttern or style over another.
 
 \subsubsection{Design Decisions}
+
+Our prototype design, shown in \figureref{proto-decomp}, can be defined as the Repository architectural style. All the major necessary components are indeed present to earn that title. That said, however, because our implementation did not consider attempting to maximize cohesion and minimize coupling, we ended up with an extremely high degree of coupling between our subsystems. Specifically, due to the nature of the widgets that we used, there was no distinction between the view and the logic. It ended up, actually, that our widgets did mostly everything. Plus, every widget was highly dependent on the Storage. While normally this might seem normal, our subsystems were organized such that our widgets were not part of the repository layer, thus resulting the high coupling we mentioned earlier. To fix this problem, we have decided to reorganize our widgets so that they are dependent on entity type objects. We also decomposed our enormous storage object into several smaller, more specific storage objects. This has the added benefit of keeping only the related operations together, which in turn increases our degree of cohesion in our subsystem. By introducing more focused subsystems along with carefully used design patterns, like the proxy design pattern, we have limited the amount of intersubsystem dependencies.
+
 \section{Design Strategies}
 
 Similar to the previous section, this section is also divided into three major parts: architectural style, persistent data management, and design patterns. In the first part, we will describe our chosen architectural style and explain the benefits to using this particular style with regards to our system. We will also include UML deployment diagrams as a visual representation of the architecture of our software. Following this part, we will discuss our design choices with regards to our persistent data management. We will also be covering some particular cases here, such as duplicate records. Finally, we will discuss the our chosen design patterns and why they are appropriate given our decisions form the other parts in this section.
@@ -305,6 +308,7 @@ The Repository architectural style involves an absolutely necessary storage laye
 	\figurelabel{repository}
 \end{figure}
 
+\newpage{}
 \subsubsection{Node Assignment}
 
 The following figure, \figureref{deployment}, represents the node assignment of the entire system. Note that we have simply included the entire system to be assigned to the :UbuntuHost device - all the other subsystems are components of the System.
@@ -510,7 +514,7 @@ We heavily considered using this design pattern. Initially, it seemed like our s
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.55]{imgs/d3/sample-facade.png}
+	\includegraphics[scale=0.45]{imgs/d3/sample-facade.png}
 	\caption{Example of the Facade Design Pattern}
 	\figurelabel{facade-example}
 \end{figure}
