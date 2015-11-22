@@ -293,9 +293,9 @@ There isn't a constraint put on the \textit{name} column to allow for \textit{Ad
 \end{table}
 
 \subsubsection*{Projects Table (\dtref{projects})}
-Each \textit{Project} object (\cbref{project}) has a unique ID to uniquely identify it when querying or for referencing it in other tables. This ID is stored in the \textit{id} column, which is the primary key for the table. \textit{id} is used as the primary key oppose to the \textit{name} column, even though \textit{name} is always going to be unique as well, due to the fact the column is being referenced in other tables. If a \textit{Project's} name is changed, not only must be changed in the \textit{name} column, but in every table it is referenced as well. That operation can be time consuming and, most importantly, may lead to errors causing the data in the database to be incorrect. By using an ID that will never change, then the name of the \textit{Project} can change without fear of causing corrupt data.
+Each \textit{Project} object (\cdref{project}) has a unique ID to uniquely identify it when querying or for referencing it in other tables. This ID is stored in the \textit{id} column, which is the primary key for the table. \textit{id} is used as the primary key oppose to the \textit{name} column, even though \textit{name} is always going to be unique as well, due to the fact the column is being referenced in other tables. If a \textit{Project's} name is changed, not only must be changed in the \textit{name} column, but in every table it is referenced as well. That operation can be time consuming and, most importantly, may lead to errors causing the data in the database to be incorrect. By using an ID that will never change, then the name of the \textit{Project} can change without fear of causing corrupt data.
 
-The following table, \tablelable{projects-table}, gives a more detailed breakdown and description of each of the columns of the \textit{projects} table.
+The following table, \tableref{projects-table}, gives a more detailed breakdown and description of each of the columns of the \textit{projects} table.
 
 \begin{table}[H]
 	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
