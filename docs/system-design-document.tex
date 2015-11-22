@@ -750,8 +750,101 @@ In this section, we focus on the Operations that each of the services described 
 
 \subsection{UserOptionsService (\ssref{user-options})}
 \begin{table}[H]
-	\caption{Classes involved in Data Service (\ssref{data})} 
+	\caption{UserOptionsService Classes (\ssref{user-options})} 
 	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+	    \cdlabel{user-ctrl}\cdref{user-ctrl} & UserControl & \\
+	    \cdlabel{student-ctrl}\cdref{student-ctrl} & StudentControl & desc \\
+	    \cdlabel{admin-ctrl}\cdref{admin-ctrl} & AdminControl & desc \\
+	    \cdlabel{student-form}\cdref{student-form} & StudentForm & \\
+	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & \\
+	\end{tabu}
+\end{table}
+
+\subsection{ProfileOptionsService (\ssref{profile-options})}
+\begin{table}[H]
+	\caption{UserOptionsService Classes (\ssref{user-options})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+		\cdlabel{question-option}\cdref{question-option} & QuestionOption & \\
+		\cdlabel{profile-form}\cdref{profile-form} & ProfileForm & \\
+		\cdlabel{profile-ctrl}\cdref{profile-ctrl} & ProfileControl & desc \\
+		\cdlabel{question-ctrl}\cdref{question-ctrl} & QuestionControl & desc \\
+	\end{tabu}
+\end{table}
+
+\subsection{ProjectOptionsService (\ssref{project-options})}
+\begin{table}[H]
+	\caption{UserOptionsService Classes (\ssref{user-options})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+		\cdlabel{project-ctrl}\cdref{project-ctrl} & ProjectControl &\\
+		\cdlabel{project-form}\cdref{project-form} & ProjectForm & \\
+	\end{tabu}
+\end{table}
+
+\subsection{PPIDOptionsService (\ssref{ppid-options})}
+\begin{table}[H]
+	\caption{UserOptionsService Classes (\ssref{user-options})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+		\cdlabel{grouper}\cdref{grouper} & Grouper & \\
+		\cdlabel{matcher}\cdref{matcher} & Matcher & \\
+		\cdlabel{split-smallest}\cdref{split-smallest} & SplitSmallest & \\
+		\cdlabel{percent-distance}\cdref{percent-distance} & PercentDistance & \\
+		\cdlabel{ppid-ctrl}\cdref{ppid-ctrl} & PPIDControl & desc \\
+		\cdlabel{ppid-form}\cdref{ppid-form} & PPIDForm & \\
+	\end{tabu}
+\end{table}
+
+\subsection{UserService (\ssref{user})}
+\begin{table}[H]
+	\caption{UserService Classes (\ssref{user})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+
+	\end{tabu}
+\end{table}
+
+\subsection{StudentService (\ssref{student})}
+\begin{table}[H]
+	\caption{StudentService Classes (\ssref{student})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+
+	\end{tabu}
+\end{table}
+
+\subsection{AdminService (\ssref{admin})}
+\begin{table}[H]
+	\caption{AdminService Classes (\ssref{admin})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+
+	\end{tabu}
+\end{table}
+
+\subsection{ProjectService (\ssref{project})}
+\begin{table}[H]
+	\caption{ProjectService Classes (\ssref{project})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+
+	\end{tabu}
+\end{table}
+
+\subsection{QuestionService (\ssref{question})}
+\begin{table}[H]
+	\caption{QuestionService Classes (\ssref{question})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+
+	\end{tabu}
+\end{table}
+
+\begin{table}[H]
+	\caption{UserOptionsService Classes (\ssref{user-options})} 
+	\begin{tabu} to \textwidth {l >{\it}l X}	
 		\tableheader{}ID & Class Name & Description \\
 		\cdlabel{user}\cdref{user} & User & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
 		\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, a name, both inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
@@ -789,39 +882,6 @@ In this section, we focus on the Operations that each of the services described 
 \end{center}
 
 \begin{table}[H]
-	\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-	\begin{tabu} to \textwidth {l >{\it}l X}
-		\cdlabel{usercontrol}\cdref{usercontrol} & UserControl & \\
-		\cdlabel{studentcontrol}\cdref{studentcontrol} & StudentControl & desc \\
-		\cdlabel{admincontrol}\cdref{admincontrol} & AdminControl & desc \\
-		\cdlabel{studentform}\cdref{studentform} & StudentForm & \\
-		\cdlabel{adminform}\cdref{adminform} & AdminForm & \\
-	\end{tabu}
-\end{table}
-
-\begin{table}[H]
-	\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-	\begin{tabu} to \textwidth {l >{\it}l X}
-		\tableheader{}ID & Class Name & Description \\
-		\cdlabel{projectcontrol}\cdref{projectcontrol} & ProjectControl &\\
-		\cdlabel{projectform}\cdref{projectform} & ProjectForm & \\
-	\end{tabu}
-\end{table}
-
-\begin{table}[H]
-	\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-	\begin{tabu} to \textwidth {l >{\it}l X}
-		\tableheader{}ID & Class Name & Description \\
-		\cdlabel{grouper}\cdref{grouper} & Grouper & \\
-		\cdlabel{matcher}\cdref{matcher} & Matcher & \\
-		\cdlabel{splitsmallest}\cdref{splitsmallest} & SplitSmallest & \\
-		\cdlabel{percentdistance}\cdref{percentdistance} & PercentDistance & \\
-		\cdlabel{ppidcontrol}\cdref{ppidcontrol} & PPIDControl & desc \\
-		\cdlabel{ppidform}\cdref{ppidform} & PPIDForm & \\
-	\end{tabu}
-\end{table}
-
-\begin{table}[H]
     \caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Class Name & Description \\
@@ -835,12 +895,7 @@ In this section, we focus on the Operations that each of the services described 
 	\caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Class Name & Description \\
-		\cdlabel{questionsform}\cdref{questionsform} & QuestionsForm & \\
-		\cdlabel{questionoption}\cdref{questionoption} & QuestionOption & \\
-		\cdlabel{profileform}\cdref{profileform} & ProfileForm & \\
-		\cdlabel{profilecontrol}\cdref{profilecontrol} & ProfileControl & desc \\
-		\cdlabel{questioncontrol}\cdref{questioncontrol} & QuestionControl & desc \\
-		\cdlabel{questionscontrol}\cdref{questionscontrol} & QuestionsControl & desc \\
+
 	\end{tabu}
 \end{table}
 
