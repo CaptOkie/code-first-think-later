@@ -233,16 +233,17 @@ The Repository architectural style involves an absolutely necessary storage laye
 \subsection{Persistent Data Management}
 \subsubsection{Overview}
 
-To store the data for our system, a relational database is being used. Our relational database is built in the SQLite architecture. Multiple tables are used to store related information together, such as the \textit{students} table.
+To store the data for our system, a relational database is being used. Our relational database is built in the SQLite architecture. Multiple tables are used to store related information together, such as the \textit{students} table. The below figure, \figureref{db-schema}, shows a detailed schematics of the relations existing between all the tables that we have in our relational database. Note that each column in each table is listed alongside their data types.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.45]{imgs/d3/db/database-schema-diagram.png}
+	\includegraphics[scale=0.40]{imgs/d3/db/database-schema-diagram.png}
 	\caption{Database Schema}
 	\figurelabel{db-schema}
 \end{figure}
 
-\subsubsection*{Tables in Database}
+While figures are great for visualization, what do these tables actually represent? The following table, \tableref{db-table}, describes what each table in our relational database represents. Each of these tables are assigned a unique identifier to allow for maximum traceability.
+
 \begin{table}[H]
 	\caption{Tables in Database} \tablelabel{db-table}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -261,6 +262,13 @@ To store the data for our system, a relational database is being used. Our relat
 	\end{tabu}
 \end{table}
 
+\subsubsection{Breakdown \& Reasoning}
+
+\subsubsection*{Students Table (\dtref{students})}
+To ensure that ID of a \textit{Student} (\cdref{student}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Student} by their ID is increased.
+
+There isn't a constraint put on the \textit{name} column to allow for \textit{Students} with the same name to be entered into the database. The following table, \tableref{students-table}, gives a more detailed breakdown and description of each of the columns of the \textit{students} table.
+
 \begin{table}[H]
 	\caption{Students Table (\dtref{students})} \tablelabel{students-table}
 	\begin{tabu} to \textwidth {l l l X}
@@ -270,6 +278,11 @@ To store the data for our system, a relational database is being used. Our relat
 	\end{tabu}
 \end{table}
 
+\subsubsection*{Administrator Table (\dtref{admins})}
+To ensure that ID of a \textit{Admin} (\cdref{admin}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Admin} by their ID is increased.
+
+There isn't a constraint put on the \textit{name} column to allow for \textit{Admins} with the same name to be entered into the database. The following table, \tableref{admins-table}, gives a more detailed breakdown and description of each of the columns of the \textit{admins} table.
+
 \begin{table}[H]
 	\caption{Admins Table (\dtref{admins})} \tablelabel{admins-table}
 	\begin{tabu} to \textwidth {l l l X}
@@ -278,6 +291,9 @@ To store the data for our system, a relational database is being used. Our relat
 		name & Text    &             & The name of the Admin. \\
 	\end{tabu}
 \end{table}
+
+\subsubsection*{Projects Table (\dtref{projects})}
+Oftentimes, admins will have to create multiple projects. To assure that no duplicate projects exist, we have enforced a unique project name as the Primary Key. This assures that the admin won't confuse themselves by having several identically named projects, thus maximizing readabilit and useability. Projects also have columns storing the max and min group sizes, which are importantly distinct from one another as to allow maximum flexibility with regards to number of students enrolled in a project (for when the PPID is run).  The following table, \tableref{projects-table}, gives a more detailed breakdown and description of each of the columns of the \textit{projects} table.
 
 \begin{table}[H]
 	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
@@ -291,6 +307,9 @@ To store the data for our system, a relational database is being used. Our relat
 	\end{tabu}
 \end{table}
 
+\subsubsection*{enrollment}
+Its important that each student can only enroll in each project once. To accomplish this, we have two Primary Keys - the student's unique identitier (\textit{students}.\textit{id}) and the project's unique name (\textit{projects}.\textit{name}). The following table, \tableref{enrollment-table}, gives a more detailed breakdown and description of each of the columns of the \textit{enrollment} table.
+
 \begin{table}[H]
 	\caption{Enrollment Table (\dtref{enrollment})} \tablelabel{enrollment-table}
 	\begin{tabu} to \textwidth {l l X X[4]}
@@ -301,6 +320,9 @@ To store the data for our system, a relational database is being used. Our relat
 		                    Foreign Key          & References \textit{id} of the \textit{projects} table (\dtref{projects}). \\
 	\end{tabu}
 \end{table}
+
+\subsubsection*{questions}
+- each question has unique ID so it is easy to reference 
 
 \begin{table}[H]
 	\caption{Questions Table (\dtref{questions})} \tablelabel{questions-table}
@@ -313,6 +335,10 @@ To store the data for our system, a relational database is being used. Our relat
 	\end{tabu}
 \end{table}
 
+\subsubsection*{answers}
+- primary key made of foreign key to \textit{questions}.\textit{id} and \textit{id}. \\
+- this allows an answer to belong to only one question. 
+
 \begin{table}[H]
 	\caption{Answers Table (\dtref{answers})} \tablelabel{answers-table}
 	\begin{tabu} to \textwidth {l l X X[4]}
@@ -324,6 +350,9 @@ To store the data for our system, a relational database is being used. Our relat
 		answer   & Text    &                      & The answer of a Question. \\
 	\end{tabu}
 \end{table}
+
+\subsubsection*{responses}
+- using \textit{students}.\textit{id} and \textit{questions}.\textit{id}, guarantees that a student may have only one response per question.
 
 \begin{table}[H]
 	\caption{Responses Table (\dtref{responses})} \tablelabel{responses-table}
@@ -341,33 +370,6 @@ To store the data for our system, a relational database is being used. Our relat
 		                                            given question. References \textit{id} of the \textit{answers} table. \\
 	\end{tabu}
 \end{table}
-
-\subsubsection{Reasoning}
-\subsubsection*{Students Table (\dtref{students})}
-To ensure that ID of a \textit{Student} (\cdref{student}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Student} by their ID is increased.
-
-There isn't a constraint put on the \textit{name} column to allow for \textit{Students} with the same name to be entered into the database.
-
-\subsubsection*{Administrator Table (\dtref{admins})}
-To ensure that ID of a \textit{Admin} (\cdref{admin}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Admin} by their ID is increased.
-
-There isn't a constraint put on the \textit{name} column to allow for \textit{Admins} with the same name to be entered into the database.
-
-\subsubsection*{Projects Table (\dtref{projects})}
-Oftentimes, admins will have to create multiple projects. To assure that no duplicate projects exist, we have enforced a unique project name as the Primary Key. This assures that the admin won't confuse themselves by having several identically named projects, thus maximizing readabilit and useability. Projects also have columns storing the max and min group sizes, which are importantly distinct from one another as to allow maximum flexibility with regards to number of students enrolled in a project (for when the PPID is run).
-
-\subsubsection*{enrollment}
-Its important that each student can only enroll in each project once. To accomplish this, we have two Primary Keys - the student's unique identitier (\textit{students}.\textit{id}) and the project's unique name (\textit{projects}.\textit{name}).
-
-\subsubsection*{questions}
-- each question has unique ID so it is easy to reference 
-
-\subsubsection*{answers}
-- primary key made of foreign key to \textit{questions}.\textit{id} and \textit{id}. \\
-- this allows an answer to belong to only one question. 
-
-\subsubsection*{responses}
-- using \textit{students}.\textit{id} and \textit{questions}.\textit{id}, guarantees that a student may have only one response per question.
 
 \subsection{Design Patterns}
 \subsubsection{Overview}
