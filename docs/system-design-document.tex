@@ -184,16 +184,16 @@ This section will be three-pronged - firstly, we will decompose the current work
 \subsection{Phase 1 Prototype Decomposition}
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.55]{imgs/d3/prototype/class-diagram.png}
+	\includegraphics[scale=0.35]{imgs/d3/prototype/class-diagram.png}
 	\caption{Subsystem Decomposition (Prototype)}
 	\figurelabel{proto-decomp}
 \end{figure}
 \subsection{System Decomposition}
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.24]{imgs/d3/decomp/repository.png}
-	\caption{Three-Tier Subsystem Decomposition}
-	\figurelabel{three-tier}
+	\includegraphics[scale=0.25]{imgs/d3/decomp/repository.png}
+	\caption{Subsystem Decomposition}
+	\figurelabel{subsys-decomp}
 \end{figure}
 \subsection{Design Evolution}
 \subsubsection{Prototype Design Decisions}
@@ -226,9 +226,9 @@ The Repository architectural style involves an absolutely necessary storage laye
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.24]{imgs/d3/decomp/repository.png}
-	\caption{Three-Tier Subsystem Decomposition}
-	\figurelabel{three-tier}
+	\includegraphics[scale=0.25]{imgs/d3/decomp/repository.png}
+	\caption{Repository Subsystem Decomposition}
+	\figurelabel{repository}
 \end{figure}
 \subsection{Persistent Data Management}
 \subsubsection{Overview}
@@ -357,7 +357,7 @@ The following table, \tableref{answers-table}, gives a more detailed breakdown a
 \end{table}
 
 \subsubsection*{Responses Table (\dtref{responses})}
-A \textit{Student} is going to have one, and only one, response for every \textit{Question}. In that response, a \textit{Student} has a desired and personal value. To model this relationship, as shown in table \tablelabel{responses-table}, \textit{responses} table has a primary key made up of two column: \textit{stu}, which references \textit{id} from the \textit{students} table (\dtref{students}), and \textit{question}, which references \textit{id} from the \textit{questions} table (\dtref{questions}). This ensures that a \textit{Student} can have only one response for a given \textit{Question}.
+A \textit{Student} is going to have one, and only one, response for every \textit{Question}. In that response, a \textit{Student} has a desired and personal value. To model this relationship, as shown in table \tableref{responses-table}, \textit{responses} table has a primary key made up of two column: \textit{stu}, which references \textit{id} from the \textit{students} table (\dtref{students}), and \textit{question}, which references \textit{id} from the \textit{questions} table (\dtref{questions}). This ensures that a \textit{Student} can have only one response for a given \textit{Question}.
 
 To deal with the desired and personal values, \textit{responses} has two other columns: \textit{personal}, and \textit{desired}. Both of these columns reference \textit{id} from the \textit{answers} table (\dtref{answers}).
 
