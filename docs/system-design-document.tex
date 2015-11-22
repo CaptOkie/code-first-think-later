@@ -265,7 +265,7 @@ While figures are great for visualization, what do these tables actually represe
 \subsubsection{Breakdown \& Reasoning}
 
 \subsubsection*{Students Table (\dtref{students})}
-To ensure that ID of a \textit{Student} (\cdref{student}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Student} by their ID is increased.
+To ensure that ID of a \textit{Student} (\cdref{student}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal.
 
 There isn't a constraint put on the \textit{name} column to allow for \textit{Students} with the same name to be entered into the database. The following table, \tableref{students-table}, gives a more detailed breakdown and description of each of the columns of the \textit{students} table.
 
@@ -324,7 +324,9 @@ Its important that each student can only enroll in each project once. To accompl
 \end{table}
 
 \subsubsection*{Questions Table (\dtref{questions})}
-- each question has unique ID so it is easy to reference 
+The column \textit{id} in the \textit{questions} table stores a unique ID for a given question and is set as the primary key for the table. This allows for uniquely identifying a question which is very important for faster look up speeds and for referencing in other tables, which is required in this database.
+
+The following table, \tableref{questions-table}, gives a more detailed breakdown and description of each of the columns of the \textit{questions} table.
 
 \begin{table}[H]
 	\caption{Questions Table (\dtref{questions})} \tablelabel{questions-table}
