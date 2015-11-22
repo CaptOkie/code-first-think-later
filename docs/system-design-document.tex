@@ -310,7 +310,7 @@ The following table, \tableref{projects-table}, gives a more detailed breakdown 
 \end{table}
 
 \subsubsection*{Enrollment Table (\dtref{enrollment})}
-Its important that each student can only enroll in each project once. To accomplish this, as shown in table \tableref{enrollment-table}, the \textit{enrollment} table has two columns: \textit{stu}, to reference the \textit{id} column for \textit{students}, and \textit{project}, to reference \textit{id} from projects. The primary key is then made up of both columns to ensure that only one instance of a \textit{students} entry and \textit{projects} entry combination exists at one time.
+Its important that each student can only enroll in each project once. To accomplish this, as shown in table \tableref{enrollment-table}, the \textit{enrollment} table has two columns: \textit{stu}, to reference the \textit{id} column from \textit{students} table (\dtref{students}), and \textit{project}, to reference \textit{id} from the \textit{projects} (\dtref{projects}). The primary key is then made up of both columns to ensure that only one instance of a \textit{students} entry and \textit{projects} entry combination exists at one time.
 
 \begin{table}[H]
 	\caption{Enrollment Table (\dtref{enrollment})} \tablelabel{enrollment-table}
@@ -340,7 +340,7 @@ The following table, \tableref{questions-table}, gives a more detailed breakdown
 \end{table}
 
 \subsubsection*{Answers Table (\dtref{answers})}
-In the system, an \textit{Answer} appears only once in a \textit{Question}, therefore the database should model that. To accomplish this, the primary key of the \textit{answers} table is made up of two columns: \textit{question}, which references the \textit{id} from the \textit{questions} table, and \textit{id}, which is a unique ID for each \textit{Answer}. By having both columns as the primary key, this ensures that only one combination of \textit{question} and \textit{id} exist. That means a \textit{Question} can only have one occurrence of an \textit{Answer}.
+In the system, an \textit{Answer} appears only once in a \textit{Question}, therefore the database should model that. To accomplish this, the primary key of the \textit{answers} table is made up of two columns: \textit{question}, which references the \textit{id} from the \textit{questions} table (\dtref{questions}), and \textit{id}, which is a unique ID for each \textit{Answer}. By having both columns as the primary key, this ensures that only one combination of \textit{question} and \textit{id} exist. That means a \textit{Question} can only have one occurrence of an \textit{Answer}.
 
 The following table, \tableref{answers-table}, gives a more detailed breakdown and description of each of the columns of the \textit{answers} table.
 
@@ -357,7 +357,7 @@ The following table, \tableref{answers-table}, gives a more detailed breakdown a
 \end{table}
 
 \subsubsection*{Responses Table (\dtref{responses})}
-A \textit{Student} is going to have one, and only one, response for every \textit{Question}. In that response, a \textit{Student} has a desired and personal value. To model this relationship, as shown in table \tableref{responses-table}, \textit{responses} table has a primary key made up of two column: \textit{stu}, which references \textit{id} from the \textit{students} table (\dtref{students}), and \textit{question}, which references \textit{id} from the \textit{questions} table (\dtref{questions}). This ensures that a \textit{Student} can have only one response for a given \textit{Question}.
+A \textit{Student} is going to have one, and only one, response for every \textit{Question}. In that response, a \textit{Student} has a desired and personal value. To model this relationship, as shown in table \tableref{responses-table}, \textit{responses} table has a primary key made up of two columns: \textit{stu}, which references \textit{id} from the \textit{students} table (\dtref{students}), and \textit{question}, which references \textit{id} from the \textit{questions} table (\dtref{questions}). This ensures that a \textit{Student} can have only one response for a given \textit{Question}.
 
 To deal with the desired and personal values, \textit{responses} has two other columns: \textit{personal}, and \textit{desired}. Both of these columns reference \textit{id} from the \textit{answers} table (\dtref{answers}).
 
