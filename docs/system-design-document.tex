@@ -471,13 +471,21 @@ To deal with the desired and personal values, \textit{responses} has two other c
 \subsubsection{Overview}
 While organizing code with an eye to the larger picture - architectural styles - is vitally important, the smaller scale design patterns fall not far behind. Design patterns are largely independent of the architectural style insofar as nearly all design patterns can be implemented in any of the architectural patterns. They usually are used to minimize coupling across layers or to maximize cohesion across sister subsystems (partitions). This section will go over several different design patterns and explain either why we decide to use them or why we forgo their implementation. There are three main categories of design patterns that we will include in this breakdown: creational patterns, structural patterns, and behavioural patterns.
 \subsubsection{Creational Patterns}
-The design patterns in this section affect how objects get created. There will be two patterns in this section that we will be considering for our system: the factory method design pattern and the abstract factory design pattern. 
-\subsubsection*{Abstract Factory}
-While we were potentially considering implementing this design pattern, we decided not to in the end in favor of the more directly applicable Factory Method pattern. This design patterns essentially works by providing a standard interface for creating objects, wherein the concrete classes themselves are not specified. This would not work well for our system since it is crucial for objects to know whether the class is a Student user or an Admin user - functionality is highly dependent on this fact.
+The design patterns in this section affect how objects get created. There will be one pattern in this section that we will be considering for our system: the factory method design pattern. 
+
 \subsubsection*{Factory Method}
-We have decided to implement this design pattern in our system. The idea for this pattern is define a specialized interface for object creation that lets subclasses make the decision as to which particular class to instantiate. This pattern is apparent a user attempts to login - we do not know initially what type of user is logging in. In this scenario, we let UserStorage class tell us what type of user it is and then the UserControlFactory class will instantiate it. Another way of seeing this pattern is to imagine the UserControlFactory as a Template method - there is a placeholder of sorts that subclasses will specify.
+We have decided to implement this design pattern in our system. The idea for this pattern is define a specialized interface for object creation that lets subclasses make the decision as to which particular class to instantiate. This pattern is apparent a user attempts to login - we do not know initially what type of user is logging in. In this scenario, we let UserStorage class tell us what type of user it is and then the UserControlFactory class will instantiate it. Another way of seeing this pattern is to imagine the UserControlFactory as a Template method - there is a placeholder of sorts that subclasses will specify. The figure below, \figureref{factmethod-example}, provides a small, simple UML-based visual of how the Factory Method pattern is set up. Note that the factory class has a method makeObject(). This method asks the subclass to know what kind of object it needs to be making.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.55]{imgs/d3/sample-factmethod.png}
+	\caption{Example of the Factory Method Design Pattern}
+	\figurelabel{factmethod-example}
+\end{figure}
+
 \subsubsection{Structural Patterns}
 The design patterns in this section affect the relationships between objects. Specifically, they aim to simplify their implementation. There are three patterns that we considered implementing in our system: the adapter design pattern, the facade design pattern, and the proxy design pattern.
+
 \subsubsection*{Adapter}
 This design pattern is ill suited to our particular system since we will be developing the entirety of our system. Since we will not need to write code that adapts between newer and older code, this pattern would be counter-intuitive. The way that the adapter pattern works is that it converts an existing interface of a class into an typically older, or `legacy', interface that the client is more familiar with. As mentioned earlier, our system uses no old components, so this pattern will not fit in. The below figure, \figureref{adapter-example}, provides a small UML-based visual of how the Adapter Pattern is set up. Note here that the Interface represents an old interface that the NewObject must `adapt' to.
 
