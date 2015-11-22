@@ -262,10 +262,9 @@ The figure below, \figureref{component}, illustrates the dependencies that exist
 
 \subsection{Design Evolution}
 
-This section will explain the various design decisions we made for both the prototype system and the new, updated system. To improve readability, we will be dividing the two into completely separate section, starting with the logical choice, chronologically speaking, of the prototype system.
+This section will explain the various design decisions we made for the new, updated system. The goal of this new system is to maximize the amount of cohesion in our subsystems while minimizing the degree of coupling. While some of our decisions did involve architectural styles and design patterns, they will only be briefly discussed in this section. The following section will provide a more detailed explanation of why we decided on a particular patttern or style over another.
 
-\subsubsection{Prototype Design Decisions}
-\subsubsection{Updated Design Decisions}
+\subsubsection{Design Decisions}
 \section{Design Strategies}
 
 Similar to the previous section, this section is also divided into three major parts: architectural style, persistent data management, and design patterns. In the first part, we will describe our chosen architectural style and explain the benefits to using this particular style with regards to our system. We will also include UML deployment diagrams as a visual representation of the architecture of our software. Following this part, we will discuss our design choices with regards to our persistent data management. We will also be covering some particular cases here, such as duplicate records. Finally, we will discuss the our chosen design patterns and why they are appropriate given our decisions form the other parts in this section.
@@ -289,7 +288,10 @@ Three-tier architecture involves dividing the system into three layers - the int
 	\caption{Three-Tier Subsystem Decomposition}
 	\figurelabel{three-tier}
 \end{figure}
-\subsubsection*{Model-View Controller Architecture}
+\subsubsection*{Model-View-Controller Architecture}
+
+The Model-View-Controller architectural style involves three basic layers - the model layer, the view layer, and the controller layer. Unfortunately, due to the way our system is, if we were to employ this architectural style, we would have extremely high coupling (because the view and controller objects are in different subsystems). While the level of cohesion is still fairly high, none of this is lost if we were to switch over to say the Repository architectural style. In essence, using this architectural style brings no benefits to the table, but offers heavy drawbacks. For these reasons, we have decided not to use this architectural style.
+
 \subsubsection*{Repository Architecture}
 
 The Repository architectural style involves an absolutely necessary storage layer, followed by many subsystems one that depend on the storage layer. This is the architectural style that we employed, albeit poorly, in our prototype system - we have decided that the best course of action, after revamping our subsystem decomposition, is this architecural style: we can achieve extremely high cohesion along with minimal coupling. This means that there are very few interdepencies between different subsystems. The figure below, \figureref{repository}, provides a visual representation of the what the system would look like if properly implementing the repository architectural style.
