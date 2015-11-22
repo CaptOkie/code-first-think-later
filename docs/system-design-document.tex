@@ -357,7 +357,9 @@ The following table, \tableref{answers-table}, gives a more detailed breakdown a
 \end{table}
 
 \subsubsection*{Responses Table (\dtref{responses})}
-- using \textit{students}.\textit{id} and \textit{questions}.\textit{id}, guarantees that a student may have only one response per question.
+A \textit{Student} is going to have one, and only one, response for every \textit{Question}. In that response, a \textit{Student} has a desired and personal value. To model this relationship, as shown in table \tablelabel{responses-table}, \textit{responses} table has a primary key made up of two column: \textit{stu}, which references \textit{id} from the \textit{students} table (\dtref{students}), and \textit{question}, which references \textit{id} from the \textit{questions} table (\dtref{questions}). This ensures that a \textit{Student} can have only one response for a given \textit{Question}.
+
+To deal with the desired and personal values, \textit{responses} has two other columns: \textit{personal}, and \textit{desired}. Both of these columns reference \textit{id} from the \textit{answers} table (\dtref{answers}).
 
 \begin{table}[H]
 	\caption{Responses Table (\dtref{responses})} \tablelabel{responses-table}
