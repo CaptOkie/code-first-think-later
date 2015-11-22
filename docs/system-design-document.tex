@@ -666,94 +666,117 @@ The following table encompasses all the services offered by the StorageSubsystem
 
 In this section, we focus on the Operations that each of the services described in the above section offer. For added traceability, we have also included the specific class that provides each of the operations, as well as a description of each.
 
-\subsubsection{DataService (\ssref{data})}
-\subsubsection*{User (\cdref{user})}
+\subsubsection{UserOptionsService (\ssref{user-options})}
+
+\subsubsection*{UserControl (\cdref{user-ctrl})}
+
 \begin{center}
 	\begin{tabu} to \textwidth {l >{\it}l X}
-		\tableheader{}ID & Name & Description \\
-        \oplabel{user-getid}\opref{user-getid} & getId & Gets the ID of the \textit{User} (\cdref{user}) \\
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{user-ctrl-start}\opref{user-ctrl-start} & start() & Starts the UserControl (\cdref{user-ctrl}). \\
 	\end{tabu}
 \end{center}
 
-\subsubsection*{StorageSubsystem}
+\subsubsection{ProfileOptionsService (\ssref{profile-options})}
 
-\begin{table}[H]
-\caption{Operations Offered in Data Service (\ssref{data})} \tablelabel{operation-data}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Operation & Description\\
-	\oplabel{getstuname}\opref{getstuname} & GetStudentName & The \textit{GetStudentName} operation is a method offered by the \textit{ProxyStudent} class (\cdref{proxystudent}). The operation takes in an ID value (an integer), and asks the \textit{RealStudent} class (\cdref{realstudent}) for the \textit{Student} corresponding to the given ID's name and returns it (as a String).\\
-	\oplabel{getadminname}\opref{getadminname} & GetAdminName & The \textit{GetAdminName} operation is a method offered by the \textit{ProxyAdmin} class (\cdref{proxyadmin}). The operation takes in an ID value (an integer), and asks the \textit{RealAdmin} class (\cdref{realadmin}) for the \textit{Admin} corresponding to the given ID's name and returns it (as a String).\\
-	\oplabel{getprojectname}\opref{getprojectname} & GetProjectName & The \textit{GetProjectName} operation is a method offered by the \textit{ProxyProject} class (\cdref{proxyproject}). The operation takes in an ID value (an integer) and asks the \textit{RealProject} class (\cdref{realproject}) for the \textit{Project} corresponding to the given ID's name and returns it (as a String).\\
-	\oplabel{getdesiredquestion}\opref{getdesiredquestion} & GetDesiredQuestion & desc\\
-	\oplabel{getpersonalquestion}\opref{getpersonalquestion} & GetPersonalQuestion & desc\\
-	\oplabel{getcategory}\opref{getcategory} & GetQuestionCategory & desc\\
-	\oplabel{getmaxgroupsize}\opref{getmaxgroupsize} & GetMaxGroupSize & desc\\
-	\oplabel{getmingroupsize}\opref{getmingroupsize} & GetMinGroupSize & desc\\
-\end{tabu}
-\end{table}
+\subsubsection*{ProfileControl (\cdref{profile-ctrl})}
 
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{profile-ctrl-start}\opref{profile-ctrl-start} & start() & Starts the ProfileControl (\cdref{profile-ctrl}). \\
+	\end{tabu}
+\end{center}
 
-\subsubsection*{PPIDSubsystem}
+\subsubsection{ProjectOptionsService (\ssref{project-options})}
 
-\begin{table}[H]
-\caption{Operations Offered in Student-Sorting Service (\ssref{studentsort})} \tablelabel{operation-studentsort}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation3}\opref{operation3} & operation1 & classA & desc\\
-	\oplabel{operation4}\opref{operation4} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
+\subsubsection*{ProjectControl (\cdref{project-ctrl})}
 
-\subsubsection*{ProjectSubsystem}
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{project-ctrl-start}\opref{project-ctrl-start} & start() & Starts the ProjectControl (\cdref{project-ctrl}). \\
+	\end{tabu}
+\end{center}
 
-\begin{table}[H]
-\caption{Operations Offered in Service3 (\ssref{service3})} \tablelabel{operation-service3}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation5}\opref{operation5} & operation1 & classA & desc\\
-	\oplabel{operation6}\opref{operation6} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
+\subsubsection{PPIDOptionsService (\ssref{ppid-options})}
 
-\subsubsection*{UserSubsystem}
+\subsubsection*{PPIDControl (\cdref{ppid-ctrl})}
 
-\begin{table}[H]
-\caption{Operations Offered in Service4 (\ssref{service4})} \tablelabel{operation-service4}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation7}\opref{operation7} & operation1 & classA & desc\\
-	\oplabel{operation8}\opref{operation8} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{ppid-ctrl-start}\opref{ppid-ctrl-start} & start() & Starts the PPIDControl (\cdref{ppid-ctrl}). \\
+	\end{tabu}
+\end{center}
 
+\subsubsection{UserService (\ssref{user})}
 
+\subsubsection*{UserStorage (\cdref{user-storage})}
 
-\subsubsection*{LoginSubsystem}
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{user-storage-get-student}\opref{user-storage-get-student} & getStudent(in id : int) : Student & Gets the Student (\cdref{student}) with the specified ID from storage. \\
+        \oplabel{user-storage-get-admin}\opref{user-storage-get-admin} & getAdmin(in id : int) : Admin & Gets the Admin (\cdref{admin}) with the specified ID from storage. \\
+	\end{tabu}
+\end{center}
 
-\begin{table}[H]
-\caption{Operations Offered in Service5 (\ssref{service5})} \tablelabel{operation-service5}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation9}\opref{operation9} & operation1 & classA & desc\\
-	\oplabel{operation10}\opref{operation10} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
+\subsubsection{StudentService (\ssref{student})}
 
+\subsubsection*{Student (\cdref{student})}
 
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{user-get-questions}\opref{user-get-questions} & getQuestions() : List<Question> & Gets the Questions (\cdref{question}) containing the Student's (\cdref{student}) answers. \\
+        \oplabel{user-get-enrolled-projects}\opref{user-get-enrolled-projects} & getEnrolledProjects() : List<Project> & Gets the Projects (\cdref{project}) in which the Student (\cdref{project}) is enrolled. \\
+        \oplabel{user-get-available-projects}\opref{user-get-available-projects} & getAvailableProjects() : List<Project> & Gets the Projects (\cdref{project}) the Student (\cdref{project}) can join. \\
+        \oplabel{user-join-project}\opref{user-join-project} & joinProject(in p : Project) & Places the Student (\cdref{student}) in the Project (\cdref{project}). \\
+        \oplabel{user-leave-project}\opref{user-leave-project} & leaveProject(in p : Project) & Removes the Student (\cdref{student}) from the Project (\cdref{project}). \\
+	\end{tabu}
+\end{center}
 
-\subsubsection*{ProfileSubsystem}
+\subsubsection{AdminService (\ssref{admin})}
 
-\begin{table}[H]
-\caption{Operations Offered in Service6 (\ssref{service6})} \tablelabel{operation-service6}
-\begin{tabu} to \textwidth {l >{\it}l l X}
-	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{operation9}\opref{operation9} & operation1 & classA & desc\\
-	\oplabel{operation10}\opref{operation10} & operation2 & classB & desc\\
-\end{tabu}
-\end{table}
+\subsubsection*{Admin (\cdref{admin})}
 
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{admin-get-projects}\opref{admin-get-projects} & getProjects() : List<Project> & Gets the Projects (\cdref{project}) all the projects. \\
+        \oplabel{admin-delete-project}\opref{admin-delete-project} & deleteProject(in p : Project) & Deletes the Project (\cdref{project}). \\
+        \oplabel{admin-add-project}\opref{admin-add-project} & addProject(in p : Project) & Adds the Project (\cdref{project}). \\
+	\end{tabu}
+\end{center}
 
-\subsection{Component Diagrams}
+\subsubsection{ProjectService (\ssref{project})}
+
+\subsubsection*{Project (\cdref{project})}
+
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{project-get-students}\opref{project-get-students} & getStudents() : List<Student> & Gets the enrolled Students (\cdref{student}). \\
+        \oplabel{project-get-groups}\opref{project-get-groups} & getGroups() : List<Group> & Gets the Groups (\cdref{group}) of students created by the PPID. \\
+        \oplabel{project-set-groups}\opref{project-set-groups} & setGroups(in g : List<Group>) & Sets the Groups (\cdref{group}). \\
+	\end{tabu}
+\end{center}
+
+\subsubsection{QuestionService (\ssref{question})}
+
+\subsubsection*{Question (\ssref{question})}
+
+\begin{center}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Operation & Description \\
+        \oplabel{question-get-answers}\opref{question-get-answers} & getAnswers() : List<Answer> & Gets the possible Answers (\cdref{answer}). \\
+        \oplabel{question-get-personal}\opref{question-get-personal} & getPersonal() : Answer & Gets the Answer (\cdref{answer}) to the personal question. \\
+        \oplabel{question-get-desired}\opref{question-get-desired} & getDesired() : Answer & Gets the Answer (\cdref{answer}) to the desired question. \\
+        \oplabel{question-set-personal}\opref{question-set-personal} & setPersonal(in a : Answer) & Sets the Answer (\cdref{answer}) to the personal question. \\
+        \oplabel{question-set-desired}\opref{question-set-desired} & setPersonal(in a : Answer) & Sets the Answer (\cdref{answer}) to the desired question. \\
+	\end{tabu}
+\end{center}
 
 \section{Class Interfaces}
 
@@ -833,7 +856,7 @@ In this section, we focus on the Operations that each of the services described 
 	\caption{AdminService Classes (\ssref{admin})} 
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
-		\cdlabel{user}\cdref{user} & User & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
+		\cdref{user} & User & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
 		\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains two attributes - the unique ID, and a name, both inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
 		\cdlabel{realadmin}\cdref{realadmin} & RealAdmin & The RealAdmin class inherits from the Admin class and contains the actual information pulled from the AdminStorage object. It is relatively hidden from the rest of the system, though the data contained can only be accessed through the ProxyAdmin object. \\
 		\cdlabel{proxyadmin}\cdref{proxyadmin} & ProxyAdmin & The ProxyAdmin class also inherits from the Admin class and provides a proxy or interface to the RealAdmin object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealAdmin object.\\
@@ -864,16 +887,6 @@ In this section, we focus on the Operations that each of the services described 
 		\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
 		\cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
 		\cdlabel{answer}\cdref{answer} & Answer & The Answer class contains three attributes: the question number, a unique identifier, and the set of answers. The methods this class provides revolve around simply returning the required set of answers.\\
-	\end{tabu}
-\end{table}
-
-\begin{table}[H]
-    \caption{Classes involved in Student-Sorting Service (\ssref{studentsort})} 
-	\begin{tabu} to \textwidth {l >{\it}l X}
-		\tableheader{}ID & Class Name & Description \\
-		\cdlabel{loginform}\cdref{loginform} & LoginForm & \\
-		\cdlabel{logincontrol}\cdref{logincontrol} & LoginControl & desc \\
-		\cdlabel{userconfact}\cdref{userconfact} & UserControlFactory & \\
 	\end{tabu}
 \end{table}
 
@@ -1446,13 +1459,13 @@ The following table, \tableref{matcher}, gives a detailed breakdown of the Match
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{splitsmallest}, gives a detailed breakdown of the SplitSmallest class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{split-smallest}, gives a detailed breakdown of the SplitSmallest class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{SplitSmallest Class (\cdref{splitsmallest})} \tablelabel{splitsmallest}
+    \caption{SplitSmallest Class (\cdref{split-smallest})} \tablelabel{split-smallest}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{splitsmallest} \\
+		Class Identifier & \cdref{split-smallest} \\
 		Name & {\bf SplitSmallest} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1472,13 +1485,13 @@ The following table, \tableref{splitsmallest}, gives a detailed breakdown of the
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{percentdistance}, gives a detailed breakdown of the PercentDistance class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{percent-distance}, gives a detailed breakdown of the PercentDistance class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{PercentDistance Class (\cdref{percentdistance})} \tablelabel{percentdistance}
+    \caption{PercentDistance Class (\cdref{percent-distance})} \tablelabel{percent-distance}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{percentdistance} \\
+		Class Identifier & \cdref{percent-distance} \\
 		Name & {\bf PercentDistance} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1498,13 +1511,13 @@ The following table, \tableref{percentdistance}, gives a detailed breakdown of t
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{ppidcontrol}, gives a detailed breakdown of the PPIDControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{ppid-ctrl}, gives a detailed breakdown of the PPIDControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{PPIDControl Class (\cdref{ppidcontrol})} \tablelabel{ppidcontrol}
+    \caption{PPIDControl Class (\cdref{ppid-ctrl})} \tablelabel{ppid-ctrl}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{ppidcontrol} \\
+		Class Identifier & \cdref{ppid-ctrl} \\
 		Name & {\bf PPIDControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1524,13 +1537,13 @@ The following table, \tableref{ppidcontrol}, gives a detailed breakdown of the P
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{ppidform}, gives a detailed breakdown of the PPIDForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{ppid-form}, gives a detailed breakdown of the PPIDForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{PPIDForm Class (\cdref{ppidform})} \tablelabel{ppidform}
+    \caption{PPIDForm Class (\cdref{ppid-form})} \tablelabel{ppid-form}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{ppidform} \\
+		Class Identifier & \cdref{ppid-form} \\
 		Name & {\bf PPIDForm} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1550,13 +1563,13 @@ The following table, \tableref{ppidform}, gives a detailed breakdown of the PPID
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{projectcontrol}, gives a detailed breakdown of the ProjectControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{project-ctrl}, gives a detailed breakdown of the ProjectControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{ProjectControl Class (\cdref{projectcontrol})} \tablelabel{projectcontrol}
+    \caption{ProjectControl Class (\cdref{project-ctrl})} \tablelabel{project-ctrl}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{projectcontrol} \\
+		Class Identifier & \cdref{project-ctrl} \\
 		Name & {\bf ProjectControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1576,13 +1589,13 @@ The following table, \tableref{projectcontrol}, gives a detailed breakdown of th
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{projectform}, gives a detailed breakdown of the ProjectForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{project-form}, gives a detailed breakdown of the ProjectForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{ProjectForm Class (\cdref{projectform})} \tablelabel{projectform}
+    \caption{ProjectForm Class (\cdref{project-form})} \tablelabel{project-form}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{projectform} \\
+		Class Identifier & \cdref{project-form} \\
 		Name & {\bf ProjectForm} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1602,13 +1615,13 @@ The following table, \tableref{projectform}, gives a detailed breakdown of the P
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{usercontrol}, gives a detailed breakdown of the UserControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{user-ctrl}, gives a detailed breakdown of the UserControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{UserControl Class (\cdref{usercontrol})} \tablelabel{usercontrol}
+    \caption{UserControl Class (\cdref{user-ctrl})} \tablelabel{user-ctrl}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{usercontrol} \\
+		Class Identifier & \cdref{user-ctrl} \\
 		Name & {\bf UserControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1628,13 +1641,13 @@ The following table, \tableref{usercontrol}, gives a detailed breakdown of the U
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{studentcontrol}, gives a detailed breakdown of the StudentControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{student-ctrl}, gives a detailed breakdown of the StudentControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{StudentControl Class (\cdref{studentcontrol})} \tablelabel{studentcontrol}
+    \caption{StudentControl Class (\cdref{student-ctrl})} \tablelabel{student-ctrl}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{studentcontrol} \\
+		Class Identifier & \cdref{student-ctrl} \\
 		Name & {\bf StudentControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1654,13 +1667,13 @@ The following table, \tableref{studentcontrol}, gives a detailed breakdown of th
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{admincontrol}, gives a detailed breakdown of the AdminControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{admin-ctrl}, gives a detailed breakdown of the AdminControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{AdminControl Class (\cdref{admincontrol})} \tablelabel{admincontrol}
+    \caption{AdminControl Class (\cdref{admin-ctrl})} \tablelabel{admin-ctrl}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{admincontrol} \\
+		Class Identifier & \cdref{admin-ctrl} \\
 		Name & {\bf AdminControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1680,13 +1693,13 @@ The following table, \tableref{admincontrol}, gives a detailed breakdown of the 
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{studentform}, gives a detailed breakdown of the StudentForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{student-form}, gives a detailed breakdown of the StudentForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{StudentForm Class (\cdref{studentform})} \tablelabel{studentform}
+    \caption{StudentForm Class (\cdref{student-form})} \tablelabel{student-form}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{studentform} \\
+		Class Identifier & \cdref{student-form} \\
 		Name & {\bf StudentForm} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1706,13 +1719,13 @@ The following table, \tableref{studentform}, gives a detailed breakdown of the S
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{adminform}, gives a detailed breakdown of the AdminForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{admin-form}, gives a detailed breakdown of the AdminForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{AdminForm Class (\cdref{adminform})} \tablelabel{adminform}
+    \caption{AdminForm Class (\cdref{admin-form})} \tablelabel{admin-form}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{adminform} \\
+		Class Identifier & \cdref{admin-form} \\
 		Name & {\bf AdminForm} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1732,14 +1745,14 @@ The following table, \tableref{adminform}, gives a detailed breakdown of the Adm
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{loginform}, gives a detailed breakdown of the LoginForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{question-option}, gives a detailed breakdown of the QuestionOption class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{LoginForm Class (\cdref{loginform})} \tablelabel{loginform}
+    \caption{QuestionsOption Class (\cdref{question-option})} \tablelabel{question-option}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{loginform} \\
-		Name & {\bf LoginForm} \\
+		Class Identifier & \cdref{question-option} \\
+		Name & {\bf QuestionOption} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
@@ -1758,117 +1771,13 @@ The following table, \tableref{loginform}, gives a detailed breakdown of the Log
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{logincontrol}, gives a detailed breakdown of the LoginControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{profile-form}, gives a detailed breakdown of the ProfileForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{LoginControl Class (\cdref{logincontrol})} \tablelabel{logincontrol}
+    \caption{ProfileForm Class (\cdref{profile-form})} \tablelabel{profile-form}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{logincontrol} \\
-		Name & {\bf LoginControl} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
-
-		Operations &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
-	    \end{minipage} \\
-	    	Traceability & \\
-		\toprule
-	\end{tabu}
-\end{table}
-
-The following table, \tableref{userconfact}, gives a detailed breakdown of the UserControlFactory class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
-
-\begin{table}[H]
-    \caption{UserControlFactory Class (\cdref{userconfact})} \tablelabel{userconfact}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Class Identifier & \cdref{userconfact} \\
-		Name & {\bf UserControlFactory} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
-
-		Operations &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
-	    \end{minipage} \\
-	    	Traceability & \\
-		\toprule
-	\end{tabu}
-\end{table}
-
-The following table, \tableref{questionsform}, gives a detailed breakdown of the QuestionsForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
-
-\begin{table}[H]
-    \caption{QuestionsForm Class (\cdref{questionsform})} \tablelabel{questionsform}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Class Identifier & \cdref{questionsform} \\
-		Name & {\bf QuestionsForm} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
-
-		Operations &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
-	    \end{minipage} \\
-	    	Traceability & \\
-		\toprule
-	\end{tabu}
-\end{table}
-
-The following table, \tableref{questionsoption}, gives a detailed breakdown of the QuestionsOption class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
-
-\begin{table}[H]
-    \caption{QuestionsOption Class (\cdref{questionsoption})} \tablelabel{questionsoption}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Class Identifier & \cdref{questionsoption} \\
-		Name & {\bf QuestionsOption} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
-
-		Operations &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
-	    \end{minipage} \\
-	    	Traceability & \\
-		\toprule
-	\end{tabu}
-\end{table}
-
-The following table, \tableref{profileform}, gives a detailed breakdown of the ProfileForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
-
-\begin{table}[H]
-    \caption{ProfileForm Class (\cdref{profileform})} \tablelabel{profileform}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Class Identifier & \cdref{profileform} \\
+		Class Identifier & \cdref{profile-form} \\
 		Name & {\bf ProfileForm} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1888,13 +1797,13 @@ The following table, \tableref{profileform}, gives a detailed breakdown of the P
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{profilecontrol}, gives a detailed breakdown of the ProfileControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{profile-ctrl}, gives a detailed breakdown of the ProfileControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{ProfileControl Class (\cdref{profilecontrol})} \tablelabel{profilecontrol}
+    \caption{ProfileControl Class (\cdref{profile-ctrl})} \tablelabel{profile-ctrl}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{profilecontrol} \\
+		Class Identifier & \cdref{profile-ctrl} \\
 		Name & {\bf ProfileControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
@@ -1914,40 +1823,14 @@ The following table, \tableref{profilecontrol}, gives a detailed breakdown of th
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{questioncontrol}, gives a detailed breakdown of the QuestionControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+The following table, \tableref{question-ctrl}, gives a detailed breakdown of the QuestionControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{QuestionControl Class (\cdref{questioncontrol})} \tablelabel{questioncontrol}
+    \caption{QuestionControl Class (\cdref{question-ctrl})} \tablelabel{question-ctrl}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{questioncontrol} \\
+		Class Identifier & \cdref{question-ctrl} \\
 		Name & {\bf QuestionControl} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
-
-		Operations &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
-	    \end{minipage} \\
-	    	Traceability & \\
-		\toprule
-	\end{tabu}
-\end{table}
-
-The following table, \tableref{questionscontrol}, gives a detailed breakdown of the QuestionsControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
-
-\begin{table}[H]
-    \caption{QuestionsControl Class (\cdref{questionscontrol})} \tablelabel{questionscontrol}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Class Identifier & \cdref{questionscontrol} \\
-		Name & {\bf QuestionsControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
