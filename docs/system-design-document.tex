@@ -843,7 +843,6 @@ In this section, we focus on the Operations that each of the services described 
 	\caption{StudentService Classes (\ssref{student})} 
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
-		\cdlabel{user}\cdref{user} & User & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
 		\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, a name, both inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
 		\cdlabel{realstudent}\cdref{realstudent} & RealStudent & The RealStudent class inherits from the Student class and contains the actual information pulled from the StudentStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyStudent object.\\
 		\cdlabel{proxystudent}\cdref{proxystudent} & ProxyStudent & The ProxyStudent class also inherits from the Student class and provides a proxy or interface to the RealStudent object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealStudent object.\\
@@ -856,7 +855,6 @@ In this section, we focus on the Operations that each of the services described 
 	\caption{AdminService Classes (\ssref{admin})} 
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
-		\cdref{user} & User & The user class contains two attributes - the unique ID, and a name. It provides the archetype for a generic user - the defining feature being the unique identifier.\\
 		\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains two attributes - the unique ID, and a name, both inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
 		\cdlabel{realadmin}\cdref{realadmin} & RealAdmin & The RealAdmin class inherits from the Admin class and contains the actual information pulled from the AdminStorage object. It is relatively hidden from the rest of the system, though the data contained can only be accessed through the ProxyAdmin object. \\
 		\cdlabel{proxyadmin}\cdref{proxyadmin} & ProxyAdmin & The ProxyAdmin class also inherits from the Admin class and provides a proxy or interface to the RealAdmin object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealAdmin object.\\
@@ -887,27 +885,6 @@ In this section, we focus on the Operations that each of the services described 
 		\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
 		\cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
 		\cdlabel{answer}\cdref{answer} & Answer & The Answer class contains three attributes: the question number, a unique identifier, and the set of answers. The methods this class provides revolve around simply returning the required set of answers.\\
-	\end{tabu}
-\end{table}
-
-The following table, \tableref{user}, gives a detailed breakdown of the User class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
-
-\begin{table}[H]
-    \caption{User Class (\cdref{user})} \tablelabel{user}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Class Identifier & \cdref{user} \\
-		Name & {\bf User} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
-
-		Operations & \\
-	    	Traceability & \\
-		\toprule
 	\end{tabu}
 \end{table}
 
