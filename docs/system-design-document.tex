@@ -517,9 +517,19 @@ We have chosen to implement this design pattern in our system. By encompassing s
 \end{figure}
 
 \subsubsection{Behavioural Patterns}
-The design patterns in this section are concerned with communication patterns between different objects. Specifically, they aim to provide a regular, common communication pattern.
-\subsubsection*{Command}
+The design patterns in this section are concerned with communication patterns between different objects. Specifically, they aim to provide a regular, common communication pattern. There are two patterns that we are considering in this section: the observer design pattern and the strategy design pattern.
+
 \subsubsection*{Observer}
+
+This design pattern is at the heart of the Model-View-Controller architectural style. It involves a one-to-many dependency between multiple objects such that when the one object changes state, all the `observing' objects are notified and updated automatically. We heavily considered implementing this design pattern while we were still considering between using Model-View-Controller and using Repository Style. That said, the MVC style resulted in a high degree of coupling, so we decided to go with the more basic Repository Style. Because of the way that we set up our system now, there is no need for the Observer pattern - objects pull their information directly from the persistent storage whenever there is a need to display. Because of this peculiarity, updating the UI objects that a change has been made would be useless. The following figure, \figureref{observer-example}, provides a small UML-based visual on how the Observer Pattern is set up.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.55]{imgs/d3/sample-observer.png}
+	\caption{Example of the Observer Design Pattern}
+	\figurelabel{observer-example}
+\end{figure}
+
 \subsubsection*{Strategy}
 Using this class.....................
 \section{Subsystem Services}
