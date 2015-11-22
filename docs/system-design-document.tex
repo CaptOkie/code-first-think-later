@@ -184,7 +184,7 @@ This section will be three-pronged - firstly, we will decompose the current work
 \subsection{Phase 1 Prototype Decomposition}
 \begin{figure}[H]
 	\centering{}
-	\includegraphics[scale=0.55]{imgs/d3/class-diagram-prototype.png}
+	\includegraphics[scale=0.55]{imgs/d3/prototype/class-diagram.png}
 	\caption{Subsystem Decomposition (Prototype)}
 	\figurelabel{proto-decomp}
 \end{figure}
@@ -517,7 +517,18 @@ In this section, we focus on the Operations that each of the services described 
 	\cdlabel{project}\cdref{project} & Project & & The Project class contains five attributes: a name, a unique ID, a minimum group size, a maximum group size, and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
 	\cdlabel{realproject}\cdref{realproject} & RealProject & & The RealProject class inherits from the Project class and contains the actual information pulled from the ProjectStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyProject object.\\
 	\cdlabel{proxyproject}\cdref{proxyproject} & ProxyProject & & The ProxyProject also inherits from the Project class and provides a proxy or interface to the RealProject object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealProject object.\\
+\end{tabu}
+\end{center}
+
+\begin{center}
+\begin{tabu} to \textwidth {l >{\it}l l X}
+	\tableheader{}ID & Class Name & Operations Provided & Description \\
 	\cdlabel{projectstorage}\cdref{projectstorage} & ProjectStorage & & The ProjectStorage class is a class that provides a set of methods to pull/push data related to Projects from/to the relational database. The RealProject object is the only object that directly interacts with this object.\\
+	\cdlabel{question}\cdref{question} & Question & & The Question class contains four attributes: a String representation of the questions used in the algorithm for the desired and personal versions of the questions, a unique identifier, and the category of the question. \\
+	\cdlabel{realquestion}\cdref{realquestion} & RealQuestion & & The RealQuestion class inherits from the Question class and contains the actual information pulled from the QuestionStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyQuestion object.\\
+	\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
+	\cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
+	\cdlabel{answer}\cdref{answer} & Answer & & The Answer class contains three attributes: the question number, a unique identifier, and the set of answers. The methods this class provides revolve around simply returning the required set of answers.\\
 \end{tabu}
 \end{center}
 
@@ -564,11 +575,7 @@ In this section, we focus on the Operations that each of the services described 
 \begin{center}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Class Name & Description \\
-	\cdlabel{question}\cdref{question} & Question & The Question class contains four attributes: a String representation of the questions used in the algorithm for the desired and personal versions of the questions, a unique identifier, and the category of the question. \\
-	\cdlabel{realquestion}\cdref{realquestion} & RealQuestion & The RealQuestion class inherits from the Question class and contains the actual information pulled from the QuestionStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyQuestion object.\\
-	\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
-	\cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
-	\cdlabel{answer}\cdref{answer} & Answer & The Answer class contains three attributes: the question number, a unique identifier, and the set of answers. The methods this class provides revolve around simply returning the required set of answers.\\
+	
 \end{tabu}
 \end{center}
 
