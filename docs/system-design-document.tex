@@ -207,7 +207,7 @@ The following table, \tableref{proto-subsystems}, pulls the three subsystems men
 
 \subsubsection{Subsystem Dependency Analysis}
 
-The figure below, \figureref{proto-component}, illustrates the dependencies that exist between our three subsystems. In this prototype, we can see that both the UpdateSubsystem and the LoginSubsystem are dependent on the StorageSubsystem. While this component diagram clearly shows that our prototype does indeed follow the Repository Architectural Style, a style in which a StorageSubsystem has several subsystems that are dependent on it, the breakdown into subsystems still requires much tweaking. As we mentioned earlier, our subsystem division left much to be desired with regards to coupling.
+The figure below, \figureref{proto-component}, illustrates the dependencies that exist between our three subsystems. In this prototype, we can see that both the UpdateSubsystem and the LoginSubsystem are dependent on the StorageSubsystem. While this component diagram clearly shows that our prototype does indeed follow the Repository architectural style, a style in which a StorageSubsystem has several subsystems that are dependent on it, the breakdown into subsystems still requires much tweaking. As we mentioned earlier, our subsystem division left much to be desired with regards to coupling.
 
 \begin{figure}[H]
 	\centering{}
@@ -217,6 +217,7 @@ The figure below, \figureref{proto-component}, illustrates the dependencies that
 \end{figure}
 
 \subsection{System Decomposition}
+\subsubsection{Subsystem Decomposition}
 
 The following figure, \figureref{subsys-decomp}, showcases our updated system decompostion. Note here that we have increased the amount of subsystems from three to six, as well as rearranged the classes inside each. Our subsystems now include: ProfileSubsystem, LoginSubsystem, UserSubsystem, PPIDSubsystem, ProjectSubsystem, and, of course, StorageSubsystem. This updated desion features extremely low coupling matched with a high degree of cohesion, which are ideal in a system.
 
@@ -233,16 +234,36 @@ The table below, \tableref{subsystems}, pulls the six subsystems mentioned above
 	\caption{Subsystems} \tablelabel{subsystems}
     \begin{tabu} to \linewidth {l >{\it}l X}
         \tableheader{}ID & Name & Description \\
-        \sdlabel{login}\sdref{login} & LoginSubsystem & \\
-        \sdlabel{user}\sdref{user} & UserSubsystem & \\
-        \sdlabel{profile}\sdref{profile} & ProfileSubsystem & \\
-        \sdlabel{ppid}\sdref{ppid} & PPIDSubsystem & \\
-        \sdlabel{project}\sdref{project} & ProjectSubsystem & \\
-        \sdlabel{storage}\sdref{storage} & StorageSubsystem & \\
+        \sdlabel{login}\sdref{login} & LoginSubsystem & The LoginSubsystem handles the logging in aspect of our system. It checks with the StorageSubsystem to see if the ID entered exists before sending the user to the appropriate class in the UserSubsystem.\\
+        \sdlabel{user}\sdref{user} & UserSubsystem & The UserSubsystem handles the main menu for each of the types of users (Student \& Admin). They present various options to the user and sends them to the appropriate subsystem afterwards.\\
     \end{tabu}
 \end{table}
 
+\begin{center}
+\begin{tabu} to \linewidth {l >{\it}l X}
+        \tableheader{}ID & Name & Description \\
+	\sdlabel{profile}\sdref{profile} & ProfileSubsystem & The ProfileSubsystem handles the viewing and modifying of a Student's profile.\\
+        \sdlabel{ppid}\sdref{ppid} & PPIDSubsystem & The PPIDSubsystem handles the running of the PPID algorithm.\\
+        \sdlabel{project}\sdref{project} & ProjectSubsystem & The ProjectSubsystem handles the creation, deletion, and modification of Projects.\\
+        \sdlabel{storage}\sdref{storage} & StorageSubsystem & The StorageSubsystem handles all the retrieval and writing from/to the persistent storage.\\
+\end{tabu}
+\end{center}
+
+\subsubsection{Subsystem Dependency Analysis}
+
+The figure below, \figureref{component}, illustrates the dependencies that exist between our six subsystems. In this updated system, we can see that all the subsystems other than the StorageSubsystem are dependent on the StorageSubsystem. Furthermore, the UserSubsystem is also dependent on the PPIDSubsystem, the ProfileSubsystem, and the ProjectSubsytem, and the LoginSubsystem is also dependent on the UserSubsystem. This layout of subsystems showcases the Repository architectural style, wherein all subsystems are dependent on a repository subsystem (or storage subsystem). 
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.35]{imgs/d3/decomp/component-diagram.png}
+	\caption{Component Diagram}
+	\figurelabel{component}
+\end{figure}
+
 \subsection{Design Evolution}
+
+This section will explain the various design decisions we made for both the prototype system and the new, updated system. To improve readability, we will be dividing the two into completely separate section, starting with the logical choice, chronologically speaking, of the prototype system.
+
 \subsubsection{Prototype Design Decisions}
 \subsubsection{Updated Design Decisions}
 \section{Design Strategies}
@@ -252,13 +273,15 @@ Similar to the previous section, this section is also divided into three major p
 \subsection{Hardware/Software Mapping}
 \subsubsection{Overview}
 
+\subsubsection{Architectural Style}
+
 Our system revolves heavily upon a central storage, or repository. Other than the repository, we make use of several subsystems. Simply with this in mind, we can instantly rule out the {\it pipe and filter} architectural style - while we do indeed have subsystems (filters) that associate with each other (pipes), our subsystems are fairly dependent on one another. Furthermore, our subsystems are responsible for more than simply processing a set of inputs to get a set of outputs. 
 
 We can also rule out the four-tier architectural style right away - our system is entirely local, thus a separate client and server layer are unnecessary. We use a login-type system, and the UI is common to any user that logs in. The only difference would be that the displayed information changes, as well as some usability. That said, this type of functionality would best fit as multiple partitions within a layer. As a result, the difference in the student and admin users should be as sister partitions within the same layer.
 
-\subsubsection{Three-Tier Architecture}
+\subsubsection*{Three-Tier Architecture}
 
-Three-tier architecture involves dividing the system into three layers - the interface layer, the logic layer, and the storage layer. While it is more than possible, and, indeed, even appealing to consider such a decomposition, we decided not to go with this style. Unfortunately, this style, while having fairly high cohesion, has equally high coupling. For these reasons, we have decided to discard this architectural style.
+Three-tier architecture involves dividing the system into three layers - the interface layer, the logic layer, and the storage layer. While it is more than possible, and, indeed, even appealing to consider such a decomposition, we decided not to go with this style. Unfortunately, this style, while having fairly high cohesion, has equally high coupling. For these reasons, we have decided to discard this architectural style. The figure below, \figureref{three-tier}, shows an updated version of our prototype model designed in the Three-Tier architectural style. With this visual, it is easier to see that the amount of dependencies that span across subsystems is enormous.
 
 \begin{figure}[H]
 	\centering{}
@@ -266,10 +289,10 @@ Three-tier architecture involves dividing the system into three layers - the int
 	\caption{Three-Tier Subsystem Decomposition}
 	\figurelabel{three-tier}
 \end{figure}
-\subsubsection{Model-View Controller Architecture}
-\subsubsection{Repository Architecture}
+\subsubsection*{Model-View Controller Architecture}
+\subsubsection*{Repository Architecture}
 
-The Repository architectural style involves an absolutely necessary storage layer, followed by many subsystems one layer up. Essentially, this style boasts two layers, wherein the second layer would have multiple partitions. This is the architectural style that we decided to implement for our system design because of the incredibly appealing benefits: by organzing our system like this, we can achieve extremely high cohesion along with minimal coupling. This means that there are very few interdepencies between different subsystems.
+The Repository architectural style involves an absolutely necessary storage layer, followed by many subsystems one that depend on the storage layer. This is the architectural style that we employed, albeit poorly, in our prototype system - we have decided that the best course of action, after revamping our subsystem decomposition, is this architecural style: we can achieve extremely high cohesion along with minimal coupling. This means that there are very few interdepencies between different subsystems. The figure below, \figureref{repository}, provides a visual representation of the what the system would look like if properly implementing the repository architectural style.
 
 \begin{figure}[H]
 	\centering{}
@@ -277,6 +300,25 @@ The Repository architectural style involves an absolutely necessary storage laye
 	\caption{Repository Subsystem Decomposition}
 	\figurelabel{repository}
 \end{figure}
+
+\subsubsection{Node Assignment}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.25]{imgs/d3/decomp/deployment-diagram.png}
+	\caption{Deployment Diagram}
+	\figurelabel{deployment}
+\end{figure}
+
+\subsubsection{Runtime Components}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.25]{imgs/d3/decomp/runtime-component-diagram.png}
+	\caption{Runtime Component Diagram}
+	\figurelabel{runtime}
+\end{figure}
+
 \subsection{Persistent Data Management}
 \subsubsection{Overview}
 
