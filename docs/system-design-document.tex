@@ -182,7 +182,7 @@ Beginning with a full decomposition of our prototype, we will then show a modifi
 This section will be three-pronged - firstly, we will decompose the current working prototype into its corresponding set of logical subsystem. Following, we will introduce a more complete system decomposition, wherein we will include aspects that are not yet implemented in the current cuPID prototype. Also in this part, we will possibly modify existing subsystmes from the prototype to promote a higher degree of cohesion and minimal coupling. Finally, we will discuss the changes that we have decided on and how they impact the software as a whole. 
 
 \subsection{Phase 1 Prototype Decomposition}
-
+\subsubsection{Subsystem Decomposition}
 In the figure below, \figureref{proto-decomp}, we have the system decomposition for our prototype cuPID system. Note here that we have three major subsystems: the StorageSubsystem, the UpdateSubsystem, and the LoginSubsystem. Unfortunately, this prototype features a design that boasts extremely high coupling. While a saving grace might be that it also has high cohesion, high coupling in a system is intolerable. It makes the system lose its future-proofing and any changes to the code could result in the entire system crashing.
 
 \begin{figure}[H]
@@ -196,17 +196,29 @@ In the figure below, \figureref{proto-decomp}, we have the system decomposition 
 The following table, \tableref{proto-subsystems}, pulls the three subsystems mentioned above and provides a detailed description and unique identifier for each.
 
 \begin{table}[H]
-	\caption{Prototype Subsystems} \tablelabel{proto-subsystems}
+	\caption{Subsystems (Prototype)} \tablelabel{proto-subsystems}
     \begin{tabu} to \linewidth {l >{\it}l X}
         \tableheader{}ID & Name & Description \\
-        \sdlabel{proto-storage}\sdref{proto-storage} & StorageSubsystem & \\
-        \sdlabel{proto-login}\sdref{proto-login} & LoginSubsystem & \\
-        \sdlabel{proto-update}\sdref{proto-update} & UpdateSubsystem & \\
+        \sdlabel{proto-storage}\sdref{proto-storage} & StorageSubsystem & The StorageSubsystem is in charge of retrieving information from the persistent storage to supply to the LoginSubsystem and the UpdateSubsystem. It also handles the updating of information to the persistent storage from the other subsystems.\\
+        \sdlabel{proto-login}\sdref{proto-login} & LoginSubsystem & The LoginSubsystem is in charge of displaying the interface for the login and main window. It also verifies that the ID entered is valid through the StorageSubsystem. \\
+        \sdlabel{proto-update}\sdref{proto-update} & UpdateSubsystem & The UpdateSubsystem encompasses all the classes that handle updating information in the persistent storage.\\
     \end{tabu}
 \end{table}
 
+\subsubsection{Subsystem Dependency Analysis}
+
+The figure below, \figureref{proto-component}, illustrates the dependencies that exist between our three subsystems. In this prototype, we can see that both the UpdateSubsystem and the LoginSubsystem are dependent on the StorageSubsystem. While this component diagram clearly shows that our prototype does indeed follow the Repository Architectural Style, a style in which a StorageSubsystem has several subsystems that are dependent on it, the breakdown into subsystems still requires much tweaking. As we mentioned earlier, our subsystem division left much to be desired with regards to coupling.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.35]{imgs/d3/prototype/component-diagram.png}
+	\caption{Component Diagram (Prototype)}
+	\figurelabel{proto-component}
+\end{figure}
+
 \subsection{System Decomposition}
 
+The following figure, \figureref{subsys-decomp}, showcases our updated system decompostion. Note here that we have increased the amount of subsystems from three to six, as well as rearranged the classes inside each. Our subsystems now include: ProfileSubsystem, LoginSubsystem, UserSubsystem, PPIDSubsystem, ProjectSubsystem, and, of course, StorageSubsystem. This updated desion features extremely low coupling matched with a high degree of cohesion, which are ideal in a system.
 
 \begin{figure}[H]
 	\centering{}
@@ -214,6 +226,8 @@ The following table, \tableref{proto-subsystems}, pulls the three subsystems men
 	\caption{Subsystem Decomposition}
 	\figurelabel{subsys-decomp}
 \end{figure}
+
+The table below, \tableref{subsystems}, pulls the six subsystems mentioned above and provides a detailed description and unique identifier for each.
 
 \begin{table}[H]
 	\caption{Subsystems} \tablelabel{subsystems}
