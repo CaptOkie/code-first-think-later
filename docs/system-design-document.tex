@@ -670,8 +670,8 @@ In this section, we focus on the Operations that each of the services described 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{user} \\
-		Name & {\bf User} \\
+		Class Identifier & \cdref{userstorage} \\
+		Name & {\bf UserStorage} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
@@ -693,8 +693,905 @@ In this section, we focus on the Operations that each of the services described 
 \begin{center}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
-		Class Identifier & \cdref{user} \\
-		Name & {\bf User} \\
+		Class Identifier & \cdref{student} \\
+		Name & {\bf Student} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : {\bf int}
+		        \item \textit{public} : Name: {\bf string}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{realstudent} \\
+		Name & {\bf RealStudent} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{proxystudent} \\
+		Name & {\bf ProxyStudent} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{studentstorage} \\
+		Name & {\bf StudentStorage} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{admin} \\
+		Name & {\bf Admin} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{realadmin} \\
+		Name & {\bf RealAdmin} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{proxyadmin} \\
+		Name & {\bf ProxyAdmin} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{adminstorage} \\
+		Name & {\bf AdminStorage} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{project} \\
+		Name & {\bf RealProject} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{realproject} \\
+		Name & {\bf RealProject} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{proxyproject} \\
+		Name & {\bf ProxyProject} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{projectstorage} \\
+		Name & {\bf ProjectStorage} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{question} \\
+		Name & {\bf Question} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{realquestion} \\
+		Name & {\bf RealQuestion} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{proxyquestion} \\
+		Name & {\bf ProxyQuestion} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{questionstorage} \\
+		Name & {\bf QuestionStorage} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{answer} \\
+		Name & {\bf Answer} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{group} \\
+		Name & {\bf Group} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{grouper} \\
+		Name & {\bf Grouper} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{matcher} \\
+		Name & {\bf Matcher} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{splitsmallest} \\
+		Name & {\bf SplitSmallest} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{percentdistance} \\
+		Name & {\bf PercentDistance} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{ppidcontrol} \\
+		Name & {\bf PPIDControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{ppidform} \\
+		Name & {\bf PPIDForm} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{projectcontrol} \\
+		Name & {\bf ProjectControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{projectform} \\
+		Name & {\bf ProjectForm} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{usercontrol} \\
+		Name & {\bf UserControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{studentcontrol} \\
+		Name & {\bf StudentControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{admincontrol} \\
+		Name & {\bf AdminControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{studentform} \\
+		Name & {\bf StudentForm} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{adminform} \\
+		Name & {\bf AdminForm} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{loginform} \\
+		Name & {\bf LoginForm} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{logincontrol} \\
+		Name & {\bf LoginControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{userconfac} \\
+		Name & {\bf UserControlFactory} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{questionsform} \\
+		Name & {\bf QuestionsForm} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{questionsoption} \\
+		Name & {\bf QuestionsOption} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{profileform} \\
+		Name & {\bf ProfileForm} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{profilecontrol} \\
+		Name & {\bf ProfileControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{questioncontrol} \\
+		Name & {\bf QuestionControl} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{public} : ID : \bf{int}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &
+		\begin{minipage}[t]{\linewidth}
+			\begin{enumerate}
+			    \item[-] stuff
+	        \end{enumerate}
+	    \end{minipage} \\
+	    	Traceability & \\
+		\toprule
+	\end{tabu}
+\end{center}
+
+\begin{center}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{questionscontrol} \\
+		Name & {\bf QuestionsControl} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
