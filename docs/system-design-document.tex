@@ -307,7 +307,7 @@ Oftentimes, admins will have to create multiple projects. To assure that no dupl
 	\end{tabu}
 \end{table}
 
-\subsubsection*{enrollment}
+\subsubsection*{Enrollment Table (\dtref{enrollment})}
 Its important that each student can only enroll in each project once. To accomplish this, we have two Primary Keys - the student's unique identitier (\textit{students}.\textit{id}) and the project's unique name (\textit{projects}.\textit{name}). The following table, \tableref{enrollment-table}, gives a more detailed breakdown and description of each of the columns of the \textit{enrollment} table.
 
 \begin{table}[H]
@@ -321,7 +321,7 @@ Its important that each student can only enroll in each project once. To accompl
 	\end{tabu}
 \end{table}
 
-\subsubsection*{questions}
+\subsubsection*{Questions Table (\dtref{questions})}
 - each question has unique ID so it is easy to reference 
 
 \begin{table}[H]
@@ -335,7 +335,7 @@ Its important that each student can only enroll in each project once. To accompl
 	\end{tabu}
 \end{table}
 
-\subsubsection*{answers}
+\subsubsection*{Answers Table (\dtref{answers})}
 - primary key made of foreign key to \textit{questions}.\textit{id} and \textit{id}. \\
 - this allows an answer to belong to only one question. 
 
@@ -351,7 +351,7 @@ Its important that each student can only enroll in each project once. To accompl
 	\end{tabu}
 \end{table}
 
-\subsubsection*{responses}
+\subsubsection*{Responses Table (\dtref{responses})}
 - using \textit{students}.\textit{id} and \textit{questions}.\textit{id}, guarantees that a student may have only one response per question.
 
 \begin{table}[H]
@@ -384,7 +384,13 @@ This design pattern is ill suited to our particular system since we will be deve
 \subsubsection*{Bridge}
 \subsubsection*{Facade}
 \subsubsection*{Proxy}
-We have chosen to implement this design pattern in our system. By encompassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time trade-off is comparably minimal, even negligible. 
+We have chosen to implement this design pattern in our system. By encompassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time trade-off is comparably minimal, even negligible. The following figure, \figureref{proxy-example}, provides a small UML-based visual of how the Proxy Pattern is set up. The idea is that the ProxyObject acts as a kind of interface to the RealObject, wherein the rest of the system has no access to the RealObject.
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.55]{imgs/d3/proxy-example.png}
+	\caption{Example of the Proxy Design Pattern}
+	\figurelabel{proxy-example}
+\end{figure}
 \subsubsection{Behavioural Patterns}
 \subsubsection*{Command}
 \subsubsection*{Observer}
@@ -404,6 +410,7 @@ In this section, we give a list and description of each of the services that our
 \end{tabu}
 \end{table}
 
+\noindent{}
 \sdlabel{ppid}The following table showcases all the different services offered by the PPIDSubsytem (\sdref{ppid}).
 
 \begin{table}[H]
@@ -414,6 +421,7 @@ In this section, we give a list and description of each of the services that our
 \end{tabu}
 \end{table}
 
+\noindent{}
 \sdlabel{login}The following table showcases all the different services offered by the LoginSubsytem (\sdref{login}).
 
 \begin{table}[H]
@@ -425,6 +433,7 @@ In this section, we give a list and description of each of the services that our
 \end{tabu}
 \end{table}
 
+\noindent{}
 \sdlabel{profile}The following table showcases all the different services offered by the ProfileSubsytem (\sdref{profile}).
 
 \begin{table}[H]
@@ -435,6 +444,8 @@ In this section, we give a list and description of each of the services that our
 	\sslabel{service6}\ssref{service6} & service6 & desc\\
 \end{tabu}
 \end{table}
+
+\noindent{}
 \sdlabel{user}The following table showcases all the different services offered by the UserSubsytem (\sdref{user}).
 
 \begin{table}[H]
@@ -445,6 +456,8 @@ In this section, we give a list and description of each of the services that our
 	\sslabel{service6}\ssref{service6} & service6 & desc\\
 \end{tabu}
 \end{table}
+
+\noindent{}
 \sdlabel{project}The following table showcases all the different services offered by the ProjectSubsytem (\sdref{project}).
 
 \begin{table}[H]
@@ -464,9 +477,9 @@ In this section, we focus on the Operations that each of the services described 
 \caption{Operations Offered in Data Service (\ssref{data})} \tablelabel{operation-data}
 \begin{tabu} to \textwidth {l >{\it}l l X}
 	\tableheader{}ID & Operation & Class & Description\\
-	\oplabel{getstuname}\opref{getstuname} & GetStudentName & ProxyStudent & desc\\
-	\oplabel{getadminname}\opref{getadminname} & GetAdminName & ProxyAdmin & desc\\
-	\oplabel{getprojectname}\opref{getprojectname} & GetProjectName & ProxyProject & desc\\
+	\oplabel{getstuname}\opref{getstuname} & GetStudentName & ProxyStudent & The \textit{GetStudentName} operation is a method offered by the \textit{ProxyStudent} class (\cdref{proxystudent}). The operation takes in an ID value (an integer), and asks the \textit{RealStudent} class (\cdref{realstudent}) for the \textit{Student} corresponding to the given ID's name and returns it (as a String).\\
+	\oplabel{getadminname}\opref{getadminname} & GetAdminName & ProxyAdmin & The \textit{GetAdminName} operation is a method offered by the \textit{ProxyAdmin} class (\cdref{proxyadmin}). The operation takes in an ID value (an integer), and asks the \textit{RealAdmin} class (\cdref{realadmin}) for the \textit{Admin} corresponding to the given ID's name and returns it (as a String).\\
+	\oplabel{getprojectname}\opref{getprojectname} & GetProjectName & ProxyProject & The \textit{GetProjectName} operation is a method offered by the \textit{ProxyProject} class (\cdref{proxyproject}). The operation takes in an ID value (an integer) and asks the \textit{RealProject} class (\cdref{realproject}) for the \textit{Project} corresponding to the given ID's name and returns it (as a String).\\
 	\oplabel{getdesiredquestion}\opref{getdesiredquestion} & GetDesiredQuestion & ProxyQuestion & desc\\
 	\oplabel{getpersonalquestion}\opref{getpersonalquestion} & GetPersonalQuestion & ProxyQuestion & desc\\
 	\oplabel{getcategory}\opref{getcategory} & GetQuestionCategory & ProxyQuestion & desc\\
