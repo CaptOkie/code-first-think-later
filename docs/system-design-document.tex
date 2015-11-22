@@ -501,7 +501,25 @@ The following section will be divided into three major sections: services, opera
 
 \subsection{Services}
 
-In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into three separate tables - one for each of our subsystems. The following table encompasses all the services offered by the ProxySubsystem (\sdref{storage}). 
+
+In this section, we give a list and description of each of the services that our subsystems offer. They will be divided into separate tables - one for each of our subsystems.
+
+\subsubsection{UserSubsystem (\sdref{user})}
+
+\noindent{}
+The following table showcases all the different services offered by the UserSubsystem (\sdref{user}).
+
+\begin{table}[H]
+	\caption{Services Offered by UserSubsystem (\sdref{user})} \tablelabel{user-services}
+	\begin{tabu} to \textwidth {l >{\it}l X}
+		\tableheader{}ID & Service & Description\\
+		\sslabel{user-options}\ssref{user-options} & UserOptionsService & \\
+	\end{tabu}
+\end{table}
+
+
+
+The following table encompasses all the services offered by the ProxySubsystem (\sdref{storage}). 
 
 \begin{table}[H]
 \caption{Services Offered by the StorageSubsystem (\sdref{storage})} \tablelabel{service-sub-storage}
@@ -539,18 +557,6 @@ The following table showcases all the different services offered by the ProfileS
 
 \begin{table}[H]
 \caption{Services Offered by ProfileSubsystem (\sdref{profile})} \tablelabel{service-sub-profile}
-\begin{tabu} to \textwidth {l >{\it}l X}
-	\tableheader{}ID & Service & Description\\
-	\sslabel{service5}\ssref{service5} & service5 & desc\\
-	\sslabel{service6}\ssref{service6} & service6 & desc\\
-\end{tabu}
-\end{table}
-
-\noindent{}
-The following table showcases all the different services offered by the UserSubsystem (\sdref{user}).
-
-\begin{table}[H]
-\caption{Services Offered by UserSubsystem (\sdref{user})} \tablelabel{service-sub-user}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	\tableheader{}ID & Service & Description\\
 	\sslabel{service5}\ssref{service5} & service5 & desc\\
