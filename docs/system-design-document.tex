@@ -1307,18 +1307,22 @@ The following table, \tableref{student}, gives a detailed breakdown of the Stude
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : {\bf int}
-		        \item \textit{public} : Name: {\bf string}
+		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getQuestions() : return {\bf List<Question>}
+			    \item {\it public} : getEnrolledProjects() : return {\bf List<Project>}
+			    \item {\it public} : getAvailableProjects() : return {\bf List<Project>}
+			    \item {\it public} : joinProject(\underline{in} p : {\bf Project}) : return {\bf void}
+			    \item {\it public} : leaveProject(\underline{in} p : {\bf Project}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{student}, \opref{user-get-questions}, \opref{user-get-enrolled-projects}, \opref{user-get-available-projects}, \opref{user-join-project}, \opref{user-leave-project}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1334,17 +1338,22 @@ The following table, \tableref{realstudent}, gives a detailed breakdown of the R
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getQuestions() : return {\bf List<Question>}
+			    \item {\it public} : getEnrolledProjects() : return {\bf List<Project>}
+			    \item {\it public} : getAvailableProjects() : return {\bf List<Project>}
+			    \item {\it public} : joinProject(\underline{in} p : {\bf Project}) : return {\bf void}
+			    \item {\it public} : leaveProject(\underline{in} p : {\bf Project}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{student}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1360,17 +1369,22 @@ The following table, \tableref{proxystudent}, gives a detailed breakdown of the 
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item \textit{public} : GetStudentName : args = {\bf int ID} : return = {\bf string stuName}
+			    \item {\it public} : getQuestions() : return {\bf List<Question>}
+			    \item {\it public} : getEnrolledProjects() : return {\bf List<Project>}
+			    \item {\it public} : getAvailableProjects() : return {\bf List<Project>}
+			    \item {\it public} : joinProject(\underline{in} p : {\bf Project}) : return {\bf void}
+			    \item {\it public} : leaveProject(\underline{in} p : {\bf Project}) : return {\bf void}
 	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{student}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1383,20 +1397,19 @@ The following table, \tableref{studentstorage}, gives a detailed breakdown of th
 		\toprule
 		Class Identifier & \cdref{studentstorage} \\
 		Name & {\bf StudentStorage} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getQuestions(\underline{in} s : {\bf Student}) : return {\bf List<Question>}
+			    \item {\it public} : getEnrolledProjects(\underline{in} s : {\bf Student}) : return {\bf List<Project>}
+			    \item {\it public} : getAvailableProjects(\underline{in} s : {\bf Student}) : return {\bf List<Project>}
+			    \item {\it public} : joinProject(\underline{in} s : {\bf Student}, \underline{in} p : {\bf Project}) : return {\bf void}
+			    \item {\it public} : leaveProject(\underline{in} s : {\bf Student}, \underline{in} p : {\bf Project}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{student}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
