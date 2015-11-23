@@ -828,8 +828,8 @@ The following table, \tableref{user-option-classes}, describes each of the class
 	    \cdlabel{user-ctrl}\cdref{user-ctrl} & UserControl & The UserControl class contains only a single operation - start.\\
 	    \cdlabel{student-ctrl}\cdref{student-ctrl} & StudentControl & The StudentControl class inherits from the UserControl class, and contains only the inherited start operation. This class controls the possible options that a Student can have.\\
 	    \cdlabel{admin-ctrl}\cdref{admin-ctrl} & AdminControl & The AdminControl class inherits from the UserControl class, and contains only the inherited start operation. This class controls the possible options that an Admin can have. \\
-	    \cdlabel{student-form}\cdref{student-form} & StudentForm & The StudentForm class is a UI-based class - the only operation that this class has is show. This class displays the information concerning the particular Student User that is currently logged in.\\
-	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & The AdminForm class is a UI-based class - the only operation that this class has is show. This class displays the information concerning the particular Admin User that is currently logged in.\\
+	    \cdlabel{student-form}\cdref{student-form} & StudentForm & The StudentForm class is a boundary object - the only operation that this class has is show. This class displays the information concerning the particular Student User that is currently logged in.\\
+	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & The AdminForm class is a boundary object - the only operation that this class has is show. This class displays the information concerning the particular Admin User that is currently logged in.\\
 	\end{tabu}
 \end{table}
 
@@ -955,7 +955,7 @@ The following table, \tableref{profile-option-classes}, describes each of the cl
 	\caption{ProfileOptionsService Classes (\ssref{profile-options})} \tablelabel{profile-option-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
-		\cdlabel{profile-form}\cdref{profile-form} & ProfileForm & The ProfileForm class is a UI-based class - the only operation that this class has is show. This class displays the information concerning the particular Student User that is currently logged in's Profile.\\
+		\cdlabel{profile-form}\cdref{profile-form} & ProfileForm & The ProfileForm class is a boundary object class - the only operation that this class has is show. This class displays the information concerning the particular Student User that is currently logged in's Profile.\\
 		\cdlabel{profile-ctrl}\cdref{profile-ctrl} & ProfileControl & The ProfileControl class contains only a single operation - start. The ProfileControl class is the control object that controls the displaying and editing of a Student's profile. \\
 	\end{tabu}
 \end{table}
