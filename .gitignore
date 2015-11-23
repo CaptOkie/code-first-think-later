@@ -27,7 +27,11 @@
 *.out
 *.app
 
-# Texmaker
+# Latex
+*.maf
+*.mtc
+*.mtc0
+*.ptc
 *.aux
 *.lof
 *.log
