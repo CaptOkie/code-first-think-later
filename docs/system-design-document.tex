@@ -890,12 +890,12 @@ The following table, \tableref{ppid-option-classes}, describes each of the class
 	\caption{PPIDOptionsService Classes (\ssref{ppid-options})} \tablelabel{ppid-option-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
-		\cdlabel{grouper}\cdref{grouper} & Grouper & \\
-		\cdlabel{matcher}\cdref{matcher} & Matcher & \\
-		\cdlabel{split-smallest}\cdref{split-smallest} & SplitSmallest & \\
-		\cdlabel{percent-distance}\cdref{percent-distance} & PercentDistance & \\
-		\cdlabel{ppid-ctrl}\cdref{ppid-ctrl} & PPIDControl & desc \\
-		\cdlabel{ppid-form}\cdref{ppid-form} & PPIDForm & \\
+		\cdlabel{grouper}\cdref{grouper} & Grouper & The Grouper class has only a single operation - group. This class is in charge of adding a list of Students into a Group object.\\
+		\cdlabel{matcher}\cdref{matcher} & Matcher & The Matcher class has one operation that gets overloaded - match. The overloaded aspect assures that the Matcher can match individual Students to other Students as well as Groups to Students.\\
+		\cdlabel{split-smallest}\cdref{split-smallest} & SplitSmallest & The SplitSmallest class inherits from the Grouper class and simply splits the smallest Group into a list of individual Students.\\
+		\cdlabel{percent-distance}\cdref{percent-distance} & PercentDistance & The PercentDistance class inherits from the Matcher class and simply returns the match percent of either two Students or a Student and a Group.\\
+		\cdlabel{ppid-ctrl}\cdref{ppid-ctrl} & PPIDControl & The PPIDControl class contains only a single operation - start. The PPIDControl class is the control object responsible for handling the running of the PPID algorithm.\\
+		\cdlabel{ppid-form}\cdref{ppid-form} & PPIDForm & The PPIDForm class is a UI-based class - the only operation that this class has is show. This class displays the information concerning the last run PPID algorithm for a specific Project.\\
 	\end{tabu}
 \end{table}
 
@@ -914,7 +914,7 @@ The following table, \tableref{user-classes}, describes each of the classes invo
 	\caption{UserService Classes (\ssref{user})} \tablelabel{user-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
-        \cdlabel{user-storage}\cdref{user-storage} & UserStorage & Words, words, words - Bo Burnham\\
+        \cdlabel{user-storage}\cdref{user-storage} & UserStorage & The UserStorage class offers two operations - getStudent and getAdmin. This class simply returns either a Student object or an Admin object.\\
 	\end{tabu}
 \end{table}
 
