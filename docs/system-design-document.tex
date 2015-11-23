@@ -811,12 +811,12 @@ This section will include the class whose operation(s) are used in the QuestionS
 
 \subsection{Overview}
 This section contains all the classes in our system, divided into subsections wherein each subsection represents a service. Along with a table containing a short, detailed description of each class, there will be a UML class diagram provided for each system to showcase the interactions between the classes.
-\subsection*{Section Contents}
 
-\vspace{0.5em}\hrule\vspace{0.5em}
-\startcontents[sections]
-\printcontents[sections]{}{1}{}
-\vspace{0.5em}\hrule\vspace{0.5em}
+%\subsection*{Section Contents}
+%\vspace{0.5em}\hrule\vspace{0.5em}
+%\startcontents[sections]
+%\printcontents[sections]{}{1}{}
+%\vspace{0.5em}\hrule\vspace{0.5em}
 
 \subsection{UserOptionsService (\ssref{user-options})}
 
@@ -843,8 +843,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{figure}
 
 \subsection{ProfileOptionsService (\ssref{profile-options})}
+
+The following table, \tableref{profile-option-classes}, describes each of the classes involved in the ProfileOptionsService service (\ssref{profile-options}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{ProfileOptionsService Classes (\ssref{profile-options})} 
+	\caption{ProfileOptionsService Classes (\ssref{profile-options})} \tablelabel{profile-option-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{profile-form}\cdref{profile-form} & ProfileForm & \\
@@ -860,8 +863,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{figure}
 
 \subsection{ProjectOptionsService (\ssref{project-options})}
+
+The following table, \tableref{project-option-classes}, describes each of the classes involved in the ProjectOptionsService service (\ssref{project-options}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{ProjectOptionsService Classes (\ssref{project-options})} 
+	\caption{ProjectOptionsService Classes (\ssref{project-options})} \tablelabel{project-option-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{project-ctrl}\cdref{project-ctrl} & ProjectControl &\\
@@ -877,8 +883,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{figure}
 
 \subsection{PPIDOptionsService (\ssref{ppid-options})}
+
+The following table, \tableref{ppid-option-classes}, describes each of the classes involved in the PPIDOptionsService service (\ssref{ppid-options}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{PPIDOptionsService Classes (\ssref{ppid-options})} 
+	\caption{PPIDOptionsService Classes (\ssref{ppid-options})} \tablelabel{ppid-option-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{grouper}\cdref{grouper} & Grouper & \\
@@ -898,8 +907,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{figure}
 
 \subsection{UserService (\ssref{user})}
+
+The following table, \tableref{user-classes}, describes each of the classes involved in the UserService service (\ssref{user}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{UserService Classes (\ssref{user})} 
+	\caption{UserService Classes (\ssref{user})} \tablelabel{user-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
         \cdlabel{user-storage}\cdref{user-storage} & UserStorage & Words, words, words - Bo Burnham\\
@@ -914,8 +926,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{figure}
 
 \subsection{StudentService (\ssref{student})}
+
+The following table, \tableref{student-classes}, describes each of the classes involved in the StudentService service (\ssref{student}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{StudentService Classes (\ssref{student})} 
+	\caption{StudentService Classes (\ssref{student})} \tablelabel{student-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{student}\cdref{student} & Student & The Student class contains several attributes: a unique ID, a name, both inherited from the User class, a collection of responses, and their join-status with regards to projects. Their methods revolve around the handling of their profiles, such as modifying response values. This class inherits from the User class. \\
@@ -926,8 +941,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{table}
 
 \subsection{AdminService (\ssref{admin})}
+
+The following table, \tableref{admin-classes}, describes each of the classes involved in the AdminService service (\ssref{admin}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{AdminService Classes (\ssref{admin})} 
+	\caption{AdminService Classes (\ssref{admin})} \tablelabel{admin-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{admin}\cdref{admin} & Admin & The Admin class contains two attributes - the unique ID, and a name, both inherited from the User class - and several methods revolving around the handling of Project objects. This class inherits from the User class. \\
@@ -938,8 +956,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{table}
 
 \subsection{ProjectService (\ssref{project})}
+
+The following table, \tableref{project-classes}, describes each of the classes involved in the ProjectService service (\ssref{project}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{ProjectService Classes (\ssref{project})} 
+	\caption{ProjectService Classes (\ssref{project})} \tablelabel{project-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{project}\cdref{project} & Project & The Project class contains five attributes: a name, a unique ID, a minimum group size, a maximum group size, and a collection of Student objects. Its methods revolve around simply returning the collection of Students.\\
@@ -951,8 +972,11 @@ The following figure, \figureref{user-options-class-diagram}, is a UML Class Dia
 \end{table}
 
 \subsection{QuestionService (\ssref{question})}
+
+The following table, \tableref{question-classes}, describes each of the classes involved in the QuestionService service (\ssref{question}) as well as provide a unique indentifier for each.
+
 \begin{table}[H]
-	\caption{QuestionService Classes (\ssref{question})} 
+	\caption{QuestionService Classes (\ssref{question})} \tablelabel{question-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{question}\cdref{question} & Question & The Question class contains four attributes: a String representation of the questions used in the algorithm for the desired and personal versions of the questions, a unique identifier, and the category of the question. \\
