@@ -823,10 +823,16 @@ The following table, \tableref{user-option-classes}, describes each of the class
 	    \cdlabel{user-ctrl}\cdref{user-ctrl} & UserControl & The UserControl class contains only a single operation - start.\\
 	    \cdlabel{student-ctrl}\cdref{student-ctrl} & StudentControl & The StudentControl class inherits from the UserControl class, and contains only the inherited start operation. This class controls the possible options that a Student can have.\\
 	    \cdlabel{admin-ctrl}\cdref{admin-ctrl} & AdminControl & The AdminControl class inherits from the UserControl class, and contains only the inherited start operation. This class controls the possible options that an Admin can have. \\
-	    \cdlabel{student-form}\cdref{student-form} & StudentForm & The StudentForm class is a boundary object - the only operation that this class has is show. This class displays the information concerning the particular Student User that is currently logged in.\\
-	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & The AdminForm class is a boundary object - the only operation that this class has is show. This class displays the information concerning the particular Admin User that is currently logged in.\\
 	\end{tabu}
 \end{table}
+
+\begin{center}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+	\cdlabel{student-form}\cdref{student-form} & StudentForm & The StudentForm class is a boundary object - the only operation that this class has is show. This class displays the information concerning the particular Student User that is currently logged in.\\
+	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & The AdminForm class is a boundary object - the only operation that this class has is show. This class displays the information concerning the particular Admin User that is currently logged in.\\
+	\end{tabu}
+\end{center}
 
 The following table, \tableref{user-ctrl}, gives a detailed breakdown of the UserControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
@@ -870,6 +876,7 @@ The following table, \tableref{student-ctrl}, gives a detailed breakdown of the 
 	\end{tabu}
 \end{table}
 
+\newpage{}
 The following table, \tableref{admin-ctrl}, gives a detailed breakdown of the AdminControl class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
@@ -933,6 +940,7 @@ The following table, \tableref{admin-form}, gives a detailed breakdown of the Ad
 	\end{tabu}
 \end{table}
 
+\newpage{}
 The following figure, \figureref{user-options-class-diagram}, is a UML Class Diagram for the classes involved in the UserOptionsService service (\ssref{user-options}).
 
 \begin{figure}[H]
@@ -955,6 +963,7 @@ The following table, \tableref{profile-option-classes}, describes each of the cl
 	\end{tabu}
 \end{table}
 
+\newpage{}
 The following table, \tableref{profile-form}, gives a detailed breakdown of the ProfileForm class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
@@ -1712,19 +1721,16 @@ The following table, \tableref{question-classes}, describes each of the classes 
 		\cdlabel{question}\cdref{question} & Question & The Question class contains four attributes: a String representation of the questions used in the algorithm for the desired and personal versions of the questions, a unique identifier, and the category of the question. \\
 		\cdlabel{realquestion}\cdref{realquestion} & RealQuestion & The RealQuestion class inherits from the Question class and contains the actual information pulled from the QuestionStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyQuestion object.\\
 		\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
-		\cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
-		\cdlabel{answer}\cdref{answer} & Answer & The Answer class contains three attributes: the question number, a unique identifier, and the set of answers. The methods this class provides revolve around simply returning the required set of answers.\\
 	\end{tabu}
 \end{table}
 
-The following figure, \figureref{question-class-diagram}, is a UML Class Diagram for the classes involved in the QuestionService service (\ssref{question}).
-
-\begin{figure}[H]
-	\centering{}
-	\includegraphics[scale=0.32]{imgs/d3/interfaces/question.png}
-	\caption{QuestionService Class Diagram (\ssref{question})}
-	\figurelabel{question-class-diagram}
-\end{figure}
+\begin{center}
+\begin{tabu} to \textwidth {l >{\it}l X}
+	    \tableheader{}ID & Class Name & Description \\
+	    \cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
+	\cdlabel{answer}\cdref{answer} & Answer & The Answer class contains three attributes: the question number, a unique identifier, and the set of answers. The methods this class provides revolve around simply returning the required set of answers.\\
+	\end{tabu}
+\end{center}
 
 The following table, \tableref{question}, gives a detailed breakdown of the Question class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
@@ -1759,6 +1765,7 @@ The following table, \tableref{question}, gives a detailed breakdown of the Ques
 	\end{tabu}
 \end{table}
 
+\newpage{}
 The following table, \tableref{realquestion}, gives a detailed breakdown of the RealQuestion class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
@@ -1825,6 +1832,7 @@ The following table, \tableref{proxyquestion}, gives a detailed breakdown of the
 	\end{tabu}
 \end{table}
 
+\newpage{}
 The following table, \tableref{questionstorage}, gives a detailed breakdown of the QuestionStorage class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
@@ -1861,16 +1869,12 @@ The following table, \tableref{answer}, gives a detailed breakdown of the Answer
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{public} : id : {\bf int}
+		        \item \textit{public} : text : {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
 
-		Operations &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
-	    \end{minipage} \\
+		Operations &\\
 	    	Traceability & \\
 		\toprule
 	\end{tabu}
@@ -1901,5 +1905,14 @@ The following table, \tableref{group}, gives a detailed breakdown of the Group c
 		\toprule
 	\end{tabu}
 \end{table}
+
+The following figure, \figureref{question-class-diagram}, is a UML Class Diagram for the classes involved in the QuestionService service (\ssref{question}).
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.32]{imgs/d3/interfaces/question.png}
+	\caption{QuestionService Class Diagram (\ssref{question})}
+	\figurelabel{question-class-diagram}
+\end{figure}
 
 \end{document}
