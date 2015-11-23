@@ -368,7 +368,7 @@ While figures are great for visualization, what do these tables actually represe
 \subsubsection{Breakdown \& Reasoning}
 
 \subsubsection*{Students Table (\dtref{students})}
-To ensure that ID of a \textit{Student} (\cdref{student}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal.
+To ensure the ID of a \textit{Student} (\cdref{student}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal.
 
 There isn't a constraint put on the \textit{name} column to allow for \textit{Students} with the same name to be entered into the database. The following table, \tableref{students-table}, gives a more detailed breakdown and description of each of the columns of the \textit{students} table.
 
@@ -376,13 +376,13 @@ There isn't a constraint put on the \textit{name} column to allow for \textit{St
 	\caption{Students Table (\dtref{students})} \tablelabel{students-table}
 	\begin{tabu} to \textwidth {l l l X}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id   & Integer & Primary Key & The unique ID given to the Student. \\
-		name & Text    &             & The name of the Student. \\
+		id   & Integer & Primary Key & The unique ID given to the Student (\cdref{student}). \\
+		name & Text    &             & The name of the Student (\cdref{student}). \\
 	\end{tabu}
 \end{table}
 
 \subsubsection*{Administrator Table (\dtref{admins})}
-To ensure that ID of a \textit{Admin} (\cdref{admin}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up a \textit{Admin} by their ID is increased.
+To ensure the ID of an \textit{Admin} (\cdref{admin}) is unique, the \textit{id} column is set as the primary key. This guarantees that no two IDs can be equal. As well, by having the \textit{id} column as the primary key, the speed of looking up an \textit{Admin} by their ID is increased.
 
 There isn't a constraint put on the \textit{name} column to allow for \textit{Admins} with the same name to be entered into the database. The following table, \tableref{admins-table}, gives a more detailed breakdown and description of each of the columns of the \textit{admins} table.
 
@@ -390,13 +390,13 @@ There isn't a constraint put on the \textit{name} column to allow for \textit{Ad
 	\caption{Admins Table (\dtref{admins})} \tablelabel{admins-table}
 	\begin{tabu} to \textwidth {l l l X}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id   & Integer & Primary Key & The unique ID given to the Admin. \\
-		name & Text    &             & The name of the Admin. \\
+		id   & Integer & Primary Key & The unique ID given to the Admin (\cdref{admin}). \\
+		name & Text    &             & The name of the Admin (\cdref{admin}). \\
 	\end{tabu}
 \end{table}
 
 \subsubsection*{Projects Table (\dtref{projects})}
-Each \textit{Project} object (\cdref{project}) has a unique ID to uniquely identify it when querying or for referencing it in other tables. This ID is stored in the \textit{id} column, which is the primary key for the table. \textit{id} is used as the primary key oppose to the \textit{name} column, even though \textit{name} is always going to be unique as well, due to the fact the column is being referenced in other tables. If a \textit{Project's} name is changed, not only must it be changed in the \textit{name} column, but in every table it is referenced as well. That operation can be time consuming and, most importantly, may lead to errors causing the data in the database to be incorrect. By using an ID that will never change, then the name of the \textit{Project} can change without fear of corrupting data.
+Each \textit{Project} object (\cdref{project}) has a unique ID to uniquely identify it when querying or for referencing it in other tables. This ID is stored in the \textit{id} column, which is the primary key for the table. \textit{id} is used as the primary key oppose to the \textit{name} column, even though \textit{name} is always going to be unique as well, due to the fact that the column is being referenced in other tables. If a \textit{Project's} name is changed, not only must it be changed in the \textit{name} column, but in every table it is referenced as well. That operation can be time consuming and, most importantly, may lead to errors causing the data in the database to be incorrect. By using an ID that will never change, then the name of the \textit{Project} can change without fear of corrupting data.
 
 The following table, \tableref{projects-table}, gives a more detailed breakdown and description of each of the columns of the \textit{projects} table.
 
@@ -404,11 +404,11 @@ The following table, \tableref{projects-table}, gives a more detailed breakdown 
 	\caption{Projects Table (\dtref{projects})} \tablelabel{projects-table}
 	\begin{tabu} to \textwidth {l l X X[3]}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id             & Integer & Primary Key      & The unique ID given to a Project. \\
+		id             & Integer & Primary Key      & The unique ID given to a Project (\cdref{project}). \\
 		name           & Text    & Unique,\newline 
-		                           Case Insensitive & The unique name given to a Project. \\
-		max\_grp\_size & Integer &                  & The maximum group size of a Project. \\
-		min\_grp\_size & Integer &                  & The minimum group size of a Project. \\
+		                           Case Insensitive & The unique name given to a Project (\cdref{project}). \\
+		max\_grp\_size & Integer &                  & The maximum group size of a Project (\cdref{project}). \\
+		min\_grp\_size & Integer &                  & The minimum group size of a Project (\cdref{project}). \\
 	\end{tabu}
 \end{table}
 
