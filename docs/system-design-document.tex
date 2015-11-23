@@ -683,7 +683,10 @@ The figure below, \figureref{storage-services}, shows the services offered by th
 
 In this section, we focus on the Operations that each of the services described in the above section offer. For added traceability, we have also included the specific class that provides each of the operations, as well as a description of each.
 
+\newpage{}
 \subsubsection{UserOptionsService (\ssref{user-options})}
+
+This section will include the class whose operation(s) are used in the UserOptionsService service (\ssref{user-options}). In the table below, \tableref{usercontrol-ops}, we feature an operation, start, provided by the UserControl Class (\cdref{user-ctrl}).
 
 \begin{table}[H]
 	\caption{UserControl Class (\cdref{user-ctrl}) Operations} \tablelabel{usercontrol-ops}
@@ -695,6 +698,8 @@ In this section, we focus on the Operations that each of the services described 
 
 \subsubsection{ProfileOptionsService (\ssref{profile-options})}
 
+This section will include the class whose operation(s) are used in the ProfileOptionsService service (\ssref{profile-options}). In the table below, \tableref{profilecontrol-ops}, we feature an operation, start, provided by the ProfileControl Class (\cdref{profile-ctrl}).
+
 \begin{table}[H]
 	\caption{ProfileControl Class (\cdref{profile-ctrl}) Operations} \tablelabel{profilecontrol-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -704,6 +709,8 @@ In this section, we focus on the Operations that each of the services described 
 \end{table}
 
 \subsubsection{ProjectOptionsService (\ssref{project-options})}
+
+This section will include the class whose operation(s) are used in the ProjectOptionsService service (\ssref{project-options}). In the table below, \tableref{projectcontrol-ops}, we feature an operation, start, provided by the ProjectControl Class (\cdref{project-ctrl}).
 
 \begin{table}[H]
 	\caption{ProjectControl Class (\cdref{project-ctrl}) Operations} \tablelabel{projectcontrol-ops}
@@ -715,6 +722,8 @@ In this section, we focus on the Operations that each of the services described 
 
 \subsubsection{PPIDOptionsService (\ssref{ppid-options})}
 
+This section will include the class whose operation(s) are used in the PPIDOptionsService service (\ssref{ppid-options}). In the table below, \tableref{ppidcontrol-ops}, we feature an operation, start, provided by the PPIDControl Class (\cdref{ppid-ctrl}).
+
 \begin{table}[H]
 	\caption{PPIDControl Class (\cdref{ppid-ctrl}) Operations} \tablelabel{ppidcontrol-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -724,6 +733,8 @@ In this section, we focus on the Operations that each of the services described 
 \end{table}
 
 \subsubsection{UserService (\ssref{user})}
+
+This section will include the class whose operation(s) are used in the UserService service (\ssref{user}). In the table below, \tableref{userstorage-ops}, we feature two operations, getStudent and getAdmin, provided by the UserStorage Class (\cdref{user-storage}).
 
 \begin{table}[H]
 	\caption{UserStorage Class (\cdref{user-storage}) Operations} \tablelabel{userstorage-ops}
@@ -735,6 +746,8 @@ In this section, we focus on the Operations that each of the services described 
 \end{table}
 
 \subsubsection{StudentService (\ssref{student})}
+
+This section will include the class whose operation(s) are used in the StudentService service (\ssref{student}). In the table below, \tableref{student-ops}, we feature five operations, getQuestions, getEnrolledProjects, getAvailableProjects, joinProjects, and leaveProjects, provided by the Student Class (\cdref{student}).
 
 \begin{table}[H]
 	\caption{Student Class (\cdref{student}) Operations} \tablelabel{student-ops}
@@ -750,6 +763,8 @@ In this section, we focus on the Operations that each of the services described 
 
 \subsubsection{AdminService (\ssref{admin})}
 
+This section will include the class whose operation(s) are used in the AdminService service (\ssref{admin}). In the table below, \tableref{admin-ops}, we feature three operations, getProjects, deleteProjects, and addProjects, provided by the Admin Class (\cdref{admin}).
+
 \begin{table}[H]
 	\caption{Admin Class (\cdref{admin}) Operations} \tablelabel{admin-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -761,6 +776,8 @@ In this section, we focus on the Operations that each of the services described 
 \end{table}
 
 \subsubsection{ProjectService (\ssref{project})}
+
+This section will include the class whose operation(s) are used in the ProjectService service (\ssref{project}). In the table below, \tableref{project-ops}, we feature three operations, getStudents, getGroups, and setGroups, provided by the Project Class (\cdref{project}).
 
 \begin{table}[H]
 	\caption{Project Class (\cdref{project}) Operations} \tablelabel{project-ops}
@@ -774,6 +791,8 @@ In this section, we focus on the Operations that each of the services described 
 
 \subsubsection{QuestionService (\ssref{question})}
 
+This section will include the class whose operation(s) are used in the QuestionService service (\ssref{question}). In the table below, \tableref{question-ops}, we feature five operations, getAnswers, getPersonal, getDesired, setPersonal, and setDesired, provided by the Question Class (\cdref{question}).
+
 \begin{table}[H]
 	\caption{Question Class (\cdref{question}) Operations} \tablelabel{question-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -782,7 +801,7 @@ In this section, we focus on the Operations that each of the services described 
         \oplabel{question-get-personal}\opref{question-get-personal} & getPersonal() : Answer & Gets the Answer (\cdref{answer}) to the personal question. \\
         \oplabel{question-get-desired}\opref{question-get-desired} & getDesired() : Answer & Gets the Answer (\cdref{answer}) to the desired question. \\
         \oplabel{question-set-personal}\opref{question-set-personal} & setPersonal(in a : Answer) & Sets the Answer (\cdref{answer}) to the personal question. \\
-        \oplabel{question-set-desired}\opref{question-set-desired} & setPersonal(in a : Answer) & Sets the Answer (\cdref{answer}) to the desired question. \\
+        \oplabel{question-set-desired}\opref{question-set-desired} & setDesired(in a : Answer) & Sets the Answer (\cdref{answer}) to the desired question. \\
 	\end{tabu}
 \end{table}
 
