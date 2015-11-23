@@ -1258,20 +1258,16 @@ The following table, \tableref{userstorage}, gives a detailed breakdown of the U
 		\toprule
 		Class Identifier & \cdref{user-storage} \\
 		Name & {\bf UserStorage} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getStudent(\underline{in} id : {\bf int}) : return {\bf Student}
+			    \item {\it public} : getAdmin(\underline{in} id : {\bf int}) : return {\bf Admin}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{user}, \opref{user-storage-get-student}, \opref{user-storage-get-admin}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
