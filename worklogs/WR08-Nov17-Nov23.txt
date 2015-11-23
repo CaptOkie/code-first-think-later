@@ -5,6 +5,8 @@ CaptOkie:
 2.5 Hours: Finished class breakdown
 9 Hours: Worked on diagrams, started class interface stuff
 11 Hours: Services, class diagrams, and tables
+--------
+29 Hours
 
 TheBakedPotato:
 2.5 Hours: Updated class diagrams, started database write up
@@ -13,9 +15,14 @@ TheBakedPotato:
 2.5 Hours: Worked on database diagram
 10 Hours: Worked on database stuff, started class interface stuff
 11 Hours: Services, class diagrams, and tables
+--------
+30 Hours
 
 ViLLiELdR:
 3 Hours: Documentation, traceability, class descriptions
 2 Hours: Worked on Classes and Design Patterns
 2 Hours: Group Meeting: Subsystem Decomposition
 12 Hours: Work on documentation everywhere
+9.5 Hours: Subsystem Decomp, Services, Hardware/Software Mapping, Class Tables
+--------
+28.5 Hours
