@@ -1109,20 +1109,15 @@ The following table, \tableref{grouper}, gives a detailed breakdown of the Group
 		\toprule
 		Class Identifier & \cdref{grouper} \\
 		Name & {\bf Grouper} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : group(\underline{in} s : {\bf List<Student>}) : return {\bf List<Group>}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{ppid-options}, \sdref{ppid}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1135,20 +1130,16 @@ The following table, \tableref{matcher}, gives a detailed breakdown of the Match
 		\toprule
 		Class Identifier & \cdref{matcher} \\
 		Name & {\bf Matcher} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : match(\underline{in} s : {\bf Student}, \underline{in} g : {\bf Group}) : return {\bf int}
+			    \item {\it public} : match(\underline{in} s1 : {\bf Student}, \underline{in} s2 : {\bf Student}) : return {\bf int}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{ppid-options}, \sdref{ppid}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1161,20 +1152,16 @@ The following table, \tableref{split-smallest}, gives a detailed breakdown of th
 		\toprule
 		Class Identifier & \cdref{split-smallest} \\
 		Name & {\bf SplitSmallest} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : match(\underline{in} s : {\bf Student}, \underline{in} g : {\bf Group}) : return {\bf int}
+			    \item {\it public} : match(\underline{in} s1 : {\bf Student}, \underline{in} s2 : {\bf Student}) : return {\bf int}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{ppid-options}, \sdref{ppid}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1187,20 +1174,15 @@ The following table, \tableref{percent-distance}, gives a detailed breakdown of 
 		\toprule
 		Class Identifier & \cdref{percent-distance} \\
 		Name & {\bf PercentDistance} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : group(\underline{in} s : {\bf List<Student>}) : return {\bf List<Group>}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{ppid-options}, \sdref{ppid}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1213,20 +1195,15 @@ The following table, \tableref{ppid-ctrl}, gives a detailed breakdown of the PPI
 		\toprule
 		Class Identifier & \cdref{ppid-ctrl} \\
 		Name & {\bf PPIDControl} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : start() : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{ppid-options}, \opref{ppid-ctrl-start}, \sdref{ppid}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1239,20 +1216,15 @@ The following table, \tableref{ppid-form}, gives a detailed breakdown of the PPI
 		\toprule
 		Class Identifier & \cdref{ppid-form} \\
 		Name & {\bf PPIDForm} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : show(\underline{in} g : {\bf List<Group>}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{ppid-options}, \sdref{ppid}\\
 		\toprule
 	\end{tabu}
 \end{table}
