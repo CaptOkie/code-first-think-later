@@ -1449,18 +1449,20 @@ The following table, \tableref{admin}, gives a detailed breakdown of the Admin c
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : {\bf int}
-		        \item \textit{public} : Name: {\bf string}
+		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getProjects() : return {\bf List<Project>}
+			    \item {\it public} : deleteProject(\underline{in} p : {\bf Project}) : return {\bf void}
+			    \item {\it public} : addProject(\underline{in} p : {\bf Project}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{admin}, \opref{admin-get-projects}, \opref{admin-delete-project}, \opref{admin-add-project}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1476,17 +1478,20 @@ The following table, \tableref{realadmin}, gives a detailed breakdown of the Rea
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getProjects() : return {\bf List<Project>}
+			    \item {\it public} : deleteProject(\underline{in} p : {\bf Project}) : return {\bf void}
+			    \item {\it public} : addProject(\underline{in} p : {\bf Project}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{admin}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1502,17 +1507,20 @@ The following table, \tableref{proxyadmin}, gives a detailed breakdown of the Pr
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
 			\begin{itemize}
-			    \item \textit{public} : GetAdminName : args = {\bf int ID} : return = {\bf string adminName}
+			    \item {\it public} : getProjects() : return {\bf List<Project>}
+			    \item {\it public} : deleteProject(\underline{in} p : {\bf Project}) : return {\bf void}
+			    \item {\it public} : addProject(\underline{in} p : {\bf Project}) : return {\bf void}
 	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{admin}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1525,20 +1533,17 @@ The following table, \tableref{adminstorage}, gives a detailed breakdown of the 
 		\toprule
 		Class Identifier & \cdref{adminstorage} \\
 		Name & {\bf AdminStorage} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getProjects(\underline{in} a : {\bf Admin}) : return {\bf List<Project>}
+			    \item {\it public} : deleteProject(\underline{in} a : {\bf Admin}) : return {\bf void}
+			    \item {\it public} : addProject(\underline{in} a : {\bf Admin}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{admin}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
