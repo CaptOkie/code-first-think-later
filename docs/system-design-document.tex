@@ -981,7 +981,7 @@ The following table, \tableref{project-classes}, describes each of the classes i
 		\cdlabel{realproject}\cdref{realproject} & RealProject & The RealProject class inherits from the Project class and contains the actual information pulled from the ProjectStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyProject object.\\
 		\cdlabel{proxyproject}\cdref{proxyproject} & ProxyProject & The ProxyProject also inherits from the Project class and provides a proxy or interface to the RealProject object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealProject object.\\
 		\cdlabel{projectstorage}\cdref{projectstorage} & ProjectStorage & The ProjectStorage class is a class that provides a set of methods to pull/push data related to Projects from/to the relational database. The RealProject object is the only object that directly interacts with this object.\\
-		\cdlabel{group}\cdref{group} & Group & \\
+		\cdlabel{group}\cdref{group} & Group & A Group class is a class that has a collection or list of Student objects. Its methods revolve around adding new Students to the Group or removing Students from the Group.\\
 	\end{tabu}
 \end{table}
 
