@@ -820,7 +820,7 @@ This section contains all the classes in our system, divided into subsections wh
 
 \subsection{UserOptionsService (\ssref{user-options})}
 
-The following table, \tableref{user-option-classes}, describes each of the classes involved in the UserOptionsService service (\ssref{user-options}) as well as provide a unique indentifier for each.
+The following table, \tableref{user-option-classes}, describes each of the classes involved in the UserOptionsService service (\ssref{user-options}) as well as provide a unique identifier for each.
 \begin{table}[H]
 	\caption{UserOptionsService Classes (\ssref{user-options})} \tablelabel{user-option-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
@@ -921,7 +921,7 @@ The following table, \tableref{user-classes}, describes each of the classes invo
 \begin{figure}[H]
 	\centering{}
 	\includegraphics[scale=0.35]{imgs/d3/interfaces/user.png}
-	\caption{ProjectOptionsService Class Diagram (\ssref{user})}
+	\caption{UserService Class Diagram (\ssref{user})}
 	\figurelabel{user-class-diagram}
 \end{figure}
 
@@ -940,6 +940,13 @@ The following table, \tableref{student-classes}, describes each of the classes i
 	\end{tabu}
 \end{table}
 
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.28]{imgs/d3/interfaces/student.png}
+	\caption{StudentService Class Diagram (\ssref{student})}
+	\figurelabel{student-class-diagram}
+\end{figure}
+
 \subsection{AdminService (\ssref{admin})}
 
 The following table, \tableref{admin-classes}, describes each of the classes involved in the AdminService service (\ssref{admin}) as well as provide a unique indentifier for each.
@@ -954,6 +961,13 @@ The following table, \tableref{admin-classes}, describes each of the classes inv
 		\cdlabel{adminstorage}\cdref{adminstorage} & AdminStorage & The AdminStorage class is a class that provides a set of methods to pull/push data related to the Admin user from/to the relational database. The RealAdmin object is the only object that directly interacts with this object.\\
 	\end{tabu}
 \end{table}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[scale=0.37]{imgs/d3/interfaces/admin.png}
+	\caption{AdminService Class Diagram (\ssref{admin})}
+	\figurelabel{admin-class-diagram}
+\end{figure}
 
 \subsection{ProjectService (\ssref{project})}
 
