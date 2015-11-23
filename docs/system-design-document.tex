@@ -1721,17 +1721,24 @@ The following table, \tableref{question}, gives a detailed breakdown of the Ques
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : id : {\bf int}
+		        \item \textit{protected} : personal : {\bf String}
+		        \item \textit{protected} : desired : {\bf String}
+		        \item \textit{protected} : category : {\bf String}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getAnswers() : return {\bf List<Answer>}
+			    \item {\it public} : getPersonalAnswer() : return {\bf Answer}
+			    \item {\it public} : getDesiredAnswer() : return {\bf Answer}
+			    \item {\it public} : setPersonal(\underline{in} a : {\bf Answer}) : return {\bf void}
+			    \item {\it public} : setDesired(\underline{in} a : {\bf Answer}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{question}, \opref{question-get-answers}, \opref{question-get-personal-answer}, \opref{question-get-desired-answer}, \opref{question-set-personal}, \opref{question-set-desired}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1747,17 +1754,24 @@ The following table, \tableref{realquestion}, gives a detailed breakdown of the 
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : id : {\bf int}
+		        \item \textit{protected} : personal : {\bf String}
+		        \item \textit{protected} : desired : {\bf String}
+		        \item \textit{protected} : category : {\bf String}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getAnswers() : return {\bf List<Answer>}
+			    \item {\it public} : getPersonalAnswer() : return {\bf Answer}
+			    \item {\it public} : getDesiredAnswer() : return {\bf Answer}
+			    \item {\it public} : setPersonal(\underline{in} a : {\bf Answer}) : return {\bf void}
+			    \item {\it public} : setDesired(\underline{in} a : {\bf Answer}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{question}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1773,17 +1787,24 @@ The following table, \tableref{proxyquestion}, gives a detailed breakdown of the
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : id : {\bf int}
+		        \item \textit{protected} : personal : {\bf String}
+		        \item \textit{protected} : desired : {\bf String}
+		        \item \textit{protected} : category : {\bf String}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getAnswers() : return {\bf List<Answer>}
+			    \item {\it public} : getPersonalAnswer() : return {\bf Answer}
+			    \item {\it public} : getDesiredAnswer() : return {\bf Answer}
+			    \item {\it public} : setPersonal(\underline{in} a : {\bf Answer}) : return {\bf void}
+			    \item {\it public} : setDesired(\underline{in} a : {\bf Answer}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{question}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1796,20 +1817,19 @@ The following table, \tableref{questionstorage}, gives a detailed breakdown of t
 		\toprule
 		Class Identifier & \cdref{questionstorage} \\
 		Name & {\bf QuestionStorage} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getAnswers(\underline{in} q : {\bf Question}) : return {\bf List<Answer>}
+			    \item {\it public} : getPersonalAnswer(\underline{in} q : {\bf Question}) : return {\bf Answer}
+			    \item {\it public} : getDesiredAnswer(\underline{in} q : {\bf Question}) : return {\bf Answer}
+			    \item {\it public} : setPersonal(\underline{in} q : {\bf Question}, \underline{in} a : {\bf Answer}) : return {\bf void}
+			    \item {\it public} : setDesired(\underline{in} q : {\bf Question}, \underline{in} a : {\bf Answer}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{question}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
