@@ -977,20 +977,15 @@ The following table, \tableref{profile-form}, gives a detailed breakdown of the 
 		\toprule
 		Class Identifier & \cdref{profile-form} \\
 		Name & {\bf ProfileForm} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : show(\underline{in} q : {\bf List<Question>}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{profile-options}, \sdref{profile}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1003,20 +998,15 @@ The following table, \tableref{profile-ctrl}, gives a detailed breakdown of the 
 		\toprule
 		Class Identifier & \cdref{profile-ctrl} \\
 		Name & {\bf ProfileControl} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : start() : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{profile-options}, \opref{profile-ctrl-start}, \sdref{profile}\\
 		\toprule
 	\end{tabu}
 \end{table}
