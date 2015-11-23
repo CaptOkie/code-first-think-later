@@ -685,65 +685,59 @@ In this section, we focus on the Operations that each of the services described 
 
 \subsubsection{UserOptionsService (\ssref{user-options})}
 
-\subsubsection*{UserControl (\cdref{user-ctrl})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{UserControl Class (\cdref{user-ctrl}) Operations} \tablelabel{usercontrol-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{user-ctrl-start}\opref{user-ctrl-start} & start() & Starts the UserControl (\cdref{user-ctrl}). \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{ProfileOptionsService (\ssref{profile-options})}
 
-\subsubsection*{ProfileControl (\cdref{profile-ctrl})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{ProfileControl Class (\cdref{profile-ctrl}) Operations} \tablelabel{profilecontrol-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{profile-ctrl-start}\opref{profile-ctrl-start} & start() & Starts the ProfileControl (\cdref{profile-ctrl}). \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{ProjectOptionsService (\ssref{project-options})}
 
-\subsubsection*{ProjectControl (\cdref{project-ctrl})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{ProjectControl Class (\cdref{project-ctrl}) Operations} \tablelabel{projectcontrol-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{project-ctrl-start}\opref{project-ctrl-start} & start() & Starts the ProjectControl (\cdref{project-ctrl}). \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{PPIDOptionsService (\ssref{ppid-options})}
 
-\subsubsection*{PPIDControl (\cdref{ppid-ctrl})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{PPIDControl Class (\cdref{ppid-ctrl}) Operations} \tablelabel{ppidcontrol-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{ppid-ctrl-start}\opref{ppid-ctrl-start} & start() & Starts the PPIDControl (\cdref{ppid-ctrl}). \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{UserService (\ssref{user})}
 
-\subsubsection*{UserStorage (\cdref{user-storage})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{UserStorage Class (\cdref{user-storage}) Operations} \tablelabel{userstorage-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{user-storage-get-student}\opref{user-storage-get-student} & getStudent(in id : int) : Student & Gets the Student (\cdref{student}) with the specified ID from storage. \\
         \oplabel{user-storage-get-admin}\opref{user-storage-get-admin} & getAdmin(in id : int) : Admin & Gets the Admin (\cdref{admin}) with the specified ID from storage. \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{StudentService (\ssref{student})}
 
-\subsubsection*{Student (\cdref{student})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{Student Class (\cdref{student}) Operations} \tablelabel{student-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{user-get-questions}\opref{user-get-questions} & getQuestions() : List<Question> & Gets the Questions (\cdref{question}) containing the Student's (\cdref{student}) answers. \\
@@ -752,39 +746,36 @@ In this section, we focus on the Operations that each of the services described 
         \oplabel{user-join-project}\opref{user-join-project} & joinProject(in p : Project) & Places the Student (\cdref{student}) in the Project (\cdref{project}). \\
         \oplabel{user-leave-project}\opref{user-leave-project} & leaveProject(in p : Project) & Removes the Student (\cdref{student}) from the Project (\cdref{project}). \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{AdminService (\ssref{admin})}
 
-\subsubsection*{Admin (\cdref{admin})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{Admin Class (\cdref{admin}) Operations} \tablelabel{admin-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{admin-get-projects}\opref{admin-get-projects} & getProjects() : List<Project> & Gets the Projects (\cdref{project}) all the projects. \\
         \oplabel{admin-delete-project}\opref{admin-delete-project} & deleteProject(in p : Project) & Deletes the Project (\cdref{project}). \\
         \oplabel{admin-add-project}\opref{admin-add-project} & addProject(in p : Project) & Adds the Project (\cdref{project}). \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{ProjectService (\ssref{project})}
 
-\subsubsection*{Project (\cdref{project})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{Project Class (\cdref{project}) Operations} \tablelabel{project-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{project-get-students}\opref{project-get-students} & getStudents() : List<Student> & Gets the enrolled Students (\cdref{student}). \\
         \oplabel{project-get-groups}\opref{project-get-groups} & getGroups() : List<Group> & Gets the Groups (\cdref{group}) of students created by the PPID. \\
         \oplabel{project-set-groups}\opref{project-set-groups} & setGroups(in g : List<Group>) & Sets the Groups (\cdref{group}). \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \subsubsection{QuestionService (\ssref{question})}
 
-\subsubsection*{Question (\ssref{question})}
-
-\begin{center}
+\begin{table}[H]
+	\caption{Question Class (\cdref{question}) Operations} \tablelabel{question-ops}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Operation & Description \\
         \oplabel{question-get-answers}\opref{question-get-answers} & getAnswers() : List<Answer> & Gets the possible Answers (\cdref{answer}). \\
@@ -793,7 +784,7 @@ In this section, we focus on the Operations that each of the services described 
         \oplabel{question-set-personal}\opref{question-set-personal} & setPersonal(in a : Answer) & Sets the Answer (\cdref{answer}) to the personal question. \\
         \oplabel{question-set-desired}\opref{question-set-desired} & setPersonal(in a : Answer) & Sets the Answer (\cdref{answer}) to the desired question. \\
 	\end{tabu}
-\end{center}
+\end{table}
 
 \section{Class Interfaces}
 
