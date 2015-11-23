@@ -1697,6 +1697,28 @@ The following table, \tableref{projectstorage}, gives a detailed breakdown of th
 \end{table}
 
 \newpage{}
+
+The following table, \tableref{group}, gives a detailed breakdown of the Group class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
+
+\begin{table}[H]
+    \caption{Group Class (\cdref{group})} \tablelabel{group}
+	\begin{tabu} to \textwidth {>{\it}l X}
+		\toprule
+		Class Identifier & \cdref{group} \\
+		Name & {\bf Group} \\
+		Attributes & 
+		\begin{minipage}[t]{\linewidth}
+		    \begin{itemize}
+		        \item \textit{private} : students : {\bf List<Students>}
+			\end{itemize}
+	    \end{minipage} \\
+
+		Operations &\\
+	    	Traceability & \ssref{project}, \sdref{project}\\
+		\toprule
+	\end{tabu}
+\end{table}
+
 The following figure, \figureref{project-class-diagram}, is a UML Class Diagram for the classes involved in the ProjectService service (\ssref{project}).
 
 \begin{figure}[H]
@@ -1715,14 +1737,14 @@ The following table, \tableref{question-classes}, describes each of the classes 
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 		\cdlabel{question}\cdref{question} & Question & The Question class contains four attributes: a String representation of the questions used in the algorithm for the desired and personal versions of the questions, a unique identifier, and the category of the question. \\
-		\cdlabel{realquestion}\cdref{realquestion} & RealQuestion & The RealQuestion class inherits from the Question class and contains the actual information pulled from the QuestionStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyQuestion object.\\
-		\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
 	\end{tabu}
 \end{table}
 
 \begin{center}
 \begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
+		\cdlabel{realquestion}\cdref{realquestion} & RealQuestion & The RealQuestion class inherits from the Question class and contains the actual information pulled from the QuestionStorage object. It is relatively hidden from the rest of the system, though the data can be accessed through the ProxyQuestion object.\\
+		\cdlabel{proxyquestion}\cdref{proxyquestion} & ProxyQuestion & The ProxyQuestion also inherits from the Question class and provides a proxy or interface to the RealQuestion object for the rest of the system. The idea here is to promote `lazy' loading with regards to the information stored in the RealQuestion object.\\
 	    \cdlabel{questionstorage}\cdref{questionstorage} & QuestionStorage & The QuestionStorage class is a class that provides a set of methods to pull/push data related to Questions from/to the relational database. The RealQuestion object is the only object that directly interacts with this object.\\
 	\cdlabel{answer}\cdref{answer} & Answer & The Answer class contains three attributes: the question number, a unique identifier, and the set of answers. The methods this class provides revolve around simply returning the required set of answers.\\
 	\end{tabu}
@@ -1871,37 +1893,12 @@ The following table, \tableref{answer}, gives a detailed breakdown of the Answer
 	    \end{minipage} \\
 
 		Operations &\\
-	    	Traceability & \\
+	    	Traceability & \ssref{question}, \sdref{storage}\\
 		\toprule
 	\end{tabu}
 \end{table}
 
-The following table, \tableref{group}, gives a detailed breakdown of the Group class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
-
-\begin{table}[H]
-    \caption{Group Class (\cdref{group})} \tablelabel{group}
-	\begin{tabu} to \textwidth {>{\it}l X}
-		\toprule
-		Class Identifier & \cdref{group} \\
-		Name & {\bf Group} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
-
-		Operations &
-		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
-	    \end{minipage} \\
-	    	Traceability & \\
-		\toprule
-	\end{tabu}
-\end{table}
-
+\newpage{}
 The following figure, \figureref{question-class-diagram}, is a UML Class Diagram for the classes involved in the QuestionService service (\ssref{question}).
 
 \begin{figure}[H]
