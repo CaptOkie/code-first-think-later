@@ -812,11 +812,11 @@ This section will include the class whose operation(s) are used in the QuestionS
 	\caption{UserOptionsService Classes (\ssref{user-options})} 
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
-	    \cdlabel{user-ctrl}\cdref{user-ctrl} & UserControl & \\
-	    \cdlabel{student-ctrl}\cdref{student-ctrl} & StudentControl & desc \\
-	    \cdlabel{admin-ctrl}\cdref{admin-ctrl} & AdminControl & desc \\
-	    \cdlabel{student-form}\cdref{student-form} & StudentForm & \\
-	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & \\
+	    \cdlabel{user-ctrl}\cdref{user-ctrl} & UserControl & The UserControl class contains only a single operation - start.\\
+	    \cdlabel{student-ctrl}\cdref{student-ctrl} & StudentControl & The StudentControl class inherits from the UserControl class, and contains only the inherited start operation. This class controls the possible options that a Student can have.\\
+	    \cdlabel{admin-ctrl}\cdref{admin-ctrl} & AdminControl & The AdminControl class inherits from the UserControl class, and contains only the inherited start operation. This class controls the possible options that an Admin can have. \\
+	    \cdlabel{student-form}\cdref{student-form} & StudentForm & The StudentForm class is a UI-based class - the only operation that this class has is show. This class displays the information concerning the particular Student User that is currently logged in.\\
+	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & The AdminForm class is a UI-based class - the only operation that this class has is show. This class displays the information concerning the particular Admin User that is currently logged in.\\
 	\end{tabu}
 \end{table}
 
