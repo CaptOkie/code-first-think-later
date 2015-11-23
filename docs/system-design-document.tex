@@ -521,7 +521,7 @@ We heavily considered using this design pattern. Initially, it seemed like our s
 \end{figure}
 
 \subsubsection*{Proxy}
-We have chosen to implement this design pattern in our system. By encompassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time trade-off is comparably minimal, even negligible. The following figure, \figureref{proxy-example}, provides a small UML-based visual of how the Proxy Pattern is set up. The idea is that the ProxyObject acts as a kind of interface to the RealObject, wherein the rest of the system has no access to the RealObject.
+We have chosen to implement this design pattern in our system. By encompassing several of our entity objects in a proxy design, we can implement a `lazy' load-type system in that the system will only load the information that we directly ask for - nothing extra. This has the enormous benefit of reducing the memory footprint. The time trade-off is comparably minimal, even negligible. Furthermore, with this design pattern in place, the control objects do not need to interact with the Storage when performing updates and retrieval. The following figure, \figureref{proxy-example}, provides a small UML-based visual of how the Proxy Pattern is set up. The idea is that the ProxyObject acts as a kind of interface to the RealObject, wherein the rest of the system has no access to the RealObject.
 
 \begin{figure}[H]
 	\centering{}
