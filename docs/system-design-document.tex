@@ -1307,7 +1307,7 @@ The following table, \tableref{student}, gives a detailed breakdown of the Stude
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : id : {\bf int}
 		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
@@ -1338,7 +1338,7 @@ The following table, \tableref{realstudent}, gives a detailed breakdown of the R
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : id : {\bf int}
 		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
@@ -1369,7 +1369,7 @@ The following table, \tableref{proxystudent}, gives a detailed breakdown of the 
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : id : {\bf int}
 		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
@@ -1449,7 +1449,7 @@ The following table, \tableref{admin}, gives a detailed breakdown of the Admin c
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : id : {\bf int}
 		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
@@ -1478,7 +1478,7 @@ The following table, \tableref{realadmin}, gives a detailed breakdown of the Rea
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : id : {\bf int}
 		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
@@ -1507,7 +1507,7 @@ The following table, \tableref{proxyadmin}, gives a detailed breakdown of the Pr
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{protected} : ID : {\bf int}
+		        \item \textit{protected} : id : {\bf int}
 		        \item \textit{protected} : Name: {\bf string}
 			\end{itemize}
 	    \end{minipage} \\
@@ -1574,25 +1574,30 @@ The following table, \tableref{project-classes}, describes each of the classes i
 The following table, \tableref{project}, gives a detailed breakdown of the Project class. Included in the breakdown are the attributes, operations, and any traceability with operations, services, or subsystems.
 
 \begin{table}[H]
-    \caption{RealProject Class (\cdref{project})} \tablelabel{project}
+    \caption{Project Class (\cdref{project})} \tablelabel{project}
 	\begin{tabu} to \textwidth {>{\it}l X}
 		\toprule
 		Class Identifier & \cdref{project} \\
-		Name & {\bf RealProject} \\
+		Name & {\bf Project} \\
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : id : {\bf int}
+		        \item \textit{protected} : name : {\bf string}
+		        \item \textit{protected} : maxGroupSize : {\bf int}
+		        \item \textit{protected} : minGroupSize : {\bf int}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getStudents() : return {\bf List<Student>}
+			    \item {\it public} : getGroups() : return {\bf List<Group>}
+			    \item {\it public} : setGroups(\underline{in} g : {\bf List<Group>}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{project}, \opref{project-get-students}, \opref{project-get-groups}, \opref{project-set-groups}, \sdref{project}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1608,17 +1613,22 @@ The following table, \tableref{realproject}, gives a detailed breakdown of the R
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : id : {\bf int}
+		        \item \textit{protected} : name : {\bf string}
+		        \item \textit{protected} : maxGroupSize : {\bf int}
+		        \item \textit{protected} : minGroupSize : {\bf int}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getStudents() : return {\bf List<Student>}
+			    \item {\it public} : getGroups() : return {\bf List<Group>}
+			    \item {\it public} : setGroups(\underline{in} g : {\bf List<Group>}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{project}, \sdref{project}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1634,17 +1644,22 @@ The following table, \tableref{proxyproject}, gives a detailed breakdown of the 
 		Attributes & 
 		\begin{minipage}[t]{\linewidth}
 		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
+		        \item \textit{protected} : id : {\bf int}
+		        \item \textit{protected} : name : {\bf string}
+		        \item \textit{protected} : maxGroupSize : {\bf int}
+		        \item \textit{protected} : minGroupSize : {\bf int}
 			\end{itemize}
 	    \end{minipage} \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getStudents() : return {\bf List<Student>}
+			    \item {\it public} : getGroups() : return {\bf List<Group>}
+			    \item {\it public} : setGroups(\underline{in} g : {\bf List<Group>}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{project}, \sdref{project}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1657,20 +1672,17 @@ The following table, \tableref{projectstorage}, gives a detailed breakdown of th
 		\toprule
 		Class Identifier & \cdref{projectstorage} \\
 		Name & {\bf ProjectStorage} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : getStudents(\underline{in} p : {\bf Project}) : return {\bf List<Student>}
+			    \item {\it public} : getGroups(\underline{in} p : {\bf Project}) : return {\bf List<Group>}
+			    \item {\it public} : setGroups(\underline{in} p : {\bf Project}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{project}, \sdref{project}\\
 		\toprule
 	\end{tabu}
 \end{table}
