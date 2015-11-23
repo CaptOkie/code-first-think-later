@@ -12,6 +12,7 @@
 \usepackage{lmodern}
 \usepackage[table]{xcolor}  
 \usepackage[font=bf]{caption}
+\usepackage{titletoc}
 
 \begin{document}
 
@@ -805,11 +806,23 @@ This section will include the class whose operation(s) are used in the QuestionS
 	\end{tabu}
 \end{table}
 
+\newpage{}
 \section{Class Interfaces}
 
+\subsection{Overview}
+This section contains all the classes in our system, divided into subsections wherein each subsection represents a service. Along with a table containing a short, detailed description of each class, there will be a UML class diagram provided for each system to showcase the interactions between the classes.
+\subsection*{Section Contents}
+
+\vspace{0.5em}\hrule\vspace{0.5em}
+\startcontents[sections]
+\printcontents[sections]{}{1}{}
+\vspace{0.5em}\hrule\vspace{0.5em}
+
 \subsection{UserOptionsService (\ssref{user-options})}
+
+The following table, \tableref{user-option-classes}, describes each of the classes involved in the UserOptionsService service (\ssref{user-options}) as well as provide a unique indentifier for each.
 \begin{table}[H]
-	\caption{UserOptionsService Classes (\ssref{user-options})} 
+	\caption{UserOptionsService Classes (\ssref{user-options})} \tablelabel{user-option-classes}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 	    \tableheader{}ID & Class Name & Description \\
 	    \cdlabel{user-ctrl}\cdref{user-ctrl} & UserControl & The UserControl class contains only a single operation - start.\\
@@ -819,6 +832,8 @@ This section will include the class whose operation(s) are used in the QuestionS
 	    \cdlabel{admin-form}\cdref{admin-form} & AdminForm & The AdminForm class is a UI-based class - the only operation that this class has is show. This class displays the information concerning the particular Admin User that is currently logged in.\\
 	\end{tabu}
 \end{table}
+
+The following figure, \figureref{user-options-class-diagram}, is a UML Class Diagram for the classes involved in the UserOptionsService service (\ssref{user-options}).
 
 \begin{figure}[H]
 	\centering{}
