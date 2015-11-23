@@ -1041,20 +1041,15 @@ The following table, \tableref{project-ctrl}, gives a detailed breakdown of the 
 		\toprule
 		Class Identifier & \cdref{project-ctrl} \\
 		Name & {\bf ProjectControl} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : start() : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{project-options}, \opref{project-ctrl-start}, \sdref{project}\\
 		\toprule
 	\end{tabu}
 \end{table}
@@ -1067,20 +1062,15 @@ The following table, \tableref{project-form}, gives a detailed breakdown of the 
 		\toprule
 		Class Identifier & \cdref{project-form} \\
 		Name & {\bf ProjectForm} \\
-		Attributes & 
-		\begin{minipage}[t]{\linewidth}
-		    \begin{itemize}
-		        \item \textit{public} : ID : \bf{int}
-			\end{itemize}
-	    \end{minipage} \\
+		Attributes & \\
 
 		Operations &
 		\begin{minipage}[t]{\linewidth}
-			\begin{enumerate}
-			    \item[-] stuff
-	        \end{enumerate}
+			\begin{itemize}
+			    \item {\it public} : show(\underline{in} p : {\bf Project}) : return {\bf void}
+	        \end{itemize}
 	    \end{minipage} \\
-	    	Traceability & \\
+	    	Traceability & \ssref{project-options}, \sdref{project}\\
 		\toprule
 	\end{tabu}
 \end{table}
