@@ -573,9 +573,11 @@ The following table, \tableref{user-services}, describes the service that is off
 	\caption{Services Offered by UserSubsystem (\sdref{user})} \tablelabel{user-services}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Service & Description\\
-		\sslabel{user-options}\ssref{user-options} & UserOptionsService & \\
+		\sslabel{user-options}\ssref{user-options} & UserOptionsService & The UserOptionsService is a service that encompasses operations that, given a User type, starts up the appropriate User's main page.\\
 	\end{tabu}
 \end{table}
+
+The figure below, \figureref{user-services}, shows the service offered by the UserSubsystem, UserOptionsService, along with the subsystem that uses that service (the LoginSubsystem) in the UML `ball-and-socket' notation.
 
 \begin{figure}[H]
 	\centering{}
@@ -593,9 +595,11 @@ The following table, \tableref{profile-services}, describes the service that is 
 	\caption{Services Offered by ProfileSubsystem (\sdref{profile})} \tablelabel{profile-services}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Service & Description\\
-		\sslabel{profile-options}\ssref{profile-options} & ProfileOptionsService & \\
+		\sslabel{profile-options}\ssref{profile-options} & ProfileOptionsService & The ProfileOptionsService is a service that encompasses operations that allows a Student User to access and modify their Profiles.\\
 	\end{tabu}
 \end{table}
+
+The figure below, \figureref{profile-services}, shows the service offered by the ProfileSubsystem, ProfileOptionsService, along with the subsystem that uses that service (the UserSubsystem) in the UML `ball-and-socket' notation.
 
 \begin{figure}[H]
 	\centering{}
@@ -604,6 +608,7 @@ The following table, \tableref{profile-services}, describes the service that is 
 	\figurelabel{profile-services}
 \end{figure}
 
+\newpage{}
 \subsubsection{ProjectSubsystem (\sdref{project})}
 
 \noindent{}
@@ -613,9 +618,11 @@ The following table, \tableref{project-services}, describes the service that is 
 	\caption{Services Offered by ProjectSubsystem (\sdref{project})} \tablelabel{project-services}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Service & Description\\
-		\sslabel{project-options}\ssref{project-options} & ProjectOptionsService & \\
+		\sslabel{project-options}\ssref{project-options} & ProjectOptionsService & The ProjectOptionsService is a service that encompasses operations that allows an Admin User to add, remove, or modify Projects.\\
 	\end{tabu}
 \end{table}
+
+The figure below, \figureref{project-services}, shows the service offered by the ProjectSubsystem, ProjectOptionsService, along with the subsystem that uses that service (the UserSubsystem) in the UML `ball-and-socket' notation.
 
 \begin{figure}[H]
 	\centering{}
@@ -633,9 +640,11 @@ The following table, \tableref{ppid-services}, describes the service that is off
 	\caption{Services Offered by PPIDSubsystem (\sdref{ppid})} \tablelabel{ppid-services}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Service & Description\\
-		\sslabel{ppid-options}\ssref{ppid-options} & PPIDOptionsService & \\
+		\sslabel{ppid-options}\ssref{ppid-options} & PPIDOptionsService & The PPIDOptionsService is a service that encompasses operations that allow an Admin User to run the PPID algorithm on a selected Project.\\
 	\end{tabu}
 \end{table}
+
+The figure below, \figureref{ppid-services}, shows the service offered by the PPIDSubsystem, PPIDOptionsService, along with the subsystem that uses that service (the UserSubsystem) in the UML `ball-and-socket' notation.
 
 \begin{figure}[H]
 	\centering{}
@@ -644,6 +653,7 @@ The following table, \tableref{ppid-services}, describes the service that is off
 	\figurelabel{ppid-services}
 \end{figure}
 
+\newpage{}
 \subsubsection{StorageSubsystem (\sdref{storage})}
 
 The following table, \tableref{storage-services}, describes all the services that are offered by the StorageSubsystem (\sdref{storage}). 
@@ -652,13 +662,15 @@ The following table, \tableref{storage-services}, describes all the services tha
 	\caption{Services Offered by the StorageSubsystem (\sdref{storage})} \tablelabel{storage-services}
 	\begin{tabu} to \textwidth {l >{\it}l X}
 		\tableheader{}ID & Service & Description\\
-		\sslabel{user}\ssref{user} & UserService & \\
-		\sslabel{student}\ssref{student} & StudentService & \\
-		\sslabel{admin}\ssref{admin} & AdminService & \\
-		\sslabel{project}\ssref{project} & ProjectService & \\
-		\sslabel{question}\ssref{question} & QuestionService & \\
+		\sslabel{user}\ssref{user} & UserService & The UserService is a service that encompasses operations that allow subsystems to access values related to the User class.\\
+		\sslabel{student}\ssref{student} & StudentService & The StudentService is a service that encompasses operations that allow subsystems to access values related to the Student objects.\\
+		\sslabel{admin}\ssref{admin} & AdminService & The AdminService is a service that encompasses operations that allow subsystems to access values related to the Admin objects.\\
+		\sslabel{project}\ssref{project} & ProjectService & The ProjectService is a service that encompasses operations that allow subsystems to access and modify values related to the Project objects.\\
+		\sslabel{question}\ssref{question} & QuestionService & The QuestionsService is a service that encompasses operations that allow subsystems to access and modify values related to the Question objects.\\
 	\end{tabu}
 \end{table}
+
+The figure below, \figureref{storage-services}, shows the services offered by the StorageSubsystem, UserService, StudentService, AdminService, ProjectService, and QuestionService, along with the subsystems that uses that service (the UserSubsystem, the LoginSubsystem, the ProjectSubsystem, the PPIDSubsystem, and the ProfileSubsystem) in the UML `ball-and-socket' notation.
 
 \begin{figure}[H]
 	\centering{}
