@@ -435,15 +435,15 @@ The following table, \tableref{questions-table}, gives a more detailed breakdown
 	\caption{Questions Table (\dtref{questions})} \tablelabel{questions-table}
 	\begin{tabu} to \textwidth {l l l X}
 		\tableheader{}Column & Type & Constraint & Description \\
-		id       & Integer & Primary Key & The unique identifier given to a Question. \\
-		personal & Text    &             & Asks the Student to describe their self. \\
-		desired  & Text    &             & Asks the Student to described their desired partner. \\
-		category & Text    &             & The qualification category the Question belongs. \\
+		id       & Integer & Primary Key & The unique identifier given to a Question (\cdref{question}). \\
+		personal & Text    &             & The text for the question asking the Student (\cdref{student}) to describe their self. \\
+		desired  & Text    &             & The text for the question asking the Student (\cdref{student}) to described their desired partner. \\
+		category & Text    &             & The qualification category the Question (\cdref{question}) belongs to. \\
 	\end{tabu}
 \end{table}
 
 \subsubsection*{Answers Table (\dtref{answers})}
-In the system, an \textit{Answer} appears only once in a \textit{Question}, therefore the database should model that. To accomplish this, the primary key of the \textit{answers} table is made up of two columns: \textit{question}, which references the \textit{id} from the \textit{questions} table (\dtref{questions}), and \textit{id}, which is a unique ID for each \textit{Answer}. By having both columns as the primary key, this ensures that only one combination of \textit{question} and \textit{id} exist. That means a \textit{Question} can only have one occurrence of an \textit{Answer}.
+In the system, an \textit{Answer} (\cdref{answer}) appears only once in a \textit{Question} (\cdref{question}), therefore the database should model that. To accomplish this, the primary key of the \textit{answers} table is made up of two columns: \textit{question}, which references the \textit{id} from the \textit{questions} table (\dtref{questions}), and \textit{id}, which is a unique ID for each \textit{Answer}. By having both columns as the primary key, this ensures that only one combination of \textit{question} and \textit{id} exist. That means a \textit{Question} can only have one occurrence of an \textit{Answer}.
 
 The following table, \tableref{answers-table}, gives a more detailed breakdown and description of each of the columns of the \textit{answers} table.
 
@@ -452,15 +452,15 @@ The following table, \tableref{answers-table}, gives a more detailed breakdown a
 	\begin{tabu} to \textwidth {l l X X[4]}
 		\tableheader{}Column & Type & Constraint & Description \\
 		question & Integer & Primary Key,\newline
-		                     Foreign Key          & The Question the answer belongs to. References \textit{id} of the 
+		                     Foreign Key          & The Question (\cdref{question}) the answer belongs to. References \textit{id} of the 
 		                                            \textit{questions} table. \\
-		id       & Integer & Primary Key          & The unique ID given to the Answer. \\
-		answer   & Text    &                      & The answer of a Question. \\
+		id       & Integer & Primary Key          & The unique ID given to the Answer (\cdref{answer}). \\
+		answer   & Text    &                      & The answer of a Question (\cdref{question}). \\
 	\end{tabu}
 \end{table}
 
 \subsubsection*{Responses Table (\dtref{responses})}
-A \textit{Student} is going to have one, and only one, response for every \textit{Question}. In that response, a \textit{Student} has a desired and personal value. To model this relationship, as shown in table \tableref{responses-table}, \textit{responses} table has a primary key made up of two columns: \textit{stu}, which references \textit{id} from the \textit{students} table (\dtref{students}), and \textit{question}, which references \textit{id} from the \textit{questions} table (\dtref{questions}). This ensures that a \textit{Student} can have only one response for a given \textit{Question}.
+A \textit{Student} (\cdref{student}) is going to have one, and only one, response for every \textit{Question} (\cdref{question}). In that response, a \textit{Student} has a desired and personal value. To model this relationship, as shown in table \tableref{responses-table}, \textit{responses} table has a primary key made up of two columns: \textit{stu}, which references \textit{id} from the \textit{students} table (\dtref{students}), and \textit{question}, which references \textit{id} from the \textit{questions} table (\dtref{questions}). This ensures that a \textit{Student} can have only one response for a given \textit{Question}.
 
 To deal with the desired and personal values, \textit{responses} has two other columns: \textit{personal}, and \textit{desired}. Both of these columns reference \textit{id} from the \textit{answers} table (\dtref{answers}).
 
@@ -469,15 +469,15 @@ To deal with the desired and personal values, \textit{responses} has two other c
 	\begin{tabu} to \textwidth {l l X X[4]}
 		\tableheader{}Column & Type & Constraint & Description \\
 		stu      & Integer & Primary Key,\newline
-		                     Foreign Key          & Identifies the associated Student with the response. References \textit{id} of the 
+		                     Foreign Key          & Identifies the associated Student (\cdref{student}) with the response. References \textit{id} of the 
 		                                            \textit{students} table. \\
 		question & Integer & Primary Key,\newline
-		                     Foreign Key          & Identifies which Question the response belongs to. References \textit{question}
+		                     Foreign Key          & Identifies which Question (\cdref{question}) the response belongs to. References \textit{question}
 		                                            of the \textit{answers} table. \\
-		personal & Integer & Foreign Key          & Identifies a Student's selection for their personal attribute for the given
-		                                            given question. References \textit{id} of the \textit{answers} table. \\
-		desired  & Integer & Foreign Key          & Identifies a Student's selection for their desired attribute for the given
-		                                            given question. References \textit{id} of the \textit{answers} table. \\
+		personal & Integer & Foreign Key          & Identifies a Student's  (\cdref{student}) selection for their personal attribute for the 
+		                                            given Question (\cdref{question}). References \textit{id} of the \textit{answers} table. \\
+		desired  & Integer & Foreign Key          & Identifies a Student's (\cdref{student}) selection for their desired attribute for the 
+		                                            given Question (\cdref{question}). References \textit{id} of the \textit{answers} table. \\
 	\end{tabu}
 \end{table}
 
