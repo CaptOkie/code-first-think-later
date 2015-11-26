@@ -1,0 +1,16 @@
+CaptOkie:
+2 Hours: Group meeting
+4 Hours: Finished prototype class diagram
+2 Hours: Group meeting - worked on Subsystem decomposition
+
+TheBakedPotato:
+2 Hours: Group meeting
+4 Hours: Worked on final class diagram
+2 Hours: Group meeting - worked on Subsystem decomposition
+
+ViLLiELdR:
+2 Hours: Group meeting
+2 Hours: Wrote out the introduction section
+2 Hours: Worked on hardware/software mapping & class diagram tables
+2 Hours: Worked on formatting with regards to traceability and tables
+2 Hours: Group meeting - worked on Subsystem decomposition

@@ -27,15 +27,21 @@
 *.out
 *.app
 
-# Texmaker
+# Latex
+*.maf
+*.mtc
+*.mtc0
+*.ptc
 *.aux
 *.lof
 *.log
 *.lot
 *.synctex.gz
 *.toc
+*.dvi
 docs/algorithm-design.pdf
 docs/main.pdf
+docs/system-design-document.pdf
 
 # Qt Creator
 build/
