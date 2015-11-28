@@ -6,9 +6,21 @@ HelpDialog::HelpDialog(QWidget *parent) :
     ui(new Ui::HelpDialog)
 {
     ui->setupUi(this);
+
+    connect(ui->closeButton, &QPushButton::clicked, this, &HelpDialog::close);
 }
 
 HelpDialog::~HelpDialog()
 {
     delete ui;
+}
+
+void HelpDialog::close()
+{
+    QDialog::reject();
+}
+
+void HelpDialog::showDialog()
+{
+    exec();
 }

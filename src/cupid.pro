@@ -13,11 +13,23 @@ TARGET = cupid
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    loginform.cpp \
+    helpdialog.cpp \
+    user.cpp \
+    student.cpp \
+    admin.cpp
 
-HEADERS  +=
+HEADERS  += \
+    loginform.h \
+    helpdialog.h \
+    user.h \
+    student.h \
+    admin.h
 
-FORMS    +=
+FORMS    += \
+    loginform.ui \
+    helpdialog.ui
 
 RESOURCES += \
     resources/images.qrc

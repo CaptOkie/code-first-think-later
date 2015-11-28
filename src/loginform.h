@@ -1,6 +1,15 @@
 #ifndef LOGINFORM_H
 #define LOGINFORM_H
 
+#include "helpdialog.h"
+
+#include <QWidget>
+#include <QPushButton>
+
+namespace Ui {
+    class LoginForm;
+}
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -17,6 +26,11 @@ public:
 
 private:
     Ui::LoginForm *ui;
+    HelpDialog helpDialog;
+
+private slots:
+    void attemptLogin();
+    void createNewAccount();
 };
 
 #endif // LOGINFORM_H

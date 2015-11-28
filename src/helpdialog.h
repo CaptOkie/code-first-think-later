@@ -4,6 +4,10 @@
 #include <QDialog>
 
 namespace Ui {
+    class HelpDialog;
+}
+
+namespace Ui {
 class HelpDialog;
 }
 
@@ -17,6 +21,15 @@ public:
 
 private:
     Ui::HelpDialog *ui;
+
+private slots:
+    void close();
+
+public slots:
+    void showDialog();
+
+signals:
+    void closedHelp();
 };
 
 #endif // HELPDIALOG_H
