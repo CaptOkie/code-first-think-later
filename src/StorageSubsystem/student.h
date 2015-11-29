@@ -1,8 +1,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include <string>
-#include <list>
+#include <QMap>
 
 #include "user.h"
 #include "question.h"
@@ -10,15 +9,16 @@
 
 class Student: public User
 {
-public:
-    Student();
-    ~Student();
+    public:
+        Student();
+        virtual ~Student();
 
-    std::list<Question> getQuestions();
-    std::list<Project> getEnrolledProjects();
-    std::list<Project> getAvailableProject();
-    void joinProject(Project);
-    void leaveProject(Project);
+        virtual const QMap<int, Question>& getQuestions() const;
+        virtual const QMap<QString, Project>& getEnrolledProjects() const;
+        virtual const QMap<QString, Project>& getAvailableProject() const;
+
+        virtual void joinProject(const Project& project);
+        virtual void leaveProject(const Project& project);
 };
 
 #endif // STUDENT_H

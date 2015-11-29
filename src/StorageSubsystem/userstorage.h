@@ -8,17 +8,15 @@
 
 class UserStorage
 {
-public:
-    UserStorage();
-    ~UserStorage();
+    public:
+        UserStorage();
+        ~UserStorage();
 
-    Student getStudent(int);
-    Admin getAdmin(int);
+        Student* getStudent(int id);
+        Admin* getAdmin(int id);
 
-private:
-    QSqlDatabase db;
-    //void setupDB();
-    //void populateDatabase();
+    private:
+        QSqlDatabase& db;
 };
 
 #endif // USERSTORAGE_H

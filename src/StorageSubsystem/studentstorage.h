@@ -2,26 +2,25 @@
 #define STUDENTSTORAGE_H
 
 #include <QtSql>
-#include <list>
+#include <QMap>
 
 #include "student.h"
 
 class StudentStorage
 {
-public:
-    StudentStorage();
-    ~StudentStorage();
+    public:
+        StudentStorage();
+        ~StudentStorage();
 
-    std::list<Question> getQuestions(Student);
-    std::list<Project> getEnrolledProjects(Student);
-    std::list<Project> getAvailableProjects(Student);
-    void joinProject(Student, Project);
-    void leaveProject(Student, Project);
+        QMap<int, Question>* getQuestions(const Student& student);
+        QMap<QString, Project>* getEnrolledProjects(const Student& student);
+        QMap<QString, Project>* getAvailableProjects(const Student& student);
 
-private:
-    QSqlDatabase db;
-    //void setupDB();
-    //void populateDatabase();
+        void joinProject(const Student& student, const Project& project);
+        void leaveProject(const Student& student, const Project& project);
+
+    private:
+        QSqlDatabase& db;
 };
 
 #endif // STUDENTSTORAGE_H

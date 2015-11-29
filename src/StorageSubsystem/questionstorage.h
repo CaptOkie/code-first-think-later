@@ -2,27 +2,27 @@
 #define QUESTIONSTORAGE_H
 
 #include <QtSql>
-#include <list>
+#include <QMap>
 
 #include "question.h"
+#include "answer.h"
 
 class QuestionStorage
 {
-public:
-    QuestionStorage();
-    ~QuestionStorage();
+    public:
+        QuestionStorage();
+        ~QuestionStorage();
 
-    std::list<Answer> getAnswers(Question);
-    Answer getPersonalAnswer(Question);
-    Answer getDesiredAnswer(Question);
-    void setPersonal(Question, Answer);
-    void setDesired(Question, Answer);
+        QMap<int, Answer>* getAnswers(const Question& question);
+        Answer* getPersonalAnswer(const Question& question);
+        Answer* getDesiredAnswer(const Question& question);
+
+        void setPersonal(const Question& question, const Answer& answer);
+        void setDesired(const Question& question, const Answer& answer);
 
 
-private:
-    QSqlDatabase db;
-    //void setupDB();
-    //void populateDatabase();
+    private:
+        QSqlDatabase& db;
 };
 
 #endif // QUESTIONSTORAGE_H
