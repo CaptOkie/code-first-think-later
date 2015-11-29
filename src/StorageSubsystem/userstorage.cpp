@@ -1,8 +1,11 @@
 #include "userstorage.h"
+#include "storageinitializer.h"
 
-UserStorage::UserStorage()
+UserStorage::UserStorage(QSqlDatabase& db)
+    : db(db)
 {
-
+    StorageInitializer init = StorageInitializer();
+    init.init(db);
 }
 
 UserStorage::~UserStorage()

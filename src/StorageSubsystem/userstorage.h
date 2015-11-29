@@ -9,7 +9,7 @@
 class UserStorage
 {
     public:
-        UserStorage();
+        UserStorage(QSqlDatabase& db);
         ~UserStorage();
 
         Student* getStudent(int id);
