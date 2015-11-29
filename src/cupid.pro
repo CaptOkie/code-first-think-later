@@ -43,7 +43,6 @@ SOURCES += main.cpp \
     ProjectSubsystem/projectform.cpp \
     StorageSubsystem/answer.cpp \
     StorageSubsystem/group.cpp \
-    exceptions/notadminexception.cpp \
     StorageSubsystem/realadmin.cpp \
     StorageSubsystem/storageinitializer.cpp
 

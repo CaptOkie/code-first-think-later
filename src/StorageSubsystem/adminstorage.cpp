@@ -1,13 +1,8 @@
 #include "adminstorage.h"
 
-AdminStorage::AdminStorage()
-{
-}
+AdminStorage::AdminStorage(QSqlDatabase& db)
+    : db(db)
+{ }
 
 AdminStorage::~AdminStorage()
-{
-    if(db.isOpen()) {
-        db.close();
-    }
-    QSqlDatabase::removeDatabase(db.connectionName());
-}
+{ }

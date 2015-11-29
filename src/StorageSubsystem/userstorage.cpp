@@ -16,14 +16,12 @@ UserStorage::~UserStorage()
     QSqlDatabase::removeDatabase(db.connectionName());
 }
 
-Admin UserStorage::getAdmin(int id) {
+Admin* UserStorage::getAdmin(int id) {
     Admin ad;
-    throw notAdminException;
-    return ad;
+    return &ad;
 }
 
-Student UserStorage::getStudent(int id) {
+Student* UserStorage::getStudent(int id) {
     Student stu;
-    throw notStudentException;
-    return stu;
+    return &stu;
 }

@@ -1,6 +1,7 @@
 #include "questionstorage.h"
 
-QuestionStorage::QuestionStorage()
+QuestionStorage::QuestionStorage(QSqlDatabase& db)
+    : db(db)
 {
 }
 

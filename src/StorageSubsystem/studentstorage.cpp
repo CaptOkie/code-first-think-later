@@ -1,6 +1,7 @@
 #include "studentstorage.h"
 
-StudentStorage::StudentStorage()
+StudentStorage::StudentStorage(QSqlDatabase& db)
+    : db(db)
 {
 }
 

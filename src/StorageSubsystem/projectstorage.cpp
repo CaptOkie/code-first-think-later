@@ -1,6 +1,7 @@
 #include "projectstorage.h"
 
-ProjectStorage::ProjectStorage()
+ProjectStorage::ProjectStorage(QSqlDatabase& db)
+    : db(db)
 {
 }
 

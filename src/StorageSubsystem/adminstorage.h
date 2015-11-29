@@ -9,7 +9,7 @@
 class AdminStorage
 {
     public:
-        AdminStorage();
+        AdminStorage(QSqlDatabase& db);
         ~AdminStorage();
 
         QMap<QString, Project>* getProjects(const Admin& admin);

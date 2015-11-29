@@ -10,7 +10,7 @@
 class QuestionStorage
 {
     public:
-        QuestionStorage();
+        QuestionStorage(QSqlDatabase& db);
         ~QuestionStorage();
 
         QMap<int, Answer>* getAnswers(const Question& question);
