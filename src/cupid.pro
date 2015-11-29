@@ -75,7 +75,8 @@ HEADERS  += \
     ProjectSubsystem/projectform.h \
     StorageSubsystem/answer.h \
     StorageSubsystem/group.h \
-    exceptions/notadminexception.h
+    exceptions/notadminexception.h \
+    StorageSubsystem/storage.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
