@@ -1,5 +1,8 @@
 #include "student.h"
 
-Student::Student()
-{
-}
+Student::Student(int id, QString* name)
+    : User(id, name)
+{ }
+
+Student::~Student()
+{ }

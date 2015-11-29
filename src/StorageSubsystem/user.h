@@ -6,7 +6,8 @@
 class User
 {
     public:
-        User();
+        User(int id, QString* name);
+        User(const User& user); // Copy constructor
         ~User();
 
         int getId() const;

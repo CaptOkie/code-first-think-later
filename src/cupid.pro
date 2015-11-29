@@ -43,7 +43,8 @@ SOURCES += main.cpp \
     ProjectSubsystem/projectform.cpp \
     StorageSubsystem/answer.cpp \
     StorageSubsystem/group.cpp \
-    exceptions/notadminexception.cpp
+    exceptions/notadminexception.cpp \
+    StorageSubsystem/realadmin.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -76,6 +77,7 @@ HEADERS  += \
     StorageSubsystem/answer.h \
     StorageSubsystem/group.h \
     StorageSubsystem/storage.h
+    StorageSubsystem/realadmin.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \

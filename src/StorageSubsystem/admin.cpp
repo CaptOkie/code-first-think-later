@@ -1,20 +1,8 @@
 #include "admin.h"
 
-Admin::Admin()
-{
-}
+Admin::Admin(int id, QString* name)
+    : User(id, name)
+{ }
 
-void getProjects() //Temporary
-{
-
-}
-
-void deleteProject() //Temporary
-{
-
-}
-
-void addProject() //Temporary
-{
-
-}
+Admin::~Admin()
+{ }
