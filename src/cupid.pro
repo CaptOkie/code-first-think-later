@@ -39,7 +39,8 @@ SOURCES += main.cpp \
     PPIDSubsystem/grouper.cpp \
     PPIDSubsystem/ppidcontrol.cpp \
     UserSubsystem/studentform.cpp \
-    UserSubsystem/adminform.cpp
+    UserSubsystem/adminform.cpp \
+    ProjectSubsystem/projectform.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -67,13 +68,15 @@ HEADERS  += \
     PPIDSubsystem/grouper.h \
     PPIDSubsystem/ppidcontrol.h \
     UserSubsystem/studentform.h \
-    UserSubsystem/adminform.h
+    UserSubsystem/adminform.h \
+    ProjectSubsystem/projectform.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
     LoginSubsystem/helpdialog.ui \
     UserSubsystem/studentform.ui \
-    UserSubsystem/adminform.ui
+    UserSubsystem/adminform.ui \
+    ProjectSubsystem/projectform.ui
 
 RESOURCES += \
     resources/images.qrc
