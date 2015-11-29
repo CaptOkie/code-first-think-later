@@ -25,7 +25,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="welcomeLabel">
        <property name="maximumSize">
         <size>
          <width>497</width>
@@ -43,7 +43,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="nameLabel">
        <property name="font">
         <font>
          <pointsize>26</pointsize>
@@ -155,7 +155,7 @@
     </layout>
    </widget>
    <zorder>horizontalLayoutWidget</zorder>
-   <zorder>label_2</zorder>
+   <zorder>nameLabel</zorder>
    <zorder>horizontalLayoutWidget_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">

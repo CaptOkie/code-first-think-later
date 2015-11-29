@@ -25,7 +25,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="welcomeLabel">
        <property name="maximumSize">
         <size>
          <width>497</width>
@@ -43,7 +43,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="nameLabel">
        <property name="font">
         <font>
          <pointsize>26</pointsize>
@@ -68,7 +68,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="editProfileButton">
        <property name="text">
         <string>Edit Profile</string>
        </property>
@@ -123,14 +123,14 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="joinButton">
          <property name="text">
           <string>Join Project</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="leaveButton">
          <property name="text">
           <string>Leave Project</string>
          </property>
