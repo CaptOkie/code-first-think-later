@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "ui/loginform.h"
+#include "LoginSubsystem/loginform.h"
 
 int main(int argc, char *argv[])
 {

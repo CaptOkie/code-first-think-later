@@ -14,8 +14,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    loginform.cpp \
-    helpdialog.cpp \
     StorageSubsystem/admin.cpp \
     StorageSubsystem/user.cpp \
     StorageSubsystem/student.cpp \
@@ -23,11 +21,11 @@ SOURCES += main.cpp \
     StorageSubsystem/projectstorage.cpp \
     StorageSubsystem/questionstorage.cpp \
     StorageSubsystem/studentstorage.cpp \
-    StorageSubsystem/userstorage.cpp
+    StorageSubsystem/userstorage.cpp \
+    LoginSubsystem/loginform.cpp \
+    LoginSubsystem/helpdialog.cpp
 
 HEADERS  += \
-    loginform.h \
-    helpdialog.h \
     StorageSubsystem/admin.h \
     StorageSubsystem/user.h \
     StorageSubsystem/student.h \
@@ -35,11 +33,13 @@ HEADERS  += \
     StorageSubsystem/projectstorage.h \
     StorageSubsystem/questionstorage.h \
     StorageSubsystem/studentstorage.h \
-    StorageSubsystem/userstorage.h
+    StorageSubsystem/userstorage.h \
+    LoginSubsystem/loginform.h \
+    LoginSubsystem/helpdialog.h
 
 FORMS    += \
-    loginform.ui \
-    helpdialog.ui
+    LoginSubsystem/loginform.ui \
+    LoginSubsystem/helpdialog.ui
 
 RESOURCES += \
     resources/images.qrc
