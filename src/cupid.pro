@@ -16,26 +16,26 @@ TEMPLATE = app
 SOURCES += main.cpp \
     loginform.cpp \
     helpdialog.cpp \
-    user.cpp \
-    student.cpp \
-    admin.cpp \
-    db/userstorage.cpp \
-    db/adminstorage.cpp \
-    db/studentstorage.cpp \
-    db/questionstorage.cpp \
-    db/projectstorage.cpp
+    StorageSubsystem/admin.cpp \
+    StorageSubsystem/user.cpp \
+    StorageSubsystem/student.cpp \
+    StorageSubsystem/adminstorage.cpp \
+    StorageSubsystem/projectstorage.cpp \
+    StorageSubsystem/questionstorage.cpp \
+    StorageSubsystem/studentstorage.cpp \
+    StorageSubsystem/userstorage.cpp
 
 HEADERS  += \
     loginform.h \
     helpdialog.h \
-    user.h \
-    student.h \
-    admin.h \
-    db/userstorage.h \
-    db/adminstorage.h \
-    db/studentstorage.h \
-    db/questionstorage.h \
-    db/projectstorage.h
+    StorageSubsystem/admin.h \
+    StorageSubsystem/user.h \
+    StorageSubsystem/student.h \
+    StorageSubsystem/adminstorage.h \
+    StorageSubsystem/projectstorage.h \
+    StorageSubsystem/questionstorage.h \
+    StorageSubsystem/studentstorage.h \
+    StorageSubsystem/userstorage.h
 
 FORMS    += \
     loginform.ui \
