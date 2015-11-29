@@ -18,14 +18,24 @@ SOURCES += main.cpp \
     helpdialog.cpp \
     user.cpp \
     student.cpp \
-    admin.cpp
+    admin.cpp \
+    db/userstorage.cpp \
+    db/adminstorage.cpp \
+    db/studentstorage.cpp \
+    db/questionstorage.cpp \
+    db/projectstorage.cpp
 
 HEADERS  += \
     loginform.h \
     helpdialog.h \
     user.h \
     student.h \
-    admin.h
+    admin.h \
+    db/userstorage.h \
+    db/adminstorage.h \
+    db/studentstorage.h \
+    db/questionstorage.h \
+    db/projectstorage.h
 
 FORMS    += \
     loginform.ui \
