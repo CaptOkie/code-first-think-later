@@ -23,7 +23,21 @@ SOURCES += main.cpp \
     StorageSubsystem/studentstorage.cpp \
     StorageSubsystem/userstorage.cpp \
     LoginSubsystem/loginform.cpp \
-    LoginSubsystem/helpdialog.cpp
+    LoginSubsystem/helpdialog.cpp \
+    StorageSubsystem/question.cpp \
+    StorageSubsystem/project.cpp \
+    ProfileSubsystem/profilecontrol.cpp \
+    LoginSubsystem/logincontrol.cpp \
+    LoginSubsystem/usercontrolfactory.cpp \
+    UserSubsystem/studentcontrol.cpp \
+    UserSubsystem/admincontrol.cpp \
+    UserSubsystem/usercontrol.cpp \
+    ProjectSubsystem/projectcontrol.cpp \
+    PPIDSubsystem/percentdistance.cpp \
+    PPIDSubsystem/matcher.cpp \
+    PPIDSubsystem/splitsmallest.cpp \
+    PPIDSubsystem/grouper.cpp \
+    PPIDSubsystem/ppidcontrol.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -35,7 +49,21 @@ HEADERS  += \
     StorageSubsystem/studentstorage.h \
     StorageSubsystem/userstorage.h \
     LoginSubsystem/loginform.h \
-    LoginSubsystem/helpdialog.h
+    LoginSubsystem/helpdialog.h \
+    StorageSubsystem/question.h \
+    StorageSubsystem/project.h \
+    ProfileSubsystem/profilecontrol.h \
+    LoginSubsystem/logincontrol.h \
+    LoginSubsystem/usercontrolfactory.h \
+    UserSubsystem/studentcontrol.h \
+    UserSubsystem/admincontrol.h \
+    UserSubsystem/usercontrol.h \
+    ProjectSubsystem/projectcontrol.h \
+    PPIDSubsystem/percentdistance.h \
+    PPIDSubsystem/matcher.h \
+    PPIDSubsystem/splitsmallest.h \
+    PPIDSubsystem/grouper.h \
+    PPIDSubsystem/ppidcontrol.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
