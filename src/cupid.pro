@@ -40,7 +40,10 @@ SOURCES += main.cpp \
     PPIDSubsystem/ppidcontrol.cpp \
     UserSubsystem/studentform.cpp \
     UserSubsystem/adminform.cpp \
-    ProjectSubsystem/projectform.cpp
+    ProjectSubsystem/projectform.cpp \
+    StorageSubsystem/answer.cpp \
+    StorageSubsystem/group.cpp \
+    exceptions/notadminexception.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -69,7 +72,10 @@ HEADERS  += \
     PPIDSubsystem/ppidcontrol.h \
     UserSubsystem/studentform.h \
     UserSubsystem/adminform.h \
-    ProjectSubsystem/projectform.h
+    ProjectSubsystem/projectform.h \
+    StorageSubsystem/answer.h \
+    StorageSubsystem/group.h \
+    exceptions/notadminexception.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \

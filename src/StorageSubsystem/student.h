@@ -1,21 +1,24 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include "user.h"
 #include <string>
+#include <list>
+
+#include "user.h"
+#include "question.h"
+#include "project.h"
 
 class Student: public User
 {
 public:
     Student();
-    void getQuestions(); //Temporary
-    void getEnrolledProjects(); //Temporary
-    void getAvailableProject(); //Temporary
-    void joinProject(); //Temporary
-    void leaveProject(); //Temporary
+    ~Student();
 
-protected:
-    std::string name;
+    std::list<Question> getQuestions();
+    std::list<Project> getEnrolledProjects();
+    std::list<Project> getAvailableProject();
+    void joinProject(Project);
+    void leaveProject(Project);
 };
 
 #endif // STUDENT_H

@@ -1,19 +1,21 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-#include "user.h"
 #include <string>
+#include <list>
+
+#include "user.h"
+#include "project.h"
 
 class Admin
 {
 public:
     Admin();
-    void getProjects(); //Temporary
-    void deleteProject(); //Temporary
-    void addProject(); //Temporary
+    ~Admin();
 
-protected:
-    std::string name;
+    std::list<Project> getProjects();
+    void deleteProject(Project);
+    void addProject(Project);
 };
 
 #endif // ADMIN_H

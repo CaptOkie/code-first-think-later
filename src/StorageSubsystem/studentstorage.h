@@ -2,13 +2,21 @@
 #define STUDENTSTORAGE_H
 
 #include <QtSql>
-#include <QList>
+#include <list>
+
+#include "student.h"
 
 class StudentStorage
 {
 public:
     StudentStorage();
     ~StudentStorage();
+
+    std::list<Question> getQuestions(Student);
+    std::list<Project> getEnrolledProjects(Student);
+    std::list<Project> getAvailableProjects(Student);
+    void joinProject(Student, Project);
+    void leaveProject(Student, Project);
 
 private:
     QSqlDatabase db;

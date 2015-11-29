@@ -5,6 +5,7 @@ class ProfileControl
 {
 public:
     ProfileControl();
+    ~ProfileControl();
 };
 
 #endif // PROFILECONTROL_H

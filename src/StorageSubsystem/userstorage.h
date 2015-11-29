@@ -2,13 +2,18 @@
 #define USERSTORAGE_H
 
 #include <QtSql>
-#include <QList>
+
+#include "admin.h"
+#include "student.h"
 
 class UserStorage
 {
 public:
     UserStorage();
     ~UserStorage();
+
+    Student getStudent(int);
+    Admin getAdmin(int);
 
 private:
     QSqlDatabase db;
