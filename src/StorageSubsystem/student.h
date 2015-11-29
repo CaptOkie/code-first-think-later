@@ -5,7 +5,8 @@
 
 #include "user.h"
 #include "question.h"
-#include "project.h"
+
+class Project;
 
 class Student: public User
 {
