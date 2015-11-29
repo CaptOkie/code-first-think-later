@@ -1,16 +1,20 @@
 #ifndef ANSWER_H
 #define ANSWER_H
 
-#include <string>
+#include <QString>
 
 class Answer
 {
-public:
-    Answer();
-    ~Answer();
+    public:
+        Answer();
+        ~Answer();
 
-    int id;
-    std::string text;
+        int getId() const;
+        const QString& getText() const;
+
+    private:
+        int id;
+        QString* text;
 };
 
 #endif // ANSWER_H

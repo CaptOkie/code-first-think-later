@@ -1,27 +1,37 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
-#include <string>
-#include <list>
+#include <QString>
+#include <QMap>
+#include <QList>
+#include <QString>
+
 #include "group.h"
 
 class Student;
 
 class Project
 {
-public:
-    Project();
-    ~Project();
+    public:
+        Project();
+        virtual ~Project();
 
-    std::list<Student> getStudents();
-    std::list<Group> getGroups();
-    void setGroups(std::list<Group>);
+        int getId() const;
+        const QString& getName() const;
+        int getMaxGroupSize() const;
+        int getMinGroupSize() const;
 
-protected:
-    int id;
-    std::string name;
-    int maxGroupSize;
-    int minGroupSize;
+        virtual const QMap<int, Student>& getStudents() const;
+        virtual const QMap<int, Group>& getGroups() const;
+
+        virtual void setGroups(const QList<Group>& groups);
+        virtual void setGroups(const QMap<int, Group>& groups);
+
+    protected:
+        int id;
+        QString* name;
+        int maxGroupSize;
+        int minGroupSize;
 };
 
 #endif // PROJECT_H

@@ -1,21 +1,23 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-#include <string>
-#include <list>
+#include <QString>
+#include <QMap>
 
 #include "user.h"
 #include "project.h"
 
-class Admin
+class Admin : public User
 {
-public:
-    Admin();
-    ~Admin();
+    public:
+        Admin();
+        virtual ~Admin();
 
-    std::list<Project> getProjects();
-    void deleteProject(Project);
-    void addProject(Project);
+        virtual const QMap<QString, Project>& getProjects() const;
+        virtual QMap<QString, Project>& getProjects();
+
+        virtual void deleteProject(const Project& project);
+        virtual void addProject(const Project& project);
 };
 
 #endif // ADMIN_H

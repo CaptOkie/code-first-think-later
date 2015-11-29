@@ -2,24 +2,23 @@
 #define ADMINSTORAGE_H
 
 #include <QtSql>
-#include <list>
+#include <QMap>
 
 #include "admin.h"
 
 class AdminStorage
 {
-public:
-    AdminStorage();
-    ~AdminStorage();
+    public:
+        AdminStorage();
+        ~AdminStorage();
 
-    std::list<Project> getProjects(Admin);
-    void deleteProject(Admin, Project);
-    void addProject(Admin, Project);
+        QMap<QString, Project>* getProjects(const Admin& admin);
 
-private:
-    QSqlDatabase db;
-    //void setupDB();
-    //void populateDatabase();
+        void deleteProject(const Admin& admin, const Project& project);
+        void addProject(const Admin& admin, const Project& project);
+
+    private:
+        QSqlDatabase& db;
 };
 
 #endif // ADMINSTORAGE_H

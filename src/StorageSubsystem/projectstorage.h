@@ -2,24 +2,26 @@
 #define PROJECTSTORAGE_H
 
 #include <QtSql>
+#include <QMap>
 #include <QList>
 
 #include "project.h"
+#include "student.h"
 
 class ProjectStorage
 {
-public:
-    ProjectStorage();
-    ~ProjectStorage();
+    public:
+        ProjectStorage();
+        ~ProjectStorage();
 
-    std::list<Student> getStudents(Project);
-    std::list<Group> getGroups(Project);
-    void setGroups(Project, std::list<Group>);
+        QMap<int, Student>* getStudents(const Project& project);
+        QMap<int, Group>* getGroups(const Project& project);
 
-private:
-    QSqlDatabase db;
-    //void setupDB();
-    //void populateDatabase();
+        void setGroups(const Project& project, const QList<Group>& groups);
+        void setGroups(const Project& project, const QMap<int, Group>& groups);
+
+    private:
+        QSqlDatabase& db;
 };
 
 #endif // PROJECTSTORAGE_H
