@@ -44,7 +44,8 @@ SOURCES += main.cpp \
     StorageSubsystem/answer.cpp \
     StorageSubsystem/group.cpp \
     exceptions/notadminexception.cpp \
-    StorageSubsystem/realadmin.cpp
+    StorageSubsystem/realadmin.cpp \
+    StorageSubsystem/storageinitializer.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -76,7 +77,8 @@ HEADERS  += \
     ProjectSubsystem/projectform.h \
     StorageSubsystem/answer.h \
     StorageSubsystem/group.h \
-    StorageSubsystem/storage.h
+    StorageSubsystem/storage.h \
+    StorageSubsystem/storageinitializer.h
     StorageSubsystem/realadmin.h
 
 FORMS    += \

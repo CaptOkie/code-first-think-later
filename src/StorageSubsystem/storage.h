@@ -9,9 +9,9 @@
 #define STU_ID_COL   "id"
 #define STU_NAME_COL "name"
 // Admin table
-#define STU_TABLE    "admins"
-#define STU_ID_COL   "id"
-#define STU_NAME_COL "name"
+#define ADMN_TABLE    "admins"
+#define ADMN_ID_COL   "id"
+#define ADMN_NAME_COL "name"
 // Project table
 #define PRO_TABLE       "projects"
 #define PRO_NAME_COL    "name"
