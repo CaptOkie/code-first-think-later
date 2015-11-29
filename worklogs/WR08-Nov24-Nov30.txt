@@ -7,3 +7,4 @@ TheBakedPotato:
 ViLLiELdR:
 1 Hour: Group Meeting (division of tasks)
 6.5 Hours: Work on UI and skeleton code
+2 Hours: Started back-end logic and exception handling
