@@ -37,7 +37,9 @@ SOURCES += main.cpp \
     PPIDSubsystem/matcher.cpp \
     PPIDSubsystem/splitsmallest.cpp \
     PPIDSubsystem/grouper.cpp \
-    PPIDSubsystem/ppidcontrol.cpp
+    PPIDSubsystem/ppidcontrol.cpp \
+    UserSubsystem/studentform.cpp \
+    UserSubsystem/adminform.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -63,11 +65,15 @@ HEADERS  += \
     PPIDSubsystem/matcher.h \
     PPIDSubsystem/splitsmallest.h \
     PPIDSubsystem/grouper.h \
-    PPIDSubsystem/ppidcontrol.h
+    PPIDSubsystem/ppidcontrol.h \
+    UserSubsystem/studentform.h \
+    UserSubsystem/adminform.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
-    LoginSubsystem/helpdialog.ui
+    LoginSubsystem/helpdialog.ui \
+    UserSubsystem/studentform.ui \
+    UserSubsystem/adminform.ui
 
 RESOURCES += \
     resources/images.qrc
