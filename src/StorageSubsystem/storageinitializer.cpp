@@ -1,6 +1,6 @@
 #include "storageinitializer.h"
 
-StorageInitializer::StorageInitializer(QSqlDatabase& db)
+StorageInitializer::StorageInitializer()
 {
     init(db);
 }

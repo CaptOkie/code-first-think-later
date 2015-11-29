@@ -44,7 +44,8 @@ SOURCES += main.cpp \
     StorageSubsystem/answer.cpp \
     StorageSubsystem/group.cpp \
     StorageSubsystem/realadmin.cpp \
-    StorageSubsystem/storageinitializer.cpp
+    StorageSubsystem/storageinitializer.cpp \
+    StorageSubsystem/proxyadmin.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -77,7 +78,8 @@ HEADERS  += \
     StorageSubsystem/answer.h \
     StorageSubsystem/group.h \
     StorageSubsystem/storage.h \
-    StorageSubsystem/storageinitializer.h
+    StorageSubsystem/storageinitializer.h \
+    StorageSubsystem/proxyadmin.h
     StorageSubsystem/realadmin.h
 
 FORMS    += \

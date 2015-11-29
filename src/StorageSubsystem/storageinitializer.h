@@ -8,7 +8,7 @@
 class StorageInitializer
 {
     public:
-        StorageInitializer(QSqlDatabase& db);
+        StorageInitializer();
         ~StorageInitializer();
 
         void init(QSqlDatabase& db);
