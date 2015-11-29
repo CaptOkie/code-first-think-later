@@ -2,7 +2,7 @@
 #define USERCONTROLFACTORY_H
 
 #include <QString>
-#include "StorageSubsystem/user.h"
+#include "UserSubsystem/usercontrol.h"
 
 class UserControlFactory
 {
@@ -10,7 +10,7 @@ public:
     UserControlFactory();
     ~UserControlFactory();
 
-    User getUser(QString);
+    UserControl* getUser(QString, QString); //id, type
 };
 
 #endif // USERCONTROLFACTORY_H

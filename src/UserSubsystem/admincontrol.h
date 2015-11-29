@@ -1,7 +1,9 @@
 #ifndef ADMINCONTROL_H
 #define ADMINCONTROL_H
 
-class AdminControl
+#include "usercontrol.h"
+
+class AdminControl : public UserControl
 {
 public:
     AdminControl();

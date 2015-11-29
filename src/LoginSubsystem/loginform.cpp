@@ -25,7 +25,15 @@ void LoginForm::attemptLogin()
     QString userInput = ui->userIDInput->text();
     if (userInput.length > 0){
         LoginControl control;
-        control.start(userInput);
+        const int check = control.start(userInput);
+        switch(check) {
+            case 0:
+                break;
+            case 1:
+                //open admin
+            case 2:
+                //open student
+        }
     }
 }
 

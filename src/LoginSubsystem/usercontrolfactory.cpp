@@ -6,20 +6,11 @@ UserControlFactory::UserControlFactory()
 {
 }
 
-User UserControlFactory::getUser(QString id){
-    User user;
-    UserStorage storage;
-    try {
-        user = storage.getAdmin();
-        return user;
+UserControl* UserControlFactory::getUser(QString id, QString type){
+    if (type == "admin"){
+        return NULL;
     }
-    catch (const notAdminException& e) {
-        try {
-            user = storage.getStudent();
-            return user;
-        }
-        catch (const notStudentException& e) {
-            throw noAccountException;
-        }
+    else {
+        return NULL;
     }
 }

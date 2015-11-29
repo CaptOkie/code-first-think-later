@@ -1,7 +1,9 @@
 #ifndef STUDENTCONTROL_H
 #define STUDENTCONTROL_H
 
-class StudentControl
+#include "usercontrol.h"
+
+class StudentControl : public UserControl
 {
 public:
     StudentControl();
