@@ -12,9 +12,9 @@ class StudentStorage
         StudentStorage(QSqlDatabase& db);
         ~StudentStorage();
 
-        QMap<int, Question>* getQuestions(const Student& student);
-        QMap<QString, Project>* getEnrolledProjects(const Student& student);
-        QMap<QString, Project>* getAvailableProjects(const Student& student);
+        QMap<int, Question*>* getQuestions(const Student& student);
+        QMap<QString, Project*>* getEnrolledProjects(const Student& student);
+        QMap<QString, Project*>* getAvailableProjects(const Student& student);
 
         void joinProject(const Student& student, const Project& project);
         void leaveProject(const Student& student, const Project& project);

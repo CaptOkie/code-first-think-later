@@ -3,11 +3,12 @@
 
 #include "project.h"
 #include "realproject.h"
+#include "projectstorage.h"
 
 class ProxyProject
 {
     public:
-        ProxyProject();
+        ProxyProject(ProjectStorage* storage);
         ~ProxyProject();
 
         int getId() const;
@@ -15,15 +16,16 @@ class ProxyProject
         int getMaxGroupSize() const;
         int getMinGroupSize() const;
 
-        virtual const QMap<int, Student>& getStudents() const;
-        virtual const QMap<int, Group>& getGroups() const;
+        virtual const QMap<int, Student*>& getStudents() const;
+        virtual const QMap<int, Group*>& getGroups() const;
 
-        virtual void setGroups(const QList<Group>& groups);
-        virtual void setGroups(const QMap<int, Group>& groups);
+        virtual void setGroups(const QList<Group*>& groups);
+        virtual void setGroups(const QMap<int, Group*>& groups);
 
 
     private:
         RealProject* realProject;
+        ProjectStorage* storage;
 };
 
 #endif // PROXYPROJECT_H

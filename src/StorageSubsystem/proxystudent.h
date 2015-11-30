@@ -11,9 +11,9 @@ class ProxyStudent : public Student
         ProxyStudent(int id, QString* name, StudentStorage* storage);
         ~ProxyStudent();
 
-        const QMap<int, Question>& getQuestions() const;
-        const QMap<QString, Project>& getEnrolledProjects() const;
-        const QMap<QString, Project>& getAvailableProject() const;
+        const QMap<int, Question*>& getQuestions() const;
+        const QMap<QString, Project*>& getEnrolledProjects() const;
+        const QMap<QString, Project*>& getAvailableProject() const;
 
         void joinProject(const Project& project);
         void leaveProject(const Project& project);

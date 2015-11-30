@@ -12,7 +12,7 @@ class AdminStorage
         AdminStorage(QSqlDatabase& db);
         ~AdminStorage();
 
-        QMap<QString, Project>* getProjects(const Admin& admin);
+        QMap<QString, Project*>* getProjects(const Admin& admin);
 
         void deleteProject(const Admin& admin, const Project& project);
         void addProject(const Admin& admin, const Project& project);

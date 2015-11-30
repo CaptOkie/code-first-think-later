@@ -14,11 +14,11 @@ class RealProject : public Project
         int getMaxGroupSize() const;
         int getMinGroupSize() const;
 
-        const QMap<int, Student>& getStudents() const;
-        const QMap<int, Group>& getGroups() const;
+        const QMap<int, Student*>& getStudents() const;
+        const QMap<int, Group*>& getGroups() const;
 
-        void setGroups(const QList<Group>& groups);
-        void setGroups(const QMap<int, Group>& groups);
+        void setGroups(const QList<Group*>& groups);
+        void setGroups(const QMap<int, Group*>& groups);
 
 };
 

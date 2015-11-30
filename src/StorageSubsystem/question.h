@@ -24,7 +24,7 @@ class Question
         const QString& getDesired() const;
         const QString& getCategory() const;
 
-        virtual const QMap<int, Answer>& getAnswers() const = 0;
+        virtual const QMap<int, Answer*>& getAnswers() const = 0;
         virtual const Answer& getPersonalAnswer() const = 0;
         virtual const Answer& getDesiredAnswer() const = 0;
 

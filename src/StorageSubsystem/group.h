@@ -12,12 +12,12 @@ class Group
         ~Group();
 
         int getId() const;
-        const QMap<int, Student>& getStudents() const;
-        QMap<int, Student>& getStudents();
+        const QMap<int, Student*>& getStudents() const;
+        QMap<int, Student*>& getStudents();
 
     private:
         int id;
-        QMap<int, Student>* student;
+        QMap<int, Student*>* student;
 };
 
 #endif // GROUP_H

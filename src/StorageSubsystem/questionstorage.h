@@ -13,7 +13,7 @@ class QuestionStorage
         QuestionStorage(QSqlDatabase& db);
         ~QuestionStorage();
 
-        QMap<int, Answer>* getAnswers(const Question& question);
+        QMap<int, Answer*>* getAnswers(const Question& question);
         Answer* getPersonalAnswer(const Question& question);
         Answer* getDesiredAnswer(const Question& question);
 
