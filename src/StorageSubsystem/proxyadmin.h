@@ -7,7 +7,7 @@
 class ProxyAdmin : public Admin
 {
     public:
-        ProxyAdmin(int id, QString name);
+        ProxyAdmin(int id, QString* name);
         ~ProxyAdmin();
 
         const QMap<QString, Project>& getProjects() const;

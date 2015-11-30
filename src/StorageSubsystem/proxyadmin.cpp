@@ -1,7 +1,7 @@
 #include "proxyadmin.h"
 
-ProxyAdmin::ProxyAdmin(int id, QString name)
-    : id(id), name(name), realAdmin(NULL)
+ProxyAdmin::ProxyAdmin(int id, QString* name)
+    : Admin(id, name), realAdmin(NULL)
 { }
 
 ProxyAdmin::~ProxyAdmin()

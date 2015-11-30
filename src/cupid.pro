@@ -45,7 +45,9 @@ SOURCES += main.cpp \
     StorageSubsystem/group.cpp \
     StorageSubsystem/realadmin.cpp \
     StorageSubsystem/storageinitializer.cpp \
-    StorageSubsystem/proxyadmin.cpp
+    StorageSubsystem/proxyadmin.cpp \
+    StorageSubsystem/realstudent.cpp \
+    StorageSubsystem/proxystudent.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -79,8 +81,10 @@ HEADERS  += \
     StorageSubsystem/group.h \
     StorageSubsystem/storage.h \
     StorageSubsystem/storageinitializer.h \
-    StorageSubsystem/proxyadmin.h
-    StorageSubsystem/realadmin.h
+    StorageSubsystem/proxyadmin.h \
+    StorageSubsystem/realstudent.h \
+    StorageSubsystem/realadmin.h \
+    StorageSubsystem/proxystudent.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
