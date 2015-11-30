@@ -10,3 +10,4 @@ ViLLiELdR:
 1 Hours: Group Meeting (division of tasks)
 6.5 Hours: Work on UI and skeleton code
 2 Hours: Started back-end logic and exception handling
+4 Hours: Debugging, fixing code, UI
