@@ -13,11 +13,11 @@ class Admin : public User
         Admin(int id, QString* name);
         virtual ~Admin();
 
-        virtual const QMap<QString, Project>& getProjects() const;
-        virtual QMap<QString, Project>& getProjects();
+        virtual const QMap<QString, Project>& getProjects() const = 0;
+        virtual QMap<QString, Project>& getProjects() = 0;
 
-        virtual void deleteProject(const Project& project);
-        virtual void addProject(const Project& project);
+        virtual void deleteProject(const Project& project) = 0;
+        virtual void addProject(const Project& project) = 0;
 };
 
 #endif // ADMIN_H

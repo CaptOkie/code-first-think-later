@@ -8,7 +8,7 @@ class User
     public:
         User(int id, QString* name);
         User(const User& user); // Copy constructor
-        ~User();
+        virtual ~User();
 
         int getId() const;
         const QString& getName() const;
