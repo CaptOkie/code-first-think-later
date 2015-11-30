@@ -47,7 +47,9 @@ SOURCES += main.cpp \
     StorageSubsystem/storageinitializer.cpp \
     StorageSubsystem/proxyadmin.cpp \
     StorageSubsystem/realstudent.cpp \
-    StorageSubsystem/proxystudent.cpp
+    StorageSubsystem/proxystudent.cpp \
+    PPIDSubsystem/ppidform.cpp \
+    PPIDSubsystem/groupwidget.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -84,14 +86,17 @@ HEADERS  += \
     StorageSubsystem/proxyadmin.h \
     StorageSubsystem/realstudent.h \
     StorageSubsystem/realadmin.h \
-    StorageSubsystem/proxystudent.h
+    StorageSubsystem/proxystudent.h \
+    PPIDSubsystem/ppidform.h \
+    PPIDSubsystem/groupwidget.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
     LoginSubsystem/helpdialog.ui \
     UserSubsystem/studentform.ui \
     UserSubsystem/adminform.ui \
-    ProjectSubsystem/projectform.ui
+    ProjectSubsystem/projectform.ui \
+    PPIDSubsystem/ppidform.ui
 
 RESOURCES += \
     resources/images.qrc
