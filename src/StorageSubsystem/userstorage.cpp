@@ -25,7 +25,7 @@ Admin* UserStorage::getAdmin(int id) {
     select.bindValue(":id", id);
     select.exec();
 
-    if(select.first()) {
+    if (select.first()) {
         int id = select.value(ADMN_ID_COL).toInt();
         QString name = (QString)select.value(ADMN_NAME_COL).toString();
         admin = new ProxyAdmin(id, new QString(name), new AdminStorage(db));
@@ -45,7 +45,7 @@ Student* UserStorage::getStudent(int id) {
     select.bindValue(":id", id);
     select.exec();
 
-    if(select.first()) {
+    if (select.first()) {
         int id = select.value(STU_ID_COL).toInt();
         QString name = (QString)select.value(STU_NAME_COL).toString();
         student = new ProxyStudent(id, new QString(name), new StudentStorage(db));

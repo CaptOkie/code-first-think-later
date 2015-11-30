@@ -5,6 +5,7 @@
 #include <QMap>
 
 #include "admin.h"
+#include "storage.h"
 
 class AdminStorage
 {
@@ -12,10 +13,10 @@ class AdminStorage
         AdminStorage(QSqlDatabase& db);
         ~AdminStorage();
 
-        QMap<QString, Project*>* getProjects(const Admin& admin);
+        QMap<QString, Project*>* getProjects();
 
-        void deleteProject(const Admin& admin, const Project& project);
-        void addProject(const Admin& admin, const Project& project);
+        void deleteProject(const Project& project);
+        void addProject(const Project& project);
 
     private:
         QSqlDatabase& db;

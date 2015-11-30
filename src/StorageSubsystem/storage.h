@@ -14,6 +14,7 @@
 #define ADMN_NAME_COL "name"
 // Project table
 #define PRO_TABLE       "projects"
+#define PRO_ID_COL      "id"
 #define PRO_NAME_COL    "name"
 #define PRO_MAX_GRP_COL "max_grp_size"
 #define PRO_MIN_GRP_COL "min_grp_size"

@@ -35,7 +35,8 @@ void StorageInitializer::init(QSqlDatabase &db)
             ADMN_NAME_COL " text NOT NULL, ");
 
     db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
-            " (" PRO_NAME_COL " text PRIMARY KEY NOT NULL, "
+            " (" PRO_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
+            PRO_NAME_COL " text UNIQUE COLLATE NOCASE NOT NULL, "
             PRO_MAX_GRP_COL " integer NOT NULL, "
             PRO_MIN_GRP_COL " integer NOT NULL)");
 

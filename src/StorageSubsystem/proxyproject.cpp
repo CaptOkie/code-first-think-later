@@ -1,7 +1,7 @@
 #include "proxyproject.h"
 
-ProxyProject::ProxyProject(ProjectStorage* storage)
-    : realpath(NULL), storage(storage)
+ProxyProject::ProxyProject(int id, QString* name, int minGroupSize, int maxGroupSize, ProjectStorage* storage)
+    : Project(id, name, minGroupSize, maxGroupSize), realpath(NULL), storage(storage)
 { }
 
 ProxyProject::~ProxyProject()

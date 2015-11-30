@@ -13,7 +13,7 @@ class Student;
 class Project
 {
     public:
-        Project();
+        Project(int id, QString* name, int minGroupSize, int maxGroupSize);
         virtual ~Project();
 
         int getId() const;
