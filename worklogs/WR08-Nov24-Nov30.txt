@@ -1,10 +1,12 @@
 CaptOkie:
-1 Hour: Group Meeting (division of tasks)
+1 Hours: Group Meeting (division of tasks)
+11 Hours: Improved help dialog. Refined storage. Worked on PPIDSubsystem.
 
 TheBakedPotato:
-1 Hour: Group Meeting (division of tasks)
+1 Hours: Group Meeting (division of tasks)
+11 Hours: Refined storage. Started implementing storage.
 
 ViLLiELdR:
-1 Hour: Group Meeting (division of tasks)
+1 Hours: Group Meeting (division of tasks)
 6.5 Hours: Work on UI and skeleton code
 2 Hours: Started back-end logic and exception handling
