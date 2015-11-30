@@ -12,6 +12,8 @@ class StorageInitializer
         ~StorageInitializer();
 
         void init(QSqlDatabase& db);
+
+        void populate();
 };
 
 #endif // STORAGEINITIALIZER_H
