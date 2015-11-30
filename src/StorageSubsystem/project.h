@@ -18,8 +18,8 @@ class Project
 
         int getId() const;
         const QString& getName() const;
-        int getMaxGroupSize() const;
         int getMinGroupSize() const;
+        int getMaxGroupSize() const;
 
         virtual const QMap<int, Student*>& getStudents() const = 0;
         virtual const QMap<int, Group*>& getGroups() const = 0;
@@ -30,8 +30,8 @@ class Project
     protected:
         int id;
         QString* name;
-        int maxGroupSize;
         int minGroupSize;
+        int maxGroupSize;
 };
 
 #endif // PROJECT_H

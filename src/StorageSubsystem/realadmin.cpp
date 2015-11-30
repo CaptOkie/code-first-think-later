@@ -9,7 +9,7 @@ RealAdmin::~RealAdmin()
 
 const QMap<QString, Project*>& RealAdmin::getProjects() const
 {
-
+    return *projects;
 }
 
 bool RealAdmin::hasProjects() const
@@ -24,10 +24,10 @@ void RealAdmin::setProjects(QMap<QString, Project*>* projects)
 
 void RealAdmin::deleteProject(const Project& project)
 {
-
+    project;
 }
 
 void RealAdmin::addProject(const Project& project)
 {
-
+    project;
 }

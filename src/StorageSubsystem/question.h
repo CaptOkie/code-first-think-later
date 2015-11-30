@@ -9,7 +9,7 @@
 class Question
 {
     public:
-        Question();
+        Question(int id, QString* personal, QString* desired, QString* category);
         virtual ~Question();
 
     protected:

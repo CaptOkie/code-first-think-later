@@ -17,15 +17,15 @@ int Project::getId() const
 
 const QString& Project::getName() const
 {
-
-}
-
-int Project::getMaxGroupSize() const
-{
-
+    return *name;
 }
 
 int Project::getMinGroupSize() const
 {
+    return minGroupSize;
+}
 
+int Project::getMaxGroupSize() const
+{
+    return maxGroupSize;
 }
