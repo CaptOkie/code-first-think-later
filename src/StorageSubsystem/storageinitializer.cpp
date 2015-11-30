@@ -1,8 +1,12 @@
 #include "storageinitializer.h"
 
+#define DEBUG
 StorageInitializer::StorageInitializer()
 {
     init(db);
+#ifdef DEBUG
+    populate();
+#endif
 }
 
 StorageInitializer::~StorageInitializer()
@@ -66,4 +70,24 @@ void StorageInitializer::init(QSqlDatabase &db)
             "PRIMARY KEY (" RESP_STU_COL " , " RESP_QSTN_COL "))");
 
     db.close();
+}
+
+void StorageInitializer::populate()
+{
+#ifdef DEBUG
+    db.open();
+
+    // Populating database for testing
+    // Adding Students
+    db.exec("INSERT INTO " STU_TABLE " (" STU_NAME_COL ") "
+            "VALUES "
+            "('Stuart Dent'), ('Harvey Dent'), ('Bruce Wayne'), ('Frodo Baggins'), ('Cheese Man'), "
+            "('Nathan Drake'), ('Jeremy Clarkson'), ('James T. Kirk'), ('Clark Kent'), ('Barry Allen')");
+
+    // Adding Admins
+    db.exec("INSERT INTO " ADMN_TABLE " (" ADMN_NAME_COL ") "
+            "VALUES ('Gandalf the Grey'), ('Ad Min')");
+
+    db.close();
+#endif
 }

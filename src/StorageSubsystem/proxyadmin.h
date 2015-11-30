@@ -3,11 +3,12 @@
 
 #include "admin.h"
 #include "realadmin.h"
+#include "adminstorage.h"
 
 class ProxyAdmin : public Admin
 {
     public:
-        ProxyAdmin(int id, QString* name);
+        ProxyAdmin(int id, QString* name, AdminStorage* storage);
         ~ProxyAdmin();
 
         const QMap<QString, Project>& getProjects() const;
@@ -18,6 +19,7 @@ class ProxyAdmin : public Admin
 
     private:
         RealAdmin* realAdmin;
+        AdminStorage* storage;
 };
 
 #endif // PROXYADMIN_H
