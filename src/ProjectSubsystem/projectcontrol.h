@@ -10,6 +10,8 @@ public:
     ~ProjectControl();
 
     void start();
+    void close();
+    void showDialog();
 };
 
 #endif // PROJECTCONTROL_H

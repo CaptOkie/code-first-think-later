@@ -23,16 +23,10 @@ LoginForm::~LoginForm()
 void LoginForm::attemptLogin()
 {
     QString userInput = ui->userIDInput->text();
-    if (userInput.length > 0){
+    if (userInput.length() > 0){
         LoginControl control;
-        const int check = control.start(userInput);
-        switch(check) {
-            case 0:
-                break;
-            case 1:
-                //open admin
-            case 2:
-                //open student
+        if (control.start(userInput)){
+            close();
         }
     }
 }

@@ -2,6 +2,7 @@
 #define QUESTION_H
 
 #include <QString>
+#include <QMap>
 
 #include "answer.h"
 

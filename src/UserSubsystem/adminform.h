@@ -2,6 +2,7 @@
 #define ADMINFORM_H
 
 #include <QMainWindow>
+#include "ProjectSubsystem/projectform.h"
 
 namespace Ui {
 class AdminForm;
@@ -15,8 +16,11 @@ public:
     explicit AdminForm(QWidget *parent = 0);
     ~AdminForm();
 
+    void editProject();
+
 private:
     Ui::AdminForm *ui;
+    ProjectForm projectForm;
 };
 
 #endif // ADMINFORM_H

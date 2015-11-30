@@ -9,7 +9,7 @@ public:
     LoginControl();
     ~LoginControl();
 
-    void start(QString);
+    bool start(QString);
 };
 
 #endif // LOGINCONTROL_H
