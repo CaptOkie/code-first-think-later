@@ -17,7 +17,9 @@ class PercentDistance : public Matcher
         QHash<int, QHash<int, int> > cache;
 
         bool getCachedValue(int* value, const Student& s1, const Student& s2);
+        void setCachedValue(int value, const Student& s1, const Student& s2);
         int compute(const Student& s1, const Student& s2);
+        int distance(int min, int max, const Answer& a1, const Answer& a2);
 };
 
 #endif // PERCENTDISTANCE_H
