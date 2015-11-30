@@ -6,3 +6,8 @@ StudentStorage::StudentStorage(QSqlDatabase& db)
 
 StudentStorage::~StudentStorage()
 { }
+
+QMap<int, Question>* StudentStorage::getQuestions(const Student& student)
+{
+
+}

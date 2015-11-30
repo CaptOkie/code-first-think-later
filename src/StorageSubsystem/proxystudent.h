@@ -3,11 +3,12 @@
 
 #include "student.h"
 #include "realstudent.h"
+#include "studentstorage.h"
 
 class ProxyStudent : public Student
 {
     public:
-        ProxyStudent(int id, QString* name);
+        ProxyStudent(int id, QString* name, StudentStorage* storage);
         ~ProxyStudent();
 
         const QMap<int, Question>& getQuestions() const;
@@ -18,7 +19,8 @@ class ProxyStudent : public Student
         void leaveProject(const Project& project);
 
     private:
-        RealStudent realStudent;
+        RealStudent* realStudent;
+        StudentStorage* storage;
 };
 
 #endif // PROXYSTUDENT_H
