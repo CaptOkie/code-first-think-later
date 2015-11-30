@@ -1,8 +1,7 @@
 #include "ppidcontrol.h"
-#include "ppidform.h"
 
 PPIDControl::PPIDControl(Project& project)
-    : project(project), form()
+    : project(project), form(*this)
 { }
 
 PPIDControl::~PPIDControl()

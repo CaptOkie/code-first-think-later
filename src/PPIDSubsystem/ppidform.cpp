@@ -21,25 +21,25 @@ PPIDForm::~PPIDForm()
     }
 }
 
-void PPIDForm::show(const QMap<int, Group>& groups)
+void PPIDForm::show(const QMap<int, Group*>& groups)
 {
     load(groups);
     QDialog::show();
 }
 
-void PPIDForm::update(const QMap<int, Group>& groups)
+void PPIDForm::update(const QMap<int, Group*>& groups)
 {
     load(groups);
     prog->reset();
 }
 
-void PPIDForm::load(const QMap<int, Group>& groups)
+void PPIDForm::load(const QMap<int, Group*>& groups)
 {
     QVBoxLayout* layout = new QVBoxLayout(this);
 
-    QMap<int, Group>::const_iterator it;
+    QMap<int, Group*>::const_iterator it;
     for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
-        layout->addWidget(new GroupWidget(*it, this));
+        layout->addWidget(new GroupWidget(**it, this));
     }
     setLayout(layout);
 }

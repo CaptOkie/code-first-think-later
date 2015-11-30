@@ -3,8 +3,8 @@
 
 class SplitSmallest
 {
-public:
-    SplitSmallest();
+    public:
+        SplitSmallest();
 };
 
 #endif // SPLITSMALLEST_H

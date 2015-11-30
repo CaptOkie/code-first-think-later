@@ -10,11 +10,11 @@ GroupWidget::GroupWidget(const Group& group, QWidget *parent)
 
     QVBoxLayout* layout = new QVBoxLayout(this);
 
-    const QMap<int, Student>& students = group.getStudents();
-    QMap<int, Student>::const_iterator it;
+    const QMap<int, Student*>& students = group.getStudents();
+    QMap<int, Student*>::const_iterator it;
 
     for (it = students.constBegin(); it != students.constEnd(); ++it) {
-        const QString& text = it->getName().append("(").append(QString::number(it->getId())).append(")");
+        const QString& text = (*it)->getName().append("(").append(QString::number((*it)->getId())).append(")");
         layout->addWidget(new QLabel(text, this));
     }
 }

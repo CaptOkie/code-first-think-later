@@ -3,7 +3,7 @@
 
 #include "StorageSubsystem/project.h"
 
-class PPIDForm;
+#include "ppidform.h"
 
 class PPIDControl
 {

@@ -19,15 +19,15 @@ class PPIDForm : public QDialog
         explicit PPIDForm(PPIDControl& ctrl, QWidget *parent = 0);
         ~PPIDForm();
 
-        void show(const QMap<int, Group>& groups);
-        void update(const QMap<int, Group>& groups);
+        void show(const QMap<int, Group*>& groups);
+        void update(const QMap<int, Group*>& groups);
 
     private:
         PPIDControl& ctrl;
         Ui::PPIDForm* ui;
         QProgressDialog* prog;
 
-        void load(const QMap<int, Group>& groups);
+        void load(const QMap<int, Group*>& groups);
 
     private slots:
         void handleLaunch();
