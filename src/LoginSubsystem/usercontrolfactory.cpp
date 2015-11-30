@@ -8,9 +8,11 @@ UserControlFactory::UserControlFactory()
 
 UserControl* UserControlFactory::getUser(QString id, QString type){
     if (type == "admin"){
-        return UserStorage::getAdmin(id.toInt()); //temporary going to fix
+        //return UserStorage::getAdmin(id.toInt()); //temporary going to fix
+        return NULL;
     }
     else {
-        return UserStorage::getStudent(id.toInt()); //temporary going to fix
+        //return UserStorage::getStudent(id.toInt()); //temporary going to fix
+        return NULL;
     }
 }

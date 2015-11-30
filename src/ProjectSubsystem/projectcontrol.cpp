@@ -6,10 +6,10 @@ ProjectControl::ProjectControl()
 
 void ProjectControl::close()
 {
-    QDialog::reject();
+    //QDialog::reject();
 }
 
 void ProjectControl::showDialog()
 {
-    exec();
+    //exec();
 }
