@@ -1,7 +1,7 @@
 #ifndef STORAGEINITIALIZER_H
 #define STORAGEINITIALIZER_H
 
-#include <QSqlDatabase>
+#include <QtSql>
 
 #include "storage.h"
 
@@ -13,7 +13,8 @@ class StorageInitializer
 
         void init(QSqlDatabase& db);
 
-        void populate();
+    private:
+        void populate(QSqlDatabase& db);
 };
 
 #endif // STORAGEINITIALIZER_H

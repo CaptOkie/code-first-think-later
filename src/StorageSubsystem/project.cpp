@@ -9,3 +9,23 @@ Project::~Project()
     if (name)
         delete name;
 }
+
+int Project::getId() const
+{
+    return id;
+}
+
+const QString& Project::getName() const
+{
+
+}
+
+int Project::getMaxGroupSize() const
+{
+
+}
+
+int Project::getMinGroupSize() const
+{
+
+}

@@ -14,7 +14,7 @@ GroupWidget::GroupWidget(const Group& group, QWidget *parent)
     QMap<int, Student*>::const_iterator it;
 
     for (it = students.constBegin(); it != students.constEnd(); ++it) {
-        const QString& text = (*it)->getName().append("(").append(QString::number((*it)->getId())).append(")");
+        const QString& text = (*it)->getName() + "(" + QString::number((*it)->getId()) + ")";
         layout->addWidget(new QLabel(text, this));
     }
 }

@@ -2,12 +2,7 @@
 
 #define DEBUG
 StorageInitializer::StorageInitializer()
-{
-    init(db);
-#ifdef DEBUG
-    populate();
-#endif
-}
+{ }
 
 StorageInitializer::~StorageInitializer()
 { }
@@ -70,10 +65,14 @@ void StorageInitializer::init(QSqlDatabase &db)
                           "ON DELETE CASCADE ON UPDATE CASCADE, "
             "PRIMARY KEY (" RESP_STU_COL " , " RESP_QSTN_COL "))");
 
+#ifdef DEBUG
+    populate(db);
+#endif
+
     db.close();
 }
 
-void StorageInitializer::populate()
+void StorageInitializer::populate(QSqlDatabase& db)
 {
 #ifdef DEBUG
     db.open();

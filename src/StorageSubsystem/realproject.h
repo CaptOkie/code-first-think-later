@@ -6,7 +6,7 @@
 class RealProject : public Project
 {
     public:
-        RealProject();
+        RealProject(int id, QString* name, int minGroupSize, int maxGroupSize);
         ~RealProject();
 
         int getId() const;

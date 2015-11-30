@@ -5,7 +5,7 @@
 #include "realproject.h"
 #include "projectstorage.h"
 
-class ProxyProject
+class ProxyProject : public Project
 {
     public:
         ProxyProject(int id, QString* name, int minGroupSize, int maxGroupSize, ProjectStorage* storage);
@@ -24,8 +24,8 @@ class ProxyProject
 
 
     private:
-        RealProject* realProject;
         ProjectStorage* storage;
+        RealProject* realProject;
 };
 
 #endif // PROXYPROJECT_H

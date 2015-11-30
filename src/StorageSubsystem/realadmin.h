@@ -10,10 +10,16 @@ class RealAdmin : public Admin
         ~RealAdmin();
 
         const QMap<QString, Project*>& getProjects() const;
-        QMap<QString, Project*>& getProjects();
+        bool hasProjects() const;
+
+        void setProjects(QMap<QString, Project*>* projects);
 
         void deleteProject(const Project& project);
         void addProject(const Project& project);
+        void updateProject(const Project& project);
+
+    private:
+        QMap<QString, Project*>* projects;
 
 };
 

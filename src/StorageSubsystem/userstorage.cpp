@@ -8,7 +8,7 @@
 UserStorage::UserStorage(QSqlDatabase& db)
     : db(db)
 {
-    StorageInitializer init = StorageInitializer();
+    StorageInitializer init;
     init.init(db);
 }
 

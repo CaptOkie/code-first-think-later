@@ -1,5 +1,6 @@
 #include "realproject.h"
 
-RealProject::RealProject()
+RealProject::RealProject(int id, QString* name, int minGroupSize, int maxGroupSize)
+    : Project(id, name, minGroupSize, maxGroupSize)
 {
 }
