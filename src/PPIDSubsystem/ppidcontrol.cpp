@@ -15,5 +15,5 @@ void PPIDControl::start()
 
 void PPIDControl::group()
 {
-
+    form.update(project.getGroups()); // TODO
 }
