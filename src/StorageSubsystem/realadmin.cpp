@@ -24,10 +24,10 @@ void RealAdmin::setProjects(QMap<QString, Project*>* projects)
 
 void RealAdmin::deleteProject(const Project& project)
 {
-    project;
+    projects->remove(project.getName());
 }
 
 void RealAdmin::addProject(const Project& project)
 {
-    project;
+//    projects->insert(project.getName(), project);
 }

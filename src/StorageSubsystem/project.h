@@ -14,6 +14,7 @@ class Project
 {
     public:
         Project(int id, QString* name, int minGroupSize, int maxGroupSize);
+        Project(const Project& project);
         virtual ~Project();
 
         int getId() const;

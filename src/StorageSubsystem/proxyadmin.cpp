@@ -30,5 +30,5 @@ void ProxyAdmin::deleteProject(const Project& project)
 
 void ProxyAdmin::addProject(const Project& project)
 {
-
+    Project* newProject = storage->addProject(project);
 }

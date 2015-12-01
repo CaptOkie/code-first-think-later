@@ -16,7 +16,7 @@ class AdminStorage
         QMap<QString, Project*>* getProjects();
 
         void deleteProject(const Project& project);
-        void addProject(const Project& project);
+        Project* addProject(const Project& project);
 
     private:
         QSqlDatabase& db;

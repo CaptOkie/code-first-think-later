@@ -5,6 +5,14 @@ ProxyProject::ProxyProject(int id, QString* name, int minGroupSize, int maxGroup
       realProject(new RealProject(id, name, minGroupSize, maxGroupSize))
 { }
 
+ProxyProject::ProxyProject(const ProxyProject& other)
+    : ProxyProject(other, new ProjectStorage(*(other.storage)))
+{ }
+
+ProxyProject::ProxyProject(const Project& project, ProjectStorage* storage)
+    : Project(project), storage(storage)
+{ }
+
 ProxyProject::~ProxyProject()
 {
     if (realProject)

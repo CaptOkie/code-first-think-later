@@ -9,6 +9,8 @@ class ProxyProject : public Project
 {
     public:
         ProxyProject(int id, QString* name, int minGroupSize, int maxGroupSize, ProjectStorage* storage);
+        ProxyProject(const ProxyProject& other);
+        ProxyProject(const Project& project, ProjectStorage* storage);
         ~ProxyProject();
 
         int getId() const;

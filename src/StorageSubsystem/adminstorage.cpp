@@ -43,8 +43,9 @@ void AdminStorage::deleteProject(const Project &project)
     db.close();
 }
 
-void AdminStorage::addProject(const Project &project)
+Project* AdminStorage::addProject(const Project &project)
 {
+    Project* newProject = NULL;
     db.open();
 
     QSqlQuery insert(db);
@@ -54,6 +55,12 @@ void AdminStorage::addProject(const Project &project)
     insert.bindValue(":min", project.getMinGroupSize());
     insert.bindValue(":max", project.getMaxGroupSize());
     insert.exec();
+
+    QVariant lastId = insert.lastInsertId();
+
+    if (lastId.isValid()) {
+        newProject = new ProxyProject(project, new ProjectStorage(db));
+    }
 
     db.close();
 }

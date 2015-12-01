@@ -12,6 +12,7 @@ class ProjectStorage
 {
     public:
         ProjectStorage(QSqlDatabase& db);
+        ProjectStorage(const ProjectStorage& other);
         ~ProjectStorage();
 
         QMap<int, Student*>* getStudents(const Project& project);

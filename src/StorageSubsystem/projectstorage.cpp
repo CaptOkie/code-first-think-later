@@ -2,13 +2,11 @@
 
 ProjectStorage::ProjectStorage(QSqlDatabase& db)
     : db(db)
-{
-}
+{ }
+
+ProjectStorage::ProjectStorage(const ProjectStorage& other)
+    : db(other.db)
+{ }
 
 ProjectStorage::~ProjectStorage()
-{
-    if(db.isOpen()) {
-        db.close();
-    }
-    QSqlDatabase::removeDatabase(db.connectionName());
-}
+{ }
