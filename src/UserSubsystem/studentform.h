@@ -24,6 +24,7 @@ private:
 
 private slots:
     void logout();
+    void logoutDialogFinished(int);
 };
 
 #endif // STUDENTFORM_H

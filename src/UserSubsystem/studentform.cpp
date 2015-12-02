@@ -9,6 +9,7 @@ StudentForm::StudentForm(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->logoutButton, &QPushButton::released, this, &StudentForm::logout);
+    connect(&logoutDialog, SIGNAL(finished (int)), this, SLOT(logoutDialogFinished(int)));
 }
 
 StudentForm::~StudentForm()
@@ -24,4 +25,12 @@ void StudentForm::logout()
 void StudentForm::setName(QString name)
 {
     ui->nameLabel->setText(name);
+}
+
+void StudentForm::logoutDialogFinished(int result)
+{
+    if (result == QDialog::Accepted || result == 0)
+    {
+        close();
+    }
 }
