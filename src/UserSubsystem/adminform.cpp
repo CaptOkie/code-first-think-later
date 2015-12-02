@@ -40,7 +40,7 @@ void AdminForm::logout()
 
 void AdminForm::logoutDialogFinished(int result)
 {
-    if (result == QDialog::Accepted || result == 0)
+    if (result == QDialog::Accepted || result == 13)
     {
         close();
     }

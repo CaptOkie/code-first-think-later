@@ -29,7 +29,7 @@ void StudentForm::setName(QString name)
 
 void StudentForm::logoutDialogFinished(int result)
 {
-    if (result == QDialog::Accepted || result == 0)
+    if (result == QDialog::Accepted || result == 13)
     {
         close();
     }

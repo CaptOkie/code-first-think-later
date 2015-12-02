@@ -30,7 +30,7 @@ void LogoutDialog::logout()
 
 void LogoutDialog::exit()
 {
-    QDialog::done(1);
+    QDialog::done(13);
 }
 
 void LogoutDialog::showDialog()
