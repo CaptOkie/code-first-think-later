@@ -13,7 +13,7 @@ class RealProject : public Project
         const QMap<int, Group*>& getGroups() const;
 
         void setGroups(const QList<Group*>& groups);
-        void setGroups(const QMap<int, Group*>& groups);
+        void setGroups(const QMap<int, Group*>* groups);
 
 };
 

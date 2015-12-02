@@ -22,7 +22,7 @@ void RealProject::setGroups(const QList<Group*>& groups)
 
 }
 
-void RealProject::setGroups(const QMap<int, Group*>& groups)
+void RealProject::setGroups(const QMap<int, Group*>* groups)
 {
 
 }

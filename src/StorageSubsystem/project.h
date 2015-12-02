@@ -26,7 +26,6 @@ class Project
         virtual const QMap<int, Group*>& getGroups() const = 0;
 
         virtual void setGroups(const QList<Group*>& groups) = 0;
-        virtual void setGroups(const QMap<int, Group*>& groups) = 0;
 
     protected:
         int id;
