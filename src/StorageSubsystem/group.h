@@ -8,7 +8,7 @@
 class Group
 {
     public:
-        Group(int id, QMap<int, Student*>* student);
+        Group(int id, QMap<int, Student*>* students);
         ~Group();
 
         int getId() const;

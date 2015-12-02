@@ -7,9 +7,7 @@ Project::Project(int id, QString* name, int minGroupSize, int maxGroupSize)
 Project::Project(const Project& project)
     : id(project.getId()), name(new QString(project.getName())), minGroupSize(project.getMinGroupSize()),
       maxGroupSize(project.getMaxGroupSize())
-{
-
-}
+{ }
 
 Project::~Project()
 {
