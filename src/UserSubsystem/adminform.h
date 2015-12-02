@@ -17,6 +17,7 @@ public:
     ~AdminForm();
 
     void editProject();
+    void setName(QString);
 
 private:
     Ui::AdminForm *ui;

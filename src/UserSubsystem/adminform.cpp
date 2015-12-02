@@ -20,3 +20,8 @@ void AdminForm::editProject()
 {
 
 }
+
+void AdminForm::setName(QString name)
+{
+    ui->nameLabel->setText(name);
+}

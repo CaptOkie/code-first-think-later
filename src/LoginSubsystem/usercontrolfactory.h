@@ -17,6 +17,8 @@ public:
 
 private:
     UserStorage storage;
+    AdminControl* admin;
+    StudentControl* student;
 };
 
 #endif // USERCONTROLFACTORY_H

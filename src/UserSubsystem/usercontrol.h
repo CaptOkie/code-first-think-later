@@ -7,8 +7,10 @@ class UserControl
 {
 public:
     UserControl();
-    ~UserControl();
+    virtual ~UserControl();
     User* user;
+
+    virtual void start();
 };
 
 #endif // USERCONTROL_H

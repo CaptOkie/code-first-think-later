@@ -1,6 +1,8 @@
 #ifndef STUDENTFORM_H
 #define STUDENTFORM_H
 
+#include "logoutdialog.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -14,9 +16,14 @@ class StudentForm : public QMainWindow
 public:
     explicit StudentForm(QWidget *parent = 0);
     ~StudentForm();
+    void setName(QString);
 
 private:
     Ui::StudentForm *ui;
+    LogoutDialog logoutDialog;
+
+private slots:
+    void logout();
 };
 
 #endif // STUDENTFORM_H

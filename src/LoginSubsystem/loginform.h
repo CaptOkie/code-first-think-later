@@ -7,10 +7,6 @@
 #include <QWidget>
 #include <QPushButton>
 
-namespace Ui {
-    class LoginForm;
-}
-
 #include <QMainWindow>
 
 namespace Ui {

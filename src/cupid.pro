@@ -52,7 +52,8 @@ SOURCES += main.cpp \
     PPIDSubsystem/groupwidget.cpp \
     StorageSubsystem/realproject.cpp \
     StorageSubsystem/proxyproject.cpp \
-    LoginSubsystem/errordialog.cpp
+    LoginSubsystem/errordialog.cpp \
+    UserSubsystem/logoutdialog.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -94,7 +95,8 @@ HEADERS  += \
     PPIDSubsystem/groupwidget.h \
     StorageSubsystem/realproject.h \
     StorageSubsystem/proxyproject.h \
-    LoginSubsystem/errordialog.h
+    LoginSubsystem/errordialog.h \
+    UserSubsystem/logoutdialog.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
@@ -103,7 +105,8 @@ FORMS    += \
     UserSubsystem/adminform.ui \
     ProjectSubsystem/projectform.ui \
     PPIDSubsystem/ppidform.ui \
-    LoginSubsystem/errordialog.ui
+    LoginSubsystem/errordialog.ui \
+    UserSubsystem/logoutdialog.ui
 
 RESOURCES += \
     resources/images.qrc

@@ -10,13 +10,21 @@ UserControlFactory::~UserControlFactory()
 
 UserControl* UserControlFactory::getUser(QString id, QString type){
     if (type == "admin"){
-        AdminControl* admin;
-        admin->user = storage.getAdmin(id.toInt()); //temporary going to fix
+        AdminControl* admin = new AdminControl();
+        admin->user = storage.getAdmin(id.toInt());
+        if (admin->user == NULL){
+            delete admin;
+            return NULL;
+        }
         return admin;
     }
     else if (type == "student"){
-        StudentControl* stu;
-        stu->user = storage.getStudent(id.toInt()); //temporary going to fix
+        StudentControl* stu = new StudentControl();
+        stu->user = storage.getStudent(id.toInt());
+        if (stu->user == NULL){
+            delete stu;
+            return NULL;
+        }
         return stu;
     }
     else {
