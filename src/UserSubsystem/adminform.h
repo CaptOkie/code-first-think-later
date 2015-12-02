@@ -30,7 +30,7 @@ private:
     LogoutDialog logoutDialog;
 
 private slots:
-    void logoutDialogFinished(int);
+    void logoutDialogFinished();
 };
 
 #endif // ADMINFORM_H

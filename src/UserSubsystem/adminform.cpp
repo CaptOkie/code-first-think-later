@@ -12,7 +12,7 @@ AdminForm::AdminForm(QWidget *parent) :
 
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
-    connect(&logoutDialog, SIGNAL(finished (int)), this, SLOT(logoutDialogFinished(int)));
+    connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
     //connect(&logoutDialog, &);
     for (int i = 0; i < 3; i++)
         ui->projectTable->resizeColumnToContents(i);
@@ -38,9 +38,9 @@ void AdminForm::logout()
     logoutDialog.showDialog();
 }
 
-void AdminForm::logoutDialogFinished(int result)
+void AdminForm::logoutDialogFinished()
 {
-    if (result == QDialog::Accepted || result == 13)
+    if (logoutDialog.result() == 1 || logoutDialog.result() == 2)
     {
         close();
     }
