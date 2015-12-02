@@ -1,0 +1,7 @@
+CaptOkie:
+8 Hours: Continued work on grouping. Fixed some storage stuff. Refactored login.
+
+TheBakedPotato:
+8 Hours: Continued working on storage. Fixed seg fault.
+
+ViLLiELdR:
