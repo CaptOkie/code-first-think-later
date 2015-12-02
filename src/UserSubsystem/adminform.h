@@ -10,12 +10,14 @@ namespace Ui {
 class AdminForm;
 }
 
+class AdminControl;
+
 class AdminForm : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit AdminForm(QWidget *parent = 0);
+    explicit AdminForm(AdminControl& ctrl, QWidget *parent = 0);
     ~AdminForm();
 
     void editProject();
@@ -28,6 +30,7 @@ private:
     Ui::AdminForm *ui;
     ProjectForm projectForm;
     LogoutDialog logoutDialog;
+    AdminControl& ctrl;
 
 private slots:
     void logoutDialogFinished();

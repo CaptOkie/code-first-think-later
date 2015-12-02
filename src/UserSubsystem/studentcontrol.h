@@ -9,6 +9,7 @@
 #include "usercontrol.h"
 #include "studentform.h"
 #include "StorageSubsystem/student.h"
+#include "ProfileSubsystem/profilecontrol.h"
 
 class StudentControl : public UserControl
 {
@@ -17,10 +18,12 @@ public:
     ~StudentControl();
 
     void start();
+    void editProfile();
 
 private:
     StudentForm stuForm;
     Student* student;
+    //ProfileControl editProfileControl;
 };
 
 #endif // STUDENTCONTROL_H

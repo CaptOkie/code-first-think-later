@@ -1,7 +1,7 @@
 #include "admincontrol.h"
 
 AdminControl::AdminControl(Admin* admin)
-    : adminForm(), admin(admin)//, storage()
+    : adminForm(*this), admin(admin)
 { }
 
 AdminControl::~AdminControl()

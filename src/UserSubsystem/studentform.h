@@ -9,6 +9,8 @@ namespace Ui {
 class StudentForm;
 }
 
+//class StudentControl;
+
 class StudentForm : public QMainWindow
 {
     Q_OBJECT
@@ -21,10 +23,12 @@ public:
 private:
     Ui::StudentForm *ui;
     LogoutDialog logoutDialog;
+    //StudentControl& ctrl;
 
 private slots:
     void logout();
     void logoutDialogFinished();
+    void editProfile();
 };
 
 #endif // STUDENTFORM_H

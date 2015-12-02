@@ -9,6 +9,7 @@ StudentForm::StudentForm(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->logoutButton, &QPushButton::released, this, &StudentForm::logout);
+    connect(ui->editProfileButton, &QPushButton::released, this, &StudentForm::editProfile);
     connect(&logoutDialog, &QDialog::finished, this, &StudentForm::logoutDialogFinished);
 }
 
@@ -33,4 +34,9 @@ void StudentForm::logoutDialogFinished()
     {
         close();
     }
+}
+
+void StudentForm::editProfile()
+{
+    //ctrl.editProfile();
 }

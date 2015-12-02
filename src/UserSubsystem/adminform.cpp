@@ -2,11 +2,12 @@
 #include "ui_adminform.h"
 #include <QStandardItemModel>
 
-AdminForm::AdminForm(QWidget *parent) :
+AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AdminForm),
     projectForm(this),
-    logoutDialog(this)
+    logoutDialog(this),
+    ctrl(ctrl)
 {
     ui->setupUi(this);
 
