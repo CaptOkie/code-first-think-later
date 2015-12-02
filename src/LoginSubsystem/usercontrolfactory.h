@@ -5,6 +5,7 @@
 #include "UserSubsystem/usercontrol.h"
 #include "UserSubsystem/admincontrol.h"
 #include "UserSubsystem/studentcontrol.h"
+#include "StorageSubsystem/userstorage.h"
 
 class UserControlFactory
 {
@@ -13,6 +14,9 @@ public:
     ~UserControlFactory();
 
     UserControl* getUser(QString, QString); //id, type
+
+private:
+    UserStorage storage;
 };
 
 #endif // USERCONTROLFACTORY_H

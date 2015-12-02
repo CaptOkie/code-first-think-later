@@ -24,14 +24,20 @@ LoginForm::~LoginForm()
 void LoginForm::attemptLogin()
 {
     QString userInput = ui->userIDInput->text();
+    QString errorMessage;
     if (userInput.length() > 0){
         LoginControl control;
         if (control.start(userInput)){
             close();
         }
-        else{
-
+        else {
+            errorMessage = "no_user";
+            errorDialog.showDialog(errorMessage);
         }
+    }
+    else {
+        errorMessage = "no_input";
+        errorDialog.showDialog(errorMessage);
     }
 }
 

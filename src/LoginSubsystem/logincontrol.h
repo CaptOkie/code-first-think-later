@@ -8,6 +8,7 @@
 
 #include "UserSubsystem/adminform.h"
 #include "UserSubsystem/studentform.h"
+#include "usercontrolfactory.h"
 
 class LoginControl
 {
@@ -20,6 +21,7 @@ public:
 private:
     StudentForm* stuForm;
     AdminForm* adminForm;
+    UserControlFactory factory;
 };
 
 #endif // LOGINCONTROL_H

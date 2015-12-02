@@ -4,7 +4,7 @@
 #include <QDialog>
 
 namespace Ui {
-class ErrorDialog;
+    class ErrorDialog;
 }
 
 class ErrorDialog : public QDialog
@@ -17,6 +17,17 @@ public:
 
 private:
     Ui::ErrorDialog *ui;
+
+private slots:
+    void close();
+
+public slots:
+    void showDialog(QString);
+
+signals:
+    void closedHelp();
 };
+
+
 
 #endif // ERRORDIALOG_H
