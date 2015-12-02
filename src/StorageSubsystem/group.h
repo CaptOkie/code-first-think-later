@@ -8,16 +8,16 @@
 class Group
 {
     public:
-        Group();
+        Group(int id, QMap<int, Student&>* student);
         ~Group();
 
         int getId() const;
-        const QMap<int, Student*>& getStudents() const;
-        QMap<int, Student*>& getStudents();
+        QMap<int, Student&>& getStudents();
+        const QMap<int, Student&>& getStudents() const;
 
     private:
         int id;
-        QMap<int, Student*>* student;
+        QMap<int, Student&>* students;
 };
 
 #endif // GROUP_H
