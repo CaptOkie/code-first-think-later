@@ -18,7 +18,9 @@ UserStorage::~UserStorage()
     if(db.isOpen()) {
         db.close();
     }
-    QSqlDatabase::removeDatabase(db.connectionName());
+    QString name = db.connectionName();
+    db = QSqlDatabase();
+    db.removeDatabase(name);
 }
 
 Admin* UserStorage::getAdmin(int id) {

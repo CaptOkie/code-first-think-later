@@ -70,11 +70,11 @@ void StorageInitializer::init(QSqlDatabase &db)
                           "ON DELETE CASCADE ON UPDATE CASCADE, "
             "PRIMARY KEY (" RESP_STU_COL " , " RESP_QSTN_COL "))");
 
+    db.close();
+
 #ifdef DEBUG
     populate(db);
 #endif
-
-    db.close();
 }
 
 void StorageInitializer::populate(QSqlDatabase& db)
