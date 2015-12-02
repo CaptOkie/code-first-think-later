@@ -12,6 +12,8 @@ AdminForm::AdminForm(QWidget *parent) :
 
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
+    connect(&logoutDialog, SIGNAL(finished (int)), this, SLOT(logoutDialogFinished(int)));
+    //connect(&logoutDialog, &);
     for (int i = 0; i < 3; i++)
         ui->projectTable->resizeColumnToContents(i);
 }
@@ -36,7 +38,21 @@ void AdminForm::logout()
     logoutDialog.showDialog();
 }
 
+void AdminForm::logoutDialogFinished(int result)
+{
+    if (result == QDialog::Accepted || result == 0)
+    {
+        close();
+    }
+}
+
 QTreeWidget* AdminForm::getTreeWidget()
 {
     return ui->projectTable;
+}
+
+void AdminForm::addTreeItem(QStringList list)
+{
+    QTreeWidgetItem* item = new QTreeWidgetItem(ui->projectTable, list);
+    ui->projectTable->insertTopLevelItem(0, item);
 }

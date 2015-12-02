@@ -22,11 +22,15 @@ public:
     void setName(QString);
     void logout();
     QTreeWidget* getTreeWidget();
+    void addTreeItem(QStringList);
 
 private:
     Ui::AdminForm *ui;
     ProjectForm projectForm;
     LogoutDialog logoutDialog;
+
+private slots:
+    void logoutDialogFinished(int);
 };
 
 #endif // ADMINFORM_H

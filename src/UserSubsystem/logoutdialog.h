@@ -2,6 +2,7 @@
 #define LOGOUTDIALOG_H
 
 #include <QDialog>
+#include <QProcess>
 
 namespace Ui {
 class LogoutDialog;

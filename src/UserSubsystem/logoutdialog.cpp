@@ -24,7 +24,8 @@ void LogoutDialog::close()
 
 void LogoutDialog::logout()
 {
-    QDialog::done(0);
+    QProcess::startDetached(QApplication::applicationFilePath());
+    QDialog::accept();
 }
 
 void LogoutDialog::exit()
