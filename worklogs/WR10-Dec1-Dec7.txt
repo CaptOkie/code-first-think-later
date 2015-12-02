@@ -5,3 +5,4 @@ TheBakedPotato:
 8 Hours: Continued working on storage. Fixed seg fault.
 
 ViLLiELdR:
+8 Hours: Worked on Login, main pages, and additional dialogs
