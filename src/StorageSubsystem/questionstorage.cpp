@@ -10,5 +10,4 @@ QuestionStorage::~QuestionStorage()
     if(db.isOpen()) {
         db.close();
     }
-    QSqlDatabase::removeDatabase(db.connectionName());
 }

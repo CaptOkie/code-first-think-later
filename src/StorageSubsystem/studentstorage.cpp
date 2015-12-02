@@ -5,7 +5,10 @@ StudentStorage::StudentStorage(QSqlDatabase& db)
 { }
 
 StudentStorage::~StudentStorage()
-{ }
+{
+    if (db.isOpen())
+        db.close();
+}
 
 QMap<int, Question*>* StudentStorage::getQuestions(const Student& student)
 {

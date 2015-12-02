@@ -7,7 +7,10 @@ AdminStorage::AdminStorage(QSqlDatabase& db)
 { }
 
 AdminStorage::~AdminStorage()
-{ }
+{
+    if (db.isOpen())
+        db.close();
+}
 
 QMap<QString, Project*>* AdminStorage::getProjects()
 {
