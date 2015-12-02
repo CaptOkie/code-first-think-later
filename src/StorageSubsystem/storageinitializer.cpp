@@ -1,6 +1,10 @@
 #include "storageinitializer.h"
-
 #define DEBUG
+#define STR_HELPER(x) #x
+#define STR(x) STR_HELPER(x)
+
+#include <QDebug>
+
 StorageInitializer::StorageInitializer()
 { }
 
@@ -23,11 +27,16 @@ void StorageInitializer::init(QSqlDatabase &db)
 
     db.exec("CREATE TABLE IF NOT EXISTS " STU_TABLE
             " (" STU_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
-            STU_NAME_COL " text NOT NULL, ");
+            STU_NAME_COL " text NOT NULL)");
+
+    qDebug() << "Que?";
+    qDebug() << db.lastError();
 
     db.exec("CREATE TABLE IF NOT EXISTS " ADMN_TABLE
             " (" ADMN_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
-            ADMN_NAME_COL " text NOT NULL, ");
+            ADMN_NAME_COL " text NOT NULL)");
+
+    qDebug() << db.lastError();
 
     db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
             " (" PRO_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
@@ -35,10 +44,13 @@ void StorageInitializer::init(QSqlDatabase &db)
             PRO_MAX_GRP_COL " integer NOT NULL, "
             PRO_MIN_GRP_COL " integer NOT NULL)");
 
-    db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
-            " (" ENRL_STU_COL " REFERENCES " STU_TABLE " (" STU_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
-            ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_NAME_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
-            "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
+    qDebug() << db.lastError();
+
+//    db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
+//            " (" ENRL_STU_COL " REFERENCES " STU_TABLE " (" STU_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
+//            ENRL_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
+//            ENRL_GRP_COL " integer DEFAULT " STR(ENRL_GRP_NUM) " NOT NULL "
+//            "PRIMARY KEY (" ENRL_STU_COL " , " ENRL_PRO_COL "))");
 
     db.exec("CREATE TABLE IF NOT EXISTS " QSTN_TABLE
             " (" QSTN_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
@@ -46,11 +58,15 @@ void StorageInitializer::init(QSqlDatabase &db)
             QSTN_DESR_COL " text NOT NULL, "
             QSTN_CAT_COL " text NOT NULL)");
 
+    qDebug() << db.lastError();
+
     db.exec("CREATE TABLE IF NOT EXISTS " ANSR_TABLE
             " (" ANSR_QID_COL " REFERENCES " QSTN_TABLE " (" QSTN_ID_COL ") ON DELETE CASCADE NOT NULL, "
             ANSR_ID_COL " integer NOT NULL, "
             ANSR_VAL_COL " text NOT NULL, "
             "PRIMARY KEY (" ANSR_QID_COL " , " ANSR_ID_COL "))");
+
+    qDebug() << db.lastError();
 
     db.exec("CREATE TABLE IF NOT EXISTS " RESP_TABLE
             " (" RESP_STU_COL " REFERENCES " STU_TABLE " (" STU_ID_COL ") ON DELETE CASCADE NOT NULL, "

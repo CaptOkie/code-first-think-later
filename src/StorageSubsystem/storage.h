@@ -22,6 +22,8 @@
 #define ENRL_TABLE   "enrollment"
 #define ENRL_STU_COL "stu_id"
 #define ENRL_PRO_COL "project_name"
+#define ENRL_GRP_COL "group_num"
+#define ENRL_GRP_NUM -1             // Default group number for students
 // Questions table
 #define QSTN_TABLE    "questions"
 #define QSTN_ID_COL   "id"

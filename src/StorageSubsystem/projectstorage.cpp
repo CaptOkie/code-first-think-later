@@ -45,7 +45,8 @@ QMap<int, Group*>* ProjectStorage::getGroups(const Project& project)
     db.open();
 
     QSqlQuery select(db);
-//    select.prepare("SELECT ")
+    select.prepare("SELECT ");
+
     db.close();
     return groups;
 }

@@ -14,7 +14,12 @@ UserStorage::UserStorage()
 }
 
 UserStorage::~UserStorage()
-{ }
+{
+    if(db.isOpen()) {
+        db.close();
+    }
+    QSqlDatabase::removeDatabase(db.connectionName());
+}
 
 Admin* UserStorage::getAdmin(int id) {
     ProxyAdmin* admin = NULL;
@@ -37,7 +42,7 @@ Admin* UserStorage::getAdmin(int id) {
 }
 
 Student* UserStorage::getStudent(int id) {
-    ProxyStudent* student;
+    ProxyStudent* student = NULL;
 
     db.open();
 
