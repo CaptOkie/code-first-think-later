@@ -13,7 +13,7 @@ AdminForm::AdminForm(QWidget *parent) :
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
-    //connect(&logoutDialog, &);
+
     for (int i = 0; i < 3; i++)
         ui->projectTable->resizeColumnToContents(i);
 }
