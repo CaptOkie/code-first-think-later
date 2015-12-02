@@ -2,69 +2,42 @@
 #include "ui_loginform.h"
 
 LoginControl::LoginControl()
-{
-}
+    : loginForm(*this), factory(), userControl(NULL)
+{ }
 
 LoginControl::~LoginControl()
 {
-}
-
-bool LoginControl::studentLogin()
-{
-    UserControl* studentControl = factory.getUser(loginForm->ui->userIDInput->text(), "student");
-
-    if (adminControl != NULL) {
-        delete studentControl;
-        adminControl->start();
-        return true;
-    }
-
-    else if (studentControl != NULL) {
-        delete adminControl;
-        studentControl->start();
-        return true;
-    }
-
-    else {
-        delete adminControl;
-        delete studentControl;
-        return false;
+    if (userControl) {
+        delete userControl;
     }
 }
 
-bool LoginControl::adminLogin()
+bool LoginControl::studentLogin(int id)
 {
-    UserControl* adminControl = factory.getUser(loginForm->ui->userIDInput->text(), "admin");
+    return login(id, UserControlFactory::StudentType);
+}
 
-    if (adminControl != NULL) {
-        delete studentControl;
-        adminControl->start();
+bool LoginControl::adminLogin(int id)
+{
+    return login(id, UserControlFactory::AdminType);
+}
+
+bool LoginControl::login(int id, UserControlFactory::Type type)
+{
+    if (userControl) {
+        delete userControl;
+        userControl = NULL;
+    }
+    userControl = factory.getUser(id, type);
+
+    if (userControl) {
+        userControl->start();
         return true;
     }
-
-    else if (studentControl != NULL) {
-        delete adminControl;
-        studentControl->start();
-        return true;
-    }
-
-    else {
-        delete adminControl;
-        delete studentControl;
-        return false;
-    }
+    return false;
 }
 
 void LoginControl::start()
 {
-    loginForm = new LoginForm();
-        loginForm->setGeometry(
-            QStyle::alignedRect(
-                Qt::LeftToRight,
-                Qt::AlignCenter,
-                loginForm->size(),
-                qApp->desktop()->availableGeometry()
-            )
-        );
-    loginForm->show();
+    loginForm.show();
 }

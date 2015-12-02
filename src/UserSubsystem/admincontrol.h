@@ -8,15 +8,19 @@
 
 #include "usercontrol.h"
 #include "adminform.h"
+#include "StorageSubsystem/admin.h"
 
 class AdminControl : public UserControl
 {
 public:
-    AdminControl();
+    AdminControl(Admin* admin);
     ~AdminControl();
 
     void start();
-    AdminForm* adminForm;
+
+private:
+    AdminForm adminForm;
+    Admin* admin;
 
 };
 

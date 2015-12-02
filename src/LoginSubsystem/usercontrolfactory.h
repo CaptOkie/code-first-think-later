@@ -10,15 +10,18 @@
 class UserControlFactory
 {
 public:
+    enum Type {
+        StudentType, AdminType
+    };
+
+public:
     UserControlFactory();
     ~UserControlFactory();
 
-    UserControl* getUser(QString, QString); //id, type
+    UserControl* getUser(int id, Type type);
 
 private:
     UserStorage storage;
-    AdminControl* admin;
-    StudentControl* student;
 };
 
 #endif // USERCONTROLFACTORY_H

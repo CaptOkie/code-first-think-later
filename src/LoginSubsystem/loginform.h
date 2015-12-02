@@ -10,20 +10,26 @@
 #include <QMainWindow>
 
 namespace Ui {
-class LoginForm;
+    class LoginForm;
 }
+
+class LoginControl;
 
 class LoginForm : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit LoginForm(QWidget *parent = 0);
+    explicit LoginForm(LoginControl& ctrl, QWidget *parent = 0);
     ~LoginForm();
-    Ui::LoginForm *ui;
+
+    void show();
+
 private:
+    Ui::LoginForm *ui;
     HelpDialog helpDialog;
     ErrorDialog errorDialog;
+    LoginControl& ctrl;
 
 private slots:
     void adminLogin();

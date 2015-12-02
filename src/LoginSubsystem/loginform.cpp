@@ -1,20 +1,20 @@
 #include "loginform.h"
 #include "ui_loginform.h"
-
 #include "logincontrol.h"
 
-LoginForm::LoginForm(QWidget *parent) :
+LoginForm::LoginForm(LoginControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoginForm),
     helpDialog(this),
-    errorDialog(this)
+    errorDialog(this),
+    ctrl(ctrl)
 {
     ui->setupUi(this);
 
-    connect(ui->askHelpButton, &QPushButton::released, &helpDialog, &HelpDialog::showDialog);
-    connect(ui->createAccountButton, &QPushButton::released, this, &LoginForm::createNewAccount);
-    connect(ui->studentLoginButton, &QPushButton::released, this, &LoginForm::studentLogin);
-    connect(ui->adminLoginButton, &QPushButton::released, this, &LoginForm::adminLogin);
+    connect(ui->askHelpButton, &QPushButton::clicked, &helpDialog, &HelpDialog::showDialog);
+    connect(ui->createAccountButton, &QPushButton::clicked, this, &LoginForm::createNewAccount);
+    connect(ui->studentLoginButton, &QPushButton::clicked, this, &LoginForm::studentLogin);
+    connect(ui->adminLoginButton, &QPushButton::clicked, this, &LoginForm::adminLogin);
 }
 
 LoginForm::~LoginForm()
@@ -26,10 +26,10 @@ void LoginForm::studentLogin()
 {
     QString errorMessage;
     QString userInput = ui->userIDInput->text();
+
     if (userInput.length() > 0){
-        bool result = &LoginControl::studentLogin;
-        if (result){
-            close();
+        if (ctrl.studentLogin(userInput.toInt())){
+//            close();
         }
         else {
             errorMessage = "no_user";
@@ -48,9 +48,8 @@ void LoginForm::adminLogin()
     QString userInput = ui->userIDInput->text();
 
     if (userInput.length() > 0){
-        bool result = &LoginControl::adminLogin;
-        if (result){
-            close();
+        if (ctrl.adminLogin(userInput.toInt())){
+//            close();
         }
         else {
             errorMessage = "no_user";
@@ -66,4 +65,17 @@ void LoginForm::adminLogin()
 void LoginForm::createNewAccount()
 {
 
+}
+
+void LoginForm::show()
+{
+    setGeometry(
+        QStyle::alignedRect(
+            Qt::LeftToRight,
+            Qt::AlignCenter,
+            size(),
+            qApp->desktop()->availableGeometry()
+        )
+    );
+    QMainWindow::show();
 }

@@ -1,33 +1,32 @@
 #include "usercontrolfactory.h"
+#include "StorageSubsystem/admin.h"
+#include "StorageSubsystem/student.h"
 
 UserControlFactory::UserControlFactory()
-{
-}
+    : storage()
+{ }
 
 UserControlFactory::~UserControlFactory()
-{
-}
+{ }
 
-UserControl* UserControlFactory::getUser(QString id, QString type){
-    if (type == "admin"){
-        AdminControl* admin = new AdminControl();
-        admin->user = storage.getAdmin(id.toInt());
-        if (admin->user == NULL){
-            delete admin;
-            return NULL;
-        }
-        return admin;
+UserControl* UserControlFactory::getUser(int id, Type type){
+
+    Admin* admin = NULL;
+    Student* student = NULL;
+    switch (type) {
+        case AdminType:
+            admin = storage.getAdmin(id);
+            if (admin) {
+                return new AdminControl(admin);
+            }
+            break;
+        default:
+            student = storage.getStudent(id);
+            if (student) {
+                return new StudentControl(student);
+            }
+            break;
     }
-    else if (type == "student"){
-        StudentControl* stu = new StudentControl();
-        stu->user = storage.getStudent(id.toInt());
-        if (stu->user == NULL){
-            delete stu;
-            return NULL;
-        }
-        return stu;
-    }
-    else {
-        return NULL;
-    }
+
+    return NULL;
 }

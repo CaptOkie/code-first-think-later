@@ -1,11 +1,6 @@
 #ifndef LOGINCONTROL_H
 #define LOGINCONTROL_H
 
-#include <QString>
-#include <QDesktopWidget>
-#include <QApplication>
-#include <QStyle>
-
 #include "usercontrolfactory.h"
 #include "loginform.h"
 
@@ -15,15 +10,16 @@ public:
     LoginControl();
     ~LoginControl();
 
-    bool studentLogin();
-    bool adminLogin();
+    bool studentLogin(int id);
+    bool adminLogin(int id);
     void start();
 
 private:
-    AdminControl* adminControl;
-    StudentControl* studentControl;
-    LoginForm* loginForm;
+    LoginForm loginForm;
     UserControlFactory factory;
+    UserControl* userControl;
+
+    bool login(int id, UserControlFactory::Type type);
 };
 
 #endif // LOGINCONTROL_H

@@ -5,12 +5,11 @@
 
 class UserControl
 {
-public:
-    UserControl();
-    virtual ~UserControl();
-    User* user;
+    public:
+        UserControl();
+        virtual ~UserControl();
 
-    virtual void start();
+        virtual void start() = 0;
 };
 
 #endif // USERCONTROL_H

@@ -8,15 +8,19 @@
 
 #include "usercontrol.h"
 #include "studentform.h"
+#include "StorageSubsystem/student.h"
 
 class StudentControl : public UserControl
 {
 public:
-    StudentControl();
+    StudentControl(Student* student);
     ~StudentControl();
 
     void start();
-    StudentForm* stuForm;
+
+private:
+    StudentForm stuForm;
+    Student* student;
 };
 
 #endif // STUDENTCONTROL_H
