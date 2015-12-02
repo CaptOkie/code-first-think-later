@@ -101,19 +101,34 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>927</width>
+           <width>460</width>
            <height>368</height>
           </rect>
          </property>
-         <widget class="QTableWidget" name="projectTable">
+         <widget class="QTreeWidget" name="projectTable">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
             <width>931</width>
-            <height>401</height>
+            <height>391</height>
            </rect>
           </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Min Group Size</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Max Group Size</string>
+           </property>
+          </column>
          </widget>
         </widget>
        </widget>
@@ -156,6 +171,15 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QTreeWidget" name="treeWidget">
+        <column>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </column>
+       </widget>
       </item>
      </layout>
     </item>

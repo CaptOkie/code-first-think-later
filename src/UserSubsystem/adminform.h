@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "ProjectSubsystem/projectform.h"
 #include "logoutdialog.h"
+#include <QTreeWidget>
 
 namespace Ui {
 class AdminForm;
@@ -20,6 +21,7 @@ public:
     void editProject();
     void setName(QString);
     void logout();
+    QTreeWidget* getTreeWidget();
 
 private:
     Ui::AdminForm *ui;
