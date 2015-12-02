@@ -29,7 +29,7 @@ void LoginForm::studentLogin()
 
     if (userInput.length() > 0){
         if (ctrl.studentLogin(userInput.toInt())){
-//            close();
+            close();
         }
         else {
             errorMessage = "no_user";
@@ -49,7 +49,7 @@ void LoginForm::adminLogin()
 
     if (userInput.length() > 0){
         if (ctrl.adminLogin(userInput.toInt())){
-//            close();
+            close();
         }
         else {
             errorMessage = "no_user";
