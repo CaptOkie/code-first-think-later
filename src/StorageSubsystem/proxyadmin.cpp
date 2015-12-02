@@ -13,6 +13,11 @@ ProxyAdmin::~ProxyAdmin()
         delete storage;
 }
 
+QMap<QString, Project*>& ProxyAdmin::getProjects()
+{
+
+}
+
 const QMap<QString, Project*>& ProxyAdmin::getProjects() const
 {
     if (!(realAdmin->hasProjects())) {

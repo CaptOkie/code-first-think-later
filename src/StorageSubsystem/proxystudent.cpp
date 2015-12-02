@@ -12,3 +12,28 @@ ProxyStudent::~ProxyStudent()
     if(storage)
         delete storage;
 }
+
+const QMap<int, Question*>& ProxyStudent::getQuestions() const
+{
+
+}
+
+const QMap<QString, Project*>& ProxyStudent::getEnrolledProjects() const
+{
+
+}
+
+const QMap<QString, Project*>& ProxyStudent::getAvailableProject() const
+{
+
+}
+
+void ProxyStudent::joinProject(const Project& project)
+{
+
+}
+
+void ProxyStudent::leaveProject(const Project& project)
+{
+
+}

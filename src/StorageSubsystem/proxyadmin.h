@@ -11,6 +11,7 @@ class ProxyAdmin : public Admin
         ProxyAdmin(int id, QString* name, AdminStorage* storage);
         ~ProxyAdmin();
 
+        virtual QMap<QString, Project*>& getProjects();
         const QMap<QString, Project*>& getProjects() const;
 
         void deleteProject(const Project& project);

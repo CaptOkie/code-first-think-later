@@ -6,7 +6,8 @@
 class Answer
 {
     public:
-        Answer();
+        Answer(int id, QString* text);
+        Answer(Answer& other);
         ~Answer();
 
         int getId() const;

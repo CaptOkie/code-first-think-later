@@ -21,3 +21,18 @@ ProxyProject::~ProxyProject()
     if (storage)
         delete storage;
 }
+
+const QMap<int, Student*>& ProxyProject::getStudents() const
+{
+
+}
+
+const QMap<int, Group*>& ProxyProject::getGroups() const
+{
+
+}
+
+void ProxyProject::setGroups(const QList<Group*>& groups)
+{
+
+}

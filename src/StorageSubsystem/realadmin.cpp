@@ -7,6 +7,11 @@ RealAdmin::RealAdmin(int id, QString* name)
 RealAdmin::~RealAdmin()
 { }
 
+QMap<QString, Project*>& RealAdmin::getProjects()
+{
+
+}
+
 const QMap<QString, Project*>& RealAdmin::getProjects() const
 {
     return *projects;

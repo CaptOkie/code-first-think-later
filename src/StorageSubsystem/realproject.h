@@ -9,11 +9,6 @@ class RealProject : public Project
         RealProject(int id, QString* name, int minGroupSize, int maxGroupSize);
         ~RealProject();
 
-        int getId() const;
-        const QString& getName() const;
-        int getMaxGroupSize() const;
-        int getMinGroupSize() const;
-
         const QMap<int, Student*>& getStudents() const;
         const QMap<int, Group*>& getGroups() const;
 
