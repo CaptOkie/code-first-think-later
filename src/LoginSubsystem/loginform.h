@@ -27,7 +27,8 @@ private:
     ErrorDialog errorDialog;
 
 private slots:
-    void attemptLogin();
+    void adminLogin();
+    void studentLogin();
     void createNewAccount();
 };
 

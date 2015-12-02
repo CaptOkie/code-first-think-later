@@ -6,9 +6,8 @@
 #include <QApplication>
 #include <QStyle>
 
-#include "UserSubsystem/adminform.h"
-#include "UserSubsystem/studentform.h"
 #include "usercontrolfactory.h"
+#include "loginform.h"
 
 class LoginControl
 {
@@ -16,11 +15,14 @@ public:
     LoginControl();
     ~LoginControl();
 
-    bool start(QString);
+    bool studentLogin(QString);
+    bool adminLogin(QString);
+    void start();
 
 private:
-    StudentForm* stuForm;
-    AdminForm* adminForm;
+    AdminControl* adminControl;
+    StudentControl* studentControl;
+    LoginForm* loginForm;
     UserControlFactory factory;
 };
 

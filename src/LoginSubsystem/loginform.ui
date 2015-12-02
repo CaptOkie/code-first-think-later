@@ -30,14 +30,14 @@
         <widget class="QLineEdit" name="userIDInput"/>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="adminLoginButton">
          <property name="text">
           <string>Admin Login</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="loginButton">
+        <widget class="QPushButton" name="studentLoginButton">
          <property name="text">
           <string>Student Login</string>
          </property>
