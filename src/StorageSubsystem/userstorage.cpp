@@ -5,9 +5,10 @@
 #include "proxystudent.h"
 #include "studentstorage.h"
 
-UserStorage::UserStorage(QSqlDatabase& db)
-    : db(db)
+UserStorage::UserStorage()
+    : db(QSqlDatabase::addDatabase("QSQLITE"))
 {
+    db.setDatabaseName(DATABASE_NAME);
     StorageInitializer init;
     init.init(db);
 }

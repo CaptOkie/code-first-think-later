@@ -4,6 +4,10 @@ ProxyStudent::ProxyStudent(int id, QString* name, StudentStorage* storage)
     : Student(id, name), realStudent(NULL), storage(storage)
 { }
 
+ProxyStudent::ProxyStudent(ProxyStudent& other)
+    : Student(other), storage(other.storage)
+{ }
+
 ProxyStudent::~ProxyStudent()
 {
     if(realStudent)

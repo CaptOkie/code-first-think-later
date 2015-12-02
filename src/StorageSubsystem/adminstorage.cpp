@@ -30,17 +30,19 @@ QMap<QString, Project*>* AdminStorage::getProjects()
     return projects;
 }
 
-void AdminStorage::deleteProject(const Project &project)
+bool AdminStorage::deleteProject(const Project &project)
 {
+    bool result;
     db.open();
-    db.exec("PRAGMA foreign_keys = ON;");
 
     QSqlQuery remove(db);
-    remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_NAME_COL " = :name");
-    remove.bindValue(":name", project.getName());
-    remove.exec();
+    remove.exec("PRAGMA foreign_keys = ON;");
+    remove.prepare("DELETE FROM " PRO_TABLE " WHERE " PRO_ID_COL " = :id");
+    remove.bindValue(":id", project.getId());
+    result = remove.exec();
 
     db.close();
+    return result;
 }
 
 Project* AdminStorage::addProject(const Project &project)
@@ -63,4 +65,5 @@ Project* AdminStorage::addProject(const Project &project)
     }
 
     db.close();
+    return newProject;
 }

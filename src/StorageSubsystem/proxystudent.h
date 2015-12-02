@@ -9,6 +9,7 @@ class ProxyStudent : public Student
 {
     public:
         ProxyStudent(int id, QString* name, StudentStorage* storage);
+        ProxyStudent(ProxyStudent& other);
         ~ProxyStudent();
 
         const QMap<int, Question*>& getQuestions() const;

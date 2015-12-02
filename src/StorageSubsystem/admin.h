@@ -16,8 +16,8 @@ class Admin : public User
         virtual const QMap<QString, Project*>& getProjects() const = 0;
         virtual QMap<QString, Project*>& getProjects() = 0;
 
-        virtual void deleteProject(const Project& project) = 0;
-        virtual void addProject(const Project& project) = 0;
+        virtual Project* deleteProject(const Project& project) = 0;
+        virtual bool addProject(Project& project) = 0;
 };
 
 #endif // ADMIN_H

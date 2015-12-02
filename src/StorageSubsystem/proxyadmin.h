@@ -14,8 +14,8 @@ class ProxyAdmin : public Admin
         virtual QMap<QString, Project*>& getProjects();
         const QMap<QString, Project*>& getProjects() const;
 
-        void deleteProject(const Project& project);
-        void addProject(const Project& project);
+        Project* deleteProject(const Project& project);
+        bool addProject(Project& project);
 
     private:
         RealAdmin* realAdmin;

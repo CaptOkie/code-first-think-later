@@ -1,4 +1,5 @@
 #include "realadmin.h"
+#include "realproject.h"
 
 RealAdmin::RealAdmin(int id, QString* name)
     : Admin(id, name), projects(NULL)
@@ -12,6 +13,11 @@ QMap<QString, Project*>& RealAdmin::getProjects()
 
 }
 
+void RealAdmin::setProjects(QMap<QString, Project*>* projects)
+{
+    this->projects = projects;
+}
+
 const QMap<QString, Project*>& RealAdmin::getProjects() const
 {
     return *projects;
@@ -22,17 +28,14 @@ bool RealAdmin::hasProjects() const
     return projects != NULL;
 }
 
-void RealAdmin::setProjects(QMap<QString, Project*>* projects)
+Project* RealAdmin::deleteProject(const Project& project)
 {
-    this->projects = projects;
+    return projects->take(project.getName());
 }
 
-void RealAdmin::deleteProject(const Project& project)
+bool RealAdmin::addProject(Project& project)
 {
-    projects->remove(project.getName());
+    projects->insert(project.getName(), &project);
+    return true;
 }
 
-void RealAdmin::addProject(const Project& project)
-{
-//    projects->insert(project.getName(), project);
-}
