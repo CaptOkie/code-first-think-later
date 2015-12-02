@@ -10,7 +10,7 @@ RealAdmin::~RealAdmin()
 
 QMap<QString, Project*>& RealAdmin::getProjects()
 {
-
+    return *projects;
 }
 
 void RealAdmin::setProjects(QMap<QString, Project*>* projects)
