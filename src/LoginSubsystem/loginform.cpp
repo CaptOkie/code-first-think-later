@@ -30,7 +30,7 @@ void LoginForm::attemptLogin()
             close();
         }
         else{
-            &
+
         }
     }
 }
