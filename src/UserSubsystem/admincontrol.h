@@ -11,7 +11,7 @@
 #include "usercontrol.h"
 #include "adminform.h"
 #include "StorageSubsystem/admin.h"
-#include "StorageSubsystem/adminstorage.h"
+#include "StorageSubsystem/project.h"
 
 class AdminControl : public UserControl
 {
@@ -27,7 +27,6 @@ private:
     Admin* admin;
 
     void loadProjects();
-    //AdminStorage storage;
 
 };
 

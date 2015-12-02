@@ -29,20 +29,19 @@ void AdminControl::start()
 void AdminControl::loadProjects()
 {
     adminForm.getTreeWidget()->clear();
-    /*QMap<QString, Project*>* projects = storage.getProjects();
-    QMap<QString, Project*>::const_iterator i = projects->constBegin();
-    while (i != projects->constEnd())
+    QMap<QString, Project*> projects = admin->getProjects();
+    QMap<QString, Project*>::const_iterator i = projects.constBegin();
+    while (i != projects.constEnd())
     {
-        Project project = i.key();
         QStringList list;
-        list.append(project.getId());
-        list.append(project.getName());
-        list.append(project.getMaxGroupSize());
-        list.append(project.getMinGroupSize());
+        const Project& p = **i;
+        list.append(QString::number(p.getId()));
+        list.append(i.value()->getName());
+        list.append(QString::number(p.getMaxGroupSize()));
+        list.append(QString::number(p.getMinGroupSize()));
         new QTreeWidgetItem(adminForm.getTreeWidget(), list);
         ++i;
     }
-    */
 }
 
 void AdminControl::editProject()
