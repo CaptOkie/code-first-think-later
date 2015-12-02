@@ -20,9 +20,8 @@ class LoginForm : public QMainWindow
 public:
     explicit LoginForm(QWidget *parent = 0);
     ~LoginForm();
-
-private:
     Ui::LoginForm *ui;
+private:
     HelpDialog helpDialog;
     ErrorDialog errorDialog;
 

@@ -15,8 +15,8 @@ public:
     LoginControl();
     ~LoginControl();
 
-    bool studentLogin(QString);
-    bool adminLogin(QString);
+    bool studentLogin();
+    bool adminLogin();
     void start();
 
 private:

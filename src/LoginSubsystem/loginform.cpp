@@ -24,11 +24,10 @@ LoginForm::~LoginForm()
 
 void LoginForm::studentLogin()
 {
-    /*QString userInput = ui->userIDInput->text();
     QString errorMessage;
-
+    QString userInput = ui->userIDInput->text();
     if (userInput.length() > 0){
-        bool result = loginControl.studentLogin(userInput);
+        bool result = &LoginControl::studentLogin;
         if (result){
             close();
         }
@@ -40,16 +39,16 @@ void LoginForm::studentLogin()
     else {
         errorMessage = "no_input";
         errorDialog.showDialog(errorMessage);
-    }*/
+    }
 }
 
 void LoginForm::adminLogin()
 {
-    /*QString userInput = ui->userIDInput->text(userInput);
     QString errorMessage;
+    QString userInput = ui->userIDInput->text();
 
     if (userInput.length() > 0){
-        bool result = loginControl::adminLogin();
+        bool result = &LoginControl::adminLogin;
         if (result){
             close();
         }
@@ -61,7 +60,7 @@ void LoginForm::adminLogin()
     else {
         errorMessage = "no_input";
         errorDialog.showDialog(errorMessage);
-    }*/
+    }
 }
 
 void LoginForm::createNewAccount()

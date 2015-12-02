@@ -1,4 +1,5 @@
 #include "logincontrol.h"
+#include "ui_loginform.h"
 
 LoginControl::LoginControl()
 {
@@ -8,10 +9,9 @@ LoginControl::~LoginControl()
 {
 }
 
-bool LoginControl::studentLogin(QString id)
+bool LoginControl::studentLogin()
 {
-    UserControl* adminControl = factory.getUser(id, "admin");
-    UserControl* studentControl = factory.getUser(id, "student");
+    UserControl* studentControl = factory.getUser(loginForm->ui->userIDInput->text(), "student");
 
     if (adminControl != NULL) {
         delete studentControl;
@@ -32,10 +32,9 @@ bool LoginControl::studentLogin(QString id)
     }
 }
 
-bool LoginControl::adminLogin(QString id)
+bool LoginControl::adminLogin()
 {
-    UserControl* adminControl = factory.getUser(id, "admin");
-    UserControl* studentControl = factory.getUser(id, "student");
+    UserControl* adminControl = factory.getUser(loginForm->ui->userIDInput->text(), "admin");
 
     if (adminControl != NULL) {
         delete studentControl;
