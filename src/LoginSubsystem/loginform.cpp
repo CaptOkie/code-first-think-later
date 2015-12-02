@@ -6,7 +6,8 @@
 LoginForm::LoginForm(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoginForm),
-    helpDialog(this)
+    helpDialog(this),
+    errorDialog(this)
 {
     ui->setupUi(this);
 
@@ -27,6 +28,9 @@ void LoginForm::attemptLogin()
         LoginControl control;
         if (control.start(userInput)){
             close();
+        }
+        else{
+            &
         }
     }
 }

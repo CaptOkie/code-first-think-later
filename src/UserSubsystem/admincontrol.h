@@ -7,6 +7,8 @@ class AdminControl : public UserControl
 {
 public:
     AdminControl();
+    ~AdminControl();
+
 };
 
 #endif // ADMINCONTROL_H

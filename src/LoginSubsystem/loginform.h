@@ -2,6 +2,7 @@
 #define LOGINFORM_H
 
 #include "helpdialog.h"
+#include "errordialog.h"
 
 #include <QWidget>
 #include <QPushButton>
@@ -27,6 +28,7 @@ public:
 private:
     Ui::LoginForm *ui;
     HelpDialog helpDialog;
+    ErrorDialog errorDialog;
 
 private slots:
     void attemptLogin();

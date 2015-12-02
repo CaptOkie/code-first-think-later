@@ -8,6 +8,10 @@ LoginControl::LoginControl()
 {
 }
 
+LoginControl::~LoginControl()
+{
+}
+
 bool LoginControl::start(QString id)
 {
     UserControlFactory factory;
@@ -27,5 +31,17 @@ bool LoginControl::start(QString id)
         form.show();
         return true;
     }
+
+    /*adminForm = new AdminForm();
+    adminForm->setGeometry(
+                QStyle::alignedRect(
+                    Qt::LeftToRight,
+                    Qt::AlignCenter,
+                    adminForm->size(),
+                    qApp->desktop()->availableGeometry()
+                )
+            );
+    adminForm->show();*/
+
     return false;
 }

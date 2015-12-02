@@ -3,6 +3,8 @@
 
 #include <QString>
 #include "UserSubsystem/usercontrol.h"
+#include "UserSubsystem/admincontrol.h"
+#include "UserSubsystem/studentcontrol.h"
 
 class UserControlFactory
 {

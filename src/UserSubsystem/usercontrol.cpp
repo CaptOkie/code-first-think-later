@@ -3,3 +3,7 @@
 UserControl::UserControl()
 {
 }
+
+UserControl::~UserControl()
+{
+}
