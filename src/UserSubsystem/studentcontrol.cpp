@@ -1,7 +1,7 @@
 #include "studentcontrol.h"
 
 StudentControl::StudentControl(Student* student)
-    : stuForm(), student(student)//, editProfileControl()
+    : stuForm(*this), student(student)//, editProfileControl()
 { }
 
 StudentControl::~StudentControl()

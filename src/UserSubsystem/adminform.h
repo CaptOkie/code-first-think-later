@@ -17,7 +17,7 @@ class AdminForm : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit AdminForm(AdminControl& ctrl, QWidget *parent = 0);
+    explicit AdminForm(AdminControl&, QWidget *parent = 0);
     ~AdminForm();
 
     void editProject();

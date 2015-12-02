@@ -1,10 +1,11 @@
 #include "studentform.h"
 #include "ui_studentform.h"
 
-StudentForm::StudentForm(QWidget *parent) :
+StudentForm::StudentForm(StudentControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::StudentForm),
-    logoutDialog(this)
+    logoutDialog(this),
+    ctrl(ctrl)
 {
     ui->setupUi(this);
 
