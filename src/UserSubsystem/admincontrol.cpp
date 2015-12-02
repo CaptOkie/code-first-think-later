@@ -21,6 +21,6 @@ void AdminControl::start()
             qApp->desktop()->availableGeometry()
         )
     );
-    //adminForm.setName(user->getName());
+    adminForm.setName(admin->getName());
     adminForm.show();
 }

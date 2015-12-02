@@ -21,6 +21,6 @@ void StudentControl::start()
             qApp->desktop()->availableGeometry()
         )
     );
-    //stuForm.setName(user->getName());
+    stuForm.setName(student->getName());
     stuForm.show();
 }

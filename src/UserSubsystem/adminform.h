@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "ProjectSubsystem/projectform.h"
+#include "logoutdialog.h"
 
 namespace Ui {
 class AdminForm;
@@ -18,10 +19,12 @@ public:
 
     void editProject();
     void setName(QString);
+    void logout();
 
 private:
     Ui::AdminForm *ui;
     ProjectForm projectForm;
+    LogoutDialog logoutDialog;
 };
 
 #endif // ADMINFORM_H

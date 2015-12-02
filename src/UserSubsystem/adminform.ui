@@ -41,8 +41,11 @@
          <widget class="QLabel" name="nameLabel">
           <property name="font">
            <font>
-            <pointsize>26</pointsize>
+            <pointsize>28</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit#nameLabel { background-color: gray }</string>
           </property>
           <property name="text">
            <string>&lt;name&gt;</string>
