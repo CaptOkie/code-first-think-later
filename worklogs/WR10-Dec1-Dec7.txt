@@ -6,3 +6,4 @@ TheBakedPotato:
 
 ViLLiELdR:
 8 Hours: Worked on Login, main pages, and additional dialogs
+6 Hours: Logout functionality, tweaked a bunch of things (Admin UI mostly), started Profile.
