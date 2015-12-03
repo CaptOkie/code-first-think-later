@@ -2,6 +2,7 @@
 #define PROFILEFORM_H
 
 #include <QDialog>
+#include "StorageSubsystem/student.h"
 
 namespace Ui {
 class ProfileForm;
@@ -16,6 +17,7 @@ class ProfileForm : public QDialog
 public:
     explicit ProfileForm(ProfileControl&, QWidget *parent = 0);
     ~ProfileForm();
+    void setName(Student*);
 
 private:
     Ui::ProfileForm *ui;

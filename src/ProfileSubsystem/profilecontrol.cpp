@@ -19,5 +19,6 @@ void ProfileControl::start()
             qApp->desktop()->availableGeometry()
         )
     );
+    profileForm.setName(student);
     profileForm.show();
 }

@@ -15,3 +15,8 @@ ProfileForm::~ProfileForm()
 {
     delete ui;
 }
+
+void ProfileForm::setName(Student* stu)
+{
+    ui->nameLabel->setText(stu->getName());
+}
