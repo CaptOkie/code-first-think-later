@@ -5,11 +5,15 @@ ProxyProject::ProxyProject(int id, QString* name, int minGroupSize, int maxGroup
 { }
 
 ProxyProject::ProxyProject(const ProxyProject& other)
-    : ProxyProject(other, new ProjectStorage(*(other.storage)))
+    : realProject(new RealProject(other.getId(), new QString(other.getName()), other.getMinGroupSize(),
+                                  other.getMaxGroupSize())),
+      storage(new ProjectStorage(*(other.storage)))
 { }
 
 ProxyProject::ProxyProject(const Project& other, ProjectStorage* storage)
-    : ProxyProject(other.getId(), new QString(other.getName()), other.getMinGroupSize(), other.getMaxGroupSize(), storage)
+    : realProject(new RealProject(other.getId(), new QString(other.getName()), other.getMinGroupSize(),
+                                  other.getMaxGroupSize())),
+      storage(storage)
 { }
 
 ProxyProject::~ProxyProject()
@@ -40,22 +44,25 @@ int ProxyProject::getMaxGroupSize() const
     return realProject->getMaxGroupSize();
 }
 
-void ProxyProject::setName(QString *newName)
+bool ProxyProject::setName(QString *newName)
 {
-    realProject->setName(newName);
-    storage->updateProject(*realProject);
+    if (storage->updateProject(*realProject))
+        return realProject->setName(newName);
+    return false;
 }
 
-void ProxyProject::setMinGroupSize(int newMinGroupSize)
+bool ProxyProject::setMinGroupSize(int newMinGroupSize)
 {
-    realProject->setMinGroupSize(newMinGroupSize);
-    storage->updateProject(*realProject);
+    if (storage->updateProject(*realProject))
+        return realProject->setMinGroupSize(newMinGroupSize);
+    return false;
 }
 
-void ProxyProject::setMaxGroupSize(int newMaxGroupSize)
+bool ProxyProject::setMaxGroupSize(int newMaxGroupSize)
 {
-    realProject->setMaxGroupSize(newMaxGroupSize);
-    storage->updateProject(*realProject);
+    if (storage->updateProject(*realProject))
+        return realProject->setMaxGroupSize(newMaxGroupSize);
+    return false;
 }
 
 const QMap<int, Student*>& ProxyProject::getStudents() const

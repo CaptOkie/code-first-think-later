@@ -30,21 +30,24 @@ int RealProject::getMaxGroupSize() const
     return maxGroupSize;
 }
 
-void RealProject::setName(QString *newName)
+bool RealProject::setName(QString *newName)
 {
     if (name)
         delete name;
     name = newName;
+    return true;
 }
 
-void RealProject::setMinGroupSize(int newMinGroupSize)
+bool RealProject::setMinGroupSize(int newMinGroupSize)
 {
     minGroupSize = newMinGroupSize;
+    return true;
 }
 
-void RealProject::setMaxGroupSize(int newMaxGroupSize)
+bool RealProject::setMaxGroupSize(int newMaxGroupSize)
 {
     maxGroupSize = newMaxGroupSize;
+    return true;
 }
 
 const QMap<int, Student*>& RealProject::getStudents() const

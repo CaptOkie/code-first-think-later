@@ -21,9 +21,9 @@ class Project
         virtual int getMinGroupSize() const = 0;
         virtual int getMaxGroupSize() const = 0;
 
-        virtual void setName(QString* newName) = 0;
-        virtual void setMinGroupSize(int newMinGroupSize) = 0;
-        virtual void setMaxGroupSize(int newMaxGroupSize) = 0;
+        virtual bool setName(QString* newName) = 0;
+        virtual bool setMinGroupSize(int newMinGroupSize) = 0;
+        virtual bool setMaxGroupSize(int newMaxGroupSize) = 0;
 
         virtual const QMap<int, Student*>& getStudents() const = 0;
         virtual const QMap<int, Group*>& getGroups() const = 0;

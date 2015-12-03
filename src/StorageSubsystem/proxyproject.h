@@ -18,9 +18,9 @@ class ProxyProject : public Project
         virtual int getMinGroupSize() const;
         virtual int getMaxGroupSize() const;
 
-        virtual void setName(QString* newName);
-        virtual void setMinGroupSize(int newMinGroupSize);
-        virtual void setMaxGroupSize(int newMaxGroupSize);
+        virtual bool setName(QString* newName);
+        virtual bool setMinGroupSize(int newMinGroupSize);
+        virtual bool setMaxGroupSize(int newMaxGroupSize);
 
         virtual const QMap<int, Student*>& getStudents() const;
         virtual const QMap<int, Group*>& getGroups() const;

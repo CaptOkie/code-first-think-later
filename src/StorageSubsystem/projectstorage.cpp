@@ -16,8 +16,9 @@ ProjectStorage::~ProjectStorage()
         db.close();
 }
 
-void ProjectStorage::updateProject(const Project &project)
+bool ProjectStorage::updateProject(const Project &project)
 {
+    bool result;
     db.open();
 
     QSqlQuery update(db);
@@ -28,9 +29,10 @@ void ProjectStorage::updateProject(const Project &project)
     update.bindValue(":min", project.getMinGroupSize());
     update.bindValue(":max", project.getMaxGroupSize());
     update.bindValue(":id", project.getId());
-    update.exec();
+    result = update.exec();
 
     db.close();
+    return result;
 }
 
 QMap<int, Student*>* ProjectStorage::getStudents(const Project& project)
