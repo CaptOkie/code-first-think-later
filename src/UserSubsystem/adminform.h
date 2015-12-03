@@ -2,7 +2,6 @@
 #define ADMINFORM_H
 
 #include <QMainWindow>
-#include "ProjectSubsystem/projectform.h"
 #include "logoutdialog.h"
 #include "StorageSubsystem/project.h"
 #include <QTreeWidget>
@@ -28,7 +27,6 @@ public:
 
 private:
     Ui::AdminForm *ui;
-    ProjectForm projectForm;
     LogoutDialog logoutDialog;
     AdminControl& ctrl;
 

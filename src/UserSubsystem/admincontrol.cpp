@@ -46,6 +46,7 @@ void AdminControl::editProjectStart(QString projectName)
 
 void AdminControl::editProject(Project* project)
 {
+    projectControl.setProject(project);
     projectControl.start();
 }
 

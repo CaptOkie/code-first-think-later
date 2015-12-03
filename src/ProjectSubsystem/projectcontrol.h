@@ -11,6 +11,7 @@ public:
     ~ProjectControl();
 
     void start();
+    void setProject(Project*);
 
 private:
     Project* project;

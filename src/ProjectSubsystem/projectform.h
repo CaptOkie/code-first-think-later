@@ -7,19 +7,23 @@ namespace Ui {
 class ProjectForm;
 }
 
+class ProjectControl;
+
 class ProjectForm : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ProjectForm(QWidget *parent = 0);
+    explicit ProjectForm(ProjectControl&, QWidget *parent = 0);
     ~ProjectForm();
 
     void close();
     void showDialog();
+    void setName(QString);
 
 private:
     Ui::ProjectForm *ui;
+    ProjectControl& ctrl;
 };
 
 #endif // PROJECTFORM_H

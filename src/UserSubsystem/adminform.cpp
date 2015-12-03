@@ -7,7 +7,6 @@
 AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AdminForm),
-    projectForm(this),
     logoutDialog(this),
     ctrl(ctrl)
 {
