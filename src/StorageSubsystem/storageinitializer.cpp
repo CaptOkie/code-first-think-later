@@ -36,8 +36,8 @@ void StorageInitializer::init(QSqlDatabase &db)
     db.exec("CREATE TABLE IF NOT EXISTS " PRO_TABLE
             " (" PRO_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
             PRO_NAME_COL " text UNIQUE COLLATE NOCASE NOT NULL, "
-            PRO_MAX_GRP_COL " integer NOT NULL, "
-            PRO_MIN_GRP_COL " integer NOT NULL)");
+            PRO_MIN_GRP_COL " integer NOT NULL, "
+            PRO_MAX_GRP_COL " integer NOT NULL)");
 
     db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
             " (" ENRL_STU_COL " REFERENCES " STU_TABLE " (" STU_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
@@ -92,6 +92,12 @@ void StorageInitializer::populate(QSqlDatabase& db)
     // Adding Admins
     db.exec("INSERT INTO " ADMN_TABLE " (" ADMN_NAME_COL ") "
             "VALUES ('Gandalf the Grey'), ('Ad Min')");
+
+    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL ", " PRO_MIN_GRP_COL ", " PRO_MAX_GRP_COL ") "
+            "VALUES ('HAL', 1, 4), ('Project Thing', 5, 10), ('Pizza', 1, 3)");
+
+    db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL ", " ENRL_PRO_COL ") "
+            "VALUES (1, 1), (4, 3), (2,1), (2,2), (2,3), (8, 2), (7, 1)");
 
     db.close();
 #endif
