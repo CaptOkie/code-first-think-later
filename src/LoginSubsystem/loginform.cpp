@@ -87,7 +87,7 @@ void LoginForm::setGIF(QMovie* gif)
     gif->start();
     QTimer* timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &LoginForm::removeGIF);
-    timer->start(1500);
+    timer->start(1550);
 }
 
 void LoginForm::removeGIF()
