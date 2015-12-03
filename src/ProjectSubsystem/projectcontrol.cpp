@@ -18,6 +18,8 @@ void ProjectControl::start()
     else
     {
         projectForm.setName(project->getName());
+        projectForm.setValue("min", project->getMinGroupSize());
+        projectForm.setValue("max", project->getMaxGroupSize());
     }
     projectForm.showDialog();
 }

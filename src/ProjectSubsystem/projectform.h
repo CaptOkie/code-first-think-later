@@ -20,6 +20,7 @@ public:
     void close();
     void showDialog();
     void setName(QString);
+    void setValue(QString, int);
 
 private:
     Ui::ProjectForm *ui;

@@ -30,3 +30,15 @@ void ProjectForm::setName(QString name)
 {
     ui->nameLabel->setText(name);
 }
+
+void ProjectForm::setValue(QString type, int value)
+{
+    if (type == "min")
+    {
+        ui->minGroupSpinBox->setValue(value);
+    }
+    else if (type == "max")
+    {
+        ui->maxGroupSpinBox->setValue(value);
+    }
+}
