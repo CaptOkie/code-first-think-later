@@ -10,7 +10,7 @@
 class Admin : public User
 {
     public:
-        Admin(int id, QString* name);
+        Admin();
         virtual ~Admin();
 
         virtual const QMap<QString, Project*>& getProjects() const = 0;

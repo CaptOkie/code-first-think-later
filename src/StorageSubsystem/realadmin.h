@@ -9,6 +9,9 @@ class RealAdmin : public Admin
         RealAdmin(int id, QString* name);
         ~RealAdmin();
 
+        virtual int getId() const;
+        virtual const QString& getName() const;
+
         virtual QMap<QString, Project*>& getProjects();
         const QMap<QString, Project*>& getProjects() const;
         bool hasProjects() const;
@@ -19,6 +22,8 @@ class RealAdmin : public Admin
         bool addProject(Project& project);
 
     private:
+        int id;
+        QString* name;
         QMap<QString, Project*>* projects;
 
 };

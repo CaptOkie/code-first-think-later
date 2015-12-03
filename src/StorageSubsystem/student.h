@@ -11,7 +11,7 @@ class Project;
 class Student: public User
 {
     public:
-        Student(int id, QString* name);
+        Student();
         virtual ~Student();
 
         virtual const QMap<int, Question*>& getQuestions() const = 0;

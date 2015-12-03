@@ -1,20 +1,29 @@
 #include "proxystudent.h"
 
 ProxyStudent::ProxyStudent(int id, QString* name, StudentStorage* storage)
-    : Student(id, name), realStudent(NULL), storage(storage)
+    : realStudent(new RealStudent(id, name)), storage(storage)
 { }
 
 ProxyStudent::ProxyStudent(ProxyStudent& other)
-    : Student(other), storage(other.storage)
+    : ProxyStudent(other.getId(), new QString(other.getName()), new StudentStorage(*(other.storage)))
 { }
 
 ProxyStudent::~ProxyStudent()
 {
-    if(realStudent)
+    if (realStudent)
         delete realStudent;
-
-    if(storage)
+    if (storage)
         delete storage;
+}
+
+int ProxyStudent::getId() const
+{
+    return realStudent->getId();
+}
+
+const QString& ProxyStudent::getName() const
+{
+    return realStudent->getName();
 }
 
 const QMap<int, Question*>& ProxyStudent::getQuestions() const

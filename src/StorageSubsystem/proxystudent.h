@@ -12,6 +12,9 @@ class ProxyStudent : public Student
         ProxyStudent(ProxyStudent& other);
         ~ProxyStudent();
 
+        virtual int getId() const;
+        virtual const QString& getName() const;
+
         const QMap<int, Question*>& getQuestions() const;
         const QMap<QString, Project*>& getEnrolledProjects() const;
         const QMap<QString, Project*>& getAvailableProject() const;

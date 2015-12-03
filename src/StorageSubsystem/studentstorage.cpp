@@ -4,6 +4,10 @@ StudentStorage::StudentStorage(QSqlDatabase& db)
     : db(db)
 { }
 
+StudentStorage::StudentStorage(StudentStorage &other)
+    : db(other.db)
+{ }
+
 StudentStorage::~StudentStorage()
 {
     if (db.isOpen())

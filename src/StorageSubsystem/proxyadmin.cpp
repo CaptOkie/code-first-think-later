@@ -1,16 +1,25 @@
 #include "proxyadmin.h"
 
 ProxyAdmin::ProxyAdmin(int id, QString* name, AdminStorage* storage)
-    : Admin(id, name), realAdmin(new RealAdmin(id, name)), storage(storage)
+    : realAdmin(new RealAdmin(id, name)), storage(storage)
 { }
 
 ProxyAdmin::~ProxyAdmin()
 {
     if (realAdmin)
         delete realAdmin;
-
-    if(storage)
+    if (storage)
         delete storage;
+}
+
+int ProxyAdmin::getId() const
+{
+    return realAdmin->getId();
+}
+
+const QString& ProxyAdmin::getName() const
+{
+    return realAdmin->getName();
 }
 
 QMap<QString, Project*>& ProxyAdmin::getProjects()

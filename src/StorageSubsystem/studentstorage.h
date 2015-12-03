@@ -10,6 +10,7 @@ class StudentStorage
 {
     public:
         StudentStorage(QSqlDatabase& db);
+        StudentStorage(StudentStorage& other);
         ~StudentStorage();
 
         QMap<int, Question*>* getQuestions(const Student& student);

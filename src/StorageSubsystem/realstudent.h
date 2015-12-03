@@ -9,6 +9,9 @@ class RealStudent : Student
         RealStudent(int id, QString* name);
         ~RealStudent();
 
+        virtual int getId() const;
+        virtual const QString& getName() const;
+
         const QMap<int, Question*>& getQuestions() const;
         const QMap<QString, Project*>& getEnrolledProjects() const;
         const QMap<QString, Project*>& getAvailableProject() const;
@@ -16,6 +19,9 @@ class RealStudent : Student
         void joinProject(const Project& project);
         void leaveProject(const Project& project);
 
+    private:
+        int id;
+        QString* name;
 };
 
 #endif // REALSTUDENT_H

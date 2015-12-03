@@ -13,25 +13,18 @@ class Student;
 class Project
 {
     public:
-        Project(int id, QString* name, int minGroupSize, int maxGroupSize);
-        Project(const Project& project);
+        Project();
         virtual ~Project();
 
-        int getId() const;
-        const QString& getName() const;
-        int getMinGroupSize() const;
-        int getMaxGroupSize() const;
+        virtual int getId() const = 0;
+        virtual const QString& getName() const = 0;
+        virtual int getMinGroupSize() const = 0;
+        virtual int getMaxGroupSize() const = 0;
 
         virtual const QMap<int, Student*>& getStudents() const = 0;
         virtual const QMap<int, Group*>& getGroups() const = 0;
 
         virtual void setGroups(const QList<Group*>& groups) = 0;
-
-    protected:
-        int id;
-        QString* name;
-        int minGroupSize;
-        int maxGroupSize;
 };
 
 #endif // PROJECT_H

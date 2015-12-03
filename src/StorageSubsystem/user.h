@@ -6,16 +6,11 @@
 class User
 {
     public:
-        User(int id, QString* name);
-        User(const User& user); // Copy constructor
+        User();
         virtual ~User();
 
-        int getId() const;
-        const QString& getName() const;
-
-    protected:
-        int id;
-        QString* name;
+        virtual int getId() const = 0;
+        virtual const QString& getName() const = 0;
 };
 
 #endif // USER_H

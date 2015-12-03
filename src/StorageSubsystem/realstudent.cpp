@@ -1,11 +1,24 @@
 #include "realstudent.h"
 
 RealStudent::RealStudent(int id, QString* name)
-    : Student(id, name)
+    : id(id), name(name)
 { }
 
 RealStudent::~RealStudent()
-{ }
+{
+    if (name)
+        delete name;
+}
+
+int RealStudent::getId() const
+{
+    return id;
+}
+
+const QString& RealStudent::getName() const
+{
+    return *name;
+}
 
 const QMap<int, Question*>& RealStudent::getQuestions() const
 {

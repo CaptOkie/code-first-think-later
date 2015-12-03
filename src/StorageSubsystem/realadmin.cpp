@@ -2,11 +2,34 @@
 #include "realproject.h"
 
 RealAdmin::RealAdmin(int id, QString* name)
-    : Admin(id, name), projects(NULL)
+    : id(id), name(name), projects(NULL)
 { }
 
 RealAdmin::~RealAdmin()
-{ }
+{
+    if (projects) {
+        for (QMap<QString, Project*>::iterator it = projects->begin(); it != projects->end(); ++it)
+        {
+            Project* project = it.value();
+            delete project;
+        }
+
+        delete projects;
+    }
+    if (name) {
+        delete name;
+    }
+}
+
+int RealAdmin::getId() const
+{
+    return id;
+}
+
+const QString& RealAdmin::getName() const
+{
+    return *name;
+}
 
 QMap<QString, Project*>& RealAdmin::getProjects()
 {
