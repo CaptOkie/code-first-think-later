@@ -54,7 +54,8 @@ SOURCES += main.cpp \
     StorageSubsystem/proxyproject.cpp \
     LoginSubsystem/errordialog.cpp \
     UserSubsystem/logoutdialog.cpp \
-    ProfileSubsystem/profileform.cpp
+    ProfileSubsystem/profileform.cpp \
+    LoginSubsystem/newaccountdialog.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -98,7 +99,8 @@ HEADERS  += \
     StorageSubsystem/proxyproject.h \
     LoginSubsystem/errordialog.h \
     UserSubsystem/logoutdialog.h \
-    ProfileSubsystem/profileform.h
+    ProfileSubsystem/profileform.h \
+    LoginSubsystem/newaccountdialog.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
@@ -109,7 +111,8 @@ FORMS    += \
     PPIDSubsystem/ppidform.ui \
     LoginSubsystem/errordialog.ui \
     UserSubsystem/logoutdialog.ui \
-    ProfileSubsystem/profileform.ui
+    ProfileSubsystem/profileform.ui \
+    LoginSubsystem/newaccountdialog.ui
 
 RESOURCES += \
     resources/images.qrc

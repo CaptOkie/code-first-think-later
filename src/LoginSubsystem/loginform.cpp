@@ -7,6 +7,7 @@ LoginForm::LoginForm(LoginControl& ctrl, QWidget *parent) :
     ui(new Ui::LoginForm),
     helpDialog(this),
     errorDialog(this),
+    newAcctDialog(this),
     ctrl(ctrl)
 {
     ui->setupUi(this);
@@ -64,7 +65,7 @@ void LoginForm::adminLogin()
 
 void LoginForm::createNewAccount()
 {
-
+    newAcctDialog.showDialog();
 }
 
 void LoginForm::show()

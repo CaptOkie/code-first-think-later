@@ -3,6 +3,7 @@
 
 #include "helpdialog.h"
 #include "errordialog.h"
+#include "newaccountdialog.h"
 
 #include <QWidget>
 #include <QPushButton>
@@ -29,6 +30,7 @@ private:
     Ui::LoginForm *ui;
     HelpDialog helpDialog;
     ErrorDialog errorDialog;
+    NewAccountDialog newAcctDialog;
     LoginControl& ctrl;
 
 private slots:
