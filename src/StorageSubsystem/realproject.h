@@ -14,6 +14,10 @@ class RealProject : public Project
         virtual int getMinGroupSize() const;
         virtual int getMaxGroupSize() const;
 
+        virtual void setName(QString* newName);
+        virtual void setMinGroupSize(int newMinGroupSize);
+        virtual void setMaxGroupSize(int newMaxGroupSize);
+
         const QMap<int, Student*>& getStudents() const;
         const QMap<int, Group*>& getGroups() const;
 

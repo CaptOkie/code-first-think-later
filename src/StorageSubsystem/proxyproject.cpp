@@ -40,6 +40,24 @@ int ProxyProject::getMaxGroupSize() const
     return realProject->getMaxGroupSize();
 }
 
+void ProxyProject::setName(QString *newName)
+{
+    realProject->setName(newName);
+    storage->updateProject(*realProject);
+}
+
+void ProxyProject::setMinGroupSize(int newMinGroupSize)
+{
+    realProject->setMinGroupSize(newMinGroupSize);
+    storage->updateProject(*realProject);
+}
+
+void ProxyProject::setMaxGroupSize(int newMaxGroupSize)
+{
+    realProject->setMaxGroupSize(newMaxGroupSize);
+    storage->updateProject(*realProject);
+}
+
 const QMap<int, Student*>& ProxyProject::getStudents() const
 {
 

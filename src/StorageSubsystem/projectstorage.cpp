@@ -16,6 +16,23 @@ ProjectStorage::~ProjectStorage()
         db.close();
 }
 
+void ProjectStorage::updateProject(const Project &project)
+{
+    db.open();
+
+    QSqlQuery update(db);
+    update.prepare("UPDATE " PRO_TABLE
+                   " SET " PRO_NAME_COL " = :name, " PRO_MIN_GRP_COL " = :min, " PRO_MAX_GRP_COL " = :max "
+                   "WHERE " PRO_ID_COL " = :id");
+    update.bindValue(":name", project.getName());
+    update.bindValue(":min", project.getMinGroupSize());
+    update.bindValue(":max", project.getMaxGroupSize());
+    update.bindValue(":id", project.getId());
+    update.exec();
+
+    db.close();
+}
+
 QMap<int, Student*>* ProjectStorage::getStudents(const Project& project)
 {
     QMap<int, Student*>* students = new QMap<int, Student*>();

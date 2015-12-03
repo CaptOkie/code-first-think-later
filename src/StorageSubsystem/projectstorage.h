@@ -15,6 +15,8 @@ class ProjectStorage
         ProjectStorage(const ProjectStorage& other);
         ~ProjectStorage();
 
+        void updateProject(const Project& project);
+
         QMap<int, Student*>* getStudents(const Project& project);
         QMap<int, Group*>* getGroups(const Project& project);
 
