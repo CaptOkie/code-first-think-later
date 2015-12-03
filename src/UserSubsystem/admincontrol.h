@@ -21,6 +21,7 @@ public:
 
     void start();
     void editProject();
+    QMap<int, Student*> getStuNames(QString);
 
 private:
     AdminForm adminForm;

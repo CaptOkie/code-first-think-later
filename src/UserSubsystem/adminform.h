@@ -34,6 +34,7 @@ private:
     ProjectForm projectForm;
     LogoutDialog logoutDialog;
     AdminControl& ctrl;
+    void displayStuNames();
 
 private slots:
     void logoutDialogFinished();

@@ -2,6 +2,8 @@
 #include "ui_adminform.h"
 #include <QStandardItemModel>
 
+#include "admincontrol.h"
+
 AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AdminForm),
@@ -14,7 +16,7 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
-    connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &AdminForm::displayStuNames)
+    connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &AdminForm::displayStuNames);
 }
 
 AdminForm::~AdminForm()
@@ -50,7 +52,7 @@ void AdminForm::displayStuNames()
     if (ui->projectTable->currentItem() != NULL)
     {
         ui->stuNameTable->clear();
-        QMap<int, Student*>& students = ctrl.getStuNames(ui->projectTable->currentItem()->text(0));
+        const QMap<int, Student*>& students = ctrl.getStuNames(ui->projectTable->currentItem()->text(0));
         QMap<int, Student*>::const_iterator i;
         for (i = students.begin(); i != students.end(); ++ i)
         {
