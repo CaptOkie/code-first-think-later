@@ -38,15 +38,20 @@
           <height>317</height>
          </rect>
         </property>
-        <widget class="QTableWidget" name="tableWidget">
+        <widget class="QTreeWidget" name="projectTable">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>0</y>
+           <x>-5</x>
+           <y>1</y>
            <width>431</width>
            <height>321</height>
           </rect>
          </property>
+         <column>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </column>
         </widget>
        </widget>
       </widget>
@@ -83,15 +88,20 @@
           <height>317</height>
          </rect>
         </property>
-        <widget class="QTableWidget" name="tableWidget_2">
+        <widget class="QTreeWidget" name="projectTable2">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>0</y>
+           <x>-5</x>
+           <y>1</y>
            <width>431</width>
            <height>321</height>
           </rect>
          </property>
+         <column>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </column>
         </widget>
        </widget>
       </widget>

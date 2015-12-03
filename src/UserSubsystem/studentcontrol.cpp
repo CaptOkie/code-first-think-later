@@ -22,7 +22,9 @@ void StudentControl::start()
         )
     );
     stuForm.setName(student->getName());
-    stuForm.show();
+    const QMap<QString, Project*>& availableProject = student->getAvailableProject();
+    const QMap<QString, Project*>& enrolledProject = student->getEnrolledProjects();
+    stuForm.show(availableProject, enrolledProject);
 }
 
 void StudentControl::editProfile()

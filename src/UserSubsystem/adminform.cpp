@@ -14,9 +14,6 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
-
-    for (int i = 0; i < 3; i++)
-        ui->projectTable->resizeColumnToContents(i);
 }
 
 AdminForm::~AdminForm()
@@ -47,13 +44,31 @@ void AdminForm::logoutDialogFinished()
     }
 }
 
-QTreeWidget* AdminForm::getTreeWidget()
-{
-    return ui->projectTable;
-}
-
 void AdminForm::addTreeItem(QStringList list)
 {
     QTreeWidgetItem* item = new QTreeWidgetItem(ui->projectTable, list);
     ui->projectTable->insertTopLevelItem(0, item);
+}
+
+void AdminForm::resizeTable()
+{
+    for (int i = 0; i < 3; i++)
+        ui->projectTable->resizeColumnToContents(i);
+}
+
+void AdminForm::show(QMap<QString, Project*>& projects)
+{
+    ui->projectTable->clear();
+    QMap<QString, Project*>::const_iterator i;
+    for (i = projects.begin(); i != projects.end(); ++i)
+    {
+        QStringList list;
+        const Project& p = **i;
+        list.append(i.value()->getName());
+        list.append(QString::number(p.getMinGroupSize()));
+        list.append(QString::number(p.getMaxGroupSize()));
+        addTreeItem(list);
+    }
+    resizeTable();
+    QMainWindow::show();
 }

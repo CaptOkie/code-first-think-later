@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "ProjectSubsystem/projectform.h"
 #include "logoutdialog.h"
+#include "StorageSubsystem/project.h"
 #include <QTreeWidget>
 
 namespace Ui {
@@ -25,6 +26,8 @@ public:
     void logout();
     QTreeWidget* getTreeWidget();
     void addTreeItem(QStringList);
+    void show(QMap<QString, Project*>&);
+    void resizeTable();
 
 private:
     Ui::AdminForm *ui;

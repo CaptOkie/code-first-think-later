@@ -114,6 +114,9 @@
             <height>421</height>
            </rect>
           </property>
+          <property name="indentation">
+           <number>0</number>
+          </property>
           <column>
            <property name="text">
             <string>Name</string>

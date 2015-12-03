@@ -41,7 +41,8 @@ bool LoginControl::login(int id, UserControlFactory::Type type)
 
 void LoginControl::start()
 {
-    QMovie* movie = new QMovie(":/images/images/animMain2.gif");
-    loginForm.setGIF(movie);
+    //QMovie* movie = new QMovie(":/images/images/animMain2.gif");
+    //loginForm.setGIF(movie);
+    loginForm.removeGIF();
     loginForm.show();
 }
