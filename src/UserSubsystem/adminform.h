@@ -24,17 +24,18 @@ public:
     void editProject();
     void setName(QString);
     void logout();
-    QTreeWidget* getTreeWidget();
-    void addTreeItem(QStringList);
     void show(QMap<QString, Project*>&);
-    void resizeTable();
 
 private:
     Ui::AdminForm *ui;
     ProjectForm projectForm;
     LogoutDialog logoutDialog;
     AdminControl& ctrl;
+
     void displayStuNames();
+    void newProject();
+    void resizeTable(QTreeWidget*);
+    void addTreeItem(QTreeWidget*, QStringList);
 
 private slots:
     void logoutDialogFinished();

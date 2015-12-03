@@ -19,9 +19,12 @@ public:
     AdminControl(Admin* admin);
     ~AdminControl();
 
-    void start();
-    void editProject();
     QMap<int, Student*> getStuNames(QString);
+    void start();
+    void newProjectStart();
+    void editProjectStart(QString);
+    void editProject(Project*);
+
 
 private:
     AdminForm adminForm;

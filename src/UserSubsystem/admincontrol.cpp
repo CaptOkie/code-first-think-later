@@ -31,7 +31,17 @@ void AdminControl::loadProjects()
     adminForm.show(projects);
 }
 
-void AdminControl::editProject()
+void AdminControl::newProjectStart()
+{
+
+}
+
+void AdminControl::editProjectStart(QString projectName)
+{
+
+}
+
+void AdminControl::editProject(Project* project)
 {
 
 }

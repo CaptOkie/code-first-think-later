@@ -15,6 +15,7 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
 
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
+    connect(ui->createProjectButton, &QPushButton::released, this, &AdminForm::newProject);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
     connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &AdminForm::displayStuNames);
 }
@@ -24,9 +25,17 @@ AdminForm::~AdminForm()
     delete ui;
 }
 
+void AdminForm::newProject()
+{
+    ctrl.newProjectStart();
+}
+
 void AdminForm::editProject()
 {
-
+    if (ui->projectTable->currentItem() != NULL)
+    {
+        ctrl.editProjectStart(ui->projectTable->currentItem()->text(0));
+    }
 }
 
 void AdminForm::setName(QString name)
@@ -47,6 +56,18 @@ void AdminForm::logoutDialogFinished()
     }
 }
 
+void AdminForm::addTreeItem(QTreeWidget* tree, QStringList list)
+{
+    QTreeWidgetItem* item = new QTreeWidgetItem(tree, list);
+    tree->insertTopLevelItem(0, item);
+}
+
+void AdminForm::resizeTable(QTreeWidget* tree)
+{
+    for (int i = 0; i < 3; i++)
+        tree->resizeColumnToContents(i);
+}
+
 void AdminForm::displayStuNames()
 {
     if (ui->projectTable->currentItem() != NULL)
@@ -58,22 +79,9 @@ void AdminForm::displayStuNames()
         {
             QStringList list;
             list.append(i.value()->getName());
-            QTreeWidgetItem* item = new QTreeWidgetItem(ui->stuNameTable, list);
-            ui->stuNameTable->insertTopLevelItem(0, item);
+            addTreeItem(ui->stuNameTable, list);
         }
     }
-}
-
-void AdminForm::addTreeItem(QStringList list)
-{
-    QTreeWidgetItem* item = new QTreeWidgetItem(ui->projectTable, list);
-    ui->projectTable->insertTopLevelItem(0, item);
-}
-
-void AdminForm::resizeTable()
-{
-    for (int i = 0; i < 3; i++)
-        ui->projectTable->resizeColumnToContents(i);
 }
 
 void AdminForm::show(QMap<QString, Project*>& projects)
@@ -86,8 +94,8 @@ void AdminForm::show(QMap<QString, Project*>& projects)
         list.append(i.value()->getName());
         list.append(QString::number(i.value()->getMinGroupSize()));
         list.append(QString::number(i.value()->getMaxGroupSize()));
-        addTreeItem(list);
+        addTreeItem(ui->projectTable, list);
     }
-    resizeTable();
+    resizeTable(ui->projectTable);
     QMainWindow::show();
 }
