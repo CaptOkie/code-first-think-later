@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>858</width>
-    <height>612</height>
+    <height>583</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>190</x>
       <y>440</y>
-      <width>481</width>
+      <width>461</width>
       <height>80</height>
      </rect>
     </property>
@@ -223,9 +223,9 @@
    <widget class="QLabel" name="gifLabel">
     <property name="geometry">
      <rect>
-      <x>-20</x>
+      <x>-60</x>
       <y>0</y>
-      <width>881</width>
+      <width>951</width>
       <height>601</height>
      </rect>
     </property>
