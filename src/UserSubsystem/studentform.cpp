@@ -62,7 +62,6 @@ void StudentForm::show(const QMap<QString, Project*>& unjoinedProjects, const QM
     for (i = unjoinedProjects.begin(); i != unjoinedProjects.end(); ++i)
     {
         QStringList list;
-        const Project& p = **i;
         list.append(i.value()->getName());
         addTreeItem(ui->projectTable, list);
     }
@@ -73,7 +72,6 @@ void StudentForm::show(const QMap<QString, Project*>& unjoinedProjects, const QM
     for (j = joinedProjects.begin(); j != joinedProjects.end(); ++j)
     {
         QStringList list;
-        const Project& p = **i;
         list.append(j.value()->getName());
         addTreeItem(ui->projectTable2, list);
     }

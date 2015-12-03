@@ -63,10 +63,9 @@ void AdminForm::show(QMap<QString, Project*>& projects)
     for (i = projects.begin(); i != projects.end(); ++i)
     {
         QStringList list;
-        const Project& p = **i;
         list.append(i.value()->getName());
-        list.append(QString::number(p.getMinGroupSize()));
-        list.append(QString::number(p.getMaxGroupSize()));
+        list.append(QString::number(i.value().getMinGroupSize()));
+        list.append(QString::number(i.value().getMaxGroupSize()));
         addTreeItem(list);
     }
     resizeTable();
