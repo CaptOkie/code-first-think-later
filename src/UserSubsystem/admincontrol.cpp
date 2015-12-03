@@ -36,3 +36,7 @@ void AdminControl::editProject()
 
 }
 
+void AdminControl::getStuNames(QString projectName)
+{
+    QMap<QString, Project*>& students = (admin->getProjects())
+}
