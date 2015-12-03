@@ -1,15 +1,15 @@
 #include "projectcontrol.h"
 
-ProjectControl::ProjectControl()
+ProjectControl::ProjectControl(Project* project) : project(project)
 {
 }
 
-void ProjectControl::close()
+ProjectControl::~ProjectControl()
 {
-    //QDialog::reject();
+
 }
 
-void ProjectControl::showDialog()
+void ProjectControl::start()
 {
-    //exec();
+    projectForm.showDialog();
 }

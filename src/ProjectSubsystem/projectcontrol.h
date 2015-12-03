@@ -2,16 +2,19 @@
 #define PROJECTCONTROL_H
 
 #include "StorageSubsystem/project.h"
+#include "projectform.h"
 
 class ProjectControl
 {
 public:
-    ProjectControl();
+    ProjectControl(Project*);
     ~ProjectControl();
 
     void start();
-    void close();
-    void showDialog();
+
+private:
+    Project* project;
+    ProjectForm projectForm;
 };
 
 #endif // PROJECTCONTROL_H

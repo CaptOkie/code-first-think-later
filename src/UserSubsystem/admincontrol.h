@@ -12,6 +12,7 @@
 #include "adminform.h"
 #include "StorageSubsystem/admin.h"
 #include "StorageSubsystem/project.h"
+#include "ProjectSubsystem/projectcontrol.h"
 
 class AdminControl : public UserControl
 {
@@ -29,6 +30,7 @@ public:
 private:
     AdminForm adminForm;
     Admin* admin;
+    ProjectControl projectControl;
 
     void loadProjects();
 

@@ -1,7 +1,7 @@
 #include "admincontrol.h"
 
 AdminControl::AdminControl(Admin* admin)
-    : adminForm(*this), admin(admin)
+    : adminForm(*this), admin(admin), projectControl(NULL)
 { }
 
 AdminControl::~AdminControl()
@@ -33,17 +33,20 @@ void AdminControl::loadProjects()
 
 void AdminControl::newProjectStart()
 {
-
+    Project* project = NULL;
+    editProject(project);
 }
 
 void AdminControl::editProjectStart(QString projectName)
 {
-
+    QMap<QString, Project*>& projects = admin->getProjects();
+    Project* selectedProject = projects.find(projectName).value();
+    editProject(selectedProject);
 }
 
 void AdminControl::editProject(Project* project)
 {
-
+    projectControl.start();
 }
 
 QMap<int, Student*> AdminControl::getStuNames(QString projectName)

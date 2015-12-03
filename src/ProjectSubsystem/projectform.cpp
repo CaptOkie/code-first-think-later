@@ -12,3 +12,13 @@ ProjectForm::~ProjectForm()
 {
     delete ui;
 }
+
+void ProjectForm::close()
+{
+    QDialog::reject();
+}
+
+void ProjectForm::showDialog()
+{
+    exec();
+}

@@ -15,6 +15,9 @@ public:
     explicit ProjectForm(QWidget *parent = 0);
     ~ProjectForm();
 
+    void close();
+    void showDialog();
+
 private:
     Ui::ProjectForm *ui;
 };
