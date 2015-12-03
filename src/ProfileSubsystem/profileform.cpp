@@ -1,6 +1,7 @@
 #include "profileform.h"
 #include "ui_profileform.h"
 #include "profilecontrol.h"
+#include "StorageSubsystem/question.h"
 
 
 ProfileForm::ProfileForm(ProfileControl& ctrl, QWidget *parent) :
