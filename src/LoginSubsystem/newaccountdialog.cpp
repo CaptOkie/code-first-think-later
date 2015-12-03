@@ -6,6 +6,8 @@ NewAccountDialog::NewAccountDialog(QWidget *parent) :
     ui(new Ui::NewAccountDialog)
 {
     ui->setupUi(this);
+
+    connect(ui->cancelButton, &QPushButton::clicked, this, &NewAccountDialog::close);
 }
 
 NewAccountDialog::~NewAccountDialog()
