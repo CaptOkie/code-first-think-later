@@ -3,6 +3,8 @@
 #include "profilecontrol.h"
 #include "StorageSubsystem/question.h"
 
+#include "StorageSubsystem/student.h"
+
 
 ProfileForm::ProfileForm(ProfileControl& ctrl, QWidget *parent) :
     QDialog(parent),
