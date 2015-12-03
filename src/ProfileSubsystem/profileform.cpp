@@ -1,9 +1,12 @@
 #include "profileform.h"
 #include "ui_profileform.h"
+#include "profilecontrol.h"
 
-ProfileForm::ProfileForm(QWidget *parent) :
+
+ProfileForm::ProfileForm(ProfileControl& ctrl, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::ProfileForm)
+    ui(new Ui::ProfileForm),
+    ctrl(ctrl)
 {
     ui->setupUi(this);
 }

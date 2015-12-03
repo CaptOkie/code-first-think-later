@@ -23,7 +23,7 @@ public:
 private:
     StudentForm stuForm;
     Student* student;
-    //ProfileControl editProfileControl;
+    ProfileControl editProfileControl;
 };
 
 #endif // STUDENTCONTROL_H

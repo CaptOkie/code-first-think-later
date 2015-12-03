@@ -1,16 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>ProfileForm</class>
- <widget name="ProfileForm" class="QDialog">
+ <widget class="QDialog" name="ProfileForm">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>884</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
  </widget>
  <resources/>

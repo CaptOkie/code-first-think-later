@@ -1,5 +1,6 @@
 #include "studentform.h"
 #include "ui_studentform.h"
+#include "studentcontrol.h"
 
 StudentForm::StudentForm(StudentControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
@@ -39,5 +40,5 @@ void StudentForm::logoutDialogFinished()
 
 void StudentForm::editProfile()
 {
-    //ctrl.editProfile();
+    ctrl.editProfile();
 }
