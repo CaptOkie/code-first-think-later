@@ -50,11 +50,11 @@ void AdminControl::editProject(Project* project)
     projectControl.start();
 }
 
-QMap<int, Student*> AdminControl::getStuNames(QString projectName)
+const QMap<int, Student*>& AdminControl::getStuNames(QString& projectName)
 {
 
     QMap<QString, Project*>& projects = admin->getProjects();
     Project* selectedProject = projects.find(projectName).value();
-    const QMap<int, Student*> students = selectedProject->getStudents();
+    const QMap<int, Student*>& students = selectedProject->getStudents();
     return students;
 }

@@ -20,7 +20,7 @@ public:
     AdminControl(Admin* admin);
     ~AdminControl();
 
-    QMap<int, Student*> getStuNames(QString);
+    const QMap<int, Student*>& getStuNames(QString&);
     void start();
     void newProjectStart();
     void editProjectStart(QString);

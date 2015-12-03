@@ -72,7 +72,8 @@ void AdminForm::displayStuNames()
     if (ui->projectTable->currentItem() != NULL)
     {
         ui->stuNameTable->clear();
-        const QMap<int, Student*>& students = ctrl.getStuNames(ui->projectTable->currentItem()->text(0));
+        QString project = ui->projectTable->currentItem()->text(0);
+        const QMap<int, Student*>& students = ctrl.getStuNames(project);
         QMap<int, Student*>::const_iterator i;
         for (i = students.begin(); i != students.end(); ++ i)
         {
