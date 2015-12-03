@@ -80,3 +80,17 @@ void LoginForm::show()
     );
     QMainWindow::show();
 }
+
+void LoginForm::setGIF(QMovie* gif)
+{
+    ui->gifLabel->setMovie(gif);
+    gif->start();
+    QTimer* timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(removeGIF()));
+    timer->start(1500);
+}
+
+void LoginForm::removeGIF()
+{
+    ui->gifLabel->hide();
+}

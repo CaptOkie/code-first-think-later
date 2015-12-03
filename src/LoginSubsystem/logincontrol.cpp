@@ -1,6 +1,8 @@
 #include "logincontrol.h"
 #include "ui_loginform.h"
 
+#include <unistd.h>
+
 LoginControl::LoginControl()
     : loginForm(*this), factory(), userControl(NULL)
 { }
@@ -39,5 +41,7 @@ bool LoginControl::login(int id, UserControlFactory::Type type)
 
 void LoginControl::start()
 {
+    QMovie* movie = new QMovie(":/images/images/animMain2.gif");
+    loginForm.setGIF(movie);
     loginForm.show();
 }

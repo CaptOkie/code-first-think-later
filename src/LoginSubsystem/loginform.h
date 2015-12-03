@@ -1,13 +1,14 @@
 #ifndef LOGINFORM_H
 #define LOGINFORM_H
 
+
 #include "helpdialog.h"
 #include "errordialog.h"
 #include "newaccountdialog.h"
 
 #include <QWidget>
 #include <QPushButton>
-
+#include <QMovie>
 #include <QMainWindow>
 
 namespace Ui {
@@ -25,6 +26,7 @@ public:
     ~LoginForm();
 
     void show();
+    void setGIF(QMovie*);
 
 private:
     Ui::LoginForm *ui;
@@ -32,6 +34,9 @@ private:
     ErrorDialog errorDialog;
     NewAccountDialog newAcctDialog;
     LoginControl& ctrl;
+
+public slots:
+    void removeGIF();
 
 private slots:
     void adminLogin();
