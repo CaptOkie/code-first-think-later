@@ -86,7 +86,7 @@ void LoginForm::setGIF(QMovie* gif)
     ui->gifLabel->setMovie(gif);
     gif->start();
     QTimer* timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(removeGIF()));
+    connect(timer, &QTimer::timeout, this, &LoginForm::removeGIF);
     timer->start(1500);
 }
 
