@@ -9,7 +9,6 @@ class ProxyProject : public Project
 {
     public:
         ProxyProject(int id, QString* name, int minGroupSize, int maxGroupSize, ProjectStorage* storage);
-        ProxyProject(const ProxyProject& other);
         ProxyProject(const Project& other, ProjectStorage* storage);
         ~ProxyProject();
 
@@ -25,9 +24,11 @@ class ProxyProject : public Project
         virtual const QMap<int, Student*>& getStudents() const;
         virtual const QMap<int, Group*>& getGroups() const;
 
-        virtual void setGroups(const QList<Group*>& groups);
+        virtual void setGroups(QList<Group*>& groups);
+        virtual void setGroups(QMap<int, Group*>* groups);
 
     private:
+        bool hasLoaded;
         RealProject* realProject;
         ProjectStorage* storage;
 };

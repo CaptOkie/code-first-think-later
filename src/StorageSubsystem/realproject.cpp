@@ -1,13 +1,34 @@
 #include "realproject.h"
 
 RealProject::RealProject(int id, QString* name, int minGroupSize, int maxGroupSize)
-    : id(id), name(name), minGroupSize(minGroupSize), maxGroupSize(maxGroupSize)
+    : id(id), name(name), minGroupSize(minGroupSize), maxGroupSize(maxGroupSize),
+      students(new QMap<int, Student*>), groups(new QMap<int, Group*>)
 { }
 
 RealProject::~RealProject()
 {
     if (name)
         delete name;
+
+    if (groups)
+    {
+        for (QMap<int, Group*>::iterator it = groups->begin(); it != groups->end(); ++it)
+        {
+            Group* group = *it;
+            delete group;
+        }
+        delete groups;
+    }
+
+    if (students)
+    {
+        for (QMap<int, Student*>::iterator it = students->begin(); it != students->end(); ++it)
+        {
+            Student* student = *it;
+            delete student;
+        }
+        delete students;
+    }
 }
 
 int RealProject::getId() const
@@ -52,20 +73,40 @@ bool RealProject::setMaxGroupSize(int newMaxGroupSize)
 
 const QMap<int, Student*>& RealProject::getStudents() const
 {
-
+    return *students;
 }
 
 const QMap<int, Group*>& RealProject::getGroups() const
 {
-
+    return *groups;
 }
 
-void RealProject::setGroups(const QList<Group*>& groups)
+void RealProject::setStudents(QMap<int, Student *>* students)
 {
-
+    this->students = students;
 }
 
-void RealProject::setGroups(const QMap<int, Group*>* groups)
+void RealProject::setGroups(QList<Group*>& groups)
 {
+    if (this->groups)
+    {
+        for (QMap<int, Group*>::iterator it = this->groups->begin(); it != this->groups->end(); ++it)
+        {
+            Group* group = it.value();
+            delete group;
+        }
+        this->groups->clear();
+    }
 
+    int id = 1;
+    for (QList<Group*>::iterator it = groups.begin(); it != groups.end(); ++it)
+    {
+        this->groups->insert(id, *it);
+        ++id;
+    }
+}
+
+void RealProject::setGroups(QMap<int, Group*>* groups)
+{
+    this->groups = groups;
 }

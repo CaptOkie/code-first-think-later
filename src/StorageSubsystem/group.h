@@ -12,6 +12,9 @@ class Group
         ~Group();
 
         int getId() const;
+
+        void setId(int id);
+
         QMap<int, Student*>& getStudents();
         const QMap<int, Student*>& getStudents() const;
 

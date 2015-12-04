@@ -1,13 +1,7 @@
 #include "proxyproject.h"
 
 ProxyProject::ProxyProject(int id, QString* name, int minGroupSize, int maxGroupSize, ProjectStorage* storage)
-    : realProject(new RealProject(id, name, minGroupSize, maxGroupSize)), storage(storage)
-{ }
-
-ProxyProject::ProxyProject(const ProxyProject& other)
-    : realProject(new RealProject(other.getId(), new QString(other.getName()), other.getMinGroupSize(),
-                                  other.getMaxGroupSize())),
-      storage(new ProjectStorage(*(other.storage)))
+    : hasLoaded(false), realProject(new RealProject(id, name, minGroupSize, maxGroupSize)), storage(storage)
 { }
 
 ProxyProject::ProxyProject(const Project& other, ProjectStorage* storage)
@@ -67,15 +61,44 @@ bool ProxyProject::setMaxGroupSize(int newMaxGroupSize)
 
 const QMap<int, Student*>& ProxyProject::getStudents() const
 {
+    if (realProject->getStudents().isEmpty())
+    {
+        QMap<int, Group*>* groups = storage->getGroups(*this);
+        QMap<int, Student*>* students = new QMap<int, Student*>();
+        for (QMap<int, Group*>::iterator it = groups->begin(); it != groups->end(); ++it)
+        {
+            students->unite(it.value()->getStudents());
+        }
+        realProject->setGroups(groups);
+        realProject->setStudents(students);
+    }
 
+    return realProject->getStudents();
 }
 
 const QMap<int, Group*>& ProxyProject::getGroups() const
 {
+    if (realProject->getGroups().isEmpty())
+    {
+        QMap<int, Group*>* groups = storage->getGroups(*this);
+        QMap<int, Student*>* students = new QMap<int, Student*>();
+        for (QMap<int, Group*>::iterator it = groups->begin(); it != groups->end(); ++it)
+        {
+            students->unite(it.value()->getStudents());
+        }
+        realProject->setGroups(groups);
+        realProject->setStudents(students);
+    }
+
+    return realProject->getGroups();
+}
+
+void ProxyProject::setGroups(QList<Group*>& groups)
+{
 
 }
 
-void ProxyProject::setGroups(const QList<Group*>& groups)
+void ProxyProject::setGroups(QMap<int, Group*>* groups)
 {
 
 }

@@ -14,6 +14,11 @@ int Group::getId() const
     return id;
 }
 
+void Group::setId(int id)
+{
+    this->id = id;
+}
+
 QMap<int, Student*>& Group::getStudents()
 {
     return *students;

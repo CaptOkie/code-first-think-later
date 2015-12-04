@@ -21,14 +21,19 @@ class RealProject : public Project
         const QMap<int, Student*>& getStudents() const;
         const QMap<int, Group*>& getGroups() const;
 
-        void setGroups(const QList<Group*>& groups);
-        void setGroups(const QMap<int, Group*>* groups);
+        void setStudents(QMap<int, Student*>* students);
+
+        void setGroups(QList<Group*>& groups);
+        void setGroups(QMap<int, Group*>* groups);
 
     private:
         int id;
         QString* name;
         int minGroupSize;
         int maxGroupSize;
+
+        QMap<int, Student*>* students;
+        QMap<int, Group*>*   groups;
 };
 
 #endif // REALPROJECT_H

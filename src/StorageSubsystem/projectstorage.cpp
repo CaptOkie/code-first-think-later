@@ -64,8 +64,8 @@ QMap<int, Group*>* ProjectStorage::getGroups(const Project& project)
     db.open();
 
     QSqlQuery select(db);
-    select.prepare("SELECT * FROM " STU_TABLE " NATURAL JOIN (SELECT " ENRL_STU_COL " AS " STU_ID_COL
-                   " FROM " ENRL_TABLE " WHERE = :pid");
+    select.prepare("SELECT * FROM " STU_TABLE " NATURAL JOIN (SELECT " ENRL_STU_COL " AS " STU_ID_COL ", "
+                   ENRL_GRP_COL " FROM " ENRL_TABLE " WHERE " ENRL_PRO_COL "= :pid)");
     select.bindValue(":pid", project.getId());
     select.exec();
     while(select.next()) {
