@@ -1,10 +1,12 @@
 CaptOkie:
 8 Hours: Continued work on grouping. Fixed some storage stuff. Refactored login.
 7 Hours: Continued work on algorithm. Fixed bugs. Started automating profile generation.
+2 Hours: Group meeting. Continued automating questions.
 
 TheBakedPotato:
 8 Hours: Continued working on storage. Fixed seg fault.
 6 Hours: Continued working on storage.
+2 Hours: Continued working on storage.
 
 ViLLiELdR:
 8 Hours: Worked on Login, main pages, and additional dialogs
