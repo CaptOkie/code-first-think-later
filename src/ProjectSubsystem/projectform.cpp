@@ -9,6 +9,9 @@ ProjectForm::ProjectForm(ProjectControl& ctrl, QWidget *parent) :
     ctrl(ctrl)
 {
     ui->setupUi(this);
+
+    connect(ui->cancelButton, &QPushButton::released, this, &ProjectForm::close);
+    connect(ui->saveButton, &QPushButton::released, this, &ProjectForm::save);
 }
 
 ProjectForm::~ProjectForm()
@@ -21,6 +24,12 @@ void ProjectForm::close()
     QDialog::reject();
 }
 
+void ProjectForm::save()
+{
+    ctrl.saveProject(ui->projectNameEdit->text(), ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text());
+    QDialog::accept();
+}
+
 void ProjectForm::showDialog()
 {
     exec();
@@ -28,7 +37,16 @@ void ProjectForm::showDialog()
 
 void ProjectForm::setName(QString name)
 {
-    ui->nameLabel->setText(name);
+    if (name == "<New Project>")
+    {
+        ui->nameLabel->setText(name);
+        ui->projectNameEdit->setText("");
+    }
+    else
+    {
+        ui->nameLabel->setText(name);
+        ui->projectNameEdit->setText(name);
+    }
 }
 
 void ProjectForm::setValue(QString type, int value)

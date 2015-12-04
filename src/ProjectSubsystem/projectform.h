@@ -18,6 +18,7 @@ public:
     ~ProjectForm();
 
     void close();
+    void save();
     void showDialog();
     void setName(QString);
     void setValue(QString, int);

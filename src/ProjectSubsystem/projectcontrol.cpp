@@ -1,6 +1,8 @@
 #include "projectcontrol.h"
 
-ProjectControl::ProjectControl(Project* project) : project(project), projectForm(*this)
+#include "UserSubsystem/admincontrol.h"
+
+ProjectControl::ProjectControl(AdminControl& ctrl, Project* project) : project(project), projectForm(*this), ctrl(ctrl)
 {
 }
 
@@ -14,6 +16,8 @@ void ProjectControl::start()
     if (project == NULL)
     {
         projectForm.setName("<New Project>");
+        projectForm.setValue("min", 0);
+        projectForm.setValue("max", 0);
     }
     else
     {
@@ -27,4 +31,19 @@ void ProjectControl::start()
 void ProjectControl::setProject(Project* newProject)
 {
     project = newProject;
+}
+
+void ProjectControl::saveProject(QString name, QString min, QString max)
+{
+    if (project == NULL)
+    {
+        RealProject realProject = RealProject(0, new QString(name), min.toInt(), max.toInt());
+        ctrl.addNewProject(realProject);
+    }
+    else
+    {
+        project->setName(new QString(name));
+        project->setMinGroupSize(min.toInt());
+        project->setMaxGroupSize(max.toInt());
+    }
 }

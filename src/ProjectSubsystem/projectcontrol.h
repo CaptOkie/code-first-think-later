@@ -4,18 +4,24 @@
 #include "StorageSubsystem/project.h"
 #include "projectform.h"
 
+#include "StorageSubsystem/realproject.h"
+
+class AdminControl;
+
 class ProjectControl
 {
 public:
-    ProjectControl(Project*);
+    ProjectControl(AdminControl&, Project*);
     ~ProjectControl();
 
     void start();
     void setProject(Project*);
+    void saveProject(QString, QString, QString);
 
 private:
     Project* project;
     ProjectForm projectForm;
+    AdminControl& ctrl;
 };
 
 #endif // PROJECTCONTROL_H
