@@ -34,6 +34,9 @@ class RealProject : public Project
 
         QMap<int, Student*>* students;
         QMap<int, Group*>*   groups;
+
+        void clearStudents();
+        void clearGroups();
 };
 
 #endif // REALPROJECT_H

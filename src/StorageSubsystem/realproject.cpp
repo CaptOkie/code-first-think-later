@@ -9,26 +9,8 @@ RealProject::~RealProject()
 {
     if (name)
         delete name;
-
-    if (groups)
-    {
-        for (QMap<int, Group*>::iterator it = groups->begin(); it != groups->end(); ++it)
-        {
-            Group* group = *it;
-            delete group;
-        }
-        delete groups;
-    }
-
-    if (students)
-    {
-        for (QMap<int, Student*>::iterator it = students->begin(); it != students->end(); ++it)
-        {
-            Student* student = *it;
-            delete student;
-        }
-        delete students;
-    }
+    clearGroups();
+    clearStudents();
 }
 
 int RealProject::getId() const
@@ -81,8 +63,9 @@ const QMap<int, Group*>& RealProject::getGroups() const
     return *groups;
 }
 
-void RealProject::setStudents(QMap<int, Student *>* students)
+void RealProject::setStudents(QMap<int, Student*>* students)
 {
+    clearStudents();
     this->students = students;
 }
 
@@ -108,5 +91,34 @@ void RealProject::setGroups(QList<Group*>& groups)
 
 void RealProject::setGroups(QMap<int, Group*>* groups)
 {
+    clearGroups();
     this->groups = groups;
+}
+
+void RealProject::clearStudents()
+{
+    if (students)
+    {
+        for (QMap<int, Student*>::iterator it = students->begin(); it != students->end(); ++it)
+        {
+            Student* student = *it;
+            delete student;
+        }
+        delete students;
+        students = NULL;
+    }
+}
+
+void RealProject::clearGroups()
+{
+    if (groups)
+    {
+        for (QMap<int, Group*>::iterator it = groups->begin(); it != groups->end(); ++it)
+        {
+            Group* group = *it;
+            delete group;
+        }
+        delete groups;
+        groups = NULL;
+    }
 }
