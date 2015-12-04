@@ -15,6 +15,7 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
     connect(ui->createProjectButton, &QPushButton::released, this, &AdminForm::newProject);
+    connect(ui->runPPIDButton, &QPushButton::released, this, &AdminForm::runPPID);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
     connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &AdminForm::displayStuNames);
 }
@@ -103,4 +104,9 @@ void AdminForm::update(QMap<QString, Project*>& projects)
         addTreeItem(ui->projectTable, list);
     }
     resizeTable(ui->projectTable);
+}
+
+void AdminForm::runPPID()
+{
+    ctrl.runPPID(ui->projectTable->currentItem()->text(0));
 }

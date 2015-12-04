@@ -13,6 +13,7 @@
 #include "StorageSubsystem/admin.h"
 #include "StorageSubsystem/project.h"
 #include "ProjectSubsystem/projectcontrol.h"
+#include "PPIDSubsystem/ppidcontrol.h"
 
 class AdminControl : public UserControl
 {
@@ -27,11 +28,13 @@ public:
     void editProject(Project*);
     void addNewProject(RealProject&);
     void refresh();
+    void runPPID(QString);
 
 private:
     AdminForm adminForm;
     Admin* admin;
     ProjectControl projectControl;
+    //PPIDControl ppidControl;
 
     void loadProjects();
 

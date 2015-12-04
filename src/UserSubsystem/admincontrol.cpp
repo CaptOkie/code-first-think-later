@@ -70,3 +70,10 @@ void AdminControl::refresh()
 {
     adminForm.update(admin->getProjects());
 }
+
+void AdminControl::runPPID(QString projectName)
+{
+    QMap<QString, Project*>& projects = admin->getProjects();
+    Project* selectedProject = projects.find(projectName).value();
+    //ppidControl.start(selectedProject);
+}

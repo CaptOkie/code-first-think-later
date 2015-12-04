@@ -35,6 +35,7 @@ private:
     void newProject();
     void resizeTable(QTreeWidget*);
     void addTreeItem(QTreeWidget*, QStringList);
+    void runPPID();
 
 private slots:
     void logoutDialogFinished();
