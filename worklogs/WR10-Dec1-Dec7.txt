@@ -7,6 +7,7 @@ TheBakedPotato:
 8 Hours: Continued working on storage. Fixed seg fault.
 6 Hours: Continued working on storage.
 2 Hours: Continued working on storage.
+2.5 Hours: Continued work on storage subsystem. Namely, classes needed for user/project subsystems.
 
 ViLLiELdR:
 8 Hours: Worked on Login, main pages, and additional dialogs
