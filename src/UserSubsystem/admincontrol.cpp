@@ -59,7 +59,9 @@ const QMap<int, Student*>& AdminControl::getStuNames(QString& projectName)
     return students;
 }
 
-void AdminControl::addNewProject(RealProject project)
+void AdminControl::addNewProject(RealProject& project)
 {
-    admin->addProject(project);
+    if (admin->addProject(project)) {
+        adminForm.update(admin->getProjects());
+    }
 }

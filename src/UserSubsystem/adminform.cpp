@@ -86,6 +86,12 @@ void AdminForm::displayStuNames()
 
 void AdminForm::show(QMap<QString, Project*>& projects)
 {
+    update(projects);
+    QMainWindow::show();
+}
+
+void AdminForm::update(QMap<QString, Project*>& projects)
+{
     ui->projectTable->clear();
     QMap<QString, Project*>::const_iterator i;
     for (i = projects.begin(); i != projects.end(); ++i)
@@ -97,5 +103,4 @@ void AdminForm::show(QMap<QString, Project*>& projects)
         addTreeItem(ui->projectTable, list);
     }
     resizeTable(ui->projectTable);
-    QMainWindow::show();
 }

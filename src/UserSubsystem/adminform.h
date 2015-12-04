@@ -24,6 +24,7 @@ public:
     void setName(QString);
     void logout();
     void show(QMap<QString, Project*>&);
+    void update(QMap<QString, Project*>& projects);
 
 private:
     Ui::AdminForm *ui;
