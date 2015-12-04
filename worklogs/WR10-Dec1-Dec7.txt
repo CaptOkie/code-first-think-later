@@ -14,3 +14,5 @@ ViLLiELdR:
 6 Hours: Logout functionality, tweaked a bunch of things (Admin UI mostly), started Profile.
 2 Hours: Profile UI
 4 Hours: Worked on various UI tweaks, gif integration, and new Profile UI.
+2 Hours: Group meeting - worked on Student UI
+3 Hours: Worked on Admin project display and edit/add Project
