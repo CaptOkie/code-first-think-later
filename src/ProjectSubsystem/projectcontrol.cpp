@@ -45,5 +45,6 @@ void ProjectControl::saveProject(QString name, QString min, QString max)
         project->setName(new QString(name));
         project->setMinGroupSize(min.toInt());
         project->setMaxGroupSize(max.toInt());
+        ctrl.refresh();
     }
 }

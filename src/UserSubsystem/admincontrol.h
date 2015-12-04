@@ -26,6 +26,7 @@ public:
     void editProjectStart(QString);
     void editProject(Project*);
     void addNewProject(RealProject&);
+    void refresh();
 
 private:
     AdminForm adminForm;

@@ -65,3 +65,8 @@ void AdminControl::addNewProject(RealProject& project)
         adminForm.update(admin->getProjects());
     }
 }
+
+void AdminControl::refresh()
+{
+    adminForm.update(admin->getProjects());
+}
