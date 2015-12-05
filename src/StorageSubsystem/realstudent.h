@@ -27,6 +27,9 @@ class RealStudent : public Student
         QString* name;
         QMap<QString, Project*>* enrolled;
         QMap<QString, Project*>* available;
+
+    private:
+        void deleteProjects(QMap<QString, Project*>* projects);
 };
 
 #endif // REALSTUDENT_H

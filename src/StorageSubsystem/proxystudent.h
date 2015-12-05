@@ -5,12 +5,12 @@
 #include "realstudent.h"
 #include "studentstorage.h"
 #include "indicator.h"
+#include "project.h"
 
 class ProxyStudent : public Student
 {
     public:
         ProxyStudent(int id, QString* name, StudentStorage* storage);
-        ProxyStudent(ProxyStudent& other);
         ~ProxyStudent();
 
         virtual int getId() const;

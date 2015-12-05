@@ -37,10 +37,10 @@ QMap<QString, Project*>* StudentStorage::getEnrolledProjects(const Student& stud
     while(select.next())
     {
         int id = select.value(PRO_ID_COL).toInt();
-        QString* name = new QString(select.value(PRO_NAME_COL).toString());
+        QString name = select.value(PRO_NAME_COL).toString();
         int minGroupSize = select.value(PRO_MIN_GRP_COL).toInt();
         int maxGroupSize = select.value(PRO_MAX_GRP_COL).toInt();
-        projects->insert(*name, new ProxyProject(id, name, minGroupSize, maxGroupSize, new ProjectStorage(db)));
+        projects->insert(name, new ProxyProject(id, new QString(name), minGroupSize, maxGroupSize, new ProjectStorage(db)));
     }
 
     db.close();
@@ -62,10 +62,10 @@ QMap<QString, Project*>* StudentStorage::getAvailableProjects(const Student& stu
     while(select.next())
     {
         int id = select.value(PRO_ID_COL).toInt();
-        QString* name = new QString(select.value(PRO_NAME_COL).toString());
+        QString name = select.value(PRO_NAME_COL).toString();
         int minGroupSize = select.value(PRO_MIN_GRP_COL).toInt();
         int maxGroupSize = select.value(PRO_MAX_GRP_COL).toInt();
-        projects->insert(*name, new ProxyProject(id, name, minGroupSize, maxGroupSize, new ProjectStorage(db)));
+        projects->insert(name, new ProxyProject(id, new QString(name), minGroupSize, maxGroupSize, new ProjectStorage(db)));
     }
 
     db.close();

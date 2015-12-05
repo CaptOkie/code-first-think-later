@@ -5,10 +5,6 @@ ProxyStudent::ProxyStudent(int id, QString* name, StudentStorage* storage)
       storage(storage)
 { }
 
-ProxyStudent::ProxyStudent(ProxyStudent& other)
-    : ProxyStudent(other.getId(), new QString(other.getName()), new StudentStorage(*(other.storage)))
-{ }
-
 ProxyStudent::~ProxyStudent()
 {
     if (hasEnrolled)
@@ -41,7 +37,8 @@ const QMap<QString, Project*>& ProxyStudent::getEnrolledProjects() const
     if (!hasEnrolled->getValue())
     {
         hasEnrolled->toggleValue();
-        realStudent->setEnrolledProjects(storage->getEnrolledProjects(*realStudent));
+        QMap<QString, Project*>* projects = storage->getEnrolledProjects(*realStudent);
+        realStudent->setEnrolledProjects(projects);
     }
     return realStudent->getEnrolledProjects();
 }
@@ -51,7 +48,8 @@ const QMap<QString, Project*>& ProxyStudent::getAvailableProject() const
     if (!hasAvailable->getValue())
     {
         hasAvailable->toggleValue();
-        realStudent->setAvailableProjects(storage->getAvailableProjects(*realStudent));
+        QMap<QString, Project*>* projects = storage->getAvailableProjects(*realStudent);
+        realStudent->setAvailableProjects(projects);
     }
     return realStudent->getAvailableProject();
 }

@@ -23,10 +23,10 @@ QMap<QString, Project*>* AdminStorage::getProjects()
 
     while(select.next()) {
         int id = select.value(PRO_ID_COL).toInt();
-        QString name = QString(select.value(PRO_NAME_COL).toString());
+        QString name = select.value(PRO_NAME_COL).toString();
         int min = select.value(PRO_MIN_GRP_COL).toInt();
         int max = select.value(PRO_MAX_GRP_COL).toInt();
-        projects->insert(name, (Project*)new ProxyProject(id, new QString(name), min, max, new ProjectStorage(db)));
+        projects->insert(name, new ProxyProject(id, new QString(name), min, max, new ProjectStorage(db)));
     }
 
     db.close();
