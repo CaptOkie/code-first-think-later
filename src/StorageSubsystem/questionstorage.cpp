@@ -3,6 +3,7 @@
 QuestionStorage::QuestionStorage(QSqlDatabase& db)
     : db(db)
 {
+
 }
 
 QuestionStorage::~QuestionStorage()

@@ -68,7 +68,8 @@ QMap<int, Group*>* ProjectStorage::getGroups(const Project& project)
                    ENRL_GRP_COL " FROM " ENRL_TABLE " WHERE " ENRL_PRO_COL "= :pid)");
     select.bindValue(":pid", project.getId());
     select.exec();
-    while(select.next()) {
+    while(select.next())
+    {
         int grpId = select.value(ENRL_GRP_COL).toInt();
         if (!(groups->contains(grpId)))
                 groups->insert(grpId, new Group(grpId, new QMap<int, Student*>));

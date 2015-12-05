@@ -23,6 +23,8 @@ class ProxyStudent : public Student
         void leaveProject(const Project& project);
 
     private:
+        bool hasEnrolled;
+        bool hasAvailable;
         RealStudent* realStudent;
         StudentStorage* storage;
 };
