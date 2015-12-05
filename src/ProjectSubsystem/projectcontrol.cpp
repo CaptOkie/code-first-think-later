@@ -42,7 +42,7 @@ void ProjectControl::saveProject(QString name, QString min, QString max)
     }
     else
     {
-        const QString& oldProject = QString(project->getName());
+        QString oldProject = QString(project->getName());
         project->setName(new QString(name));
         project->setMinGroupSize(min.toInt());
         project->setMaxGroupSize(max.toInt());
