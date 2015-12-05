@@ -27,6 +27,7 @@ public:
     void editProjectStart(QString);
     void editProject(Project*);
     void addNewProject(RealProject&);
+    void udpdateProject(const QString&);
     void refresh();
     void runPPID(QString);
 

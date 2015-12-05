@@ -66,6 +66,17 @@ void AdminControl::addNewProject(RealProject& project)
     }
 }
 
+void AdminControl::udpdateProject(const QString& oldProject)
+{
+    QMap<QString, Project*>& projects = admin->getProjects();
+    Project* project = projects.take(oldProject);
+    if (project)
+    {
+        projects.insert(project->getName(), project);
+        refresh();
+    }
+}
+
 void AdminControl::refresh()
 {
     adminForm.update(admin->getProjects());
