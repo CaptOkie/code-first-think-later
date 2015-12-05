@@ -37,26 +37,26 @@ const Answer& RealQuestion::getDesired() const
     return *personal;
 }
 
-void RealQuestion::setPersonal(const Answer& answer)
+bool RealQuestion::setPersonal(const Answer& answer)
 {
-    if (answers->contains(answer.getId()))
+    QMap<int, Answer*>::iterator it = answers->find(answer.getId());
+    if (it != answers->end())
     {
-        QMap<int, Answer*>::iterator it = answers->find(answer.getId());
-        if (it != answers->end())
-        {
-            personal = it.value();
-        }
+        personal = it.value();
+        return true;
     }
+
+    return false;
 }
 
-void RealQuestion::setDesired(const Answer& answer)
+bool RealQuestion::setDesired(const Answer& answer)
 {
-    if (answers->contains(answer.getId()))
+    QMap<int, Answer*>::iterator it = answers->find(answer.getId());
+    if (it != answers->end())
     {
-        QMap<int, Answer*>::iterator it = answers->find(answer.getId());
-        if (it != answers->end())
-        {
-            desired = it.value();
-        }
+        desired = it.value();
+        return true;
     }
+
+    return false;
 }

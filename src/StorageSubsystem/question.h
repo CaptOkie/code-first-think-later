@@ -21,8 +21,8 @@ class Question
         virtual const Answer& getPersonal() const = 0;
         virtual const Answer& getDesired() const = 0;
 
-        virtual void setPersonal(const Answer& answer) = 0;
-        virtual void setDesired(const Answer& answer) = 0;
+        virtual bool setPersonal(const Answer& answer) = 0;
+        virtual bool setDesired(const Answer& answer) = 0;
 };
 
 #endif // QUESTION_H

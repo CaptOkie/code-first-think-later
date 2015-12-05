@@ -18,8 +18,8 @@ class RealQuestion : public Question
         virtual const Answer& getPersonal() const;
         virtual const Answer& getDesired() const;
 
-        virtual void setPersonal(const Answer& answer);
-        virtual void setDesired(const Answer& answer);
+        virtual bool setPersonal(const Answer& answer);
+        virtual bool setDesired(const Answer& answer);
 
     private:
         int id;

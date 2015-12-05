@@ -3,7 +3,7 @@
 
 #include "student.h"
 
-class RealStudent : Student
+class RealStudent : public Student
 {
     public:
         RealStudent(int id, QString* name);

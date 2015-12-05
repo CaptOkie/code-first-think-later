@@ -35,8 +35,8 @@ const QMap<QString, Project*>& ProxyStudent::getEnrolledProjects() const
 {
     if (!hasEnrolled)
     {
-        hasEnrolled = true;
-        realStudent->setEnrolledProjects(storage->getEnrolledProjects());
+//        hasEnrolled = true;
+        realStudent->setEnrolledProjects(storage->getEnrolledProjects(*realStudent));
     }
     return realStudent->getEnrolledProjects();
 }
@@ -45,8 +45,8 @@ const QMap<QString, Project*>& ProxyStudent::getAvailableProject() const
 {
     if (!hasAvailable)
     {
-        hasAvailable = true;
-        realStudent->setAvailableProjects(storage->getAvailableProjects());
+//        hasAvailable = true;
+        realStudent->setAvailableProjects(storage->getAvailableProjects(*realStudent));
     }
     return realStudent->getAvailableProject();
 }
