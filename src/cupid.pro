@@ -56,7 +56,8 @@ SOURCES += main.cpp \
     UserSubsystem/logoutdialog.cpp \
     ProfileSubsystem/profileform.cpp \
     LoginSubsystem/newaccountdialog.cpp \
-    StorageSubsystem/realquestion.cpp
+    StorageSubsystem/realquestion.cpp \
+    StorageSubsystem/indicator.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -102,7 +103,8 @@ HEADERS  += \
     UserSubsystem/logoutdialog.h \
     ProfileSubsystem/profileform.h \
     LoginSubsystem/newaccountdialog.h \
-    StorageSubsystem/realquestion.h
+    StorageSubsystem/realquestion.h \
+    StorageSubsystem/indicator.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \

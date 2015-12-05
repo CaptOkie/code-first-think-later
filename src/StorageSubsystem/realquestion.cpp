@@ -1,7 +1,7 @@
 #include "realquestion.h"
 
 RealQuestion::RealQuestion(int id, QString* text, QString* category)
-    : id(id), text(text), category(category), answers(new QMap<int, Answer*>()), desired(NULL), personal(NULL)
+    : id(id), text(text), category(category), answers(new QMap<int, Answer*>()), personal(NULL), desired(NULL)
 { }
 
 RealQuestion::~RealQuestion()
@@ -35,6 +35,11 @@ const Answer& RealQuestion::getPersonal() const
 const Answer& RealQuestion::getDesired() const
 {
     return *personal;
+}
+
+void RealQuestion::setAnswers(QMap<int, Answer*>* answers)
+{
+    this->answers = answers;
 }
 
 bool RealQuestion::setPersonal(const Answer& answer)
