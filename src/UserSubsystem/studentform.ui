@@ -105,6 +105,9 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="indentation">
+         <number>0</number>
+        </property>
         <column>
          <property name="text">
           <string>Name</string>
@@ -137,6 +140,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="indentation">
+         <number>0</number>
         </property>
         <column>
          <property name="text">
