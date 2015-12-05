@@ -70,8 +70,8 @@ int PercentDistance::compute(const Student& s1, const Student& s2)
             const int& min = (*it1)->getAnswers().firstKey();
             const int& max = (*it1)->getAnswers().lastKey();
 
-            total += distance(min, max, (*it1)->getPersonalAnswer(), (*it2)->getDesiredAnswer());
-            total += distance(min, max, (*it1)->getDesiredAnswer(), (*it2)->getPersonalAnswer());
+            total += distance(min, max, (*it1)->getPersonal(), (*it2)->getDesired());
+            total += distance(min, max, (*it1)->getDesired(), (*it2)->getPersonal());
             count += 2;
         }
     }
