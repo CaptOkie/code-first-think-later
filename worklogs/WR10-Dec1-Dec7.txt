@@ -16,3 +16,4 @@ ViLLiELdR:
 4 Hours: Worked on various UI tweaks, gif integration, and new Profile UI.
 2 Hours: Group meeting - worked on Student UI
 3 Hours: Worked on Admin project display and edit/add Project
+3 Hours: Tweaks and fixed resizeability for all windows (as well as layouts)
