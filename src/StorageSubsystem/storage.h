@@ -27,8 +27,7 @@
 // Questions table
 #define QSTN_TABLE    "questions"
 #define QSTN_ID_COL   "id"
-#define QSTN_DESR_COL "desired"
-#define QSTN_PSNL_COL "personal"
+#define QSTN_TEXT_COL "text"
 #define QSTN_CAT_COL  "category"
 // Answers table
 #define ANSR_TABLE   "answers"

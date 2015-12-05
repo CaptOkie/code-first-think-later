@@ -1,4 +1,6 @@
 #include "storageinitializer.h"
+#include "realquestion.h"
+
 #define DEBUG
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
@@ -47,8 +49,7 @@ void StorageInitializer::init(QSqlDatabase &db)
 
     db.exec("CREATE TABLE IF NOT EXISTS " QSTN_TABLE
             " (" QSTN_ID_COL " integer PRIMARY KEY ASC AUTOINCREMENT NOT NULL, "
-            QSTN_PSNL_COL " text NOT NULL, "
-            QSTN_DESR_COL " text NOT NULL, "
+            QSTN_TEXT_COL " text NOT NULL, "
             QSTN_CAT_COL " text NOT NULL)");
 
     db.exec("CREATE TABLE IF NOT EXISTS " ANSR_TABLE
@@ -80,24 +81,217 @@ void StorageInitializer::init(QSqlDatabase &db)
 void StorageInitializer::populate(QSqlDatabase& db)
 {
 #ifdef DEBUG
+
+#define LEADERSHIP   "Leadership"
+#define PERSONALITY  "Personality"
+#define SKILLS       "Skills"
+#define AVAILABILITY "Availability"
+
     db.open();
+
+    db.transaction();
+    QSqlQuery query(db);
 
     // Populating database for testing
     // Adding Students
-    db.exec("INSERT INTO " STU_TABLE " (" STU_NAME_COL ") "
-            "VALUES "
-            "('Stuart Dent'), ('Harvey Dent'), ('Bruce Wayne'), ('Frodo Baggins'), ('Cheese Man'), "
-            "('Nathan Drake'), ('Jeremy Clarkson'), ('James T. Kirk'), ('Clark Kent'), ('Barry Allen')");
+    query.exec("INSERT INTO " STU_TABLE " (" STU_NAME_COL ") "
+               "VALUES ('Stuart Dent'), ('Harvey Dent'), ('Bruce Wayne'), ('Frodo Baggins'), ('Cheese Man'), "
+               "('Nathan Drake'), ('Jeremy Clarkson'), ('James T. Kirk'), ('Clark Kent'), ('Barry Allen')");
 
     // Adding Admins
-    db.exec("INSERT INTO " ADMN_TABLE " (" ADMN_NAME_COL ") "
-            "VALUES ('Gandalf the Grey'), ('Ad Min')");
+    query.exec("INSERT INTO " ADMN_TABLE " (" ADMN_NAME_COL ") "
+               "VALUES ('Gandalf the Grey'), ('Ad Min')");
 
-    db.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL ", " PRO_MIN_GRP_COL ", " PRO_MAX_GRP_COL ") "
-            "VALUES ('HAL', 1, 4), ('Project Thing', 5, 10), ('Pizza', 1, 3)");
+    // Adding projects
+    query.exec("INSERT INTO " PRO_TABLE " (" PRO_NAME_COL ", " PRO_MIN_GRP_COL ", " PRO_MAX_GRP_COL ") "
+               "VALUES ('HAL', 1, 4), ('Project Thing', 5, 10), ('Pizza', 1, 3)");
 
-    db.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL ", " ENRL_PRO_COL ") "
-            "VALUES (1, 1), (4, 3), (2,1), (2,2), (2,3), (8, 2), (7, 1)");
+    // Enrolling students
+    query.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL ", " ENRL_PRO_COL ") "
+               "VALUES (1, 1), (4, 3), (2,1), (2,2), (2,3), (8, 2), (7, 1)");
+
+    // Adding questions
+    QList<Question*> questions;
+    RealQuestion* question = NULL;
+    QMap<int, Answer*>* answers = NULL;
+
+    question = new RealQuestion(0, "COMP 2401 Grade", SKILLS);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "A- to A+"));
+    answers->insert(2, new Answer(0, "B- to B+"));
+    answers->insert(3, new Answer(0, "C- to C+"));
+    answers->insert(4, new Answer(0, "D- to D+"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "COMP 2404 Grade", SKILLS);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "A- to A+"));
+    answers->insert(2, new Answer(0, "B- to B+"));
+    answers->insert(3, new Answer(0, "C- to C+"));
+    answers->insert(4, new Answer(0, "D- to D+"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your confidence/comfortability with report writing.", SKILLS);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your proficiency at software debugging.", SKILLS);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your comfortability in the seat of power.", LEADERSHIP);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your level of organization.", LEADERSHIP);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your comfortablility in making big, important decisions.", LEADERSHIP);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your willingness to step up to the plate and take the initiative.", LEADERSHIP);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your tendency to procrastinate to the last minute.", PERSONALITY);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "Rate your tendency to start discussions with relative strangers.", PERSONALITY);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very low"));
+    answers->insert(2, new Answer(0, "Low"));
+    answers->insert(3, new Answer(0, "Average"));
+    answers->insert(4, new Answer(0, "High"));
+    answers->insert(5, new Answer(0, "Very high"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "When working on large projects, what is your preferred way of working?", PERSONALITY);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Working on everything at once"));
+    answers->insert(2, new Answer(0, "Working on several things at once"));
+    answers->insert(3, new Answer(0, "Working on a couple of things at once"));
+    answers->insert(4, new Answer(0, "Working on exactly one thing at a time"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "If you have a meeting tomorrow, what time would you usually arrive?", PERSONALITY);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Very late"));
+    answers->insert(2, new Answer(0, "Late"));
+    answers->insert(3, new Answer(0, "Right on time"));
+    answers->insert(4, new Answer(0, "Early"));
+    answers->insert(5, new Answer(0, "Very early"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "During a typical day, when is your preferred working time?", AVAILABILITY);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Morning"));
+    answers->insert(2, new Answer(0, "Afternoon"));
+    answers->insert(3, new Answer(0, "Evening"));
+    answers->insert(4, new Answer(0, "Late at night"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "What days are you usually available?", AVAILABILITY);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Weekends"));
+    answers->insert(2, new Answer(0, "Some weekdays"));
+    answers->insert(3, new Answer(0, "Any day except weekends"));
+    answers->insert(4, new Answer(0, "Every day of the week"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    question = new RealQuestion(0, "What is your preferred mode of communication?", AVAILABILITY);
+    answers = new QMap<int, Answer*>;
+    answers->insert(1, new Answer(0, "Phone calls"));
+    answers->insert(2, new Answer(0, "Text messages"));
+    answers->insert(3, new Answer(0, "Email"));
+    answers->insert(4, new Answer(0, "Forums"));
+    question->setAnswers(answers);
+    questions.append(question);
+
+    query.prepare("INSERT INTO " QSTN_TABLE " (" QSTN_TEXT_COL ", " QSTN_CAT_COL ") "
+                  "VALUES (:text, :category)");
+
+    for (QList<Question*>::iterator it = questions.begin(); it != questions.end(); ++it) {
+
+        const Question* q = *it;
+        query.bindValue(":text", q->getText());
+        query.bindValue(":category", q->getCategory());
+        query.exec();
+
+        QSqlQuery a(db);
+        a.prepare("INSERT INTO " ANSR_TABLE " (" ANSR_QID_COL ", " ANSR_ID_COL ", " ANSR_VAL_COL ") "
+                  "VALUES (:qid, :id, :val)");
+
+        int qid = query.lastInsertId().toInt();
+        for (QMap<int, Answer*>::const_iterator ait = q->getAnswers().cbegin(); ait != q->getAnswers().cend(); ++ait) {
+
+            const Answer* answer = ait.value();
+            a.bindValue(":qid", qid);
+            a.bindValue(":id", ait.key());
+            a.bindValue(":val", answer->getText());
+        }
+
+        delete q;
+    }
+
+    // Commit or rollback
+    if (db.lastError().isValid()) {
+        db.rollback();
+    }
+    else {
+        db.commit();
+    }
 
     db.close();
 #endif
