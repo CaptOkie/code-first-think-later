@@ -1,15 +1,27 @@
 #include "realquestion.h"
 
 RealQuestion::RealQuestion(int id, QString* text, QString* category)
-    : id(id), text(text), category(category), answers(new QMap<int, Answer*>()), personal(NULL), desired(NULL)
+    : id(id), text(text), category(category), answers(new QMap<int, Answer*>()),
+      personal(new Answer(-1, "dummy")), desired(new Answer(-1, "dummy"))
 { }
 
 RealQuestion::RealQuestion(int id, const QString& text, const QString& category)
-    : id(id), text(new QString(text)), category(new QString(category))
+    : id(id), text(new QString(text)), category(new QString(category)), answers(new QMap<int, Answer*>()),
+      personal(new Answer(-1, "dummy")), desired(new Answer(-1, "dummy"))
 { }
 
 RealQuestion::~RealQuestion()
-{ }
+{
+    if (text)
+        delete text;
+    if (category)
+        delete category;
+    deleteAnswers(answers);
+    if (personal)
+        delete personal;
+    if (desired)
+        delete desired;
+}
 
 int RealQuestion::getId() const
 {
@@ -68,4 +80,18 @@ bool RealQuestion::setDesired(const Answer& answer)
     }
 
     return false;
+}
+
+void RealQuestion::deleteAnswers(QMap<int, Answer*>* answers)
+{
+    if (answers)
+    {
+        for (QMap<int, Answer*>::iterator it = answers->begin(); it != answers->end(); ++it)
+        {
+            Answer* answer = it.value();
+            delete answer;
+        }
+
+        delete answers;
+    }
 }

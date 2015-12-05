@@ -30,6 +30,9 @@ class RealQuestion : public Question
         QMap<int, Answer*>* answers;
         Answer* personal;
         Answer* desired;
+
+    private:
+        void deleteAnswers(QMap<int, Answer*>* answers);
 };
 
 #endif // REALQUESTION_H
