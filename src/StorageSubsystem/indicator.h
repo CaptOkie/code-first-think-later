@@ -9,7 +9,7 @@ class Indicator
 
     public:
         bool getValue();
-        void setValue(bool value);
+        bool toggleValue();
 
     private:
         bool value;

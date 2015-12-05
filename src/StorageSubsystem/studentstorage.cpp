@@ -65,8 +65,7 @@ QMap<QString, Project*>* StudentStorage::getAvailableProjects(const Student& stu
         QString* name = new QString(select.value(PRO_NAME_COL).toString());
         int minGroupSize = select.value(PRO_MIN_GRP_COL).toInt();
         int maxGroupSize = select.value(PRO_MAX_GRP_COL).toInt();
-        qDebug() << ("Project name: %s\n", *name);
-//        projects->insert(*name, new ProxyProject(id, name, minGroupSize, maxGroupSize, new ProjectStorage(db)));
+        projects->insert(*name, new ProxyProject(id, name, minGroupSize, maxGroupSize, new ProjectStorage(db)));
     }
 
     db.close();

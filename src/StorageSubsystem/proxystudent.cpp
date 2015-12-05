@@ -1,7 +1,8 @@
 #include "proxystudent.h"
 
 ProxyStudent::ProxyStudent(int id, QString* name, StudentStorage* storage)
-    : hasEnrolled(false), hasAvailable(false), realStudent(new RealStudent(id, name)), storage(storage)
+    : hasEnrolled(new Indicator(false)), hasAvailable(new Indicator(false)), realStudent(new RealStudent(id, name)),
+      storage(storage)
 { }
 
 ProxyStudent::ProxyStudent(ProxyStudent& other)
@@ -10,6 +11,10 @@ ProxyStudent::ProxyStudent(ProxyStudent& other)
 
 ProxyStudent::~ProxyStudent()
 {
+    if (hasEnrolled)
+        delete hasEnrolled;
+    if (hasAvailable)
+        delete hasAvailable;
     if (realStudent)
         delete realStudent;
     if (storage)
@@ -33,9 +38,9 @@ const QMap<int, Question*>& ProxyStudent::getQuestions() const
 
 const QMap<QString, Project*>& ProxyStudent::getEnrolledProjects() const
 {
-    if (!hasEnrolled)
+    if (!hasEnrolled->getValue())
     {
-//        hasEnrolled = true;
+        hasEnrolled->toggleValue();
         realStudent->setEnrolledProjects(storage->getEnrolledProjects(*realStudent));
     }
     return realStudent->getEnrolledProjects();
@@ -43,9 +48,9 @@ const QMap<QString, Project*>& ProxyStudent::getEnrolledProjects() const
 
 const QMap<QString, Project*>& ProxyStudent::getAvailableProject() const
 {
-    if (!hasAvailable)
+    if (!hasAvailable->getValue())
     {
-//        hasAvailable = true;
+        hasAvailable->toggleValue();
         realStudent->setAvailableProjects(storage->getAvailableProjects(*realStudent));
     }
     return realStudent->getAvailableProject();

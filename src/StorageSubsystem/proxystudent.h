@@ -4,6 +4,7 @@
 #include "student.h"
 #include "realstudent.h"
 #include "studentstorage.h"
+#include "indicator.h"
 
 class ProxyStudent : public Student
 {
@@ -23,8 +24,8 @@ class ProxyStudent : public Student
         void leaveProject(const Project& project);
 
     private:
-        bool hasEnrolled;
-        bool hasAvailable;
+        Indicator* hasEnrolled;
+        Indicator* hasAvailable;
         RealStudent* realStudent;
         StudentStorage* storage;
 };
