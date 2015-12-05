@@ -4,6 +4,10 @@ RealQuestion::RealQuestion(int id, QString* text, QString* category)
     : id(id), text(text), category(category), answers(new QMap<int, Answer*>()), personal(NULL), desired(NULL)
 { }
 
+RealQuestion::RealQuestion(int id, const QString& text, const QString& category)
+    : id(id), text(new QString(text)), category(new QString(category))
+{ }
+
 RealQuestion::~RealQuestion()
 { }
 

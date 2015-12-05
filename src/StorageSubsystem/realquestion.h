@@ -7,6 +7,7 @@ class RealQuestion : public Question
 {
     public:
         RealQuestion(int id, QString* text, QString* category);
+        RealQuestion(int id, const QString& text, const QString& category);
         ~RealQuestion();
 
     public:
