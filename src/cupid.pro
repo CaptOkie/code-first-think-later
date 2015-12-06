@@ -61,7 +61,8 @@ SOURCES += main.cpp \
     StorageSubsystem/proxyquestion.cpp \
     ProfileSubsystem/questionwidget.cpp \
     ProfileSubsystem/questionswidget.cpp \
-    UserSubsystem/confirmationdialog.cpp
+    UserSubsystem/confirmationdialog.cpp \
+    ProjectSubsystem/perrordialog.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -112,7 +113,8 @@ HEADERS  += \
     StorageSubsystem/proxyquestion.h \
     ProfileSubsystem/questionwidget.h \
     ProfileSubsystem/questionswidget.h \
-    UserSubsystem/confirmationdialog.h
+    UserSubsystem/confirmationdialog.h \
+    ProjectSubsystem/perrordialog.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
@@ -126,7 +128,8 @@ FORMS    += \
     ProfileSubsystem/profileform.ui \
     LoginSubsystem/newaccountdialog.ui \
     ProfileSubsystem/questionswidget.ui \
-    UserSubsystem/confirmationdialog.ui
+    UserSubsystem/confirmationdialog.ui \
+    ProjectSubsystem/perrordialog.ui
 
 RESOURCES += \
     resources/images.qrc

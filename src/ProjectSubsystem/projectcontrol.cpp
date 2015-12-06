@@ -33,6 +33,15 @@ void ProjectControl::setProject(Project* newProject)
     project = newProject;
 }
 
+bool ProjectControl::checkValues(QString min, QString max)
+{
+    if (min.toInt() <= 0 || max.toInt() <= 0 || max.toInt() <= min.toInt())
+    {
+        return false;
+    }
+    return true;
+}
+
 void ProjectControl::saveProject(QString name, QString min, QString max)
 {
     if (project == NULL)

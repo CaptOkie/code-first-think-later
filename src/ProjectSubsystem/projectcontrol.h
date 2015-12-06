@@ -17,6 +17,7 @@ public:
     void start();
     void setProject(Project*);
     void saveProject(QString, QString, QString);
+    bool checkValues(QString, QString);
 
 private:
     Project* project;

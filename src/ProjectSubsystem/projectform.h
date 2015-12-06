@@ -1,6 +1,8 @@
 #ifndef PROJECTFORM_H
 #define PROJECTFORM_H
 
+#include "perrordialog.h"
+
 #include <QDialog>
 
 namespace Ui {
@@ -26,6 +28,7 @@ public:
 private:
     Ui::ProjectForm *ui;
     ProjectControl& ctrl;
+    PErrorDialog errorDialog;
 };
 
 #endif // PROJECTFORM_H

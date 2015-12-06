@@ -6,6 +6,7 @@
 ProjectForm::ProjectForm(ProjectControl& ctrl, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ProjectForm),
+    errorDialog(this),
     ctrl(ctrl)
 {
     ui->setupUi(this);
@@ -26,8 +27,15 @@ void ProjectForm::close()
 
 void ProjectForm::save()
 {
-    ctrl.saveProject(ui->projectNameEdit->text(), ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text());
-    QDialog::accept();
+    if (ctrl.checkValues(ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text()))
+    {
+        ctrl.saveProject(ui->projectNameEdit->text(), ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text());
+        QDialog::accept();
+    }
+    else
+    {
+        errorDialog.showDialog();
+    }
 }
 
 void ProjectForm::showDialog()
