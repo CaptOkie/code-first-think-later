@@ -8,7 +8,7 @@ Answer::Answer(int id, const QString& text)
     : id(id), text(new QString(text))
 { }
 
-Answer::Answer(Answer& other)
+Answer::Answer(const Answer& other)
     : id(other.getId()), text(new QString(other.getText()))
 { }
 

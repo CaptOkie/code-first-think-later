@@ -26,7 +26,7 @@ QMap<int, Answer*>* QuestionStorage::getAnswers(const Question& question)
     {
         int id = select.value(ANSR_ID_COL).toInt();
         QString text = select.value(ANSR_VAL_COL).toString();
-        answers->insert(id, new Answer(id, new QString(text)));
+        answers->insert(id, new Answer(id, text));
     }
 
     db.close();

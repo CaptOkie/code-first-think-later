@@ -14,7 +14,7 @@ void ProfileControl::start()
 
 void ProfileControl::save(const QList<Response>& responses)
 {
-    const QMap<int, Question*> questions = student.getQuestions();
+    const QMap<int, Question*>& questions = student.getQuestions();
     for (QList<Response>::const_iterator it = responses.cbegin(); it != responses.cend(); ++it) {
 
         const Response& response = *it;

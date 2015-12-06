@@ -63,7 +63,9 @@ bool RealQuestion::setResponse(int personal, int desired)
     Answer* da = answers->value(desired);
     if (pa && da)
     {
-        cleanResponse(this->personal);
+        if (this->personal != this->desired) {
+            cleanResponse(this->personal);
+        }
         this->personal = pa;
 
         cleanResponse(this->desired);
@@ -100,7 +102,9 @@ void RealQuestion::deleteAnswers(QMap<int, Answer*>* answers)
 {
     if (answers)
     {
-        deleteResponse(personal);
+        if (personal != desired) {
+            deleteResponse(personal);
+        }
         deleteResponse(desired);
         for (QMap<int, Answer*>::iterator it = answers->begin(); it != answers->end(); ++it)
         {
