@@ -2,6 +2,7 @@
 #define STUDENTFORM_H
 
 #include "logoutdialog.h"
+#include "confirmationdialog.h"
 #include "StorageSubsystem/project.h"
 #include <QTreeWidget>
 
@@ -26,6 +27,7 @@ public:
 private:
     Ui::StudentForm *ui;
     LogoutDialog logoutDialog;
+    ConfirmationDialog confirmationDialog;
     StudentControl& ctrl;
     void addTreeItem(QTreeWidget*, QStringList);
     void resizeTable(QTreeWidget*);
@@ -36,6 +38,7 @@ private slots:
     void editProfile();
     void joinProject();
     void leaveProject();
+    void leaveProjectDialog();
 };
 
 #endif // STUDENTFORM_H

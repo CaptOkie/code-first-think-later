@@ -60,7 +60,8 @@ SOURCES += main.cpp \
     StorageSubsystem/indicator.cpp \
     StorageSubsystem/proxyquestion.cpp \
     ProfileSubsystem/questionwidget.cpp \
-    ProfileSubsystem/questionswidget.cpp
+    ProfileSubsystem/questionswidget.cpp \
+    UserSubsystem/confirmationdialog.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -110,7 +111,8 @@ HEADERS  += \
     StorageSubsystem/indicator.h \
     StorageSubsystem/proxyquestion.h \
     ProfileSubsystem/questionwidget.h \
-    ProfileSubsystem/questionswidget.h
+    ProfileSubsystem/questionswidget.h \
+    UserSubsystem/confirmationdialog.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
@@ -123,7 +125,8 @@ FORMS    += \
     UserSubsystem/logoutdialog.ui \
     ProfileSubsystem/profileform.ui \
     LoginSubsystem/newaccountdialog.ui \
-    ProfileSubsystem/questionswidget.ui
+    ProfileSubsystem/questionswidget.ui \
+    UserSubsystem/confirmationdialog.ui
 
 RESOURCES += \
     resources/images.qrc

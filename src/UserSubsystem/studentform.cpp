@@ -6,6 +6,7 @@ StudentForm::StudentForm(StudentControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::StudentForm),
     logoutDialog(this),
+    confirmationDialog(this),
     ctrl(ctrl)
 {
     ui->setupUi(this);
@@ -14,7 +15,7 @@ StudentForm::StudentForm(StudentControl& ctrl, QWidget *parent) :
     connect(ui->editProfileButton, &QPushButton::released, this, &StudentForm::editProfile);
     connect(&logoutDialog, &QDialog::finished, this, &StudentForm::logoutDialogFinished);
     connect(ui->joinButton, &QPushButton::released, this, &StudentForm::joinProject);
-    connect(ui->leaveButton, &QPushButton::released, this, &StudentForm::leaveProject);
+    connect(ui->leaveButton, &QPushButton::released, this, &StudentForm::leaveProjectDialog);
 }
 
 StudentForm::~StudentForm()
@@ -53,12 +54,18 @@ void StudentForm::joinProject()
     }
 }
 
-void StudentForm::leaveProject()
+void StudentForm::leaveProjectDialog()
 {
     if (ui->projectTable2->currentItem() != NULL)
     {
-        ctrl.leaveProject(ui->projectTable2->currentItem()->text(0));
+        connect(&confirmationDialog, &QDialog::accepted, this, &StudentForm::leaveProject);
+        confirmationDialog.showDialog("stu");
     }
+}
+
+void StudentForm::leaveProject()
+{
+    ctrl.leaveProject(ui->projectTable2->currentItem()->text(0));
 }
 
 void StudentForm::addTreeItem(QTreeWidget* tree, QStringList list)
