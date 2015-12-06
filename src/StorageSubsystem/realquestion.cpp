@@ -57,40 +57,26 @@ void RealQuestion::setAnswers(QMap<int, Answer*>* answers)
     this->answers = answers;
 }
 
-bool RealQuestion::setPersonal(int answer)
+bool RealQuestion::setResponse(int personal, int desired)
 {
-    QMap<int, Answer*>::iterator it = answers->find(answer);
-    if (it != answers->end())
+    QMap<int, Answer*>::iterator pit = answers->find(personal);
+    QMap<int, Answer*>::iterator dit = answers->find(desired);
+    if ((pit != answers->end()) && (dit != answers->end()))
     {
-        cleanResponse(personal);
-        personal = it.value();
+        cleanResponse(this->personal);
+        this->personal = pit.value();
+
+        cleanResponse(this->desired);
+        this->desired = dit.value();
         return true;
     }
 
     return false;
 }
 
-bool RealQuestion::setDesired(int answer)
+bool RealQuestion::setResponse(const Answer& personal, const Answer& desired)
 {
-    QMap<int, Answer*>::iterator it = answers->find(answer);
-    if (it != answers->end())
-    {
-        cleanResponse(desired);
-        desired = it.value();
-        return true;
-    }
-
-    return false;
-}
-
-bool RealQuestion::setPersonal(const Answer& answer)
-{
-    return setPersonal(answer.getId());
-}
-
-bool RealQuestion::setDesired(const Answer& answer)
-{
-    return setDesired(answer.getId());
+    return setResponse(personal.getId(), desired.getId());
 }
 
 void RealQuestion::cleanResponse(Answer* answer)

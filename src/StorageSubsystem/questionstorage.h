@@ -18,9 +18,8 @@ class QuestionStorage
         int getPersonalAnswer(const Question& question);
         int getDesiredAnswer(const Question& question);
 
-        void setPersonal(const Question& question, const Answer& answer);
-        void setDesired(const Question& question, const Answer& answer);
-
+        bool setResponse(const Question& question, int personal, int desired);
+        bool setResponse(const Question& question, const Answer& personal, const Answer& desired);
 
     private:
         QSqlDatabase& db;

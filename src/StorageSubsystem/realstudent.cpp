@@ -58,14 +58,28 @@ void RealStudent::setAvailableProjects(QMap<QString, Project*>* projects)
     available = projects;
 }
 
-void RealStudent::joinProject(const Project& project)
+bool RealStudent::joinProject(const Project& project)
 {
+    Project* join = available->take(project.getName());
+    if (join)
+    {
+        enrolled->insert(join->getName(), join);
+        return true;
+    }
 
+    return false;
 }
 
-void RealStudent::leaveProject(const Project& project)
+bool RealStudent::leaveProject(const Project& project)
 {
+    Project* leave = enrolled->take(project.getName());
+    if (leave)
+    {
+        available->insert(leave->getName(), leave);
+        return true;
+    }
 
+    return false;
 }
 
 void RealStudent::deleteProjects(QMap<QString, Project*>* projects)

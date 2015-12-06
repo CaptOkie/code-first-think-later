@@ -21,15 +21,12 @@ class ProxyQuestion : public Question
         virtual const Answer& getPersonal() const;
         virtual const Answer& getDesired() const;
 
-        virtual bool setPersonal(int answer);
-        virtual bool setDesired(int answer);
-        virtual bool setPersonal(const Answer& answer);
-        virtual bool setDesired(const Answer& answer);
+        virtual bool setResponse(int personal, int desired);
+        virtual bool setResponse(const Answer& personal, const Answer& desired);
 
     private:
         Indicator* hasAnswers;
-        Indicator* hasPersonal;
-        Indicator* hasDesired;
+        Indicator* hasResponse;
         RealQuestion* realQuestion;
         QuestionStorage* storage;
 

@@ -3,11 +3,8 @@
 
 #include "projectcontrol.h"
 
-ProjectForm::ProjectForm(ProjectControl& ctrl, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::ProjectForm),
-    errorDialog(this),
-    ctrl(ctrl)
+ProjectForm::ProjectForm(ProjectControl& ctrl, QWidget *parent)
+    : QDialog(parent), ui(new Ui::ProjectForm), ctrl(ctrl), errorDialog(this)
 {
     ui->setupUi(this);
 

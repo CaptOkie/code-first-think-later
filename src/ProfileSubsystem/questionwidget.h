@@ -13,6 +13,9 @@ public:
     explicit QuestionWidget(const Question& question, QWidget *parent = 0);
     ~QuestionWidget();
 
+    int getPersonal();
+    int getDesired();
+
 private:
     QButtonGroup personal;
     QButtonGroup desired;

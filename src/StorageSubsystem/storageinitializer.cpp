@@ -63,7 +63,7 @@ void StorageInitializer::init(QSqlDatabase &db)
             RESP_QSTN_COL " NOT NULL, "
             RESP_PSNL_ANSR_COL " NOT NULL, "
             RESP_DESR_ANSR_COL " NOT NULL, "
-            "FOREIGN KEY (" RESP_QSTN_COL " , " RESP_DESR_ANSR_COL ") "
+            "FOREIGN KEY (" RESP_QSTN_COL " , " RESP_PSNL_ANSR_COL ") "
                           "REFERENCES " ANSR_TABLE " (" ANSR_QID_COL " , " ANSR_ID_COL ") "
                           "ON DELETE CASCADE ON UPDATE CASCADE, "
             "FOREIGN KEY (" RESP_QSTN_COL " , " RESP_DESR_ANSR_COL ") "

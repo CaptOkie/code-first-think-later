@@ -1,7 +1,7 @@
 #include "proxyquestion.h"
 
 ProxyQuestion::ProxyQuestion(int id, QString* text, QString* category, QuestionStorage* storage)
-    : hasAnswers(new Indicator(false)), hasPersonal(new Indicator(false)), hasDesired(new Indicator(false)),
+    : hasAnswers(new Indicator(false)), hasResponse(new Indicator(false)),
       realQuestion(new RealQuestion(id, text, category)), storage(storage)
 { }
 
@@ -9,6 +9,8 @@ ProxyQuestion::~ProxyQuestion()
 {
     if (hasAnswers)
         delete hasAnswers;
+    if (hasResponse)
+        delete hasResponse;
     if (realQuestion)
         delete realQuestion;
     if (storage)
@@ -43,47 +45,48 @@ const Answer& ProxyQuestion::getPersonal() const
     if (!hasAnswers->getValue())
         loadAnswers();
 
-    if (!hasPersonal->getValue())
+    if (!hasResponse->getValue())
     {
-        hasPersonal->toggleValue();
-        int aid = storage->getPersonalAnswer(*realQuestion);
-        realQuestion->setPersonal(aid);
+        hasResponse->toggleValue();
+        int pid = storage->getPersonalAnswer(*realQuestion);
+        int did = storage->getDesiredAnswer(*realQuestion);
+        if (pid > -1 && did > -1)
+        {
+            hasResponse->toggleValue();
+            realQuestion->setResponse(pid, did);
+        }
     }
     return realQuestion->getPersonal();
 }
 
 const Answer& ProxyQuestion::getDesired() const
 {
-    if (!hasAnswers->getValue())
-        loadAnswers();
-
-    if (!hasDesired->getValue())
+    if (!hasResponse->getValue())
     {
-        hasDesired->toggleValue();
-        int aid = storage->getDesiredAnswer(*realQuestion);
-        realQuestion->setDesired(aid);
+        hasResponse->toggleValue();
+        int pid = storage->getPersonalAnswer(*realQuestion);
+        int did = storage->getDesiredAnswer(*realQuestion);
+        if (pid > -1 && did > -1)
+        {
+            hasResponse->toggleValue();
+            realQuestion->setResponse(pid, did);
+        }
     }
     return realQuestion->getDesired();
 }
 
-bool ProxyQuestion::setPersonal(int answer)
+bool ProxyQuestion::setResponse(int personal, int desired)
 {
-    return realQuestion->setPersonal(answer);
+    if (storage->setResponse(*realQuestion, personal, desired))
+        return realQuestion->setResponse(personal, desired);
+    return false;
 }
 
-bool ProxyQuestion::setDesired(int answer)
+bool ProxyQuestion::setResponse(const Answer& personal, const Answer& desired)
 {
-    return realQuestion->setPersonal(answer);
-}
-
-bool ProxyQuestion::setPersonal(const Answer& answer)
-{
-    return realQuestion->setPersonal(answer);
-}
-
-bool ProxyQuestion::setDesired(const Answer& answer)
-{
-    return realQuestion->setDesired(answer);
+    if (storage->setResponse(*realQuestion, personal, desired))
+        return realQuestion->setResponse(personal, desired);
+    return false;
 }
 
 void ProxyQuestion::loadAnswers() const

@@ -18,8 +18,8 @@ class Student: public User
         virtual const QMap<QString, Project*>& getEnrolledProjects() const = 0;
         virtual const QMap<QString, Project*>& getAvailableProject() const = 0;
 
-        virtual void joinProject(const Project& project) = 0;
-        virtual void leaveProject(const Project& project) = 0;
+        virtual bool joinProject(const Project& project) = 0;
+        virtual bool leaveProject(const Project& project) = 0;
 };
 
 #endif // STUDENT_H
