@@ -2,7 +2,8 @@
 #include "project.h"
 
 RealStudent::RealStudent(int id, QString* name)
-    : id(id), name(name), enrolled(new QMap<QString, Project*>()), available(new QMap<QString, Project*>())
+    : id(id), name(name), enrolled(new QMap<QString, Project*>()), available(new QMap<QString, Project*>()),
+      questions(new QMap<int, Question*>())
 { }
 
 RealStudent::~RealStudent()
@@ -11,6 +12,7 @@ RealStudent::~RealStudent()
         delete name;
     deleteProjects(enrolled);
     deleteProjects(available);
+    deleteQuestions();
 }
 
 int RealStudent::getId() const
@@ -25,7 +27,7 @@ const QString& RealStudent::getName() const
 
 const QMap<int, Question*>& RealStudent::getQuestions() const
 {
-
+    return *questions;
 }
 
 const QMap<QString, Project*>& RealStudent::getEnrolledProjects() const
@@ -36,6 +38,12 @@ const QMap<QString, Project*>& RealStudent::getEnrolledProjects() const
 const QMap<QString, Project*>& RealStudent::getAvailableProject() const
 {
     return *available;
+}
+
+void RealStudent::setQuestions(QMap<int, Question*>* questions)
+{
+    deleteQuestions();
+    this->questions = questions;
 }
 
 void RealStudent::setEnrolledProjects(QMap<QString, Project*>* projects)
@@ -71,5 +79,19 @@ void RealStudent::deleteProjects(QMap<QString, Project*>* projects)
         }
 
         delete projects;
+    }
+}
+
+void RealStudent::deleteQuestions()
+{
+    if (questions)
+    {
+        for (QMap<int, Question*>::iterator it = questions->begin(); it != questions->end(); ++it)
+        {
+            Question* question = it.value();
+            delete question;
+        }
+
+        delete questions;
     }
 }

@@ -1,7 +1,8 @@
 #include "proxyquestion.h"
 
 ProxyQuestion::ProxyQuestion(int id, QString* text, QString* category, QuestionStorage* storage)
-    : hasAnswers(new Indicator(false)), realQuestion(new RealQuestion(id, text, category)), storage(storage)
+    : hasAnswers(new Indicator(false)), hasPersonal(new Indicator(false)), hasDesired(new Indicator(false)),
+      realQuestion(new RealQuestion(id, text, category)), storage(storage)
 { }
 
 ProxyQuestion::~ProxyQuestion()
@@ -43,6 +44,10 @@ const QMap<int, Answer*>& ProxyQuestion::getAnswers() const
 
 const Answer& ProxyQuestion::getPersonal() const
 {
+    if (!hasPersonal->getValue())
+    {
+//        hasPersonal->
+    }
     return realQuestion->getPersonal();
 }
 

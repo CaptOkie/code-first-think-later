@@ -2,12 +2,12 @@
 
 RealQuestion::RealQuestion(int id, QString* text, QString* category)
     : id(id), text(text), category(category), answers(new QMap<int, Answer*>()),
-      personal(new Answer(-1, "dummy")), desired(new Answer(-1, "dummy"))
+      personal(new Answer()), desired(new Answer())
 { }
 
 RealQuestion::RealQuestion(int id, const QString& text, const QString& category)
     : id(id), text(new QString(text)), category(new QString(category)), answers(new QMap<int, Answer*>()),
-      personal(new Answer(-1, "dummy")), desired(new Answer(-1, "dummy"))
+      personal(new Answer()), desired(new Answer())
 { }
 
 RealQuestion::~RealQuestion()

@@ -26,6 +26,8 @@ class ProxyQuestion : public Question
 
     private:
         Indicator* hasAnswers;
+        Indicator* hasPersonal;
+        Indicator* hasDesired;
         RealQuestion* realQuestion;
         QuestionStorage* storage;
 };

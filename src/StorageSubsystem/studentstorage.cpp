@@ -1,5 +1,6 @@
 #include "studentstorage.h"
 #include "proxyproject.h"
+#include "proxyquestion.h"
 #include "storage.h"
 
 StudentStorage::StudentStorage(QSqlDatabase& db)
@@ -18,8 +19,22 @@ StudentStorage::~StudentStorage()
 
 QMap<int, Question*>* StudentStorage::getQuestions(const Student& student)
 {
-    QMap<int, Question*>* questions = new QMap<int, Question*>;
+    QMap<int, Question*>* questions = new QMap<int, Question*>();
 
+    db.open();
+
+    QSqlQuery select(db);
+    select.prepare("SELECT * FROM " QSTN_TABLE);
+    while (select.next())
+    {
+        int id = select.value(QSTN_ID_COL).toInt();
+        QString text = select.value(QSTN_TEXT_COL).toString();
+        QString cat = select.value(QSTN_CAT_COL).toString();
+        questions->insert(id, new ProxyQuestion(id, new QString(text), new QString(cat),
+                                                new QuestionStorage(db, student)));
+    }
+
+    db.close();
     return questions;
 }
 

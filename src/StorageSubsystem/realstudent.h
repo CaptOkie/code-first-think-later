@@ -16,6 +16,7 @@ class RealStudent : public Student
         const QMap<QString, Project*>& getEnrolledProjects() const;
         const QMap<QString, Project*>& getAvailableProject() const;
 
+        void setQuestions(QMap<int, Question*>* questions);
         void setEnrolledProjects(QMap<QString, Project*>* projects);
         void setAvailableProjects(QMap<QString, Project*>* projects);
 
@@ -27,9 +28,11 @@ class RealStudent : public Student
         QString* name;
         QMap<QString, Project*>* enrolled;
         QMap<QString, Project*>* available;
+        QMap<int, Question*>* questions;
 
     private:
         void deleteProjects(QMap<QString, Project*>* projects);
+        void deleteQuestions();
 };
 
 #endif // REALSTUDENT_H

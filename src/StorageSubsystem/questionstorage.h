@@ -6,11 +6,12 @@
 
 #include "question.h"
 #include "answer.h"
+#include "student.h"
 
 class QuestionStorage
 {
     public:
-        QuestionStorage(QSqlDatabase& db);
+        QuestionStorage(QSqlDatabase& db, const Student& student);
         ~QuestionStorage();
 
         QMap<int, Answer*>* getAnswers(const Question& question);
@@ -23,6 +24,7 @@ class QuestionStorage
 
     private:
         QSqlDatabase& db;
+        const Student& student;
 };
 
 #endif // QUESTIONSTORAGE_H

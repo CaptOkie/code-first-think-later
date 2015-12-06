@@ -12,6 +12,10 @@ Answer::Answer(Answer& other)
     : id(other.getId()), text(new QString(other.getText()))
 { }
 
+Answer::Answer()
+    : id(-1), text(new QString(""))
+{ }
+
 Answer::~Answer()
 {
     delete text;

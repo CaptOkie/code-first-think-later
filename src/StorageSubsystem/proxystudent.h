@@ -26,6 +26,7 @@ class ProxyStudent : public Student
     private:
         Indicator* hasEnrolled;
         Indicator* hasAvailable;
+        Indicator* hasQuestions;
         RealStudent* realStudent;
         StudentStorage* storage;
 };

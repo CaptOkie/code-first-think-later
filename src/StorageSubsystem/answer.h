@@ -9,6 +9,7 @@ class Answer
         Answer(int id, QString* text);
         Answer(int id, const QString& text);
         Answer(Answer& other);
+        Answer();
         ~Answer();
 
         int getId() const;
