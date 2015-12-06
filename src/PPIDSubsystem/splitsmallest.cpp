@@ -74,61 +74,65 @@ QList<Group*>* SplitSmallest::group(const Project& project)
     // END Grouping
 
     // START Balancing
-    if (full.size() > 0) {
-        if (groups.size() > 0) {
+    if ((full.size() > 0) && (groups.size() > 0) && (groups.first()->getStudents().size() < project.getMinGroupSize())) {
 
-            Group* toBalance = groups.last();
-            QMultiMap<int, Group*> sizes;
-            for (QList<Group*>::const_iterator it = full.constBegin(); it != full.constEnd(); ++it) {
-                sizes.insert((*it)->getStudents().size(), (*it));
-            }
+        Group* toBalance = groups.first();
+        groups.clear();
+        for (QList<Group*>::const_iterator it = full.cbegin(); it != full.cend(); ++it) {
+            groups.insert((*it)->getStudents().size(), (*it));
+        }
+        full.clear();
 
-            while (toBalance->getStudents().size() < project.getMinGroupSize() && toBalance->getStudents().size() < (sizes.lastKey() - 1)) {
-                Group* from = NULL;
-                Student* best = NULL;
-                int match = 0;
+        while (toBalance->getStudents().size() < project.getMinGroupSize() && toBalance->getStudents().size() < (groups.lastKey() - 1)) {
+            Group* from = NULL;
+            Student* best = NULL;
+            int match = 0;
 
-                QMap<int, Group*>::iterator it = sizes.end();
-                while (it != sizes.begin()) {
-                    --it;
+            QMap<int, Group*>::iterator it = groups.end();
+            while (it != groups.begin()) {
+                --it;
 
-                    if (from) { // TODO: Look at bestStudent() and try to refactor
-                        if (it.key() >= from->getStudents().size()) {
-                            Group* nextGroup = it.value();
-                            int nextMatch = 0;
-                            Student* nextStudent = bestStudent(&nextMatch, *nextGroup, *toBalance);
+                if (from) { // TODO: Look at bestStudent() and try to refactor
+                    if (it.key() >= from->getStudents().size()) {
+                        Group* nextGroup = it.value();
+                        int nextMatch = 0;
+                        Student* nextStudent = bestStudent(&nextMatch, *nextGroup, *toBalance);
 
-                            if (nextMatch > match) {
-                                match = nextMatch;
-                                best = nextStudent;
+                        if (nextMatch > match) {
+                            match = nextMatch;
+                            best = nextStudent;
 
-                                sizes.insert(sizes.cend(), from->getStudents().size(), from);
-                                from = nextGroup;
-                                it = sizes.erase(it);
-                            }
-                        }
-                        else {
-                            break;
+                            groups.insert(groups.cend(), from->getStudents().size(), from);
+                            from = nextGroup;
+                            it = groups.erase(it);
                         }
                     }
                     else {
-                        from = it.value();
-                        it = sizes.erase(it);
-                        best = bestStudent(&match, *from, *toBalance);
+                        break;
                     }
                 }
-
-                if (from && best) {
-                    from->getStudents().remove(best->getId());
-                    sizes.insert(from->getStudents().size(), from);
-                    toBalance->getStudents().insert(best->getId(), best);
+                else {
+                    from = it.value();
+                    it = groups.erase(it);
+                    best = bestStudent(&match, *from, *toBalance);
                 }
             }
+
+            if (from && best) {
+                from->getStudents().remove(best->getId());
+                groups.insert(from->getStudents().size(), from);
+                toBalance->getStudents().insert(best->getId(), best);
+            }
         }
+        groups.insert(toBalance->getStudents().size(), toBalance);
     }
     // END Balancing
 
-    return NULL;
+    QList<Group*>* ret = new QList<Group*>();
+    ret->append(full);
+    ret->append(groups.values());
+
+    return ret;
 }
 
 void SplitSmallest::initGroups(QMultiMap<int, Group*>& groups, QHash<int, Group*>& stog, const Project& project)

@@ -231,16 +231,9 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="runPPIDButton">
+         <widget class="QPushButton" name="viewPPIDButton">
           <property name="text">
-           <string>Run PPID</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="lastPPIDButton">
-          <property name="text">
-           <string>View Last PPID</string>
+           <string>View PPID</string>
           </property>
          </widget>
         </item>

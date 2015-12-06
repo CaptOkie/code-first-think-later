@@ -17,6 +17,7 @@ GroupWidget::GroupWidget(const Group& group, QWidget *parent)
         const QString& text = (*it)->getName() + "(" + QString::number((*it)->getId()) + ")";
         layout->addWidget(new QLabel(text, this));
     }
+    setLayout(layout);
 }
 
 GroupWidget::~GroupWidget()

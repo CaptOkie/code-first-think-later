@@ -9,14 +9,13 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
-    connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
-    connect(ui->createProjectButton, &QPushButton::released, this, &AdminForm::newProject);
-    connect(ui->deleteProjectButton, &QPushButton::released, this, &AdminForm::deleteProjectDialog);
-    connect(ui->runPPIDButton, &QPushButton::released, this, &AdminForm::runPPID);
+    connect(ui->editProjectButton, &QPushButton::clicked, this, &AdminForm::editProject);
+    connect(ui->logoutButton, &QPushButton::clicked, this, &AdminForm::logout);
+    connect(ui->createProjectButton, &QPushButton::clicked, this, &AdminForm::newProject);
+    connect(ui->deleteProjectButton, &QPushButton::clicked, this, &AdminForm::deleteProjectDialog);
+    connect(ui->viewPPIDButton, &QPushButton::clicked, this, &AdminForm::viewPPID);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
     connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &AdminForm::displayStuNames);
-    connect(ui->lastPPIDButton, &QPushButton::released, this, &AdminForm::lastPPID);
 }
 
 AdminForm::~AdminForm()
@@ -108,8 +107,7 @@ void AdminForm::enableButtons(bool b)
 {
     ui->deleteProjectButton->setEnabled(b);
     ui->editProjectButton->setEnabled(b);
-    ui->runPPIDButton->setEnabled(b);
-    ui->lastPPIDButton->setEnabled(b);
+    ui->viewPPIDButton->setEnabled(b);
 }
 
 void AdminForm::show(QMap<QString, Project*>& projects)
@@ -134,15 +132,10 @@ void AdminForm::update(QMap<QString, Project*>& projects)
     resizeTable(ui->projectTable);
 }
 
-void AdminForm::runPPID()
+void AdminForm::viewPPID()
 {
     if (ui->projectTable->currentItem() != NULL)
     {
         ctrl.runPPID(ui->projectTable->currentItem()->text(0));
     }
-}
-
-void AdminForm::lastPPID()
-{
-
 }

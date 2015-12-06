@@ -1,13 +1,17 @@
 #include "admincontrol.h"
 
 AdminControl::AdminControl(Admin* admin)
-    : adminForm(*this), admin(admin), projectControl(*this, NULL)
+    : adminForm(*this), admin(admin), projectControl(*this, NULL), ppidCtrl(NULL)
 { }
 
 AdminControl::~AdminControl()
 {
     if (admin) {
         delete admin;
+    }
+
+    if (ppidCtrl) {
+        delete ppidCtrl;
     }
 }
 
@@ -85,8 +89,14 @@ void AdminControl::refresh()
 void AdminControl::runPPID(QString projectName)
 {
     QMap<QString, Project*>& projects = admin->getProjects();
-    Project* selectedProject = projects.find(projectName).value();
-    //ppidControl.start(selectedProject);
+    Project* selectedProject = projects.value(projectName, NULL);
+    if (selectedProject) {
+        if (ppidCtrl) {
+            delete ppidCtrl;
+        }
+        ppidCtrl = new PPIDControl(*selectedProject);
+        ppidCtrl->start();
+    }
 }
 
 void AdminControl::deleteProject(QString projectName)

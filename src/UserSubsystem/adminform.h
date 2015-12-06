@@ -37,8 +37,7 @@ private:
     void newProject();
     void resizeTable(QTreeWidget*);
     void addTreeItem(QTreeWidget*, QStringList);
-    void runPPID();
-    void lastPPID();
+    void viewPPID();
     void deleteProject();
     void deleteProjectDialog();
     void enableButtons(bool);

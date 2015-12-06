@@ -36,7 +36,7 @@ private:
     AdminForm adminForm;
     Admin* admin;
     ProjectControl projectControl;
-    //PPIDControl ppidControl;
+    PPIDControl* ppidCtrl;
 
     void loadProjects();
 

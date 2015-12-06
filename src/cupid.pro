@@ -63,7 +63,8 @@ SOURCES += main.cpp \
     ProfileSubsystem/questionswidget.cpp \
     UserSubsystem/confirmationdialog.cpp \
     ProjectSubsystem/perrordialog.cpp \
-    ProfileSubsystem/response.cpp
+    ProfileSubsystem/response.cpp \
+    PPIDSubsystem/groupworker.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -116,7 +117,8 @@ HEADERS  += \
     ProfileSubsystem/questionswidget.h \
     UserSubsystem/confirmationdialog.h \
     ProjectSubsystem/perrordialog.h \
-    ProfileSubsystem/response.h
+    ProfileSubsystem/response.h \
+    PPIDSubsystem/groupworker.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
