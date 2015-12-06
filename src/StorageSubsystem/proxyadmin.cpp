@@ -6,6 +6,8 @@ ProxyAdmin::ProxyAdmin(int id, QString* name, AdminStorage* storage)
 
 ProxyAdmin::~ProxyAdmin()
 {
+    if (loadedProjects)
+        delete loadedProjects;
     if (realAdmin)
         delete realAdmin;
     if (storage)

@@ -6,7 +6,8 @@ ProxyProject::ProxyProject(int id, QString* name, int minGroupSize, int maxGroup
 { }
 
 ProxyProject::ProxyProject(const Project& other, ProjectStorage* storage)
-    : realProject(new RealProject(other.getId(), new QString(other.getName()), other.getMinGroupSize(),
+    : hasLoaded(new Indicator(false)),
+      realProject(new RealProject(other.getId(), new QString(other.getName()), other.getMinGroupSize(),
                                   other.getMaxGroupSize())),
       storage(storage)
 { }
