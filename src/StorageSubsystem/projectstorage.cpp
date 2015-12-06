@@ -82,9 +82,30 @@ QMap<int, Group*>* ProjectStorage::getGroups(const Project& project)
     return groups;
 }
 
-bool ProjectStorage::setGroups(const Project& project, const QList<Group*>& groups)
+QMap<int, Group*>* ProjectStorage::setGroups(const Project& project, const QList<Group*>& groups)
+{
+    QMap<int, Group*>* groupsMap = new QMap<int, Group*>();
+    int id = 1;
+
+    for (QList<Group*>::const_iterator it = groups.cbegin(); it != groups.cend(); ++it)
+    {
+        Group* group = *it;
+        group->setId(id);
+        groupsMap->insert(group->getId(), group);
+        ++id;
+    }
+
+    if (setGroups(project, *groupsMap))
+        return groupsMap;
+
+    delete groupsMap;
+    return NULL;
+}
+
+bool ProjectStorage::setGroups(const Project& project, const QMap<int, Group*>& groups)
 {
     db.open();
+    db.transaction();
 
     QSqlQuery update(db);
     update.exec("PRAGMA foreign_keys = ON;");
@@ -93,33 +114,27 @@ bool ProjectStorage::setGroups(const Project& project, const QList<Group*>& grou
     update.bindValue(":pid", project.getId());
 
     int rows = 0;
-    Group* group = NULL;
     QMap<int, Student*> students;
+    Group* group = NULL;
+    bool isValid = true;
 
-    QList<Group*>::const_iterator git;
-    QMap<int, Student*>::const_iterator cit;
-    for (git = groups.cbegin(); git != groups.cend(); ++git)
+    for (QMap<int, Group*>::const_iterator git = groups.cbegin(); git != groups.cend() && isValid; ++git)
     {
-        group = *git;
+        group = git.value();
         update.bindValue(":gid", group->getId());
         students = group->getStudents();
-        for (cit = students.cbegin(); cit != students.cend(); ++cit)
+        for (QMap<int, Student*>::const_iterator cit = students.cbegin(); cit != students.cend() && isValid; ++cit)
         {
             update.bindValue(":sid", (*cit)->getId());
             rows = update.exec();
-            if (rows < 1)
-            {
-                db.close();
-                return false;
-            }
+            isValid = (rows > 0) && !(update.lastError().isValid());
         }
     }
 
+    if (isValid)
+        db.commit();
+    else
+        db.rollback();
     db.close();
-    return true;
-}
-
-bool ProjectStorage::setGroups(const Project& project, const QMap<int, Group*>& groups)
-{
-
+    return isValid;
 }

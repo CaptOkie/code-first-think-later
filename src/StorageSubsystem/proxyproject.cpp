@@ -93,12 +93,19 @@ const QMap<int, Group*>& ProxyProject::getGroups() const
     return realProject->getGroups();
 }
 
-void ProxyProject::setGroups(QList<Group*>& groups)
+bool ProxyProject::setGroups(QList<Group*>& groups)
 {
-
+    QMap<int, Group*>* groupsMap = storage->setGroups(*realProject, groups);
+    if (groupsMap)
+    {
+        return realProject->setGroups(groupsMap);
+    }
+    return false;
 }
 
-void ProxyProject::setGroups(QMap<int, Group*>* groups)
+bool ProxyProject::setGroups(QMap<int, Group*>* groups)
 {
-
+    if (realProject->setGroups(groups))
+        return realProject->setGroups(groups);
+    return false;
 }

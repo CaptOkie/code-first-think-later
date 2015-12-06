@@ -23,8 +23,8 @@ class RealProject : public Project
 
         void setStudents(QMap<int, Student*>* students);
 
-        void setGroups(QList<Group*>& groups);
-        void setGroups(QMap<int, Group*>* groups);
+        bool setGroups(QList<Group*>& groups);
+        bool setGroups(QMap<int, Group*>* groups);
 
     private:
         int id;

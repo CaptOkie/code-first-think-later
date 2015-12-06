@@ -28,8 +28,8 @@ class Project
         virtual const QMap<int, Student*>& getStudents() const = 0;
         virtual const QMap<int, Group*>& getGroups() const = 0;
 
-        virtual void setGroups(QList<Group*>& groups) = 0;
-        virtual void setGroups(QMap<int, Group*>* groups) = 0;
+        virtual bool setGroups(QList<Group*>& groups) = 0;
+        virtual bool setGroups(QMap<int, Group*>* groups) = 0;
 };
 
 #endif // PROJECT_H

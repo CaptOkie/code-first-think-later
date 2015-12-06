@@ -69,7 +69,7 @@ void RealProject::setStudents(QMap<int, Student*>* students)
     this->students = students;
 }
 
-void RealProject::setGroups(QList<Group*>& groups)
+bool RealProject::setGroups(QList<Group*>& groups)
 {
     if (this->groups)
     {
@@ -89,7 +89,7 @@ void RealProject::setGroups(QList<Group*>& groups)
     }
 }
 
-void RealProject::setGroups(QMap<int, Group*>* groups)
+bool RealProject::setGroups(QMap<int, Group*>* groups)
 {
     clearGroups();
     this->groups = groups;

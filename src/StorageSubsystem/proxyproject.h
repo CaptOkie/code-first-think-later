@@ -24,8 +24,8 @@ class ProxyProject : public Project
         virtual const QMap<int, Student*>& getStudents() const;
         virtual const QMap<int, Group*>& getGroups() const;
 
-        virtual void setGroups(QList<Group*>& groups);
-        virtual void setGroups(QMap<int, Group*>* groups);
+        virtual bool setGroups(QList<Group*>& groups);
+        virtual bool setGroups(QMap<int, Group*>* groups);
 
     private:
         bool hasLoaded;
