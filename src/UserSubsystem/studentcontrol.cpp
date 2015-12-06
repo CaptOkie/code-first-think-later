@@ -31,3 +31,23 @@ void StudentControl::editProfile()
 {
     editProfileControl.start();
 }
+
+void StudentControl::joinProject(QString project)
+{
+    const QMap<QString, Project*>& availableProjects = student->getAvailableProject();
+    const Project& prjt = *(availableProjects.find(project).value());
+    student->joinProject(prjt);
+    const QMap<QString, Project*>& enrolledProjects = student->getEnrolledProjects();
+    const QMap<QString, Project*>& newAvailableProjects = student->getAvailableProject();
+    stuForm.show(newAvailableProjects, enrolledProjects);
+}
+
+void StudentControl::leaveProject(QString project)
+{
+    const QMap<QString, Project*>& enrolledProjects = student->getEnrolledProjects();
+    const Project& prjt = *(enrolledProjects.find(project).value());
+    student->leaveProject(prjt);
+    const QMap<QString, Project*>& availableProjects = student->getAvailableProject();
+    const QMap<QString, Project*>& newEnrolledProjects = student->getEnrolledProjects();
+    stuForm.show(availableProjects, newEnrolledProjects);
+}

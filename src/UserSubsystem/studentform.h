@@ -34,6 +34,8 @@ private slots:
     void logout();
     void logoutDialogFinished();
     void editProfile();
+    void joinProject();
+    void leaveProject();
 };
 
 #endif // STUDENTFORM_H

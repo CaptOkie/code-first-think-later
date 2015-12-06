@@ -19,6 +19,8 @@ public:
 
     void start();
     void editProfile();
+    void joinProject(QString);
+    void leaveProject(QString);
 
 private:
     StudentForm stuForm;

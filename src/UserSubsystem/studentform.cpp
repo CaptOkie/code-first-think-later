@@ -13,6 +13,8 @@ StudentForm::StudentForm(StudentControl& ctrl, QWidget *parent) :
     connect(ui->logoutButton, &QPushButton::released, this, &StudentForm::logout);
     connect(ui->editProfileButton, &QPushButton::released, this, &StudentForm::editProfile);
     connect(&logoutDialog, &QDialog::finished, this, &StudentForm::logoutDialogFinished);
+    connect(ui->joinButton, &QPushButton::released, this, &StudentForm::joinProject);
+    connect(ui->leaveButton, &QPushButton::released, this, &StudentForm::leaveProject);
 }
 
 StudentForm::~StudentForm()
@@ -41,6 +43,22 @@ void StudentForm::logoutDialogFinished()
 void StudentForm::editProfile()
 {
     ctrl.editProfile();
+}
+
+void StudentForm::joinProject()
+{
+    if (ui->projectTable->currentItem() != NULL)
+    {
+        ctrl.joinProject(ui->projectTable->currentItem()->text(0));
+    }
+}
+
+void StudentForm::leaveProject()
+{
+    if (ui->projectTable2->currentItem() != NULL)
+    {
+        ctrl.leaveProject(ui->projectTable2->currentItem()->text(0));
+    }
 }
 
 void StudentForm::addTreeItem(QTreeWidget* tree, QStringList list)
