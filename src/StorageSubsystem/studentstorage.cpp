@@ -25,6 +25,7 @@ QMap<int, Question*>* StudentStorage::getQuestions(const Student& student)
 
     QSqlQuery select(db);
     select.prepare("SELECT * FROM " QSTN_TABLE);
+    select.exec();
     while (select.next())
     {
         int id = select.value(QSTN_ID_COL).toInt();

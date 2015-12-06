@@ -21,7 +21,15 @@ QMap<int, Answer*>* QuestionStorage::getAnswers(const Question& question)
     QSqlQuery select(db);
     select.prepare("SELECT * FROM " ANSR_TABLE " WHERE " ANSR_QID_COL " = :qid");
     select.bindValue(":qid", question.getId());
+    select.exec();
+    while (select.next())
+    {
+        int id = select.value(ANSR_ID_COL).toInt();
+        QString text = select.value(ANSR_VAL_COL).toString();
+        answers->insert(id, new Answer(id, new QString(text)));
+    }
 
+    db.close();
     return answers;
 }
 
