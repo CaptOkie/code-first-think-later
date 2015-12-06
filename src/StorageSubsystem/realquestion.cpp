@@ -58,9 +58,9 @@ void RealQuestion::setAnswers(QMap<int, Answer*>* answers)
     this->answers = answers;
 }
 
-bool RealQuestion::setPersonal(const Answer& answer)
+bool RealQuestion::setPersonal(int answer)
 {
-    QMap<int, Answer*>::iterator it = answers->find(answer.getId());
+    QMap<int, Answer*>::iterator it = answers->find(answer);
     if (it != answers->end())
     {
         personal = it.value();
@@ -70,9 +70,9 @@ bool RealQuestion::setPersonal(const Answer& answer)
     return false;
 }
 
-bool RealQuestion::setDesired(const Answer& answer)
+bool RealQuestion::setDesired(int answer)
 {
-    QMap<int, Answer*>::iterator it = answers->find(answer.getId());
+    QMap<int, Answer*>::iterator it = answers->find(answer);
     if (it != answers->end())
     {
         desired = it.value();
@@ -80,6 +80,16 @@ bool RealQuestion::setDesired(const Answer& answer)
     }
 
     return false;
+}
+
+bool RealQuestion::setPersonal(const Answer& answer)
+{
+    setPersonal(answer.getId());
+}
+
+bool RealQuestion::setDesired(const Answer& answer)
+{
+    setDesired(answer.getId());
 }
 
 void RealQuestion::deleteAnswers(QMap<int, Answer*>* answers)

@@ -20,6 +20,8 @@ class RealQuestion : public Question
         virtual const Answer& getDesired() const;
 
         void setAnswers(QMap<int, Answer*>* answers);
+        bool setDesired(int answer);
+        bool setPersonal(int answer);
         virtual bool setPersonal(const Answer& answer);
         virtual bool setDesired(const Answer& answer);
 

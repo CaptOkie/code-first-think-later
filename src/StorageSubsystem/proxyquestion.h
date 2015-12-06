@@ -21,6 +21,8 @@ class ProxyQuestion : public Question
         virtual const Answer& getPersonal() const;
         virtual const Answer& getDesired() const;
 
+        virtual bool setPersonal(int answer);
+        virtual bool setDesired(int answer);
         virtual bool setPersonal(const Answer& answer);
         virtual bool setDesired(const Answer& answer);
 
@@ -30,6 +32,9 @@ class ProxyQuestion : public Question
         Indicator* hasDesired;
         RealQuestion* realQuestion;
         QuestionStorage* storage;
+
+    private:
+        void loadAnswers() const;
 };
 
 #endif // PROXYQUESTION_H

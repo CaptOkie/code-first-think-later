@@ -33,27 +33,47 @@ const QString& ProxyQuestion::getCategory() const
 const QMap<int, Answer*>& ProxyQuestion::getAnswers() const
 {
     if (!hasAnswers->getValue())
-    {
-        hasAnswers->toggleValue();
-        QMap<int, Answer*>* answers = storage->getAnswers(*realQuestion);
-        realQuestion->setAnswers(answers);
-    }
+        loadAnswers();
 
     return realQuestion->getAnswers();
 }
 
 const Answer& ProxyQuestion::getPersonal() const
 {
+    if (!hasAnswers->getValue())
+        loadAnswers();
+
     if (!hasPersonal->getValue())
     {
-//        hasPersonal->
+        hasPersonal->toggleValue();
+        int aid = storage->getPersonalAnswer(*realQuestion);
+        realQuestion->setPersonal(aid);
     }
     return realQuestion->getPersonal();
 }
 
 const Answer& ProxyQuestion::getDesired() const
 {
+    if (!hasAnswers->getValue())
+        loadAnswers();
+
+    if (!hasDesired->getValue())
+    {
+        hasDesired->toggleValue();
+        int aid = storage->getDesiredAnswer(*realQuestion);
+        realQuestion->setDesired(aid);
+    }
     return realQuestion->getDesired();
+}
+
+bool ProxyQuestion::setPersonal(int answer)
+{
+    return realQuestion->setPersonal(answer);
+}
+
+bool ProxyQuestion::setDesired(int answer)
+{
+    return realQuestion->setPersonal(answer);
 }
 
 bool ProxyQuestion::setPersonal(const Answer& answer)
@@ -64,4 +84,11 @@ bool ProxyQuestion::setPersonal(const Answer& answer)
 bool ProxyQuestion::setDesired(const Answer& answer)
 {
     return realQuestion->setDesired(answer);
+}
+
+void ProxyQuestion::loadAnswers() const
+{
+    hasAnswers->toggleValue();
+    QMap<int, Answer*>* answers = storage->getAnswers(*realQuestion);
+    realQuestion->setAnswers(answers);
 }

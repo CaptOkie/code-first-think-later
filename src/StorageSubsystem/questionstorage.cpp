@@ -25,50 +25,46 @@ QMap<int, Answer*>* QuestionStorage::getAnswers(const Question& question)
     return answers;
 }
 
-Answer* QuestionStorage::getPersonalAnswer(const Question& question)
+int QuestionStorage::getPersonalAnswer(const Question& question)
 {
-    Answer* answer = NULL;
+    int id = -1;
 
     db.open();
 
     QSqlQuery select(db);
-    select.prepare("SELECT * FROM " ANSR_TABLE " NATURAL JOIN (SELECT " RESP_PSNL_ANSR_COL " AS " ANSR_ID_COL " FROM "
+    select.prepare("SELECT " ANSR_ID_COL " FROM " ANSR_TABLE " NATURAL JOIN (SELECT " RESP_PSNL_ANSR_COL " AS " ANSR_ID_COL " FROM "
                    RESP_TABLE " WHERE " RESP_STU_COL " = :sid AND " RESP_QSTN_COL " = :qid)");
     select.bindValue(":qid", question.getId());
     select.bindValue(":sid", student.getId());
     select.exec();
     if (select.size() == 1)
     {
-        int id = select.value(ANSR_ID_COL).toInt();
-        QString text = select.value(ANSR_VAL_COL).toString();
-        answer = new Answer(id, new QString(text));
+        id = select.value(ANSR_ID_COL).toInt();
     }
 
     db.close();
-    return answer;
+    return id;
 }
 
-Answer* QuestionStorage::getDesiredAnswer(const Question& question)
+int QuestionStorage::getDesiredAnswer(const Question& question)
 {
-    Answer* answer = NULL;
+    int id = -1;
 
     db.open();
 
     QSqlQuery select(db);
-    select.prepare("SELECT * FROM " ANSR_TABLE " NATURAL JOIN (SELECT " RESP_DESR_ANSR_COL " AS " ANSR_ID_COL " FROM "
+    select.prepare("SELECT " ANSR_ID_COL " FROM " ANSR_TABLE " NATURAL JOIN (SELECT " RESP_DESR_ANSR_COL " AS " ANSR_ID_COL " FROM "
                    RESP_TABLE " WHERE " RESP_STU_COL " = :sid AND " RESP_QSTN_COL " = :qid)");
     select.bindValue(":qid", question.getId());
     select.bindValue(":sid", student.getId());
     select.exec();
     if (select.size() == 1)
     {
-        int id = select.value(ANSR_ID_COL).toInt();
-        QString text = select.value(ANSR_VAL_COL).toString();
-        answer = new Answer(id, new QString(text));
+        id = select.value(ANSR_ID_COL).toInt();
     }
 
     db.close();
-    return answer;
+    return id;
 }
 
 void QuestionStorage::setPersonal(const Question& question, const Answer& answer)

@@ -15,8 +15,8 @@ class QuestionStorage
         ~QuestionStorage();
 
         QMap<int, Answer*>* getAnswers(const Question& question);
-        Answer* getPersonalAnswer(const Question& question);
-        Answer* getDesiredAnswer(const Question& question);
+        int getPersonalAnswer(const Question& question);
+        int getDesiredAnswer(const Question& question);
 
         void setPersonal(const Question& question, const Answer& answer);
         void setDesired(const Question& question, const Answer& answer);
