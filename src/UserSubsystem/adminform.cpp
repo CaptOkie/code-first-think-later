@@ -51,7 +51,9 @@ void AdminForm::deleteProjectDialog()
 
 void AdminForm::deleteProject()
 {
-    ctrl.deleteProject(ui->projectTable->currentItem()->text(0));
+    QTreeWidgetItem* item = ui->projectTable->currentItem();
+    if (item)
+        ctrl.deleteProject(item->text(0));
 }
 
 void AdminForm::setName(QString name)

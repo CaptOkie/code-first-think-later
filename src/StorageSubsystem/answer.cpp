@@ -4,7 +4,7 @@ Answer::Answer(int id, QString* text)
     : id(id), text(text)
 { }
 
-Answer::Answer(int id, const QString &text)
+Answer::Answer(int id, const QString& text)
     : id(id), text(new QString(text))
 { }
 
@@ -18,7 +18,8 @@ Answer::Answer()
 
 Answer::~Answer()
 {
-    delete text;
+    if (text)
+        delete text;
 }
 
 int Answer::getId() const

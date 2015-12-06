@@ -34,6 +34,8 @@ class RealQuestion : public Question
         Answer* desired;
 
     private:
+        void cleanResponse(Answer* answer);
+        void deleteResponse(Answer* answer);
         void deleteAnswers(QMap<int, Answer*>* answers);
 };
 

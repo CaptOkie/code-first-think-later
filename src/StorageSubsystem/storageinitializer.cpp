@@ -264,7 +264,7 @@ void StorageInitializer::populate(QSqlDatabase& db)
 
     for (QList<Question*>::iterator it = questions.begin(); it != questions.end(); ++it) {
 
-        const Question* q = *it;
+        Question* q = *it;
         query.bindValue(":text", q->getText());
         query.bindValue(":category", q->getCategory());
         query.exec();
