@@ -8,6 +8,7 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AdminForm),
     logoutDialog(this),
+    confirmationDialog(this),
     ctrl(ctrl)
 {
     ui->setupUi(this);
@@ -15,6 +16,7 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     connect(ui->editProjectButton, &QPushButton::released, this, &AdminForm::editProject);
     connect(ui->logoutButton, &QPushButton::released, this, &AdminForm::logout);
     connect(ui->createProjectButton, &QPushButton::released, this, &AdminForm::newProject);
+    connect(ui->deleteProjectButton, &QPushButton::released, this, &AdminForm::deleteProjectDialog);
     connect(ui->runPPIDButton, &QPushButton::released, this, &AdminForm::runPPID);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
     connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &AdminForm::displayStuNames);
@@ -36,6 +38,20 @@ void AdminForm::editProject()
     {
         ctrl.editProjectStart(ui->projectTable->currentItem()->text(0));
     }
+}
+
+void AdminForm::deleteProjectDialog()
+{
+    if (ui->projectTable->currentItem() != NULL)
+    {
+        connect(&confirmationDialog, &QDialog::accepted, this, &AdminForm::deleteProject);
+        confirmationDialog.showDialog("admin");
+    }
+}
+
+void AdminForm::deleteProject()
+{
+    ctrl.deleteProject(ui->projectTable->currentItem()->text(0));
 }
 
 void AdminForm::setName(QString name)

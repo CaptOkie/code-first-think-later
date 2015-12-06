@@ -30,6 +30,7 @@ public:
     void udpdateProject(const QString&);
     void refresh();
     void runPPID(QString);
+    void deleteProject(QString);
 
 private:
     AdminForm adminForm;

@@ -88,3 +88,11 @@ void AdminControl::runPPID(QString projectName)
     Project* selectedProject = projects.find(projectName).value();
     //ppidControl.start(selectedProject);
 }
+
+void AdminControl::deleteProject(QString projectName)
+{
+    QMap<QString, Project*>& projects = admin->getProjects();
+    Project& selectedProject = *(projects.find(projectName).value());
+    admin->deleteProject(selectedProject);
+    refresh();
+}

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "logoutdialog.h"
+#include "confirmationdialog.h"
 #include "StorageSubsystem/project.h"
 #include <QTreeWidget>
 
@@ -30,12 +31,15 @@ private:
     Ui::AdminForm *ui;
     LogoutDialog logoutDialog;
     AdminControl& ctrl;
+    ConfirmationDialog confirmationDialog;
 
     void displayStuNames();
     void newProject();
     void resizeTable(QTreeWidget*);
     void addTreeItem(QTreeWidget*, QStringList);
     void runPPID();
+    void deleteProject();
+    void deleteProjectDialog();
 
 private slots:
     void logoutDialogFinished();
