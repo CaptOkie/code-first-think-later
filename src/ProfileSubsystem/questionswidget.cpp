@@ -20,6 +20,7 @@ QuestionsWidget::QuestionsWidget(QList<QuestionWidget*>& widgets, QWidget* paren
             line->setGeometry(QRect());
             line->setFrameShape(QFrame::HLine);
             line->setFrameShadow(QFrame::Sunken);
+            layout->addWidget(line);
         }
     }
 
