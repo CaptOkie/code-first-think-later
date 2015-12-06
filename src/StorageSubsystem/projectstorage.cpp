@@ -82,17 +82,44 @@ QMap<int, Group*>* ProjectStorage::getGroups(const Project& project)
     return groups;
 }
 
-void ProjectStorage::setGroups(const Project& project, const QList<Group*>& groups)
+bool ProjectStorage::setGroups(const Project& project, const QList<Group*>& groups)
 {
     db.open();
 
     QSqlQuery update(db);
-    update.prepare("UPDATE ");
+    update.exec("PRAGMA foreign_keys = ON;");
+    update.prepare("UPDATE " ENRL_TABLE " SET " ENRL_GRP_COL " = :gid "
+                   "WHERE " ENRL_STU_COL " = :sid AND " ENRL_PRO_COL " = :pid");
+    update.bindValue(":pid", project.getId());
+
+    int rows = 0;
+    Group* group = NULL;
+    QMap<int, Student*> students;
+
+    QList<Group*>::const_iterator git;
+    QMap<int, Student*>::const_iterator cit;
+    for (git = groups.cbegin(); git != groups.cend(); ++git)
+    {
+        group = *git;
+        update.bindValue(":gid", group->getId());
+        students = group->getStudents();
+        for (cit = students.cbegin(); cit != students.cend(); ++cit)
+        {
+            update.bindValue(":sid", (*cit)->getId());
+            rows = update.exec();
+            if (rows < 1)
+            {
+                db.close();
+                return false;
+            }
+        }
+    }
 
     db.close();
+    return true;
 }
 
-void ProjectStorage::setGroups(const Project& project, const QMap<int, Group*>& groups)
+bool ProjectStorage::setGroups(const Project& project, const QMap<int, Group*>& groups)
 {
 
 }
