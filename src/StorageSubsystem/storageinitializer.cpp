@@ -5,7 +5,9 @@
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
 
+#ifdef DEBUG
 #include <QDebug>
+#endif
 
 StorageInitializer::StorageInitializer()
 { }
@@ -282,6 +284,12 @@ void StorageInitializer::populate(QSqlDatabase& db)
             a.bindValue(":val", answer->getText());
             a.exec();
         }
+
+        a.prepare("INSERT INTO " RESP_TABLE " (" RESP_STU_COL ", " RESP_QSTN_COL ", " RESP_PSNL_ANSR_COL ", " RESP_DESR_ANSR_COL ") "
+                  "SELECT " STU_ID_COL ", :qid, :aid, :aid FROM " STU_TABLE "");
+        a.bindValue(":qid", qid);
+        a.bindValue(":aid", q->getAnswers().firstKey());
+        a.exec();
 
         delete q;
     }

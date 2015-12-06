@@ -20,7 +20,7 @@ void ProfileControl::save(const QList<Response>& responses)
         const Response& response = *it;
         Question* question = questions.value(response.getQuestion(), NULL);
         if (question) {
-
+            question->setResponse(response.getPersonal(), response.getDesired());
         }
     }
 }

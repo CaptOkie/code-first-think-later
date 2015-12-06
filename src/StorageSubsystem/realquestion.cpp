@@ -59,15 +59,15 @@ void RealQuestion::setAnswers(QMap<int, Answer*>* answers)
 
 bool RealQuestion::setResponse(int personal, int desired)
 {
-    QMap<int, Answer*>::iterator pit = answers->find(personal);
-    QMap<int, Answer*>::iterator dit = answers->find(desired);
-    if ((pit != answers->end()) && (dit != answers->end()))
+    Answer* pa = answers->value(personal);
+    Answer* da = answers->value(desired);
+    if (pa && da)
     {
         cleanResponse(this->personal);
-        this->personal = pit.value();
+        this->personal = pa;
 
         cleanResponse(this->desired);
-        this->desired = dit.value();
+        this->desired = da;
         return true;
     }
 

@@ -45,7 +45,8 @@ int QuestionStorage::getPersonalAnswer(const Question& question)
     select.bindValue(":qid", question.getId());
     select.bindValue(":sid", student.getId());
     select.exec();
-    if (select.size() == 1)
+
+    if (select.next())
     {
         id = select.value(ANSR_ID_COL).toInt();
     }
@@ -66,7 +67,7 @@ int QuestionStorage::getDesiredAnswer(const Question& question)
     select.bindValue(":qid", question.getId());
     select.bindValue(":sid", student.getId());
     select.exec();
-    if (select.size() == 1)
+    if (select.next())
     {
         id = select.value(ANSR_ID_COL).toInt();
     }
