@@ -126,5 +126,8 @@ void AdminForm::update(QMap<QString, Project*>& projects)
 
 void AdminForm::runPPID()
 {
-    ctrl.runPPID(ui->projectTable->currentItem()->text(0));
+    if (ui->projectTable->currentItem() != NULL)
+    {
+        ctrl.runPPID(ui->projectTable->currentItem()->text(0));
+    }
 }
