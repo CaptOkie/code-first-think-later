@@ -20,8 +20,8 @@ class ProxyStudent : public Student
         const QMap<QString, Project*>& getEnrolledProjects() const;
         const QMap<QString, Project*>& getAvailableProject() const;
 
-        void joinProject(const Project& project);
-        void leaveProject(const Project& project);
+        bool joinProject(const Project& project);
+        bool leaveProject(const Project& project);
 
     private:
         Indicator* hasEnrolled;

@@ -62,12 +62,16 @@ const QMap<QString, Project*>& ProxyStudent::getAvailableProject() const
     return realStudent->getAvailableProject();
 }
 
-void ProxyStudent::joinProject(const Project& project)
+bool ProxyStudent::joinProject(const Project& project)
 {
-
+    if (storage->joinProject(*realStudent, project))
+        return realStudent->joinProject(project);
+    return false;
 }
 
-void ProxyStudent::leaveProject(const Project& project)
+bool ProxyStudent::leaveProject(const Project& project)
 {
-
+    if (storage->leaveProject(*realStudent, project))
+        return realStudent->leaveProject(project);
+    return false;
 }

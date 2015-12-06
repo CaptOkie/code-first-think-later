@@ -20,8 +20,8 @@ class RealStudent : public Student
         void setEnrolledProjects(QMap<QString, Project*>* projects);
         void setAvailableProjects(QMap<QString, Project*>* projects);
 
-        void joinProject(const Project& project);
-        void leaveProject(const Project& project);
+        bool joinProject(const Project& project);
+        bool leaveProject(const Project& project);
 
     private:
         int id;

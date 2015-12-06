@@ -65,7 +65,9 @@ void StudentForm::leaveProjectDialog()
 
 void StudentForm::leaveProject()
 {
-    ctrl.leaveProject(ui->projectTable2->currentItem()->text(0));
+    if (ui->projectTable2->currentItem()) {
+        ctrl.leaveProject(ui->projectTable2->currentItem()->text(0));
+    }
 }
 
 void StudentForm::addTreeItem(QTreeWidget* tree, QStringList list)

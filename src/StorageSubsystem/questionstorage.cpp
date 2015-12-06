@@ -75,12 +75,26 @@ int QuestionStorage::getDesiredAnswer(const Question& question)
     return id;
 }
 
-void QuestionStorage::setPersonal(const Question& question, const Answer& answer)
+bool QuestionStorage::setResponse(const Question& question, int personal, int desired)
 {
+    db.open();
 
+    QSqlQuery update(db);
+    update.exec("PRAGMA foreign_keys = ON;");
+    update.prepare("UPDATE " RESP_TABLE " SET " RESP_PSNL_ANSR_COL " = :personal, " RESP_DESR_ANSR_COL " = :desired "
+                   "WHERE " RESP_STU_COL " = :sid AND " RESP_QSTN_COL " = :qid");
+    update.bindValue(":personal", personal);
+    update.bindValue(":desired", desired);
+    update.bindValue(":sid", student.getId());
+    update.bindValue(":qid", question.getId());
+    update.exec();
+
+    int rows = update.numRowsAffected();
+    db.close();
+    return (rows > 0);
 }
 
-void QuestionStorage::setDesired(const Question& question, const Answer& answer)
+bool QuestionStorage::setResponse(const Question &question, const Answer &personal, const Answer &desired)
 {
-
+    return setResponse(question, personal.getId(), desired.getId());
 }
