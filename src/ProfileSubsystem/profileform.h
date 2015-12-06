@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "StorageSubsystem/student.h"
+#include "questionwidget.h"
 
 namespace Ui {
 class ProfileForm;
@@ -15,13 +16,14 @@ class ProfileForm : public QDialog
     Q_OBJECT
 
 public:
-    explicit ProfileForm(ProfileControl&, QWidget *parent = 0);
+    explicit ProfileForm(ProfileControl& ctrl, const Student& student, QWidget *parent = 0);
     ~ProfileForm();
-    void setName(Student*);
+    void show(const QMap<int, Question*>& questions);
 
 private:
     Ui::ProfileForm *ui;
     ProfileControl& ctrl;
+    QHash<int, QuestionWidget*> data;
 };
 
 #endif // PROFILEFORM_H

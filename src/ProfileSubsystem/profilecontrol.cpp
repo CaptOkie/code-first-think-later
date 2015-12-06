@@ -1,24 +1,13 @@
 #include "profilecontrol.h"
 
-ProfileControl::ProfileControl(Student* stu)
-    : profileForm(*this), student(stu)
-{
-}
+ProfileControl::ProfileControl(Student& student)
+    : profileForm(*this, student), student(student)
+{ }
 
 ProfileControl::~ProfileControl()
-{
-}
+{ }
 
 void ProfileControl::start()
 {
-    profileForm.setGeometry(
-        QStyle::alignedRect(
-            Qt::LeftToRight,
-            Qt::AlignCenter,
-            profileForm.size(),
-            qApp->desktop()->availableGeometry()
-        )
-    );
-    profileForm.setName(student);
-    profileForm.show();
+    profileForm.show(student.getQuestions());
 }

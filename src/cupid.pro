@@ -58,7 +58,9 @@ SOURCES += main.cpp \
     LoginSubsystem/newaccountdialog.cpp \
     StorageSubsystem/realquestion.cpp \
     StorageSubsystem/indicator.cpp \
-    StorageSubsystem/proxyquestion.cpp
+    StorageSubsystem/proxyquestion.cpp \
+    ProfileSubsystem/questionwidget.cpp \
+    ProfileSubsystem/questionswidget.cpp
 
 HEADERS  += \
     StorageSubsystem/admin.h \
@@ -106,7 +108,9 @@ HEADERS  += \
     LoginSubsystem/newaccountdialog.h \
     StorageSubsystem/realquestion.h \
     StorageSubsystem/indicator.h \
-    StorageSubsystem/proxyquestion.h
+    StorageSubsystem/proxyquestion.h \
+    ProfileSubsystem/questionwidget.h \
+    ProfileSubsystem/questionswidget.h
 
 FORMS    += \
     LoginSubsystem/loginform.ui \
@@ -118,7 +122,8 @@ FORMS    += \
     LoginSubsystem/errordialog.ui \
     UserSubsystem/logoutdialog.ui \
     ProfileSubsystem/profileform.ui \
-    LoginSubsystem/newaccountdialog.ui
+    LoginSubsystem/newaccountdialog.ui \
+    ProfileSubsystem/questionswidget.ui
 
 RESOURCES += \
     resources/images.qrc
