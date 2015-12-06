@@ -280,6 +280,7 @@ void StorageInitializer::populate(QSqlDatabase& db)
             a.bindValue(":qid", qid);
             a.bindValue(":id", ait.key());
             a.bindValue(":val", answer->getText());
+            a.exec();
         }
 
         delete q;
