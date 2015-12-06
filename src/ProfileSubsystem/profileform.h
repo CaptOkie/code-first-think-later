@@ -6,7 +6,7 @@
 #include "questionwidget.h"
 
 namespace Ui {
-class ProfileForm;
+    class ProfileForm;
 }
 
 class ProfileControl;
@@ -15,15 +15,18 @@ class ProfileForm : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit ProfileForm(ProfileControl& ctrl, const Student& student, QWidget *parent = 0);
-    ~ProfileForm();
-    void show(const QMap<int, Question*>& questions);
+    public:
+        explicit ProfileForm(ProfileControl& ctrl, const Student& student, QWidget *parent = 0);
+        ~ProfileForm();
+        void show(const QMap<int, Question*>& questions);
 
-private:
-    Ui::ProfileForm *ui;
-    ProfileControl& ctrl;
-    QHash<int, QuestionWidget*> data;
+    private:
+        Ui::ProfileForm *ui;
+        ProfileControl& ctrl;
+        QHash<int, QuestionWidget*> data;
+
+    private slots:
+        void handleAccepted();
 };
 
 #endif // PROFILEFORM_H

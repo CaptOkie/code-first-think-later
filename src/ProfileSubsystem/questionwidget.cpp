@@ -89,3 +89,13 @@ QuestionWidget::QuestionWidget(const Question& question, QWidget *parent)
 
 QuestionWidget::~QuestionWidget()
 { }
+
+int QuestionWidget::getPersonal()
+{
+    return personal.checkedId();
+}
+
+int QuestionWidget::getDesired()
+{
+    return desired.checkedId();
+}

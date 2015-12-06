@@ -4,12 +4,8 @@
 
 #include "admincontrol.h"
 
-AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::AdminForm),
-    logoutDialog(this),
-    confirmationDialog(this),
-    ctrl(ctrl)
+AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::AdminForm), logoutDialog(this), ctrl(ctrl), confirmationDialog(this)
 {
     ui->setupUi(this);
 

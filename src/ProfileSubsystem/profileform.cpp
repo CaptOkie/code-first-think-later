@@ -5,12 +5,16 @@
 #include "StorageSubsystem/student.h"
 #include "questionswidget.h"
 #include <QDesktopWidget>
+#include "response.h"
 
 ProfileForm::ProfileForm(ProfileControl& ctrl, const Student& student, QWidget *parent)
     : QDialog(parent), ui(new Ui::ProfileForm), ctrl(ctrl), data()
 {
     ui->setupUi(this);
     ui->nameLabel->setText(student.getName());
+
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &ProfileForm::close);
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &ProfileForm::handleAccepted);
 }
 
 ProfileForm::~ProfileForm()
@@ -44,4 +48,16 @@ void ProfileForm::show(const QMap<int, Question*>& questions)
         )
     );
     QDialog::show();
+}
+
+void ProfileForm::handleAccepted()
+{
+    QList<Response> responses;
+    for (QHash<int, QuestionWidget*>::const_iterator it = data.cbegin(); it != data.cend(); ++it) {
+
+        QuestionWidget* widget = it.value();
+        responses.append(Response(it.key(), widget->getPersonal(), widget->getDesired()));
+    }
+    ctrl.save(responses);
+    close();
 }
