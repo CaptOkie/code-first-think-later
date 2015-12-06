@@ -8,3 +8,8 @@ Grouper::~Grouper()
 {
     delete matcher;
 }
+
+Matcher& Grouper::getMatcher()
+{
+    return *matcher;
+}

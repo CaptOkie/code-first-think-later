@@ -1,11 +1,18 @@
 #include "ppidcontrol.h"
+#include "grouper.h"
+#include "splitsmallest.h"
+#include "percentdistance.h"
 
 PPIDControl::PPIDControl(Project& project)
-    : project(project), form(*this)
+    : project(project), form(*this), grouper(new SplitSmallest(new PercentDistance()))
 { }
 
 PPIDControl::~PPIDControl()
-{ }
+{
+    if (grouper) {
+        delete grouper;
+    }
+}
 
 void PPIDControl::start()
 {
@@ -14,5 +21,10 @@ void PPIDControl::start()
 
 void PPIDControl::group()
 {
-    form.update(project.getGroups()); // TODO
+    QList<Group*>* groups = grouper->group(project);
+    if (groups) {
+        project.setGroups(*groups);
+        delete groups;
+    }
+    form.update(project.getGroups());
 }

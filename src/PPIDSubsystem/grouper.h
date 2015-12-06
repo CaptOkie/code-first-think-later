@@ -16,6 +16,9 @@ class Grouper
         virtual QList<Group*>* group(const Project& project) = 0;
 
     protected:
+        Matcher& getMatcher();
+
+    private:
         Matcher* matcher;
 };
 

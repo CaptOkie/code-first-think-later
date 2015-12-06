@@ -2,8 +2,8 @@
 #define PPIDCONTROL_H
 
 #include "StorageSubsystem/project.h"
-
 #include "ppidform.h"
+#include "grouper.h"
 
 class PPIDControl
 {
@@ -17,6 +17,7 @@ class PPIDControl
     private:
         Project& project;
         PPIDForm form;
+        Grouper* grouper;
 };
 
 #endif // PPIDCONTROL_H
