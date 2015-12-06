@@ -1,7 +1,8 @@
 #include "proxyproject.h"
 
 ProxyProject::ProxyProject(int id, QString* name, int minGroupSize, int maxGroupSize, ProjectStorage* storage)
-    : hasLoaded(false), realProject(new RealProject(id, name, minGroupSize, maxGroupSize)), storage(storage)
+    : hasLoaded(new Indicator(false)), realProject(new RealProject(id, name, minGroupSize, maxGroupSize)),
+      storage(storage)
 { }
 
 ProxyProject::ProxyProject(const Project& other, ProjectStorage* storage)
@@ -12,6 +13,8 @@ ProxyProject::ProxyProject(const Project& other, ProjectStorage* storage)
 
 ProxyProject::~ProxyProject()
 {
+    if (hasLoaded)
+        delete hasLoaded;
     if (realProject)
         delete realProject;
     if (storage)
@@ -61,7 +64,7 @@ bool ProxyProject::setMaxGroupSize(int newMaxGroupSize)
 
 const QMap<int, Student*>& ProxyProject::getStudents() const
 {
-    if (realProject->getStudents().isEmpty())
+    if (!(hasLoaded->getValue()))
     {
         QMap<int, Group*>* groups = storage->getGroups(*this);
         QMap<int, Student*>* students = new QMap<int, Student*>();
@@ -71,6 +74,7 @@ const QMap<int, Student*>& ProxyProject::getStudents() const
         }
         realProject->setGroups(groups);
         realProject->setStudents(students);
+        hasLoaded->toggleValue();
     }
 
     return realProject->getStudents();
@@ -78,7 +82,7 @@ const QMap<int, Student*>& ProxyProject::getStudents() const
 
 const QMap<int, Group*>& ProxyProject::getGroups() const
 {
-    if (realProject->getGroups().isEmpty())
+    if (!(hasLoaded->getValue()))
     {
         QMap<int, Group*>* groups = storage->getGroups(*this);
         QMap<int, Student*>* students = new QMap<int, Student*>();
@@ -88,6 +92,7 @@ const QMap<int, Group*>& ProxyProject::getGroups() const
         }
         realProject->setGroups(groups);
         realProject->setStudents(students);
+        hasLoaded->toggleValue();
     }
 
     return realProject->getGroups();
