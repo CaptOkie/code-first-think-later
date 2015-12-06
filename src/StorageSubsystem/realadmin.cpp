@@ -46,11 +46,6 @@ const QMap<QString, Project*>& RealAdmin::getProjects() const
     return *projects;
 }
 
-bool RealAdmin::hasProjects() const
-{
-    return projects != NULL;
-}
-
 Project* RealAdmin::deleteProject(const Project& project)
 {
     return projects->take(project.getName());

@@ -4,6 +4,7 @@
 #include "admin.h"
 #include "realadmin.h"
 #include "adminstorage.h"
+#include "indicator.h"
 
 /**
  * @brief The ProxyAdmin class. The Admin object that manages loading from storage and setting in the RealAdmin.
@@ -57,6 +58,10 @@ class ProxyAdmin : public Admin
         bool addProject(Project& project);
 
     private:
+        /**
+         * @brief Indicates if the Projects have been loaded from storage.
+         */
+        Indicator* loadedProjects;
         /**
          * @brief realAdmin The Admin object to hold the state.
          */

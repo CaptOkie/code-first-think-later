@@ -90,8 +90,17 @@ class ProxyProject : public Project
         virtual bool setGroups(QMap<int, Group*>* groups);
 
     private:
+        /**
+         * @brief hasLoaded Indicates if ProxyProject has loaded from storage or not.
+         */
         Indicator* hasLoaded;
+        /**
+         * @brief realProject The Project object holding the state.
+         */
         RealProject* realProject;
+        /**
+         * @brief storage The storage communicated with.
+         */
         ProjectStorage* storage;
 };
 

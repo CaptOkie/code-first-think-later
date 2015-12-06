@@ -5,6 +5,9 @@
 
 #include "storage.h"
 
+/**
+ * @brief The StorageInitializer class. Initializes the database.
+ */
 class StorageInitializer
 {
     public:

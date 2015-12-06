@@ -1,7 +1,7 @@
 #include "proxyadmin.h"
 
 ProxyAdmin::ProxyAdmin(int id, QString* name, AdminStorage* storage)
-    : realAdmin(new RealAdmin(id, name)), storage(storage)
+    : loadedProjects(new Indicator(false)), realAdmin(new RealAdmin(id, name)), storage(storage)
 { }
 
 ProxyAdmin::~ProxyAdmin()
@@ -24,9 +24,10 @@ const QString& ProxyAdmin::getName() const
 
 QMap<QString, Project*>& ProxyAdmin::getProjects()
 {
-    if (!(realAdmin->hasProjects())) {
+    if (!(loadedProjects->getValue())) {
         QMap<QString, Project*>* projects = storage->getProjects();
         realAdmin->setProjects(projects);
+        loadedProjects->toggleValue();
     }
 
     return realAdmin->getProjects();
@@ -34,9 +35,10 @@ QMap<QString, Project*>& ProxyAdmin::getProjects()
 
 const QMap<QString, Project*>& ProxyAdmin::getProjects() const
 {
-    if (!(realAdmin->hasProjects())) {
+    if (!(loadedProjects->getValue())) {
         QMap<QString, Project*>* projects = storage->getProjects();
         realAdmin->setProjects(projects);
+        loadedProjects->toggleValue();
     }
 
     return realAdmin->getProjects();
