@@ -87,12 +87,15 @@ bool RealProject::setGroups(QList<Group*>& groups)
         this->groups->insert(id, *it);
         ++id;
     }
+
+    return true;
 }
 
 bool RealProject::setGroups(QMap<int, Group*>* groups)
 {
     clearGroups();
     this->groups = groups;
+    return true;
 }
 
 void RealProject::clearStudents()
