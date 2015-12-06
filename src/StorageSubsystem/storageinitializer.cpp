@@ -112,8 +112,10 @@ void StorageInitializer::populate(QSqlDatabase& db)
                "VALUES ('HAL', 1, 4), ('Project Thing', 5, 10), ('Pizza', 1, 3)");
 
     // Enrolling students
+//    query.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL ", " ENRL_PRO_COL ") "
+//               "VALUES (1, 1), (4, 3), (2,1), (2,2), (2,3), (8, 2), (7, 1)");
     query.exec("INSERT INTO " ENRL_TABLE " (" ENRL_STU_COL ", " ENRL_PRO_COL ") "
-               "VALUES (1, 1), (4, 3), (2,1), (2,2), (2,3), (8, 2), (7, 1)");
+               "SELECT " STU_ID_COL ", 1 FROM " STU_TABLE);
 
     // Adding questions
     QList<Question*> questions;
@@ -289,10 +291,20 @@ void StorageInitializer::populate(QSqlDatabase& db)
         }
 
         a.prepare("INSERT INTO " RESP_TABLE " (" RESP_STU_COL ", " RESP_QSTN_COL ", " RESP_PSNL_ANSR_COL ", " RESP_DESR_ANSR_COL ") "
-                  "SELECT " STU_ID_COL ", :qid, :aid, :aid FROM " STU_TABLE "");
+                  "VALUES (:sid, :qid, :pid, :did)");
         a.bindValue(":qid", qid);
-        a.bindValue(":aid", q->getAnswers().firstKey());
-        a.exec();
+
+        QSqlQuery select(db);
+        select.exec("SELECT " STU_ID_COL " FROM " STU_TABLE);
+        while (select.next()) {
+            int sid = select.value(STU_ID_COL).toInt();
+            int pid = qrand() % ((q->getAnswers().lastKey() + 1) - q->getAnswers().firstKey()) + q->getAnswers().firstKey();
+            int did = qrand() % ((q->getAnswers().lastKey() + 1) - q->getAnswers().firstKey()) + q->getAnswers().firstKey();
+            a.bindValue(":sid", sid);
+            a.bindValue(":pid", pid);
+            a.bindValue(":did", did);
+            a.exec();
+        }
 
         delete q;
     }
