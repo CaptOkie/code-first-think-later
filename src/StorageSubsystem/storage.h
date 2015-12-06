@@ -20,8 +20,8 @@
 #define PRO_MIN_GRP_COL "min_grp_size"
 // Enrollment Table
 #define ENRL_TABLE   "enrollment"
-#define ENRL_STU_COL "stu_id"
-#define ENRL_PRO_COL "project_name"
+#define ENRL_STU_COL "stu"
+#define ENRL_PRO_COL "project"
 #define ENRL_GRP_COL "group_num"
 #define ENRL_GRP_NUM -1             // Default group number for students
 // Questions table
@@ -32,13 +32,13 @@
 // Answers table
 #define ANSR_TABLE   "answers"
 #define ANSR_ID_COL  "id"
-#define ANSR_QID_COL "question_id"
+#define ANSR_QID_COL "question"
 #define ANSR_VAL_COL "answer"
 // Student's response table
 #define RESP_TABLE         "responses"
-#define RESP_STU_COL       "student_id"
-#define RESP_QSTN_COL      "question_id"
-#define RESP_DESR_ANSR_COL "desired_answer_id"
-#define RESP_PSNL_ANSR_COL "personal_answer_id"
+#define RESP_STU_COL       "stu"
+#define RESP_QSTN_COL      "question"
+#define RESP_DESR_ANSR_COL "desired"
+#define RESP_PSNL_ANSR_COL "personal"
 
 #endif // STORAGE_H

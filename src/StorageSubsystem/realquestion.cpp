@@ -41,12 +41,12 @@ const QMap<int, Answer*>& RealQuestion::getAnswers() const
 
 const Answer& RealQuestion::getPersonal() const
 {
-    return *desired;
+    return *personal;
 }
 
 const Answer& RealQuestion::getDesired() const
 {
-    return *personal;
+    return *desired;
 }
 
 void RealQuestion::setAnswers(QMap<int, Answer*>* answers)
