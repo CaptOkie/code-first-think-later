@@ -98,7 +98,10 @@ void StorageInitializer::populate(QSqlDatabase& db)
     // Adding Students
     query.exec("INSERT INTO " STU_TABLE " (" STU_NAME_COL ") "
                "VALUES ('Stuart Dent'), ('Harvey Dent'), ('Bruce Wayne'), ('Frodo Baggins'), ('Cheese Man'), "
-               "('Nathan Drake'), ('Jeremy Clarkson'), ('James T. Kirk'), ('Clark Kent'), ('Barry Allen')");
+               "('Nathan Drake'), ('Jeremy Clarkson'), ('James T. Kirk'), ('Clark Kent'), ('Barry Allen'), "
+               "('Timothy Burr'), ('Luke Skywalker'), ('Tony Stark'), ('Natasha Romanova'), ('Steve Rogers'), "
+               "('Pepper Roni'), ('The Brickster'), ('Woody'), ('Buzz Lightyear'), ('Matt Murdock'), "
+               "('He-Man'), ('Optimus Prime'), ('Gordon Freeman'), ('Jeff Goldblum'), ('Obi-Wan Kenobi')");
 
     // Adding Admins
     query.exec("INSERT INTO " ADMN_TABLE " (" ADMN_NAME_COL ") "
