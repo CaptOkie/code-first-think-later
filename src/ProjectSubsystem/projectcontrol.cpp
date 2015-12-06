@@ -33,6 +33,15 @@ void ProjectControl::setProject(Project* newProject)
     project = newProject;
 }
 
+bool ProjectControl::checkName(QString name)
+{
+    if (name == "")
+    {
+        return false;
+    }
+    return true;
+}
+
 bool ProjectControl::checkValues(QString min, QString max)
 {
     if (min.toInt() <= 0 || max.toInt() <= 0 || max.toInt() <= min.toInt())

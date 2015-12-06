@@ -15,7 +15,7 @@ public:
     explicit PErrorDialog(QWidget *parent = 0);
     ~PErrorDialog();
 
-    void showDialog();
+    void showDialog(QString);
 
 private:
     Ui::PErrorDialog *ui;

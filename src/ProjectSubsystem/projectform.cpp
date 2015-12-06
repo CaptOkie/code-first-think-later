@@ -27,14 +27,21 @@ void ProjectForm::close()
 
 void ProjectForm::save()
 {
-    if (ctrl.checkValues(ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text()))
+    if (ctrl.checkName(ui->projectNameEdit->text()))
     {
-        ctrl.saveProject(ui->projectNameEdit->text(), ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text());
-        QDialog::accept();
+        if (ctrl.checkValues(ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text()))
+        {
+            ctrl.saveProject(ui->projectNameEdit->text(), ui->minGroupSpinBox->text(), ui->maxGroupSpinBox->text());
+            QDialog::accept();
+        }
+        else
+        {
+            errorDialog.showDialog("size");
+        }
     }
     else
     {
-        errorDialog.showDialog();
+        errorDialog.showDialog("name");
     }
 }
 

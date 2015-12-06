@@ -18,6 +18,7 @@ public:
     void setProject(Project*);
     void saveProject(QString, QString, QString);
     bool checkValues(QString, QString);
+    bool checkName(QString);
 
 private:
     Project* project;
