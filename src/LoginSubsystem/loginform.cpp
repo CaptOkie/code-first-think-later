@@ -78,6 +78,7 @@ void LoginForm::show()
             qApp->desktop()->availableGeometry()
         )
     );
+    ui->createAccountButton->setEnabled(false);
     QMainWindow::show();
 }
 

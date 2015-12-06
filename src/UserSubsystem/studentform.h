@@ -39,6 +39,9 @@ private slots:
     void joinProject();
     void leaveProject();
     void leaveProjectDialog();
+    void jProjectSelect();
+    void lProjectSelect();
+    void enableButton(QString, bool);
 };
 
 #endif // STUDENTFORM_H

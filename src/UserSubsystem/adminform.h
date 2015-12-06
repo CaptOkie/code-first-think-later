@@ -38,8 +38,10 @@ private:
     void resizeTable(QTreeWidget*);
     void addTreeItem(QTreeWidget*, QStringList);
     void runPPID();
+    void lastPPID();
     void deleteProject();
     void deleteProjectDialog();
+    void enableButtons(bool);
 
 private slots:
     void logoutDialogFinished();

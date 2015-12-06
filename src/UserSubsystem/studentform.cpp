@@ -16,6 +16,8 @@ StudentForm::StudentForm(StudentControl& ctrl, QWidget *parent) :
     connect(&logoutDialog, &QDialog::finished, this, &StudentForm::logoutDialogFinished);
     connect(ui->joinButton, &QPushButton::released, this, &StudentForm::joinProject);
     connect(ui->leaveButton, &QPushButton::released, this, &StudentForm::leaveProjectDialog);
+    connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &StudentForm::jProjectSelect);
+    connect(ui->projectTable2, &QTreeWidget::currentItemChanged, this, &StudentForm::lProjectSelect);
 }
 
 StudentForm::~StudentForm()
@@ -101,5 +103,36 @@ void StudentForm::show(const QMap<QString, Project*>& unjoinedProjects, const QM
         addTreeItem(ui->projectTable2, list);
     }
     resizeTable(ui->projectTable2);
+    enableButton("join", false);
+    enableButton("leave", false);
     QMainWindow::show();
+}
+
+void StudentForm::jProjectSelect()
+{
+    if (ui->projectTable->currentItem() != NULL)
+        enableButton("join", true);
+    else
+        enableButton("join", false);
+}
+
+void StudentForm::lProjectSelect()
+{
+    if (ui->projectTable2->currentItem() != NULL)
+        enableButton("leave", true);
+    else
+        enableButton("leave", false);
+
+}
+
+void StudentForm::enableButton(QString type, bool b)
+{
+    if (type == "join")
+    {
+        ui->joinButton->setEnabled(b);
+    }
+    else if (type == "leave")
+    {
+        ui->leaveButton->setEnabled(b);
+    }
 }

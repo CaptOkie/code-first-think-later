@@ -149,7 +149,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="lastPPIDButton">
           <property name="text">
            <string>View Last PPID</string>
           </property>

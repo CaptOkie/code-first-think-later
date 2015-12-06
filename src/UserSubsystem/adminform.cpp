@@ -20,6 +20,7 @@ AdminForm::AdminForm(AdminControl& ctrl, QWidget *parent) :
     connect(ui->runPPIDButton, &QPushButton::released, this, &AdminForm::runPPID);
     connect(&logoutDialog, &QDialog::finished, this, &AdminForm::logoutDialogFinished);
     connect(ui->projectTable, &QTreeWidget::currentItemChanged, this, &AdminForm::displayStuNames);
+    connect(ui->lastPPIDButton, &QPushButton::released, this, &AdminForm::lastPPID);
 }
 
 AdminForm::~AdminForm()
@@ -100,12 +101,25 @@ void AdminForm::displayStuNames()
             list.append(i.value()->getName());
             addTreeItem(ui->stuNameTable, list);
         }
+        enableButtons(true);
     }
+    else {
+        enableButtons(false);
+    }
+}
+
+void AdminForm::enableButtons(bool b)
+{
+    ui->deleteProjectButton->setEnabled(b);
+    ui->editProjectButton->setEnabled(b);
+    ui->runPPIDButton->setEnabled(b);
+    ui->lastPPIDButton->setEnabled(b);
 }
 
 void AdminForm::show(QMap<QString, Project*>& projects)
 {
     update(projects);
+    enableButtons(false);
     QMainWindow::show();
 }
 
@@ -130,4 +144,9 @@ void AdminForm::runPPID()
     {
         ctrl.runPPID(ui->projectTable->currentItem()->text(0));
     }
+}
+
+void AdminForm::lastPPID()
+{
+
 }
