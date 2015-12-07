@@ -3,6 +3,7 @@ CaptOkie:
 7 Hours: Continued work on algorithm. Fixed bugs. Started automating profile generation.
 2 Hours: Group meeting. Continued automating questions.
 12 Hours: Completed algorithm. Completed profile. Many bug fixes. Database generation.
+12 Hours: Rewrote entire grouping system. Hooked up PPID system. Finished project.
 
 TheBakedPotato:
 8 Hours: Continued working on storage. Fixed seg fault.
@@ -10,6 +11,7 @@ TheBakedPotato:
 2 Hours: Continued working on storage.
 2.5 Hours: Continued work on storage subsystem. Namely, classes needed for user/project subsystems.
 12 Hours: Completed storage. Database generation.
+12 Hours: Commenting. Data fill in database. Added a new group table to the database. Finished project.
 
 ViLLiELdR:
 8 Hours: Worked on Login, main pages, and additional dialogs
