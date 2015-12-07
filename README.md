@@ -17,4 +17,4 @@ $ tar -xvf code-first-think-later.tar
 - The 25 Student accounts have IDs in the range 1 to 25, inclusive.
 - The 2 Administrator accounts have IDs in the range 26 - 27, inclusive.
 - The logout button is in the window's menu bar.
-- *NOTE* Logging out restarts the application and will end a valgrind session.
+- **NOTE** Logging out restarts the application and will end a valgrind session.
