@@ -88,6 +88,8 @@ QList<Group*>* SplitSmallest::group(const Project& project)
     ret->append(remaining.toList());
     ret->append(full);
 
+    setMatches(*ret);
+
     return ret;
 }
 
@@ -209,4 +211,25 @@ Student* SplitSmallest::bestMatch(Group* to, const QHash<Student*, QHash<Group*,
     }
 
     return student;
+}
+
+void SplitSmallest::setMatches(const QList<Group*>& groups)
+{
+    for (QList<Group*>::const_iterator git = groups.cbegin(); git != groups.cend(); ++git) {
+
+        Group* group = *git;
+        int total = 0;
+        int count = 0;
+        for (QMap<int, Student*>::iterator sit = group->getStudents().begin(); sit != group->getStudents().end(); ++sit) {
+
+            Student* student = sit.value();
+            Group temp(*group);
+            temp.getStudents().remove(student->getId());
+            total += getMatcher().match(*student, temp);
+            count += 1;
+        }
+        if (count) {
+            group->setMatch(total / count);
+        }
+    }
 }

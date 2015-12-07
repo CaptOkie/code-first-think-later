@@ -21,11 +21,8 @@ class PPIDControl : public QObject
     private:
         Project& project;
         PPIDForm form;
-        Matcher* matcher;
         Grouper* grouper;
         GroupWorker* worker;
-
-        void setMatches(const QMap<int, Group*>& groups);
 
     private slots:
         void complete(QList<Group*>* groups);

@@ -23,6 +23,7 @@ class SplitSmallest : public Grouper
         void updateMatches(QHash<Student*, QHash<Group*, int> >& matches, Group* first, Group* second);
         void updateMatches(QHash<Group*, int>& values, Group* group, const Student& student);
         Student* bestMatch(Group* to, const QHash<Student*, QHash<Group*, int> >& matches, const QHash<Student*, Group*>& stog);
+        void setMatches(const QList<Group*>& groups);
 };
 
 #endif // SPLITSMALLEST_H
