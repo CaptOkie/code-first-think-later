@@ -38,6 +38,6 @@ void PPIDControl::complete(QList<Group *> *groups)
     if (groups) {
         project.setGroups(*groups);
         delete groups;
-        form.update(project.getGroups());
     }
+    form.update(project.getGroups());
 }

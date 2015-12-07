@@ -27,6 +27,7 @@ int PercentDistance::match(const Student& s1, const Student& s2)
     int value;
     if (!getCachedValue(&value, s1, s2) && !getCachedValue(&value, s2, s1)) {
         value = compute(s1, s2);
+        setCachedValue(value, s1, s2);
     }
     return value;
 }
