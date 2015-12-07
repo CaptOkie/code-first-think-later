@@ -11,7 +11,7 @@ class GroupWorker : public QThread
     Q_OBJECT
 
     public:
-        GroupWorker(Grouper& grouper, const Project& project);
+        GroupWorker(Grouper& grouper, const Project& project, QObject* parent = 0);
         ~GroupWorker();
 
     protected:

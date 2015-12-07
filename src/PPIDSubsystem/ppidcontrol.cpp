@@ -28,7 +28,7 @@ void PPIDControl::group()
         worker->deleteLater();
         worker = NULL;
     }
-    worker = new GroupWorker(*grouper, project);
+    worker = new GroupWorker(*grouper, project, this);
     connect(worker, &GroupWorker::complete, this, &PPIDControl::complete);
     worker->start();
 }

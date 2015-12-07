@@ -80,6 +80,7 @@ QList<Group*>* SplitSmallest::group(const Project& project)
                     return NULL;
                 }
             }
+            remaining.insert(toBalance);
         }
     }
 

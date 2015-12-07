@@ -1,7 +1,7 @@
 #include "groupworker.h"
 
-GroupWorker::GroupWorker(Grouper& grouper, const Project& project)
-    : grouper(grouper), project(project)
+GroupWorker::GroupWorker(Grouper& grouper, const Project& project, QObject* parent)
+    : QThread(parent), grouper(grouper), project(project)
 { }
 
 GroupWorker::~GroupWorker()
