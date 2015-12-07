@@ -45,6 +45,44 @@ QList<Group*>* SplitSmallest::group(const Project& project)
         }
     }
 
+    if ((full.size() > 0) && (remaining.size() > 0)) {
+
+        QSet<Group*>::const_iterator it = remaining.cbegin();
+        Group* toBalance = *it;
+        if (toBalance->getStudents().size() < project.getMinGroupSize()) {
+
+            remaining.clear();
+            remaining.unite(full.toSet());
+            full.clear();
+
+            int max = project.getMaxGroupSize();
+            while ((toBalance->getStudents().size() < project.getMinGroupSize()) && (toBalance->getStudents().size() < (max - 1))) {
+
+                Student* student = bestMatch(toBalance, matches, stog);
+                Group* from = stog.take(student);
+
+                if (student && from) {
+                    from->getStudents().remove(student->getId());
+                    toBalance->getStudents().insert(student->getId(), student);
+                    stog.insert(student, toBalance);
+
+                    updateMatches(matches, from, toBalance);
+
+                    max = toBalance->getStudents().size();
+                    for (it = remaining.cbegin(); it != remaining.cend(); ++it) {
+                        int currMax = (*it)->getStudents().size();
+                        if (currMax > max) {
+                            max = currMax;
+                        }
+                    }
+                }
+                else {
+                    return NULL;
+                }
+            }
+        }
+    }
+
     QList<Group*>* ret = new QList<Group*>();
     ret->append(remaining.toList());
     ret->append(full);
@@ -144,4 +182,30 @@ void SplitSmallest::updateMatches(QHash<Group*, int>& values, Group* group, cons
             values.insert(group, getMatcher().match(student, *group));
         }
     }
+}
+
+Student* SplitSmallest::bestMatch(Group* to, const QHash<Student*, QHash<Group*, int> >& matches, const QHash<Student*, Group*>& stog)
+{
+    Student* student = NULL;
+    int value = 0;
+    int size = 0;
+
+    for (QHash<Student*, QHash<Group*, int> >::const_iterator it = matches.cbegin(); it != matches.cend(); ++it) {
+
+        Student* currStudent = it.key();
+        Group* from = stog.value(currStudent);
+        if (from && (from != to)) {
+
+            int currValue = it.value().value(to, 0);
+            int currSize = from->getStudents().size();
+
+            if ((!student) || (currSize < size) || ((currSize == size) && (currValue > value))) {
+                student = currStudent;
+                value = currValue;
+                size = currSize;
+            }
+        }
+    }
+
+    return student;
 }
