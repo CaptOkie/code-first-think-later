@@ -19,7 +19,10 @@ int PercentDistance::match(const Student& student, const Group& group)
         count += 1;
     }
 
-    return (total / count);
+    if (count) {
+        return (total / count);
+    }
+    return 0;
 }
 
 int PercentDistance::match(const Student& s1, const Student& s2)
@@ -77,7 +80,10 @@ int PercentDistance::compute(const Student& s1, const Student& s2)
         }
     }
 
-    return (total / count);
+    if (count) {
+        return (total / count);
+    }
+    return 0;
 }
 
 int PercentDistance::distance(int min, int max, const Answer& a1, const Answer& a2)

@@ -3,7 +3,7 @@
 #include "percentdistance.h"
 
 PPIDControl::PPIDControl(Project& project)
-    : project(project), form(*this), grouper(new SplitSmallest(new PercentDistance())), worker(NULL)
+    : project(project), form(*this), matcher(new PercentDistance()), grouper(new SplitSmallest(matcher)), worker(NULL)
 { }
 
 PPIDControl::~PPIDControl()
@@ -19,7 +19,9 @@ PPIDControl::~PPIDControl()
 
 void PPIDControl::start()
 {
-    form.show(project.getGroups());
+    const QMap<int, Group*>& groups = project.getGroups();
+    setMatches(groups);
+    form.show(groups);
 }
 
 void PPIDControl::group()
@@ -44,5 +46,28 @@ void PPIDControl::complete(QList<Group*>* groups)
         }
         delete groups;
     }
-    form.update(project.getGroups());
+    const QMap<int, Group*>& gs = project.getGroups();
+    setMatches(gs);
+    form.update(gs);
+}
+
+void PPIDControl::setMatches(const QMap<int, Group*>& groups)
+{
+    for (QMap<int, Group*>::const_iterator git = groups.cbegin(); git != groups.cend(); ++git) {
+
+        Group* group = git.value();
+        int total = 0;
+        int count = 0;
+        for (QMap<int, Student*>::iterator sit = group->getStudents().begin(); sit != group->getStudents().end(); ++sit) {
+
+            Student* student = sit.value();
+            Group temp(*group);
+            temp.getStudents().remove(student->getId());
+            total += matcher->match(*student, temp);
+            count += 1;
+        }
+        if (count) {
+            group->setMatch(total / count);
+        }
+    }
 }

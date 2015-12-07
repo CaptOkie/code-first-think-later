@@ -36,16 +36,14 @@ void PPIDForm::update(const QMap<int, Group*>& groups)
 void PPIDForm::load(const QMap<int, Group*>& groups)
 {
     qDeleteAll(ui->scrollAreaWidgetContents->children());
-    QLayout* layout = ui->scrollAreaWidgetContents->layout();
-    if (!layout) {
-        layout = new QVBoxLayout(ui->scrollAreaWidgetContents);
-        ui->scrollAreaWidgetContents->setLayout(layout);
-    }
+    QVBoxLayout* layout = new QVBoxLayout(ui->scrollAreaWidgetContents);
 
     QMap<int, Group*>::const_iterator it;
     for (it = groups.constBegin(); it != groups.constEnd(); ++it) {
         layout->addWidget(new GroupWidget(**it, this));
     }
+    layout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding));
+    ui->scrollAreaWidgetContents->setLayout(layout);
 }
 
 void PPIDForm::handleLaunch()

@@ -17,6 +17,7 @@ class Group
          * @param students The map of Students.
          */
         Group(int id, QMap<int, Student*>* students);
+        Group(const Group& other);
         Group();
         ~Group();
 
@@ -43,15 +44,31 @@ class Group
          */
         const QMap<int, Student*>& getStudents() const;
 
+        /**
+         * @brief getMatch
+         * @return Gets the match percentage of the group.
+         */
+        int getMatch() const;
+
+        /**
+         * @brief setMatch Sets the match percentage of the group.
+         * @param match The match percentage of the group.
+         */
+        void setMatch(int match);
+
     private:
         /**
          * @brief id The id.
          */
         int id;
         /**
-         * @brief students THe collection of Students.
+         * @brief students The collection of Students.
          */
         QMap<int, Student*>* students;
+        /**
+         * @brief match The match percentage of the group.
+         */
+        int match;
 };
 
 #endif // GROUP_H

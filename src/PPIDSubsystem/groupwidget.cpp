@@ -6,7 +6,12 @@
 GroupWidget::GroupWidget(const Group& group, QWidget *parent)
     : QGroupBox(parent)
 {
-    setTitle("Group " + QString::number(group.getId()));
+    if (group.getId() < 0) {
+        setTitle("Ungrouped");
+    }
+    else {
+        setTitle("Group " + QString::number(group.getId()) + " (" + QString::number(group.getMatch()) + "% Match)");
+    }
 
     QVBoxLayout* layout = new QVBoxLayout(this);
 
