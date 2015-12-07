@@ -4,7 +4,9 @@
 #include "grouper.h"
 #include "StorageSubsystem/project.h"
 #include "StorageSubsystem/student.h"
+#include <QMap>
 #include <QHash>
+#include <QSet>
 
 class SplitSmallest : public Grouper
 {
@@ -15,9 +17,12 @@ class SplitSmallest : public Grouper
         virtual QList<Group*>* group(const Project& project);
 
     private:
-        void initGroups(QMultiMap<int, Group *>& groups, QHash<int, Group *>& stog, const Project& project);
-        void collectMatches(QHash<int, QMultiMap<int, Group*> >& matches, const QMultiMap<int, Group*>& groups);
-        Student* bestStudent(int* match, const Group& from, const Group& to);
+        void initGroups(QSet<Group*>& groups, QHash<Student*, Group*>& stog, const QMap<int, Student*>& students);
+        void fillMatches(QHash<Student*, QHash<Group*, int> >& matches, const QSet<Group*>& groups, const QMap<int, Student*>& students);
+        void worstMatch(Student** student, Group** group, const QHash<Student*, QHash<Group*, int> >& matches, const QHash<Student*, Group*>& stog, const QSet<Group*>& remaining);
+        void updateMatches(QHash<Student*, QHash<Group*, int> >& matches, Group* first, Group* second);
+        void updateMatches(QHash<Group*, int>& values, Group* group, const Student& student);
+        Student* bestMatch(Group* to, const QHash<Student*, QHash<Group*, int> >& matches, const QHash<Student*, Group*>& stog);
 };
 
 #endif // SPLITSMALLEST_H

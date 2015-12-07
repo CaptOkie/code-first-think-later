@@ -4,6 +4,10 @@ Group::Group(int id, QMap<int, Student*>* students)
     : id(id), students(students)
 { }
 
+Group::Group()
+    : id(-1), students(new QMap<int, Student*>)
+{ }
+
 Group::~Group()
 {
     delete students;

@@ -52,8 +52,10 @@ void PPIDForm::handleLaunch()
 {
     if (prog == NULL) {
         prog = new QProgressDialog("Creating groups...", "Cancel", 0, 0, this);
+        prog->setWindowTitle("Progress");
         prog->setCancelButton(NULL);
         prog->setWindowModality(Qt::WindowModal);
+        prog->setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint);
     }
     prog->show();
     ctrl.group();

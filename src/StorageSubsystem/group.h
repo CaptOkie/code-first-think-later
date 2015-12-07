@@ -17,6 +17,7 @@ class Group
          * @param students The map of Students.
          */
         Group(int id, QMap<int, Student*>* students);
+        Group();
         ~Group();
 
         /**
