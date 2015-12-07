@@ -31,6 +31,8 @@ void PPIDForm::update(const QMap<int, Group*>& groups)
 {
     load(groups);
     prog->reset();
+    prog->deleteLater();
+    prog = NULL;
 }
 
 void PPIDForm::load(const QMap<int, Group*>& groups)

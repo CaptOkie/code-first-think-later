@@ -200,7 +200,7 @@ Student* SplitSmallest::bestMatch(Group* to, const QHash<Student*, QHash<Group*,
             int currValue = it.value().value(to, 0);
             int currSize = from->getStudents().size();
 
-            if ((!student) || (currSize < size) || ((currSize == size) && (currValue > value))) {
+            if ((!student) || (currSize > size) || ((currSize == size) && (currValue > value))) {
                 student = currStudent;
                 value = currValue;
                 size = currSize;
