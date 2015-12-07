@@ -23,6 +23,7 @@ void StorageInitializer::init(QSqlDatabase &db)
     db.exec("DROP TABLE IF EXISTS " STU_TABLE);
     db.exec("DROP TABLE IF EXISTS " ADMN_TABLE);
     db.exec("DROP TABLE IF EXISTS " PRO_TABLE);
+    db.exec("DROP TABLE IF EXISTS " GRP_TABLE);
     db.exec("DROP TABLE IF EXISTS " ENRL_TABLE);
     db.exec("DROP TABLE IF EXISTS " QSTN_TABLE);
     db.exec("DROP TABLE IF EXISTS " ANSR_TABLE);
@@ -42,6 +43,12 @@ void StorageInitializer::init(QSqlDatabase &db)
             PRO_NAME_COL " text UNIQUE COLLATE NOCASE NOT NULL, "
             PRO_MIN_GRP_COL " integer NOT NULL, "
             PRO_MAX_GRP_COL " integer NOT NULL)");
+
+    db.exec("CREATE TABLE IF NOT EXISTS " GRP_TABLE
+            " (" GRP_PRO_COL " REFERENCES " PRO_TABLE " (" PRO_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "
+            GRP_ID_COL " integer NOT NULL, "
+            GRP_MTCH_COL " integer NOT NULL, "
+            "PRIMARY KEY (" GRP_PRO_COL ", " GRP_ID_COL "))");
 
     db.exec("CREATE TABLE IF NOT EXISTS " ENRL_TABLE
             " (" ENRL_STU_COL " REFERENCES " STU_TABLE " (" STU_ID_COL ") ON DELETE CASCADE ON UPDATE CASCADE NOT NULL, "

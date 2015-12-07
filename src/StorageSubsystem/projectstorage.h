@@ -35,12 +35,6 @@ class ProjectStorage
         bool updateProject(const Project& project);
 
         /**
-         * @brief getStudents Get the Students enrolled to the given project.
-         * @param project The project
-         * @return A map indexed by the Student's id of all the Students enrolled in the project.
-         */
-        QMap<int, Student*>* getStudents(const Project& project);
-        /**
          * @brief getGroups Get the Groups that the Students are divided into for the given Project.
          * @param project The Project.
          * @return A map indexed by the Group's id of all the groups of that project.

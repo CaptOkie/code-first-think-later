@@ -18,6 +18,11 @@
 #define PRO_NAME_COL    "name"
 #define PRO_MAX_GRP_COL "max_grp_size"
 #define PRO_MIN_GRP_COL "min_grp_size"
+// Group Table
+#define GRP_TABLE      "groups"
+#define GRP_PRO_COL    "project"
+#define GRP_ID_COL     "id"
+#define GRP_MTCH_COL   "match"
 // Enrollment Table
 #define ENRL_TABLE   "enrollment"
 #define ENRL_STU_COL "stu"
