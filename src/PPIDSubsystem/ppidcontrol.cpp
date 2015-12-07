@@ -33,10 +33,15 @@ void PPIDControl::group()
     worker->start();
 }
 
-void PPIDControl::complete(QList<Group *> *groups)
+void PPIDControl::complete(QList<Group*>* groups)
 {
     if (groups) {
-        project.setGroups(*groups);
+        if (!(project.setGroups(*groups))) {
+            for (QList<Group*>::iterator it = groups->begin(); it != groups->end(); ++it) {
+                Group* group = *it;
+                delete group;
+            }
+        }
         delete groups;
     }
     form.update(project.getGroups());
