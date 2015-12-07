@@ -13,8 +13,7 @@ $ tar -xvf code-first-think-later.tar
 - Build > Run
 
 ## Operating Instructions
-- To log in, enter the User's ID number.
-- The 25 Student accounts have IDs in the range 1 to 25, inclusive.
-- The 2 Administrator accounts have IDs in the range 26 - 27, inclusive.
+- To log in as a Student, enter an ID between 1 to 25 and select Student Login.
+- To log in as an Admin, enter an ID of either 1 or 2 and select Admin Login.
 - The logout button is in the window's menu bar.
-- **NOTE** Logging out restarts the application and will end a valgrind session.
+- **NOTE** Logging out restarts the application and will end a valgrind session as if the application has ended.
